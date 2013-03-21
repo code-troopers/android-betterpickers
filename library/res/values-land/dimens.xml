@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dialpad_font_size">24sp</dimen>
+    <dimen name="date_viewpager_height">189dip</dimen>
+</resources>

@@ -1,0 +1,27 @@
+*.apk
+*.ap_
+*.dex
+*.class
+*.iml
+.gitignore~
+.idea/
+.DS_STORE
+.classpath
+.settings/
+bin/
+gen/
+local.properties
+target/
+classes/
+gen-external-apklibs/
+out/
+tmp/
+.project
+target
+release.properties
+pom.xml.*
+
+#Command line
+local.properties
+build.xml
+proguard-project.txt

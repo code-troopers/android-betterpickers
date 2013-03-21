@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.doomonafireball.betterpickers.sample"
+        android:versionCode="1"
+        android:versionName="1.0.0">
+
+    <uses-sdk
+            android:minSdkVersion="9"
+            android:targetSdkVersion="17"/>
+
+    <application
+            android:label="BetterPickers Sample"
+            android:icon="@drawable/icon">
+
+        <activity
+                android:name=".ListSamples"
+                android:label="BetterPickers">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+                android:name=".activity.SampleTimeDefault"
+                android:label="Time/Default">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+                android:name=".activity.SampleNumberDefault"
+                android:label="Number/Default">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+                android:name=".activity.SampleDateDefault"
+                android:label="Date/Default">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activity.SampleDatePreset"
+                android:label="Date/Preset">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

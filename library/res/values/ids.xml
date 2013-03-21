@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="numbers_key"/>
+    <item type="id" name="date_keyboard" />
+    <item type="id" name="date_month_int" />
+</resources>

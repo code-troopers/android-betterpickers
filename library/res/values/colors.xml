@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+    <color name="transparent_white">#66ffffff</color>
+    <color name="clock_white">#ffffff</color>
+    <color name="clock_gray">#80ffffff</color>
+</resources>
