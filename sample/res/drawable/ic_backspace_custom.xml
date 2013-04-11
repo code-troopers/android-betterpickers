@@ -3,8 +3,8 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
     <item
             android:state_enabled="true"
-            android:drawable="@drawable/ic_backspace_normal"/>
+            android:drawable="@drawable/ic_backspace_normal_custom"/>
     <item
             android:state_enabled="false"
-            android:drawable="@drawable/ic_backspace_disabled"/>
+            android:drawable="@drawable/ic_backspace_disabled_custom"/>
 </selector>

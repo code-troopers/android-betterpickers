@@ -15,12 +15,15 @@ import android.widget.Button;
  */
 public class TimePickerDialogFragment extends DialogFragment {
 
+    private static final String THEME_RES_ID_KEY = "TimePickerDialogFragment_ThemeResIdKey";
+
     private Button mSet, mCancel;
     private TimePicker mPicker;
 
-    public static TimePickerDialogFragment newInstance() {
+    public static TimePickerDialogFragment newInstance(int themeResId) {
         final TimePickerDialogFragment frag = new TimePickerDialogFragment();
         Bundle args = new Bundle();
+        args.putInt(THEME_RES_ID_KEY, themeResId);
         frag.setArguments(args);
         return frag;
     }
@@ -33,7 +36,14 @@ public class TimePickerDialogFragment extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NO_TITLE, 0);
+
+        Bundle args = getArguments();
+        int theme = R.style.BetterPickersDialogFragment;
+        if (args != null && args.containsKey(THEME_RES_ID_KEY)) {
+            theme = args.getInt(THEME_RES_ID_KEY);
+        }
+
+        setStyle(DialogFragment.STYLE_NO_TITLE, theme);
     }
 
     @Override

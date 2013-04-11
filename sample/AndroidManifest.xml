@@ -12,17 +12,14 @@
     <application
             android:label="BetterPickers Sample"
             android:icon="@drawable/icon">
-
         <activity
                 android:name=".ListSamples"
                 android:label="BetterPickers">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity
                 android:name=".activity.SampleTimeDefault"
                 android:label="Time/Default">
@@ -31,7 +28,14 @@
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
-
+        <activity
+                android:name=".activity.SampleTimeDefaultLight"
+                android:label="Time/Default Light Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
         <activity
                 android:name=".activity.SampleNumberDefault"
                 android:label="Number/Default">
@@ -40,7 +44,14 @@
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
-
+        <activity
+                android:name=".activity.SampleNumberDefaultLight"
+                android:label="Number/Default Light Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
         <activity
                 android:name=".activity.SampleDateDefault"
                 android:label="Date/Default">
@@ -50,8 +61,32 @@
             </intent-filter>
         </activity>
         <activity
+                android:name=".activity.SampleDateDefaultLight"
+                android:label="Date/Default Light Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activity.SampleDateDefaultCustom"
+                android:label="Date/Default Custom Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
                 android:name=".activity.SampleDatePreset"
                 android:label="Date/Preset">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activity.SampleDatePresetLight"
+                android:label="Date/Preset Light Theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>

@@ -32,7 +32,8 @@ public class SampleNumberDefault extends FragmentActivity
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BetterPickerUtils.showNumberEditDialog(getSupportFragmentManager());
+                BetterPickerUtils
+                        .showNumberEditDialog(getSupportFragmentManager(), R.style.BetterPickersDialogFragment);
             }
         });
     }

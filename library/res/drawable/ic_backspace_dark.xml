@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:state_enabled="true"
+            android:drawable="@drawable/ic_backspace_normal_dark"/>
+    <item
+            android:state_enabled="false"
+            android:drawable="@drawable/ic_backspace_disabled_dark"/>
+</selector>

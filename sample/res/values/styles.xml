@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyCustomBetterPickerTheme">
+        <item name="bpDialogBackground">@drawable/custom_dialog_background</item>
+        <item name="bpTextColor">@color/custom_text_color</item>
+        <item name="bpDeleteIcon">@drawable/ic_backspace_custom</item>
+        <item name="bpCheckIcon">@drawable/ic_check_custom</item>
+        <item name="bpKeyBackground">@drawable/key_background_custom</item>
+        <item name="bpButtonBackground">@drawable/button_background_custom</item>
+        <item name="bpDividerColor">@color/custom_divider_color</item>
+        <item name="bpKeyboardIndicatorColor">@color/custom_keyboard_indicator_color</item>
+    </style>
+</resources>

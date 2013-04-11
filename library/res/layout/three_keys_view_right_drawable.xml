@@ -10,11 +10,11 @@
             android:layout_width="0dip"
             android:layout_weight="1"
             style="@style/dialpad"
-            android:background="@drawable/item_background"
+            android:background="@drawable/key_background_dark"
             android:layout_height="match_parent"/>
     <Button
             android:id="@+id/key_middle"
-            android:background="@drawable/item_background"
+            android:background="@drawable/key_background_dark"
             android:layout_width="0dip"
             android:layout_weight="1"
             style="@style/dialpad"
@@ -22,7 +22,7 @@
     <ImageButton
             android:id="@+id/key_right"
             android:contentDescription="@null"
-            android:background="@drawable/item_background"
+            android:background="@drawable/key_background_dark"
             android:layout_weight="1"
             android:layout_width="0dip"
             style="@style/dialpad"

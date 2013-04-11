@@ -25,16 +25,14 @@
                     android:ellipsize="none"
                     style="@style/medium_bold_date"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/clock_white"/>
+                    android:layout_width="wrap_content"/>
             <com.doomonafireball.betterpickers.ZeroTopPaddingTextView
                     android:id="@+id/date"
                     android:singleLine="true"
                     android:ellipsize="none"
                     style="@style/medium_bold_date"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/clock_white"/>
+                    android:layout_width="wrap_content"/>
             <com.doomonafireball.betterpickers.ZeroTopPaddingTextView
                     android:id="@+id/year_label"
                     android:layout_height="wrap_content"
@@ -42,8 +40,7 @@
                     android:singleLine="true"
                     android:ellipsize="none"
                     style="@style/label"
-                    android:gravity="top"
-                    android:textColor="@color/clock_white"/>
+                    android:gravity="top"/>
         </com.doomonafireball.betterpickers.datepicker.DateView>
         <ImageButton
                 android:id="@+id/delete"
@@ -51,15 +48,16 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_backspace"
-                android:background="@drawable/item_background"
+                android:src="@drawable/ic_backspace_dark"
+                android:background="@drawable/key_background_dark"
                 android:contentDescription="@string/number_delete"
                 android:layout_height="match_parent"/>
     </LinearLayout>
     <View
+            android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dip"
-            android:background="#28ffffff"/>
+            android:background="@color/default_divider_color_dark"/>
     <com.viewpagerindicator.UnderlinePageIndicator
             android:id="@+id/keyboard_indicator"
             android:layout_width="match_parent"

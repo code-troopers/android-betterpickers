@@ -4,8 +4,8 @@
 
     <item
             android:state_enabled="false"
-            android:drawable="@drawable/ic_cab_done_holo_light"/>
+            android:drawable="@drawable/ic_check_light_disabled"/>
 
     <item
-            android:drawable="@drawable/ic_cab_done_holo_dark"/>
+            android:drawable="@drawable/ic_check_normal_light"/>
 </selector>

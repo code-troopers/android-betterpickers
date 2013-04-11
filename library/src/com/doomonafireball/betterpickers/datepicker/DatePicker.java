@@ -4,7 +4,9 @@ import com.doomonafireball.betterpickers.R;
 import com.viewpagerindicator.UnderlinePageIndicator;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
@@ -33,6 +35,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
     protected final Button mYearNumbers[] = new Button[10];
     protected Button mDateLeft;
     protected Button mYearLeft, mYearRight;
+    protected View mDivider;
     protected ImageButton mDateRight;
     protected UnderlinePageIndicator mKeyboardIndicator;
     protected ViewPager mKeyboardPager;
@@ -48,6 +51,15 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
 
     private Button mSetButton;
 
+    private ColorStateList mTextColor;
+    private int mKeyBackgroundResId;
+    private int mButtonBackgroundResId;
+    private int mDividerColor;
+    private int mKeyboardIndicatorColor;
+    private int mCheckDrawableSrcResId;
+    private int mDeleteDrawableSrcResId;
+    private int mTheme = -1;
+
     public DatePicker(Context context) {
         this(context, null);
     }
@@ -59,15 +71,98 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         LayoutInflater layoutInflater =
                 (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         layoutInflater.inflate(getLayoutId(), this);
+
+        // Init defaults
+        mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
+        mKeyBackgroundResId = R.drawable.key_background_dark;
+        mButtonBackgroundResId = R.drawable.button_background_dark;
+        mDividerColor = getResources().getColor(R.color.default_divider_color_dark);
+        mKeyboardIndicatorColor = getResources().getColor(R.color.default_keyboard_indicator_color_dark);
+        mCheckDrawableSrcResId = R.drawable.ic_check_dark;
     }
 
     protected int getLayoutId() {
         return R.layout.date_picker_view;
     }
 
+    public void setTheme(int themeResId) {
+        mTheme = themeResId;
+        if (mTheme != -1) {
+            TypedArray a = getContext().obtainStyledAttributes(themeResId, R.styleable.BetterPickersDialogFragment);
+
+            mTextColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTextColor);
+            mKeyBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpKeyBackground,
+                    mKeyBackgroundResId);
+            mButtonBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpButtonBackground,
+                    mButtonBackgroundResId);
+            mCheckDrawableSrcResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpCheckIcon,
+                    mCheckDrawableSrcResId);
+            mDividerColor = a.getColor(R.styleable.BetterPickersDialogFragment_bpDividerColor, mDividerColor);
+            mKeyboardIndicatorColor = a
+                    .getColor(R.styleable.BetterPickersDialogFragment_bpKeyboardIndicatorColor,
+                            mKeyboardIndicatorColor);
+            mDeleteDrawableSrcResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpDeleteIcon,
+                    mDeleteDrawableSrcResId);
+        }
+
+        restyleViews();
+    }
+
+    private void restyleViews() {
+        for (Button month : mMonths) {
+            if (month != null) {
+                month.setTextColor(mTextColor);
+                month.setBackgroundResource(mKeyBackgroundResId);
+            }
+        }
+        for (Button dateNumber : mDateNumbers) {
+            if (dateNumber != null) {
+                dateNumber.setTextColor(mTextColor);
+                dateNumber.setBackgroundResource(mKeyBackgroundResId);
+            }
+        }
+        for (Button yearNumber : mYearNumbers) {
+            if (yearNumber != null) {
+                yearNumber.setTextColor(mTextColor);
+                yearNumber.setBackgroundResource(mKeyBackgroundResId);
+            }
+        }
+        if (mKeyboardIndicator != null) {
+            mKeyboardIndicator.setSelectedColor(mKeyboardIndicatorColor);
+        }
+        if (mDivider != null) {
+            mDivider.setBackgroundColor(mDividerColor);
+        }
+        if (mDateLeft != null) {
+            mDateLeft.setTextColor(mTextColor);
+            mDateLeft.setBackgroundResource(mKeyBackgroundResId);
+        }
+        if (mDateRight != null) {
+            mDateRight.setBackgroundResource(mKeyBackgroundResId);
+            mDateRight.setImageDrawable(getResources().getDrawable(mCheckDrawableSrcResId));
+        }
+        if (mDelete != null) {
+            mDelete.setBackgroundResource(mButtonBackgroundResId);
+            mDelete.setImageDrawable(getResources().getDrawable(mDeleteDrawableSrcResId));
+        }
+        if (mYearLeft != null) {
+            mYearLeft.setTextColor(mTextColor);
+            mYearLeft.setBackgroundResource(mKeyBackgroundResId);
+        }
+        if (mYearRight != null) {
+            mYearRight.setTextColor(mTextColor);
+            mYearRight.setBackgroundResource(mKeyBackgroundResId);
+        }
+        if (mEnteredDate != null) {
+            mEnteredDate.setTheme(mTheme);
+        }
+    }
+
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+
+        mDivider = findViewById(R.id.divider);
 
         for (int i = 0; i < mDateInput.length; i++) {
             mDateInput[i] = 0;
@@ -86,6 +181,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         mKeyboardIndicator.setViewPager(mKeyboardPager);
 
         mEnteredDate = (DateView) findViewById(R.id.date_text);
+        mEnteredDate.setTheme(mTheme);
         mDelete = (ImageButton) findViewById(R.id.delete);
         mDelete.setOnClickListener(this);
         mDelete.setOnLongClickListener(this);
@@ -133,6 +229,8 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
                 for (int i = 0; i < 12; i++) {
                     mMonths[i].setOnClickListener(DatePicker.this);
                     mMonths[i].setText(mMonthAbbreviations[i]);
+                    mMonths[i].setTextColor(mTextColor);
+                    mMonths[i].setBackgroundResource(mKeyBackgroundResId);
                     mMonths[i].setTag(R.id.date_keyboard, KEYBOARD_MONTH);
                     mMonths[i].setTag(R.id.date_month_int, i);
                 }
@@ -157,17 +255,22 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
                 mDateNumbers[9] = (Button) v3.findViewById(R.id.key_right);
 
                 mDateLeft = (Button) v4.findViewById(R.id.key_left);
+                mDateLeft.setTextColor(mTextColor);
+                mDateLeft.setBackgroundResource(mKeyBackgroundResId);
                 mDateNumbers[0] = (Button) v4.findViewById(R.id.key_middle);
                 mDateRight = (ImageButton) v4.findViewById(R.id.key_right);
 
                 for (int i = 0; i < 10; i++) {
                     mDateNumbers[i].setOnClickListener(DatePicker.this);
                     mDateNumbers[i].setText(String.format("%d", i));
+                    mDateNumbers[i].setTextColor(mTextColor);
+                    mDateNumbers[i].setBackgroundResource(mKeyBackgroundResId);
                     mDateNumbers[i].setTag(R.id.date_keyboard, KEYBOARD_DATE);
                     mDateNumbers[i].setTag(R.id.numbers_key, i);
                 }
 
-                mDateRight.setImageDrawable(res.getDrawable(R.drawable.ic_check));
+                mDateRight.setImageDrawable(res.getDrawable(mCheckDrawableSrcResId));
+                mDateRight.setBackgroundResource(mKeyBackgroundResId);
                 mDateRight.setOnClickListener(DatePicker.this);
             } else {
                 // Year
@@ -190,12 +293,18 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
                 mYearNumbers[9] = (Button) v3.findViewById(R.id.key_right);
 
                 mYearLeft = (Button) v4.findViewById(R.id.key_left);
+                mYearLeft.setTextColor(mTextColor);
+                mYearLeft.setBackgroundResource(mKeyBackgroundResId);
                 mYearNumbers[0] = (Button) v4.findViewById(R.id.key_middle);
                 mYearRight = (Button) v4.findViewById(R.id.key_right);
+                mYearRight.setTextColor(mTextColor);
+                mYearRight.setBackgroundResource(mKeyBackgroundResId);
 
                 for (int i = 0; i < 10; i++) {
                     mYearNumbers[i].setOnClickListener(DatePicker.this);
                     mYearNumbers[i].setText(String.format("%d", i));
+                    mYearNumbers[i].setTextColor(mTextColor);
+                    mYearNumbers[i].setBackgroundResource(mKeyBackgroundResId);
                     mYearNumbers[i].setTag(R.id.date_keyboard, KEYBOARD_YEAR);
                     mYearNumbers[i].setTag(R.id.numbers_key, i);
                 }
@@ -274,7 +383,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         } else if (v.getTag(R.id.date_keyboard).equals(KEYBOARD_MONTH)) {
             // A month was pressed
             mMonthInput = (Integer) v.getTag(R.id.date_month_int);
-            mKeyboardPager.setCurrentItem(1, false);
+            mKeyboardPager.setCurrentItem(1, true);
         } else if (v.getTag(R.id.date_keyboard).equals(KEYBOARD_DATE)) {
             // A date number was pressed
             addClickedDateNumber((Integer) v.getTag(R.id.numbers_key));
@@ -358,7 +467,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
             mDateInput[0] = val;
         }
         if (getDayOfMonth() >= 4 || (getMonthOfYear() == 1 && getDayOfMonth() >= 3)) {
-            mKeyboardPager.setCurrentItem(2, false);
+            mKeyboardPager.setCurrentItem(2, true);
         }
     }
 
@@ -374,7 +483,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
 
     // Clicking on the date right button advances to the year
     private void onDateRightClicked() {
-        mKeyboardPager.setCurrentItem(2, false);
+        mKeyboardPager.setCurrentItem(2, true);
     }
 
     // Enable/disable keys on the month key pad according to the data entered
@@ -544,11 +653,11 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
             mDateInputPointer = 0;
         }
         if (dayOfMonth == -1) {
-            mKeyboardPager.setCurrentItem(1, false);
+            mKeyboardPager.setCurrentItem(1, true);
         } else if (year == -1) {
-            mKeyboardPager.setCurrentItem(2, false);
+            mKeyboardPager.setCurrentItem(2, true);
         } else {
-            mKeyboardPager.setCurrentItem(0, false);
+            mKeyboardPager.setCurrentItem(0, true);
         }
         updateKeypad();
     }

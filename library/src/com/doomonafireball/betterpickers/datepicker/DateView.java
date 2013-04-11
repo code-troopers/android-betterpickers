@@ -4,6 +4,8 @@ import com.doomonafireball.betterpickers.R;
 import com.doomonafireball.betterpickers.ZeroTopPaddingTextView;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
@@ -14,7 +16,8 @@ public class DateView extends LinearLayout {
     private ZeroTopPaddingTextView mYearLabel;
     private final Typeface mAndroidClockMonoThin;
     private Typeface mOriginalNumberTypeface;
-    private final int mWhiteColor, mGrayColor;
+
+    private ColorStateList mTextColor;
 
     public DateView(Context context) {
         this(context, null);
@@ -25,8 +28,31 @@ public class DateView extends LinearLayout {
 
         mAndroidClockMonoThin =
                 Typeface.createFromAsset(context.getAssets(), "fonts/AndroidClockMono-Thin.ttf");
-        mWhiteColor = context.getResources().getColor(R.color.clock_white);
-        mGrayColor = context.getResources().getColor(R.color.clock_gray);
+
+        // Init defaults
+        mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
+    }
+
+    public void setTheme(int themeResId) {
+        if (themeResId != -1) {
+            TypedArray a = getContext().obtainStyledAttributes(themeResId, R.styleable.BetterPickersDialogFragment);
+
+            mTextColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTextColor);
+        }
+
+        restyleViews();
+    }
+
+    private void restyleViews() {
+        if (mMonth != null) {
+            mMonth.setTextColor(mTextColor);
+        }
+        if (mDate != null) {
+            mDate.setTextColor(mTextColor);
+        }
+        if (mYearLabel != null) {
+            mYearLabel.setTextColor(mTextColor);
+        }
     }
 
     @Override
@@ -48,6 +74,8 @@ public class DateView extends LinearLayout {
             mMonth.setTypeface(mAndroidClockMonoThin);
             mMonth.updatePadding();
         }
+
+        restyleViews();
     }
 
     public void setDate(String month, int dayOfMonth, int year) {
@@ -55,30 +83,30 @@ public class DateView extends LinearLayout {
             if (month.equals("")) {
                 mMonth.setText("-");
                 mMonth.setTypeface(mAndroidClockMonoThin);
-                mMonth.setTextColor(mGrayColor);
+                mMonth.setEnabled(false);
                 mMonth.updatePadding();
             } else {
                 mMonth.setText(month);
                 mMonth.setTypeface(mOriginalNumberTypeface);
-                mMonth.setTextColor(mWhiteColor);
+                mMonth.setEnabled(true);
                 mMonth.updatePadding();
             }
         }
         if (mDate != null) {
             if (dayOfMonth <= 0) {
                 mDate.setText("-");
-                mDate.setTextColor(mGrayColor);
+                mDate.setEnabled(false);
                 mDate.updatePadding();
             } else {
                 mDate.setText(Integer.toString(dayOfMonth));
-                mDate.setTextColor(mWhiteColor);
+                mDate.setEnabled(true);
                 mDate.updatePadding();
             }
         }
         if (mYearLabel != null) {
             if (year <= 0) {
                 mYearLabel.setText("----");
-                mYearLabel.setTextColor(mGrayColor);
+                mYearLabel.setEnabled(false);
                 mYearLabel.updatePadding();
             } else {
                 String yearString = Integer.toString(year);
@@ -87,7 +115,7 @@ public class DateView extends LinearLayout {
                     yearString = "-" + yearString;
                 }
                 mYearLabel.setText(yearString);
-                mYearLabel.setTextColor(mWhiteColor);
+                mYearLabel.setEnabled(true);
                 mYearLabel.updatePadding();
             }
         }

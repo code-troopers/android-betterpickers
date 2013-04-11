@@ -13,7 +13,7 @@ import android.support.v4.app.FragmentTransaction;
  */
 public class BetterPickerUtils {
 
-    public static void showTimeEditDialog(FragmentManager manager) {
+    public static void showTimeEditDialog(FragmentManager manager, int styleResId) {
         final FragmentTransaction ft = manager.beginTransaction();
         final Fragment prev = manager.findFragmentByTag("time_dialog");
         if (prev != null) {
@@ -21,11 +21,11 @@ public class BetterPickerUtils {
         }
         ft.addToBackStack(null);
 
-        final TimePickerDialogFragment fragment = TimePickerDialogFragment.newInstance();
+        final TimePickerDialogFragment fragment = TimePickerDialogFragment.newInstance(styleResId);
         fragment.show(ft, "time_dialog");
     }
 
-    public static void showNumberEditDialog(FragmentManager manager) {
+    public static void showNumberEditDialog(FragmentManager manager, int styleResId) {
         final FragmentTransaction ft = manager.beginTransaction();
         final Fragment prev = manager.findFragmentByTag("number_dialog");
         if (prev != null) {
@@ -33,11 +33,11 @@ public class BetterPickerUtils {
         }
         ft.addToBackStack(null);
 
-        final NumberPickerDialogFragment fragment = NumberPickerDialogFragment.newInstance();
+        final NumberPickerDialogFragment fragment = NumberPickerDialogFragment.newInstance(styleResId);
         fragment.show(ft, "number_dialog");
     }
 
-    public static void showDateEditDialog(FragmentManager manager) {
+    public static void showDateEditDialog(FragmentManager manager, int styleResId) {
         final FragmentTransaction ft = manager.beginTransaction();
         final Fragment prev = manager.findFragmentByTag("date_dialog");
         if (prev != null) {
@@ -45,11 +45,12 @@ public class BetterPickerUtils {
         }
         ft.addToBackStack(null);
 
-        final DatePickerDialogFragment fragment = DatePickerDialogFragment.newInstance();
+        final DatePickerDialogFragment fragment = DatePickerDialogFragment.newInstance(styleResId);
         fragment.show(ft, "date_dialog");
     }
 
-    public static void showDateEditDialog(FragmentManager manager, int monthOfYear, int dayOfMonth, int year) {
+    public static void showDateEditDialog(FragmentManager manager, int monthOfYear, int dayOfMonth, int year,
+            int styleResId) {
         final FragmentTransaction ft = manager.beginTransaction();
         final Fragment prev = manager.findFragmentByTag("date_dialog");
         if (prev != null) {
@@ -57,7 +58,8 @@ public class BetterPickerUtils {
         }
         ft.addToBackStack(null);
 
-        final DatePickerDialogFragment fragment = DatePickerDialogFragment.newInstance(monthOfYear, dayOfMonth, year);
+        final DatePickerDialogFragment fragment = DatePickerDialogFragment
+                .newInstance(monthOfYear, dayOfMonth, year, styleResId);
         fragment.show(ft, "date_dialog");
     }
 }

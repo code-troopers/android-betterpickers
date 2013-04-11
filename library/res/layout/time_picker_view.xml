@@ -25,16 +25,14 @@
                     android:ellipsize="none"
                     style="@style/medium_bold"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/clock_white"/>
+                    android:layout_width="wrap_content"/>
             <com.doomonafireball.betterpickers.ZeroTopPaddingTextView
                     android:id="@+id/hours_ones"
                     android:singleLine="true"
                     android:ellipsize="none"
                     style="@style/medium_bold"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/clock_white"/>
+                    android:layout_width="wrap_content"/>
             <com.doomonafireball.betterpickers.ZeroTopPaddingTextView
                     android:id="@+id/hours_seperator"
                     android:singleLine="true"
@@ -42,24 +40,21 @@
                     style="@style/medium_light"
                     android:text="@string/time_picker_time_seperator"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/clock_white"/>
+                    android:layout_width="wrap_content"/>
             <com.doomonafireball.betterpickers.ZeroTopPaddingTextView
                     android:id="@+id/minutes_tens"
                     android:singleLine="true"
                     android:ellipsize="none"
                     style="@style/medium_bold"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/clock_white"/>
+                    android:layout_width="wrap_content"/>
             <com.doomonafireball.betterpickers.ZeroTopPaddingTextView
                     android:id="@+id/minutes_ones"
                     android:singleLine="true"
                     android:ellipsize="none"
                     style="@style/medium_bold"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/clock_white"/>
+                    android:layout_width="wrap_content"/>
             <com.doomonafireball.betterpickers.ZeroTopPaddingTextView
                     android:id="@+id/ampm_label"
                     android:layout_height="wrap_content"
@@ -68,8 +63,7 @@
                     android:ellipsize="none"
                     style="@style/label"
                     android:gravity="top"
-                    android:text="@string/time_picker_ampm_label"
-                    android:textColor="@color/clock_white"/>
+                    android:text="@string/time_picker_ampm_label"/>
         </com.doomonafireball.betterpickers.timepicker.TimerView>
         <ImageButton
                 android:id="@+id/delete"
@@ -77,8 +71,8 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_backspace"
-                android:background="@drawable/item_background"
+                android:src="@drawable/ic_backspace_dark"
+                android:background="@drawable/key_background_dark"
                 android:contentDescription="@string/timer_delete"
                 android:layout_height="match_parent"/>
     </LinearLayout>

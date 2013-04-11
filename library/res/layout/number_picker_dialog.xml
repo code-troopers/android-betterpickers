@@ -22,7 +22,7 @@
                 android:layout_width="0dip"
                 android:layout_weight="1"
                 style="@style/dialog_button"
-                android:background="@drawable/item_background"
+                android:background="@drawable/key_background_dark"
                 android:layout_height="wrap_content"/>
         <View
                 android:layout_height="match_parent"
@@ -36,7 +36,7 @@
                 android:layout_width="0dip"
                 android:layout_weight="1"
                 style="@style/dialog_button"
-                android:background="@drawable/item_background"
+                android:background="@drawable/key_background_dark"
                 android:layout_height="wrap_content"/>
     </LinearLayout>
 </LinearLayout>

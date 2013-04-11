@@ -15,12 +15,15 @@ import android.widget.Button;
  */
 public class NumberPickerDialogFragment extends DialogFragment {
 
+    private static final String THEME_RES_ID_KEY = "NumberPickerDialogFragment_ThemeResIdKey";
+
     private Button mSet, mCancel;
     private NumberPicker mPicker;
 
-    public static NumberPickerDialogFragment newInstance() {
+    public static NumberPickerDialogFragment newInstance(int themeResId) {
         final NumberPickerDialogFragment frag = new NumberPickerDialogFragment();
         Bundle args = new Bundle();
+        args.putInt(THEME_RES_ID_KEY, themeResId);
         frag.setArguments(args);
         return frag;
     }
@@ -33,7 +36,14 @@ public class NumberPickerDialogFragment extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NO_TITLE, 0);
+
+        Bundle args = getArguments();
+        int theme = R.style.BetterPickersDialogFragment;
+        if (args != null && args.containsKey(THEME_RES_ID_KEY)) {
+            theme = args.getInt(THEME_RES_ID_KEY);
+        }
+
+        setStyle(DialogFragment.STYLE_NO_TITLE, theme);
     }
 
     @Override

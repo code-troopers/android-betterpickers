@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BetterPickersDialogFragment">
+        <attr name="bpTextColor" format="reference"/>
+        <attr name="bpDeleteIcon" format="reference"/>
+        <attr name="bpCheckIcon" format="reference"/>
+        <attr name="bpKeyBackground" format="reference"/>
+        <attr name="bpButtonBackground" format="reference"/>
+        <attr name="bpDividerColor" format="color"/>
+        <attr name="bpKeyboardIndicatorColor" format="color"/>
+        <attr name="bpDialogBackground" format="reference"/>
+    </declare-styleable>
+</resources>

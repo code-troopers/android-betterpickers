@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="transparent">#00000000</color>
-    <color name="transparent_white">#66ffffff</color>
-    <color name="clock_white">#ffffff</color>
-    <color name="clock_gray">#80ffffff</color>
+    <color name="default_text_color_holo_dark">#ffffffff</color>
+    <color name="default_text_color_holo_dark_disabled">#ff4c4c4c</color>
+    <color name="default_divider_color_dark">#28ffffff</color>
+    <color name="default_button_background_dark">#00000000</color>
+    <color name="default_button_background_pressed_dark">#46c5c1ff</color>
+    <color name="default_keyboard_indicator_color_dark">#ff33b5e5</color>
+
+    <color name="default_text_color_holo_light">#ff000000</color>
+    <color name="default_text_color_holo_light_disabled">#ffb2b2b2</color>
+    <color name="default_divider_color_light">#28000000</color>
+    <color name="default_button_background_light">#00000000</color>
+    <color name="default_button_background_pressed_light">#ff00ddff</color>
+    <color name="default_keyboard_indicator_color_light">#ff00ddff</color>
 </resources>

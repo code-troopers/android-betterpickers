@@ -16,7 +16,6 @@ public class NumberView extends LinearLayout {
     private ZeroTopPaddingTextView mMinusLabel;
     private final Typeface mAndroidClockMonoThin;
     private Typeface mOriginalNumberTypeface;
-    private final int mWhiteColor, mGrayColor;
 
     public NumberView(Context context) {
         this(context, null);
@@ -27,8 +26,6 @@ public class NumberView extends LinearLayout {
 
         mAndroidClockMonoThin =
                 Typeface.createFromAsset(context.getAssets(), "fonts/AndroidClockMono-Thin.ttf");
-        mWhiteColor = context.getResources().getColor(R.color.clock_white);
-        mGrayColor = context.getResources().getColor(R.color.clock_gray);
     }
 
     @Override
@@ -61,21 +58,21 @@ public class NumberView extends LinearLayout {
                 // Set to -
                 mNumber.setText("-");
                 mNumber.setTypeface(mAndroidClockMonoThin);
-                mNumber.setTextColor(mGrayColor);
+                mNumber.setEnabled(false);
                 mNumber.updatePadding();
                 mNumber.setVisibility(View.VISIBLE);
             } else if (showDecimal) {
                 // Set to bold
                 mNumber.setText(numbersDigit);
                 mNumber.setTypeface(mOriginalNumberTypeface);
-                mNumber.setTextColor(mWhiteColor);
+                mNumber.setEnabled(true);
                 mNumber.updatePadding();
                 mNumber.setVisibility(View.VISIBLE);
             } else {
                 // Set to thin
                 mNumber.setText(numbersDigit);
                 mNumber.setTypeface(mAndroidClockMonoThin);
-                mNumber.setTextColor(mWhiteColor);
+                mNumber.setEnabled(true);
                 mNumber.updatePadding();
                 mNumber.setVisibility(View.VISIBLE);
             }
@@ -87,7 +84,7 @@ public class NumberView extends LinearLayout {
             } else {
                 mDecimal.setText(decimalDigit);
                 mDecimal.setTypeface(mAndroidClockMonoThin);
-                mDecimal.setTextColor(mWhiteColor);
+                mDecimal.setEnabled(true);
                 mDecimal.updatePadding();
                 mDecimal.setVisibility(View.VISIBLE);
             }

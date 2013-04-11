@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -31,12 +32,25 @@ public class ListSamples extends ListActivity {
 
         if (path == null) {
             path = "";
+        } else {
+            getActionBar().setTitle(path);
+            getActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
         setListAdapter(new SimpleAdapter(this, getData(path),
                 android.R.layout.simple_list_item_1, new String[]{"title"},
                 new int[]{android.R.id.text1}));
         getListView().setTextFilterEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return true;
     }
 
     protected List<Map<String, Object>> getData(String prefix) {

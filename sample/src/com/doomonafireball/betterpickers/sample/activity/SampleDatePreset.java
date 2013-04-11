@@ -48,7 +48,8 @@ public class SampleDatePreset extends FragmentActivity implements DatePickerDial
                     d = 18;
                     y = 1988;
                 }
-                BetterPickerUtils.showDateEditDialog(getSupportFragmentManager(), m, d, y);
+                BetterPickerUtils
+                        .showDateEditDialog(getSupportFragmentManager(), m, d, y, R.style.BetterPickersDialogFragment);
             }
         });
     }

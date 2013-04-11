@@ -31,7 +31,7 @@ public class SampleTimeDefault extends FragmentActivity implements TimePickerDia
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BetterPickerUtils.showTimeEditDialog(getSupportFragmentManager());
+                BetterPickerUtils.showTimeEditDialog(getSupportFragmentManager(), R.style.BetterPickersDialogFragment);
             }
         });
     }

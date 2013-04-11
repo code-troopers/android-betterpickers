@@ -31,7 +31,7 @@ public class SampleDateDefault extends FragmentActivity implements DatePickerDia
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BetterPickerUtils.showDateEditDialog(getSupportFragmentManager());
+                BetterPickerUtils.showDateEditDialog(getSupportFragmentManager(), R.style.BetterPickersDialogFragment);
             }
         });
     }
