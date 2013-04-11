@@ -23,7 +23,6 @@ public class DatePickerDialogFragment extends DialogFragment {
     private static final String THEME_RES_ID_KEY = "DatePickerDialogFragment_ThemeResIdKey";
 
     private Button mSet, mCancel;
-    private View mDividerOne, mDividerTwo;
     private DatePicker mPicker;
 
     private int mMonthOfYear = -1;
@@ -31,6 +30,7 @@ public class DatePickerDialogFragment extends DialogFragment {
     private int mYear = 0;
     private int mTheme = -1;
 
+    private View mDividerOne, mDividerTwo;
     private int mDividerColor;
     private ColorStateList mTextColor;
     private int mButtonBackgroundResId;

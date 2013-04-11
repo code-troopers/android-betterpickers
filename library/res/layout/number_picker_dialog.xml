@@ -9,9 +9,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     <View
+            android:id="@+id/divider_1"
             android:layout_width="match_parent"
             android:layout_height="1dip"
-            android:background="#28ffffff"/>
+            android:background="@color/default_divider_color_dark"/>
     <LinearLayout
             android:gravity="bottom"
             android:layout_width="match_parent"
@@ -25,11 +26,12 @@
                 android:background="@drawable/key_background_dark"
                 android:layout_height="wrap_content"/>
         <View
+                android:id="@+id/divider_2"
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dip"
                 android:layout_marginBottom="8dip"
                 android:layout_width="1dip"
-                android:background="#28ffffff"/>
+                android:background="@color/default_divider_color_dark"/>
         <Button
                 android:id="@+id/set_button"
                 android:text="@string/picker_set"

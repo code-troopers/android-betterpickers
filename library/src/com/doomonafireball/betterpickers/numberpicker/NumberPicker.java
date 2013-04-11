@@ -3,7 +3,9 @@ package com.doomonafireball.betterpickers.numberpicker;
 import com.doomonafireball.betterpickers.R;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -12,7 +14,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import java.math.BigDecimal;
 
@@ -29,13 +30,20 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     protected NumberView mEnteredNumber;
     protected final Context mContext;
 
-    private TextView mMinusLabel;
     private int mSign;
     private Button mSetButton;
     private static final int CLICKED_DECIMAL = 10;
 
     private static final int SIGN_POSITIVE = 0;
     private static final int SIGN_NEGATIVE = 1;
+
+    protected View mDivider;
+    private ColorStateList mTextColor;
+    private int mKeyBackgroundResId;
+    private int mButtonBackgroundResId;
+    private int mDividerColor;
+    private int mDeleteDrawableSrcResId;
+    private int mTheme = -1;
 
     public NumberPicker(Context context) {
         this(context, null);
@@ -47,15 +55,69 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         LayoutInflater layoutInflater =
                 (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         layoutInflater.inflate(getLayoutId(), this);
+
+        // Init defaults
+        mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
+        mKeyBackgroundResId = R.drawable.key_background_dark;
+        mButtonBackgroundResId = R.drawable.button_background_dark;
+        mDeleteDrawableSrcResId = R.drawable.ic_backspace_dark;
+        mDividerColor = getResources().getColor(R.color.default_divider_color_dark);
     }
 
     protected int getLayoutId() {
         return R.layout.number_picker_view;
     }
 
+    public void setTheme(int themeResId) {
+        mTheme = themeResId;
+        if (mTheme != -1) {
+            TypedArray a = getContext().obtainStyledAttributes(themeResId, R.styleable.BetterPickersDialogFragment);
+
+            mTextColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTextColor);
+            mKeyBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpKeyBackground,
+                    mKeyBackgroundResId);
+            mButtonBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpButtonBackground,
+                    mButtonBackgroundResId);
+            mDividerColor = a.getColor(R.styleable.BetterPickersDialogFragment_bpDividerColor, mDividerColor);
+            mDeleteDrawableSrcResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpDeleteIcon,
+                    mDeleteDrawableSrcResId);
+        }
+
+        restyleViews();
+    }
+
+    private void restyleViews() {
+        for (Button number : mNumbers) {
+            if (number != null) {
+                number.setTextColor(mTextColor);
+                number.setBackgroundResource(mKeyBackgroundResId);
+            }
+        }
+        if (mDivider != null) {
+            mDivider.setBackgroundColor(mDividerColor);
+        }
+        if (mLeft != null) {
+            mLeft.setTextColor(mTextColor);
+            mLeft.setBackgroundResource(mKeyBackgroundResId);
+        }
+        if (mRight != null) {
+            mRight.setTextColor(mTextColor);
+            mRight.setBackgroundResource(mKeyBackgroundResId);
+        }
+        if (mDelete != null) {
+            mDelete.setBackgroundResource(mButtonBackgroundResId);
+            mDelete.setImageDrawable(getResources().getDrawable(mDeleteDrawableSrcResId));
+        }
+        if (mEnteredNumber != null) {
+            mEnteredNumber.setTheme(mTheme);
+        }
+    }
+
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+
+        mDivider = findViewById(R.id.divider);
 
         for (int i = 0; i < mInput.length; i++) {
             mInput[i] = -1;
@@ -99,8 +161,9 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         mRight.setText(res.getString(R.string.number_picker_seperator));
         mLeft.setOnClickListener(this);
         mRight.setOnClickListener(this);
-        mMinusLabel = (TextView) findViewById(R.id.minus_label);
         mSign = SIGN_POSITIVE;
+
+        restyleViews();
         updateKeypad();
     }
 

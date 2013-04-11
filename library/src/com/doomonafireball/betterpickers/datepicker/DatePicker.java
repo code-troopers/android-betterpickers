@@ -35,7 +35,6 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
     protected final Button mYearNumbers[] = new Button[10];
     protected Button mDateLeft;
     protected Button mYearLeft, mYearRight;
-    protected View mDivider;
     protected ImageButton mDateRight;
     protected UnderlinePageIndicator mKeyboardIndicator;
     protected ViewPager mKeyboardPager;
@@ -51,6 +50,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
 
     private Button mSetButton;
 
+    protected View mDivider;
     private ColorStateList mTextColor;
     private int mKeyBackgroundResId;
     private int mButtonBackgroundResId;
@@ -78,6 +78,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         mButtonBackgroundResId = R.drawable.button_background_dark;
         mDividerColor = getResources().getColor(R.color.default_divider_color_dark);
         mKeyboardIndicatorColor = getResources().getColor(R.color.default_keyboard_indicator_color_dark);
+        mDeleteDrawableSrcResId = R.drawable.ic_backspace_dark;
         mCheckDrawableSrcResId = R.drawable.ic_check_dark;
     }
 

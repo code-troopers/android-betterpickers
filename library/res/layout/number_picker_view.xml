@@ -63,9 +63,10 @@
                 android:layout_height="match_parent"/>
     </LinearLayout>
     <View
+            android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dip"
-            android:background="#28ffffff"/>
+            android:background="@color/default_divider_color_dark"/>
     <include
             layout="@layout/three_keys_view"
             android:id="@+id/first"/>

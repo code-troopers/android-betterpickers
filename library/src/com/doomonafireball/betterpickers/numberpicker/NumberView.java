@@ -4,6 +4,8 @@ import com.doomonafireball.betterpickers.R;
 import com.doomonafireball.betterpickers.ZeroTopPaddingTextView;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
@@ -17,6 +19,8 @@ public class NumberView extends LinearLayout {
     private final Typeface mAndroidClockMonoThin;
     private Typeface mOriginalNumberTypeface;
 
+    private ColorStateList mTextColor;
+
     public NumberView(Context context) {
         this(context, null);
     }
@@ -26,6 +30,34 @@ public class NumberView extends LinearLayout {
 
         mAndroidClockMonoThin =
                 Typeface.createFromAsset(context.getAssets(), "fonts/AndroidClockMono-Thin.ttf");
+
+        // Init defaults
+        mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
+    }
+
+    public void setTheme(int themeResId) {
+        if (themeResId != -1) {
+            TypedArray a = getContext().obtainStyledAttributes(themeResId, R.styleable.BetterPickersDialogFragment);
+
+            mTextColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTextColor);
+        }
+
+        restyleViews();
+    }
+
+    private void restyleViews() {
+        if (mNumber != null) {
+            mNumber.setTextColor(mTextColor);
+        }
+        if (mDecimal != null) {
+            mDecimal.setTextColor(mTextColor);
+        }
+        if (mDecimalSeperator != null) {
+            mDecimalSeperator.setTextColor(mTextColor);
+        }
+        if (mMinusLabel != null) {
+            mMinusLabel.setTextColor(mTextColor);
+        }
     }
 
     @Override
@@ -48,6 +80,8 @@ public class NumberView extends LinearLayout {
             mDecimal.setTypeface(mAndroidClockMonoThin);
             mDecimal.updatePadding();
         }
+
+        restyleViews();
     }
 
     public void setNumber(String numbersDigit, String decimalDigit, boolean showDecimal,

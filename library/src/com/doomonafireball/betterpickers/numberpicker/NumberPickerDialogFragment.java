@@ -3,6 +3,8 @@ package com.doomonafireball.betterpickers.numberpicker;
 import com.doomonafireball.betterpickers.R;
 
 import android.app.Activity;
+import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
@@ -19,6 +21,13 @@ public class NumberPickerDialogFragment extends DialogFragment {
 
     private Button mSet, mCancel;
     private NumberPicker mPicker;
+
+    private View mDividerOne, mDividerTwo;
+    private int mTheme = -1;
+    private int mDividerColor;
+    private ColorStateList mTextColor;
+    private int mButtonBackgroundResId;
+    private int mDialogBackgroundResId;
 
     public static NumberPickerDialogFragment newInstance(int themeResId) {
         final NumberPickerDialogFragment frag = new NumberPickerDialogFragment();
@@ -38,12 +47,29 @@ public class NumberPickerDialogFragment extends DialogFragment {
         super.onCreate(savedInstanceState);
 
         Bundle args = getArguments();
-        int theme = R.style.BetterPickersDialogFragment;
         if (args != null && args.containsKey(THEME_RES_ID_KEY)) {
-            theme = args.getInt(THEME_RES_ID_KEY);
+            mTheme = args.getInt(THEME_RES_ID_KEY);
         }
 
-        setStyle(DialogFragment.STYLE_NO_TITLE, theme);
+        setStyle(DialogFragment.STYLE_NO_TITLE, 0);
+
+        // Init defaults
+        mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
+        mButtonBackgroundResId = R.drawable.button_background_dark;
+        mDividerColor = getResources().getColor(R.color.default_divider_color_dark);
+        mDialogBackgroundResId = R.drawable.dialog_full_holo_dark;
+
+        if (mTheme != -1) {
+            TypedArray a = getActivity().getApplicationContext()
+                    .obtainStyledAttributes(mTheme, R.styleable.BetterPickersDialogFragment);
+
+            mTextColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTextColor);
+            mButtonBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpButtonBackground,
+                    mButtonBackgroundResId);
+            mDividerColor = a.getColor(R.styleable.BetterPickersDialogFragment_bpDividerColor, mDividerColor);
+            mDialogBackgroundResId = a
+                    .getResourceId(R.styleable.BetterPickersDialogFragment_bpDialogBackground, mDialogBackgroundResId);
+        }
     }
 
     @Override
@@ -77,6 +103,17 @@ public class NumberPickerDialogFragment extends DialogFragment {
                 dismiss();
             }
         });
+
+        mDividerOne = v.findViewById(R.id.divider_1);
+        mDividerTwo = v.findViewById(R.id.divider_2);
+        mDividerOne.setBackgroundColor(mDividerColor);
+        mDividerTwo.setBackgroundColor(mDividerColor);
+        mSet.setTextColor(mTextColor);
+        mSet.setBackgroundResource(mButtonBackgroundResId);
+        mCancel.setTextColor(mTextColor);
+        mCancel.setBackgroundResource(mButtonBackgroundResId);
+        mPicker.setTheme(mTheme);
+        getDialog().getWindow().setBackgroundDrawableResource(mDialogBackgroundResId);
 
         return v;
     }
