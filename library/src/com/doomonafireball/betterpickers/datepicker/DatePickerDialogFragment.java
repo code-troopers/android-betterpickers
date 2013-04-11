@@ -28,8 +28,8 @@ public class DatePickerDialogFragment extends DialogFragment {
     private int mMonthOfYear = -1;
     private int mDayOfMonth = 0;
     private int mYear = 0;
-    private int mTheme = -1;
 
+    private int mTheme = -1;
     private View mDividerOne, mDividerTwo;
     private int mDividerColor;
     private ColorStateList mTextColor;

@@ -4,6 +4,8 @@ import com.doomonafireball.betterpickers.R;
 import com.doomonafireball.betterpickers.ZeroTopPaddingTextView;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
@@ -16,6 +18,8 @@ public class TimerView extends LinearLayout {
     private final Typeface mAndroidClockMonoThin;
     private Typeface mOriginalHoursTypeface;
 
+    private ColorStateList mTextColor;
+
     public TimerView(Context context) {
         this(context, null);
     }
@@ -25,6 +29,34 @@ public class TimerView extends LinearLayout {
 
         mAndroidClockMonoThin =
                 Typeface.createFromAsset(context.getAssets(), "fonts/AndroidClockMono-Thin.ttf");
+
+        // Init defaults
+        mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
+    }
+
+    public void setTheme(int themeResId) {
+        if (themeResId != -1) {
+            TypedArray a = getContext().obtainStyledAttributes(themeResId, R.styleable.BetterPickersDialogFragment);
+
+            mTextColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTextColor);
+        }
+
+        restyleViews();
+    }
+
+    private void restyleViews() {
+        if (mHoursOnes != null) {
+            mHoursOnes.setTextColor(mTextColor);
+        }
+        if (mMinutesOnes != null) {
+            mMinutesOnes.setTextColor(mTextColor);
+        }
+        if (mHoursTens != null) {
+            mHoursTens.setTextColor(mTextColor);
+        }
+        if (mMinutesTens != null) {
+            mMinutesTens.setTextColor(mTextColor);
+        }
     }
 
     @Override

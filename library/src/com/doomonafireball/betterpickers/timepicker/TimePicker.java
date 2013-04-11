@@ -3,7 +3,9 @@ package com.doomonafireball.betterpickers.timepicker;
 import com.doomonafireball.betterpickers.R;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -46,6 +48,14 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
     private static final String TIME_PICKER_SAVED_INPUT = "timer_picker_saved_input";
     private static final String TIME_PICKER_SAVED_AMPM = "timer_picker_saved_ampm";
 
+    protected View mDivider;
+    private ColorStateList mTextColor;
+    private int mKeyBackgroundResId;
+    private int mButtonBackgroundResId;
+    private int mDividerColor;
+    private int mDeleteDrawableSrcResId;
+    private int mTheme = -1;
+
     public TimePicker(Context context) {
         this(context, null);
     }
@@ -58,10 +68,66 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
                 (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         layoutInflater.inflate(getLayoutId(), this);
         mNoAmPmLabel = context.getResources().getString(R.string.time_picker_ampm_label);
+
+        // Init defaults
+        mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
+        mKeyBackgroundResId = R.drawable.key_background_dark;
+        mButtonBackgroundResId = R.drawable.button_background_dark;
+        mDividerColor = getResources().getColor(R.color.default_divider_color_dark);
+        mDeleteDrawableSrcResId = R.drawable.ic_backspace_dark;
     }
 
     protected int getLayoutId() {
         return R.layout.time_picker_view;
+    }
+
+    public void setTheme(int themeResId) {
+        mTheme = themeResId;
+        if (mTheme != -1) {
+            TypedArray a = getContext().obtainStyledAttributes(themeResId, R.styleable.BetterPickersDialogFragment);
+
+            mTextColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTextColor);
+            mKeyBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpKeyBackground,
+                    mKeyBackgroundResId);
+            mButtonBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpButtonBackground,
+                    mButtonBackgroundResId);
+            mDividerColor = a.getColor(R.styleable.BetterPickersDialogFragment_bpDividerColor, mDividerColor);
+            mDeleteDrawableSrcResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpDeleteIcon,
+                    mDeleteDrawableSrcResId);
+        }
+
+        restyleViews();
+    }
+
+    private void restyleViews() {
+        for (Button number : mNumbers) {
+            if (number != null) {
+                number.setTextColor(mTextColor);
+                number.setBackgroundResource(mKeyBackgroundResId);
+            }
+        }
+        if (mDivider != null) {
+            mDivider.setBackgroundColor(mDividerColor);
+        }
+        if (mLeft != null) {
+            mLeft.setTextColor(mTextColor);
+            mLeft.setBackgroundResource(mKeyBackgroundResId);
+        }
+        if (mAmPmLabel != null) {
+            mAmPmLabel.setTextColor(mTextColor);
+            mAmPmLabel.setBackgroundResource(mKeyBackgroundResId);
+        }
+        if (mRight != null) {
+            mRight.setTextColor(mTextColor);
+            mRight.setBackgroundResource(mKeyBackgroundResId);
+        }
+        if (mDelete != null) {
+            mDelete.setBackgroundResource(mButtonBackgroundResId);
+            mDelete.setImageDrawable(getResources().getDrawable(mDeleteDrawableSrcResId));
+        }
+        if (mEnteredTime != null) {
+            mEnteredTime.setTheme(mTheme);
+        }
     }
 
     @Override
@@ -115,6 +181,8 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
         mRight.setOnClickListener(this);
         mAmPmLabel = (TextView) findViewById(R.id.ampm_label);
         mAmPmState = AMPM_NOT_SELECTED;
+
+        restyleViews();
         updateKeypad();
     }
 

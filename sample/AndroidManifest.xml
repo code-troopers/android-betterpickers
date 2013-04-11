@@ -37,6 +37,14 @@
             </intent-filter>
         </activity>
         <activity
+                android:name=".activity.SampleTimeDefaultCustom"
+                android:label="Time/Default Custom Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
                 android:name=".activity.SampleNumberDefault"
                 android:label="Number/Default">
             <intent-filter>
