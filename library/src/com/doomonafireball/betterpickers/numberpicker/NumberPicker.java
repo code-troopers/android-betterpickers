@@ -261,11 +261,18 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         numberString = numberString.replaceAll("\\-", "");
         String[] split = numberString.split("\\.");
         if (split.length >= 2) {
-            mEnteredNumber.setNumber(split[0], split[1], containsDecimal(),
-                    mSign == SIGN_NEGATIVE);
+            if (split[0].equals("")) {
+                mEnteredNumber.setNumber("0", split[1], containsDecimal(),
+                        mSign == SIGN_NEGATIVE);
+            } else {
+                mEnteredNumber.setNumber(split[0], split[1], containsDecimal(),
+                        mSign == SIGN_NEGATIVE);
+            }
         } else if (split.length == 1) {
             mEnteredNumber.setNumber(split[0], "", containsDecimal(),
                     mSign == SIGN_NEGATIVE);
+        } else if (numberString.equals(".")) {
+            mEnteredNumber.setNumber("0", "", true, mSign == SIGN_NEGATIVE);
         }
     }
 
