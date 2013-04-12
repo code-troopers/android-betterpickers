@@ -653,12 +653,12 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         } else if (dayOfMonth > 0) {
             mDateInputPointer = 0;
         }
-        if (dayOfMonth == -1) {
-            mKeyboardPager.setCurrentItem(1, true);
-        } else if (year == -1) {
-            mKeyboardPager.setCurrentItem(2, true);
-        } else {
+        if (monthOfYear == -1) {
             mKeyboardPager.setCurrentItem(0, true);
+        } else if (dayOfMonth == -1) {
+            mKeyboardPager.setCurrentItem(1, true);
+        } else {
+            mKeyboardPager.setCurrentItem(2, true);
         }
         updateKeypad();
     }

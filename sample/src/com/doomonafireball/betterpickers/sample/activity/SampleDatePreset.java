@@ -36,17 +36,23 @@ public class SampleDatePreset extends FragmentActivity implements DatePickerDial
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int m = 3;
-                int d = 18;
-                int y = 1988;
+                int m = -1;
+                int d = -1;
+                int y = -1;
                 try {
                     m = Integer.parseInt(month.getText().toString());
+                } catch (Exception e) {
+                    m = -1;
+                }
+                try {
                     d = Integer.parseInt(date.getText().toString());
+                } catch (Exception e) {
+                    d = -1;
+                }
+                try {
                     y = Integer.parseInt(year.getText().toString());
                 } catch (Exception e) {
-                    m = 3;
-                    d = 18;
-                    y = 1988;
+                    y = -1;
                 }
                 BetterPickerUtils
                         .showDateEditDialog(getSupportFragmentManager(), m, d, y, R.style.BetterPickersDialogFragment);
