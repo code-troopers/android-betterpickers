@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
+import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -195,6 +196,7 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
 
     @Override
     public void onClick(View v) {
+        v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
         doOnClick(v);
         updateDeleteButton();
     }
@@ -226,6 +228,7 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
 
     @Override
     public boolean onLongClick(View v) {
+        v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
         if (v == mDelete) {
             mAmPmState = AMPM_NOT_SELECTED;
             reset();

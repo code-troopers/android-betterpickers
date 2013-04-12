@@ -12,6 +12,7 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -343,6 +344,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
 
     @Override
     public void onClick(View v) {
+        v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
         doOnClick(v);
         updateDeleteButton();
     }
@@ -397,6 +399,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
 
     @Override
     public boolean onLongClick(View v) {
+        v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
         if (v == mDelete) {
             reset();
             updateKeypad();
