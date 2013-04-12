@@ -182,6 +182,7 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
         mRight.setOnClickListener(this);
         mAmPmLabel = (TextView) findViewById(R.id.ampm_label);
         mAmPmState = AMPM_NOT_SELECTED;
+        mDivider = findViewById(R.id.divider);
 
         restyleViews();
         updateKeypad();
