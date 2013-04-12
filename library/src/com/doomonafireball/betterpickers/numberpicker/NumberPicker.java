@@ -167,6 +167,18 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         updateKeypad();
     }
 
+    public void setPlusMinusVisibility(int visiblity) {
+        if (mLeft != null) {
+            mLeft.setVisibility(visiblity);
+        }
+    }
+
+    public void setDecimalVisibility(int visiblity) {
+        if (mRight != null) {
+            mRight.setVisibility(visiblity);
+        }
+    }
+
     public void updateDeleteButton() {
         boolean enabled = mInputPointer != -1;
         if (mDelete != null) {

@@ -61,6 +61,14 @@
             </intent-filter>
         </activity>
         <activity
+                android:name=".activity.SampleNumberWithOptions"
+                android:label="Number/Additional Options">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
                 android:name=".activity.SampleNumberDefaultCustom"
                 android:label="Number/Default Custom Theme">
             <intent-filter>

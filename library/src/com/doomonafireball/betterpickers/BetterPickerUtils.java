@@ -37,6 +37,20 @@ public class BetterPickerUtils {
         fragment.show(ft, "number_dialog");
     }
 
+    public static void showNumberEditDialog(FragmentManager manager, int styleResId, int minNumber, int maxNumber,
+            int plusMinusVisibility, int decimalVisibility) {
+        final FragmentTransaction ft = manager.beginTransaction();
+        final Fragment prev = manager.findFragmentByTag("number_dialog");
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+
+        final NumberPickerDialogFragment fragment = NumberPickerDialogFragment
+                .newInstance(styleResId, minNumber, maxNumber, plusMinusVisibility, decimalVisibility);
+        fragment.show(ft, "number_dialog");
+    }
+
     public static void showDateEditDialog(FragmentManager manager, int styleResId) {
         final FragmentTransaction ft = manager.beginTransaction();
         final Fragment prev = manager.findFragmentByTag("date_dialog");

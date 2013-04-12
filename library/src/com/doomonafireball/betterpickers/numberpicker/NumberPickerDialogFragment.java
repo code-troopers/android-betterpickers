@@ -18,6 +18,10 @@ import android.widget.Button;
 public class NumberPickerDialogFragment extends DialogFragment {
 
     private static final String THEME_RES_ID_KEY = "NumberPickerDialogFragment_ThemeResIdKey";
+    private static final String MIN_NUMBER_KEY = "NumberPickerDialogFragment_MinNumberKey";
+    private static final String MAX_NUMBER_KEY = "NumberPickerDialogFragment_MaxNumberKey";
+    private static final String PLUS_MINUS_VISIBILITY_KEY = "NumberPickerDialogFragment_PlusMinusVisibilityKey";
+    private static final String DECIMAL_VISIBILITY_KEY = "NumberPickerDialogFragment_DecimalVisibilityKey";
 
     private Button mSet, mCancel;
     private NumberPicker mPicker;
@@ -29,10 +33,26 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private int mButtonBackgroundResId;
     private int mDialogBackgroundResId;
 
+    private int mPlusMinusVisibility = View.VISIBLE;
+    private int mDecimalVisibility = View.VISIBLE;
+
     public static NumberPickerDialogFragment newInstance(int themeResId) {
         final NumberPickerDialogFragment frag = new NumberPickerDialogFragment();
         Bundle args = new Bundle();
         args.putInt(THEME_RES_ID_KEY, themeResId);
+        frag.setArguments(args);
+        return frag;
+    }
+
+    public static NumberPickerDialogFragment newInstance(int themeResId, int minNumber, int maxNumber,
+            int plusMinusVisibility, int decimalVisibility) {
+        final NumberPickerDialogFragment frag = new NumberPickerDialogFragment();
+        Bundle args = new Bundle();
+        args.putInt(THEME_RES_ID_KEY, themeResId);
+        args.putInt(MIN_NUMBER_KEY, minNumber);
+        args.putInt(MAX_NUMBER_KEY, maxNumber);
+        args.putInt(PLUS_MINUS_VISIBILITY_KEY, plusMinusVisibility);
+        args.putInt(DECIMAL_VISIBILITY_KEY, decimalVisibility);
         frag.setArguments(args);
         return frag;
     }
@@ -49,6 +69,12 @@ public class NumberPickerDialogFragment extends DialogFragment {
         Bundle args = getArguments();
         if (args != null && args.containsKey(THEME_RES_ID_KEY)) {
             mTheme = args.getInt(THEME_RES_ID_KEY);
+        }
+        if (args != null && args.containsKey(PLUS_MINUS_VISIBILITY_KEY)) {
+            mPlusMinusVisibility = args.getInt(PLUS_MINUS_VISIBILITY_KEY);
+        }
+        if (args != null && args.containsKey(DECIMAL_VISIBILITY_KEY)) {
+            mDecimalVisibility = args.getInt(DECIMAL_VISIBILITY_KEY);
         }
 
         setStyle(DialogFragment.STYLE_NO_TITLE, 0);
@@ -114,6 +140,9 @@ public class NumberPickerDialogFragment extends DialogFragment {
         mCancel.setBackgroundResource(mButtonBackgroundResId);
         mPicker.setTheme(mTheme);
         getDialog().getWindow().setBackgroundDrawableResource(mDialogBackgroundResId);
+
+        mPicker.setDecimalVisibility(mDecimalVisibility);
+        mPicker.setPlusMinusVisibility(mPlusMinusVisibility);
 
         return v;
     }
