@@ -13,7 +13,7 @@ import android.widget.TextView;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleNumberDefault extends FragmentActivity
+public class SampleNumberDefault extends BaseSampleActivity
         implements NumberPickerDialogFragment.NumberPickerDialogHandler {
 
     private TextView text;

@@ -5,7 +5,6 @@ import com.doomonafireball.betterpickers.sample.R;
 import com.doomonafireball.betterpickers.timepicker.TimePickerDialogFragment;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,7 +12,7 @@ import android.widget.TextView;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleTimeDefaultLight extends FragmentActivity
+public class SampleTimeDefaultLight extends BaseSampleActivity
         implements TimePickerDialogFragment.TimePickerDialogHandler {
 
     private TextView text;

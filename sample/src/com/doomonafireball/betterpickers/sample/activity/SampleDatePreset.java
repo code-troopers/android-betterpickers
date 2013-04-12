@@ -14,7 +14,7 @@ import android.widget.TextView;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleDatePreset extends FragmentActivity implements DatePickerDialogFragment.DatePickerDialogHandler {
+public class SampleDatePreset extends BaseSampleActivity implements DatePickerDialogFragment.DatePickerDialogHandler {
 
     private EditText month, date, year;
     private TextView text;

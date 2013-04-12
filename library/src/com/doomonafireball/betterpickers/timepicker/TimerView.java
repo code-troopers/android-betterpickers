@@ -18,6 +18,7 @@ public class TimerView extends LinearLayout {
     private final Typeface mAndroidClockMonoThin;
     private Typeface mOriginalHoursTypeface;
 
+    private ZeroTopPaddingTextView mHoursSeperator;
     private ColorStateList mTextColor;
 
     public TimerView(Context context) {
@@ -57,6 +58,9 @@ public class TimerView extends LinearLayout {
         if (mMinutesTens != null) {
             mMinutesTens.setTextColor(mTextColor);
         }
+        if (mHoursSeperator != null) {
+            mHoursSeperator.setTextColor(mTextColor);
+        }
     }
 
     @Override
@@ -67,6 +71,7 @@ public class TimerView extends LinearLayout {
         mMinutesTens = (ZeroTopPaddingTextView) findViewById(R.id.minutes_tens);
         mHoursOnes = (ZeroTopPaddingTextView) findViewById(R.id.hours_ones);
         mMinutesOnes = (ZeroTopPaddingTextView) findViewById(R.id.minutes_ones);
+        mHoursSeperator = (ZeroTopPaddingTextView) findViewById(R.id.hours_seperator);
         if (mHoursOnes != null) {
             mOriginalHoursTypeface = mHoursOnes.getTypeface();
         }

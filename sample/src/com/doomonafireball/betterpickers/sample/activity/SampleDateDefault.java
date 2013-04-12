@@ -5,7 +5,6 @@ import com.doomonafireball.betterpickers.datepicker.DatePickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,7 +12,7 @@ import android.widget.TextView;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleDateDefault extends FragmentActivity implements DatePickerDialogFragment.DatePickerDialogHandler {
+public class SampleDateDefault extends BaseSampleActivity implements DatePickerDialogFragment.DatePickerDialogHandler {
 
     private TextView text;
     private Button button;

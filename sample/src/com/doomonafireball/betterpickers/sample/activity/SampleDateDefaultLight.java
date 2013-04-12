@@ -13,7 +13,7 @@ import android.widget.TextView;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleDateDefaultLight extends FragmentActivity
+public class SampleDateDefaultLight extends BaseSampleActivity
         implements DatePickerDialogFragment.DatePickerDialogHandler {
 
     private TextView text;

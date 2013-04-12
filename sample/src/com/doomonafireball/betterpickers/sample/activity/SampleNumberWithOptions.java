@@ -5,7 +5,6 @@ import com.doomonafireball.betterpickers.numberpicker.NumberPickerDialogFragment
 import com.doomonafireball.betterpickers.sample.R;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,7 +12,7 @@ import android.widget.TextView;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleNumberWithOptions extends FragmentActivity
+public class SampleNumberWithOptions extends BaseSampleActivity
         implements NumberPickerDialogFragment.NumberPickerDialogHandler {
 
     private TextView text;
