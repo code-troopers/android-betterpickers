@@ -37,7 +37,8 @@ public class BetterPickerUtils {
         fragment.show(ft, "number_dialog");
     }
 
-    public static void showNumberEditDialog(FragmentManager manager, int styleResId, int minNumber, int maxNumber,
+    public static void showNumberEditDialog(FragmentManager manager, int styleResId, Integer minNumber,
+            Integer maxNumber,
             int plusMinusVisibility, int decimalVisibility) {
         final FragmentTransaction ft = manager.beginTransaction();
         final Fragment prev = manager.findFragmentByTag("number_dialog");

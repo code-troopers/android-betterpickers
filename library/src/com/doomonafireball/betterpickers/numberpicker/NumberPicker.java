@@ -45,6 +45,9 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     private int mDeleteDrawableSrcResId;
     private int mTheme = -1;
 
+    private Integer mMinNumber = null;
+    private Integer mMaxNumber = null;
+
     public NumberPicker(Context context) {
         this(context, null);
     }
@@ -177,6 +180,16 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         if (mRight != null) {
             mRight.setVisibility(visiblity);
         }
+    }
+
+    public void setMin(int min) {
+        mMinNumber = min;
+        // TODO
+    }
+
+    public void setMax(int max) {
+        mMaxNumber = max;
+        // TODO
     }
 
     public void updateDeleteButton() {

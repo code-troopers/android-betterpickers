@@ -33,6 +33,8 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private int mButtonBackgroundResId;
     private int mDialogBackgroundResId;
 
+    private Integer mMinNumber = null;
+    private Integer mMaxNumber = null;
     private int mPlusMinusVisibility = View.VISIBLE;
     private int mDecimalVisibility = View.VISIBLE;
 
@@ -44,13 +46,17 @@ public class NumberPickerDialogFragment extends DialogFragment {
         return frag;
     }
 
-    public static NumberPickerDialogFragment newInstance(int themeResId, int minNumber, int maxNumber,
+    public static NumberPickerDialogFragment newInstance(int themeResId, Integer minNumber, Integer maxNumber,
             int plusMinusVisibility, int decimalVisibility) {
         final NumberPickerDialogFragment frag = new NumberPickerDialogFragment();
         Bundle args = new Bundle();
         args.putInt(THEME_RES_ID_KEY, themeResId);
-        args.putInt(MIN_NUMBER_KEY, minNumber);
-        args.putInt(MAX_NUMBER_KEY, maxNumber);
+        if (minNumber != null) {
+            args.putInt(MIN_NUMBER_KEY, minNumber);
+        }
+        if (maxNumber != null) {
+            args.putInt(MAX_NUMBER_KEY, maxNumber);
+        }
         args.putInt(PLUS_MINUS_VISIBILITY_KEY, plusMinusVisibility);
         args.putInt(DECIMAL_VISIBILITY_KEY, decimalVisibility);
         frag.setArguments(args);
@@ -75,6 +81,12 @@ public class NumberPickerDialogFragment extends DialogFragment {
         }
         if (args != null && args.containsKey(DECIMAL_VISIBILITY_KEY)) {
             mDecimalVisibility = args.getInt(DECIMAL_VISIBILITY_KEY);
+        }
+        if (args != null && args.containsKey(MIN_NUMBER_KEY)) {
+            mMinNumber = args.getInt(MIN_NUMBER_KEY);
+        }
+        if (args != null && args.containsKey(MAX_NUMBER_KEY)) {
+            mMaxNumber = args.getInt(MAX_NUMBER_KEY);
         }
 
         setStyle(DialogFragment.STYLE_NO_TITLE, 0);
@@ -143,6 +155,12 @@ public class NumberPickerDialogFragment extends DialogFragment {
 
         mPicker.setDecimalVisibility(mDecimalVisibility);
         mPicker.setPlusMinusVisibility(mPlusMinusVisibility);
+        if (mMinNumber != null) {
+            mPicker.setMin(mMinNumber);
+        }
+        if (mMaxNumber != null) {
+            mPicker.setMax(mMaxNumber);
+        }
 
         return v;
     }

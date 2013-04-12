@@ -33,7 +33,8 @@ public class SampleNumberWithOptions extends FragmentActivity
             @Override
             public void onClick(View v) {
                 BetterPickerUtils
-                        .showNumberEditDialog(getSupportFragmentManager(), R.style.BetterPickersDialogFragment, -1, -1,
+                        .showNumberEditDialog(getSupportFragmentManager(), R.style.BetterPickersDialogFragment, null,
+                                null,
                                 View.INVISIBLE, View.INVISIBLE);
             }
         });
