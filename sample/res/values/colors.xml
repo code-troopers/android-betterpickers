@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="custom_text_color_normal">#ffffff00</color>
+    <color name="custom_text_color_normal">#ffffffff</color>
     <color name="custom_text_color_disabled">#ffb2b2b2</color>
-    <color name="custom_divider_color">#ffffff00</color>
+    <color name="custom_divider_color">#ffffffff</color>
     <color name="custom_button_background">#00000000</color>
-    <color name="custom_button_background_pressed">#66af8901</color>
+    <color name="custom_button_background_pressed">#ffcc6600</color>
     <color name="custom_key_background">#00000000</color>
-    <color name="custom_key_background_pressed">#660000ff</color>
-    <color name="custom_keyboard_indicator_color">#ffffff00</color>
+    <color name="custom_key_background_pressed">#ff000066</color>
+    <color name="custom_keyboard_indicator_color">#ffffffff</color>
 </resources>
