@@ -5,4 +5,5 @@
     <dimen name="medium_date_font_size">80dp</dimen>
     <dimen name="label_font_size">18sp</dimen>
     <dimen name="body_font_padding">8dp</dimen>
+    <dimen name="date_viewpager_height">333dip</dimen>
 </resources>
