@@ -19,6 +19,7 @@
     <name>android-betterpickers (Parent)</name>
     <description>Android library for better number/date/time-picker DialogFragments.</description>
     <inceptionYear>2011</inceptionYear>
+    <url>http://github.com/derekbrameyer/android-betterpickers/</url>
 
     <modules>
         <module>library</module>
