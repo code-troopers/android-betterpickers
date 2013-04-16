@@ -5,7 +5,6 @@ import com.doomonafireball.betterpickers.numberpicker.NumberPickerDialogFragment
 import com.doomonafireball.betterpickers.sample.R;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
