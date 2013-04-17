@@ -10,12 +10,12 @@
             android:targetSdkVersion="17"/>
 
     <application
-            android:label="BetterPickers Demos"
+            android:label="BetterPickers Samples"
             android:icon="@drawable/icon"
             android:theme="@style/Theme.Sherlock.Light.DarkActionBar">
         <activity
                 android:name=".ListSamples"
-                android:label="BetterPickers Demos">
+                android:label="BetterPickers Samples">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
