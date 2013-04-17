@@ -6,6 +6,6 @@
     <color name="custom_button_background">#00000000</color>
     <color name="custom_button_background_pressed">#ffcc6600</color>
     <color name="custom_key_background">#00000000</color>
-    <color name="custom_key_background_pressed">#ff000066</color>
-    <color name="custom_keyboard_indicator_color">#ffffffff</color>
+    <color name="custom_key_background_pressed">#ffcc6600</color>
+    <color name="custom_keyboard_indicator_color">#ffcc6600</color>
 </resources>
