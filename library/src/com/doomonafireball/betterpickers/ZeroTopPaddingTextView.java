@@ -18,6 +18,7 @@ package com.doomonafireball.betterpickers;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -34,9 +35,15 @@ public class ZeroTopPaddingTextView extends TextView {
     // the bold fontface has less empty space on the top
     private static final float BOLD_FONT_BOTTOM_PADDING_RATIO = 0.208f;
 
+    // pre-ICS (Droid Sans) has weird empty space on the bottom
+    private static final float PRE_ICS_BOTTOM_PADDING_RATIO = 0.233f;
+
     private static final Typeface SAN_SERIF_BOLD = Typeface.create("san-serif", Typeface.BOLD);
 
     private int mPaddingRight = 0;
+
+    private String decimalSeperator = "";
+    private String timeSeperator = "";
 
     public ZeroTopPaddingTextView(Context context) {
         this(context, null);
@@ -48,8 +55,14 @@ public class ZeroTopPaddingTextView extends TextView {
 
     public ZeroTopPaddingTextView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        init();
         setIncludeFontPadding(false);
         updatePadding();
+    }
+
+    private void init() {
+        decimalSeperator = getResources().getString(R.string.number_picker_seperator);
+        timeSeperator = getResources().getString(R.string.time_picker_time_seperator);
     }
 
     public void updatePadding() {
@@ -62,6 +75,12 @@ public class ZeroTopPaddingTextView extends TextView {
         if (getTypeface() != null && getTypeface().equals(SAN_SERIF_BOLD)) {
             paddingRatio = BOLD_FONT_PADDING_RATIO;
             bottomPaddingRatio = BOLD_FONT_BOTTOM_PADDING_RATIO;
+        }
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH &&
+                getText() != null &&
+                (getText().toString().equals(decimalSeperator) ||
+                        getText().toString().equals(timeSeperator))) {
+            bottomPaddingRatio = PRE_ICS_BOTTOM_PADDING_RATIO;
         }
         // no need to scale by display density because getTextSize() already returns the font
         // height in px
