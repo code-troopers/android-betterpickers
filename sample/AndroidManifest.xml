@@ -11,7 +11,7 @@
 
     <application
             android:label="BetterPickers Samples"
-            android:icon="@drawable/icon"
+            android:icon="@drawable/ic_launcher"
             android:theme="@style/Theme.Sherlock.Light.DarkActionBar">
         <activity
                 android:name=".ListSamples"
