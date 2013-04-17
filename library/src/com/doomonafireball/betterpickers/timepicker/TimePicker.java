@@ -231,6 +231,8 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
     public boolean onLongClick(View v) {
         v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
         if (v == mDelete) {
+            mDelete.setPressed(false);
+
             mAmPmState = AMPM_NOT_SELECTED;
             reset();
             updateKeypad();

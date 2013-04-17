@@ -401,6 +401,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
     public boolean onLongClick(View v) {
         v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
         if (v == mDelete) {
+            mDelete.setPressed(false);
             reset();
             updateKeypad();
             return true;
