@@ -32,6 +32,7 @@
     <style name="dialog_button">
         <item name="android:textSize">@dimen/dialog_button_font_size</item>
         <item name="android:fontFamily">sans-serif</item>
+        <item name="android:minHeight">48dp</item>
     </style>
     <style name="tablet_dialpad">
         <item name="android:textSize">@dimen/tablet_dialpad_font_size</item>

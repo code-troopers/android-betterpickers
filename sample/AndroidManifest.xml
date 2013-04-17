@@ -11,7 +11,8 @@
 
     <application
             android:label="BetterPickers Sample"
-            android:icon="@drawable/icon">
+            android:icon="@drawable/icon"
+            android:theme="@style/Theme.Sherlock.Light.DarkActionBar">
         <activity
                 android:name=".ListSamples"
                 android:label="BetterPickers">
@@ -22,7 +23,8 @@
         </activity>
         <activity
                 android:name=".activity.SampleTimeDefault"
-                android:label="Time/Default">
+                android:label="Time/Default"
+                android:theme="@style/Theme.Sherlock">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
@@ -46,7 +48,8 @@
         </activity>
         <activity
                 android:name=".activity.SampleNumberDefault"
-                android:label="Number/Default">
+                android:label="Number/Default"
+                android:theme="@style/Theme.Sherlock">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
@@ -62,7 +65,8 @@
         </activity>
         <activity
                 android:name=".activity.SampleNumberWithOptions"
-                android:label="Number/Additional Options">
+                android:label="Number/Additional Options"
+                android:theme="@style/Theme.Sherlock">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
@@ -78,7 +82,8 @@
         </activity>
         <activity
                 android:name=".activity.SampleDateDefault"
-                android:label="Date/Default">
+                android:label="Date/Default"
+                android:theme="@style/Theme.Sherlock">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
@@ -102,7 +107,8 @@
         </activity>
         <activity
                 android:name=".activity.SampleDatePreset"
-                android:label="Date/Preset">
+                android:label="Date/Preset"
+                android:theme="@style/Theme.Sherlock">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
