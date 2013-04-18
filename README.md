@@ -4,6 +4,11 @@ DialogFragments modeled after the 4.2 Alarm Clock TimePicker to improve UX for p
 
 Try out the sample application on [Google Play][6].
 
+<a href="https://play.google.com/store/apps/details?id=com.doomonafireball.betterpickers.sample">
+  <img alt="BetterPickers Samples on Google Play"
+         src="http://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
+</a>
+
 
 Including in Your Project
 =========================
@@ -40,8 +45,6 @@ Usage
           public void onCreate(Bundle savedInstanceState) {
             // ...
           }
-          
-          // ...
           
           @Override
           public void onDialogDateSet(int year, int monthOfYear, int dayOfMonth) {
@@ -102,6 +105,8 @@ Credits
 
 Thanks to [JakeWharton][11] for his work on [ViewPagerIndicator][9].
 
+Thanks to [OAK][12] and [WillowTree Apps][13] for Maven assistance and possible future improvements.
+
 License
 =======
 
@@ -126,3 +131,5 @@ License
  [9]: http://viewpagerindicator.com/
  [10]: https://github.com/derekbrameyer/android-betterpickers/issues/new
  [11]: https://plus.google.com/108284392618554783657/posts
+ [12]: http://willowtreeapps.github.io/OAK/
+ [13]: http://www.willowtreeapps.com/
