@@ -30,7 +30,7 @@ a dependency:
     </dependency>
 
 This project depends on Jake Wharton's `ViewPagerIndicator` library. Details for
-including this library is available [here][9].
+including this library are available [here][9].
 
 Usage
 =====
