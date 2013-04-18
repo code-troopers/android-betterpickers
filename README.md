@@ -9,8 +9,7 @@ Including in Your Project
 =========================
 
 Android-BetterPickers is presented as an [Android library project][7]. A
-standalone JAR is not possible due to the theming capabilities offered by the
-indicator widgets.
+standalone JAR is not possible due to the theming capabilities offered by the DialogFragments.
 
 You can include this project by [referencing it as a library project][8] in
 Eclipse or ant.
@@ -57,7 +56,35 @@ Usage
 Theming
 =======
 
-Work in progress.
+*For a demonstration of theming, see the `sample/` folder.*
+
+You can use your own themes if you'd like to change certain attributes.  BetterPickers currently allows for customization of the following attributes:
+
+        bpDialogBackground       :: the drawable (preferably a 9-patch) used as a window background for the DialogFragment
+        bpTextColor              :: the color (optionally state list) for all text in the DialogFragment
+        bpDeleteIcon             :: the drawable (optionally state list) for the delete button
+        bpCheckIcon              :: the drawable (optionally state list) for the check button in the DateDialogPicker
+        bpKeyBackground          :: the drawable (optionally state list) for the keyboard buttons
+        bpButtonBackground       :: the drawable (optionally state list) for the Set, Cancel, and Delete buttons
+        bpDividerColor           :: the color used for the DialogFragment dividers
+        bpKeyboardIndicatorColor :: the color used for the ViewPagerIndicator on the DateDialogPicker
+
+  1. Create your own custom theme in `styles.xml`:
+
+        <style name="MyCustomBetterPickerTheme">
+            <item name="bpDialogBackground">@drawable/custom_dialog_background</item>
+            <item name="bpTextColor">@color/custom_text_color</item>
+            <item name="bpDeleteIcon">@drawable/ic_backspace_custom</item>
+            <item name="bpCheckIcon">@drawable/ic_check_custom</item>
+            <item name="bpKeyBackground">@drawable/key_background_custom</item>
+            <item name="bpButtonBackground">@drawable/button_background_custom</item>
+            <item name="bpDividerColor">@color/custom_divider_color</item>
+            <item name="bpKeyboardIndicatorColor">@color/custom_keyboard_indicator_color</item>
+        </style>
+        
+  2. Instanstiate your `DialogFragment` using your custom theme:
+
+        BetterPickerUtils.showNumberEditDialog(getSupportFragmentManager(), R.style.MyCustomBetterPickerTheme);
 
  [1]: https://raw.github.com/derekbrameyer/android-betterpickers/master/sample/imagery/screenshot_time.png
  [2]: https://raw.github.com/derekbrameyer/android-betterpickers/master/sample/imagery/screenshot_number.png
