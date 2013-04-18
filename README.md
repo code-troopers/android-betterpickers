@@ -1,6 +1,3 @@
-Android BetterPickers
-=====================
-
 ![BetterPickers Feature Graphic][5]
 
 DialogFragments modeled after the 4.2 Alarm Clock TimePicker to improve UX for picking time, date, and numbers.
