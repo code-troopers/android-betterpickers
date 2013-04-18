@@ -86,12 +86,43 @@ You can use your own themes if you'd like to change certain attributes.  BetterP
 
         BetterPickerUtils.showNumberEditDialog(getSupportFragmentManager(), R.style.MyCustomBetterPickerTheme);
 
- [1]: https://raw.github.com/derekbrameyer/android-betterpickers/master/sample/imagery/screenshot_time.png
- [2]: https://raw.github.com/derekbrameyer/android-betterpickers/master/sample/imagery/screenshot_number.png
- [3]: https://raw.github.com/derekbrameyer/android-betterpickers/master/sample/imagery/screenshot_number_negative_decimal.png
- [4]: https://raw.github.com/derekbrameyer/android-betterpickers/master/sample/imagery/screenshot_date.png
+Contribution
+============
+
+### Pull requests are welcome!
+
+Feel free to contribute to BetterPickers.
+
+If you've fixed a bug or have a feature you've added, just create a pull request.
+
+If you've found a bug, want a new feature, or have other questions, [file an issue][10]. I'll try to answer as soon as I find the time.
+
+Credits
+=======
+
+Thanks to [JakeWharton][11] for his work on [ViewPagerIndicator][9].
+
+License
+=======
+
+    Copyright 2013 Derek Brameyer
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
  [5]: https://raw.github.com/derekbrameyer/android-betterpickers/master/sample/imagery/web_feature_graphic.png
  [6]: https://play.google.com/store/apps/details?id=com.doomonafireball.betterpickers.sample
  [7]: http://developer.android.com/guide/developing/projects/projects-eclipse.html
  [8]: http://developer.android.com/guide/developing/projects/projects-eclipse.html#ReferencingLibraryProject
  [9]: http://viewpagerindicator.com/
+ [10]: https://github.com/derekbrameyer/android-betterpickers/issues/new
+ [11]: https://plus.google.com/108284392618554783657/posts
