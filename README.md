@@ -26,4 +26,4 @@ Work in progress.
  [2]: https://raw.github.com/derekbrameyer/android-betterpickers/master/sample/imagery/screenshot_number.png
  [3]: https://raw.github.com/derekbrameyer/android-betterpickers/master/sample/imagery/screenshot_number_negative_decimal.png
  [4]: https://raw.github.com/derekbrameyer/android-betterpickers/master/sample/imagery/screenshot_date.png
- [5]: https://raw.github.com/derekbrameyer/android-betterpickers/master/sample/imagery/web_promo_graphic.png
+ [5]: https://raw.github.com/derekbrameyer/android-betterpickers/master/sample/imagery/web_feature_graphic.png
