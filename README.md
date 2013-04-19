@@ -37,6 +37,12 @@ Usage
 
 *For a working implementation of this project see the `sample/` folder.*
 
+  0. Include the Android clock fonts in your `assets/fonts/` folder (create the folder if it doesn't already exist.  You can find these fonts in the `sample/assets/fonts/` folder.
+
+        AndroidClockMono-Bold.ttf
+        AndroidClockMono-Light.ttf
+        AndroidClockMono-Thin.ttf
+
   1. Implement the appropriate Handler callbacks:
 
         public class MyActivity extends Activity implements DatePickerDialogFragment.DatePickerDialogHandler {
