@@ -499,7 +499,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
                 mMonths[i].setEnabled(true);
             }
         }
-        if (date > 28) {
+        if (date > 29) {
             // Disable February
             if (mMonths[1] != null) {
                 mMonths[1].setEnabled(false);
@@ -538,12 +538,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
                 setDateKeyRange(1);
             }
         } else if (date >= 2) {
-            if (mMonthInput == 1) {
-                // Disable 9 if February
-                setDateKeyRange(8);
-            } else {
-                setDateKeyRange(9);
-            }
+            setDateKeyRange(9);
         } else if (date >= 1) {
             setDateKeyRange(9);
         } else {
