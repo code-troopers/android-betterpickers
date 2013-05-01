@@ -123,8 +123,8 @@ public class DatePickerDialogFragment extends DialogFragment {
         mSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Fragment fragment = getTargetFragment();
                 final Activity activity = getActivity();
+                final Fragment fragment = getTargetFragment();
                 if (activity instanceof DatePickerDialogHandler) {
                     final DatePickerDialogHandler act =
                             (DatePickerDialogHandler) activity;

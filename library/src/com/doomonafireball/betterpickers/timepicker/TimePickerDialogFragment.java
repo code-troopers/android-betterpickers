@@ -7,6 +7,7 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,10 +93,15 @@ public class TimePickerDialogFragment extends DialogFragment {
             @Override
             public void onClick(View view) {
                 final Activity activity = getActivity();
+                final Fragment fragment = getTargetFragment();
                 if (activity instanceof TimePickerDialogHandler) {
                     final TimePickerDialogHandler act =
                             (TimePickerDialogHandler) activity;
                     act.onDialogTimeSet(mPicker.getHours(), mPicker.getMinutes());
+                } else if (fragment instanceof TimePickerDialogHandler) {
+                    final TimePickerDialogHandler frag =
+                            (TimePickerDialogHandler) fragment;
+                    frag.onDialogTimeSet(mPicker.getHours(), mPicker.getMinutes());
                 } else {
                     //Log.e("Error! Activities that use TimePickerDialogFragment must implement "
                     //        + "TimePickerDialogHandler");

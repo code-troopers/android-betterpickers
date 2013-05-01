@@ -36,6 +36,10 @@ public class BetterPickerUtils {
         showNumberEditDialog(manager, styleResId, null, null, null, null, null);
     }
 
+    public static void showNumberEditDialog(FragmentManager manager, int styleResId, Fragment targetFragment) {
+        showNumberEditDialog(manager, styleResId, null, null, null, null, targetFragment);
+    }
+
     public static void showNumberEditDialog(FragmentManager manager, int styleResId, Integer minNumber,
             Integer maxNumber, Integer plusMinusVisibility, Integer decimalVisibility) {
         showNumberEditDialog(manager, styleResId, minNumber, maxNumber, plusMinusVisibility, decimalVisibility, null);
