@@ -7,6 +7,7 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,21 +38,23 @@ public class DatePickerDialogFragment extends DialogFragment {
     private int mDialogBackgroundResId;
 
     public static DatePickerDialogFragment newInstance(int themeResId) {
-        final DatePickerDialogFragment frag = new DatePickerDialogFragment();
-        Bundle args = new Bundle();
-        args.putInt(THEME_RES_ID_KEY, themeResId);
-        frag.setArguments(args);
-        return frag;
+        return newInstance(themeResId, null, null, null);
     }
 
-    public static DatePickerDialogFragment newInstance(int monthOfYear, int dayOfMonth, int year,
-            int themeResId) {
+    public static DatePickerDialogFragment newInstance(int themeResId, Integer monthOfYear, Integer dayOfMonth,
+            Integer year) {
         final DatePickerDialogFragment frag = new DatePickerDialogFragment();
         Bundle args = new Bundle();
-        args.putInt(MONTH_KEY, monthOfYear);
-        args.putInt(DAY_KEY, dayOfMonth);
-        args.putInt(YEAR_KEY, year);
         args.putInt(THEME_RES_ID_KEY, themeResId);
+        if (monthOfYear != null) {
+            args.putInt(MONTH_KEY, monthOfYear);
+        }
+        if (dayOfMonth != null) {
+            args.putInt(DAY_KEY, dayOfMonth);
+        }
+        if (year != null) {
+            args.putInt(YEAR_KEY, year);
+        }
         frag.setArguments(args);
         return frag;
     }
@@ -120,11 +123,16 @@ public class DatePickerDialogFragment extends DialogFragment {
         mSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final Fragment fragment = getTargetFragment();
                 final Activity activity = getActivity();
                 if (activity instanceof DatePickerDialogHandler) {
                     final DatePickerDialogHandler act =
                             (DatePickerDialogHandler) activity;
                     act.onDialogDateSet(mPicker.getYear(), mPicker.getMonthOfYear(), mPicker.getDayOfMonth());
+                } else if (fragment instanceof DatePickerDialogHandler) {
+                    final DatePickerDialogHandler frag =
+                            (DatePickerDialogHandler) fragment;
+                    frag.onDialogDateSet(mPicker.getYear(), mPicker.getMonthOfYear(), mPicker.getDayOfMonth());
                 } else {
                     //Log.e("Error! Activities that use DatePickerDialogFragment must implement "
                     //        + "DatePickerDialogHandler");

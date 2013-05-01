@@ -122,5 +122,13 @@
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
+        <activity
+                android:name=".activity.SampleDateUsingFragment"
+                android:label="Date/Using Fragment">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

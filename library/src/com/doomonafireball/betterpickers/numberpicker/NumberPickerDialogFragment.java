@@ -39,15 +39,11 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private int mDecimalVisibility = View.VISIBLE;
 
     public static NumberPickerDialogFragment newInstance(int themeResId) {
-        final NumberPickerDialogFragment frag = new NumberPickerDialogFragment();
-        Bundle args = new Bundle();
-        args.putInt(THEME_RES_ID_KEY, themeResId);
-        frag.setArguments(args);
-        return frag;
+        return newInstance(themeResId, null, null, null, null);
     }
 
     public static NumberPickerDialogFragment newInstance(int themeResId, Integer minNumber, Integer maxNumber,
-            int plusMinusVisibility, int decimalVisibility) {
+            Integer plusMinusVisibility, Integer decimalVisibility) {
         final NumberPickerDialogFragment frag = new NumberPickerDialogFragment();
         Bundle args = new Bundle();
         args.putInt(THEME_RES_ID_KEY, themeResId);
@@ -57,8 +53,12 @@ public class NumberPickerDialogFragment extends DialogFragment {
         if (maxNumber != null) {
             args.putInt(MAX_NUMBER_KEY, maxNumber);
         }
-        args.putInt(PLUS_MINUS_VISIBILITY_KEY, plusMinusVisibility);
-        args.putInt(DECIMAL_VISIBILITY_KEY, decimalVisibility);
+        if (plusMinusVisibility != null) {
+            args.putInt(PLUS_MINUS_VISIBILITY_KEY, plusMinusVisibility);
+        }
+        if (decimalVisibility != null) {
+            args.putInt(DECIMAL_VISIBILITY_KEY, decimalVisibility);
+        }
         frag.setArguments(args);
         return frag;
     }
