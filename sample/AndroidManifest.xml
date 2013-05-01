@@ -146,5 +146,37 @@
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
+        <activity
+                android:name=".activity.SampleHmsDefault"
+                android:label="HMS/Default">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activity.SampleHmsDefaultCustom"
+                android:label="HMS/Default Custom Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activity.SampleHmsDefaultLight"
+                android:label="HMS/Default Light Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activity.SampleHmsUsingFragment"
+                android:label="HMS/Using Fragment">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

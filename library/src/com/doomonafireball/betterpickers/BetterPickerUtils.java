@@ -1,6 +1,7 @@
 package com.doomonafireball.betterpickers;
 
 import com.doomonafireball.betterpickers.datepicker.DatePickerDialogFragment;
+import com.doomonafireball.betterpickers.hmspicker.HmsPickerDialogFragment;
 import com.doomonafireball.betterpickers.numberpicker.NumberPickerDialogFragment;
 import com.doomonafireball.betterpickers.timepicker.TimePickerDialogFragment;
 
@@ -86,6 +87,25 @@ public class BetterPickerUtils {
 
         final DatePickerDialogFragment fragment = DatePickerDialogFragment
                 .newInstance(styleResId, monthOfYear, dayOfMonth, year);
+        if (targetFragment != null) {
+            fragment.setTargetFragment(targetFragment, 0);
+        }
+        fragment.show(ft, "date_dialog");
+    }
+
+    public static void showHmsEditDialog(FragmentManager manager, int styleResId) {
+        showHmsEditDialog(manager, styleResId, null);
+    }
+
+    public static void showHmsEditDialog(FragmentManager manager, int styleResId, Fragment targetFragment) {
+        final FragmentTransaction ft = manager.beginTransaction();
+        final Fragment prev = manager.findFragmentByTag("hms_dialog");
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+
+        final HmsPickerDialogFragment fragment = HmsPickerDialogFragment.newInstance(styleResId);
         if (targetFragment != null) {
             fragment.setTargetFragment(targetFragment, 0);
         }

@@ -2,6 +2,7 @@
 <resources>
     <dimen name="medium_font_padding">12dp</dimen>
     <dimen name="medium_font_size">60dp</dimen>
+    <dimen name="medium_font_size_hms">54dp</dimen>
     <dimen name="medium_date_font_size">48dp</dimen>
     <dimen name="label_font_size">14sp</dimen>
     <dimen name="body_font_padding">4dp</dimen>
