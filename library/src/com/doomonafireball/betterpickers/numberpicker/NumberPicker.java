@@ -13,6 +13,7 @@ import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,7 +24,7 @@ import java.math.BigDecimal;
 public class NumberPicker extends LinearLayout implements Button.OnClickListener,
         Button.OnLongClickListener {
 
-    protected int mInputSize = 7;
+    protected int mInputSize = 20;
     protected final Button mNumbers[] = new Button[10];
     protected int mInput[] = new int[mInputSize];
     protected int mInputPointer = -1;
@@ -174,6 +175,9 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         mLabel = (TextView) findViewById(R.id.label);
         mSign = SIGN_POSITIVE;
 
+        // Set the correct label state
+        showLabel();
+
         restyleViews();
         updateKeypad();
     }
@@ -248,8 +252,6 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     }
 
     private void updateKeypad() {
-        // Set the correct label state
-        showLabel();
         // Update state of keypad
         // Update the number
         updateLeftRightButtons();

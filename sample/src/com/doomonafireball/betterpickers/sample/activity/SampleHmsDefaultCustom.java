@@ -1,6 +1,5 @@
 package com.doomonafireball.betterpickers.sample.activity;
 
-import com.doomonafireball.betterpickers.BetterPickerUtils;
 import com.doomonafireball.betterpickers.hmspicker.HmsPickerBuilder;
 import com.doomonafireball.betterpickers.hmspicker.HmsPickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;

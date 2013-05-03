@@ -1,6 +1,5 @@
 package com.doomonafireball.betterpickers.sample.activity;
 
-import com.doomonafireball.betterpickers.BetterPickerUtils;
 import com.doomonafireball.betterpickers.sample.R;
 import com.doomonafireball.betterpickers.timepicker.TimePickerBuilder;
 import com.doomonafireball.betterpickers.timepicker.TimePickerDialogFragment;

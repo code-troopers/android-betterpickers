@@ -1,6 +1,5 @@
 package com.doomonafireball.betterpickers.sample.activity;
 
-import com.doomonafireball.betterpickers.BetterPickerUtils;
 import com.doomonafireball.betterpickers.numberpicker.NumberPickerBuilder;
 import com.doomonafireball.betterpickers.numberpicker.NumberPickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
