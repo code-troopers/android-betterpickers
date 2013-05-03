@@ -12,7 +12,8 @@ import android.widget.LinearLayout;
 
 public class DateView extends LinearLayout {
 
-    private ZeroTopPaddingTextView mMonth, mDate;
+    private ZeroTopPaddingTextView mMonth;
+    private ZeroTopPaddingTextView mDate;
     private ZeroTopPaddingTextView mYearLabel;
     private final Typeface mAndroidClockMonoThin;
     private Typeface mOriginalNumberTypeface;
@@ -28,6 +29,8 @@ public class DateView extends LinearLayout {
 
         mAndroidClockMonoThin =
                 Typeface.createFromAsset(context.getAssets(), "fonts/AndroidClockMono-Thin.ttf");
+        mOriginalNumberTypeface =
+                Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-Bold.ttf");
 
         // Init defaults
         mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
@@ -63,7 +66,7 @@ public class DateView extends LinearLayout {
         mDate = (ZeroTopPaddingTextView) findViewById(R.id.date);
         mYearLabel = (ZeroTopPaddingTextView) findViewById(R.id.year_label);
         if (mMonth != null) {
-            mOriginalNumberTypeface = mMonth.getTypeface();
+            //mOriginalNumberTypeface = mMonth.getTypeface();
         }
         // Set both TextViews with thin font (for hyphen)
         if (mDate != null) {
@@ -89,7 +92,7 @@ public class DateView extends LinearLayout {
                 mMonth.setText(month);
                 mMonth.setTypeface(mOriginalNumberTypeface);
                 mMonth.setEnabled(true);
-                mMonth.updatePadding();
+                mMonth.updatePaddingForBoldDate();
             }
         }
         if (mDate != null) {

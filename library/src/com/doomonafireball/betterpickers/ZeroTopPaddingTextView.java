@@ -88,6 +88,15 @@ public class ZeroTopPaddingTextView extends TextView {
                 (int) (-bottomPaddingRatio * getTextSize()));
     }
 
+    public void updatePaddingForBoldDate() {
+        float paddingRatio = BOLD_FONT_PADDING_RATIO;
+        float bottomPaddingRatio = BOLD_FONT_BOTTOM_PADDING_RATIO;
+        // no need to scale by display density because getTextSize() already returns the font
+        // height in px
+        setPadding(0, (int) (-paddingRatio * getTextSize()), mPaddingRight,
+                (int) (-bottomPaddingRatio * getTextSize()));
+    }
+
     public void setPaddingRight(int padding) {
         mPaddingRight = padding;
         updatePadding();
