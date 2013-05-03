@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
+import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
@@ -65,6 +66,23 @@ public class DateView extends LinearLayout {
         mMonth = (ZeroTopPaddingTextView) findViewById(R.id.month);
         mDate = (ZeroTopPaddingTextView) findViewById(R.id.date);
         mYearLabel = (ZeroTopPaddingTextView) findViewById(R.id.year_label);
+        // TODO Reorder based on locale
+        char[] dateFormatOrder = DateFormat.getDateFormatOrder(getContext());
+        removeAllViews();
+        for (int i = 0; i < dateFormatOrder.length; i++) {
+            switch (dateFormatOrder[i]) {
+                case DateFormat.DATE:
+                    addView(mDate);
+                    break;
+                case DateFormat.MONTH:
+                    addView(mMonth);
+                    break;
+                case DateFormat.YEAR:
+                    addView(mYearLabel);
+                    break;
+            }
+        }
+
         if (mMonth != null) {
             //mOriginalNumberTypeface = mMonth.getTypeface();
         }
