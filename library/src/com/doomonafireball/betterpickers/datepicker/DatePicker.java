@@ -45,6 +45,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
     protected DateView mEnteredDate;
     protected String[] mMonthAbbreviations;
     protected final Context mContext;
+    private char[] mDateFormatOrder;
 
     private static final String KEYBOARD_MONTH = "month";
     private static final String KEYBOARD_DATE = "date";
@@ -69,6 +70,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
     public DatePicker(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
+        mDateFormatOrder = DateFormat.getDateFormatOrder(mContext);
         mMonthAbbreviations = mContext.getResources().getStringArray(R.array.month_abbreviations);
         LayoutInflater layoutInflater =
                 (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -182,6 +184,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
                 (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE));
         mKeyboardPager.setAdapter(mKeyboardPagerAdapter);
         mKeyboardIndicator.setViewPager(mKeyboardPager);
+        mKeyboardPager.setCurrentItem(0);
 
         mEnteredDate = (DateView) findViewById(R.id.date_text);
         mEnteredDate.setTheme(mTheme);
@@ -196,13 +199,10 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
     private class KeyboardPagerAdapter extends PagerAdapter {
 
         private LayoutInflater mInflater;
-        private char[] mDateFormatOrder;
 
         public KeyboardPagerAdapter(LayoutInflater inflater) {
             super();
             mInflater = inflater;
-            // Reorder based on locale
-            mDateFormatOrder = DateFormat.getDateFormatOrder(mContext);
         }
 
         public Object instantiateItem(ViewGroup collection, int position) {
@@ -358,32 +358,32 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
     protected void doOnClick(View v) {
         if (v == mDelete) {
             // Delete is dependent on which keyboard
-            switch (mKeyboardPager.getCurrentItem()) {
-                case 0:
+            switch (mDateFormatOrder[mKeyboardPager.getCurrentItem()]) {
+                case DateFormat.MONTH:
                     if (mMonthInput != -1) {
                         mMonthInput = -1;
                     }
                     break;
-                case 1:
+                case DateFormat.DATE:
                     if (mDateInputPointer >= 0) {
                         for (int i = 0; i < mDateInputPointer; i++) {
                             mDateInput[i] = mDateInput[i + 1];
                         }
                         mDateInput[mDateInputPointer] = 0;
                         mDateInputPointer--;
-                    } else {
-                        mKeyboardPager.setCurrentItem(0, true);
+                    } else if (mKeyboardPager.getCurrentItem() > 0) {
+                        mKeyboardPager.setCurrentItem(mKeyboardPager.getCurrentItem() - 1, true);
                     }
                     break;
-                case 2:
+                case DateFormat.YEAR:
                     if (mYearInputPointer >= 0) {
                         for (int i = 0; i < mYearInputPointer; i++) {
                             mYearInput[i] = mYearInput[i + 1];
                         }
                         mYearInput[mYearInputPointer] = 0;
                         mYearInputPointer--;
-                    } else {
-                        mKeyboardPager.setCurrentItem(1, true);
+                    } else if (mKeyboardPager.getCurrentItem() > 0) {
+                        mKeyboardPager.setCurrentItem(mKeyboardPager.getCurrentItem() - 1, true);
                     }
                     break;
             }
@@ -392,7 +392,9 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         } else if (v.getTag(R.id.date_keyboard).equals(KEYBOARD_MONTH)) {
             // A month was pressed
             mMonthInput = (Integer) v.getTag(R.id.date_month_int);
-            mKeyboardPager.setCurrentItem(1, true);
+            if (mKeyboardPager.getCurrentItem() < 2) {
+                mKeyboardPager.setCurrentItem(mKeyboardPager.getCurrentItem() + 1, true);
+            }
         } else if (v.getTag(R.id.date_keyboard).equals(KEYBOARD_DATE)) {
             // A date number was pressed
             addClickedDateNumber((Integer) v.getTag(R.id.numbers_key));
@@ -478,7 +480,9 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
             mDateInput[0] = val;
         }
         if (getDayOfMonth() >= 4 || (getMonthOfYear() == 1 && getDayOfMonth() >= 3)) {
-            mKeyboardPager.setCurrentItem(2, true);
+            if (mKeyboardPager.getCurrentItem() < 2) {
+                mKeyboardPager.setCurrentItem(mKeyboardPager.getCurrentItem() + 1, true);
+            }
         }
     }
 
@@ -490,11 +494,16 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
             mYearInputPointer++;
             mYearInput[0] = val;
         }
+        if (mKeyboardPager.getCurrentItem() < 2) {
+            mKeyboardPager.setCurrentItem(mKeyboardPager.getCurrentItem() + 1, true);
+        }
     }
 
-    // Clicking on the date right button advances to the year
+    // Clicking on the date right button advances
     private void onDateRightClicked() {
-        mKeyboardPager.setCurrentItem(2, true);
+        if (mKeyboardPager.getCurrentItem() < 2) {
+            mKeyboardPager.setCurrentItem(mKeyboardPager.getCurrentItem() + 1, true);
+        }
     }
 
     // Enable/disable keys on the month key pad according to the data entered
@@ -658,12 +667,18 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         } else if (dayOfMonth > 0) {
             mDateInputPointer = 0;
         }
-        if (monthOfYear == -1) {
-            mKeyboardPager.setCurrentItem(0, true);
-        } else if (dayOfMonth == -1) {
-            mKeyboardPager.setCurrentItem(1, true);
-        } else {
-            mKeyboardPager.setCurrentItem(2, true);
+        for (int i = 0; i < mDateFormatOrder.length; i++) {
+            char c = mDateFormatOrder[i];
+            if (c == DateFormat.MONTH && monthOfYear == -1) {
+                mKeyboardPager.setCurrentItem(i, true);
+                break;
+            } else if (c == DateFormat.DATE && dayOfMonth <= 0) {
+                mKeyboardPager.setCurrentItem(i, true);
+                break;
+            } else if (c == DateFormat.YEAR && year <= 0) {
+                mKeyboardPager.setCurrentItem(i, true);
+                break;
+            }
         }
         updateKeypad();
     }
