@@ -57,9 +57,12 @@ Usage
           }
         }  
 
-  2. Use BetterPickerUtils to create a PickerDialog with a theme:
+  2. Use one of the Builder classes to create a PickerDialog with a theme:
 
-        BetterPickerUtils.showDateEditDialog(getSupportFragmentManager(), R.style.BetterPickersDialogFragment);
+        DatePickerBuilder dpb = new DatePickerBuilder()
+            .setFragmentManager(getSupportFragmentManager())
+            .setStyleResId(R.style.BetterPickersDialogFragment);
+        dpb.show();
 
 Theming
 =======
