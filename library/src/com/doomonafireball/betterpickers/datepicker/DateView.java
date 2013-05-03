@@ -66,7 +66,7 @@ public class DateView extends LinearLayout {
         mMonth = (ZeroTopPaddingTextView) findViewById(R.id.month);
         mDate = (ZeroTopPaddingTextView) findViewById(R.id.date);
         mYearLabel = (ZeroTopPaddingTextView) findViewById(R.id.year_label);
-        // TODO Reorder based on locale
+        // Reorder based on locale
         char[] dateFormatOrder = DateFormat.getDateFormatOrder(getContext());
         removeAllViews();
         for (int i = 0; i < dateFormatOrder.length; i++) {

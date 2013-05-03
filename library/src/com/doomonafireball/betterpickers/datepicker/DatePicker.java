@@ -11,6 +11,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
@@ -195,16 +196,19 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
     private class KeyboardPagerAdapter extends PagerAdapter {
 
         private LayoutInflater mInflater;
+        private char[] mDateFormatOrder;
 
         public KeyboardPagerAdapter(LayoutInflater inflater) {
             super();
             mInflater = inflater;
+            // Reorder based on locale
+            mDateFormatOrder = DateFormat.getDateFormatOrder(mContext);
         }
 
         public Object instantiateItem(ViewGroup collection, int position) {
             View view;
             Resources res = mContext.getResources();
-            if (position == 0) {
+            if (mDateFormatOrder[position] == DateFormat.MONTH) {
                 // Months
                 view = mInflater.inflate(R.layout.keyboard_text, null);
                 View v1 = view.findViewById(R.id.first);
@@ -236,7 +240,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
                     mMonths[i].setTag(R.id.date_keyboard, KEYBOARD_MONTH);
                     mMonths[i].setTag(R.id.date_month_int, i);
                 }
-            } else if (position == 1) {
+            } else if (mDateFormatOrder[position] == DateFormat.DATE) {
                 // Date
                 view = mInflater.inflate(R.layout.keyboard_right_drawable, null);
                 View v1 = view.findViewById(R.id.first);
@@ -274,7 +278,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
                 mDateRight.setImageDrawable(res.getDrawable(mCheckDrawableSrcResId));
                 mDateRight.setBackgroundResource(mKeyBackgroundResId);
                 mDateRight.setOnClickListener(DatePicker.this);
-            } else {
+            } else if (mDateFormatOrder[position] == DateFormat.YEAR) {
                 // Year
                 view = mInflater.inflate(R.layout.keyboard, null);
                 View v1 = view.findViewById(R.id.first);
@@ -310,6 +314,8 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
                     mYearNumbers[i].setTag(R.id.date_keyboard, KEYBOARD_YEAR);
                     mYearNumbers[i].setTag(R.id.numbers_key, i);
                 }
+            } else {
+                view = new View(mContext);
             }
             setLeftRightEnabled();
             updateDate();
