@@ -42,6 +42,14 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
             <com.doomonafireball.betterpickers.ZeroTopPaddingTextView
+                    android:id="@+id/label"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:ellipsize="none"
+                    style="@style/label"
+                    android:gravity="top"/>
+            <com.doomonafireball.betterpickers.ZeroTopPaddingTextView
                     android:id="@+id/minus_label"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"

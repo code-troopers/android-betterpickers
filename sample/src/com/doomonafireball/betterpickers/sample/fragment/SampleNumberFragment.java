@@ -1,7 +1,7 @@
 package com.doomonafireball.betterpickers.sample.fragment;
 
 import com.actionbarsherlock.app.SherlockFragment;
-import com.doomonafireball.betterpickers.BetterPickerUtils;
+import com.doomonafireball.betterpickers.numberpicker.NumberPickerBuilder;
 import com.doomonafireball.betterpickers.numberpicker.NumberPickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
 
@@ -33,9 +33,11 @@ public class SampleNumberFragment extends SherlockFragment
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BetterPickerUtils
-                        .showNumberEditDialog(getChildFragmentManager(), R.style.BetterPickersDialogFragment,
-                                SampleNumberFragment.this);
+                NumberPickerBuilder npb = new NumberPickerBuilder()
+                        .setFragmentManager(getChildFragmentManager())
+                        .setStyleResId(R.style.BetterPickersDialogFragment)
+                        .setTargetFragment(SampleNumberFragment.this);
+                npb.show();
             }
         });
 

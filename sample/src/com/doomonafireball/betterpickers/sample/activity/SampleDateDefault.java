@@ -1,6 +1,6 @@
 package com.doomonafireball.betterpickers.sample.activity;
 
-import com.doomonafireball.betterpickers.BetterPickerUtils;
+import com.doomonafireball.betterpickers.datepicker.DatePickerBuilder;
 import com.doomonafireball.betterpickers.datepicker.DatePickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
 
@@ -30,7 +30,10 @@ public class SampleDateDefault extends BaseSampleActivity implements DatePickerD
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BetterPickerUtils.showDateEditDialog(getSupportFragmentManager(), R.style.BetterPickersDialogFragment);
+                DatePickerBuilder dpb = new DatePickerBuilder()
+                        .setFragmentManager(getSupportFragmentManager())
+                        .setStyleResId(R.style.BetterPickersDialogFragment);
+                dpb.show();
             }
         });
     }

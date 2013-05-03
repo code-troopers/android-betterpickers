@@ -23,6 +23,7 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private static final String MAX_NUMBER_KEY = "NumberPickerDialogFragment_MaxNumberKey";
     private static final String PLUS_MINUS_VISIBILITY_KEY = "NumberPickerDialogFragment_PlusMinusVisibilityKey";
     private static final String DECIMAL_VISIBILITY_KEY = "NumberPickerDialogFragment_DecimalVisibilityKey";
+    private static final String LABEL_TEXT_KEY = "NumberPickerDialogFragment_LabelTextKey";
 
     private Button mSet, mCancel;
     private NumberPicker mPicker;
@@ -31,6 +32,7 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private int mTheme = -1;
     private int mDividerColor;
     private ColorStateList mTextColor;
+    private String mLabelText = "";
     private int mButtonBackgroundResId;
     private int mDialogBackgroundResId;
 
@@ -40,11 +42,11 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private int mDecimalVisibility = View.VISIBLE;
 
     public static NumberPickerDialogFragment newInstance(int themeResId) {
-        return newInstance(themeResId, null, null, null, null);
+        return newInstance(themeResId, null, null, null, null, null);
     }
 
     public static NumberPickerDialogFragment newInstance(int themeResId, Integer minNumber, Integer maxNumber,
-            Integer plusMinusVisibility, Integer decimalVisibility) {
+            Integer plusMinusVisibility, Integer decimalVisibility, String labelText) {
         final NumberPickerDialogFragment frag = new NumberPickerDialogFragment();
         Bundle args = new Bundle();
         args.putInt(THEME_RES_ID_KEY, themeResId);
@@ -59,6 +61,9 @@ public class NumberPickerDialogFragment extends DialogFragment {
         }
         if (decimalVisibility != null) {
             args.putInt(DECIMAL_VISIBILITY_KEY, decimalVisibility);
+        }
+        if (labelText != null) {
+            args.putString(LABEL_TEXT_KEY, labelText);
         }
         frag.setArguments(args);
         return frag;
@@ -88,6 +93,9 @@ public class NumberPickerDialogFragment extends DialogFragment {
         }
         if (args != null && args.containsKey(MAX_NUMBER_KEY)) {
             mMaxNumber = args.getInt(MAX_NUMBER_KEY);
+        }
+        if (args != null && args.containsKey(LABEL_TEXT_KEY)) {
+            mLabelText = args.getString(LABEL_TEXT_KEY);
         }
 
         setStyle(DialogFragment.STYLE_NO_TITLE, 0);
@@ -161,6 +169,7 @@ public class NumberPickerDialogFragment extends DialogFragment {
 
         mPicker.setDecimalVisibility(mDecimalVisibility);
         mPicker.setPlusMinusVisibility(mPlusMinusVisibility);
+        mPicker.setLabelText(mLabelText);
         if (mMinNumber != null) {
             mPicker.setMin(mMinNumber);
         }

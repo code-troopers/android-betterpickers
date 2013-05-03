@@ -2,6 +2,7 @@ package com.doomonafireball.betterpickers.sample.activity;
 
 import com.doomonafireball.betterpickers.BetterPickerUtils;
 import com.doomonafireball.betterpickers.sample.R;
+import com.doomonafireball.betterpickers.timepicker.TimePickerBuilder;
 import com.doomonafireball.betterpickers.timepicker.TimePickerDialogFragment;
 
 import android.os.Bundle;
@@ -31,8 +32,10 @@ public class SampleTimeDefaultLight extends BaseSampleActivity
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BetterPickerUtils.showTimeEditDialog(getSupportFragmentManager(),
-                        R.style.BetterPickersDialogFragment_Light);
+                TimePickerBuilder tpb = new TimePickerBuilder()
+                        .setFragmentManager(getSupportFragmentManager())
+                        .setStyleResId(R.style.BetterPickersDialogFragment_Light);
+                tpb.show();
             }
         });
     }

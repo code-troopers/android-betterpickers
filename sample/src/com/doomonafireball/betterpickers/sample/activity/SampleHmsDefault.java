@@ -1,6 +1,6 @@
 package com.doomonafireball.betterpickers.sample.activity;
 
-import com.doomonafireball.betterpickers.BetterPickerUtils;
+import com.doomonafireball.betterpickers.hmspicker.HmsPickerBuilder;
 import com.doomonafireball.betterpickers.hmspicker.HmsPickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
 
@@ -30,7 +30,10 @@ public class SampleHmsDefault extends BaseSampleActivity implements HmsPickerDia
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BetterPickerUtils.showHmsEditDialog(getSupportFragmentManager(), R.style.BetterPickersDialogFragment);
+                HmsPickerBuilder hpb = new HmsPickerBuilder()
+                        .setFragmentManager(getSupportFragmentManager())
+                        .setStyleResId(R.style.BetterPickersDialogFragment);
+                hpb.show();
             }
         });
     }

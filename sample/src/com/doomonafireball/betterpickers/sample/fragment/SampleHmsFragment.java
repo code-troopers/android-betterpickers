@@ -1,7 +1,7 @@
 package com.doomonafireball.betterpickers.sample.fragment;
 
 import com.actionbarsherlock.app.SherlockFragment;
-import com.doomonafireball.betterpickers.BetterPickerUtils;
+import com.doomonafireball.betterpickers.hmspicker.HmsPickerBuilder;
 import com.doomonafireball.betterpickers.hmspicker.HmsPickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
 
@@ -33,9 +33,11 @@ public class SampleHmsFragment extends SherlockFragment
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BetterPickerUtils
-                        .showHmsEditDialog(getChildFragmentManager(), R.style.BetterPickersDialogFragment,
-                                SampleHmsFragment.this);
+                HmsPickerBuilder hpb = new HmsPickerBuilder()
+                        .setFragmentManager(getChildFragmentManager())
+                        .setStyleResId(R.style.BetterPickersDialogFragment)
+                        .setTargetFragment(SampleHmsFragment.this);
+                hpb.show();
             }
         });
 

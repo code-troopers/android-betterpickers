@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.math.BigDecimal;
 
@@ -31,7 +32,9 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     protected NumberView mEnteredNumber;
     protected final Context mContext;
 
+    private TextView mLabel;
     private int mSign;
+    private String mLabelText = "";
     private Button mSetButton;
     private static final int CLICKED_DECIMAL = 10;
 
@@ -115,6 +118,9 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         if (mEnteredNumber != null) {
             mEnteredNumber.setTheme(mTheme);
         }
+        if (mLabel != null) {
+            mLabel.setTextColor(mTextColor);
+        }
     }
 
     @Override
@@ -165,6 +171,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         mRight.setText(res.getString(R.string.number_picker_seperator));
         mLeft.setOnClickListener(this);
         mRight.setOnClickListener(this);
+        mLabel = (TextView) findViewById(R.id.label);
         mSign = SIGN_POSITIVE;
 
         restyleViews();
@@ -241,6 +248,8 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     }
 
     private void updateKeypad() {
+        // Set the correct label state
+        showLabel();
         // Update state of keypad
         // Update the number
         updateLeftRightButtons();
@@ -249,6 +258,17 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         enableSetButton();
         // Update the backspace button
         updateDeleteButton();
+    }
+
+    public void setLabelText(String labelText) {
+        mLabelText = labelText;
+        showLabel();
+    }
+
+    private void showLabel() {
+        if (mLabel != null) {
+            mLabel.setText(mLabelText);
+        }
     }
 
     public void reset() {

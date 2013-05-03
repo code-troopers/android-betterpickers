@@ -1,8 +1,8 @@
 package com.doomonafireball.betterpickers.sample.fragment;
 
 import com.actionbarsherlock.app.SherlockFragment;
-import com.doomonafireball.betterpickers.BetterPickerUtils;
 import com.doomonafireball.betterpickers.sample.R;
+import com.doomonafireball.betterpickers.timepicker.TimePickerBuilder;
 import com.doomonafireball.betterpickers.timepicker.TimePickerDialogFragment;
 
 import android.os.Bundle;
@@ -33,9 +33,11 @@ public class SampleTimeFragment extends SherlockFragment
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BetterPickerUtils
-                        .showTimeEditDialog(getChildFragmentManager(), R.style.BetterPickersDialogFragment,
-                                SampleTimeFragment.this);
+                TimePickerBuilder tpb = new TimePickerBuilder()
+                        .setFragmentManager(getChildFragmentManager())
+                        .setStyleResId(R.style.BetterPickersDialogFragment)
+                        .setTargetFragment(SampleTimeFragment.this);
+                tpb.show();
             }
         });
 

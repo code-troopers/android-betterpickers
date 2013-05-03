@@ -1,6 +1,7 @@
 package com.doomonafireball.betterpickers.sample.activity;
 
 import com.doomonafireball.betterpickers.BetterPickerUtils;
+import com.doomonafireball.betterpickers.numberpicker.NumberPickerBuilder;
 import com.doomonafireball.betterpickers.numberpicker.NumberPickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
 
@@ -31,8 +32,10 @@ public class SampleNumberDefault extends BaseSampleActivity
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BetterPickerUtils
-                        .showNumberEditDialog(getSupportFragmentManager(), R.style.BetterPickersDialogFragment);
+                NumberPickerBuilder npb = new NumberPickerBuilder()
+                        .setFragmentManager(getSupportFragmentManager())
+                        .setStyleResId(R.style.BetterPickersDialogFragment);
+                npb.show();
             }
         });
     }
