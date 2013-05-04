@@ -13,13 +13,11 @@ import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
-
 
 public class NumberPicker extends LinearLayout implements Button.OnClickListener,
         Button.OnLongClickListener {
