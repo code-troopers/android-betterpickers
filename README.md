@@ -9,6 +9,23 @@ Try out the sample application on [Google Play][6].
          src="http://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
 </a>
 
+Changelog
+=========
+
+**1.2.0**
+
+* Removed some unused fonts from sample/ project
+* Refactor to Builder pattern
+* Fix for Gingerbread font in DatePicker
+* Added optional label text to NumberPicker
+* DatePicker reorders text and keyboards based on locale
+* NumberPicker scrolls horizontally to allow for more numbers
+
+**1.1.0**
+
+* Added HMS (hours:minutes:seconds) PickerFragment
+* Allow for PickerFragments within target fragments
+* Allow for February 29th input
 
 Including in Your Project
 =========================
@@ -93,7 +110,7 @@ You can use your own themes if you'd like to change certain attributes.  BetterP
             <item name="bpKeyboardIndicatorColor">@color/custom_keyboard_indicator_color</item>
         </style>
         
-  2. Instanstiate your `DialogFragment` using your custom theme:
+  2. Instantiate your `DialogFragment` using your custom theme:
 
         BetterPickerUtils.showNumberEditDialog(getSupportFragmentManager(), R.style.MyCustomBetterPickerTheme);
 
