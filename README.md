@@ -112,7 +112,10 @@ You can use your own themes if you'd like to change certain attributes.  BetterP
         
   2. Instantiate your `DialogFragment` using your custom theme:
 
-        BetterPickerUtils.showNumberEditDialog(getSupportFragmentManager(), R.style.MyCustomBetterPickerTheme);
+        DatePickerBuilder dpb = new DatePickerBuilder()
+            .setFragmentManager(getSupportFragmentManager())
+            .setStyleResId(R.style.MyCustomBetterPickerTheme);
+        dpb.show();
 
 Contribution
 ============
