@@ -1,53 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="medium_bold">
         <item name="android:textSize">@dimen/medium_font_size</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">sans-serif</item>
     </style>
+
     <style name="medium_bold_hms" parent="medium_bold">
         <item name="android:textSize">@dimen/medium_font_size_hms</item>
     </style>
+
     <style name="medium_light">
         <item name="android:textSize">@dimen/medium_font_size</item>
-        <item name="android:fontFamily">sans-serif-light</item>
     </style>
+
     <style name="medium_light_hms" parent="medium_light">
         <item name="android:textSize">@dimen/medium_font_size_hms</item>
     </style>
+
     <style name="medium_bold_date" parent="@style/medium_bold">
         <item name="android:textSize">@dimen/medium_date_font_size</item>
     </style>
+
     <style name="medium_light_date" parent="@style/medium_bold">
         <item name="android:textSize">@dimen/medium_date_font_size</item>
     </style>
+
     <style name="label">
         <item name="android:textSize">@dimen/label_font_size</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
+
     <style name="dialpad">
         <item name="android:textSize">@dimen/dialpad_font_size</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:fontFamily">sans-serif-light</item>
     </style>
+
     <style name="dialpad_text" parent="dialpad">
         <item name="android:textSize">@dimen/dialpad_font_size_ampm</item>
     </style>
+
     <style name="dialog_button">
         <item name="android:textSize">@dimen/dialog_button_font_size</item>
-        <item name="android:fontFamily">sans-serif</item>
         <item name="android:minHeight">48dp</item>
     </style>
+
     <style name="tablet_dialpad">
         <item name="android:textSize">@dimen/tablet_dialpad_font_size</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
+
     <style name="tablet_dialpad_text">
         <item name="android:textSize">@dimen/tablet_dialpad_font_size_ampm</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
+
 </resources>

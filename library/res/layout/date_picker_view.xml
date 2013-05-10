@@ -54,11 +54,11 @@
                 android:layout_height="match_parent"/>
     </LinearLayout>
     <View
-            android:id="@+id/divider"
+            android:id="@+id/dividerDate"
             android:layout_width="match_parent"
             android:layout_height="1dip"
             android:background="@color/default_divider_color_dark"/>
-    <com.viewpagerindicator.UnderlinePageIndicator
+    <com.doomonafireball.betterpickers.UnderlinePageIndicatorPicker
             android:id="@+id/keyboard_indicator"
             android:layout_width="match_parent"
             android:layout_height="2dip"/>

@@ -1,4 +1,4 @@
-package com.doomonafireball.betterpickers.datepicker;
+package com.doomonafireball.betterpickers.timesliderpicker;
 
 import java.util.Calendar;
 
@@ -10,44 +10,30 @@ import android.util.Log;
 /**
  * User: derek Date: 5/2/13 Time: 7:55 PM
  */
-public class DatePickerBuilder {
+public class TimeSliderPickerBuilder {
 
 	private FragmentManager manager; // Required
 	private Integer styleResId; // Required
 	private Fragment targetFragment;
-	private Integer monthOfYear = null;
-	private Integer dayOfMonth = null;
-	private Integer year = null;
-	
-	private DatePickerDialogFragment fragment = null;
+	private Calendar mCal = null;
 
-	public DatePickerBuilder setFragmentManager(FragmentManager manager) {
+	public TimeSliderPickerBuilder setFragmentManager(FragmentManager manager) {
 		this.manager = manager;
 		return this;
 	}
 
-	public DatePickerBuilder setStyleResId(int styleResId) {
+	public TimeSliderPickerBuilder setStyleResId(int styleResId) {
 		this.styleResId = styleResId;
 		return this;
 	}
 
-	public DatePickerBuilder setTargetFragment(Fragment targetFragment) {
+	public TimeSliderPickerBuilder setTargetFragment(Fragment targetFragment) {
 		this.targetFragment = targetFragment;
 		return this;
 	}
 
-	public DatePickerBuilder setMonthOfYear(int monthOfYear) {
-		this.monthOfYear = monthOfYear;
-		return this;
-	}
-
-	public DatePickerBuilder setDayOfMonth(int dayOfMonth) {
-		this.dayOfMonth = dayOfMonth;
-		return this;
-	}
-
-	public DatePickerBuilder setYear(int year) {
-		this.year = year;
+	public TimeSliderPickerBuilder setCalendar(Calendar cal) {
+		this.mCal = cal;
 		return this;
 	}
 
@@ -63,10 +49,11 @@ public class DatePickerBuilder {
 		}
 		ft.addToBackStack(null);
 
-		if (monthOfYear != null && dayOfMonth != null && year != null) {
-			fragment = DatePickerDialogFragment.newInstance(styleResId, monthOfYear, dayOfMonth, year);
+		final TimeSliderPickerDialogFragment fragment;
+		if (mCal != null) {
+			fragment = TimeSliderPickerDialogFragment.newInstance(styleResId, mCal);
 		} else {
-			fragment = DatePickerDialogFragment.newInstance(styleResId, Calendar.getInstance());
+			fragment = TimeSliderPickerDialogFragment.newInstance(styleResId, Calendar.getInstance());
 		}
 		if (targetFragment != null) {
 			fragment.setTargetFragment(targetFragment, 0);

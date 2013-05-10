@@ -6,7 +6,7 @@
         android:versionName="1.2.0">
 
     <uses-sdk
-            android:minSdkVersion="9"
+            android:minSdkVersion="10"
             android:targetSdkVersion="17"/>
 
     <application
@@ -173,6 +173,39 @@
         <activity
                 android:name=".activity.SampleHmsUsingFragment"
                 android:label="HMS/Using Fragment">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+       <activity
+                android:name=".activity.SampleTimeSliderDefault"
+                android:label="TimeSlider/Default"
+                android:theme="@style/Theme.Sherlock">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activity.SampleTimeSliderDefaultLight"
+                android:label="TimeSlider/Default Light Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activity.SampleTimeSliderDefaultCustom"
+                android:label="TimeSlider/Default Custom Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activity.SampleTimeSliderUsingFragment"
+                android:label="TimeSlider/Using Fragment">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>

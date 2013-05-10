@@ -1,4 +1,4 @@
-package com.doomonafireball.betterpickers.datepicker;
+package com.doomonafireball.betterpickers.timesliderpicker;
 
 import java.util.Calendar;
 
@@ -15,23 +15,22 @@ import android.widget.Button;
 
 import com.doomonafireball.betterpickers.R;
 
-
 /**
  * Dialog to set alarm time.
  */
-public class DatePickerDialogFragment extends DialogFragment {
+public class TimeSliderPickerDialogFragment extends DialogFragment {
 
-	private static final String MONTH_KEY = "DatePickerDialogFragment_MonthKey";
-	private static final String DAY_KEY = "DatePickerDialogFragment_DayKey";
-	private static final String YEAR_KEY = "DatePickerDialogFragment_YearKey";
+	private static final String HOUR_KEY = "DatePickerDialogFragment_HourKey";
+	private static final String MIN_KEY = "DatePickerDialogFragment_MinKey";
+	private static final String AMPM_KEY = "DatePickerDialogFragment_AMPMKey";
 	private static final String THEME_RES_ID_KEY = "DatePickerDialogFragment_ThemeResIdKey";
 
 	private Button mSet, mCancel;
-	private DatePicker mPicker;
+	private TimeSliderPicker mPicker;
 
-	private int mMonthOfYear = -1;
-	private int mDayOfMonth = 0;
-	private int mYear = 0;
+	private int mHour = -1;
+	private int mMin = -1;
+	private int mAMPM = -1;
 
 	private int mTheme = -1;
 	private View mDividerOne, mDividerTwo;
@@ -40,26 +39,26 @@ public class DatePickerDialogFragment extends DialogFragment {
 	private int mButtonBackgroundResId;
 	private int mDialogBackgroundResId;
 
-	public static DatePickerDialogFragment newInstance(int themeResId) {
+	public static TimeSliderPickerDialogFragment newInstance(int themeResId) {
 		return newInstance(themeResId, -1, -1, -1);
 	}
 
-	public static DatePickerDialogFragment newInstance(int themeResId, Calendar mCal) {
-		return newInstance(themeResId, mCal.get(Calendar.MONTH), mCal.get(Calendar.DAY_OF_MONTH), mCal.get(Calendar.YEAR));
+	public static TimeSliderPickerDialogFragment newInstance(int themeResId, Calendar mCal) {
+		return newInstance(themeResId, mCal.get(Calendar.HOUR), mCal.get(Calendar.MINUTE), mCal.get(Calendar.AM_PM));
 	}
 
-	public static DatePickerDialogFragment newInstance(int themeResId, int monthOfYear, int dayOfMonth, int year) {
-		final DatePickerDialogFragment frag = new DatePickerDialogFragment();
+	public static TimeSliderPickerDialogFragment newInstance(int themeResId, int hour, int min, int ampm) {
+		final TimeSliderPickerDialogFragment frag = new TimeSliderPickerDialogFragment();
 		Bundle args = new Bundle();
 		args.putInt(THEME_RES_ID_KEY, themeResId);
-		if (monthOfYear > -1) {
-			args.putInt(MONTH_KEY, monthOfYear);
+		if (hour > -1) {
+			args.putInt(HOUR_KEY, hour);
 		}
-		if (dayOfMonth > -1) {
-			args.putInt(DAY_KEY, dayOfMonth);
+		if (min > -1) {
+			args.putInt(MIN_KEY, min);
 		}
-		if (year > -1) {
-			args.putInt(YEAR_KEY, year);
+		if (ampm > -1) {
+			args.putInt(AMPM_KEY, ampm);
 		}
 		frag.setArguments(args);
 		return frag;
@@ -75,14 +74,14 @@ public class DatePickerDialogFragment extends DialogFragment {
 		super.onCreate(savedInstanceState);
 
 		Bundle args = getArguments();
-		if (args != null && args.containsKey(MONTH_KEY)) {
-			mMonthOfYear = args.getInt(MONTH_KEY);
+		if (args != null && args.containsKey(HOUR_KEY)) {
+			mHour = args.getInt(HOUR_KEY);
 		}
-		if (args != null && args.containsKey(DAY_KEY)) {
-			mDayOfMonth = args.getInt(DAY_KEY);
+		if (args != null && args.containsKey(MIN_KEY)) {
+			mMin = args.getInt(MIN_KEY);
 		}
-		if (args != null && args.containsKey(YEAR_KEY)) {
-			mYear = args.getInt(YEAR_KEY);
+		if (args != null && args.containsKey(AMPM_KEY)) {
+			mAMPM = args.getInt(AMPM_KEY);
 		}
 		if (args != null && args.containsKey(THEME_RES_ID_KEY)) {
 			mTheme = args.getInt(THEME_RES_ID_KEY);
@@ -110,7 +109,7 @@ public class DatePickerDialogFragment extends DialogFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-		View v = inflater.inflate(R.layout.date_picker_dialog, null);
+		View v = inflater.inflate(R.layout.time_slider_picker_dialog, null);
 		mSet = (Button) v.findViewById(R.id.set_button);
 		mCancel = (Button) v.findViewById(R.id.cancel_button);
 		mCancel.setOnClickListener(new View.OnClickListener() {
@@ -119,20 +118,20 @@ public class DatePickerDialogFragment extends DialogFragment {
 				dismiss();
 			}
 		});
-		mPicker = (DatePicker) v.findViewById(R.id.date_picker);
+		mPicker = (TimeSliderPicker) v.findViewById(R.id.time_picker);
 		mPicker.setSetButton(mSet);
-		mPicker.setDate(mYear, mMonthOfYear, mDayOfMonth);
+		mPicker.setDate(mHour, mMin, mAMPM);
 		mSet.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 				final Activity activity = getActivity();
 				final Fragment fragment = getTargetFragment();
-				if (activity instanceof DatePickerDialogHandler) {
-					final DatePickerDialogHandler act = (DatePickerDialogHandler) activity;
-					act.onDialogDateSet(mPicker.getYear(), mPicker.getMonthOfYear(), mPicker.getDayOfMonth());
-				} else if (fragment instanceof DatePickerDialogHandler) {
-					final DatePickerDialogHandler frag = (DatePickerDialogHandler) fragment;
-					frag.onDialogDateSet(mPicker.getYear(), mPicker.getMonthOfYear(), mPicker.getDayOfMonth());
+				if (activity instanceof TimeSliderPickerDialogHandler) {
+					final TimeSliderPickerDialogHandler act = (TimeSliderPickerDialogHandler) activity;
+					act.onDialogTimeSet(mPicker.getHour24h(), mPicker.getHour12h(), mPicker.getMinute(), mPicker.getAMPM());
+				} else if (fragment instanceof TimeSliderPickerDialogHandler) {
+					final TimeSliderPickerDialogHandler frag = (TimeSliderPickerDialogHandler) fragment;
+					frag.onDialogTimeSet(mPicker.getHour24h(), mPicker.getHour12h(), mPicker.getMinute(), mPicker.getAMPM());
 				} else {
 					// Log.e("Error! Activities that use DatePickerDialogFragment must implement "
 					// + "DatePickerDialogHandler");
@@ -155,8 +154,8 @@ public class DatePickerDialogFragment extends DialogFragment {
 		return v;
 	}
 
-	public interface DatePickerDialogHandler {
+	public interface TimeSliderPickerDialogHandler {
 
-		void onDialogDateSet(int year, int monthOfYear, int dayOfMonth);
+		void onDialogTimeSet(int hour24H, int hour12H, int min, String ampm);
 	}
 }
