@@ -577,7 +577,7 @@ public class TimeSliderPicker extends LinearLayout implements Button.OnClickList
 	}
 
 	private void addClickedMinuteNumber(int val) {
-		if (mMinuteInputPointer < mMinuteInputSize - 1 && mMinuteInput[0] < 6) {
+		if (mMinuteInputPointer < mMinuteInputSize - 1 && mMinuteInput[0] < 6 && mMinuteInput[0] > 0) {
 			for (int i = mMinuteInputPointer; i >= 0; i--) {
 				mMinuteInput[i + 1] = mMinuteInput[i];
 			}

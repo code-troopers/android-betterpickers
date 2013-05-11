@@ -34,7 +34,7 @@ public class TimeSliderView extends PickerLinearLayout {
 
 	public TimeSliderView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		
+
 		mIs24HoursMode = get24HourMode(context);
 
 		mAndroidClockMonoThin = Typeface.createFromAsset(context.getAssets(), "fonts/AndroidClockMono-Thin.ttf");
@@ -120,29 +120,32 @@ public class TimeSliderView extends PickerLinearLayout {
 				mHour.updatePaddingForBoldDate();
 			}
 		}
-		
-		
+
 		if (mMinute != null) {
 			if (min < 0) {
 				mMinute.setText("-");
 				mMinute.updatePadding();
 			} else {
-				mMinute.setText(Integer.toString(min));
+				if (min > 9) {
+					mMinute.setText(Integer.toString(min));
+				} else {
+					mMinute.setText("0"+Integer.toString(min));
+				}
 				mMinute.updatePadding();
 			}
 		}
-		
+
 		if (mDivider != null) {
-			
+
 			if (mMinute != null && mHour != null && mMinute.getText().equals("-") && mHour.getText().equals("-")) {
 				mDivider.setTypeface(mAndroidClockMonoThin);
 			} else {
 				mDivider.setTypeface(mOriginalNumberTypeface);
 			}
-			
+
 			mDivider.updatePadding();
 		}
-		
+
 		if (mAMPMLabel != null) {
 			if (AMPM < 0) {
 				mAMPMLabel.setText("--");

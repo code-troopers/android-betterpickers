@@ -49,6 +49,10 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener, 
 	private static final String KEYBOARD_MONTH = "month";
 	private static final String KEYBOARD_DATE = "date";
 	private static final String KEYBOARD_YEAR = "year";
+	
+	private static int POSITION_KEYBOARD_MONTH = -1;
+	private static int POSITION_KEYBOARD_DATE = -1;
+	private static int POSITION_KEYBOARD_YEAR = -1;
 
 	private Button mSetButton;
 
@@ -200,6 +204,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener, 
 			Resources res = mContext.getResources();
 			if (mDateFormatOrder[position] == DateFormat.MONTH) {
 				// Months
+				POSITION_KEYBOARD_MONTH = position;
 				view = mInflater.inflate(R.layout.keyboard_text, null);
 				View v1 = view.findViewById(R.id.first);
 				View v2 = view.findViewById(R.id.second);
@@ -232,6 +237,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener, 
 				}
 			} else if (mDateFormatOrder[position] == DateFormat.DATE) {
 				// Date
+				POSITION_KEYBOARD_DATE = position;
 				view = mInflater.inflate(R.layout.keyboard_left_right_text, null);
 				View v1 = view.findViewById(R.id.first);
 				View v2 = view.findViewById(R.id.second);
@@ -275,6 +281,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener, 
 
 			} else if (mDateFormatOrder[position] == DateFormat.YEAR) {
 				// Year
+				POSITION_KEYBOARD_YEAR = position;
 				view = mInflater.inflate(R.layout.keyboard_left_right_text, null);
 				View v1 = view.findViewById(R.id.first);
 				View v2 = view.findViewById(R.id.second);
@@ -450,11 +457,11 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener, 
 				setDayOfMonth(getDayOfMonth() - 1);
 			}
 		} else if (v == mEnteredDate.getDate()) {
-			mKeyboardPager.setCurrentItem(1);
+			mKeyboardPager.setCurrentItem(POSITION_KEYBOARD_DATE);
 		} else if (v == mEnteredDate.getMonth()) {
-			mKeyboardPager.setCurrentItem(0);
+			mKeyboardPager.setCurrentItem(POSITION_KEYBOARD_MONTH);
 		} else if (v == mEnteredDate.getYear()) {
-			mKeyboardPager.setCurrentItem(2);
+			mKeyboardPager.setCurrentItem(POSITION_KEYBOARD_YEAR);
 		} else if (v.getTag(R.id.date_keyboard).equals(KEYBOARD_MONTH)) {
 			// A month was pressed
 			mMonthInput = (Integer) v.getTag(R.id.date_month_int);
@@ -627,7 +634,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener, 
 		} else if (date >= 3) {
 			if (mMonthInput == 1) {
 				// February
-				setDateKeyRange(-1);
+				setDateMinKeyRange(1);
 			} else if (mMonthInput == 3 || mMonthInput == 5 || mMonthInput == 8 || mMonthInput == 10) {
 				// April, June, September, Novemeber have 30 days
 				setDateKeyRange(0);
