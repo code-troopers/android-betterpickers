@@ -15,37 +15,37 @@ import android.widget.TextView;
 /**
  * User: derek Date: 4/30/13 Time: 7:43 PM
  */
-public class SampleHmsFragment extends SherlockFragment
-        implements HmsPickerDialogFragment.HmsPickerDialogHandler {
+public class SampleHmsFragment extends SherlockFragment implements HmsPickerDialogFragment.HmsPickerDialogHandler {
 
-    private TextView text;
-    private Button button;
+	private TextView text;
+	private Button button;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.text_and_button, container, false);
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.text_and_button, container, false);
 
-        text = (TextView) view.findViewById(R.id.text);
-        button = (Button) view.findViewById(R.id.button);
+		text = (TextView) view.findViewById(R.id.text);
+		button = (Button) view.findViewById(R.id.button);
 
-        text.setText("--");
-        button.setText("Set Number");
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HmsPickerBuilder hpb = new HmsPickerBuilder()
-                        .setFragmentManager(getChildFragmentManager())
-                        .setStyleResId(R.style.BetterPickersDialogFragment)
-                        .setTargetFragment(SampleHmsFragment.this);
-                hpb.show();
-            }
-        });
+		text.setText("--");
+		button.setText("Set Number");
+		button.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				HmsPickerBuilder hpb = new HmsPickerBuilder()
+									.setFragmentManager(getFragmentManager())
+									.setReference(1)
+									.setStyleResId(R.style.BetterPickersDialogFragment)
+									.setTargetFragment(SampleHmsFragment.this);
+				hpb.show();
+			}
+		});
 
-        return view;
-    }
+		return view;
+	}
 
-    @Override
-    public void onDialogHmsSet(int hours, int minutes, int seconds) {
-        text.setText("" + hours + ":" + minutes + ":" + seconds);
-    }
+	@Override
+	public void onDialogHmsSet(int reference, int hours, int minutes, int seconds) {
+		text.setText("" + hours + ":" + minutes + ":" + seconds);
+	}
 }

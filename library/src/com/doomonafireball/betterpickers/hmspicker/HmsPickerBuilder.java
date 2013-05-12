@@ -13,6 +13,7 @@ public class HmsPickerBuilder {
     private FragmentManager manager; // Required
     private Integer styleResId; // Required
     private Fragment targetFragment;
+    private int mRef = -1;
 
     public HmsPickerBuilder setFragmentManager(FragmentManager manager) {
         this.manager = manager;
@@ -29,6 +30,11 @@ public class HmsPickerBuilder {
         return this;
     }
 
+    public HmsPickerBuilder setReference(int reference) {
+    	this.mRef = reference;
+    	return this;
+    }
+
     public void show() {
         if (manager == null || styleResId == null) {
             Log.e("HmsPickerBuilder", "setFragmentManager() and setStyleResId() must be called.");
@@ -41,7 +47,7 @@ public class HmsPickerBuilder {
         }
         ft.addToBackStack(null);
 
-        final HmsPickerDialogFragment fragment = HmsPickerDialogFragment.newInstance(styleResId);
+        final HmsPickerDialogFragment fragment = HmsPickerDialogFragment.newInstance(mRef, styleResId);
         if (targetFragment != null) {
             fragment.setTargetFragment(targetFragment, 0);
         }

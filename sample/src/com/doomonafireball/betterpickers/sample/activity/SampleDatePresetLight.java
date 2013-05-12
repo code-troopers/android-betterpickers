@@ -57,6 +57,7 @@ public class SampleDatePresetLight extends BaseSampleActivity
                 DatePickerBuilder dpb = new DatePickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment_Light)
+                        .setReference(1)
                         .setMonthOfYear(m)
                         .setDayOfMonth(d)
                         .setYear(y);
@@ -66,7 +67,7 @@ public class SampleDatePresetLight extends BaseSampleActivity
     }
 
     @Override
-    public void onDialogDateSet(int year, int monthOfYear, int dayOfMonth) {
+    public void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth) {
         text.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
     }
 }

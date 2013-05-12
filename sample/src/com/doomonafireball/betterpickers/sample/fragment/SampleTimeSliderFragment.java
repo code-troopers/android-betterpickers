@@ -4,6 +4,9 @@ import com.actionbarsherlock.app.SherlockFragment;
 import com.doomonafireball.betterpickers.sample.R;
 import com.doomonafireball.betterpickers.timepicker.TimePickerBuilder;
 import com.doomonafireball.betterpickers.timepicker.TimePickerDialogFragment;
+import com.doomonafireball.betterpickers.timesliderpicker.TimeSliderPicker;
+import com.doomonafireball.betterpickers.timesliderpicker.TimeSliderPickerBuilder;
+import com.doomonafireball.betterpickers.timesliderpicker.TimeSliderPickerDialogFragment.TimeSliderPickerDialogHandler;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,7 +18,7 @@ import android.widget.TextView;
 /**
  * User: derek Date: 4/30/13 Time: 7:43 PM
  */
-public class SampleTimeFragment extends SherlockFragment implements TimePickerDialogFragment.TimePickerDialogHandler {
+public class SampleTimeSliderFragment extends SherlockFragment implements TimeSliderPickerDialogHandler {
 
 	private TextView text;
 	private Button button;
@@ -32,11 +35,11 @@ public class SampleTimeFragment extends SherlockFragment implements TimePickerDi
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				TimePickerBuilder tpb = new TimePickerBuilder()
-									.setFragmentManager(getFragmentManager())
-									.setStyleResId(R.style.BetterPickersDialogFragment)
-									.setReference(1)
-									.setTargetFragment(SampleTimeFragment.this);
+				TimeSliderPickerBuilder tpb = new TimeSliderPickerBuilder()
+											.setFragmentManager(getFragmentManager())
+											.setStyleResId(R.style.BetterPickersDialogFragment)
+											.setReference(1)
+											.setTargetFragment(SampleTimeSliderFragment.this);
 				tpb.show();
 			}
 		});
@@ -45,7 +48,8 @@ public class SampleTimeFragment extends SherlockFragment implements TimePickerDi
 	}
 
 	@Override
-	public void onDialogTimeSet(int reference, int hourOfDay, int minute) {
-		text.setText("" + hourOfDay + ":" + minute);
+	public void onDialogTimeSet(int reference, int hour24h, int hour12h, int min, String ampm) {
+		// TODO Auto-generated method stub
+		text.setText("" + hour24h + ":" + min);
 	}
 }

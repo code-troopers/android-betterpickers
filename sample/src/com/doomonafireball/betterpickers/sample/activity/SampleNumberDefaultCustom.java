@@ -33,6 +33,7 @@ public class SampleNumberDefaultCustom extends BaseSampleActivity
             public void onClick(View v) {
                 NumberPickerBuilder npb = new NumberPickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
+                        .setReference(1)
                         .setStyleResId(R.style.MyCustomBetterPickerTheme);
                 npb.show();
             }
@@ -40,7 +41,7 @@ public class SampleNumberDefaultCustom extends BaseSampleActivity
     }
 
     @Override
-    public void onDialogNumberSet(int number, double decimal, boolean isNegative, double fullNumber) {
+    public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber) {
         text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: "
                 + fullNumber);
     }

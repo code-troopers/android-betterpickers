@@ -15,38 +15,37 @@ import android.widget.TextView;
 /**
  * User: derek Date: 4/30/13 Time: 7:43 PM
  */
-public class SampleDateFragment extends SherlockFragment
-        implements DatePickerDialogFragment.DatePickerDialogHandler {
+public class SampleDateFragment extends SherlockFragment implements DatePickerDialogFragment.DatePickerDialogHandler {
 
-    private TextView text;
-    private Button button;
+	private TextView text;
+	private Button button;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.text_and_button, container, false);
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.text_and_button, container, false);
 
-        text = (TextView) view.findViewById(R.id.text);
-        button = (Button) view.findViewById(R.id.button);
+		text = (TextView) view.findViewById(R.id.text);
+		button = (Button) view.findViewById(R.id.button);
 
-        text.setText("--");
-        button.setText("Set Date");
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatePickerBuilder dpb = new DatePickerBuilder()
-                        .setFragmentManager(getChildFragmentManager())
-                        .setStyleResId(R.style.BetterPickersDialogFragment)
-                        .setTargetFragment(SampleDateFragment.this);
-                dpb.show();
-            }
-        });
+		text.setText("--");
+		button.setText("Set Date");
+		button.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				DatePickerBuilder dpb = new DatePickerBuilder()
+									.setFragmentManager(getFragmentManager())
+									.setStyleResId(R.style.BetterPickersDialogFragment)
+									.setReference(1)
+									.setTargetFragment(SampleDateFragment.this);
+				dpb.show();
+			}
+		});
 
-        return view;
-    }
+		return view;
+	}
 
-
-    @Override
-    public void onDialogDateSet(int year, int monthOfYear, int dayOfMonth) {
-        text.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
-    }
+	@Override
+	public void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth) {
+		text.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
+	}
 }
