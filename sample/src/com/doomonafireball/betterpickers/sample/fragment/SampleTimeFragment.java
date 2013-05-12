@@ -32,7 +32,11 @@ public class SampleTimeFragment extends SherlockFragment implements TimePickerDi
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				TimePickerBuilder tpb = new TimePickerBuilder().setFragmentManager(getFragmentManager()).setStyleResId(R.style.BetterPickersDialogFragment).setTargetFragment(SampleTimeFragment.this);
+				TimePickerBuilder tpb = new TimePickerBuilder()
+									.setFragmentManager(getFragmentManager())
+									.setStyleResId(R.style.BetterPickersDialogFragment)
+									.setReference(1)
+									.setTargetFragment(SampleTimeFragment.this);
 				tpb.show();
 			}
 		});
@@ -41,7 +45,7 @@ public class SampleTimeFragment extends SherlockFragment implements TimePickerDi
 	}
 
 	@Override
-	public void onDialogTimeSet(int hourOfDay, int minute) {
+	public void onDialogTimeSet(int reference, int hourOfDay, int minute) {
 		text.setText("" + hourOfDay + ":" + minute);
 	}
 }

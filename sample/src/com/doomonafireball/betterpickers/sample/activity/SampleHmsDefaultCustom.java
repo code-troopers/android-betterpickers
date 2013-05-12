@@ -33,6 +33,7 @@ public class SampleHmsDefaultCustom extends BaseSampleActivity
             public void onClick(View v) {
                 HmsPickerBuilder hpb = new HmsPickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
+                        .setReference(1)
                         .setStyleResId(R.style.MyCustomBetterPickerTheme);
                 hpb.show();
             }
@@ -40,7 +41,7 @@ public class SampleHmsDefaultCustom extends BaseSampleActivity
     }
 
     @Override
-    public void onDialogHmsSet(int hours, int minutes, int seconds) {
+    public void onDialogHmsSet(int reference, int hours, int minutes, int seconds) {
         text.setText("" + hours + ":" + minutes + ":" + seconds);
     }
 }

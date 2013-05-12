@@ -32,7 +32,11 @@ public class SampleDateFragment extends SherlockFragment implements DatePickerDi
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				DatePickerBuilder dpb = new DatePickerBuilder().setFragmentManager(getFragmentManager()).setStyleResId(R.style.BetterPickersDialogFragment).setTargetFragment(SampleDateFragment.this);
+				DatePickerBuilder dpb = new DatePickerBuilder()
+									.setFragmentManager(getFragmentManager())
+									.setStyleResId(R.style.BetterPickersDialogFragment)
+									.setReference(1)
+									.setTargetFragment(SampleDateFragment.this);
 				dpb.show();
 			}
 		});
@@ -41,7 +45,7 @@ public class SampleDateFragment extends SherlockFragment implements DatePickerDi
 	}
 
 	@Override
-	public void onDialogDateSet(int year, int monthOfYear, int dayOfMonth) {
+	public void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth) {
 		text.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
 	}
 }

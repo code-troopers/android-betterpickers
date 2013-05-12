@@ -18,7 +18,8 @@ public class DatePickerBuilder {
 	private Integer monthOfYear = null;
 	private Integer dayOfMonth = null;
 	private Integer year = null;
-	
+	private int mRef = -1;
+
 	private DatePickerDialogFragment fragment = null;
 
 	public DatePickerBuilder setFragmentManager(FragmentManager manager) {
@@ -51,6 +52,11 @@ public class DatePickerBuilder {
 		return this;
 	}
 
+	public DatePickerBuilder setReference(int reference) {
+		this.mRef = reference;
+		return this;
+	}
+
 	public void show() {
 		if (manager == null || styleResId == null) {
 			Log.e("DatePickerBuilder", "setFragmentManager() and setStyleResId() must be called.");
@@ -64,9 +70,9 @@ public class DatePickerBuilder {
 		ft.addToBackStack(null);
 
 		if (monthOfYear != null && dayOfMonth != null && year != null) {
-			fragment = DatePickerDialogFragment.newInstance(styleResId, monthOfYear, dayOfMonth, year);
+			fragment = DatePickerDialogFragment.newInstance(mRef, styleResId, monthOfYear, dayOfMonth, year);
 		} else {
-			fragment = DatePickerDialogFragment.newInstance(styleResId, Calendar.getInstance());
+			fragment = DatePickerDialogFragment.newInstance(mRef, styleResId, Calendar.getInstance());
 		}
 		if (targetFragment != null) {
 			fragment.setTargetFragment(targetFragment, 0);

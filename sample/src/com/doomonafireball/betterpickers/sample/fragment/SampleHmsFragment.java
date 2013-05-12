@@ -32,7 +32,11 @@ public class SampleHmsFragment extends SherlockFragment implements HmsPickerDial
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				HmsPickerBuilder hpb = new HmsPickerBuilder().setFragmentManager(getFragmentManager()).setStyleResId(R.style.BetterPickersDialogFragment).setTargetFragment(SampleHmsFragment.this);
+				HmsPickerBuilder hpb = new HmsPickerBuilder()
+									.setFragmentManager(getFragmentManager())
+									.setReference(1)
+									.setStyleResId(R.style.BetterPickersDialogFragment)
+									.setTargetFragment(SampleHmsFragment.this);
 				hpb.show();
 			}
 		});
@@ -41,7 +45,7 @@ public class SampleHmsFragment extends SherlockFragment implements HmsPickerDial
 	}
 
 	@Override
-	public void onDialogHmsSet(int hours, int minutes, int seconds) {
+	public void onDialogHmsSet(int reference, int hours, int minutes, int seconds) {
 		text.setText("" + hours + ":" + minutes + ":" + seconds);
 	}
 }

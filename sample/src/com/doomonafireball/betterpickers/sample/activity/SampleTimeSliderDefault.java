@@ -31,14 +31,17 @@ public class SampleTimeSliderDefault extends BaseSampleActivity implements TimeS
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				TimeSliderPickerBuilder tpb = new TimeSliderPickerBuilder().setFragmentManager(getSupportFragmentManager()).setStyleResId(R.style.BetterPickersDialogFragment);
+				TimeSliderPickerBuilder tpb = new TimeSliderPickerBuilder()
+											.setFragmentManager(getSupportFragmentManager())
+											.setReference(1)
+											.setStyleResId(R.style.BetterPickersDialogFragment);
 				tpb.show();
 			}
 		});
 	}
 
 	@Override
-	public void onDialogTimeSet(int hour24h, int hour12h, int min, String ampm) {
+	public void onDialogTimeSet(int reference, int hour24h, int hour12h, int min, String ampm) {
 		// TODO Auto-generated method stub
 		text.setText("" + hour24h + ":" + min);
 	}

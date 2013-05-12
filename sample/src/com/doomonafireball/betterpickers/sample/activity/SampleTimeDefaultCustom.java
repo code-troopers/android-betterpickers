@@ -33,6 +33,7 @@ public class SampleTimeDefaultCustom extends BaseSampleActivity
             public void onClick(View v) {
                 TimePickerBuilder tpb = new TimePickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
+                        .setReference(1)
                         .setStyleResId(R.style.MyCustomBetterPickerTheme);
                 tpb.show();
             }
@@ -40,7 +41,7 @@ public class SampleTimeDefaultCustom extends BaseSampleActivity
     }
 
     @Override
-    public void onDialogTimeSet(int hourOfDay, int minute) {
+    public void onDialogTimeSet(int reference, int hourOfDay, int minute) {
         text.setText("" + hourOfDay + ":" + minute);
     }
 }

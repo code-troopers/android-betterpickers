@@ -33,6 +33,7 @@ public class SampleNumberWithOptions extends BaseSampleActivity
             public void onClick(View v) {
                 NumberPickerBuilder npb = new NumberPickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
+                        .setReference(1)
                         .setStyleResId(R.style.BetterPickersDialogFragment_Light)
                         .setPlusMinusVisibility(View.INVISIBLE)
                         .setDecimalVisibility(View.INVISIBLE)
@@ -43,7 +44,7 @@ public class SampleNumberWithOptions extends BaseSampleActivity
     }
 
     @Override
-    public void onDialogNumberSet(int number, double decimal, boolean isNegative, double fullNumber) {
+    public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber) {
         text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: "
                 + fullNumber);
     }

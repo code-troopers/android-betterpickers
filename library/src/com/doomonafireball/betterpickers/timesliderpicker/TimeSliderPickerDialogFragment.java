@@ -20,6 +20,7 @@ import com.doomonafireball.betterpickers.R;
  */
 public class TimeSliderPickerDialogFragment extends DialogFragment {
 
+	private static final String REF_KEY = "DatePickerDialogFragment_RefKey";
 	private static final String HOUR_KEY = "DatePickerDialogFragment_HourKey";
 	private static final String MIN_KEY = "DatePickerDialogFragment_MinKey";
 	private static final String AMPM_KEY = "DatePickerDialogFragment_AMPMKey";
@@ -31,6 +32,7 @@ public class TimeSliderPickerDialogFragment extends DialogFragment {
 	private int mHour = -1;
 	private int mMin = -1;
 	private int mAMPM = -1;
+	private int mRef = -1;
 
 	private int mTheme = -1;
 	private View mDividerOne, mDividerTwo;
@@ -39,17 +41,18 @@ public class TimeSliderPickerDialogFragment extends DialogFragment {
 	private int mButtonBackgroundResId;
 	private int mDialogBackgroundResId;
 
-	public static TimeSliderPickerDialogFragment newInstance(int themeResId) {
-		return newInstance(themeResId, -1, -1, -1);
+	public static TimeSliderPickerDialogFragment newInstance(int reference, int themeResId) {
+		return newInstance(reference, themeResId, -1, -1, -1);
 	}
 
-	public static TimeSliderPickerDialogFragment newInstance(int themeResId, Calendar mCal) {
-		return newInstance(themeResId, mCal.get(Calendar.HOUR), mCal.get(Calendar.MINUTE), mCal.get(Calendar.AM_PM));
+	public static TimeSliderPickerDialogFragment newInstance(int reference, int themeResId, Calendar mCal) {
+		return newInstance(reference, themeResId, mCal.get(Calendar.HOUR), mCal.get(Calendar.MINUTE), mCal.get(Calendar.AM_PM));
 	}
 
-	public static TimeSliderPickerDialogFragment newInstance(int themeResId, int hour, int min, int ampm) {
+	public static TimeSliderPickerDialogFragment newInstance(int reference, int themeResId, int hour, int min, int ampm) {
 		final TimeSliderPickerDialogFragment frag = new TimeSliderPickerDialogFragment();
 		Bundle args = new Bundle();
+		args.putInt(REF_KEY, reference);
 		args.putInt(THEME_RES_ID_KEY, themeResId);
 		if (hour > -1) {
 			args.putInt(HOUR_KEY, hour);
@@ -85,6 +88,9 @@ public class TimeSliderPickerDialogFragment extends DialogFragment {
 		}
 		if (args != null && args.containsKey(THEME_RES_ID_KEY)) {
 			mTheme = args.getInt(THEME_RES_ID_KEY);
+		}
+		if (args != null && args.containsKey(REF_KEY)) {
+			mRef = args.getInt(REF_KEY);
 		}
 
 		setStyle(DialogFragment.STYLE_NO_TITLE, 0);
@@ -128,10 +134,10 @@ public class TimeSliderPickerDialogFragment extends DialogFragment {
 				final Fragment fragment = getTargetFragment();
 				if (activity instanceof TimeSliderPickerDialogHandler) {
 					final TimeSliderPickerDialogHandler act = (TimeSliderPickerDialogHandler) activity;
-					act.onDialogTimeSet(mPicker.getHour24h(), mPicker.getHour12h(), mPicker.getMinute(), mPicker.getAMPM());
+					act.onDialogTimeSet(mRef, mPicker.getHour24h(), mPicker.getHour12h(), mPicker.getMinute(), mPicker.getAMPM());
 				} else if (fragment instanceof TimeSliderPickerDialogHandler) {
 					final TimeSliderPickerDialogHandler frag = (TimeSliderPickerDialogHandler) fragment;
-					frag.onDialogTimeSet(mPicker.getHour24h(), mPicker.getHour12h(), mPicker.getMinute(), mPicker.getAMPM());
+					frag.onDialogTimeSet(mRef, mPicker.getHour24h(), mPicker.getHour12h(), mPicker.getMinute(), mPicker.getAMPM());
 				} else {
 					// Log.e("Error! Activities that use DatePickerDialogFragment must implement "
 					// + "DatePickerDialogHandler");
@@ -156,6 +162,6 @@ public class TimeSliderPickerDialogFragment extends DialogFragment {
 
 	public interface TimeSliderPickerDialogHandler {
 
-		void onDialogTimeSet(int hour24H, int hour12H, int min, String ampm);
+		void onDialogTimeSet(int reference, int hour24H, int hour12H, int min, String ampm);
 	}
 }

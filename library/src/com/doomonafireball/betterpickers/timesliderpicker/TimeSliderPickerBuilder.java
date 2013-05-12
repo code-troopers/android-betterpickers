@@ -16,6 +16,7 @@ public class TimeSliderPickerBuilder {
 	private Integer styleResId; // Required
 	private Fragment targetFragment;
 	private Calendar mCal = null;
+	private int mRef = -1;
 
 	public TimeSliderPickerBuilder setFragmentManager(FragmentManager manager) {
 		this.manager = manager;
@@ -37,6 +38,11 @@ public class TimeSliderPickerBuilder {
 		return this;
 	}
 
+	public TimeSliderPickerBuilder setReference(int ref) {
+		this.mRef = ref;
+		return this;
+	}
+
 	public void show() {
 		if (manager == null || styleResId == null) {
 			Log.e("DatePickerBuilder", "setFragmentManager() and setStyleResId() must be called.");
@@ -51,9 +57,9 @@ public class TimeSliderPickerBuilder {
 
 		final TimeSliderPickerDialogFragment fragment;
 		if (mCal != null) {
-			fragment = TimeSliderPickerDialogFragment.newInstance(styleResId, mCal);
+			fragment = TimeSliderPickerDialogFragment.newInstance(mRef, styleResId, mCal);
 		} else {
-			fragment = TimeSliderPickerDialogFragment.newInstance(styleResId, Calendar.getInstance());
+			fragment = TimeSliderPickerDialogFragment.newInstance(mRef, styleResId, Calendar.getInstance());
 		}
 		if (targetFragment != null) {
 			fragment.setTargetFragment(targetFragment, 0);

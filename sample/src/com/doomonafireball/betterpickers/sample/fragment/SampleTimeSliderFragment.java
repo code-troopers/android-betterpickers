@@ -35,7 +35,11 @@ public class SampleTimeSliderFragment extends SherlockFragment implements TimeSl
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				TimeSliderPickerBuilder tpb = new TimeSliderPickerBuilder().setFragmentManager(getFragmentManager()).setStyleResId(R.style.BetterPickersDialogFragment).setTargetFragment(SampleTimeSliderFragment.this);
+				TimeSliderPickerBuilder tpb = new TimeSliderPickerBuilder()
+											.setFragmentManager(getFragmentManager())
+											.setStyleResId(R.style.BetterPickersDialogFragment)
+											.setReference(1)
+											.setTargetFragment(SampleTimeSliderFragment.this);
 				tpb.show();
 			}
 		});
@@ -44,7 +48,7 @@ public class SampleTimeSliderFragment extends SherlockFragment implements TimeSl
 	}
 
 	@Override
-	public void onDialogTimeSet(int hour24h, int hour12h, int min, String ampm) {
+	public void onDialogTimeSet(int reference, int hour24h, int hour12h, int min, String ampm) {
 		// TODO Auto-generated method stub
 		text.setText("" + hour24h + ":" + min);
 	}

@@ -14,31 +14,32 @@ import com.doomonafireball.betterpickers.sample.R;
  */
 public class SampleDateDefault extends BaseSampleActivity implements DatePickerDialogFragment.DatePickerDialogHandler {
 
-    private TextView text;
-    private Button button;
+	private TextView text;
+	private Button button;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.text_and_button);
-        text = (TextView) findViewById(R.id.text);
-        button = (Button) findViewById(R.id.button);
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.text_and_button);
+		text = (TextView) findViewById(R.id.text);
+		button = (Button) findViewById(R.id.button);
 
-        text.setText("--");
-        button.setText("Set Date");
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatePickerBuilder dpb = new DatePickerBuilder()
-                        .setFragmentManager(getSupportFragmentManager())
-                        .setStyleResId(R.style.BetterPickersDialogFragment);
-                dpb.show();
-            }
-        });
-    }
+		text.setText("--");
+		button.setText("Set Date");
+		button.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				DatePickerBuilder dpb = new DatePickerBuilder()
+										.setFragmentManager(getSupportFragmentManager())
+										.setReference(1)
+										.setStyleResId(R.style.BetterPickersDialogFragment);
+				dpb.show();
+			}
+		});
+	}
 
-    @Override
-    public void onDialogDateSet(int year, int monthOfYear, int dayOfMonth) {
-        text.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
-    }
+	@Override
+	public void onDialogDateSet(int referene, int year, int monthOfYear, int dayOfMonth) {
+		text.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
+	}
 }

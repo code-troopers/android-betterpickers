@@ -21,6 +21,7 @@ import com.doomonafireball.betterpickers.R;
  */
 public class DatePickerDialogFragment extends DialogFragment {
 
+	private static final String REF_KEY = "DatePickerDialogFragment_RefKey";
 	private static final String MONTH_KEY = "DatePickerDialogFragment_MonthKey";
 	private static final String DAY_KEY = "DatePickerDialogFragment_DayKey";
 	private static final String YEAR_KEY = "DatePickerDialogFragment_YearKey";
@@ -33,6 +34,7 @@ public class DatePickerDialogFragment extends DialogFragment {
 	private int mDayOfMonth = 0;
 	private int mYear = 0;
 
+	private int mRef = -1;
 	private int mTheme = -1;
 	private View mDividerOne, mDividerTwo;
 	private int mDividerColor;
@@ -40,18 +42,20 @@ public class DatePickerDialogFragment extends DialogFragment {
 	private int mButtonBackgroundResId;
 	private int mDialogBackgroundResId;
 
-	public static DatePickerDialogFragment newInstance(int themeResId) {
-		return newInstance(themeResId, -1, -1, -1);
+	public static DatePickerDialogFragment newInstance(int reference, int themeResId) {
+		return newInstance(reference, themeResId, -1, -1, -1);
 	}
 
-	public static DatePickerDialogFragment newInstance(int themeResId, Calendar mCal) {
-		return newInstance(themeResId, mCal.get(Calendar.MONTH), mCal.get(Calendar.DAY_OF_MONTH), mCal.get(Calendar.YEAR));
+	public static DatePickerDialogFragment newInstance(int reference, int themeResId, Calendar mCal) {
+		return newInstance(reference, themeResId, mCal.get(Calendar.MONTH), mCal.get(Calendar.DAY_OF_MONTH), mCal.get(Calendar.YEAR));
 	}
 
-	public static DatePickerDialogFragment newInstance(int themeResId, int monthOfYear, int dayOfMonth, int year) {
+	public static DatePickerDialogFragment newInstance(int reference, int themeResId, int monthOfYear, int dayOfMonth, int year) {
 		final DatePickerDialogFragment frag = new DatePickerDialogFragment();
 		Bundle args = new Bundle();
 		args.putInt(THEME_RES_ID_KEY, themeResId);
+		args.putInt(REF_KEY, reference);
+
 		if (monthOfYear > -1) {
 			args.putInt(MONTH_KEY, monthOfYear);
 		}
@@ -86,6 +90,9 @@ public class DatePickerDialogFragment extends DialogFragment {
 		}
 		if (args != null && args.containsKey(THEME_RES_ID_KEY)) {
 			mTheme = args.getInt(THEME_RES_ID_KEY);
+		}
+		if (args != null && args.containsKey(REF_KEY)) {
+			mRef = args.getInt(REF_KEY);
 		}
 
 		setStyle(DialogFragment.STYLE_NO_TITLE, 0);
@@ -129,10 +136,10 @@ public class DatePickerDialogFragment extends DialogFragment {
 				final Fragment fragment = getTargetFragment();
 				if (activity instanceof DatePickerDialogHandler) {
 					final DatePickerDialogHandler act = (DatePickerDialogHandler) activity;
-					act.onDialogDateSet(mPicker.getYear(), mPicker.getMonthOfYear(), mPicker.getDayOfMonth());
+					act.onDialogDateSet(mRef, mPicker.getYear(), mPicker.getMonthOfYear(), mPicker.getDayOfMonth());
 				} else if (fragment instanceof DatePickerDialogHandler) {
 					final DatePickerDialogHandler frag = (DatePickerDialogHandler) fragment;
-					frag.onDialogDateSet(mPicker.getYear(), mPicker.getMonthOfYear(), mPicker.getDayOfMonth());
+					frag.onDialogDateSet(mRef, mPicker.getYear(), mPicker.getMonthOfYear(), mPicker.getDayOfMonth());
 				} else {
 					// Log.e("Error! Activities that use DatePickerDialogFragment must implement "
 					// + "DatePickerDialogHandler");
@@ -157,6 +164,6 @@ public class DatePickerDialogFragment extends DialogFragment {
 
 	public interface DatePickerDialogHandler {
 
-		void onDialogDateSet(int year, int monthOfYear, int dayOfMonth);
+		void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth);
 	}
 }

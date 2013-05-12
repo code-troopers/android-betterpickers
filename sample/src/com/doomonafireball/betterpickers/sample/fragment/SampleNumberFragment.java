@@ -32,7 +32,11 @@ public class SampleNumberFragment extends SherlockFragment implements NumberPick
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				NumberPickerBuilder npb = new NumberPickerBuilder().setFragmentManager(getFragmentManager()).setStyleResId(R.style.BetterPickersDialogFragment).setTargetFragment(SampleNumberFragment.this);
+				NumberPickerBuilder npb = new NumberPickerBuilder()
+										.setFragmentManager(getFragmentManager())
+										.setStyleResId(R.style.BetterPickersDialogFragment)
+										.setReference(1)
+										.setTargetFragment(SampleNumberFragment.this);
 				npb.show();
 			}
 		});
@@ -41,7 +45,7 @@ public class SampleNumberFragment extends SherlockFragment implements NumberPick
 	}
 
 	@Override
-	public void onDialogNumberSet(int number, double decimal, boolean isNegative, double fullNumber) {
+	public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber) {
 		text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: " + fullNumber);
 	}
 }
