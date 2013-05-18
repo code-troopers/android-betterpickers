@@ -45,7 +45,7 @@ public class SampleHmsFragment extends SherlockFragment
     }
 
     @Override
-    public void onDialogHmsSet(int hours, int minutes, int seconds) {
+    public void onDialogHmsSet(int reference, int hours, int minutes, int seconds) {
         text.setText("" + hours + ":" + minutes + ":" + seconds);
     }
 }

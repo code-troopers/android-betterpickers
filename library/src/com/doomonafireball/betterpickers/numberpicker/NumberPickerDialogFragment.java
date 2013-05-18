@@ -18,6 +18,7 @@ import android.widget.Button;
  */
 public class NumberPickerDialogFragment extends DialogFragment {
 
+    private static final String REFERENCE_KEY = "NumberPickerDialogFragment_ReferenceKey";
     private static final String THEME_RES_ID_KEY = "NumberPickerDialogFragment_ThemeResIdKey";
     private static final String MIN_NUMBER_KEY = "NumberPickerDialogFragment_MinNumberKey";
     private static final String MAX_NUMBER_KEY = "NumberPickerDialogFragment_MaxNumberKey";
@@ -29,6 +30,7 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private NumberPicker mPicker;
 
     private View mDividerOne, mDividerTwo;
+    private int mReference = -1;
     private int mTheme = -1;
     private int mDividerColor;
     private ColorStateList mTextColor;
@@ -41,14 +43,11 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private int mPlusMinusVisibility = View.VISIBLE;
     private int mDecimalVisibility = View.VISIBLE;
 
-    public static NumberPickerDialogFragment newInstance(int themeResId) {
-        return newInstance(themeResId, null, null, null, null, null);
-    }
-
-    public static NumberPickerDialogFragment newInstance(int themeResId, Integer minNumber, Integer maxNumber,
-            Integer plusMinusVisibility, Integer decimalVisibility, String labelText) {
+    public static NumberPickerDialogFragment newInstance(int reference, int themeResId, Integer minNumber,
+            Integer maxNumber, Integer plusMinusVisibility, Integer decimalVisibility, String labelText) {
         final NumberPickerDialogFragment frag = new NumberPickerDialogFragment();
         Bundle args = new Bundle();
+        args.putInt(REFERENCE_KEY, reference);
         args.putInt(THEME_RES_ID_KEY, themeResId);
         if (minNumber != null) {
             args.putInt(MIN_NUMBER_KEY, minNumber);
@@ -79,6 +78,9 @@ public class NumberPickerDialogFragment extends DialogFragment {
         super.onCreate(savedInstanceState);
 
         Bundle args = getArguments();
+        if (args != null && args.containsKey(REFERENCE_KEY)) {
+            mReference = args.getInt(REFERENCE_KEY);
+        }
         if (args != null && args.containsKey(THEME_RES_ID_KEY)) {
             mTheme = args.getInt(THEME_RES_ID_KEY);
         }
@@ -142,12 +144,12 @@ public class NumberPickerDialogFragment extends DialogFragment {
                 if (activity instanceof NumberPickerDialogHandler) {
                     final NumberPickerDialogHandler act =
                             (NumberPickerDialogHandler) activity;
-                    act.onDialogNumberSet(mPicker.getNumber(), mPicker.getDecimal(), mPicker.getIsNegative(),
-                            mPicker.getEnteredNumber());
+                    act.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(),
+                            mPicker.getIsNegative(), mPicker.getEnteredNumber());
                 } else if (fragment instanceof NumberPickerDialogHandler) {
                     final NumberPickerDialogHandler frag = (NumberPickerDialogHandler) fragment;
-                    frag.onDialogNumberSet(mPicker.getNumber(), mPicker.getDecimal(), mPicker.getIsNegative(),
-                            mPicker.getEnteredNumber());
+                    frag.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(),
+                            mPicker.getIsNegative(), mPicker.getEnteredNumber());
                 } else {
                     //Log.e("Error! Activities that use NumberPickerDialogFragment must implement "
                     //        + "NumberPickerDialogHandler");
@@ -182,6 +184,6 @@ public class NumberPickerDialogFragment extends DialogFragment {
 
     public interface NumberPickerDialogHandler {
 
-        void onDialogNumberSet(int number, double decimal, boolean isNegative, double fullNumber);
+        void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber);
     }
 }

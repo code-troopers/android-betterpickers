@@ -45,7 +45,7 @@ public class SampleTimeFragment extends SherlockFragment
     }
 
     @Override
-    public void onDialogTimeSet(int hourOfDay, int minute) {
+    public void onDialogTimeSet(int reference, int hourOfDay, int minute) {
         text.setText("" + hourOfDay + ":" + minute);
     }
 }

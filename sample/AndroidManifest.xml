@@ -55,6 +55,14 @@
             </intent-filter>
         </activity>
         <activity
+                android:name=".activity.SampleTimeMultipleReferences"
+                android:label="Time/Multiple References">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
                 android:name=".activity.SampleNumberDefault"
                 android:label="Number/Default"
                 android:theme="@style/Theme.Sherlock">
@@ -91,6 +99,14 @@
         <activity
                 android:name=".activity.SampleNumberUsingFragment"
                 android:label="Number/Using Fragment">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activity.SampleNumberMultipleReferences"
+                android:label="Number/Multiple References">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
@@ -147,6 +163,14 @@
             </intent-filter>
         </activity>
         <activity
+                android:name=".activity.SampleDateMultipleReferences"
+                android:label="Date/Multiple References">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
                 android:name=".activity.SampleHmsDefault"
                 android:label="HMS/Default">
             <intent-filter>
@@ -173,6 +197,14 @@
         <activity
                 android:name=".activity.SampleHmsUsingFragment"
                 android:label="HMS/Using Fragment">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activity.SampleHmsMultipleReferences"
+                android:label="HMS/Multiple References">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>

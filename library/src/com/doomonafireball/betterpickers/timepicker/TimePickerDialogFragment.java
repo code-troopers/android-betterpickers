@@ -18,11 +18,13 @@ import android.widget.Button;
  */
 public class TimePickerDialogFragment extends DialogFragment {
 
+    private static final String REFERENCE_KEY = "TimePickerDialogFragment_ReferenceKey";
     private static final String THEME_RES_ID_KEY = "TimePickerDialogFragment_ThemeResIdKey";
 
     private Button mSet, mCancel;
     private TimePicker mPicker;
 
+    private int mReference = -1;
     private int mTheme = -1;
     private View mDividerOne, mDividerTwo;
     private int mDividerColor;
@@ -30,9 +32,10 @@ public class TimePickerDialogFragment extends DialogFragment {
     private int mButtonBackgroundResId;
     private int mDialogBackgroundResId;
 
-    public static TimePickerDialogFragment newInstance(int themeResId) {
+    public static TimePickerDialogFragment newInstance(int reference, int themeResId) {
         final TimePickerDialogFragment frag = new TimePickerDialogFragment();
         Bundle args = new Bundle();
+        args.putInt(REFERENCE_KEY, reference);
         args.putInt(THEME_RES_ID_KEY, themeResId);
         frag.setArguments(args);
         return frag;
@@ -48,6 +51,9 @@ public class TimePickerDialogFragment extends DialogFragment {
         super.onCreate(savedInstanceState);
 
         Bundle args = getArguments();
+        if (args != null && args.containsKey(REFERENCE_KEY)) {
+            mReference = args.getInt(REFERENCE_KEY);
+        }
         if (args != null && args.containsKey(THEME_RES_ID_KEY)) {
             mTheme = args.getInt(THEME_RES_ID_KEY);
         }
@@ -97,11 +103,11 @@ public class TimePickerDialogFragment extends DialogFragment {
                 if (activity instanceof TimePickerDialogHandler) {
                     final TimePickerDialogHandler act =
                             (TimePickerDialogHandler) activity;
-                    act.onDialogTimeSet(mPicker.getHours(), mPicker.getMinutes());
+                    act.onDialogTimeSet(mReference, mPicker.getHours(), mPicker.getMinutes());
                 } else if (fragment instanceof TimePickerDialogHandler) {
                     final TimePickerDialogHandler frag =
                             (TimePickerDialogHandler) fragment;
-                    frag.onDialogTimeSet(mPicker.getHours(), mPicker.getMinutes());
+                    frag.onDialogTimeSet(mReference, mPicker.getHours(), mPicker.getMinutes());
                 } else {
                     //Log.e("Error! Activities that use TimePickerDialogFragment must implement "
                     //        + "TimePickerDialogHandler");
@@ -126,6 +132,6 @@ public class TimePickerDialogFragment extends DialogFragment {
 
     public interface TimePickerDialogHandler {
 
-        void onDialogTimeSet(int hourOfDay, int minute);
+        void onDialogTimeSet(int reference, int hourOfDay, int minute);
     }
 }

@@ -40,7 +40,7 @@ public class SampleDateDefaultCustom extends BaseSampleActivity
     }
 
     @Override
-    public void onDialogDateSet(int year, int monthOfYear, int dayOfMonth) {
+    public void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth) {
         text.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
     }
 }

@@ -18,6 +18,7 @@ public class NumberPickerBuilder {
     private Integer plusMinusVisibility;
     private Integer decimalVisibility;
     private String labelText;
+    private int mReference;
 
     public NumberPickerBuilder setFragmentManager(FragmentManager manager) {
         this.manager = manager;
@@ -31,6 +32,11 @@ public class NumberPickerBuilder {
 
     public NumberPickerBuilder setTargetFragment(Fragment targetFragment) {
         this.targetFragment = targetFragment;
+        return this;
+    }
+
+    public NumberPickerBuilder setReference(int reference) {
+        this.mReference = reference;
         return this;
     }
 
@@ -72,7 +78,7 @@ public class NumberPickerBuilder {
         ft.addToBackStack(null);
 
         final NumberPickerDialogFragment fragment = NumberPickerDialogFragment
-                .newInstance(styleResId, minNumber, maxNumber, plusMinusVisibility, decimalVisibility, labelText);
+                .newInstance(mReference, styleResId, minNumber, maxNumber, plusMinusVisibility, decimalVisibility, labelText);
         if (targetFragment != null) {
             fragment.setTargetFragment(targetFragment, 0);
         }

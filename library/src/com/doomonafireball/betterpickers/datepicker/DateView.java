@@ -1,25 +1,29 @@
 package com.doomonafireball.betterpickers.datepicker;
 
+import com.doomonafireball.betterpickers.PickerLinearLayout;
 import com.doomonafireball.betterpickers.R;
+import com.doomonafireball.betterpickers.UnderlinePageIndicatorPicker;
 import com.doomonafireball.betterpickers.ZeroTopPaddingTextView;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
 import android.graphics.Typeface;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
+import android.view.View;
 
-public class DateView extends LinearLayout {
+public class DateView extends PickerLinearLayout {
 
     private ZeroTopPaddingTextView mMonth;
     private ZeroTopPaddingTextView mDate;
     private ZeroTopPaddingTextView mYearLabel;
     private final Typeface mAndroidClockMonoThin;
     private Typeface mOriginalNumberTypeface;
+    private UnderlinePageIndicatorPicker mUnderlinePageIndicatorPicker;
 
-    private ColorStateList mTextColor;
+    private ColorStateList mTitleColor;
 
     public DateView(Context context) {
         this(context, null);
@@ -34,14 +38,16 @@ public class DateView extends LinearLayout {
                 Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-Bold.ttf");
 
         // Init defaults
-        mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
+        mTitleColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
+
+        setWillNotDraw(false);
     }
 
     public void setTheme(int themeResId) {
         if (themeResId != -1) {
             TypedArray a = getContext().obtainStyledAttributes(themeResId, R.styleable.BetterPickersDialogFragment);
 
-            mTextColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTextColor);
+            mTitleColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTitleColor);
         }
 
         restyleViews();
@@ -49,13 +55,13 @@ public class DateView extends LinearLayout {
 
     private void restyleViews() {
         if (mMonth != null) {
-            mMonth.setTextColor(mTextColor);
+            mMonth.setTextColor(mTitleColor);
         }
         if (mDate != null) {
-            mDate.setTextColor(mTextColor);
+            mDate.setTextColor(mTitleColor);
         }
         if (mYearLabel != null) {
-            mYearLabel.setTextColor(mTextColor);
+            mYearLabel.setTextColor(mTitleColor);
         }
     }
 
@@ -140,5 +146,39 @@ public class DateView extends LinearLayout {
                 mYearLabel.updatePadding();
             }
         }
+    }
+
+    public void setUnderlinePage(UnderlinePageIndicatorPicker indicator) {
+        mUnderlinePageIndicatorPicker = indicator;
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        mUnderlinePageIndicatorPicker.setTitleView(this);
+    }
+
+    public void setOnClick(OnClickListener mOnClickListener) {
+        mDate.setOnClickListener(mOnClickListener);
+        mMonth.setOnClickListener(mOnClickListener);
+        mYearLabel.setOnClickListener(mOnClickListener);
+    }
+
+    public ZeroTopPaddingTextView getDate() {
+        return mDate;
+    }
+
+    public ZeroTopPaddingTextView getMonth() {
+        return mMonth;
+    }
+
+    public ZeroTopPaddingTextView getYear() {
+        return mYearLabel;
+    }
+
+    @Override
+    public View getViewAt(int index) {
+        return getChildAt(index);
     }
 }

@@ -43,7 +43,7 @@ public class SampleNumberWithOptions extends BaseSampleActivity
     }
 
     @Override
-    public void onDialogNumberSet(int number, double decimal, boolean isNegative, double fullNumber) {
+    public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber) {
         text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: "
                 + fullNumber);
     }

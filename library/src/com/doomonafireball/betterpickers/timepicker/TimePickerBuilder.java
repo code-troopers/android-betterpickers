@@ -13,6 +13,7 @@ public class TimePickerBuilder {
     private FragmentManager manager; // Required
     private Integer styleResId; // Required
     private Fragment targetFragment;
+    private int mReference = -1;
 
     public TimePickerBuilder setFragmentManager(FragmentManager manager) {
         this.manager = manager;
@@ -29,6 +30,11 @@ public class TimePickerBuilder {
         return this;
     }
 
+    public TimePickerBuilder setReference(int reference) {
+        this.mReference = reference;
+        return this;
+    }
+
     public void show() {
         if (manager == null || styleResId == null) {
             Log.e("TimePickerBuilder", "setFragmentManager() and setStyleResId() must be called.");
@@ -41,7 +47,7 @@ public class TimePickerBuilder {
         }
         ft.addToBackStack(null);
 
-        final TimePickerDialogFragment fragment = TimePickerDialogFragment.newInstance(styleResId);
+        final TimePickerDialogFragment fragment = TimePickerDialogFragment.newInstance(mReference, styleResId);
         if (targetFragment != null) {
             fragment.setTargetFragment(targetFragment, 0);
         }
