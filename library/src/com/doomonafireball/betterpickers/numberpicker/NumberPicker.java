@@ -396,8 +396,8 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
             return;
         }
 
-        // Nothing entered - disable
-        if (mInputPointer == -1) {
+        // Nothing entered or Values are incorrect Min/Max - disable
+	if (mInputPointer == -1 || getNumber() > this.mMaxNumber || getNumber() < this.mMinNumber) {
             mSetButton.setEnabled(false);
             return;
         }
