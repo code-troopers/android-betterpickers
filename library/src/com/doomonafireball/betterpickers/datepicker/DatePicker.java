@@ -51,9 +51,9 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
     private static final String KEYBOARD_DATE = "date";
     private static final String KEYBOARD_YEAR = "year";
 
-    private static int MONTH_KEYBOARD_POSITION = -1;
-    private static int DATE_KEYBOARD_POSITION = -1;
-    private static int YEAR_KEYBOARD_POSITION = -1;
+    private static int sMonthKeyboardPosition = -1;
+    private static int sDateKeyboardPosition = -1;
+    private static int sYearKeyboardPosition = -1;
 
     private Button mSetButton;
 
@@ -218,7 +218,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
             Resources res = mContext.getResources();
             if (mDateFormatOrder[position] == DateFormat.MONTH) {
                 // Months
-                MONTH_KEYBOARD_POSITION = position;
+                sMonthKeyboardPosition = position;
                 view = mInflater.inflate(R.layout.keyboard_text, null);
                 View v1 = view.findViewById(R.id.first);
                 View v2 = view.findViewById(R.id.second);
@@ -251,7 +251,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
                 }
             } else if (mDateFormatOrder[position] == DateFormat.DATE) {
                 // Date
-                DATE_KEYBOARD_POSITION = position;
+                sDateKeyboardPosition = position;
                 view = mInflater.inflate(R.layout.keyboard_right_drawable, null);
                 View v1 = view.findViewById(R.id.first);
                 View v2 = view.findViewById(R.id.second);
@@ -290,7 +290,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
                 mDateRight.setOnClickListener(DatePicker.this);
             } else if (mDateFormatOrder[position] == DateFormat.YEAR) {
                 // Year
-                YEAR_KEYBOARD_POSITION = position;
+                sYearKeyboardPosition = position;
                 view = mInflater.inflate(R.layout.keyboard, null);
                 View v1 = view.findViewById(R.id.first);
                 View v2 = view.findViewById(R.id.second);
@@ -401,11 +401,11 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         } else if (v == mDateRight) {
             onDateRightClicked();
         } else if (v == mEnteredDate.getDate()) {
-            mKeyboardPager.setCurrentItem(DATE_KEYBOARD_POSITION);
+            mKeyboardPager.setCurrentItem(sDateKeyboardPosition);
         } else if (v == mEnteredDate.getMonth()) {
-            mKeyboardPager.setCurrentItem(MONTH_KEYBOARD_POSITION);
+            mKeyboardPager.setCurrentItem(sMonthKeyboardPosition);
         } else if (v == mEnteredDate.getYear()) {
-            mKeyboardPager.setCurrentItem(YEAR_KEYBOARD_POSITION);
+            mKeyboardPager.setCurrentItem(sYearKeyboardPosition);
         } else if (v.getTag(R.id.date_keyboard).equals(KEYBOARD_MONTH)) {
             // A month was pressed
             mMonthInput = (Integer) v.getTag(R.id.date_month_int);

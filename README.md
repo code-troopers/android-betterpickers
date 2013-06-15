@@ -34,7 +34,7 @@ Android-BetterPickers is presented as an [Android library project][7]. A
 standalone JAR is not possible due to the theming capabilities offered by the DialogFragments.
 
 You can include this project by [referencing it as a library project][8] in
-Eclipse or ant.
+Eclipse or ant.  Note that to use this library, both it and your project must be compiled with Android 4.0 (API level 14) or newer, similar to ActionBarSherlock.
 
 If you are a Maven user you can easily include the library by specifying it as
 a dependency:
