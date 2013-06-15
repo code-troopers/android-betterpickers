@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.util.Vector;
+
 /**
  * Dialog to set alarm time.
  */
@@ -31,6 +33,7 @@ public class TimePickerDialogFragment extends DialogFragment {
     private ColorStateList mTextColor;
     private int mButtonBackgroundResId;
     private int mDialogBackgroundResId;
+    private Vector<TimePickerDialogHandler> mTimePickerDialogHandlers = new Vector<TimePickerDialogHandler>();
 
     public static TimePickerDialogFragment newInstance(int reference, int themeResId) {
         final TimePickerDialogFragment frag = new TimePickerDialogFragment();
@@ -98,6 +101,9 @@ public class TimePickerDialogFragment extends DialogFragment {
         mSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                for (TimePickerDialogHandler handler : mTimePickerDialogHandlers) {
+                    handler.onDialogTimeSet(mReference, mPicker.getHours(), mPicker.getMinutes());
+                }
                 final Activity activity = getActivity();
                 final Fragment fragment = getTargetFragment();
                 if (activity instanceof TimePickerDialogHandler) {
@@ -108,9 +114,6 @@ public class TimePickerDialogFragment extends DialogFragment {
                     final TimePickerDialogHandler frag =
                             (TimePickerDialogHandler) fragment;
                     frag.onDialogTimeSet(mReference, mPicker.getHours(), mPicker.getMinutes());
-                } else {
-                    //Log.e("Error! Activities that use TimePickerDialogFragment must implement "
-                    //        + "TimePickerDialogHandler");
                 }
                 dismiss();
             }
@@ -133,5 +136,9 @@ public class TimePickerDialogFragment extends DialogFragment {
     public interface TimePickerDialogHandler {
 
         void onDialogTimeSet(int reference, int hourOfDay, int minute);
+    }
+
+    public void setTimePickerDialogHandlers(Vector<TimePickerDialogHandler> handlers) {
+        mTimePickerDialogHandlers = handlers;
     }
 }

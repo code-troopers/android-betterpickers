@@ -1,9 +1,13 @@
 package com.doomonafireball.betterpickers.timepicker;
 
+import com.doomonafireball.betterpickers.timepicker.TimePickerDialogFragment.TimePickerDialogHandler;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+
+import java.util.Vector;
 
 /**
  * User: derek Date: 5/2/13 Time: 7:55 PM
@@ -14,6 +18,7 @@ public class TimePickerBuilder {
     private Integer styleResId; // Required
     private Fragment targetFragment;
     private int mReference = -1;
+    private Vector<TimePickerDialogHandler> mTimePickerDialogHandlers = new Vector<TimePickerDialogHandler>();
 
     public TimePickerBuilder setFragmentManager(FragmentManager manager) {
         this.manager = manager;
@@ -35,6 +40,16 @@ public class TimePickerBuilder {
         return this;
     }
 
+    public TimePickerBuilder addTimePickerDialogHandler(TimePickerDialogHandler handler) {
+        this.mTimePickerDialogHandlers.add(handler);
+        return this;
+    }
+
+    public TimePickerBuilder removeTimePickerDialogHandler(TimePickerDialogHandler handler) {
+        this.mTimePickerDialogHandlers.remove(handler);
+        return this;
+    }
+
     public void show() {
         if (manager == null || styleResId == null) {
             Log.e("TimePickerBuilder", "setFragmentManager() and setStyleResId() must be called.");
@@ -51,6 +66,7 @@ public class TimePickerBuilder {
         if (targetFragment != null) {
             fragment.setTargetFragment(targetFragment, 0);
         }
+        fragment.setTimePickerDialogHandlers(mTimePickerDialogHandlers);
         fragment.show(ft, "time_dialog");
     }
 }

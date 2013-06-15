@@ -63,6 +63,14 @@
             </intent-filter>
         </activity>
         <activity
+                android:name=".activity.SampleTimeMultipleHandlers"
+                android:label="Time/Multiple Handlers">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
                 android:name=".activity.SampleNumberDefault"
                 android:label="Number/Default"
                 android:theme="@style/Theme.Sherlock">
