@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.util.Vector;
+
 /**
  * Dialog to set alarm time.
  */
@@ -38,6 +40,7 @@ public class DatePickerDialogFragment extends DialogFragment {
     private ColorStateList mTextColor;
     private int mButtonBackgroundResId;
     private int mDialogBackgroundResId;
+    private Vector<DatePickerDialogHandler> mDatePickerDialogHandlers = new Vector<DatePickerDialogHandler>();
 
     public static DatePickerDialogFragment newInstance(int reference, int themeResId, Integer monthOfYear,
             Integer dayOfMonth, Integer year) {
@@ -125,6 +128,10 @@ public class DatePickerDialogFragment extends DialogFragment {
         mSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                for (DatePickerDialogHandler handler : mDatePickerDialogHandlers) {
+                    handler.onDialogDateSet(mReference, mPicker.getYear(), mPicker.getMonthOfYear(),
+                            mPicker.getDayOfMonth());
+                }
                 final Activity activity = getActivity();
                 final Fragment fragment = getTargetFragment();
                 if (activity instanceof DatePickerDialogHandler) {
@@ -137,9 +144,6 @@ public class DatePickerDialogFragment extends DialogFragment {
                             (DatePickerDialogHandler) fragment;
                     frag.onDialogDateSet(mReference, mPicker.getYear(), mPicker.getMonthOfYear(),
                             mPicker.getDayOfMonth());
-                } else {
-                    //Log.e("Error! Activities that use DatePickerDialogFragment must implement "
-                    //        + "DatePickerDialogHandler");
                 }
                 dismiss();
             }
@@ -162,5 +166,9 @@ public class DatePickerDialogFragment extends DialogFragment {
     public interface DatePickerDialogHandler {
 
         void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth);
+    }
+
+    public void setDatePickerDialogHandlers(Vector<DatePickerDialogHandler> handlers) {
+        mDatePickerDialogHandlers = handlers;
     }
 }

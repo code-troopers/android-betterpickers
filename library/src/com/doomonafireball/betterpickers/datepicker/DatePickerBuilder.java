@@ -1,9 +1,13 @@
 package com.doomonafireball.betterpickers.datepicker;
 
+import com.doomonafireball.betterpickers.datepicker.DatePickerDialogFragment.DatePickerDialogHandler;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+
+import java.util.Vector;
 
 /**
  * User: derek Date: 5/2/13 Time: 7:55 PM
@@ -17,6 +21,7 @@ public class DatePickerBuilder {
     private Integer dayOfMonth;
     private Integer year;
     private int mReference = -1;
+    private Vector<DatePickerDialogHandler> mDatePickerDialogHandlers = new Vector<DatePickerDialogHandler>();
 
     public DatePickerBuilder setFragmentManager(FragmentManager manager) {
         this.manager = manager;
@@ -53,6 +58,16 @@ public class DatePickerBuilder {
         return this;
     }
 
+    public DatePickerBuilder addDatePickerDialogHandler(DatePickerDialogHandler handler) {
+        this.mDatePickerDialogHandlers.add(handler);
+        return this;
+    }
+
+    public DatePickerBuilder removeDatePickerDialogHandler(DatePickerDialogHandler handler) {
+        this.mDatePickerDialogHandlers.remove(handler);
+        return this;
+    }
+
     public void show() {
         if (manager == null || styleResId == null) {
             Log.e("DatePickerBuilder", "setFragmentManager() and setStyleResId() must be called.");
@@ -70,6 +85,7 @@ public class DatePickerBuilder {
         if (targetFragment != null) {
             fragment.setTargetFragment(targetFragment, 0);
         }
+        fragment.setDatePickerDialogHandlers(mDatePickerDialogHandlers);
         fragment.show(ft, "date_dialog");
     }
 }

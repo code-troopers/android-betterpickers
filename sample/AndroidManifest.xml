@@ -187,6 +187,14 @@
             </intent-filter>
         </activity>
         <activity
+                android:name=".activity.SampleDateMultipleHandlers"
+                android:label="Date/Multiple Handlers">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
                 android:name=".activity.SampleHmsDefault"
                 android:label="HMS/Default">
             <intent-filter>
