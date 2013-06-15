@@ -234,5 +234,13 @@
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
+        <activity
+                android:name=".activity.SampleHmsMultipleHandlers"
+                android:label="HMS/Multiple Handlers">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

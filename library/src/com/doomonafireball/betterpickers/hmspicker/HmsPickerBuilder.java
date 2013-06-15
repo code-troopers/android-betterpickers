@@ -1,9 +1,13 @@
 package com.doomonafireball.betterpickers.hmspicker;
 
+import com.doomonafireball.betterpickers.hmspicker.HmsPickerDialogFragment.HmsPickerDialogHandler;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+
+import java.util.Vector;
 
 /**
  * User: derek Date: 5/2/13 Time: 7:55 PM
@@ -14,6 +18,7 @@ public class HmsPickerBuilder {
     private Integer styleResId; // Required
     private Fragment targetFragment;
     private int mReference;
+    private Vector<HmsPickerDialogHandler> mHmsPickerDialogHandlers = new Vector<HmsPickerDialogHandler>();
 
     public HmsPickerBuilder setFragmentManager(FragmentManager manager) {
         this.manager = manager;
@@ -35,6 +40,16 @@ public class HmsPickerBuilder {
         return this;
     }
 
+    public HmsPickerBuilder addHmsPickerDialogHandler(HmsPickerDialogHandler handler) {
+        this.mHmsPickerDialogHandlers.add(handler);
+        return this;
+    }
+
+    public HmsPickerBuilder removeHmsPickerDialogHandler(HmsPickerDialogHandler handler) {
+        this.mHmsPickerDialogHandlers.remove(handler);
+        return this;
+    }
+
     public void show() {
         if (manager == null || styleResId == null) {
             Log.e("HmsPickerBuilder", "setFragmentManager() and setStyleResId() must be called.");
@@ -51,6 +66,7 @@ public class HmsPickerBuilder {
         if (targetFragment != null) {
             fragment.setTargetFragment(targetFragment, 0);
         }
+        fragment.setHmsPickerDialogHandlers(mHmsPickerDialogHandlers);
         fragment.show(ft, "hms_dialog");
     }
 }

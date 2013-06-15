@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.util.Vector;
+
 /**
  * Dialog to set alarm time.
  */
@@ -31,6 +33,7 @@ public class HmsPickerDialogFragment extends DialogFragment {
     private ColorStateList mTextColor;
     private int mButtonBackgroundResId;
     private int mDialogBackgroundResId;
+    private Vector<HmsPickerDialogHandler> mHmsPickerDialogHandlers = new Vector<HmsPickerDialogHandler>();
 
     public static HmsPickerDialogFragment newInstance(int reference, int themeResId) {
         final HmsPickerDialogFragment frag = new HmsPickerDialogFragment();
@@ -97,6 +100,9 @@ public class HmsPickerDialogFragment extends DialogFragment {
         mSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                for (HmsPickerDialogHandler handler : mHmsPickerDialogHandlers) {
+                    handler.onDialogHmsSet(mReference, mPicker.getHours(), mPicker.getMinutes(), mPicker.getSeconds());
+                }
                 final Activity activity = getActivity();
                 final Fragment fragment = getTargetFragment();
                 if (activity instanceof HmsPickerDialogHandler) {
@@ -107,9 +113,6 @@ public class HmsPickerDialogFragment extends DialogFragment {
                     final HmsPickerDialogHandler frag =
                             (HmsPickerDialogHandler) fragment;
                     frag.onDialogHmsSet(mReference, mPicker.getHours(), mPicker.getMinutes(), mPicker.getSeconds());
-                } else {
-                    //Log.e("Error! Activities that use HmsPickerDialogFragment must implement "
-                    //        + "HmsPickerDialogHandler");
                 }
                 dismiss();
             }
@@ -132,5 +135,9 @@ public class HmsPickerDialogFragment extends DialogFragment {
     public interface HmsPickerDialogHandler {
 
         void onDialogHmsSet(int reference, int hours, int minutes, int seconds);
+    }
+
+    public void setHmsPickerDialogHandlers(Vector<HmsPickerDialogHandler> handlers) {
+        mHmsPickerDialogHandlers = handlers;
     }
 }
