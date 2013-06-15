@@ -121,6 +121,14 @@
             </intent-filter>
         </activity>
         <activity
+                android:name=".activity.SampleNumberMultipleHandlers"
+                android:label="Number/Multiple Handlers">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
                 android:name=".activity.SampleDateDefault"
                 android:label="Date/Default"
                 android:theme="@style/Theme.Sherlock">

@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.util.Vector;
+
 /**
  * Dialog to set alarm time.
  */
@@ -42,6 +44,7 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private Integer mMaxNumber = null;
     private int mPlusMinusVisibility = View.VISIBLE;
     private int mDecimalVisibility = View.VISIBLE;
+    private Vector<NumberPickerDialogHandler> mNumberPickerDialogHandlers = new Vector<NumberPickerDialogHandler>();
 
     public static NumberPickerDialogFragment newInstance(int reference, int themeResId, Integer minNumber,
             Integer maxNumber, Integer plusMinusVisibility, Integer decimalVisibility, String labelText) {
@@ -139,6 +142,10 @@ public class NumberPickerDialogFragment extends DialogFragment {
         mSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                for (NumberPickerDialogHandler handler : mNumberPickerDialogHandlers) {
+                    handler.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(),
+                            mPicker.getIsNegative(), mPicker.getEnteredNumber());
+                }
                 final Activity activity = getActivity();
                 final Fragment fragment = getTargetFragment();
                 if (activity instanceof NumberPickerDialogHandler) {
@@ -150,9 +157,6 @@ public class NumberPickerDialogFragment extends DialogFragment {
                     final NumberPickerDialogHandler frag = (NumberPickerDialogHandler) fragment;
                     frag.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(),
                             mPicker.getIsNegative(), mPicker.getEnteredNumber());
-                } else {
-                    //Log.e("Error! Activities that use NumberPickerDialogFragment must implement "
-                    //        + "NumberPickerDialogHandler");
                 }
                 dismiss();
             }
@@ -185,5 +189,9 @@ public class NumberPickerDialogFragment extends DialogFragment {
     public interface NumberPickerDialogHandler {
 
         void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber);
+    }
+
+    public void setNumberPickerDialogHandlers(Vector<NumberPickerDialogHandler> handlers) {
+        mNumberPickerDialogHandlers = handlers;
     }
 }

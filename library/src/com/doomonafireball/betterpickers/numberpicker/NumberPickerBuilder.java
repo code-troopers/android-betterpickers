@@ -1,9 +1,13 @@
 package com.doomonafireball.betterpickers.numberpicker;
 
+import com.doomonafireball.betterpickers.numberpicker.NumberPickerDialogFragment.NumberPickerDialogHandler;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+
+import java.util.Vector;
 
 /**
  * User: derek Date: 5/2/13 Time: 7:55 PM
@@ -19,6 +23,7 @@ public class NumberPickerBuilder {
     private Integer decimalVisibility;
     private String labelText;
     private int mReference;
+    private Vector<NumberPickerDialogHandler> mNumberPickerDialogHandlers = new Vector<NumberPickerDialogHandler>();
 
     public NumberPickerBuilder setFragmentManager(FragmentManager manager) {
         this.manager = manager;
@@ -65,6 +70,16 @@ public class NumberPickerBuilder {
         return this;
     }
 
+    public NumberPickerBuilder addNumberPickerDialogHandler(NumberPickerDialogHandler handler) {
+        this.mNumberPickerDialogHandlers.add(handler);
+        return this;
+    }
+
+    public NumberPickerBuilder removeNumberPickerDialogHandler(NumberPickerDialogHandler handler) {
+        this.mNumberPickerDialogHandlers.remove(handler);
+        return this;
+    }
+
     public void show() {
         if (manager == null || styleResId == null) {
             Log.e("NumberPickerBuilder", "setFragmentManager() and setStyleResId() must be called.");
@@ -78,10 +93,12 @@ public class NumberPickerBuilder {
         ft.addToBackStack(null);
 
         final NumberPickerDialogFragment fragment = NumberPickerDialogFragment
-                .newInstance(mReference, styleResId, minNumber, maxNumber, plusMinusVisibility, decimalVisibility, labelText);
+                .newInstance(mReference, styleResId, minNumber, maxNumber, plusMinusVisibility, decimalVisibility,
+                        labelText);
         if (targetFragment != null) {
             fragment.setTargetFragment(targetFragment, 0);
         }
+        fragment.setNumberPickerDialogHandlers(mNumberPickerDialogHandlers);
         fragment.show(ft, "number_dialog");
     }
 }
