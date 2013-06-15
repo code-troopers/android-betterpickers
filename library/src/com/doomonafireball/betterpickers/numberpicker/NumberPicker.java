@@ -51,10 +51,21 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     private Integer mMinNumber = null;
     private Integer mMaxNumber = null;
 
+    /**
+     * Instantiates a NumberPicker object
+     *
+     * @param context the Context required for creation
+     */
     public NumberPicker(Context context) {
         this(context, null);
     }
 
+    /**
+     * Instantiates a NumberPicker object
+     *
+     * @param context the Context required for creation
+     * @param attrs additional attributes that define custom colors, selectors, and backgrounds.
+     */
     public NumberPicker(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
@@ -74,6 +85,11 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         return R.layout.number_picker_view;
     }
 
+    /**
+     * Change the theme of the Picker
+     *
+     * @param themeResId the resource ID of the new style
+     */
     public void setTheme(int themeResId) {
         mTheme = themeResId;
         if (mTheme != -1) {
@@ -180,12 +196,22 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         updateKeypad();
     }
 
+    /**
+     * Using View.GONE, View.VISIBILE, or View.INVISIBLE, set the visibility of the plus/minus indicator
+     *
+     * @param visiblity an int using Android's View.* convention
+     */
     public void setPlusMinusVisibility(int visiblity) {
         if (mLeft != null) {
             mLeft.setVisibility(visiblity);
         }
     }
 
+    /**
+     * Using View.GONE, View.VISIBILE, or View.INVISIBLE, set the visibility of the decimal indicator
+     *
+     * @param visiblity an int using Android's View.* convention
+     */
     public void setDecimalVisibility(int visiblity) {
         if (mRight != null) {
             mRight.setVisibility(visiblity);
@@ -202,6 +228,9 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         // TODO
     }
 
+    /**
+     * Update the delete button to determine whether it is able to be clicked.
+     */
     public void updateDeleteButton() {
         boolean enabled = mInputPointer != -1;
         if (mDelete != null) {
@@ -260,6 +289,11 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         updateDeleteButton();
     }
 
+    /**
+     * Set the text displayed in the small label
+     *
+     * @param labelText the String to set as the label
+     */
     public void setLabelText(String labelText) {
         mLabelText = labelText;
         showLabel();
@@ -271,6 +305,9 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         }
     }
 
+    /**
+     * Reset all inputs.
+     */
     public void reset() {
         for (int i = 0; i < mInputSize; i++) {
             mInput[i] = -1;
@@ -323,7 +360,9 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         }
     }
 
-    // Clicking on the bottom left button will toggle the sign
+    /**
+     * Clicking on the bottom left button will toggle the sign.
+     */
     private void onLeftClicked() {
         if (mSign == SIGN_POSITIVE) {
             mSign = SIGN_NEGATIVE;
@@ -332,7 +371,9 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         }
     }
 
-    // Clicking on the bottom right button will add a decimal point
+    /**
+     * Clicking on the bottom right button will add a decimal point.
+     */
     private void onRightClicked() {
         if (canAddDecimal()) {
             addClickedNumber(CLICKED_DECIMAL);
@@ -349,7 +390,11 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         return containsDecimal;
     }
 
-    // Checks if the user allowed to click on the right button
+    /**
+     * Checks if the user allowed to click on the right button.
+     *
+     * @return true or false if the user is able to add a decimal or not
+     */
     private boolean canAddDecimal() {
         return !containsDecimal();
     }
@@ -368,7 +413,11 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         return value;
     }
 
-    // Returns the number already entered
+    /**
+     * Returns the number inputted by the user
+     *
+     * @return a double representing the entered number
+     */
     public double getEnteredNumber() {
         String value = "0";
         for (int i = mInputPointer; i >= 0; i--) {
@@ -390,7 +439,9 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         mRight.setEnabled(canAddDecimal());
     }
 
-    // Enable/disable the set key
+    /**
+     * Enable/disable the "Set" button
+     */
     private void enableSetButton() {
         if (mSetButton == null) {
             return;
@@ -405,22 +456,42 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         mSetButton.setEnabled(mInputPointer >= 0);
     }
 
+    /**
+     * Expose the set button to allow communication with the parent Fragment.
+     *
+     * @param b the parent Fragment's "Set" button
+     */
     public void setSetButton(Button b) {
         mSetButton = b;
         enableSetButton();
     }
 
+    /**
+     * Returns the number as currently inputted by the user
+     *
+     * @return an int representation of the number with no decimal
+     */
     public int getNumber() {
         String numberString = Double.toString(getEnteredNumber());
         String[] split = numberString.split("\\.");
         return Integer.parseInt(split[0]);
     }
 
+    /**
+     * Returns the decimal following the number
+     *
+     * @return a double representation of the decimal value
+     */
     public double getDecimal() {
         double decimal = BigDecimal.valueOf(getEnteredNumber()).divideAndRemainder(BigDecimal.ONE)[1].doubleValue();
         return decimal;
     }
 
+    /**
+     * Returns whether the number is positive or negative
+     *
+     * @return true or false whether the number is positive or negative
+     */
     public boolean getIsNegative() {
         return mSign == SIGN_NEGATIVE;
     }

@@ -21,10 +21,21 @@ public class NumberView extends LinearLayout {
 
     private ColorStateList mTextColor;
 
+    /**
+     * Instantiate a NumberView
+     *
+     * @param context the Context in which to inflate the View
+     */
     public NumberView(Context context) {
         this(context, null);
     }
 
+    /**
+     * Instantiate a NumberView
+     *
+     * @param context the Context in which to inflate the View
+     * @param attrs attributes that define the title color
+     */
     public NumberView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
@@ -35,6 +46,11 @@ public class NumberView extends LinearLayout {
         mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
     }
 
+    /**
+     * Set a theme and restyle the views. This View will change its title color.
+     *
+     * @param themeResId the resource ID for theming
+     */
     public void setTheme(int themeResId) {
         if (themeResId != -1) {
             TypedArray a = getContext().obtainStyledAttributes(themeResId, R.styleable.BetterPickersDialogFragment);
@@ -84,6 +100,14 @@ public class NumberView extends LinearLayout {
         restyleViews();
     }
 
+    /**
+     * Set the number shown
+     *
+     * @param numbersDigit the non-decimal digits
+     * @param decimalDigit the decimal digits
+     * @param showDecimal whether it's a decimal or not
+     * @param isNegative whether it's positive or negative
+     */
     public void setNumber(String numbersDigit, String decimalDigit, boolean showDecimal,
             boolean isNegative) {
         mMinusLabel.setVisibility(isNegative ? View.VISIBLE : View.GONE);

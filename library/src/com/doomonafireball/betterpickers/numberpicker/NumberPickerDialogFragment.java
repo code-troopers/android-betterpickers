@@ -46,6 +46,18 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private int mDecimalVisibility = View.VISIBLE;
     private Vector<NumberPickerDialogHandler> mNumberPickerDialogHandlers = new Vector<NumberPickerDialogHandler>();
 
+    /**
+     * Create an instance of the Picker (used internally)
+     *
+     * @param reference an (optional) user-defined reference, helpful when tracking multiple Pickers
+     * @param themeResId the style resource ID for theming
+     * @param minNumber (optional) the minimum possible number
+     * @param maxNumber (optional) the maximum possible number
+     * @param plusMinusVisibility (optional) View.VISIBLE, View.INVISIBLE, or View.GONE
+     * @param decimalVisibility (optional) View.VISIBLE, View.INVISIBLE, or View.GONE
+     * @param labelText (optional) text to add as a label
+     * @return a Picker!
+     */
     public static NumberPickerDialogFragment newInstance(int reference, int themeResId, Integer minNumber,
             Integer maxNumber, Integer plusMinusVisibility, Integer decimalVisibility, String labelText) {
         final NumberPickerDialogFragment frag = new NumberPickerDialogFragment();
@@ -186,11 +198,19 @@ public class NumberPickerDialogFragment extends DialogFragment {
         return v;
     }
 
+    /**
+     * This interface allows objects to register for the Picker's set action.
+     */
     public interface NumberPickerDialogHandler {
 
         void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber);
     }
 
+    /**
+     * Attach a Vector of handlers to be notified in addition to the Fragment's Activity and target Fragment.
+     *
+     * @param handlers a Vector of handlers
+     */
     public void setNumberPickerDialogHandlers(Vector<NumberPickerDialogHandler> handlers) {
         mNumberPickerDialogHandlers = handlers;
     }

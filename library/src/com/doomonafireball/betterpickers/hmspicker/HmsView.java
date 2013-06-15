@@ -20,10 +20,21 @@ public class HmsView extends LinearLayout {
 
     private ColorStateList mTextColor;
 
+    /**
+     * Instantiate an HmsView
+     *
+     * @param context the Context in which to inflate the View
+     */
     public HmsView(Context context) {
         this(context, null);
     }
 
+    /**
+     * Instantiate an HmsView
+     *
+     * @param context the Context in which to inflate the View
+     * @param attrs attributes that define the title color
+     */
     public HmsView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
@@ -34,6 +45,11 @@ public class HmsView extends LinearLayout {
         mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
     }
 
+    /**
+     * Set a theme and restyle the views. This View will change its text color.
+     *
+     * @param themeResId the resource ID for theming
+     */
     public void setTheme(int themeResId) {
         if (themeResId != -1) {
             TypedArray a = getContext().obtainStyledAttributes(themeResId, R.styleable.BetterPickersDialogFragment);
@@ -85,6 +101,15 @@ public class HmsView extends LinearLayout {
         }
     }
 
+    /**
+     * Set the time shown
+     *
+     * @param hoursOnesDigit the ones digit of the hours TextView
+     * @param minutesTensDigit the tens digit of the minutes TextView
+     * @param minutesOnesDigit the ones digit of the minutes TextView
+     * @param secondsTensDigit the tens digit of the seconds TextView
+     * @param secondsOnesDigit the ones digit of the seconds TextView
+     */
     public void setTime(int hoursOnesDigit, int minutesTensDigit, int minutesOnesDigit, int secondsTensDigit,
             int secondsOnesDigit) {
         if (mHoursOnes != null) {

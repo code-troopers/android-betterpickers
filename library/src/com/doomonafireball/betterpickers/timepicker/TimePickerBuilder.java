@@ -20,36 +20,78 @@ public class TimePickerBuilder {
     private int mReference = -1;
     private Vector<TimePickerDialogHandler> mTimePickerDialogHandlers = new Vector<TimePickerDialogHandler>();
 
+    /**
+     * Attach a FragmentManager. This is required for creation of the Fragment.
+     *
+     * @param manager the FragmentManager that handles the transaction
+     * @return the current Builder object
+     */
     public TimePickerBuilder setFragmentManager(FragmentManager manager) {
         this.manager = manager;
         return this;
     }
 
+    /**
+     * Attach a style resource ID for theming. This is required for creation of the Fragment. Two stock styles are
+     * provided using R.style.BetterPickersDialogFragment and R.style.BetterPickersDialogFragment.Light
+     *
+     * @param styleResId the style resource ID to use for theming
+     * @return the current Builder object
+     */
     public TimePickerBuilder setStyleResId(int styleResId) {
         this.styleResId = styleResId;
         return this;
     }
 
+    /**
+     * Attach a target Fragment. This is optional and useful if creating a Picker within a Fragment.
+     *
+     * @param targetFragment the Fragment to attach to
+     * @return the current Builder object
+     */
     public TimePickerBuilder setTargetFragment(Fragment targetFragment) {
         this.targetFragment = targetFragment;
         return this;
     }
 
+    /**
+     * Attach a reference to this Picker instance. This is used to track multiple pickers, if the user wishes.
+     *
+     * @param reference a user-defined int intended for Picker tracking
+     * @return the current Builder object
+     */
     public TimePickerBuilder setReference(int reference) {
         this.mReference = reference;
         return this;
     }
 
+    /**
+     * Attach universal objects as additional handlers for notification when the Picker is set. For most use cases, this
+     * method is not necessary as attachment to an Activity or Fragment is done automatically.  If, however, you would
+     * like additional objects to subscribe to this Picker being set, attach Handlers here.
+     *
+     * @param handler an Object implementing the appropriate Picker Handler
+     * @return the current Builder object
+     */
     public TimePickerBuilder addTimePickerDialogHandler(TimePickerDialogHandler handler) {
         this.mTimePickerDialogHandlers.add(handler);
         return this;
     }
 
+    /**
+     * Remove objects previously added as handlers.
+     *
+     * @param handler the Object to remove
+     * @return the current Builder object
+     */
     public TimePickerBuilder removeTimePickerDialogHandler(TimePickerDialogHandler handler) {
         this.mTimePickerDialogHandlers.remove(handler);
         return this;
     }
 
+    /**
+     * Instantiate and show the Picker
+     */
     public void show() {
         if (manager == null || styleResId == null) {
             Log.e("TimePickerBuilder", "setFragmentManager() and setStyleResId() must be called.");

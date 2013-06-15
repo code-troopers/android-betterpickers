@@ -35,6 +35,13 @@ public class HmsPickerDialogFragment extends DialogFragment {
     private int mDialogBackgroundResId;
     private Vector<HmsPickerDialogHandler> mHmsPickerDialogHandlers = new Vector<HmsPickerDialogHandler>();
 
+    /**
+     * Create an instance of the Picker (used internally)
+     *
+     * @param reference an (optional) user-defined reference, helpful when tracking multiple Pickers
+     * @param themeResId the style resource ID for theming
+     * @return a Picker!
+     */
     public static HmsPickerDialogFragment newInstance(int reference, int themeResId) {
         final HmsPickerDialogFragment frag = new HmsPickerDialogFragment();
         Bundle args = new Bundle();
@@ -132,11 +139,19 @@ public class HmsPickerDialogFragment extends DialogFragment {
         return v;
     }
 
+    /**
+     * This interface allows objects to register for the Picker's set action.
+     */
     public interface HmsPickerDialogHandler {
 
         void onDialogHmsSet(int reference, int hours, int minutes, int seconds);
     }
 
+    /**
+     * Attach a Vector of handlers to be notified in addition to the Fragment's Activity and target Fragment.
+     *
+     * @param handlers a Vector of handlers
+     */
     public void setHmsPickerDialogHandlers(Vector<HmsPickerDialogHandler> handlers) {
         mHmsPickerDialogHandlers = handlers;
     }

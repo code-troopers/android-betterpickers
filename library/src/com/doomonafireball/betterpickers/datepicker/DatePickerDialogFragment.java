@@ -42,6 +42,16 @@ public class DatePickerDialogFragment extends DialogFragment {
     private int mDialogBackgroundResId;
     private Vector<DatePickerDialogHandler> mDatePickerDialogHandlers = new Vector<DatePickerDialogHandler>();
 
+    /**
+     * Create an instance of the Picker (used internally)
+     *
+     * @param reference an (optional) user-defined reference, helpful when tracking multiple Pickers
+     * @param themeResId the style resource ID for theming
+     * @param monthOfYear (optional) zero-indexed month of year to pre-set
+     * @param dayOfMonth (optional) day of month to pre-set
+     * @param year (optional) year to pre-set
+     * @return a Picker!
+     */
     public static DatePickerDialogFragment newInstance(int reference, int themeResId, Integer monthOfYear,
             Integer dayOfMonth, Integer year) {
         final DatePickerDialogFragment frag = new DatePickerDialogFragment();
@@ -163,11 +173,19 @@ public class DatePickerDialogFragment extends DialogFragment {
         return v;
     }
 
+    /**
+     * This interface allows objects to register for the Picker's set action.
+     */
     public interface DatePickerDialogHandler {
 
         void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth);
     }
 
+    /**
+     * Attach a Vector of handlers to be notified in addition to the Fragment's Activity and target Fragment.
+     *
+     * @param handlers a Vector of handlers
+     */
     public void setDatePickerDialogHandlers(Vector<DatePickerDialogHandler> handlers) {
         mDatePickerDialogHandlers = handlers;
     }

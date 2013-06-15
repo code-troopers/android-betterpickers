@@ -67,10 +67,21 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
     private int mDeleteDrawableSrcResId;
     private int mTheme = -1;
 
+    /**
+     * Instantiates a DatePicker object
+     *
+     * @param context the Context required for creation
+     */
     public DatePicker(Context context) {
         this(context, null);
     }
 
+    /**
+     * Instantiates a DatePicker object
+     *
+     * @param context the Context required for creation
+     * @param attrs additional attributes that define custom colors, selectors, and backgrounds.
+     */
     public DatePicker(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
@@ -94,6 +105,11 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         return R.layout.date_picker_view;
     }
 
+    /**
+     * Change the theme of the Picker
+     *
+     * @param themeResId the resource ID of the new style
+     */
     public void setTheme(int themeResId) {
         mTheme = themeResId;
         if (mTheme != -1) {
@@ -213,6 +229,13 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
             mInflater = inflater;
         }
 
+        /**
+         * Based on the Locale, inflate the day, month, or year keyboard
+         *
+         * @param collection the ViewPager collection group
+         * @param position the position within the ViewPager
+         * @return an inflated View representing the keyboard for this position
+         */
         public Object instantiateItem(ViewGroup collection, int position) {
             View view;
             Resources res = mContext.getResources();
@@ -352,6 +375,9 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         }
     }
 
+    /**
+     * Update the delete button to determine whether it is able to be clicked.
+     */
     public void updateDeleteButton() {
         boolean enabled = mMonthInput != -1 || mDateInputPointer != -1 || mYearInputPointer != -1;
         if (mDelete != null) {
@@ -448,6 +474,9 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         updateYearKeys();
     }
 
+    /**
+     * Reset all inputs and dates, and scroll to the first shown keyboard.
+     */
     public void reset() {
         for (int i = 0; i < mDateInputSize; i++) {
             mDateInput[i] = 0;
@@ -462,7 +491,6 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         updateDate();
     }
 
-    // Update the date displayed in the picker:
     protected void updateDate() {
         String month;
         if (mMonthInput < 0) {
@@ -516,14 +544,18 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         }
     }
 
-    // Clicking on the date right button advances
+    /**
+     * Clicking on the date right button advances
+     */
     private void onDateRightClicked() {
         if (mKeyboardPager.getCurrentItem() < 2) {
             mKeyboardPager.setCurrentItem(mKeyboardPager.getCurrentItem() + 1, true);
         }
     }
 
-    // Enable/disable keys on the month key pad according to the data entered
+    /**
+     * Enable/disable keys on the month key pad according to the data entered
+     */
     private void updateMonthKeys() {
         int date = getDayOfMonth();
         for (int i = 0; i < mMonths.length; i++) {
@@ -554,7 +586,9 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         }
     }
 
-    // Enable/disable keys on the date key pad according to the data entered
+    /**
+     * Enable/disable keys on the date key pad according to the data entered
+     */
     private void updateDateKeys() {
         int date = getDayOfMonth();
         if (date >= 4) {
@@ -578,7 +612,9 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         }
     }
 
-    // Enable/disable keys on the year key pad according to the data entered
+    /**
+     * Enable/disable keys on the year key pad according to the data entered
+     */
     private void updateYearKeys() {
         int year = getYear();
         if (year >= 1000) {
@@ -590,7 +626,11 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         }
     }
 
-    // enables a range of numeric keys from zero to maxKey. The rest of the keys will be disabled
+    /**
+     * Enables a range of numeric keys from zero to maxKey. The rest of the keys will be disabled
+     *
+     * @param maxKey the maximum key number that can be pressed
+     */
     private void setDateKeyRange(int maxKey) {
         for (int i = 0; i < mDateNumbers.length; i++) {
             if (mDateNumbers[i] != null) {
@@ -599,7 +639,11 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         }
     }
 
-    // enables a range of numeric keys from minKey up. The rest of the keys will be disabled
+    /**
+     * Enables a range of numeric keys from minKey up. The rest of the keys will be disabled
+     *
+     * @param minKey the minimum key number that can be pressed
+     */
     private void setDateMinKeyRange(int minKey) {
         for (int i = 0; i < mDateNumbers.length; i++) {
             if (mDateNumbers[i] != null) {
@@ -608,7 +652,11 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         }
     }
 
-    // enables a range of numeric keys from zero to maxKey. The rest of the keys will be disabled
+    /**
+     * Enables a range of numeric keys from zero to maxKey. The rest of the keys will be disabled
+     *
+     * @param maxKey the maximum key that can be pressed
+     */
     private void setYearKeyRange(int maxKey) {
         for (int i = 0; i < mYearNumbers.length; i++) {
             if (mYearNumbers[i] != null) {
@@ -617,7 +665,11 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         }
     }
 
-    // enables a range of numeric keys from minKey up. The rest of the keys will be disabled
+    /**
+     * Enables a range of numeric keys from minKey up. The rest of the keys will be disabled
+     *
+     * @param minKey the minimum key that can be pressed
+     */
     private void setYearMinKeyRange(int minKey) {
         for (int i = 0; i < mYearNumbers.length; i++) {
             if (mYearNumbers[i] != null) {
@@ -626,7 +678,11 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         }
     }
 
-    // Checks if the user is allowed to move to the year
+    /**
+     * Check if a user can move to the year keyboard
+     *
+     * @return true or false whether the user can move to the year keyboard
+     */
     private boolean canGoToYear() {
         return getDayOfMonth() > 0;
     }
@@ -637,7 +693,9 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         }
     }
 
-    // Enable/disable the set key
+    /**
+     * Enable/disable the "Set" button
+     */
     private void enableSetButton() {
         if (mSetButton == null) {
             return;
@@ -645,23 +703,50 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         mSetButton.setEnabled(getDayOfMonth() > 0 && getYear() > 0 && getMonthOfYear() >= 0);
     }
 
+    /**
+     * Expose the set button to allow communication with the parent Fragment.
+     *
+     * @param b the parent Fragment's "Set" button
+     */
     public void setSetButton(Button b) {
         mSetButton = b;
         enableSetButton();
     }
 
+    /**
+     * Returns the year as currently inputted by the user.
+     *
+     * @return the inputted year
+     */
     public int getYear() {
         return mYearInput[3] * 1000 + mYearInput[2] * 100 + mYearInput[1] * 10 + mYearInput[0];
     }
 
+    /**
+     * Returns the zero-indexed month of year as currently inputted by the user.
+     *
+     * @return the zero-indexed inputted month
+     */
     public int getMonthOfYear() {
         return mMonthInput;
     }
 
+    /**
+     * Returns the day of month as currently inputted by the user.
+     *
+     * @return the inputted day of month
+     */
     public int getDayOfMonth() {
         return mDateInput[1] * 10 + mDateInput[0];
     }
 
+    /**
+     * Set the date shown in the date picker
+     *
+     * @param year the new year to set
+     * @param monthOfYear the new zero-indexed month to set
+     * @param dayOfMonth the new day of month to set
+     */
     public void setDate(int year, int monthOfYear, int dayOfMonth) {
         mMonthInput = monthOfYear;
         mYearInput[3] = year / 1000;

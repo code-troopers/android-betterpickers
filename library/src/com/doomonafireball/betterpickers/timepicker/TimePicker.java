@@ -57,10 +57,21 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
     private int mDeleteDrawableSrcResId;
     private int mTheme = -1;
 
+    /**
+     * Instantiates a TimePicker object
+     *
+     * @param context the Context required for creation
+     */
     public TimePicker(Context context) {
         this(context, null);
     }
 
+    /**
+     * Instantiates a TimePicker object
+     *
+     * @param context the Context required for creation
+     * @param attrs additional attributes that define custom colors, selectors, and backgrounds.
+     */
     public TimePicker(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
@@ -82,6 +93,11 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
         return R.layout.time_picker_view;
     }
 
+    /**
+     * Change the theme of the Picker
+     *
+     * @param themeResId the resource ID of the new style
+     */
     public void setTheme(int themeResId) {
         mTheme = themeResId;
         if (mTheme != -1) {
@@ -188,6 +204,9 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
         updateKeypad();
     }
 
+    /**
+     * Update the delete button to determine whether it is able to be clicked.
+     */
     public void updateDeleteButton() {
         boolean enabled = mInputPointer != -1;
         if (mDelete != null) {
@@ -241,6 +260,9 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
         return false;
     }
 
+    /**
+     * Reset all inputs .
+     */
     public void reset() {
         for (int i = 0; i < mInputSize; i++) {
             mInput[i] = 0;
@@ -265,10 +287,15 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
 
     }
 
-    // Update the time displayed in the picker:
-    // Special cases:
-    // 1. show "-" for digits not entered yet.
-    // 2. hide the hours digits when it is not relevant
+    /**
+     * Update the time displayed in the picker:
+     *
+     * Special cases:
+     *
+     * 1. show "-" for digits not entered yet.
+     *
+     * 2. hide the hours digits when it is not relevant
+     */
     protected void updateTime() {
         // Put "-" in digits that was not entered by passing -1
         // Hide digit by passing -2 (for highest hours digit only);
@@ -339,8 +366,11 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
         }
     }
 
-    // Clicking on the bottom left button will add "00" to the time
-    // In AM/PM mode is will also set the time to AM.
+    /**
+     * Clicking on the bottom left button will add "00" to the time
+     *
+     * In AM/PM mode is will also set the time to AM.
+     */
     private void onLeftClicked() {
         int time = getEnteredTime();
         if (!mIs24HoursMode) {
@@ -355,9 +385,11 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
         }
     }
 
-    // Clicking on the bottom right button will add "00" to the time in AM/PM
-    // mode and "30" is 24 hours mode.
-    // In AM/PM mode is will also set the time to PM.
+    /**
+     * Clicking on the bottom right button will add "00" to the time in AM/PM mode and "30" is 24 hours mode.
+     *
+     * In AM/PM mode is will also set the time to PM.
+     */
     private void onRightClicked() {
         int time = getEnteredTime();
         if (!mIs24HoursMode) {
@@ -374,7 +406,11 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
         }
     }
 
-    // Checks if the user allowed to click on the left or right button that enters "00" or "30"
+    /**
+     * Checks if the user allowed to click on the left or right button that enters "00" or "30"
+     *
+     * @return true or false whether a user is allowed to click on the left or right
+     */
     private boolean canAddDigits() {
         int time = getEnteredTime();
         // For AM/PM mode , can add "00" if an hour between 1 and 12 was entered
@@ -385,8 +421,9 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
         return (time >= 0 && time <= 23 && mInputPointer > -1 && mInputPointer < 2);
     }
 
-
-    // Enable/disable keys in the numeric key pad according to the data entered
+    /**
+     * Enable/disable keys in the numeric key pad according to the data entered
+     */
     private void updateNumericKeys() {
         int time = getEnteredTime();
         if (mIs24HoursMode) {
@@ -535,13 +572,21 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
         }
     }
 
-    // Returns the time already entered in decimal representation. if time is H1 H2 : M1 M2
-    // the value retured is H1*1000+H2*100+M1*10+M2
+    /**
+     * Returns the time already entered in decimal representation. if time is H1 H2 : M1 M2 the value retured is
+     * H1*1000+H2*100+M1*10+M2
+     *
+     * @return the time already entered in decimal representation
+     */
     private int getEnteredTime() {
         return mInput[3] * 1000 + mInput[2] * 100 + mInput[1] * 10 + mInput[0];
     }
 
-    // enables a range of numeric keys from zero to maxKey. The rest of the keys will be disabled
+    /**
+     * enables a range of numeric keys from zero to maxKey. The rest of the keys will be disabled
+     *
+     * @param maxKey the maximum key that can be pressed
+     */
     private void setKeyRange(int maxKey) {
         for (int i = 0; i < mNumbers.length; i++) {
             mNumbers[i].setEnabled(i <= maxKey);
@@ -566,7 +611,9 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
         }
     }
 
-    // Enable/disable the set key
+    /**
+     * Enable/disable the "Set" button
+     */
     private void enableSetButton() {
         if (mSetButton == null) {
             return;
@@ -588,11 +635,21 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
         }
     }
 
+    /**
+     * Expose the set button to allow communication with the parent Fragment.
+     *
+     * @param b the parent Fragment's "Set" button
+     */
     public void setSetButton(Button b) {
         mSetButton = b;
         enableSetButton();
     }
 
+    /**
+     * Get the hours as currently inputted by the user.
+     *
+     * @return the inputted hours
+     */
     public int getHours() {
         int hours = mInput[3] * 10 + mInput[2];
         if (hours == 12) {
@@ -610,6 +667,11 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
         return hours + (mAmPmState == PM_SELECTED ? 12 : 0);
     }
 
+    /**
+     * Get the minutes as currently inputted by the user
+     *
+     * @return the inputted minutes
+     */
     public int getMinutes() {
         return mInput[1] * 10 + mInput[0];
     }
@@ -681,10 +743,21 @@ public class TimePicker extends LinearLayout implements Button.OnClickListener, 
         };
     }
 
+    /**
+     * Return whether it is currently 24-hour mode on the system
+     *
+     * @param context a required Context
+     * @return true or false whether it is 24-hour mode or not
+     */
     public static boolean get24HourMode(final Context context) {
         return android.text.format.DateFormat.is24HourFormat(context);
     }
 
+    /**
+     * Get the time currently inputted by the user
+     *
+     * @return an int representing the current time
+     */
     public int getTime() {
         return mInput[4] * 3600 + mInput[3] * 600 + mInput[2] * 60 + mInput[1] * 10 + mInput[0];
     }

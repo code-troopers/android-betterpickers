@@ -40,10 +40,21 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
     private int mDeleteDrawableSrcResId;
     private int mTheme = -1;
 
+    /**
+     * Instantiates an HmsPicker object
+     *
+     * @param context the Context required for creation
+     */
     public HmsPicker(Context context) {
         this(context, null);
     }
 
+    /**
+     * Instantiates an HmsPicker object
+     *
+     * @param context the Context required for creation
+     * @param attrs additional attributes that define custom colors, selectors, and backgrounds.
+     */
     public HmsPicker(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
@@ -63,6 +74,11 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
         return R.layout.hms_picker_view;
     }
 
+    /**
+     * Change the theme of the Picker
+     *
+     * @param themeResId the resource ID of the new style
+     */
     public void setTheme(int themeResId) {
         mTheme = themeResId;
         if (mTheme != -1) {
@@ -157,6 +173,9 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
         updateKeypad();
     }
 
+    /**
+     * Update the delete button to determine whether it is able to be clicked.
+     */
     public void updateDeleteButton() {
         boolean enabled = mInputPointer != -1;
         if (mDelete != null) {
@@ -201,6 +220,9 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
         return false;
     }
 
+    /**
+     * Reset all inputs and the hours:minutes:seconds.
+     */
     public void reset() {
         for (int i = 0; i < mInputSize; i++) {
             mInput[i] = 0;
@@ -219,13 +241,14 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
 
     }
 
-    // Update the time displayed in the picker:
-    // Special cases:
+    /**
+     * Update the time displayed in the picker:
+     *
+     * Put "-" in digits that was not entered by passing -1
+     *
+     * Hide digit by passing -2 (for highest hours digit only);
+     */
     protected void updateHms() {
-        // Put "-" in digits that was not entered by passing -1
-        // Hide digit by passing -2 (for highest hours digit only);
-
-        int hours1 = -1;
         mEnteredHms.setTime(mInput[4], mInput[3], mInput[2], mInput[1], mInput[0]);
     }
 
@@ -239,7 +262,9 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
         }
     }
 
-    // Enable/disable the set key
+    /**
+     * Enable/disable the "Set" button
+     */
     private void enableSetButton() {
         if (mSetButton == null) {
             return;
@@ -254,20 +279,40 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
         mSetButton.setEnabled(mInputPointer >= 0);
     }
 
+    /**
+     * Expose the set button to allow communication with the parent Fragment.
+     *
+     * @param b the parent Fragment's "Set" button
+     */
     public void setSetButton(Button b) {
         mSetButton = b;
         enableSetButton();
     }
 
+    /**
+     * Returns the hours as currently inputted by the user.
+     *
+     * @return the inputted hours
+     */
     public int getHours() {
         int hours = mInput[4];
         return hours;
     }
 
+    /**
+     * Returns the minutes as currently inputted by the user.
+     *
+     * @return the inputted minutes
+     */
     public int getMinutes() {
         return mInput[3] * 10 + mInput[2];
     }
 
+    /**
+     * Return the seconds as currently inputted by the user.
+     *
+     * @return the inputted seconds
+     */
     public int getSeconds() {
         return mInput[1] * 10 + mInput[0];
     }
@@ -337,6 +382,11 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
         };
     }
 
+    /**
+     * Returns the time in seconds
+     *
+     * @return an int representing the time in seconds
+     */
     public int getTime() {
         return mInput[4] * 3600 + mInput[3] * 600 + mInput[2] * 60 + mInput[1] * 10 + mInput[0];
     }

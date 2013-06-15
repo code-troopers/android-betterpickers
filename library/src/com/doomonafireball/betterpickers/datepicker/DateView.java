@@ -25,10 +25,21 @@ public class DateView extends PickerLinearLayout {
 
     private ColorStateList mTitleColor;
 
+    /**
+     * Instantiate a DateView
+     *
+     * @param context the Context in which to inflate the View
+     */
     public DateView(Context context) {
         this(context, null);
     }
 
+    /**
+     * Instantiate a DateView
+     *
+     * @param context the Context in which to inflate the View
+     * @param attrs attributes that define the title color
+     */
     public DateView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
@@ -43,6 +54,11 @@ public class DateView extends PickerLinearLayout {
         setWillNotDraw(false);
     }
 
+    /**
+     * Set a theme and restyle the views. This View will change its title color.
+     *
+     * @param themeResId the resource ID for theming
+     */
     public void setTheme(int themeResId) {
         if (themeResId != -1) {
             TypedArray a = getContext().obtainStyledAttributes(themeResId, R.styleable.BetterPickersDialogFragment);
@@ -105,6 +121,13 @@ public class DateView extends PickerLinearLayout {
         restyleViews();
     }
 
+    /**
+     * Set the date shown
+     *
+     * @param month a String representing the month of year
+     * @param dayOfMonth an int representing the day of month
+     * @param year an int representing the year
+     */
     public void setDate(String month, int dayOfMonth, int year) {
         if (mMonth != null) {
             if (month.equals("")) {
@@ -148,6 +171,11 @@ public class DateView extends PickerLinearLayout {
         }
     }
 
+    /**
+     * Allow attachment of the UnderlinePageIndicator
+     *
+     * @param indicator the indicator to attach
+     */
     public void setUnderlinePage(UnderlinePageIndicatorPicker indicator) {
         mUnderlinePageIndicatorPicker = indicator;
     }
@@ -159,20 +187,40 @@ public class DateView extends PickerLinearLayout {
         mUnderlinePageIndicatorPicker.setTitleView(this);
     }
 
+    /**
+     * Set an onClickListener for notification
+     *
+     * @param mOnClickListener an OnClickListener from the parent
+     */
     public void setOnClick(OnClickListener mOnClickListener) {
         mDate.setOnClickListener(mOnClickListener);
         mMonth.setOnClickListener(mOnClickListener);
         mYearLabel.setOnClickListener(mOnClickListener);
     }
 
+    /**
+     * Get the date TextView
+     *
+     * @return the date TextView
+     */
     public ZeroTopPaddingTextView getDate() {
         return mDate;
     }
 
+    /**
+     * Get the month TextView
+     *
+     * @return the month TextView
+     */
     public ZeroTopPaddingTextView getMonth() {
         return mMonth;
     }
 
+    /**
+     * Get the year TextView
+     *
+     * @return the year TextView
+     */
     public ZeroTopPaddingTextView getYear() {
         return mYearLabel;
     }
