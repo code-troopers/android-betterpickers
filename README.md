@@ -12,6 +12,15 @@ Try out the sample application on [Google Play][6].
 Changelog
 =========
 
+**1.3.0**
+
+* Add Catalan, Spanish
+* Enable min/max for NumberPicker
+* Added Javadoc comments
+* Added universal handlers
+* Added picker references
+* UX tweak for DatePicker indicator
+
 **1.2.0**
 
 * Removed some unused fonts from sample/ project
@@ -42,7 +51,7 @@ a dependency:
     <dependency>
       <groupId>com.doomonafireball.betterpickers</groupId>
       <artifactId>library</artifactId>
-      <version>1.2.0</version>
+      <version>1.3.0</version>
       <type>apklib</type>
     </dependency>
 
