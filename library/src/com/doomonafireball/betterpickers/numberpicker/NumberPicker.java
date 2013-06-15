@@ -218,14 +218,22 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         }
     }
 
+    /**
+     * Set a minimum required number
+     *
+     * @param min the minimum required number
+     */
     public void setMin(int min) {
         mMinNumber = min;
-        // TODO
     }
 
+    /**
+     * Set a maximum required number
+     *
+     * @param max the maximum required number
+     */
     public void setMax(int max) {
         mMaxNumber = max;
-        // TODO
     }
 
     /**
@@ -452,6 +460,17 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
             mSetButton.setEnabled(false);
             return;
         }
+
+        // Check for min/max values
+        if (mMaxNumber != null && getEnteredNumber() > mMaxNumber) {
+            mSetButton.setEnabled(false);
+            return;
+        }
+        if (mMinNumber != null && getEnteredNumber() < mMinNumber) {
+            mSetButton.setEnabled(false);
+            return;
+        }
+
         // If the user entered 1 digits or more
         mSetButton.setEnabled(mInputPointer >= 0);
     }

@@ -36,7 +36,9 @@ public class SampleNumberWithOptions extends BaseSampleActivity
                         .setStyleResId(R.style.BetterPickersDialogFragment_Light)
                         .setPlusMinusVisibility(View.INVISIBLE)
                         .setDecimalVisibility(View.INVISIBLE)
-                        .setLabelText("LBS.");
+                        .setLabelText("LBS.")
+                        .setMinNumber(100)
+                        .setMaxNumber(350);
                 npb.show();
             }
         });
