@@ -306,13 +306,13 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
             return;
         }
 
-        double enteredNumber = getEnteredNumber();
         if (containsDecimal()) {
+            double enteredNumber = getEnteredNumber();
             int minKey = 0;
             int maxKey = (enteredNumber < mMaxNumber)? 9 : 0;
             setKeyRange(minKey, maxKey);
         } else {
-            int number = (int) getEnteredNumber();
+            int number = getNumber();
             if (number == 0) {
                 int minKey = (getEnteredNumberString().equals("") && mMaxNumber >= 0 && mMinNumber <= 0)? 0 : 1;
                 int maxKey = mMaxNumber <= 9 ? mMaxNumber : 9;
