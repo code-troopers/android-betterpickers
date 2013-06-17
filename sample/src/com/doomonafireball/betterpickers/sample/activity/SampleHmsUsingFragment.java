@@ -21,7 +21,6 @@ public class SampleHmsUsingFragment extends BaseSampleActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         transaction.replace(R.id.frame, fragment);
-        transaction.addToBackStack(null);
 
         transaction.commit();
     }
