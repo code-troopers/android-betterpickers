@@ -1,7 +1,6 @@
 package com.doomonafireball.betterpickers.numberpicker;
 
 import com.doomonafireball.betterpickers.R;
-import com.doomonafireball.betterpickers.ZeroTopPaddingTextView;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -251,6 +250,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
 
     /**
      * Expose the NumberView in order to set errors
+     *
      * @return the NumberView
      */
     public NumberPickerErrorTextView getErrorView() {
