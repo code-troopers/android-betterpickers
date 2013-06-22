@@ -154,9 +154,26 @@ public class NumberPickerDialogFragment extends DialogFragment {
         mSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                double number = mPicker.getEnteredNumber();
+                if (mMinNumber != null && mMaxNumber != null && (number < mMinNumber || number > mMaxNumber)) {
+                    String errorText = String.format(getString(R.string.min_max_error), mMinNumber, mMaxNumber);
+                    mPicker.getErrorView().setText(errorText);
+                    mPicker.getErrorView().show();
+                    return;
+                } else if (mMinNumber != null && number < mMinNumber) {
+                    String errorText = String.format(getString(R.string.min_error), mMinNumber);
+                    mPicker.getErrorView().setText(errorText);
+                    mPicker.getErrorView().show();
+                    return;
+                } else if (mMaxNumber != null && number > mMaxNumber) {
+                    String errorText = String.format(getString(R.string.max_error), mMaxNumber);
+                    mPicker.getErrorView().setText(errorText);
+                    mPicker.getErrorView().show();
+                    return;
+                }
                 for (NumberPickerDialogHandler handler : mNumberPickerDialogHandlers) {
                     handler.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(),
-                            mPicker.getIsNegative(), mPicker.getEnteredNumber());
+                            mPicker.getIsNegative(), number);
                 }
                 final Activity activity = getActivity();
                 final Fragment fragment = getTargetFragment();
@@ -164,11 +181,11 @@ public class NumberPickerDialogFragment extends DialogFragment {
                     final NumberPickerDialogHandler act =
                             (NumberPickerDialogHandler) activity;
                     act.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(),
-                            mPicker.getIsNegative(), mPicker.getEnteredNumber());
+                            mPicker.getIsNegative(), number);
                 } else if (fragment instanceof NumberPickerDialogHandler) {
                     final NumberPickerDialogHandler frag = (NumberPickerDialogHandler) fragment;
                     frag.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(),
-                            mPicker.getIsNegative(), mPicker.getEnteredNumber());
+                            mPicker.getIsNegative(), number);
                 }
                 dismiss();
             }

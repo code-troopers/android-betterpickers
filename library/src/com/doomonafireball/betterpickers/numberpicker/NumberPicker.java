@@ -1,6 +1,7 @@
 package com.doomonafireball.betterpickers.numberpicker;
 
 import com.doomonafireball.betterpickers.R;
+import com.doomonafireball.betterpickers.ZeroTopPaddingTextView;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -32,6 +33,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     protected final Context mContext;
 
     private TextView mLabel;
+    private NumberPickerErrorTextView mError;
     private int mSign;
     private String mLabelText = "";
     private Button mSetButton;
@@ -143,6 +145,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         super.onFinishInflate();
 
         mDivider = findViewById(R.id.divider);
+        mError = (NumberPickerErrorTextView) findViewById(R.id.error);
 
         for (int i = 0; i < mInput.length; i++) {
             mInput[i] = -1;
@@ -246,9 +249,18 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         }
     }
 
+    /**
+     * Expose the NumberView in order to set errors
+     * @return the NumberView
+     */
+    public NumberPickerErrorTextView getErrorView() {
+        return mError;
+    }
+
     @Override
     public void onClick(View v) {
         v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+        mError.hideImmediately();
         doOnClick(v);
         updateDeleteButton();
     }
@@ -277,6 +289,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     @Override
     public boolean onLongClick(View v) {
         v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+        mError.hideImmediately();
         if (v == mDelete) {
             mDelete.setPressed(false);
             reset();
@@ -457,16 +470,6 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
 
         // Nothing entered - disable
         if (mInputPointer == -1) {
-            mSetButton.setEnabled(false);
-            return;
-        }
-
-        // Check for min/max values
-        if (mMaxNumber != null && getEnteredNumber() > mMaxNumber) {
-            mSetButton.setEnabled(false);
-            return;
-        }
-        if (mMinNumber != null && getEnteredNumber() < mMinNumber) {
             mSetButton.setEnabled(false);
             return;
         }

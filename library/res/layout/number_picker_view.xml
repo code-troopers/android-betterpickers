@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
     <LinearLayout
+            android:id="@+id/number_view_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
@@ -79,17 +79,36 @@
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dip"
+            android:layout_below="@id/number_view_container"
             android:background="@color/default_divider_color_dark"/>
-    <include
-            layout="@layout/three_keys_view"
-            android:id="@+id/first"/>
-    <include
-            layout="@layout/three_keys_view"
-            android:id="@+id/second"/>
-    <include
-            layout="@layout/three_keys_view"
-            android:id="@+id/third"/>
-    <include
-            layout="@layout/three_keys_view_leftright"
-            android:id="@+id/fourth"/>
-</LinearLayout>
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:orientation="vertical">
+        <include
+                layout="@layout/three_keys_view"
+                android:id="@+id/first"/>
+        <include
+                layout="@layout/three_keys_view"
+                android:id="@+id/second"/>
+        <include
+                layout="@layout/three_keys_view"
+                android:id="@+id/third"/>
+        <include
+                layout="@layout/three_keys_view_leftright"
+                android:id="@+id/fourth"/>
+    </LinearLayout>
+    <com.doomonafireball.betterpickers.numberpicker.NumberPickerErrorTextView
+            android:id="@+id/error"
+            android:visibility="invisible"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:gravity="center_horizontal"
+            android:background="#ffff4444"
+            android:textColor="#ffffffff"
+            android:textStyle="bold"/>
+</RelativeLayout>
