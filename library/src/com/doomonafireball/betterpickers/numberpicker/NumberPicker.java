@@ -302,12 +302,48 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     private void updateKeypad() {
         // Update state of keypad
         // Update the number
-        updateLeftRightButtons();
         updateNumber();
+        // enable/disable the left and right buttons
+        updateLeftRightButtons();
+        // enable/disable numeric keys according to the numbers entered already
+        updateNumericKeys();
         // enable/disable the "set" key
         enableSetButton();
         // Update the backspace button
         updateDeleteButton();
+    }
+
+    private void updateNumericKeys() {
+        if (mMaxNumber == null || mMinNumber == null || getIsNegative()) {
+            setKeyRange(0,9);
+            return;
+        }
+
+        if (containsDecimal()) {
+            double enteredNumber = getEnteredNumber();
+            int minKey = 0;
+            int maxKey = (enteredNumber < mMaxNumber)? 9 : 0;
+            setKeyRange(minKey, maxKey);
+        } else {
+            int number = getNumber();
+            if (number == 0) {
+                int minKey = (getEnteredNumberString().equals("") && mMaxNumber >= 0 && mMinNumber <= 0)? 0 : 1;
+                int maxKey = mMaxNumber <= 9 ? mMaxNumber : 9;
+                setKeyRange(minKey, maxKey);
+            } else {
+                number = mMaxNumber - (number * 10);
+                int minKey = 0;
+                int maxKey = number >= 0? (number <= 9 ? number : 9) : -1;
+                setKeyRange(minKey, maxKey);
+            }
+        }
+    }
+
+    // enables a range of numeric keys from minKey to maxKey. The rest of the keys will be disabled
+    private void setKeyRange(int minKey, int maxKey) {
+        for (int i = 0; i < mNumbers.length; i++) {
+            mNumbers[i].setEnabled(minKey <= i && i <= maxKey);
+        }
     }
 
     /**
@@ -359,7 +395,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     }
 
     protected void setLeftRightEnabled() {
-        mLeft.setEnabled(true);
+        mLeft.setEnabled(canInvert());
         mRight.setEnabled(canAddDecimal());
         if (!canAddDecimal()) {
             mRight.setContentDescription(null);
@@ -385,10 +421,12 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
      * Clicking on the bottom left button will toggle the sign.
      */
     private void onLeftClicked() {
-        if (mSign == SIGN_POSITIVE) {
-            mSign = SIGN_NEGATIVE;
-        } else {
-            mSign = SIGN_POSITIVE;
+        if (canInvert()) {
+            if (mSign == SIGN_POSITIVE) {
+                mSign = SIGN_NEGATIVE;
+            } else {
+                mSign = SIGN_POSITIVE;
+            }
         }
     }
 
@@ -417,7 +455,26 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
      * @return true or false if the user is able to add a decimal or not
      */
     private boolean canAddDecimal() {
+        if (mMaxNumber != null && getEnteredNumber() == mMaxNumber) {
+            return false;
+        }
         return !containsDecimal();
+    }
+    
+    /**
+     * Checks if the user allowed to click on the left button.
+     *
+     * @return true or false if the user is able to add a decimal or not
+     */
+    private boolean canInvert() {
+        double invertedNumber = getEnteredNumber() * -1;
+        if (mMinNumber != null && invertedNumber < mMinNumber) {
+            return false;
+        }
+        if (mMaxNumber != null && invertedNumber > mMaxNumber) {
+            return false;
+        }
+        return true;
     }
 
     private String getEnteredNumberString() {
@@ -458,6 +515,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
 
     private void updateLeftRightButtons() {
         mRight.setEnabled(canAddDecimal());
+        mLeft.setEnabled(canInvert());
     }
 
     /**
