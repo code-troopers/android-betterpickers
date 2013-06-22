@@ -1,19 +1,19 @@
-package com.doomonafireball.betterpickers.sample.activity;
+package com.doomonafireball.betterpickers.sample.activity.datepicker;
 
 import com.doomonafireball.betterpickers.datepicker.DatePickerBuilder;
 import com.doomonafireball.betterpickers.datepicker.DatePickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
+import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleDateMultipleHandlers extends BaseSampleActivity
+public class SampleDateDefaultCustom extends BaseSampleActivity
         implements DatePickerDialogFragment.DatePickerDialogHandler {
 
     private TextView text;
@@ -34,20 +34,10 @@ public class SampleDateMultipleHandlers extends BaseSampleActivity
             public void onClick(View v) {
                 DatePickerBuilder dpb = new DatePickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
-                        .setStyleResId(R.style.BetterPickersDialogFragment)
-                        .addDatePickerDialogHandler(new MyCustomHandler());
+                        .setStyleResId(R.style.MyCustomBetterPickerTheme);
                 dpb.show();
             }
         });
-    }
-
-    class MyCustomHandler implements DatePickerDialogFragment.DatePickerDialogHandler {
-
-        @Override
-        public void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth) {
-            Toast.makeText(SampleDateMultipleHandlers.this, "MyCustomHandler onDialogDateSet!", Toast.LENGTH_SHORT)
-                    .show();
-        }
     }
 
     @Override

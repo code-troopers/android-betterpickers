@@ -1,8 +1,9 @@
-package com.doomonafireball.betterpickers.sample.activity;
+package com.doomonafireball.betterpickers.sample.activity.datepicker;
 
+import com.doomonafireball.betterpickers.datepicker.DatePickerBuilder;
+import com.doomonafireball.betterpickers.datepicker.DatePickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
-import com.doomonafireball.betterpickers.timepicker.TimePickerBuilder;
-import com.doomonafireball.betterpickers.timepicker.TimePickerDialogFragment;
+import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -12,8 +13,8 @@ import android.widget.TextView;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleTimeDefaultCustom extends BaseSampleActivity
-        implements TimePickerDialogFragment.TimePickerDialogHandler {
+public class SampleDateDefaultLight extends BaseSampleActivity
+        implements DatePickerDialogFragment.DatePickerDialogHandler {
 
     private TextView text;
     private Button button;
@@ -27,20 +28,20 @@ public class SampleTimeDefaultCustom extends BaseSampleActivity
         button = (Button) findViewById(R.id.button);
 
         text.setText("--");
-        button.setText("Set Time");
+        button.setText("Set Date");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TimePickerBuilder tpb = new TimePickerBuilder()
+                DatePickerBuilder dpb = new DatePickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
-                        .setStyleResId(R.style.MyCustomBetterPickerTheme);
-                tpb.show();
+                        .setStyleResId(R.style.BetterPickersDialogFragment_Light);
+                dpb.show();
             }
         });
     }
 
     @Override
-    public void onDialogTimeSet(int reference, int hourOfDay, int minute) {
-        text.setText("" + hourOfDay + ":" + minute);
+    public void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth) {
+        text.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
     }
 }

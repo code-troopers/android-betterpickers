@@ -1,8 +1,9 @@
-package com.doomonafireball.betterpickers.sample.activity;
+package com.doomonafireball.betterpickers.sample.activity.hmspicker;
 
 import com.doomonafireball.betterpickers.hmspicker.HmsPickerBuilder;
 import com.doomonafireball.betterpickers.hmspicker.HmsPickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
+import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,8 @@ import android.widget.TextView;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleHmsDefault extends BaseSampleActivity implements HmsPickerDialogFragment.HmsPickerDialogHandler {
+public class SampleHmsDefaultLight extends BaseSampleActivity
+        implements HmsPickerDialogFragment.HmsPickerDialogHandler {
 
     private TextView text;
     private Button button;
@@ -32,7 +34,7 @@ public class SampleHmsDefault extends BaseSampleActivity implements HmsPickerDia
             public void onClick(View v) {
                 HmsPickerBuilder hpb = new HmsPickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
-                        .setStyleResId(R.style.BetterPickersDialogFragment);
+                        .setStyleResId(R.style.BetterPickersDialogFragment_Light);
                 hpb.show();
             }
         });

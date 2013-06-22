@@ -1,18 +1,20 @@
-package com.doomonafireball.betterpickers.sample.activity;
+package com.doomonafireball.betterpickers.sample.activity.numberpicker;
 
 import com.doomonafireball.betterpickers.numberpicker.NumberPickerBuilder;
 import com.doomonafireball.betterpickers.numberpicker.NumberPickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
+import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleNumberDefaultLight extends BaseSampleActivity
+public class SampleNumberMultipleHandlers extends BaseSampleActivity
         implements NumberPickerDialogFragment.NumberPickerDialogHandler {
 
     private TextView text;
@@ -33,10 +35,21 @@ public class SampleNumberDefaultLight extends BaseSampleActivity
             public void onClick(View v) {
                 NumberPickerBuilder npb = new NumberPickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
-                        .setStyleResId(R.style.BetterPickersDialogFragment_Light);
+                        .setStyleResId(R.style.BetterPickersDialogFragment)
+                        .addNumberPickerDialogHandler(new MyCustomHandler());
                 npb.show();
             }
         });
+    }
+
+    class MyCustomHandler implements NumberPickerDialogFragment.NumberPickerDialogHandler {
+
+        @Override
+        public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative,
+                double fullNumber) {
+            Toast.makeText(SampleNumberMultipleHandlers.this, "MyCustomHandler onDialogNumberSet!", Toast.LENGTH_SHORT)
+                    .show();
+        }
     }
 
     @Override

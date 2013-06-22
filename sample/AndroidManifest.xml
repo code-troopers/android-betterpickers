@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleTimeDefault"
+                android:name=".activity.timepicker.SampleTimeDefault"
                 android:label="Time/Default"
                 android:theme="@style/Theme.Sherlock">
             <intent-filter>
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleTimeDefaultLight"
+                android:name=".activity.timepicker.SampleTimeDefaultLight"
                 android:label="Time/Default Light Theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -39,7 +39,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleTimeDefaultCustom"
+                android:name=".activity.timepicker.SampleTimeDefaultCustom"
                 android:label="Time/Default Custom Theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -47,7 +47,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleTimeUsingFragment"
+                android:name=".activity.timepicker.SampleTimeUsingFragment"
                 android:label="Time/Using Fragment">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -55,7 +55,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleTimeMultipleReferences"
+                android:name=".activity.timepicker.SampleTimeMultipleReferences"
                 android:label="Time/Multiple References">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -63,7 +63,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleTimeMultipleHandlers"
+                android:name=".activity.timepicker.SampleTimeMultipleHandlers"
                 android:label="Time/Multiple Handlers">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -71,7 +71,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleNumberDefault"
+                android:name=".activity.numberpicker.SampleNumberDefault"
                 android:label="Number/Default"
                 android:theme="@style/Theme.Sherlock">
             <intent-filter>
@@ -80,7 +80,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleNumberDefaultLight"
+                android:name=".activity.numberpicker.SampleNumberDefaultLight"
                 android:label="Number/Default Light Theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -88,7 +88,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleNumberWithOptions"
+                android:name=".activity.numberpicker.SampleNumberWithOptions"
                 android:label="Number/Additional Options"
                 android:theme="@style/Theme.Sherlock">
             <intent-filter>
@@ -97,7 +97,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleNumberDefaultCustom"
+                android:name=".activity.numberpicker.SampleNumberDefaultCustom"
                 android:label="Number/Default Custom Theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -105,7 +105,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleNumberUsingFragment"
+                android:name=".activity.numberpicker.SampleNumberUsingFragment"
                 android:label="Number/Using Fragment">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -113,7 +113,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleNumberMultipleReferences"
+                android:name=".activity.numberpicker.SampleNumberMultipleReferences"
                 android:label="Number/Multiple References">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -121,7 +121,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleNumberMultipleHandlers"
+                android:name=".activity.numberpicker.SampleNumberMultipleHandlers"
                 android:label="Number/Multiple Handlers">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -129,7 +129,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleDateDefault"
+                android:name=".activity.datepicker.SampleDateDefault"
                 android:label="Date/Default"
                 android:theme="@style/Theme.Sherlock">
             <intent-filter>
@@ -138,7 +138,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleDateDefaultLight"
+                android:name=".activity.datepicker.SampleDateDefaultLight"
                 android:label="Date/Default Light Theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -146,7 +146,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleDateDefaultCustom"
+                android:name=".activity.datepicker.SampleDateDefaultCustom"
                 android:label="Date/Default Custom Theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -154,7 +154,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleDatePreset"
+                android:name=".activity.datepicker.SampleDatePreset"
                 android:label="Date/Preset"
                 android:theme="@style/Theme.Sherlock">
             <intent-filter>
@@ -163,7 +163,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleDatePresetLight"
+                android:name=".activity.datepicker.SampleDatePresetLight"
                 android:label="Date/Preset Light Theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -171,7 +171,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleDateUsingFragment"
+                android:name=".activity.datepicker.SampleDateUsingFragment"
                 android:label="Date/Using Fragment">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -179,7 +179,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleDateMultipleReferences"
+                android:name=".activity.datepicker.SampleDateMultipleReferences"
                 android:label="Date/Multiple References">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -187,7 +187,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleDateMultipleHandlers"
+                android:name=".activity.datepicker.SampleDateMultipleHandlers"
                 android:label="Date/Multiple Handlers">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -195,7 +195,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleHmsDefault"
+                android:name=".activity.hmspicker.SampleHmsDefault"
                 android:label="HMS/Default">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -203,7 +203,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleHmsDefaultCustom"
+                android:name=".activity.hmspicker.SampleHmsDefaultCustom"
                 android:label="HMS/Default Custom Theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -211,7 +211,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleHmsDefaultLight"
+                android:name=".activity.hmspicker.SampleHmsDefaultLight"
                 android:label="HMS/Default Light Theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -219,7 +219,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleHmsUsingFragment"
+                android:name=".activity.hmspicker.SampleHmsUsingFragment"
                 android:label="HMS/Using Fragment">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -227,7 +227,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleHmsMultipleReferences"
+                android:name=".activity.hmspicker.SampleHmsMultipleReferences"
                 android:label="HMS/Multiple References">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -235,7 +235,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.SampleHmsMultipleHandlers"
+                android:name=".activity.hmspicker.SampleHmsMultipleHandlers"
                 android:label="HMS/Multiple Handlers">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

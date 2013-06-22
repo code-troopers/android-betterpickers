@@ -1,6 +1,7 @@
-package com.doomonafireball.betterpickers.sample.activity;
+package com.doomonafireball.betterpickers.sample.activity.hmspicker;
 
 import com.doomonafireball.betterpickers.sample.R;
+import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
 import com.doomonafireball.betterpickers.sample.fragment.SampleHmsFragment;
 
 import android.os.Bundle;

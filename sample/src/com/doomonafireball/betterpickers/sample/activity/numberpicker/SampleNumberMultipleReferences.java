@@ -1,8 +1,9 @@
-package com.doomonafireball.betterpickers.sample.activity;
+package com.doomonafireball.betterpickers.sample.activity.numberpicker;
 
+import com.doomonafireball.betterpickers.numberpicker.NumberPickerBuilder;
+import com.doomonafireball.betterpickers.numberpicker.NumberPickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
-import com.doomonafireball.betterpickers.timepicker.TimePickerBuilder;
-import com.doomonafireball.betterpickers.timepicker.TimePickerDialogFragment;
+import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -11,8 +12,8 @@ import android.widget.Button;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleTimeMultipleReferences extends BaseSampleActivity
-        implements TimePickerDialogFragment.TimePickerDialogHandler {
+public class SampleNumberMultipleReferences extends BaseSampleActivity
+        implements NumberPickerDialogFragment.NumberPickerDialogHandler {
 
     private static final int BUTTON_ONE_REFERENCE = 0;
     private static final int BUTTON_TWO_REFERENCE = 1;
@@ -34,54 +35,54 @@ public class SampleTimeMultipleReferences extends BaseSampleActivity
         buttonThree = (Button) findViewById(R.id.button_three);
         buttonFour = (Button) findViewById(R.id.button_four);
 
-        buttonOne.setText("Set Time (1)");
-        buttonTwo.setText("Set Time (2)");
-        buttonThree.setText("Set Time (3)");
-        buttonFour.setText("Set Time (4)");
+        buttonOne.setText("Set Number (1)");
+        buttonTwo.setText("Set Number (2)");
+        buttonThree.setText("Set Number (3)");
+        buttonFour.setText("Set Number (4)");
         buttonOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TimePickerBuilder tpb = new TimePickerBuilder()
+                NumberPickerBuilder npb = new NumberPickerBuilder()
                         .setReference(BUTTON_ONE_REFERENCE)
                         .setFragmentManager(getSupportFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
-                tpb.show();
+                npb.show();
             }
         });
         buttonTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TimePickerBuilder tpb = new TimePickerBuilder()
+                NumberPickerBuilder npb = new NumberPickerBuilder()
                         .setReference(BUTTON_TWO_REFERENCE)
                         .setFragmentManager(getSupportFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
-                tpb.show();
+                npb.show();
             }
         });
         buttonThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TimePickerBuilder tpb = new TimePickerBuilder()
+                NumberPickerBuilder npb = new NumberPickerBuilder()
                         .setReference(BUTTON_THREE_REFERENCE)
                         .setFragmentManager(getSupportFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
-                tpb.show();
+                npb.show();
             }
         });
         buttonFour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TimePickerBuilder tpb = new TimePickerBuilder()
+                NumberPickerBuilder npb = new NumberPickerBuilder()
                         .setReference(BUTTON_FOUR_REFERENCE)
                         .setFragmentManager(getSupportFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
-                tpb.show();
+                npb.show();
             }
         });
     }
 
     @Override
-    public void onDialogTimeSet(int reference, int hourOfDay, int minute) {
+    public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber) {
         Button buttonToSet;
         switch (reference) {
             case BUTTON_ONE_REFERENCE:
@@ -99,6 +100,8 @@ public class SampleTimeMultipleReferences extends BaseSampleActivity
             default:
                 buttonToSet = buttonOne;
         }
-        buttonToSet.setText("" + hourOfDay + ":" + minute);
+        buttonToSet.setText(
+                "Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: "
+                        + fullNumber);
     }
 }
