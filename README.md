@@ -12,6 +12,10 @@ Try out the sample application on [Google Play][6].
 Changelog
 =========
 
+**1.3.1**
+* Improve UX for min/max for NumberPicker
+* Added ListView demos to the sample app
+
 **1.3.0**
 
 * Add Catalan, Spanish
