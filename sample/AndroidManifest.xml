@@ -71,6 +71,14 @@
             </intent-filter>
         </activity>
         <activity
+                android:name=".activity.timepicker.SampleTimeListAdapter"
+                android:label="Time/List Adapter">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
                 android:name=".activity.numberpicker.SampleNumberDefault"
                 android:label="Number/Default"
                 android:theme="@style/Theme.Sherlock">
@@ -163,7 +171,7 @@
         </activity>
         <activity
                 android:name=".activity.datepicker.SampleDatePreset"
-                android:label="Date/Preset"
+                android:label="Date/Preset (Not Recommended)"
                 android:theme="@style/Theme.Sherlock">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -172,7 +180,7 @@
         </activity>
         <activity
                 android:name=".activity.datepicker.SampleDatePresetLight"
-                android:label="Date/Preset Light Theme">
+                android:label="Date/Preset Light Theme (Not Recommended)">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
@@ -253,6 +261,14 @@
         <activity
                 android:name=".activity.hmspicker.SampleHmsMultipleHandlers"
                 android:label="HMS/Multiple Handlers">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activity.hmspicker.SampleHmsListAdapter"
+                android:label="HMS/List Adapter">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>

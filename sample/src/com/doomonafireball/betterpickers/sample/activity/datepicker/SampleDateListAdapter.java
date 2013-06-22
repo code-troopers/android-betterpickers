@@ -42,7 +42,7 @@ public class SampleDateListAdapter extends BaseSampleActivity {
         private ArrayList<DateTime> mDateTimes;
         private LayoutInflater mInflater;
         private ViewHolder holder;
-        private DatePickerBuilder mNpb;
+        private DatePickerBuilder mDatePickerBuilder;
         private DateTimeFormatter mDateTimeFormatter = new DateTimeFormatterBuilder()
                 .appendMonthOfYearShortText()
                 .appendLiteral(" ")
@@ -58,11 +58,19 @@ public class SampleDateListAdapter extends BaseSampleActivity {
             DateTime now = DateTime.now();
             mDateTimes = new ArrayList<DateTime>();
             for (int i = 1; i < 13; i++) {
+                DateTime dt = new DateTime().withMonthOfYear(i).withDayOfMonth(1).withYear(now.year().get() - 1);
+                mDateTimes.add(dt);
+            }
+            for (int i = 1; i < 13; i++) {
                 DateTime dt = new DateTime().withMonthOfYear(i).withDayOfMonth(1).withYear(now.year().get());
                 mDateTimes.add(dt);
             }
+            for (int i = 1; i < 13; i++) {
+                DateTime dt = new DateTime().withMonthOfYear(i).withDayOfMonth(1).withYear(now.year().get() + 1);
+                mDateTimes.add(dt);
+            }
 
-            mNpb = new DatePickerBuilder()
+            mDatePickerBuilder = new DatePickerBuilder()
                     .setFragmentManager(fm)
                     .setStyleResId(R.style.BetterPickersDialogFragment_Light);
         }
@@ -106,9 +114,9 @@ public class SampleDateListAdapter extends BaseSampleActivity {
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mNpb.setReference(position);
-                    mNpb.addDatePickerDialogHandler(SampleAdapter.this);
-                    mNpb.show();
+                    mDatePickerBuilder.setReference(position);
+                    mDatePickerBuilder.addDatePickerDialogHandler(SampleAdapter.this);
+                    mDatePickerBuilder.show();
                 }
             });
 

@@ -1,7 +1,7 @@
-package com.doomonafireball.betterpickers.sample.activity.numberpicker;
+package com.doomonafireball.betterpickers.sample.activity.hmspicker;
 
-import com.doomonafireball.betterpickers.numberpicker.NumberPickerBuilder;
-import com.doomonafireball.betterpickers.numberpicker.NumberPickerDialogFragment;
+import com.doomonafireball.betterpickers.hmspicker.HmsPickerBuilder;
+import com.doomonafireball.betterpickers.hmspicker.HmsPickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
 import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
 
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleNumberListAdapter extends BaseSampleActivity {
+public class SampleHmsListAdapter extends BaseSampleActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,25 +33,36 @@ public class SampleNumberListAdapter extends BaseSampleActivity {
         list.setAdapter(new SampleAdapter(this, getSupportFragmentManager()));
     }
 
-    private class SampleAdapter extends BaseAdapter implements NumberPickerDialogFragment.NumberPickerDialogHandler {
+    private class SampleAdapter extends BaseAdapter implements HmsPickerDialogFragment.HmsPickerDialogHandler {
 
-        private ArrayList<Integer> mNumbers;
+        private ArrayList<Hms> mHmses;
         private LayoutInflater mInflater;
         private ViewHolder holder;
-        private NumberPickerBuilder mNumberPickerBuilder;
+        private HmsPickerBuilder mHmsPickerBuilder;
 
         public SampleAdapter(Context context, FragmentManager fm) {
             super();
             mInflater = LayoutInflater.from(context);
 
-            mNumbers = new ArrayList<Integer>();
-            for (int i = 1; i < 31; i++) {
-                mNumbers.add(i);
+            mHmses = new ArrayList<Hms>();
+            for (int i = 0; i < 30; i++) {
+                Hms hms = new Hms();
+                hms.hours = 0;
+                hms.minutes = i * 2;
+                hms.seconds = 60 - i;
+                mHmses.add(hms);
             }
 
-            mNumberPickerBuilder = new NumberPickerBuilder()
+            mHmsPickerBuilder = new HmsPickerBuilder()
                     .setFragmentManager(fm)
                     .setStyleResId(R.style.BetterPickersDialogFragment_Light);
+        }
+
+        private class Hms {
+
+            public int hours = 0;
+            public int minutes = 0;
+            public int seconds = 0;
         }
 
         private class ViewHolder {
@@ -62,12 +73,12 @@ public class SampleNumberListAdapter extends BaseSampleActivity {
 
         @Override
         public int getCount() {
-            return mNumbers.size();
+            return mHmses.size();
         }
 
         @Override
-        public Integer getItem(int position) {
-            return mNumbers.get(position);
+        public Hms getItem(int position) {
+            return mHmses.get(position);
         }
 
         @Override
@@ -88,14 +99,14 @@ public class SampleNumberListAdapter extends BaseSampleActivity {
                 holder = (ViewHolder) view.getTag();
             }
 
-            Integer i = getItem(position);
-            holder.text.setText("" + i);
+            Hms hms = getItem(position);
+            holder.text.setText("" + hms.hours + "h, " + hms.minutes + "m, " + hms.seconds + "s");
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mNumberPickerBuilder.setReference(position);
-                    mNumberPickerBuilder.addNumberPickerDialogHandler(SampleAdapter.this);
-                    mNumberPickerBuilder.show();
+                    mHmsPickerBuilder.setReference(position);
+                    mHmsPickerBuilder.addHmsPickerDialogHandler(SampleAdapter.this);
+                    mHmsPickerBuilder.show();
                 }
             });
 
@@ -103,9 +114,12 @@ public class SampleNumberListAdapter extends BaseSampleActivity {
         }
 
         @Override
-        public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative,
-                double fullNumber) {
-            mNumbers.set(reference, number);
+        public void onDialogHmsSet(int reference, int hours, int minutes, int seconds) {
+            Hms hms = new Hms();
+            hms.hours = hours;
+            hms.minutes = minutes;
+            hms.seconds = seconds;
+            mHmses.set(reference, hms);
             notifyDataSetChanged();
         }
     }

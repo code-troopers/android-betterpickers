@@ -1,9 +1,9 @@
-package com.doomonafireball.betterpickers.sample.activity.numberpicker;
+package com.doomonafireball.betterpickers.sample.activity.timepicker;
 
-import com.doomonafireball.betterpickers.numberpicker.NumberPickerBuilder;
-import com.doomonafireball.betterpickers.numberpicker.NumberPickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
 import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
+import com.doomonafireball.betterpickers.timepicker.TimePickerBuilder;
+import com.doomonafireball.betterpickers.timepicker.TimePickerDialogFragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleNumberListAdapter extends BaseSampleActivity {
+public class SampleTimeListAdapter extends BaseSampleActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,25 +33,46 @@ public class SampleNumberListAdapter extends BaseSampleActivity {
         list.setAdapter(new SampleAdapter(this, getSupportFragmentManager()));
     }
 
-    private class SampleAdapter extends BaseAdapter implements NumberPickerDialogFragment.NumberPickerDialogHandler {
+    private class SampleAdapter extends BaseAdapter implements TimePickerDialogFragment.TimePickerDialogHandler {
 
-        private ArrayList<Integer> mNumbers;
+        private ArrayList<Hm> mHms;
         private LayoutInflater mInflater;
         private ViewHolder holder;
-        private NumberPickerBuilder mNumberPickerBuilder;
+        private TimePickerBuilder mTimePickerBuilder;
 
         public SampleAdapter(Context context, FragmentManager fm) {
             super();
             mInflater = LayoutInflater.from(context);
 
-            mNumbers = new ArrayList<Integer>();
-            for (int i = 1; i < 31; i++) {
-                mNumbers.add(i);
+            mHms = new ArrayList<Hm>();
+            for (int i = 0; i < 24; i++) {
+                Hm hm = new Hm();
+                hm.hourOfDay = i;
+                hm.minute = 0;
+                mHms.add(hm);
+                Hm hm2 = new Hm();
+                hm2.hourOfDay = i;
+                hm2.minute = 15;
+                mHms.add(hm2);
+                Hm hm3 = new Hm();
+                hm3.hourOfDay = i;
+                hm3.minute = 30;
+                mHms.add(hm3);
+                Hm hm4 = new Hm();
+                hm4.hourOfDay = i;
+                hm4.minute = 45;
+                mHms.add(hm4);
             }
 
-            mNumberPickerBuilder = new NumberPickerBuilder()
+            mTimePickerBuilder = new TimePickerBuilder()
                     .setFragmentManager(fm)
                     .setStyleResId(R.style.BetterPickersDialogFragment_Light);
+        }
+
+        private class Hm {
+
+            public int hourOfDay = 0;
+            public int minute = 0;
         }
 
         private class ViewHolder {
@@ -62,12 +83,12 @@ public class SampleNumberListAdapter extends BaseSampleActivity {
 
         @Override
         public int getCount() {
-            return mNumbers.size();
+            return mHms.size();
         }
 
         @Override
-        public Integer getItem(int position) {
-            return mNumbers.get(position);
+        public Hm getItem(int position) {
+            return mHms.get(position);
         }
 
         @Override
@@ -88,14 +109,14 @@ public class SampleNumberListAdapter extends BaseSampleActivity {
                 holder = (ViewHolder) view.getTag();
             }
 
-            Integer i = getItem(position);
-            holder.text.setText("" + i);
+            Hm hm = getItem(position);
+            holder.text.setText(String.format("%02d", hm.hourOfDay) + ":" + String.format("%02d", hm.minute));
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mNumberPickerBuilder.setReference(position);
-                    mNumberPickerBuilder.addNumberPickerDialogHandler(SampleAdapter.this);
-                    mNumberPickerBuilder.show();
+                    mTimePickerBuilder.setReference(position);
+                    mTimePickerBuilder.addTimePickerDialogHandler(SampleAdapter.this);
+                    mTimePickerBuilder.show();
                 }
             });
 
@@ -103,9 +124,11 @@ public class SampleNumberListAdapter extends BaseSampleActivity {
         }
 
         @Override
-        public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative,
-                double fullNumber) {
-            mNumbers.set(reference, number);
+        public void onDialogTimeSet(int reference, int hourOfDay, int minute) {
+            Hm hm = new Hm();
+            hm.hourOfDay = hourOfDay;
+            hm.minute = minute;
+            mHms.set(reference, hm);
             notifyDataSetChanged();
         }
     }
