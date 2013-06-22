@@ -129,6 +129,14 @@
             </intent-filter>
         </activity>
         <activity
+                android:name=".activity.numberpicker.SampleNumberListAdapter"
+                android:label="Number/List Adapter">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
                 android:name=".activity.datepicker.SampleDateDefault"
                 android:label="Date/Default"
                 android:theme="@style/Theme.Sherlock">
@@ -189,6 +197,14 @@
         <activity
                 android:name=".activity.datepicker.SampleDateMultipleHandlers"
                 android:label="Date/Multiple Handlers">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activity.datepicker.SampleDateListAdapter"
+                android:label="Date/List Adapter">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
