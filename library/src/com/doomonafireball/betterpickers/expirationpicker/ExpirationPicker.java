@@ -508,7 +508,7 @@ public class ExpirationPicker extends LinearLayout implements Button.OnClickList
         if (mSetButton == null) {
             return;
         }
-        mSetButton.setEnabled(getYear() > 0 && getMonthOfYear() >= 0);
+        mSetButton.setEnabled(getYear() >= mCurrentYear && getMonthOfYear() > 0);
     }
 
     /**
