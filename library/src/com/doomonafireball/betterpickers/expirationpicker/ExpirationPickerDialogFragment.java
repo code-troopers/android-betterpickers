@@ -125,6 +125,10 @@ public class ExpirationPickerDialogFragment extends DialogFragment {
         });
         mPicker = (ExpirationPicker) v.findViewById(R.id.expiration_picker);
         mPicker.setSetButton(mSet);
+
+        if (mMonthOfYear != -1 || mYear != 0)
+            mPicker.setExpiration(mYear, mMonthOfYear);
+
         mSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

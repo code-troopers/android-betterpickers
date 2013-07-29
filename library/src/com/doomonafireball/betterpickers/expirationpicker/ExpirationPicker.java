@@ -259,7 +259,7 @@ public class ExpirationPicker extends LinearLayout implements Button.OnClickList
                     mMonths[i].setTextColor(mTextColor);
                     mMonths[i].setBackgroundResource(mKeyBackgroundResId);
                     mMonths[i].setTag(R.id.date_keyboard, KEYBOARD_MONTH);
-                    mMonths[i].setTag(R.id.date_month_int, i);
+                    mMonths[i].setTag(R.id.date_month_int, i + 1);
                 }
             } else if (position == EXPIRATION_YEAR_POSITION) {
                 // Year
@@ -424,7 +424,7 @@ public class ExpirationPicker extends LinearLayout implements Button.OnClickList
             month = "";
         } else {
             // month = mMonthAbbreviations[mMonthInput];
-            month = String.format("%02d", mMonthInput + 1);
+            month = String.format("%02d", mMonthInput);
         }
         mEnteredExpiration.setExpiration(month, getYear());
     }
@@ -536,7 +536,7 @@ public class ExpirationPicker extends LinearLayout implements Button.OnClickList
      * @return the zero-indexed inputted month
      */
     public int getMonthOfYear() {
-        return mMonthInput + 1;
+        return mMonthInput;
     }
 
     /**
@@ -546,7 +546,7 @@ public class ExpirationPicker extends LinearLayout implements Button.OnClickList
      * @param monthOfYear the new zero-indexed month to set
      */
     public void setExpiration(int year, int monthOfYear) {
-        if (year < mCurrentYear)
+        if (year != 0 && year < mCurrentYear)
             throw new IllegalArgumentException("Past years are not allowed. Specify " + mCurrentYear + " or above.");
 
         mMonthInput = monthOfYear;
