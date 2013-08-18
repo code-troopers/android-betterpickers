@@ -21,6 +21,10 @@
     <style name="medium_light_date" parent="@style/medium_bold">
         <item name="android:textSize">@dimen/medium_date_font_size</item>
     </style>
+    <style name="medium_light_expiration">
+        <item name="android:textSize">@dimen/medium_expiration_font_size</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
     <style name="label">
         <item name="android:textSize">@dimen/label_font_size</item>
         <item name="android:textStyle">bold</item>
