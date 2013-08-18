@@ -13,4 +13,21 @@
     <color name="default_button_background_light">#00000000</color>
     <color name="default_button_background_pressed_light">#ff00ddff</color>
     <color name="default_keyboard_indicator_color_light">#ff00ddff</color>
+
+    <color name="white">#ffffff</color>
+    <color name="circle_background">#f2f2f2</color>
+    <color name="line_background">#cccccc</color>
+    <color name="ampm_text_color">#8c8c8c</color>
+    <color name="done_text_color_normal">#333333</color>
+    <color name="done_text_color_disabled">#CCCCCC</color>
+    <color name="numbers_text_color">#8c8c8c</color>
+
+    <color name="transparent_black">#7F000000</color>
+    <color name="blue">#33b5e5</color>
+    <color name="darker_blue">#0099CC</color>
+    <color name="date_picker_text_normal">#FF999999</color>
+
+    <color name="calendar_header">#999999</color>
+    <color name="date_picker_view_animator">#f2f2f2</color>
+    <color name="calendar_selected_date_text">#FFD1D2D4</color>
 </resources>

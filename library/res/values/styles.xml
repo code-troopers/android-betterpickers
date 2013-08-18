@@ -54,4 +54,18 @@
         <item name="android:textAllCaps">true</item>
         <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
+
+    <style name="aosp_time_label">
+        <item name="android:textSize">@dimen/time_label_size</item>
+        <item name="android:textColor">@color/numbers_text_color</item>
+    </style>
+
+    <style name="aosp_ampm_label">
+        <item name="android:textSize">@dimen/ampm_label_size</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/ampm_text_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="aosp_day_of_week_label_condensed" />
 </resources>
