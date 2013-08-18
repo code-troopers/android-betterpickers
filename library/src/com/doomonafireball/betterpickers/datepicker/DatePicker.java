@@ -86,7 +86,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         super(context, attrs);
         mContext = context;
         mDateFormatOrder = DateFormat.getDateFormatOrder(mContext);
-        mMonthAbbreviations = mContext.getResources().getStringArray(R.array.month_abbreviations);
+        mMonthAbbreviations = makeLocalizedMonthAbbreviations;
         LayoutInflater layoutInflater =
                 (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         layoutInflater.inflate(getLayoutId(), this);
@@ -783,6 +783,44 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
             }
         }
         updateKeypad();
+    }
+
+    /**
+     * Create a String array with all the months abbreviations localized with the default Locale.
+     *
+     * @return a String array with all localized month abbreviations like JAN, FEB, etc.
+     */
+    public static String[] makeLocalizedMonthAbbreviations() {
+        return makeLocalizedMonthAbbreviations(null);
+    }
+
+    /**
+     * Create a String array with all the months abbreviations localized with the specified Locale.
+     *
+     * @param locale the Locale to use for localization, or null to use the default one
+     * @return a String array with all localized month abbreviations like JAN, FEB, etc.
+     */
+    public static String[] makeLocalizedMonthAbbreviations(Locale locale) {
+        final boolean hasLocale = locale != null;
+        final DateFormat monthAbbreviationFormat = hasLocale ? new SimpleDateFormat("MMM", locale)
+                                                             : new SimpleDateFormat("MMM");
+        final Calendar date = hasLocale ? new GregorianCalendar(locale)
+                                        : new GregorianCalendar();
+        date.set(Calendar.YEAR, 0);
+        date.set(Calendar.DAY_OF_MONTH, 1);
+        date.set(Calendar.HOUR_OF_DAY, 0);
+        date.set(Calendar.MINUTE, 0);
+        date.set(Calendar.SECOND, 0);
+        date.set(Calendar.MILLISECOND, 0);
+        date.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+        final String[] months = new String[12];
+        for (int i = months.length - 1; i >= 0; i--)
+        {
+            date.set(Calendar.MONTH, i);
+            months[i] = monthAbbreviationFormat.format(date.getTime()).toUpperCase();
+        }
+        return months;
     }
 
     @Override
