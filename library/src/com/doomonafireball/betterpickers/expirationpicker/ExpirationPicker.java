@@ -1,9 +1,8 @@
 package com.doomonafireball.betterpickers.expirationpicker;
 
-import java.util.Calendar;
-
 import com.doomonafireball.betterpickers.R;
 import com.doomonafireball.betterpickers.UnderlinePageIndicatorPicker;
+import com.doomonafireball.betterpickers.datepicker.DatePicker;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -23,6 +22,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+
+import java.util.Calendar;
 
 
 public class ExpirationPicker extends LinearLayout implements Button.OnClickListener,
@@ -85,7 +86,7 @@ public class ExpirationPicker extends LinearLayout implements Button.OnClickList
         super(context, attrs);
         mContext = context;
         mDateFormatOrder = DateFormat.getDateFormatOrder(mContext);
-        mMonthAbbreviations = mContext.getResources().getStringArray(R.array.month_abbreviations);
+        mMonthAbbreviations = DatePicker.makeLocalizedMonthAbbreviations();
         LayoutInflater layoutInflater =
                 (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         layoutInflater.inflate(getLayoutId(), this);
@@ -546,8 +547,9 @@ public class ExpirationPicker extends LinearLayout implements Button.OnClickList
      * @param monthOfYear the new zero-indexed month to set
      */
     public void setExpiration(int year, int monthOfYear) {
-        if (year != 0 && year < mCurrentYear)
+        if (year != 0 && year < mCurrentYear) {
             throw new IllegalArgumentException("Past years are not allowed. Specify " + mCurrentYear + " or above.");
+        }
 
         mMonthInput = monthOfYear;
         mYearInput[3] = year / 1000;

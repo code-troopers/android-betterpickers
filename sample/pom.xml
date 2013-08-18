@@ -36,14 +36,14 @@
         <dependency>
             <groupId>com.actionbarsherlock</groupId>
             <artifactId>actionbarsherlock</artifactId>
-            <version>4.2.0</version>
+            <version>4.4.0</version>
             <type>apklib</type>
         </dependency>
 
         <dependency>
             <groupId>com.actionbarsherlock</groupId>
             <artifactId>actionbarsherlock</artifactId>
-            <version>4.2.0</version>
+            <version>4.4.0</version>
             <type>jar</type>
             <scope>provided</scope>
         </dependency>

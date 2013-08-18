@@ -94,10 +94,10 @@ public class ExpirationView extends PickerLinearLayout {
             mMonth.updatePadding();
         }
         if (mYearLabel != null) {
-        	mYearLabel.setTypeface(mAndroidClockMonoThin);
+            mYearLabel.setTypeface(mAndroidClockMonoThin);
         }
         if (mSeperator != null) {
-        	mSeperator.setTypeface(mAndroidClockMonoThin);
+            mSeperator.setTypeface(mAndroidClockMonoThin);
         }
 
         restyleViews();
@@ -187,9 +187,10 @@ public class ExpirationView extends PickerLinearLayout {
     public View getViewAt(int index) {
         int actualIndex[] = {0, 2};
 
-        if (index > actualIndex.length)
+        if (index > actualIndex.length) {
             return null;
-        else
+        } else {
             return getChildAt(actualIndex[index]);
+        }
     }
 }
