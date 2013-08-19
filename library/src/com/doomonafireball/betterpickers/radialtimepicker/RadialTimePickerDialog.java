@@ -14,10 +14,10 @@
  * limitations under the License
  */
 
-package com.android.datetimepicker.time;
+package com.doomonafireball.betterpickers.radialtimepicker;
 
-import com.android.datetimepicker.Utils;
-import com.android.datetimepicker.time.RadialPickerLayout.OnValueSelectedListener;
+import com.doomonafireball.betterpickers.Utils;
+import com.doomonafireball.betterpickers.radialtimepicker.RadialPickerLayout.OnValueSelectedListener;
 import com.doomonafireball.betterpickers.R;
 
 import android.animation.ObjectAnimator;
@@ -45,7 +45,7 @@ import java.util.Locale;
 /**
  * Dialog to set a time.
  */
-public class TimePickerDialog extends DialogFragment implements OnValueSelectedListener {
+public class RadialTimePickerDialog extends DialogFragment implements OnValueSelectedListener {
 
     private static final String TAG = "TimePickerDialog";
 
@@ -118,18 +118,18 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
         void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute);
     }
 
-    public TimePickerDialog() {
+    public RadialTimePickerDialog() {
         // Empty constructor required for dialog fragment.
     }
 
-    public TimePickerDialog(Context context, int theme, OnTimeSetListener callback,
+    public RadialTimePickerDialog(Context context, int theme, OnTimeSetListener callback,
             int hourOfDay, int minute, boolean is24HourMode) {
         // Empty constructor required for dialog fragment.
     }
 
-    public static TimePickerDialog newInstance(OnTimeSetListener callback,
+    public static RadialTimePickerDialog newInstance(OnTimeSetListener callback,
             int hourOfDay, int minute, boolean is24HourMode) {
-        TimePickerDialog ret = new TimePickerDialog();
+        RadialTimePickerDialog ret = new RadialTimePickerDialog();
         ret.initialize(callback, hourOfDay, minute, is24HourMode);
         return ret;
     }

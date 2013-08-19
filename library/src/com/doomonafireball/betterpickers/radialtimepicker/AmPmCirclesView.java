@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.datetimepicker.time;
+package com.doomonafireball.betterpickers.radialtimepicker;
 
 import com.doomonafireball.betterpickers.R;
 
@@ -51,8 +51,8 @@ public class AmPmCirclesView extends View {
     private String mPmText;
     private boolean mIsInitialized;
 
-    private static final int AM = TimePickerDialog.AM;
-    private static final int PM = TimePickerDialog.PM;
+    private static final int AM = RadialTimePickerDialog.AM;
+    private static final int PM = RadialTimePickerDialog.PM;
 
     private boolean mDrawValuesReady;
     private int mAmPmCircleRadius;

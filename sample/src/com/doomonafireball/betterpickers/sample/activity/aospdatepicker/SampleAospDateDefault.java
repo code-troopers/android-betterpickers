@@ -1,6 +1,6 @@
 package com.doomonafireball.betterpickers.sample.activity.aospdatepicker;
 
-import com.android.datetimepicker.date.DatePickerDialog;
+import com.doomonafireball.betterpickers.calendardatepicker.CalendarDatePickerDialog;
 import com.doomonafireball.betterpickers.datepicker.DatePickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
 import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
@@ -33,7 +33,7 @@ public class SampleAospDateDefault extends BaseSampleActivity implements DatePic
             @Override
             public void onClick(View v) {
                 FragmentManager fm = getSupportFragmentManager();
-                DatePickerDialog datePickerDialog = new DatePickerDialog();
+                CalendarDatePickerDialog datePickerDialog = new CalendarDatePickerDialog();
                 datePickerDialog.show(fm, "fragment_date_picker_name");
             }
         });

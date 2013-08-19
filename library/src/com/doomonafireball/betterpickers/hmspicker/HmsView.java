@@ -1,7 +1,7 @@
 package com.doomonafireball.betterpickers.hmspicker;
 
 import com.doomonafireball.betterpickers.R;
-import com.doomonafireball.betterpickers.ZeroTopPaddingTextView;
+import com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView;
 
 import android.content.Context;
 import android.content.res.ColorStateList;

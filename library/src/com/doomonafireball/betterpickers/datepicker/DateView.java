@@ -1,9 +1,9 @@
 package com.doomonafireball.betterpickers.datepicker;
 
-import com.doomonafireball.betterpickers.PickerLinearLayout;
+import com.doomonafireball.betterpickers.widget.PickerLinearLayout;
 import com.doomonafireball.betterpickers.R;
-import com.doomonafireball.betterpickers.UnderlinePageIndicatorPicker;
-import com.doomonafireball.betterpickers.ZeroTopPaddingTextView;
+import com.doomonafireball.betterpickers.widget.UnderlinePageIndicatorPicker;
+import com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView;
 
 import android.content.Context;
 import android.content.res.ColorStateList;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.datetimepicker.date;
+package com.doomonafireball.betterpickers.calendardatepicker;
 
 import com.doomonafireball.betterpickers.R;
 

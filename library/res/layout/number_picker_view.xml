@@ -8,7 +8,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
-        <com.doomonafireball.betterpickers.AutoScrollHorizontalScrollView
+        <com.doomonafireball.betterpickers.widget.AutoScrollHorizontalScrollView
                 android:id="@+id/horizontal_scroll_view"
                 android:layout_width="0dip"
                 android:layout_weight="2"
@@ -23,14 +23,14 @@
                     android:layout_gravity="left"
                     android:baselineAligned="false"
                     android:gravity="top">
-                <com.doomonafireball.betterpickers.ZeroTopPaddingTextView
+                <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
                         android:id="@+id/number"
                         android:singleLine="true"
                         android:ellipsize="none"
                         style="@style/medium_bold"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"/>
-                <com.doomonafireball.betterpickers.ZeroTopPaddingTextView
+                <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
                         android:id="@+id/decimal_separator"
                         android:singleLine="true"
                         android:ellipsize="none"
@@ -38,14 +38,14 @@
                         android:text="@string/number_picker_seperator"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"/>
-                <com.doomonafireball.betterpickers.ZeroTopPaddingTextView
+                <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
                         android:id="@+id/decimal"
                         android:singleLine="true"
                         android:ellipsize="none"
                         style="@style/medium_bold"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"/>
-                <com.doomonafireball.betterpickers.ZeroTopPaddingTextView
+                <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
                         android:id="@+id/label"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
                         android:ellipsize="none"
                         style="@style/label"
                         android:gravity="top"/>
-                <com.doomonafireball.betterpickers.ZeroTopPaddingTextView
+                <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
                         android:id="@+id/minus_label"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
                         android:gravity="top"
                         android:text="@string/number_picker_minus_label"/>
             </com.doomonafireball.betterpickers.numberpicker.NumberView>
-        </com.doomonafireball.betterpickers.AutoScrollHorizontalScrollView>
+        </com.doomonafireball.betterpickers.widget.AutoScrollHorizontalScrollView>
         <ImageButton
                 android:id="@+id/delete"
                 android:layout_width="0dip"

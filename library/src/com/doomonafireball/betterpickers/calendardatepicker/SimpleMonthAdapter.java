@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.datetimepicker.date;
-
-import com.android.datetimepicker.date.SimpleMonthView.OnDayClickListener;
+package com.doomonafireball.betterpickers.calendardatepicker;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -32,12 +30,12 @@ import java.util.HashMap;
 /**
  * An adapter for a list of {@link SimpleMonthView} items.
  */
-public class SimpleMonthAdapter extends BaseAdapter implements OnDayClickListener {
+public class SimpleMonthAdapter extends BaseAdapter implements SimpleMonthView.OnDayClickListener {
 
     private static final String TAG = "SimpleMonthAdapter";
 
     private final Context mContext;
-    private final DatePickerController mController;
+    private final CalendarDatePickerController mController;
 
     private CalendarDay mSelectedDay;
 
@@ -96,7 +94,7 @@ public class SimpleMonthAdapter extends BaseAdapter implements OnDayClickListene
     }
 
     public SimpleMonthAdapter(Context context,
-            DatePickerController controller) {
+            CalendarDatePickerController controller) {
         mContext = context;
         mController = controller;
         init();

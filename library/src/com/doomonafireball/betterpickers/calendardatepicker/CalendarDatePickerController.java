@@ -14,25 +14,22 @@
  * limitations under the License.
  */
 
-package com.android.datetimepicker.date;
-
-import com.android.datetimepicker.date.DatePickerDialog.OnDateChangedListener;
-import com.android.datetimepicker.date.SimpleMonthAdapter.CalendarDay;
+package com.doomonafireball.betterpickers.calendardatepicker;
 
 /**
  * Controller class to communicate among the various components of the date picker dialog.
  */
-interface DatePickerController {
+interface CalendarDatePickerController {
 
     void onYearSelected(int year);
 
     void onDayOfMonthSelected(int year, int month, int day);
 
-    void registerOnDateChangedListener(OnDateChangedListener listener);
+    void registerOnDateChangedListener(CalendarDatePickerDialog.OnDateChangedListener listener);
 
-    void unregisterOnDateChangedListener(OnDateChangedListener listener);
+    void unregisterOnDateChangedListener(CalendarDatePickerDialog.OnDateChangedListener listener);
 
-    CalendarDay getSelectedDay();
+    SimpleMonthAdapter.CalendarDay getSelectedDay();
 
     int getFirstDayOfWeek();
 

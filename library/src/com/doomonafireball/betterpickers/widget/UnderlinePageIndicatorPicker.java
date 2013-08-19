@@ -13,7 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.doomonafireball.betterpickers;
+package com.doomonafireball.betterpickers.widget;
+
+import com.doomonafireball.betterpickers.R;
 
 import android.content.Context;
 import android.content.res.TypedArray;

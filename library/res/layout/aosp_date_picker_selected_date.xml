@@ -24,7 +24,7 @@
     android:gravity="center"
     android:orientation="vertical" >
 
-    <com.android.datetimepicker.AccessibleLinearLayout
+    <com.doomonafireball.betterpickers.widget.AccessibleLinearLayout
         android:id="@+id/date_picker_month_and_day"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,9 +55,9 @@
             android:includeFontPadding="false"
             android:textColor="@color/date_picker_selector"
             android:textSize="@dimen/selected_date_day_size" />
-    </com.android.datetimepicker.AccessibleLinearLayout>
+    </com.doomonafireball.betterpickers.widget.AccessibleLinearLayout>
 
-    <com.android.datetimepicker.AccessibleTextView
+    <com.doomonafireball.betterpickers.widget.AccessibleTextView
         android:id="@+id/date_picker_year"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

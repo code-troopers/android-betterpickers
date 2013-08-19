@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.android.datetimepicker.date;
+package com.doomonafireball.betterpickers.calendardatepicker;
 
-import com.android.datetimepicker.date.DatePickerDialog.OnDateChangedListener;
+import com.doomonafireball.betterpickers.calendardatepicker.CalendarDatePickerDialog.OnDateChangedListener;
 import com.doomonafireball.betterpickers.R;
 
 import android.content.Context;
@@ -41,7 +41,7 @@ public class YearPickerView extends ListView implements OnItemClickListener, OnD
 
     private static final String TAG = "YearPickerView";
 
-    private final DatePickerController mController;
+    private final CalendarDatePickerController mController;
     private YearAdapter mAdapter;
     private int mViewSize;
     private int mChildSize;
@@ -50,7 +50,7 @@ public class YearPickerView extends ListView implements OnItemClickListener, OnD
     /**
      * @param context
      */
-    public YearPickerView(Context context, DatePickerController controller) {
+    public YearPickerView(Context context, CalendarDatePickerController controller) {
         super(context);
         mController = controller;
         mController.registerOnDateChangedListener(this);

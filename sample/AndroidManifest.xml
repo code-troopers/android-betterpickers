@@ -286,7 +286,7 @@
         </activity>
         <activity
                 android:name=".activity.aospdatepicker.SampleAospDateDefault"
-                android:label="AOSP Date/Default">
+                android:label="Calendar Date/Default">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
@@ -294,7 +294,7 @@
         </activity>
         <activity
                 android:name=".activity.aosptimepicker.SampleAospTimeDefault"
-                android:label="AOSP Time/Default">
+                android:label="Radial Time/Default">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>

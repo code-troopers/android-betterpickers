@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.doomonafireball.betterpickers;
+package com.doomonafireball.betterpickers.widget;
 
 import android.support.v4.view.ViewPager;
 

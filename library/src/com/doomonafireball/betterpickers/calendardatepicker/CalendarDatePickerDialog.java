@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-package com.android.datetimepicker.date;
+package com.doomonafireball.betterpickers.calendardatepicker;
 
-import com.android.datetimepicker.Utils;
-import com.android.datetimepicker.date.SimpleMonthAdapter.CalendarDay;
+import com.doomonafireball.betterpickers.Utils;
 import com.doomonafireball.betterpickers.R;
 
 import android.animation.ObjectAnimator;
@@ -51,8 +50,8 @@ import java.util.Locale;
 /**
  * Dialog allowing users to select a date.
  */
-public class DatePickerDialog extends DialogFragment implements
-        OnClickListener, DatePickerController {
+public class CalendarDatePickerDialog extends DialogFragment implements
+        OnClickListener, CalendarDatePickerController {
 
     private static final String TAG = "DatePickerDialog";
 
@@ -122,7 +121,7 @@ public class DatePickerDialog extends DialogFragment implements
          * @param monthOfYear The month that was set (0-11) for compatibility with {@link java.util.Calendar}.
          * @param dayOfMonth The day of the month that was set.
          */
-        void onDateSet(DatePickerDialog dialog, int year, int monthOfYear, int dayOfMonth);
+        void onDateSet(CalendarDatePickerDialog dialog, int year, int monthOfYear, int dayOfMonth);
     }
 
     /**
@@ -134,7 +133,7 @@ public class DatePickerDialog extends DialogFragment implements
     }
 
 
-    public DatePickerDialog() {
+    public CalendarDatePickerDialog() {
         // Empty constructor required for dialog fragment.
     }
 
@@ -144,10 +143,10 @@ public class DatePickerDialog extends DialogFragment implements
      * @param monthOfYear The initial month of the dialog.
      * @param dayOfMonth The initial day of the dialog.
      */
-    public static DatePickerDialog newInstance(OnDateSetListener callBack, int year,
+    public static CalendarDatePickerDialog newInstance(OnDateSetListener callBack, int year,
             int monthOfYear,
             int dayOfMonth) {
-        DatePickerDialog ret = new DatePickerDialog();
+        CalendarDatePickerDialog ret = new CalendarDatePickerDialog();
         ret.initialize(callBack, year, monthOfYear, dayOfMonth);
         return ret;
     }
@@ -251,7 +250,7 @@ public class DatePickerDialog extends DialogFragment implements
             public void onClick(View v) {
                 tryVibrate();
                 if (mCallBack != null) {
-                    mCallBack.onDateSet(DatePickerDialog.this, mCalendar.get(Calendar.YEAR),
+                    mCallBack.onDateSet(CalendarDatePickerDialog.this, mCalendar.get(Calendar.YEAR),
                             mCalendar.get(Calendar.MONTH), mCalendar.get(Calendar.DAY_OF_MONTH));
                 }
                 dismiss();
@@ -418,8 +417,8 @@ public class DatePickerDialog extends DialogFragment implements
 
 
     @Override
-    public CalendarDay getSelectedDay() {
-        return new CalendarDay(mCalendar);
+    public SimpleMonthAdapter.CalendarDay getSelectedDay() {
+        return new SimpleMonthAdapter.CalendarDay(mCalendar);
     }
 
     @Override

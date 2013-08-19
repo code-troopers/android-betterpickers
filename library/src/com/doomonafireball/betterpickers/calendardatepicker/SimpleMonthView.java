@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.android.datetimepicker.date;
+package com.doomonafireball.betterpickers.calendardatepicker;
 
-import com.android.datetimepicker.Utils;
-import com.android.datetimepicker.date.SimpleMonthAdapter.CalendarDay;
+import com.doomonafireball.betterpickers.Utils;
+import com.doomonafireball.betterpickers.calendardatepicker.SimpleMonthAdapter.CalendarDay;
 import com.doomonafireball.betterpickers.R;
 import com.googlecode.eyesfree.utils.TouchExplorationHelper;
 

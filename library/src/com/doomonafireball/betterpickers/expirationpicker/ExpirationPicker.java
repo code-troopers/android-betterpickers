@@ -1,7 +1,7 @@
 package com.doomonafireball.betterpickers.expirationpicker;
 
 import com.doomonafireball.betterpickers.R;
-import com.doomonafireball.betterpickers.UnderlinePageIndicatorPicker;
+import com.doomonafireball.betterpickers.widget.UnderlinePageIndicatorPicker;
 import com.doomonafireball.betterpickers.datepicker.DatePicker;
 
 import android.annotation.SuppressLint;

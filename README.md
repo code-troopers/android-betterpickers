@@ -59,9 +59,6 @@ a dependency:
       <type>apklib</type>
     </dependency>
 
-This project depends on Jake Wharton's `ViewPagerIndicator` library. Details for
-including this library are available [here][9].
-
 Usage
 =====
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.datetimepicker.time;
+package com.doomonafireball.betterpickers.radialtimepicker;
 
 import com.doomonafireball.betterpickers.R;
 
@@ -52,12 +52,12 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
     private static final int VISIBLE_DEGREES_STEP_SIZE = 30;
     private static final int HOUR_VALUE_TO_DEGREES_STEP_SIZE = VISIBLE_DEGREES_STEP_SIZE;
     private static final int MINUTE_VALUE_TO_DEGREES_STEP_SIZE = 6;
-    private static final int HOUR_INDEX = TimePickerDialog.HOUR_INDEX;
-    private static final int MINUTE_INDEX = TimePickerDialog.MINUTE_INDEX;
-    private static final int AMPM_INDEX = TimePickerDialog.AMPM_INDEX;
-    private static final int ENABLE_PICKER_INDEX = TimePickerDialog.ENABLE_PICKER_INDEX;
-    private static final int AM = TimePickerDialog.AM;
-    private static final int PM = TimePickerDialog.PM;
+    private static final int HOUR_INDEX = RadialTimePickerDialog.HOUR_INDEX;
+    private static final int MINUTE_INDEX = RadialTimePickerDialog.MINUTE_INDEX;
+    private static final int AMPM_INDEX = RadialTimePickerDialog.AMPM_INDEX;
+    private static final int ENABLE_PICKER_INDEX = RadialTimePickerDialog.ENABLE_PICKER_INDEX;
+    private static final int AM = RadialTimePickerDialog.AM;
+    private static final int PM = RadialTimePickerDialog.PM;
 
     private Vibrator mVibrator;
     private long mLastVibrate;

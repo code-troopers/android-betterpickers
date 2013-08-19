@@ -13,7 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<com.android.datetimepicker.date.TextViewWithCircularIndicator
+<com.doomonafireball.betterpickers.calendardatepicker.TextViewWithCircularIndicator
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/month_text_view"
     android:layout_width="match_parent"

@@ -19,21 +19,21 @@
                 android:layout_gravity="center"
                 android:baselineAligned="false"
                 android:gravity="top">
-            <com.doomonafireball.betterpickers.ZeroTopPaddingTextView
+            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/month"
                     android:singleLine="true"
                     android:ellipsize="none"
                     style="@style/medium_bold_date"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
-            <com.doomonafireball.betterpickers.ZeroTopPaddingTextView
+            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/date"
                     android:singleLine="true"
                     android:ellipsize="none"
                     style="@style/medium_bold_date"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
-            <com.doomonafireball.betterpickers.ZeroTopPaddingTextView
+            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/year_label"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dip"
             android:background="@color/default_divider_color_dark"/>
-    <com.doomonafireball.betterpickers.UnderlinePageIndicatorPicker
+    <com.doomonafireball.betterpickers.widget.UnderlinePageIndicatorPicker
             android:id="@+id/keyboard_indicator"
             android:layout_width="match_parent"
             android:layout_height="2dip"/>

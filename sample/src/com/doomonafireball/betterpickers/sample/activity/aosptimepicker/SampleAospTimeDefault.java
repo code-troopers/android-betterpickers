@@ -1,6 +1,6 @@
 package com.doomonafireball.betterpickers.sample.activity.aosptimepicker;
 
-import com.android.datetimepicker.time.TimePickerDialog;
+import com.doomonafireball.betterpickers.radialtimepicker.RadialTimePickerDialog;
 import com.doomonafireball.betterpickers.datepicker.DatePickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
 import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
@@ -34,7 +34,7 @@ public class SampleAospTimeDefault extends BaseSampleActivity
             @Override
             public void onClick(View v) {
                 FragmentManager fm = getSupportFragmentManager();
-                TimePickerDialog timePickerDialog = new TimePickerDialog();
+                RadialTimePickerDialog timePickerDialog = new RadialTimePickerDialog();
                 timePickerDialog.show(fm, "fragment_time_picker_name");
             }
         });

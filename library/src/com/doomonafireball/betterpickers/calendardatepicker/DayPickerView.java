@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-package com.android.datetimepicker.date;
+package com.doomonafireball.betterpickers.calendardatepicker;
 
-import com.android.datetimepicker.Utils;
-import com.android.datetimepicker.date.DatePickerDialog.OnDateChangedListener;
-import com.android.datetimepicker.date.SimpleMonthAdapter.CalendarDay;
+import com.doomonafireball.betterpickers.Utils;
+import com.doomonafireball.betterpickers.calendardatepicker.CalendarDatePickerDialog.OnDateChangedListener;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -68,10 +67,10 @@ public class DayPickerView extends ListView implements OnScrollListener, OnDateC
     protected Handler mHandler;
 
     // highlighted time
-    protected CalendarDay mSelectedDay = new CalendarDay();
+    protected SimpleMonthAdapter.CalendarDay mSelectedDay = new SimpleMonthAdapter.CalendarDay();
     protected SimpleMonthAdapter mAdapter;
 
-    protected CalendarDay mTempDay = new CalendarDay();
+    protected SimpleMonthAdapter.CalendarDay mTempDay = new SimpleMonthAdapter.CalendarDay();
 
     private static float mScale = 0;
     // When the week starts; numbered like Time.<WEEKDAY> (e.g. SUNDAY=0).
@@ -87,10 +86,10 @@ public class DayPickerView extends ListView implements OnScrollListener, OnDateC
     // used for tracking what state listview is in
     protected int mCurrentScrollState = OnScrollListener.SCROLL_STATE_IDLE;
 
-    private final DatePickerController mController;
+    private final CalendarDatePickerController mController;
     private boolean mPerformingScroll;
 
-    public DayPickerView(Context context, DatePickerController controller) {
+    public DayPickerView(Context context, CalendarDatePickerController controller) {
         super(context);
         mHandler = new Handler();
         mController = controller;
@@ -158,7 +157,7 @@ public class DayPickerView extends ListView implements OnScrollListener, OnDateC
      * @param forceScroll Whether to recenter even if the time is already visible
      * @return Whether or not the view animated to the new location
      */
-    public boolean goTo(CalendarDay day, boolean animate, boolean setSelected, boolean forceScroll) {
+    public boolean goTo(SimpleMonthAdapter.CalendarDay day, boolean animate, boolean setSelected, boolean forceScroll) {
 
         // Set the selected day
         if (setSelected) {
@@ -250,7 +249,7 @@ public class DayPickerView extends ListView implements OnScrollListener, OnDateC
      * Sets the month displayed at the top of this view based on time. Override to add custom events when the title is
      * changed.
      */
-    protected void setMonthDisplayed(CalendarDay date) {
+    protected void setMonthDisplayed(SimpleMonthAdapter.CalendarDay date) {
         mCurrentMonthDisplayed = date.month;
         invalidateViews();
     }
@@ -357,12 +356,12 @@ public class DayPickerView extends ListView implements OnScrollListener, OnDateC
      *
      * @return The date that has accessibility focus, or {@code null} if no date has focus.
      */
-    private CalendarDay findAccessibilityFocus() {
+    private SimpleMonthAdapter.CalendarDay findAccessibilityFocus() {
         final int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             final View child = getChildAt(i);
             if (child instanceof SimpleMonthView) {
-                final CalendarDay focus = ((SimpleMonthView) child).getAccessibilityFocus();
+                final SimpleMonthAdapter.CalendarDay focus = ((SimpleMonthView) child).getAccessibilityFocus();
                 if (focus != null) {
                     // Clear focus to avoid ListView bug in Jelly Bean MR1.
                     ((SimpleMonthView) child).clearAccessibilityFocus();
@@ -380,7 +379,7 @@ public class DayPickerView extends ListView implements OnScrollListener, OnDateC
      * @param day The date that should receive accessibility focus
      * @return {@code true} if focus was restored
      */
-    private boolean restoreAccessibilityFocus(CalendarDay day) {
+    private boolean restoreAccessibilityFocus(SimpleMonthAdapter.CalendarDay day) {
         if (day == null) {
             return false;
         }
@@ -400,7 +399,7 @@ public class DayPickerView extends ListView implements OnScrollListener, OnDateC
 
     @Override
     protected void layoutChildren() {
-        final CalendarDay focusedDay = findAccessibilityFocus();
+        final SimpleMonthAdapter.CalendarDay focusedDay = findAccessibilityFocus();
         super.layoutChildren();
         if (mPerformingScroll) {
             mPerformingScroll = false;
@@ -415,7 +414,7 @@ public class DayPickerView extends ListView implements OnScrollListener, OnDateC
         event.setItemCount(-1);
     }
 
-    private String getMonthAndYearString(CalendarDay day) {
+    private String getMonthAndYearString(SimpleMonthAdapter.CalendarDay day) {
         Calendar cal = Calendar.getInstance();
         cal.set(day.year, day.month, day.day);
 
@@ -451,7 +450,7 @@ public class DayPickerView extends ListView implements OnScrollListener, OnDateC
         int firstVisiblePosition = getFirstVisiblePosition();
         int month = firstVisiblePosition % 12;
         int year = firstVisiblePosition / 12 + mController.getMinYear();
-        CalendarDay day = new CalendarDay(year, month, 1);
+        SimpleMonthAdapter.CalendarDay day = new SimpleMonthAdapter.CalendarDay(year, month, 1);
 
         // Scroll either forward or backward one month.
         if (action == AccessibilityNodeInfo.ACTION_SCROLL_FORWARD) {

@@ -1,4 +1,4 @@
-package com.doomonafireball.betterpickers;
+package com.doomonafireball.betterpickers.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;

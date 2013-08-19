@@ -1,7 +1,7 @@
 package com.doomonafireball.betterpickers.datepicker;
 
 import com.doomonafireball.betterpickers.R;
-import com.doomonafireball.betterpickers.UnderlinePageIndicatorPicker;
+import com.doomonafireball.betterpickers.widget.UnderlinePageIndicatorPicker;
 
 import android.content.Context;
 import android.content.res.ColorStateList;

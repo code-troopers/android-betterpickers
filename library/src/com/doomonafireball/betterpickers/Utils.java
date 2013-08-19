@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.datetimepicker;
+package com.doomonafireball.betterpickers;
 
 import android.animation.Keyframe;
 import android.animation.ObjectAnimator;
