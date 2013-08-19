@@ -37,7 +37,7 @@ public class SampleCalendarDateDefault extends BaseSampleActivity
                 FragmentManager fm = getSupportFragmentManager();
                 DateTime now = DateTime.now();
                 CalendarDatePickerDialog calendarDatePickerDialog = CalendarDatePickerDialog
-                        .newInstance(SampleCalendarDateDefault.this, now.getYear(), now.getMonthOfYear() - 1l,
+                        .newInstance(SampleCalendarDateDefault.this, now.getYear(), now.getMonthOfYear() - 1,
                                 now.getDayOfMonth());
                 calendarDatePickerDialog.show(fm, "fragment_date_picker_name");
             }
