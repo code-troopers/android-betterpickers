@@ -39,6 +39,7 @@ public class ZeroTopPaddingTextView extends TextView {
     private static final float PRE_ICS_BOTTOM_PADDING_RATIO = 0.233f;
 
     private static final Typeface SAN_SERIF_BOLD = Typeface.create("san-serif", Typeface.BOLD);
+    private static final Typeface SAN_SERIF__CONDENSED_BOLD = Typeface.create("sans-serif-condensed", Typeface.BOLD);
 
     private int mPaddingRight = 0;
 
@@ -73,6 +74,10 @@ public class ZeroTopPaddingTextView extends TextView {
             bottomPaddingRatio = BOLD_FONT_BOTTOM_PADDING_RATIO;
         }
         if (getTypeface() != null && getTypeface().equals(SAN_SERIF_BOLD)) {
+            paddingRatio = BOLD_FONT_PADDING_RATIO;
+            bottomPaddingRatio = BOLD_FONT_BOTTOM_PADDING_RATIO;
+        }
+        if (getTypeface() != null && getTypeface().equals(SAN_SERIF__CONDENSED_BOLD)) {
             paddingRatio = BOLD_FONT_PADDING_RATIO;
             bottomPaddingRatio = BOLD_FONT_BOTTOM_PADDING_RATIO;
         }

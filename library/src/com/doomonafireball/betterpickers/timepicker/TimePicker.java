@@ -20,7 +20,6 @@ import android.widget.TextView;
 
 import java.text.DateFormatSymbols;
 
-
 public class TimePicker extends LinearLayout implements Button.OnClickListener, Button.OnLongClickListener {
 
     protected int mInputSize = 4;
