@@ -7,4 +7,35 @@
     <dimen name="label_font_size">18sp</dimen>
     <dimen name="body_font_padding">8dp</dimen>
     <dimen name="date_viewpager_height">333dip</dimen>
+
+    <!-- From AOSP -->
+    <dimen name="date_picker_component_width">400dp</dimen>
+    <dimen name="date_picker_view_animator_height">400dp</dimen>
+    <dimen name="selected_calendar_layout_height">360dp</dimen>
+    <dimen name="date_picker_header_height">45dp</dimen>
+    <dimen name="month_list_item_header_height">75dp</dimen>
+    <dimen name="month_list_item_padding">24dp</dimen>
+    <dimen name="day_number_select_circle_radius">24dp</dimen>
+    <dimen name="month_select_circle_radius">36dp</dimen>
+    <dimen name="selected_date_year_size">45dp</dimen>
+    <dimen name="selected_date_day_size">150dp</dimen>
+    <dimen name="selected_date_month_size">45dp</dimen>
+    <dimen name="year_label_height">96dp</dimen>
+    <dimen name="year_label_text_size">33dp</dimen>
+    <dimen name="date_picker_header_text_size">21dp</dimen>
+    <dimen name="month_list_item_size">24sp</dimen>
+    <dimen name="month_label_size">24sp</dimen>
+    <dimen name="day_number_size">24sp</dimen>
+    <dimen name="month_day_label_text_size">15sp</dimen>
+
+    <dimen name="time_label_size">75sp</dimen>
+    <dimen name="extra_time_label_margin">-50dp</dimen>
+    <dimen name="ampm_label_size">20sp</dimen>
+    <dimen name="ampm_left_padding">8dip</dimen>
+    <dimen name="separator_padding">5dip</dimen>
+    <dimen name="header_height">120dip</dimen>
+    <dimen name="footer_height">60dip</dimen>
+    <dimen name="minimum_margin_sides">48dip</dimen>
+    <dimen name="minimum_margin_top_bottom">24dip</dimen>
+    <dimen name="picker_dimen">400dip</dimen>
 </resources>

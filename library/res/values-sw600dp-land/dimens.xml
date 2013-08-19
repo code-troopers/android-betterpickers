@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From AOSP -->
+    <dimen name="date_picker_header_height">45dp</dimen>
+    <dimen name="time_label_right_padding">16sp</dimen>
+    <dimen name="time_label_size">64sp</dimen>
+    <dimen name="ampm_label_size">21sp</dimen>
+    <dimen name="ampm_left_padding">7dip</dimen>
+    <dimen name="separator_padding">5dip</dimen>
+    <dimen name="header_height">96dip</dimen>
+    <dimen name="footer_height">48dip</dimen>
+    <dimen name="left_side_width">315dip</dimen>
+</resources>
