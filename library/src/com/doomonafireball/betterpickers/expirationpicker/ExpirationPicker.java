@@ -68,7 +68,7 @@ public class ExpirationPicker extends LinearLayout implements Button.OnClickList
     private int mTheme = -1;
 
     /**
-     * Instantiates a ExpirationPicker object
+     * Instantiates an ExpirationPicker object
      *
      * @param context the Context required for creation
      */
@@ -77,7 +77,7 @@ public class ExpirationPicker extends LinearLayout implements Button.OnClickList
     }
 
     /**
-     * Instantiates a ExpirationPicker object
+     * Instantiates an ExpirationPicker object
      *
      * @param context the Context required for creation
      * @param attrs additional attributes that define custom colors, selectors, and backgrounds.

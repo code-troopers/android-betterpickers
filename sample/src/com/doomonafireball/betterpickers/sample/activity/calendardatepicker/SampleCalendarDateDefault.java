@@ -1,9 +1,10 @@
-package com.doomonafireball.betterpickers.sample.activity.aospdatepicker;
+package com.doomonafireball.betterpickers.sample.activity.calendardatepicker;
 
 import com.doomonafireball.betterpickers.calendardatepicker.CalendarDatePickerDialog;
-import com.doomonafireball.betterpickers.datepicker.DatePickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
 import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
+
+import org.joda.time.DateTime;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -14,7 +15,8 @@ import android.widget.TextView;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleAospDateDefault extends BaseSampleActivity implements DatePickerDialogFragment.DatePickerDialogHandler {
+public class SampleCalendarDateDefault extends BaseSampleActivity
+        implements CalendarDatePickerDialog.OnDateSetListener {
 
     private TextView text;
     private Button button;
@@ -33,14 +35,17 @@ public class SampleAospDateDefault extends BaseSampleActivity implements DatePic
             @Override
             public void onClick(View v) {
                 FragmentManager fm = getSupportFragmentManager();
-                CalendarDatePickerDialog datePickerDialog = new CalendarDatePickerDialog();
-                datePickerDialog.show(fm, "fragment_date_picker_name");
+                DateTime now = DateTime.now();
+                CalendarDatePickerDialog calendarDatePickerDialog = CalendarDatePickerDialog
+                        .newInstance(SampleCalendarDateDefault.this, now.getYear(), now.getMonthOfYear() - 1l,
+                                now.getDayOfMonth());
+                calendarDatePickerDialog.show(fm, "fragment_date_picker_name");
             }
         });
     }
 
     @Override
-    public void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth) {
+    public void onDateSet(CalendarDatePickerDialog dialog, int year, int monthOfYear, int dayOfMonth) {
         text.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
     }
 }

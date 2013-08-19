@@ -285,7 +285,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.aospdatepicker.SampleAospDateDefault"
+                android:name=".activity.calendardatepicker.SampleCalendarDateDefault"
                 android:label="Calendar Date/Default">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -293,7 +293,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.aosptimepicker.SampleAospTimeDefault"
+                android:name=".activity.radialtimepicker.SampleRadialTimeDefault"
                 android:label="Radial Time/Default">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

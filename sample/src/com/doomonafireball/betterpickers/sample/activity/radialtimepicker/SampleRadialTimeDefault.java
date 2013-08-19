@@ -1,12 +1,15 @@
-package com.doomonafireball.betterpickers.sample.activity.aosptimepicker;
+package com.doomonafireball.betterpickers.sample.activity.radialtimepicker;
 
+import com.doomonafireball.betterpickers.radialtimepicker.RadialPickerLayout;
 import com.doomonafireball.betterpickers.radialtimepicker.RadialTimePickerDialog;
-import com.doomonafireball.betterpickers.datepicker.DatePickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
 import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
 
+import org.joda.time.DateTime;
+
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,8 +17,8 @@ import android.widget.TextView;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleAospTimeDefault extends BaseSampleActivity
-        implements DatePickerDialogFragment.DatePickerDialogHandler {
+public class SampleRadialTimeDefault extends BaseSampleActivity
+        implements RadialTimePickerDialog.OnTimeSetListener {
 
     private TextView text;
     private Button button;
@@ -34,14 +37,17 @@ public class SampleAospTimeDefault extends BaseSampleActivity
             @Override
             public void onClick(View v) {
                 FragmentManager fm = getSupportFragmentManager();
-                RadialTimePickerDialog timePickerDialog = new RadialTimePickerDialog();
+                DateTime now = DateTime.now();
+                RadialTimePickerDialog timePickerDialog = RadialTimePickerDialog
+                        .newInstance(SampleRadialTimeDefault.this, now.getHourOfDay(), now.getMinuteOfHour(),
+                                DateFormat.is24HourFormat(SampleRadialTimeDefault.this));
                 timePickerDialog.show(fm, "fragment_time_picker_name");
             }
         });
     }
 
     @Override
-    public void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth) {
-        text.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
+    public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
+        text.setText("" + hourOfDay + ":" + minute);
     }
 }

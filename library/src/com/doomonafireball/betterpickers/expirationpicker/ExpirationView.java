@@ -25,7 +25,7 @@ public class ExpirationView extends PickerLinearLayout {
     private ColorStateList mTitleColor;
 
     /**
-     * Instantiate a DateView
+     * Instantiate an ExpirationView
      *
      * @param context the Context in which to inflate the View
      */
@@ -34,7 +34,7 @@ public class ExpirationView extends PickerLinearLayout {
     }
 
     /**
-     * Instantiate a DateView
+     * Instantiate an ExpirationView
      *
      * @param context the Context in which to inflate the View
      * @param attrs attributes that define the title color
