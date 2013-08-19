@@ -34,7 +34,7 @@
                 android:layout_weight="1"
                 android:background="@color/white">
             <include
-                    layout="@layout/aosp_time_header_label"
+                    layout="@layout/radial_time_header_label"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/header_height"
                     android:layout_gravity="center"/>

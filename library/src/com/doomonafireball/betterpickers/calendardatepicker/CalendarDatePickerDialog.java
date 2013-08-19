@@ -198,7 +198,7 @@ public class CalendarDatePickerDialog extends DialogFragment implements
         Log.d(TAG, "onCreateView: ");
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
-        View view = inflater.inflate(R.layout.aosp_date_picker_dialog, null);
+        View view = inflater.inflate(R.layout.calendar_date_picker_dialog, null);
 
         mDayOfWeekView = (TextView) view.findViewById(R.id.date_picker_header);
         mMonthAndDayView = (LinearLayout) view.findViewById(R.id.date_picker_month_and_day);

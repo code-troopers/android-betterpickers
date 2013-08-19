@@ -172,7 +172,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
             Bundle savedInstanceState) {
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
-        View view = inflater.inflate(R.layout.aosp_time_picker_dialog, null);
+        View view = inflater.inflate(R.layout.radial_time_picker_dialog, null);
         KeyboardListener keyboardListener = new KeyboardListener();
         view.findViewById(R.id.time_picker_dialog).setOnKeyListener(keyboardListener);
 
