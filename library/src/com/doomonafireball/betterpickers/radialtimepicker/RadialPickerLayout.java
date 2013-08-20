@@ -46,8 +46,8 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
 
     private static final String TAG = "RadialPickerLayout";
 
-    private final int TOUCH_SLOP;
-    private final int TAP_TIMEOUT;
+    private final int touchSlop;
+    private final int tapTimeout;
 
     private static final int VISIBLE_DEGREES_STEP_SIZE = 30;
     private static final int HOUR_VALUE_TO_DEGREES_STEP_SIZE = VISIBLE_DEGREES_STEP_SIZE;
@@ -102,8 +102,8 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
 
         setOnTouchListener(this);
         ViewConfiguration vc = ViewConfiguration.get(context);
-        TOUCH_SLOP = vc.getScaledTouchSlop();
-        TAP_TIMEOUT = ViewConfiguration.getTapTimeout();
+        touchSlop = vc.getScaledTouchSlop();
+        tapTimeout = ViewConfiguration.getTapTimeout();
         mDoingMove = false;
 
         mCircleView = new CircleView(context);
@@ -184,14 +184,14 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
         // Initialize the hours and minutes numbers.
         Resources res = context.getResources();
         int[] hours = {12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
-        int[] hours_24 = {0, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23};
+        int[] hours24 = {0, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23};
         int[] minutes = {0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55};
         String[] hoursTexts = new String[12];
         String[] innerHoursTexts = new String[12];
         String[] minutesTexts = new String[12];
         for (int i = 0; i < 12; i++) {
             hoursTexts[i] = is24HourMode ?
-                    String.format("%02d", hours_24[i]) : String.format("%d", hours[i]);
+                    String.format("%02d", hours24[i]) : String.format("%d", hours[i]);
             innerHoursTexts[i] = String.format("%d", hours[i]);
             minutesTexts[i] = String.format("%02d", minutes[i]);
         }
@@ -574,7 +574,7 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
                     mIsTouchingAmOrPm = -1;
                 }
                 if (mIsTouchingAmOrPm == AM || mIsTouchingAmOrPm == PM) {
-                    // If the touch is on AM or PM, set it as "touched" after the TAP_TIMEOUT
+                    // If the touch is on AM or PM, set it as "touched" after the tapTimeout
                     // in case the user moves their finger quickly.
                     tryVibrate();
                     mDownDegrees = -1;
@@ -584,7 +584,7 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
                             mAmPmCirclesView.setAmOrPmPressed(mIsTouchingAmOrPm);
                             mAmPmCirclesView.invalidate();
                         }
-                    }, TAP_TIMEOUT);
+                    }, tapTimeout);
                 } else {
                     // If we're in accessibility mode, force the touch to be legal. Otherwise,
                     // it will only register within the given touch target zone.
@@ -593,7 +593,7 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
                     mDownDegrees = getDegreesFromCoords(eventX, eventY, forceLegal, isInnerCircle);
                     if (mDownDegrees != -1) {
                         // If it's a legal touch, set that number as "selected" after the
-                        // TAP_TIMEOUT in case the user moves their finger quickly.
+                        // tapTimeout in case the user moves their finger quickly.
                         tryVibrate();
                         mHandler.postDelayed(new Runnable() {
                             @Override
@@ -604,7 +604,7 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
                                 mLastValueSelected = value;
                                 mListener.onValueSelected(getCurrentItemShowing(), value, false);
                             }
-                        }, TAP_TIMEOUT);
+                        }, tapTimeout);
                     }
                 }
                 return true;
@@ -618,7 +618,7 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
                 float dY = Math.abs(eventY - mDownY);
                 float dX = Math.abs(eventX - mDownX);
 
-                if (!mDoingMove && dX <= TOUCH_SLOP && dY <= TOUCH_SLOP) {
+                if (!mDoingMove && dX <= touchSlop && dY <= touchSlop) {
                     // Hasn't registered down yet, just slight, accidental movement of finger.
                     break;
                 }

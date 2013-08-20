@@ -39,7 +39,7 @@ public class SimpleMonthAdapter extends BaseAdapter implements SimpleMonthView.O
 
     private CalendarDay mSelectedDay;
 
-    protected static int WEEK_7_OVERHANG_HEIGHT = 7;
+    protected static int sWeek7OverhangHeight = 7;
     protected static final int MONTHS_IN_YEAR = 12;
 
     /**

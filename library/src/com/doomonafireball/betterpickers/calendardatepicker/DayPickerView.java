@@ -52,13 +52,13 @@ public class DayPickerView extends ListView implements OnScrollListener, OnDateC
     protected static final int SCROLL_CHANGE_DELAY = 40;
     // The number of days to display in each week
     public static final int DAYS_PER_WEEK = 7;
-    public static int LIST_TOP_OFFSET = -1; // so that the top line will be
+    public static final int LIST_TOP_OFFSET = -1; // so that the top line will be
     // under the separator
     // You can override these numbers to get a different appearance
     protected int mNumWeeks = 6;
     protected boolean mShowWeekNumber = false;
     protected int mDaysPerWeek = 7;
-    private static SimpleDateFormat YEAR_FORMAT = new SimpleDateFormat("yyyy", Locale.getDefault());
+    private static final SimpleDateFormat YEAR_FORMAT = new SimpleDateFormat("yyyy", Locale.getDefault());
 
     // These affect the scroll speed and feel
     protected float mFriction = 1.0f;
