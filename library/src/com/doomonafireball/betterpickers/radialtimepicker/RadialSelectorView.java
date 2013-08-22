@@ -21,6 +21,7 @@ import com.nineoldandroids.animation.Keyframe;
 import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.animation.PropertyValuesHolder;
 import com.nineoldandroids.animation.ValueAnimator;
+import com.nineoldandroids.view.animation.AnimatorProxy;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -319,7 +320,8 @@ public class RadialSelectorView extends View {
         PropertyValuesHolder fadeOut = PropertyValuesHolder.ofKeyframe("alpha", kf0, kf1);
 
         ObjectAnimator disappearAnimator = ObjectAnimator.ofPropertyValuesHolder(
-                this, radiusDisappear, fadeOut).setDuration(duration);
+                AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(this) : this, radiusDisappear, fadeOut).setDuration(
+                duration);
         disappearAnimator.addUpdateListener(mInvalidateUpdateListener);
 
         return disappearAnimator;
@@ -358,7 +360,8 @@ public class RadialSelectorView extends View {
         PropertyValuesHolder fadeIn = PropertyValuesHolder.ofKeyframe("alpha", kf0, kf1, kf2);
 
         ObjectAnimator reappearAnimator = ObjectAnimator.ofPropertyValuesHolder(
-                this, radiusReappear, fadeIn).setDuration(totalDuration);
+                AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(this) : this, radiusReappear, fadeIn)
+                .setDuration(totalDuration);
         reappearAnimator.addUpdateListener(mInvalidateUpdateListener);
         return reappearAnimator;
     }
