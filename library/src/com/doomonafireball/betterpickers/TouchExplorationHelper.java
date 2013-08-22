@@ -21,12 +21,10 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.view.AccessibilityDelegateCompat;
 import android.support.v4.view.ViewCompat;
-import android.support.v4.view.accessibility.AccessibilityManagerCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeProviderCompat;
 import android.support.v4.view.accessibility.AccessibilityRecordCompat;
 import android.text.TextUtils;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
@@ -36,7 +34,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public abstract class TouchExplorationHelper<T> extends AccessibilityNodeProviderCompat
-        /*implements View.OnHoverListener*/ {
+        /* Removed for backwards compatibility to GB implements View.OnHoverListener*/ {
 
     /**
      * Virtual node identifier value for invalid nodes.
@@ -183,7 +181,8 @@ public abstract class TouchExplorationHelper<T> extends AccessibilityNodeProvide
         return handled;
     }
 
-    /*@Override
+    /* Removed for backwards compatibility to GB
+    @Override
     public boolean onHover(View view, MotionEvent event) {
         if (!AccessibilityManagerCompat.isTouchExplorationEnabled(mManager)) {
             return false;

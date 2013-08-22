@@ -17,9 +17,9 @@
 package com.doomonafireball.betterpickers.calendardatepicker;
 
 import com.doomonafireball.betterpickers.R;
+import com.doomonafireball.betterpickers.TouchExplorationHelper;
 import com.doomonafireball.betterpickers.Utils;
 import com.doomonafireball.betterpickers.calendardatepicker.SimpleMonthAdapter.CalendarDay;
-import com.doomonafireball.betterpickers.TouchExplorationHelper;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -232,7 +232,8 @@ public class SimpleMonthView extends View {
     public void setOnDayClickListener(OnDayClickListener listener) {
         mOnDayClickListener = listener;
     }
-/*
+
+    /* Removed for backwards compatibility with Gingerbread
     @Override
     public boolean onHoverEvent(MotionEvent event) {
         // First right-of-refusal goes the touch exploration helper.
