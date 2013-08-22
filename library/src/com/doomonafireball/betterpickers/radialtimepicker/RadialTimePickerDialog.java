@@ -24,6 +24,7 @@ import com.nineoldandroids.animation.ObjectAnimator;
 import android.app.ActionBar.LayoutParams;
 import android.content.Context;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
@@ -377,7 +378,11 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
     // Show either Hours or Minutes.
     private void setCurrentItemShowing(int index, boolean animateCircle, boolean delayLabelAnimate,
             boolean announce) {
-        mTimePicker.setCurrentItemShowing(index, animateCircle);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            mTimePicker.setCurrentItemShowing(index, animateCircle);
+        } else {
+            mTimePicker.setCurrentItemShowing(index, false);
+        }
 
         TextView labelToAnimate;
         if (index == HOUR_INDEX) {
