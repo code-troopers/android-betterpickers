@@ -16,10 +16,10 @@
 
 package com.doomonafireball.betterpickers.calendardatepicker;
 
-import com.doomonafireball.betterpickers.Utils;
 import com.doomonafireball.betterpickers.R;
+import com.doomonafireball.betterpickers.Utils;
+import com.nineoldandroids.animation.ObjectAnimator;
 
-import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;

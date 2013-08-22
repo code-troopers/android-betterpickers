@@ -17,12 +17,11 @@
 package com.doomonafireball.betterpickers.radialtimepicker;
 
 import com.doomonafireball.betterpickers.R;
+import com.nineoldandroids.animation.Keyframe;
+import com.nineoldandroids.animation.ObjectAnimator;
+import com.nineoldandroids.animation.PropertyValuesHolder;
+import com.nineoldandroids.animation.ValueAnimator;
 
-import android.animation.Keyframe;
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
-import android.animation.ValueAnimator;
-import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -367,7 +366,7 @@ public class RadialSelectorView extends View {
     /**
      * We'll need to invalidate during the animation.
      */
-    private class InvalidateUpdateListener implements AnimatorUpdateListener {
+    private class InvalidateUpdateListener implements ValueAnimator.AnimatorUpdateListener {
 
         @Override
         public void onAnimationUpdate(ValueAnimator animation) {

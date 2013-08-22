@@ -14,13 +14,14 @@
  * the License.
  */
 
-package com.googlecode.eyesfree.utils;
+package com.doomonafireball.betterpickers;
 
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.view.AccessibilityDelegateCompat;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.view.accessibility.AccessibilityManagerCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeProviderCompat;
 import android.support.v4.view.accessibility.AccessibilityRecordCompat;
@@ -35,8 +36,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 public abstract class TouchExplorationHelper<T> extends AccessibilityNodeProviderCompat
-        implements View.OnHoverListener {
-    /** Virtual node identifier value for invalid nodes. */
+        /*implements View.OnHoverListener*/ {
+
+    /**
+     * Virtual node identifier value for invalid nodes.
+     */
     public static final int INVALID_ID = Integer.MIN_VALUE;
 
     private final Rect mTempScreenRect = new Rect();
@@ -61,8 +65,7 @@ public abstract class TouchExplorationHelper<T> extends AccessibilityNodeProvide
     }
 
     /**
-     * @return The current accessibility focused item, or {@code null} if no
-     *         item is focused.
+     * @return The current accessibility focused item, or {@code null} if no item is focused.
      */
     public T getFocusedItem() {
         return getItemForId(mFocusedItemId);
@@ -95,33 +98,24 @@ public abstract class TouchExplorationHelper<T> extends AccessibilityNodeProvide
     }
 
     /**
-     * Invalidates cached information about the parent view.
-     * <p>
-     * You <b>must</b> call this method after adding or removing items from the
-     * parent view.
-     * </p>
+     * Invalidates cached information about the parent view. <p> You <b>must</b> call this method after adding or
+     * removing items from the parent view. </p>
      */
     public void invalidateParent() {
         mParentView.sendAccessibilityEvent(AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED);
     }
 
     /**
-     * Invalidates cached information for a particular item.
-     * <p>
-     * You <b>must</b> call this method when any of the properties set in
-     * {@link #populateNodeForItem(Object, AccessibilityNodeInfoCompat)} have
-     * changed.
-     * </p>
-     *
-     * @param item
+     * Invalidates cached information for a particular item. <p> You <b>must</b> call this method when any of the
+     * properties set in {@link #populateNodeForItem(Object, AccessibilityNodeInfoCompat)} have changed. </p>
      */
     public void invalidateItem(T item) {
         sendEventForItem(item, AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED);
     }
 
     /**
-     * Populates an event of the specified type with information about an item
-     * and attempts to send it up through the view hierarchy.
+     * Populates an event of the specified type with information about an item and attempts to send it up through the
+     * view hierarchy.
      *
      * @param item The item for which to send an event.
      * @param eventType The type of event to send.
@@ -189,9 +183,9 @@ public abstract class TouchExplorationHelper<T> extends AccessibilityNodeProvide
         return handled;
     }
 
-    @Override
+    /*@Override
     public boolean onHover(View view, MotionEvent event) {
-        if (!mManager.isTouchExplorationEnabled()) {
+        if (!AccessibilityManagerCompat.isTouchExplorationEnabled(mManager)) {
             return false;
         }
 
@@ -207,7 +201,7 @@ public abstract class TouchExplorationHelper<T> extends AccessibilityNodeProvide
         }
 
         return false;
-    }
+    }*/
 
     private void setCurrentItem(T item) {
         if (mCurrentItem == item) {
@@ -314,9 +308,8 @@ public abstract class TouchExplorationHelper<T> extends AccessibilityNodeProvide
     }
 
     /**
-     * Computes whether the specified {@link android.graphics.Rect} intersects with the visible
-     * portion of its parent {@link android.view.View}. Modifies {@code localRect} to
-     * contain only the visible portion.
+     * Computes whether the specified {@link android.graphics.Rect} intersects with the visible portion of its parent
+     * {@link android.view.View}. Modifies {@code localRect} to contain only the visible portion.
      *
      * @param localRect A rectangle in local (parent) coordinates.
      * @return Whether the specified {@link android.graphics.Rect} is visible on the screen.
@@ -378,16 +371,11 @@ public abstract class TouchExplorationHelper<T> extends AccessibilityNodeProvide
     };
 
     /**
-     * Performs an accessibility action on the specified item. See
-     * {@link AccessibilityNodeInfoCompat#performAction(int, android.os.Bundle)}.
-     * <p>
-     * The helper class automatically handles focus management resulting from
-     * {@link AccessibilityNodeInfoCompat#ACTION_ACCESSIBILITY_FOCUS} and
-     * {@link AccessibilityNodeInfoCompat#ACTION_CLEAR_ACCESSIBILITY_FOCUS}, so
-     * typically a developer only needs to handle actions added manually in the
-     * {{@link #populateNodeForItem(Object, AccessibilityNodeInfoCompat)}
-     * method.
-     * </p>
+     * Performs an accessibility action on the specified item. See {@link AccessibilityNodeInfoCompat#performAction(int,
+     * android.os.Bundle)}. <p> The helper class automatically handles focus management resulting from {@link
+     * AccessibilityNodeInfoCompat#ACTION_ACCESSIBILITY_FOCUS} and {@link AccessibilityNodeInfoCompat#ACTION_CLEAR_ACCESSIBILITY_FOCUS},
+     * so typically a developer only needs to handle actions added manually in the {{@link #populateNodeForItem(Object,
+     * AccessibilityNodeInfoCompat)} method. </p>
      *
      * @param item The item on which to perform the action.
      * @param action The accessibility action to perform.
@@ -397,16 +385,10 @@ public abstract class TouchExplorationHelper<T> extends AccessibilityNodeProvide
     protected abstract boolean performActionForItem(T item, int action, Bundle arguments);
 
     /**
-     * Populates an event with information about the specified item.
-     * <p>
-     * At a minimum, a developer must populate the event text by doing one of
-     * the following:
-     * <ul>
-     * <li>appending text to {@link android.view.accessibility.AccessibilityEvent#getText()}</li>
-     * <li>populating a description with
-     * {@link android.view.accessibility.AccessibilityEvent#setContentDescription(CharSequence)}</li>
-     * </ul>
-     * </p>
+     * Populates an event with information about the specified item. <p> At a minimum, a developer must populate the
+     * event text by doing one of the following: <ul> <li>appending text to {@link android.view.accessibility.AccessibilityEvent#getText()}</li>
+     * <li>populating a description with {@link android.view.accessibility.AccessibilityEvent#setContentDescription(CharSequence)}</li>
+     * </ul> </p>
      *
      * @param item The item for which to populate the event.
      * @param event The event to populate.
@@ -414,17 +396,10 @@ public abstract class TouchExplorationHelper<T> extends AccessibilityNodeProvide
     protected abstract void populateEventForItem(T item, AccessibilityEvent event);
 
     /**
-     * Populates a node with information about the specified item.
-     * <p>
-     * At a minimum, a developer must:
-     * <ul>
-     * <li>populate the event text using
-     * {@link AccessibilityNodeInfoCompat#setText(CharSequence)} or
-     * {@link AccessibilityNodeInfoCompat#setContentDescription(CharSequence)}
-     * </li>
-     * <li>set the item's parent-relative bounds using
-     * {@link AccessibilityNodeInfoCompat#setBoundsInParent(android.graphics.Rect)}
-     * </ul>
+     * Populates a node with information about the specified item. <p> At a minimum, a developer must: <ul> <li>populate
+     * the event text using {@link AccessibilityNodeInfoCompat#setText(CharSequence)} or {@link
+     * AccessibilityNodeInfoCompat#setContentDescription(CharSequence)} </li> <li>set the item's parent-relative bounds
+     * using {@link AccessibilityNodeInfoCompat#setBoundsInParent(android.graphics.Rect)} </ul>
      *
      * @param item The item for which to populate the node.
      * @param node The node to populate.
@@ -432,11 +407,8 @@ public abstract class TouchExplorationHelper<T> extends AccessibilityNodeProvide
     protected abstract void populateNodeForItem(T item, AccessibilityNodeInfoCompat node);
 
     /**
-     * Populates a list with the parent view's visible items.
-     * <p>
-     * The result of this method is cached until the developer calls
-     * {@link #invalidateParent()}.
-     * </p>
+     * Populates a list with the parent view's visible items. <p> The result of this method is cached until the
+     * developer calls {@link #invalidateParent()}. </p>
      *
      * @param items The list to populate with visible items.
      */
@@ -452,12 +424,8 @@ public abstract class TouchExplorationHelper<T> extends AccessibilityNodeProvide
     protected abstract T getItemAt(float x, float y);
 
     /**
-     * Returns the unique identifier for an item. If the specified item does not
-     * exist, returns {@link #INVALID_ID}.
-     * <p>
-     * This result of this method must be consistent with
-     * {@link #getItemForId(int)}.
-     * </p>
+     * Returns the unique identifier for an item. If the specified item does not exist, returns {@link #INVALID_ID}. <p>
+     * This result of this method must be consistent with {@link #getItemForId(int)}. </p>
      *
      * @param item The item whose identifier to return.
      * @return A unique identifier, or {@link #INVALID_ID}.
@@ -465,8 +433,7 @@ public abstract class TouchExplorationHelper<T> extends AccessibilityNodeProvide
     protected abstract int getIdForItem(T item);
 
     /**
-     * Returns the item for a unique identifier. If the specified item does not
-     * exist, returns {@code null}.
+     * Returns the item for a unique identifier. If the specified item does not exist, returns {@code null}.
      *
      * @param id The identifier for the item to return.
      * @return An item, or {@code null}.

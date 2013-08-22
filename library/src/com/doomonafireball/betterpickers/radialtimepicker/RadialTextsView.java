@@ -17,12 +17,11 @@
 package com.doomonafireball.betterpickers.radialtimepicker;
 
 import com.doomonafireball.betterpickers.R;
+import com.nineoldandroids.animation.Keyframe;
+import com.nineoldandroids.animation.ObjectAnimator;
+import com.nineoldandroids.animation.PropertyValuesHolder;
+import com.nineoldandroids.animation.ValueAnimator;
 
-import android.animation.Keyframe;
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
-import android.animation.ValueAnimator;
-import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -36,6 +35,7 @@ import android.view.View;
  * A view to show a series of numbers in a circular pattern.
  */
 public class RadialTextsView extends View {
+
     private final static String TAG = "RadialTextsView";
 
     private final Paint mPaint = new Paint();
@@ -135,8 +135,8 @@ public class RadialTextsView extends View {
         }
 
         mAnimationRadiusMultiplier = 1;
-        mTransitionMidRadiusMultiplier = 1f + (0.05f * (disappearsOut? -1 : 1));
-        mTransitionEndRadiusMultiplier = 1f + (0.3f * (disappearsOut? 1 : -1));
+        mTransitionMidRadiusMultiplier = 1f + (0.05f * (disappearsOut ? -1 : 1));
+        mTransitionEndRadiusMultiplier = 1f + (0.3f * (disappearsOut ? 1 : -1));
         mInvalidateUpdateListener = new InvalidateUpdateListener();
 
         mTextGridValuesDirty = true;
@@ -217,9 +217,8 @@ public class RadialTextsView extends View {
     }
 
     /**
-     * Using the trigonometric Unit Circle, calculate the positions that the text will need to be
-     * drawn at based on the specified circle radius. Place the values in the textGridHeights and
-     * textGridWidths parameters.
+     * Using the trigonometric Unit Circle, calculate the positions that the text will need to be drawn at based on the
+     * specified circle radius. Place the values in the textGridHeights and textGridWidths parameters.
      */
     private void calculateGridSizes(float numbersRadius, float xCenter, float yCenter,
             float textSize, float[] textGridHeights, float[] textGridWidths) {
@@ -295,7 +294,6 @@ public class RadialTextsView extends View {
                 this, radiusDisappear, fadeOut).setDuration(duration);
         mDisappearAnimator.addUpdateListener(mInvalidateUpdateListener);
 
-
         // Set up animator for reappearing.
         float delayMultiplier = 0.25f;
         float transitionDurationMultiplier = 1f;
@@ -339,7 +337,8 @@ public class RadialTextsView extends View {
         return mReappearAnimator;
     }
 
-    private class InvalidateUpdateListener implements AnimatorUpdateListener {
+    private class InvalidateUpdateListener implements ValueAnimator.AnimatorUpdateListener {
+
         @Override
         public void onAnimationUpdate(ValueAnimator animation) {
             RadialTextsView.this.invalidate();

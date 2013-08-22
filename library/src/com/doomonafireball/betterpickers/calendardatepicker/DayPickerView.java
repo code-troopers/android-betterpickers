@@ -21,6 +21,7 @@ import com.doomonafireball.betterpickers.calendardatepicker.CalendarDatePickerDi
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -130,6 +131,7 @@ public class DayPickerView extends ListView implements OnScrollListener, OnDateC
      * Sets all the required fields for the list view. Override this method to
      * set a different list view behavior.
      */
+    @SuppressLint("NewApi")
     protected void setUpListView() {
         // Transparent background on scroll
         setCacheColorHint(0);
@@ -143,7 +145,9 @@ public class DayPickerView extends ListView implements OnScrollListener, OnDateC
         setOnScrollListener(this);
         setFadingEdgeLength(0);
         // Make the scrolling behavior nicer
-        setFriction(ViewConfiguration.getScrollFriction() * mFriction);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            setFriction(ViewConfiguration.getScrollFriction() * mFriction);
+        }
     }
 
     /**

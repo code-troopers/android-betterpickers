@@ -19,7 +19,7 @@ package com.doomonafireball.betterpickers.calendardatepicker;
 import com.doomonafireball.betterpickers.R;
 import com.doomonafireball.betterpickers.Utils;
 import com.doomonafireball.betterpickers.calendardatepicker.SimpleMonthAdapter.CalendarDay;
-import com.googlecode.eyesfree.utils.TouchExplorationHelper;
+import com.doomonafireball.betterpickers.TouchExplorationHelper;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -39,7 +39,6 @@ import android.util.SparseArray;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
-import android.view.accessibility.AccessibilityNodeInfo;
 
 import java.security.InvalidParameterException;
 import java.util.Calendar;
@@ -233,7 +232,7 @@ public class SimpleMonthView extends View {
     public void setOnDayClickListener(OnDayClickListener listener) {
         mOnDayClickListener = listener;
     }
-
+/*
     @Override
     public boolean onHoverEvent(MotionEvent event) {
         // First right-of-refusal goes the touch exploration helper.
@@ -241,7 +240,7 @@ public class SimpleMonthView extends View {
             return true;
         }
         return super.onHoverEvent(event);
-    }
+    }*/
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -564,7 +563,7 @@ public class SimpleMonthView extends View {
         @Override
         protected boolean performActionForItem(CalendarDay item, int action, Bundle arguments) {
             switch (action) {
-                case AccessibilityNodeInfo.ACTION_CLICK:
+                case AccessibilityNodeInfoCompat.ACTION_CLICK:
                     onDayClick(item);
                     return true;
             }
@@ -583,7 +582,7 @@ public class SimpleMonthView extends View {
 
             node.setContentDescription(getItemDescription(item));
             node.setBoundsInParent(mTempRect);
-            node.addAction(AccessibilityNodeInfo.ACTION_CLICK);
+            node.addAction(AccessibilityNodeInfoCompat.ACTION_CLICK);
 
             if (item.day == mSelectedDay) {
                 node.setSelected(true);

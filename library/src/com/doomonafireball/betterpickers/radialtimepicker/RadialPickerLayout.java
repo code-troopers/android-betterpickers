@@ -17,9 +17,10 @@
 package com.doomonafireball.betterpickers.radialtimepicker;
 
 import com.doomonafireball.betterpickers.R;
+import com.nineoldandroids.animation.AnimatorSet;
+import com.nineoldandroids.animation.ObjectAnimator;
+import com.nineoldandroids.view.ViewHelper;
 
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Context;
@@ -28,6 +29,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.os.Vibrator;
+import android.support.v4.view.accessibility.AccessibilityManagerCompat;
 import android.text.format.DateUtils;
 import android.text.format.Time;
 import android.util.AttributeSet;
@@ -171,7 +173,7 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
             return;
         }
         mIs24HourMode = is24HourMode;
-        mHideAmPm = mAccessibilityManager.isTouchExplorationEnabled() ? true : mIs24HourMode;
+        mHideAmPm = AccessibilityManagerCompat.isTouchExplorationEnabled(mAccessibilityManager) ? true : mIs24HourMode;
 
         // Initialize the circle and AM/PM circles if applicable.
         mCircleView.initialize(context, mHideAmPm);
@@ -536,10 +538,10 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
         } else {
             int hourAlpha = (index == HOUR_INDEX) ? 255 : 0;
             int minuteAlpha = (index == MINUTE_INDEX) ? 255 : 0;
-            mHourRadialTextsView.setAlpha(hourAlpha);
-            mHourRadialSelectorView.setAlpha(hourAlpha);
-            mMinuteRadialTextsView.setAlpha(minuteAlpha);
-            mMinuteRadialSelectorView.setAlpha(minuteAlpha);
+            ViewHelper.setAlpha(mHourRadialTextsView, hourAlpha);
+            ViewHelper.setAlpha(mHourRadialSelectorView, hourAlpha);
+            ViewHelper.setAlpha(mMinuteRadialTextsView, minuteAlpha);
+            ViewHelper.setAlpha(mMinuteRadialSelectorView, minuteAlpha);
         }
 
     }
@@ -588,7 +590,7 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
                 } else {
                     // If we're in accessibility mode, force the touch to be legal. Otherwise,
                     // it will only register within the given touch target zone.
-                    boolean forceLegal = mAccessibilityManager.isTouchExplorationEnabled();
+                    boolean forceLegal = AccessibilityManagerCompat.isTouchExplorationEnabled(mAccessibilityManager);
                     // Calculate the degrees that is currently being touched.
                     mDownDegrees = getDegreesFromCoords(eventX, eventY, forceLegal, isInnerCircle);
                     if (mDownDegrees != -1) {
