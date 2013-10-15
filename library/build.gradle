@@ -1,11 +1,43 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.5.+'
+    }
+}
+
 apply plugin: 'android-library'
+
+android {
+    compileSdkVersion 17
+    buildToolsVersion '17.0.0'
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+        }
+    }
+}
+
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+version = "1.4.0"
+isReleaseVersion = !version.endsWith("SNAPSHOT")
+group = "com.doomonafireball.betterpickers"
+
+repositories {
+    mavenCentral()
+}
 
 dependencies {
     compile 'com.android.support:support-v4:18.0.+'
+    compile 'com.nineoldandroids:library:2.4.0'
 }
-
-version = "1.4.0"
-group = "com.doomonafireball.betterpickers"
 
 configurations {
     archives {
@@ -14,7 +46,7 @@ configurations {
 }
 
 signing {
-    required { has("release") && gradle.taskGraph.hasTask("uploadArchives") }
+    required { isReleaseVersion && gradle.taskGraph.hasTask("uploadArchives") }
     sign configurations.archives
 }
 
@@ -55,19 +87,6 @@ uploadArchives {
                     email 'derek.brameyer@gmail.com'
                 }
             }
-        }
-    }
-}
-
-android {
-    compileSdkVersion 17
-    buildToolsVersion '17.0.0'
-
-    sourceSets {
-        main {
-            manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = ['src']
-            res.srcDirs = ['res']
         }
     }
 }
