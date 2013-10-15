@@ -545,7 +545,8 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
             mYearInputPointer++;
             mYearInput[0] = val;
         }
-        if (mKeyboardPager.getCurrentItem() < 2) {
+        // Move to the next keyboard if the year is >= 1000 (not in every case)
+        if (getYear() >= 1000 && mKeyboardPager.getCurrentItem() < 2) {
             mKeyboardPager.setCurrentItem(mKeyboardPager.getCurrentItem() + 1, true);
         }
     }
