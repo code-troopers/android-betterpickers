@@ -14,8 +14,8 @@ Changelog
 
 **1.4.0**
 * Addition of ExpirationPicker for e.g. credit card expiration date
-* Addition of CalendarPicker from AOSP (see stock Calendar app)
-* Addition of RadialTimePicker from AOSP (see stock Calendar app)
+* Addition of CalendarPicker from AOSP (see stock Calendar app) <a href="https://raw.github.com/derekbrameyer/android-betterpickers/master/sample/imagery/phone_render_calendar_date.png">[screenshot here]</a>
+* Addition of RadialTimePicker from AOSP (see stock Calendar app) <a href="https://raw.github.com/derekbrameyer/android-betterpickers/master/sample/imagery/phone_render_radial_time_picker.png">[screenshot here]</a>
 * Improved localization of months in DatePicker
 * Removed dependency on ViewPagerIndicator
 * Fix for Android 4.3 font rendering
