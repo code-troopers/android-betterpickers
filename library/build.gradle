@@ -4,8 +4,63 @@ dependencies {
     compile 'com.android.support:support-v4:18.0.+'
 }
 
+version = "1.4.0"
+group = "com.doomonafireball.betterpickers"
+
+configurations {
+    archives {
+        extendsFrom configurations.default
+    }
+}
+
+signing {
+    required { has("release") && gradle.taskGraph.hasTask("uploadArchives") }
+    sign configurations.archives
+}
+
+uploadArchives {
+    configuration = configurations.archives
+    repositories.mavenDeployer {
+        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+        repository(url: sonatypeRepo) {
+            authentication(userName: sonatypeUsername,
+                    password: sonatypePassword)
+        }
+
+        pom.project {
+            name 'android-betterpickers'
+            packaging 'aar'
+            description 'Android library for better number/date/time-picker DialogFragments.'
+            url 'http://github.com/derekbrameyer/android-betterpickers'
+
+            scm {
+                url 'http://github.com/derekbrameyer/android-betterpickers'
+                connection 'scm:git:git://github.com/derekbrameyer/android-betterpickers.git'
+                developerConnection 'scm:git:git@github.com:derekbrameyer/android-betterpickers.git'
+            }
+
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
+
+            developers {
+                developer {
+                    id 'derekbrameyer'
+                    name 'Derek Brameyer'
+                    email 'derek.brameyer@gmail.com'
+                }
+            }
+        }
+    }
+}
+
 android {
-    compileSdkVersion 16
+    compileSdkVersion 17
     buildToolsVersion '17.0.0'
 
     sourceSets {
