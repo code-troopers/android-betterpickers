@@ -12,6 +12,15 @@ Try out the sample application on [Google Play][6].
 Changelog
 =========
 
+**1.4.0**
+* Addition of ExpirationPicker for e.g. credit card expiration date
+* Addition of CalendarPicker from AOSP (see stock Calendar app)
+* Addition of RadialTimePicker from AOSP (see stock Calendar app)
+* Improved localization of months in DatePicker
+* Removed dependency on ViewPagerIndicator
+* Fix for Android 4.3 font rendering
+* Fix for year field of DatePicker when using e.g. year/month/day format
+
 **1.3.1**
 * Improve UX for min/max for NumberPicker
 * Added ListView demos to the sample app
@@ -55,7 +64,7 @@ a dependency:
     <dependency>
       <groupId>com.doomonafireball.betterpickers</groupId>
       <artifactId>library</artifactId>
-      <version>1.3.1</version>
+      <version>1.4.0</version>
       <type>apklib</type>
     </dependency>
 
