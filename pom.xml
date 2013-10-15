@@ -11,7 +11,7 @@
     <groupId>com.doomonafireball.betterpickers</groupId>
     <artifactId>parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.4.1</version>
+    <version>1.4.2-SNAPSHOT</version>
 
     <name>android-betterpickers (Parent)</name>
     <description>Android library for better number/date/time-picker DialogFragments.</description>
