@@ -12,6 +12,13 @@ Try out the sample application on [Google Play][6].
 Changelog
 =========
 
+**1.4.2**
+* Fix the ordering of months in the DatePicker
+* Add header to DatePicker keyboards for better UX
+
+**1.4.1**
+* Fix pom.xml file in Maven Central due to an improper Gradle commit of 1.4.0 (Gradle is still a work-in-progress)
+
 **1.4.0**
 * Addition of ExpirationPicker for e.g. credit card expiration date
 * Addition of CalendarPicker from AOSP (see stock Calendar app) <a href="https://raw.github.com/derekbrameyer/android-betterpickers/master/sample/imagery/phone_render_calendar_date.png">[screenshot here]</a>
