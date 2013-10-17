@@ -71,7 +71,7 @@ a dependency:
     <dependency>
       <groupId>com.doomonafireball.betterpickers</groupId>
       <artifactId>library</artifactId>
-      <version>1.4.0</version>
+      <version>1.4.2</version>
       <type>apklib</type>
     </dependency>
 
