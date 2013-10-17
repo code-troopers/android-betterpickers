@@ -20,12 +20,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
-import java.util.TimeZone;
 
 
 public class DatePicker extends LinearLayout implements Button.OnClickListener,
@@ -248,11 +248,14 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
             if (mDateFormatOrder[position] == DateFormat.MONTH) {
                 // Months
                 sMonthKeyboardPosition = position;
-                view = mInflater.inflate(R.layout.keyboard_text, null);
+                view = mInflater.inflate(R.layout.keyboard_text_with_header, null);
                 View v1 = view.findViewById(R.id.first);
                 View v2 = view.findViewById(R.id.second);
                 View v3 = view.findViewById(R.id.third);
                 View v4 = view.findViewById(R.id.fourth);
+                TextView header = (TextView) view.findViewById(R.id.header);
+
+                header.setText(R.string.month_c);
 
                 mMonths[0] = (Button) v1.findViewById(R.id.key_left);
                 mMonths[1] = (Button) v1.findViewById(R.id.key_middle);
@@ -281,11 +284,14 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
             } else if (mDateFormatOrder[position] == DateFormat.DATE) {
                 // Date
                 sDateKeyboardPosition = position;
-                view = mInflater.inflate(R.layout.keyboard_right_drawable, null);
+                view = mInflater.inflate(R.layout.keyboard_right_drawable_with_header, null);
                 View v1 = view.findViewById(R.id.first);
                 View v2 = view.findViewById(R.id.second);
                 View v3 = view.findViewById(R.id.third);
                 View v4 = view.findViewById(R.id.fourth);
+                TextView header = (TextView) view.findViewById(R.id.header);
+
+                header.setText(R.string.day_c);
 
                 mDateNumbers[1] = (Button) v1.findViewById(R.id.key_left);
                 mDateNumbers[2] = (Button) v1.findViewById(R.id.key_middle);
@@ -320,11 +326,14 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
             } else if (mDateFormatOrder[position] == DateFormat.YEAR) {
                 // Year
                 sYearKeyboardPosition = position;
-                view = mInflater.inflate(R.layout.keyboard, null);
+                view = mInflater.inflate(R.layout.keyboard_with_header, null);
                 View v1 = view.findViewById(R.id.first);
                 View v2 = view.findViewById(R.id.second);
                 View v3 = view.findViewById(R.id.third);
                 View v4 = view.findViewById(R.id.fourth);
+                TextView header = (TextView) view.findViewById(R.id.header);
+
+                header.setText(R.string.year_c);
 
                 mYearNumbers[1] = (Button) v1.findViewById(R.id.key_left);
                 mYearNumbers[2] = (Button) v1.findViewById(R.id.key_middle);
@@ -798,7 +807,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
      * @return a String array with all localized month abbreviations like JAN, FEB, etc.
      */
     public static String[] makeLocalizedMonthAbbreviations() {
-        return makeLocalizedMonthAbbreviations(null);
+        return makeLocalizedMonthAbbreviations(Locale.getDefault());
     }
 
     /**
@@ -819,10 +828,9 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         date.set(Calendar.MINUTE, 0);
         date.set(Calendar.SECOND, 0);
         date.set(Calendar.MILLISECOND, 0);
-        date.setTimeZone(TimeZone.getTimeZone("UTC"));
 
         final String[] months = new String[12];
-        for (int i = months.length - 1; i >= 0; i--) {
+        for (int i = 0; i < months.length; i++) {
             date.set(Calendar.MONTH, i);
             months[i] = monthAbbreviationFormat.format(date.getTime()).toUpperCase();
         }

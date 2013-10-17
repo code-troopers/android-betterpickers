@@ -6,7 +6,7 @@
     <dimen name="medium_date_font_size">80dp</dimen>
     <dimen name="label_font_size">18sp</dimen>
     <dimen name="body_font_padding">8dp</dimen>
-    <dimen name="date_viewpager_height">333dip</dimen>
+    <dimen name="date_viewpager_height">354dip</dimen>
 
     <!-- From AOSP -->
     <dimen name="date_picker_component_width">400dp</dimen>
