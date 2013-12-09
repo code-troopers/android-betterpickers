@@ -63,6 +63,7 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
 
     private Vibrator mVibrator;
     private long mLastVibrate;
+    private boolean mVibrate = true;
     private int mLastValueSelected;
 
     private OnValueSelectedListener mListener;
@@ -236,6 +237,10 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
             mMinuteRadialSelectorView.setSelection(minuteDegrees, false, false);
             mMinuteRadialSelectorView.invalidate();
         }
+    }
+
+    public void setVibrate(boolean vibrate){
+        mVibrate = vibrate;
     }
 
     /**
@@ -715,6 +720,10 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
      * very recently.
      */
     public void tryVibrate() {
+        if (!mVibrate){
+            return;
+        }
+
         if (mVibrator != null) {
             long now = SystemClock.uptimeMillis();
             // We want to try to vibrate each individual tick discretely.
