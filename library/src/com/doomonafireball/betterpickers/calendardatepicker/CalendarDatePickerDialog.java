@@ -101,6 +101,7 @@ public class CalendarDatePickerDialog extends DialogFragment implements
 
     private Vibrator mVibrator;
     private long mLastVibrate;
+    private boolean mVibrate = true;
 
     private boolean mDelayAnimation = true;
 
@@ -368,6 +369,10 @@ public class CalendarDatePickerDialog extends DialogFragment implements
         mCallBack = listener;
     }
 
+    public void setVibrate(boolean vibrate){
+        mVibrate = vibrate;
+    }
+
     // If the newly selected month / year does not contain the currently selected day number,
     // change the selected day number to the last day of the selected month or year.
     //      e.g. Switching from Mar to Apr when Mar 31 is selected -> Apr 30
@@ -452,6 +457,10 @@ public class CalendarDatePickerDialog extends DialogFragment implements
      */
     @Override
     public void tryVibrate() {
+        if (!mVibrate){
+            return;
+        }
+
         if (mVibrator != null) {
             long now = SystemClock.uptimeMillis();
             // We want to try to vibrate each individual tick discretely.

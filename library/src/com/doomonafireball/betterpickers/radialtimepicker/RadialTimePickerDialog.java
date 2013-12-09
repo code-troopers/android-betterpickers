@@ -88,6 +88,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
     private int mInitialHourOfDay;
     private int mInitialMinute;
     private boolean mIs24HourMode;
+    private boolean mVibrate = true;
 
     // For hardware IME input.
     private char mPlaceholderText;
@@ -154,6 +155,10 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         mInKbMode = false;
     }
 
+    public void setVibrate(boolean vibrate){
+        mVibrate = vibrate;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -199,6 +204,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         mTimePicker = (RadialPickerLayout) view.findViewById(R.id.time_picker);
         mTimePicker.setOnValueSelectedListener(this);
         mTimePicker.setOnKeyListener(keyboardListener);
+        mTimePicker.setVibrate(mVibrate);
         mTimePicker.initialize(getActivity(), mInitialHourOfDay, mInitialMinute, mIs24HourMode);
         int currentItemShowing = HOUR_INDEX;
         if (savedInstanceState != null &&
