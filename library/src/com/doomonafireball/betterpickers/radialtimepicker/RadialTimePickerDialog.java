@@ -70,6 +70,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
 
     private OnTimeSetListener mCallback;
 
+    private String mDoneText;
     private TextView mDoneButton;
     private TextView mHourView;
     private TextView mHourSpaceView;
@@ -153,6 +154,10 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         mInitialMinute = minute;
         mInKbMode = false;
     }
+    
+    public void setText(String text) {
+	mDoneText = text;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -224,6 +229,8 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         });
 
         mDoneButton = (TextView) view.findViewById(R.id.done_button);
+        if (mDoneText != null)
+	    mDoneButton.setText(mDoneText);
         mDoneButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
