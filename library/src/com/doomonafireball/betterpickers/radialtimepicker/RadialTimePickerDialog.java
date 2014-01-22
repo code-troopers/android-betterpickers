@@ -85,6 +85,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
     private int mBlack;
     private String mAmText;
     private String mPmText;
+    private String mDoneText;
 
     private boolean mAllowAutoAdvance;
     private int mInitialHourOfDay;
@@ -165,6 +166,10 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         mInKbMode = false;
     }
 
+    public void setText(String text) {
+        mDoneText = text;
+    }
+
     @Override
     public void onDismiss(DialogInterface dialoginterface) {
         super.onDismiss(dialoginterface);
@@ -243,6 +248,9 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         });
 
         mDoneButton = (TextView) view.findViewById(R.id.done_button);
+        if (mDoneText != null) {
+            mDoneButton.setText(mDoneText);
+        }
         mDoneButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
