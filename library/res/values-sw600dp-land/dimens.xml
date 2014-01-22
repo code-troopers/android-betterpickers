@@ -10,4 +10,7 @@
     <dimen name="header_height">96dip</dimen>
     <dimen name="footer_height">48dip</dimen>
     <dimen name="left_side_width">315dip</dimen>
+
+    <dimen name="recurrence_picker_height">300dp</dimen>
+    <dimen name="recurrence_picker_width">600dp</dimen>
 </resources>

@@ -66,10 +66,10 @@
 
         <java.version>1.6</java.version>
         <android.version>4.1.1.4</android.version>
-        <android.platform>16</android.platform>
-        <android.support.version>18</android.support.version>
+        <android.platform>19</android.platform>
+        <android.support.version>19.0.1</android.support.version>
 
-        <android-maven.version>3.6.0</android-maven.version>
+        <android-maven.version>3.8.2</android-maven.version>
     </properties>
 
     <dependencyManagement>
@@ -81,7 +81,7 @@
             </dependency>
 
             <dependency>
-                <groupId>com.google.android</groupId>
+                <groupId>com.android.support</groupId>
                 <artifactId>support-v4</artifactId>
                 <version>${android.support.version}</version>
             </dependency>
@@ -122,15 +122,6 @@
                         <undeployBeforeDeploy>true</undeployBeforeDeploy>
                     </configuration>
                     <extensions>true</extensions>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>2.6</version>
-                    <configuration>
-                        <failsOnError>true</failsOnError>
-                    </configuration>
                 </plugin>
 
                 <plugin>

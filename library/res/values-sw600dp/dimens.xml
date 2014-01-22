@@ -38,4 +38,7 @@
     <dimen name="minimum_margin_sides">48dip</dimen>
     <dimen name="minimum_margin_top_bottom">24dip</dimen>
     <dimen name="picker_dimen">400dip</dimen>
+
+    <dimen name="recurrence_picker_height">300dp</dimen>
+    <dimen name="recurrence_picker_width">480dp</dimen>
 </resources>

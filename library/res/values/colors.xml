@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="transparent">#00000000</color>
     <color name="default_text_color_holo_dark">#ffffffff</color>
     <color name="default_text_color_holo_dark_disabled">#ff4c4c4c</color>
     <color name="default_divider_color_dark">#28ffffff</color>
@@ -30,4 +31,7 @@
     <color name="calendar_header">#999999</color>
     <color name="date_picker_view_animator">#f2f2f2</color>
     <color name="calendar_selected_date_text">#FFD1D2D4</color>
+
+    <color name="recurrence_picker_background">#fff2f2f2</color>
+    <color name="recurrence_bubble_text_normal">#ff737373</color>
 </resources>
