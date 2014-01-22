@@ -32,7 +32,7 @@
         <!-- Minimum space between the switch and caption text -->
         <attr name="switchPadding" format="dimension" />
     </declare-styleable>
-    <declare-styleable name="Theme">
+    <declare-styleable name="BetterPickersSwitchTheme">
         <attr name="switchStyle" format="reference" />
         <attr name="switchPreferenceStyle" format="reference" />
     </declare-styleable>
