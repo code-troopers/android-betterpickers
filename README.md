@@ -1,6 +1,6 @@
 ![BetterPickers Feature Graphic][5]
 
-DialogFragments modeled after the 4.2 Alarm Clock TimePicker to improve UX for picking time, date, and numbers.
+DialogFragments modeled after the AOSP Clock and Calendar apps to improve UX for picking time, date, numbers, and other things.
 
 Try out the sample application on [Google Play][6].
 
@@ -11,6 +11,21 @@ Try out the sample application on [Google Play][6].
 
 Changelog
 =========
+
+**1.5.2**
+* Bugfix for Gradle resource processing Switch backport attrs.
+
+**1.5.1**
+* Package assets in library since we are now producing an .aar
+
+**1.5.0**
+* Package as an .aar
+* Add RecurrencePicker (from AOSP calendar app)
+* Add TimeZonePicker (from AOSP calendar app)
+* Resolve bold typeface errors on KitKat
+* Add dismiss listener for RadialTimePicker
+* Add option to set "Done" text for RadialTimePicker
+* Add Italian translations
 
 **1.4.2**
 * Fix the ordering of months in the DatePicker
@@ -33,7 +48,6 @@ Changelog
 * Added ListView demos to the sample app
 
 **1.3.0**
-
 * Add Catalan, Spanish
 * Enable min/max for NumberPicker
 * Added Javadoc comments
@@ -42,7 +56,6 @@ Changelog
 * UX tweak for DatePicker indicator
 
 **1.2.0**
-
 * Removed some unused fonts from sample/ project
 * Refactor to Builder pattern
 * Fix for Gingerbread font in DatePicker
@@ -51,7 +64,6 @@ Changelog
 * NumberPicker scrolls horizontally to allow for more numbers
 
 **1.1.0**
-
 * Added HMS (hours:minutes:seconds) PickerFragment
 * Allow for PickerFragments within target fragments
 * Allow for February 29th input
@@ -71,19 +83,14 @@ a dependency:
     <dependency>
       <groupId>com.doomonafireball.betterpickers</groupId>
       <artifactId>library</artifactId>
-      <version>1.4.2</version>
-      <type>apklib</type>
+      <version>1.5.2</version>
+      <type>aar</type>
     </dependency>
 
 Usage
 =====
 
 *For a working implementation of this project see the `sample/` folder.*
-
-  0. Include the Android clock fonts in your `assets/fonts/` folder (create the folder if it doesn't already exist.  You can find these fonts in the `sample/assets/fonts/` folder.
-
-        Roboto-Bold.ttf
-        AndroidClockMono-Thin.ttf
 
   1. Implement the appropriate Handler callbacks:
 
