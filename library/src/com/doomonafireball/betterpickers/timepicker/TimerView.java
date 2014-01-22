@@ -126,7 +126,7 @@ public class TimerView extends LinearLayout {
                 mHoursTens.setText(String.format("%d", hoursTensDigit));
                 mHoursTens.setTypeface(mOriginalHoursTypeface);
                 mHoursTens.setEnabled(true);
-                mHoursTens.updatePadding();
+                mHoursTens.updatePaddingForBoldDate();
                 mHoursTens.setVisibility(View.VISIBLE);
             }
         }
@@ -140,7 +140,7 @@ public class TimerView extends LinearLayout {
                 mHoursOnes.setText(String.format("%d", hoursOnesDigit));
                 mHoursOnes.setTypeface(mOriginalHoursTypeface);
                 mHoursOnes.setEnabled(true);
-                mHoursOnes.updatePadding();
+                mHoursOnes.updatePaddingForBoldDate();
             }
         }
         if (mMinutesTens != null) {

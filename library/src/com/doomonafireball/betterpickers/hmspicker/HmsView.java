@@ -89,6 +89,13 @@ public class HmsView extends LinearLayout {
         mSecondsOnes = (ZeroTopPaddingTextView) findViewById(R.id.seconds_ones);
         if (mHoursOnes != null) {
             mOriginalHoursTypeface = mHoursOnes.getTypeface();
+            mHoursOnes.updatePaddingForBoldDate();
+        }
+        if (mMinutesTens != null) {
+            mMinutesTens.updatePaddingForBoldDate();
+        }
+        if (mMinutesOnes != null) {
+            mMinutesOnes.updatePaddingForBoldDate();
         }
         // Set the lowest time unit with thin font (excluding hundredths)
         if (mSecondsTens != null) {
