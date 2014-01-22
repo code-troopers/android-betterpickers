@@ -23,6 +23,7 @@ import com.nineoldandroids.animation.ObjectAnimator;
 
 import android.app.ActionBar.LayoutParams;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -68,6 +69,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
     // Delay before starting the pulse animation, in ms.
     private static final int PULSE_ANIMATOR_DELAY = 300;
 
+    private OnDialogDismissListener mDimissCallback;
     private OnTimeSetListener mCallback;
 
     private TextView mDoneButton;
@@ -118,6 +120,11 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute);
     }
 
+    public static interface OnDialogDismissListener {
+
+        public abstract void onDialogDismiss(DialogInterface dialoginterface);
+    }
+
     public RadialTimePickerDialog() {
         // Empty constructor required for dialog fragment.
     }
@@ -144,6 +151,10 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         mInKbMode = false;
     }
 
+    public void setOnDismissListener(OnDialogDismissListener ondialogdismisslistener) {
+        mDimissCallback = ondialogdismisslistener;
+    }
+
     public void setOnTimeSetListener(OnTimeSetListener callback) {
         mCallback = callback;
     }
@@ -152,6 +163,14 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         mInitialHourOfDay = hourOfDay;
         mInitialMinute = minute;
         mInKbMode = false;
+    }
+
+    @Override
+    public void onDismiss(DialogInterface dialoginterface) {
+        super.onDismiss(dialoginterface);
+        if (mDimissCallback != null) {
+            mDimissCallback.onDialogDismiss(dialoginterface);
+        }
     }
 
     @Override
@@ -662,7 +681,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
      * the caller to know whether zeros had been explicitly entered as either hours of minutes. This is helpful for
      * deciding whether to show the dashes, or actual 0's.
      * @return A size-3 int array. The first value will be the hours, the second value will be the minutes, and the
-     *         third will be either TimePickerDialog.AM or TimePickerDialog.PM.
+     * third will be either TimePickerDialog.AM or TimePickerDialog.PM.
      */
     private int[] getEnteredTime(Boolean[] enteredZeros) {
         int amOrPm = -1;

@@ -124,7 +124,7 @@ public class NumberView extends LinearLayout {
                 mNumber.setText(numbersDigit);
                 mNumber.setTypeface(mOriginalNumberTypeface);
                 mNumber.setEnabled(true);
-                mNumber.updatePadding();
+                mNumber.updatePaddingForBoldDate();
                 mNumber.setVisibility(View.VISIBLE);
             } else {
                 // Set to thin
