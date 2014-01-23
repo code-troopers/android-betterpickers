@@ -107,6 +107,11 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
     private String mSelectHours;
     private String mMinutePickerDescription;
     private String mSelectMinutes;
+    
+    public static interface OnDialogDismissListener {
+
+	public abstract void onDialogDismiss(DialogInterface dialoginterface);
+    }
 
     /**
      * The callback interface used to indicate the user is done filling in the time (they clicked on the 'Set' button).
@@ -150,6 +155,11 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         mInitialMinute = minute;
         mIs24HourMode = is24HourMode;
         mInKbMode = false;
+    }
+    
+    public void setOnDismissListener(
+	    OnDialogDismissListener ondialogdismisslistener) {
+	mDimissCallback = ondialogdismisslistener;
     }
 
     public void setOnDismissListener(OnDialogDismissListener ondialogdismisslistener) {
@@ -330,6 +340,12 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         } else {
             mAmPmTextView.setText(mDoublePlaceholderText);
         }
+    }
+    
+    public void onDismiss(DialogInterface dialoginterface) {
+	super.onDismiss(dialoginterface);
+	if (mDimissCallback != null)
+	    mDimissCallback.onDialogDismiss(dialoginterface);
     }
 
     @Override
