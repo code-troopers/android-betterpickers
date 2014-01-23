@@ -107,21 +107,21 @@
         <!-- Singular form [CHAR LIMIT=30] -->
         <item quantity="one">Каждый <xliff:g id="count">%d</xliff:g> день</item>
         <!-- Plural form [CHAR LIMIT=30] -->
-        <item quantity="other">Каждые <xliff:g id="count">%d</xliff:g> дней</item>
+        <item quantity="other">Каждые <xliff:g id="count">%d</xliff:g> дн.</item>
     </plurals>
     <!-- Strings to describe how frequently to repeat an event (e.g. every 5 weeks) -->
     <plurals name="recurrence_interval_weekly">
         <!-- Singular form [CHAR LIMIT=30] -->
         <item quantity="one">Каждую <xliff:g id="count">%d</xliff:g> неделю</item>
         <!-- Plural form [CHAR LIMIT=30] -->
-        <item quantity="other">Каждые <xliff:g id="count">%d</xliff:g> недель</item>
+        <item quantity="other">Каждые <xliff:g id="count">%d</xliff:g> нед.</item>
     </plurals>
     <!-- Strings to describe how frequently to repeat an event (e.g. every 5 months) -->
     <plurals name="recurrence_interval_monthly">
         <!-- Singular form [CHAR LIMIT=30] -->
         <item quantity="one">Каждый <xliff:g id="count">%d</xliff:g> месяц</item>
         <!-- Plural form [CHAR LIMIT=30] -->
-        <item quantity="other">Каждые <xliff:g id="count">%d</xliff:g> месяцев</item>
+        <item quantity="other">Каждые <xliff:g id="count">%d</xliff:g> мес.</item>
     </plurals>
     <!-- Strings to describe how frequently to repeat an event (e.g. every 5 years) -->
     <plurals name="recurrence_interval_yearly">
@@ -151,7 +151,7 @@
     <!-- A description for an event that repeats daily. For example, Every 2 days [CHAR LIMIT=15]-->
     <plurals name="daily">
         <item quantity="one">Ежедневно</item>
-        <item quantity="other">Каждые <xliff:g id="number">%d</xliff:g> дней</item>
+        <item quantity="other">Каждые <xliff:g id="number">%d</xliff:g> дн.</item>
     </plurals>
     <!-- A label in a multiple-choice list for the specifying that an event
          repeats every weekday (Monday through Friday) -->
