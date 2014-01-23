@@ -87,6 +87,18 @@ a dependency:
       <type>aar</type>
     </dependency>
 
+If you are a Gradle user you can also easily include the library:
+
+    compile 'com.doomonafireball.betterpickers:library:1.5.2'
+
+If you are bringing in the support library you may need to add an exclusion:
+
+    compile ("com.doomonafireball.betterpickers:library:1.5.2") {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
+
+There is a standalone Gradle demo [here][14] that may also help.
+
 Usage
 =====
 
@@ -194,3 +206,4 @@ License
  [11]: https://plus.google.com/108284392618554783657/posts
  [12]: http://willowtreeapps.github.io/OAK/
  [13]: http://www.willowtreeapps.com/
+ [14]: https://github.com/derekbrameyer/android-betterpickers-gradle-sample
