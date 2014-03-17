@@ -114,11 +114,11 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
     public interface OnTimeSetListener {
 
         /**
-         * @param view The view associated with this listener.
+         * @param RadialTimePickerDialog The view associated with this listener.
          * @param hourOfDay The hour that was set.
          * @param minute The minute that was set.
          */
-        void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute);
+        void onTimeSet(RadialTimePickerDialog dialog, int hourOfDay, int minute);
     }
 
     public static interface OnDialogDismissListener {
@@ -260,7 +260,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
                     mTimePicker.tryVibrate();
                 }
                 if (mCallback != null) {
-                    mCallback.onTimeSet(mTimePicker,
+                    mCallback.onTimeSet(RadialTimePickerDialog.this,
                             mTimePicker.getHours(), mTimePicker.getMinutes());
                 }
                 dismiss();
@@ -463,7 +463,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
                 finishKbMode(false);
             }
             if (mCallback != null) {
-                mCallback.onTimeSet(mTimePicker,
+                mCallback.onTimeSet(RadialTimePickerDialog.this,
                         mTimePicker.getHours(), mTimePicker.getMinutes());
             }
             dismiss();
