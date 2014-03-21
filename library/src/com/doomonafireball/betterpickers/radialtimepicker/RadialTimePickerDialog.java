@@ -16,13 +16,11 @@
 
 package com.doomonafireball.betterpickers.radialtimepicker;
 
-import com.doomonafireball.betterpickers.R;
-import com.doomonafireball.betterpickers.Utils;
-import com.doomonafireball.betterpickers.radialtimepicker.RadialPickerLayout.OnValueSelectedListener;
-import com.nineoldandroids.animation.ObjectAnimator;
+import java.text.DateFormatSymbols;
+import java.util.ArrayList;
+import java.util.Locale;
 
 import android.app.ActionBar.LayoutParams;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -39,9 +37,10 @@ import android.view.Window;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.text.DateFormatSymbols;
-import java.util.ArrayList;
-import java.util.Locale;
+import com.doomonafireball.betterpickers.R;
+import com.doomonafireball.betterpickers.Utils;
+import com.doomonafireball.betterpickers.radialtimepicker.RadialPickerLayout.OnValueSelectedListener;
+import com.nineoldandroids.animation.ObjectAnimator;
 
 /**
  * Dialog to set a time.
@@ -126,15 +125,6 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         public abstract void onDialogDismiss(DialogInterface dialoginterface);
     }
 
-    public RadialTimePickerDialog() {
-        // Empty constructor required for dialog fragment.
-    }
-
-    public RadialTimePickerDialog(Context context, int theme, OnTimeSetListener callback,
-            int hourOfDay, int minute, boolean is24HourMode) {
-        // Empty constructor required for dialog fragment.
-    }
-
     public static RadialTimePickerDialog newInstance(OnTimeSetListener callback,
             int hourOfDay, int minute, boolean is24HourMode) {
         RadialTimePickerDialog ret = new RadialTimePickerDialog();
@@ -194,7 +184,9 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        
+        if (getShowsDialog() == true)
+            getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
         View view = inflater.inflate(R.layout.radial_time_picker_dialog, null);
         KeyboardListener keyboardListener = new KeyboardListener();
