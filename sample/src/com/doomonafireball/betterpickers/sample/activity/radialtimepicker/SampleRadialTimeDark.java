@@ -1,6 +1,5 @@
 package com.doomonafireball.betterpickers.sample.activity.radialtimepicker;
 
-import com.doomonafireball.betterpickers.radialtimepicker.RadialPickerLayout;
 import com.doomonafireball.betterpickers.radialtimepicker.RadialTimePickerDialog;
 import com.doomonafireball.betterpickers.sample.R;
 import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
@@ -50,7 +49,7 @@ public class SampleRadialTimeDark extends BaseSampleActivity
     }
 
     @Override
-    public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
+    public void onTimeSet(RadialTimePickerDialog dialog, int hourOfDay, int minute) {
         text.setText("" + hourOfDay + ":" + minute);
     }
 
