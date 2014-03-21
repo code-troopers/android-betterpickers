@@ -16,6 +16,9 @@
 
 package com.doomonafireball.betterpickers.calendardatepicker;
 
+import com.doomonafireball.betterpickers.calendardatepicker.CalendarDatePickerDialog.OnDateChangedListener;
+import com.doomonafireball.betterpickers.calendardatepicker.MonthAdapter.CalendarDay;
+
 /**
  * Controller class to communicate among the various components of the date picker dialog.
  */
@@ -25,11 +28,11 @@ interface CalendarDatePickerController {
 
     void onDayOfMonthSelected(int year, int month, int day);
 
-    void registerOnDateChangedListener(CalendarDatePickerDialog.OnDateChangedListener listener);
+    void registerOnDateChangedListener(OnDateChangedListener listener);
 
-    void unregisterOnDateChangedListener(CalendarDatePickerDialog.OnDateChangedListener listener);
+    void unregisterOnDateChangedListener(OnDateChangedListener listener);
 
-    SimpleMonthAdapter.CalendarDay getSelectedDay();
+    CalendarDay getSelectedDay();
 
     int getFirstDayOfWeek();
 

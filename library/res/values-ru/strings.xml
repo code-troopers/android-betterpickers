@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="picker_cancel">Отмена</string>
+    <string name="picker_set">ОК</string>
+    <string name="hours_label">ч</string>
+    <string name="minutes_label">м</string>
+    <string name="seconds_label">с</string>
+    <string name="hours_label_description">часы</string>
+    <string name="minutes_label_description">минуты</string>
+    <string name="seconds_label_description">секунды</string>
+    <string name="timer_delete">Удалить</string>
+    <string name="time_picker_ampm_label">--</string>
+    <string name="time_picker_time_seperator">:</string>
+    <string name="time_picker_00_label">:00</string>
+    <string name="time_picker_30_label">:30</string>
+    <string name="number_picker_minus_label">—</string>
+    <string name="number_picker_seperator">.</string>
+    <string name="number_delete">Удалить</string>
+    <string name="number_picker_plus_minus">+/-</string>
+    <string name="hms_picker_hours_label">Ч</string>
+    <string name="hms_picker_minutes_label">М</string>
+    <string name="hms_picker_seconds_label">С</string>
+    <string name="expiration_picker_seperator">/</string>
+    <string name="month_c">МЕСЯЦ</string>
+    <string name="day_c">ДЕНЬ</string>
+    <string name="year_c">ГОД</string>
+
+    <!-- 1.3.1 -->
+    <string name="min_error">Пожалуйста, введите число больше или равно чем %1$d</string>
+    <string name="max_error">Пожалуйста, введите число меньше или равно чем %1$d</string>
+    <string name="min_max_error">Пожалуйста, введите число между %1$d и %2$d</string>
+
+    <!-- From AOSP -->
+    <!-- Label for button to confirm chosen date or time [CHAR LIMIT=30] -->
+    <string name="done_label">Готово</string>
+    <!--
+         Content description for the hour selector in the time picker, which displays
+         selectable hours of the day along the inside edge of a circle, as in an analog clock.
+         [CHAR LIMIT=50]
+    -->
+    <string name="hour_picker_description">Круговой ползунок часов</string>
+    <!--
+         Content description for the minute selector in the time picker, which displays
+         selectable five-minute intervals along the inside edge of a circle, as in an analog clock.
+         [CHAR LIMIT=50]
+    -->
+    <string name="minute_picker_description">Круговой ползунок минут</string>
+    <!-- Accessibility announcement for hour circular picker [CHAR LIMIT=NONE] -->
+    <string name="select_hours">Выберите час</string>
+    <!-- Accessibility announcement for minute circular picker [CHAR LIMIT=NONE] -->
+    <string name="select_minutes">Выберите минуты</string>
+
+    <!--
+        Content description for the month and day selector in the date picker, which displays
+        a selectable grid of days laid out by month.
+        [CHAR LIMIT=50]
+     -->
+    <string name="day_picker_description">Сетка дней месяца</string>
+    <!--
+        Content description for the year selector in the date picker, which displays
+        a scrolling, vertical list of years.
+        [CHAR LIMIT=50]
+     -->
+    <string name="year_picker_description">Список годов</string>
+    <!-- Accessibility announcement for the day picker [CHAR LIMIT=NONE] -->
+    <string name="select_day">Выберите месяц и день</string>
+    <!-- Accessibility announcement for the year picker [CHAR LIMIT=NONE] -->
+    <string name="select_year">Выберите год</string>
+    <!-- Accessibility description for the item that is currently selected. -->
+    <string name="item_is_selected">%1$s выбран</string>
+    <!-- Accessibility announcement when a number that had been typed in is deleted [CHAR_LIMIT=NONE] -->
+    <string name="deleted_key">%1$s удален</string>
+
+    <!-- DO NOT TRANSLATE -->
+    <string name="time_placeholder">--</string>
+    <!-- DO NOT TRANSLATE -->
+    <string name="time_separator">:</string>
+
+    <!-- DO NOT TRANSLATE -->
+    <string name="radial_numbers_typeface">sans-serif</string>
+    <!-- DO NOT TRANSLATE -->
+    <string name="sans_serif">sans-serif</string>
+
+    <!-- DO NOT TRANSLATE -->
+    <string name="day_of_week_label_typeface">sans-serif</string>
+
+    <!-- Repeat an monthly event on the same day of every month [CHAR LIMIT=20] -->
+    <string name="recurrence_month_pattern_by_day">тот же день каждый месяц</string>
+
+    <!-- Description of the selected marker for accessibility support [CHAR LIMIT = NONE]-->
+    <string name="acessibility_recurrence_choose_end_date_description">изменить конечную дату</string>
+
+    <!-- The button label for saving an event -->
+    <string name="save_label">Готово</string>
+
+    <!-- Specifies that a repeating event to repeat forever (based on the defined frequency) instead of ending at a future date[CHAR LIMIT=20] -->
+    <string name="recurrence_end_continously">Навсегда</string>
+    <!-- Specifies that a repeating event to repeat until a certain date[CHAR LIMIT=25] -->
+    <string name="recurrence_end_date_label">До даты</string>
+    <!-- Specifies that a repeating event to repeat until a certain date[CHAR LIMIT=20] -->
+    <string name="recurrence_end_date">До <xliff:g id="date">%s</xliff:g></string>
+    <!-- Specifies that a repeating event to repeat for a number of times. A repeating event can repeat forever, repeat in a certain frequency until a certain date, or repeat for a number of times. e.g. repeat 10 times and stop. This string is for the last case [CHAR LIMIT=25] -->
+    <string name="recurrence_end_count_label">Для ряда событий</string>
+
+    <!-- Strings to describe how frequently to repeat an event (e.g. every 5 days) -->
+    <plurals name="recurrence_interval_daily">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">Каждый <xliff:g id="count">%d</xliff:g> день</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="other">Каждые <xliff:g id="count">%d</xliff:g> дн.</item>
+    </plurals>
+    <!-- Strings to describe how frequently to repeat an event (e.g. every 5 weeks) -->
+    <plurals name="recurrence_interval_weekly">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">Каждую <xliff:g id="count">%d</xliff:g> неделю</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="other">Каждые <xliff:g id="count">%d</xliff:g> нед.</item>
+    </plurals>
+    <!-- Strings to describe how frequently to repeat an event (e.g. every 5 months) -->
+    <plurals name="recurrence_interval_monthly">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">Каждый <xliff:g id="count">%d</xliff:g> месяц</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="other">Каждые <xliff:g id="count">%d</xliff:g> мес.</item>
+    </plurals>
+    <!-- Strings to describe how frequently to repeat an event (e.g. every 5 years) -->
+    <plurals name="recurrence_interval_yearly">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">Каждый <xliff:g id="count">%d</xliff:g> год</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="other">Каждые <xliff:g id="count">%d</xliff:g> лет</item>
+    </plurals>
+
+    <!-- Specifies that a repeating event should repeat for a certain number of iterations. [CHAR LIMIT=20]-->
+    <plurals name="recurrence_end_count">
+        <item quantity="one">Для <xliff:g id="event_count">%d</xliff:g> события</item>
+        <item quantity="other">Для <xliff:g id="event_count">%d</xliff:g> событий</item>
+    </plurals>
+
+    <!-- Part of a description of an repeating event. This part states the date when a repeating
+         event ends. The part before the semi-colon describes how it repeats.
+         e.g. Every 2 weeks; until 1/1/2030 [CHAR LIMIT=21] -->
+    <string name="endByDate">; до <xliff:g id="date">%s</xliff:g></string>
+    <!-- Part of a description of an repeating event. This part how many times the event repeats.
+         The part before the semi-colon describes how it repeats.
+         e.g. Every 2 weeks; for 15 times [CHAR LIMIT=15] -->
+    <plurals name="endByCount">
+        <item quantity="one">; один раз</item>
+        <item quantity="other">; для <xliff:g id="number">%d</xliff:g> раз</item>
+    </plurals>
+    <!-- A description for an event that repeats daily. For example, Every 2 days [CHAR LIMIT=15]-->
+    <plurals name="daily">
+        <item quantity="one">Ежедневно</item>
+        <item quantity="other">Каждые <xliff:g id="number">%d</xliff:g> дн.</item>
+    </plurals>
+    <!-- A label in a multiple-choice list for the specifying that an event
+         repeats every weekday (Monday through Friday) -->
+    <string name="every_weekday">"Каждый будний день (Пон\u2013Пят)"</string>
+    <!-- A description for an event that repeats weekly on some day of the week. For example,
+         'Weekly on Tuesday' or Every 2 weeks on Monday, Tuesday.  [CHAR LIMIT=25]-->
+    <plurals name="weekly">
+        <item quantity="one">Еженедельно в <xliff:g id="days_of_week">%2$s</xliff:g></item>
+        <item quantity="other">Каждые <xliff:g id="number">%1$d</xliff:g> недель в <xliff:g id="days_of_week">%2$s</xliff:g></item>
+    </plurals>
+    <!-- The common portion of a string describing how often an event repeats,
+         example: 'Monthly (on day 2)' -->
+    <string name="monthly">Ежемесячно</string>
+    <!-- Calendar spinner item, to select that an event recurs every year. -->
+    <string name="yearly_plain">Ежегодно</string>
+
+    <string name="switch_on">Вкл.</string>
+    <string name="switch_off">Выкл.</string>
+
+    <!-- Hint text to encourage the user to enter a country name to find a time zone
+     [CHAR LIMIT=25] -->
+    <string name="hint_time_zone_search">Введите название страны</string>
+
+    <!-- Description of clear icon in the search bar, for accessibility. [CHAR LIMIT=NONE]-->
+    <string name="searchview_description_clear">Очистить запрос</string>
+
+    <!-- Item to show when no timezones are found. [CHAR LIMIT=NONE]-->
+    <string name="no_results_found">Результатов не найдено</string>
+
+    <!-- Name to be displayed for "Palestine". This will be used when searching for a country to
+         select a timezone. [CHAR LIMIT=NONE]
+         *NOTE*: Please be sure to translate this as "Palestine", specifically instead of
+                 "Palestinian Territories". This is for use following Google's updated policy on
+                 this matter.
+                  -->
+    <string name="palestine_display_name">Палестина</string>
+</resources>

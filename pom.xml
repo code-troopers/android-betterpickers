@@ -65,11 +65,11 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <java.version>1.6</java.version>
-        <android.version>4.1.1.4</android.version>
+        <android.version>4.4_r1</android.version>
         <android.platform>19</android.platform>
         <android.support.version>19.0.1</android.support.version>
 
-        <android-maven.version>3.8.2</android-maven.version>
+        <android-maven.version>3.9.0-rc.1</android-maven.version>
     </properties>
 
     <dependencyManagement>

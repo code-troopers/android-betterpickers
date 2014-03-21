@@ -18,6 +18,8 @@ import android.widget.TextView;
 public class SampleCalendarDateDefault extends BaseSampleActivity
         implements CalendarDatePickerDialog.OnDateSetListener {
 
+    private static final String FRAG_TAG_DATE_PICKER = "fragment_date_picker_name";
+
     private TextView text;
     private Button button;
 
@@ -39,7 +41,7 @@ public class SampleCalendarDateDefault extends BaseSampleActivity
                 CalendarDatePickerDialog calendarDatePickerDialog = CalendarDatePickerDialog
                         .newInstance(SampleCalendarDateDefault.this, now.getYear(), now.getMonthOfYear() - 1,
                                 now.getDayOfMonth());
-                calendarDatePickerDialog.show(fm, "fragment_date_picker_name");
+                calendarDatePickerDialog.show(fm, FRAG_TAG_DATE_PICKER);
             }
         });
     }
@@ -47,5 +49,16 @@ public class SampleCalendarDateDefault extends BaseSampleActivity
     @Override
     public void onDateSet(CalendarDatePickerDialog dialog, int year, int monthOfYear, int dayOfMonth) {
         text.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
+    }
+
+    @Override
+    public void onResume() {
+        // Example of reattaching to the fragment
+        super.onResume();
+        CalendarDatePickerDialog calendarDatePickerDialog = (CalendarDatePickerDialog) getSupportFragmentManager()
+                .findFragmentByTag(FRAG_TAG_DATE_PICKER);
+        if (calendarDatePickerDialog != null) {
+            calendarDatePickerDialog.setOnDateSetListener(this);
+        }
     }
 }

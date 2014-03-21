@@ -300,6 +300,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activity.radialtimepicker.SampleRadialTimeDark"
+            android:label="Radial Time/Dark">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activity.recurrencepicker.SampleRecurrenceDefault"
             android:label="Recurrence/Default">
             <intent-filter>

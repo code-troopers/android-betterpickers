@@ -17,7 +17,7 @@ import android.widget.TextView;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleRadialTimeDefault extends BaseSampleActivity
+public class SampleRadialTimeDark extends BaseSampleActivity
         implements RadialTimePickerDialog.OnTimeSetListener {
 
     private static final String FRAG_TAG_TIME_PICKER = "timePickerDialogFragment";
@@ -41,8 +41,9 @@ public class SampleRadialTimeDefault extends BaseSampleActivity
                 FragmentManager fm = getSupportFragmentManager();
                 DateTime now = DateTime.now();
                 RadialTimePickerDialog timePickerDialog = RadialTimePickerDialog
-                        .newInstance(SampleRadialTimeDefault.this, now.getHourOfDay(), now.getMinuteOfHour(),
-                                DateFormat.is24HourFormat(SampleRadialTimeDefault.this));
+                        .newInstance(SampleRadialTimeDark.this, now.getHourOfDay(), now.getMinuteOfHour(),
+                                DateFormat.is24HourFormat(SampleRadialTimeDark.this));
+                timePickerDialog.setThemeDark(true);
                 timePickerDialog.show(fm, FRAG_TAG_TIME_PICKER);
             }
         });
