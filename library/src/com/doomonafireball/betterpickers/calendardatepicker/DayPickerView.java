@@ -372,25 +372,25 @@ public abstract class DayPickerView extends ListView implements OnScrollListener
      *
      * @return The date that has accessibility focus, or {@code null} if no date has focus.
      */
-//    private CalendarDay findAccessibilityFocus() {
-//        final int childCount = getChildCount();
-//        for (int i = 0; i < childCount; i++) {
-//            final View child = getChildAt(i);
-//            if (child instanceof MonthView) {
-//                final CalendarDay focus = ((MonthView) child).getAccessibilityFocus();
-//                if (focus != null) {
-//                    if (Build.VERSION.SDK_INT == Build.VERSION_CODES.JELLY_BEAN) {
-//
-//                        // Clear focus to avoid ListView bug in Jelly Bean MR1.
-//                        ((MonthView) child).clearAccessibilityFocus();
-//                    }
-//                    return focus;
-//                }
-//            }
-//        }
-//
-//        return null;
-//    }
+    private CalendarDay findAccessibilityFocus() {
+        final int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            final View child = getChildAt(i);
+            if (child instanceof MonthView) {
+                final CalendarDay focus = ((MonthView) child).getAccessibilityFocus();
+                if (focus != null) {
+                    if (Build.VERSION.SDK_INT == Build.VERSION_CODES.JELLY_BEAN) {
+
+                        // Clear focus to avoid ListView bug in Jelly Bean MR1.
+                        ((MonthView) child).clearAccessibilityFocus();
+                    }
+                    return focus;
+                }
+            }
+        }
+
+        return null;
+    }
 
     /**
      * Attempts to restore accessibility focus to a given date. No-op if {@code day} is {@code null}.
@@ -398,40 +398,40 @@ public abstract class DayPickerView extends ListView implements OnScrollListener
      * @param day The date that should receive accessibility focus
      * @return {@code true} if focus was restored
      */
-//    private boolean restoreAccessibilityFocus(CalendarDay day) {
-//        if (day == null) {
-//            return false;
-//        }
-//
-//        final int childCount = getChildCount();
-//        for (int i = 0; i < childCount; i++) {
-//            final View child = getChildAt(i);
-//            if (child instanceof MonthView) {
-//                if (((MonthView) child).restoreAccessibilityFocus(day)) {
-//                    return true;
-//                }
-//            }
-//        }
-//
-//        return false;
-//    }
+    private boolean restoreAccessibilityFocus(CalendarDay day) {
+        if (day == null) {
+            return false;
+        }
 
-//    @Override
-//    protected void layoutChildren() {
-//        final CalendarDay focusedDay = findAccessibilityFocus();
-//        super.layoutChildren();
-//        if (mPerformingScroll) {
-//            mPerformingScroll = false;
-//        } else {
-//            restoreAccessibilityFocus(focusedDay);
-//        }
-//    }
+        final int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            final View child = getChildAt(i);
+            if (child instanceof MonthView) {
+                if (((MonthView) child).restoreAccessibilityFocus(day)) {
+                    return true;
+                }
+            }
+        }
 
-//    @Override
-//    public void onInitializeAccessibilityEvent(AccessibilityEvent event) {
-//        super.onInitializeAccessibilityEvent(event);
-//        event.setItemCount(-1);
-//    }
+        return false;
+    }
+
+    @Override
+    protected void layoutChildren() {
+        final CalendarDay focusedDay = findAccessibilityFocus();
+        super.layoutChildren();
+        if (mPerformingScroll) {
+            mPerformingScroll = false;
+        } else {
+            restoreAccessibilityFocus(focusedDay);
+        }
+    }
+
+    @Override
+    public void onInitializeAccessibilityEvent(AccessibilityEvent event) {
+        super.onInitializeAccessibilityEvent(event);
+        event.setItemCount(-1);
+    }
 
     private String getMonthAndYearString(CalendarDay day) {
         Calendar cal = Calendar.getInstance();
@@ -447,12 +447,12 @@ public abstract class DayPickerView extends ListView implements OnScrollListener
     /**
      * Necessary for accessibility, to ensure we support "scrolling" forward and backward in the month list.
      */
-//    @Override
-//    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
-//        super.onInitializeAccessibilityNodeInfo(info);
-//        info.addAction(AccessibilityNodeInfo.ACTION_SCROLL_FORWARD);
-//        info.addAction(AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD);
-//    }
+    @Override
+    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
+        super.onInitializeAccessibilityNodeInfo(info);
+        info.addAction(AccessibilityNodeInfo.ACTION_SCROLL_FORWARD);
+        info.addAction(AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD);
+    }
 
     /**
      * When scroll forward/backward events are received, announce the newly scrolled-to month.

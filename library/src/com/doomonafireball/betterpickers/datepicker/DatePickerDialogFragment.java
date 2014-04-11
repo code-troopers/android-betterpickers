@@ -8,7 +8,6 @@ import android.app.Fragment;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -164,8 +163,6 @@ public class DatePickerDialogFragment extends DialogFragment {
         mDividerTwo = v.findViewById(R.id.divider_2);
         mDividerOne.setBackgroundColor(mDividerColor);
         mDividerTwo.setBackgroundColor(mDividerColor);
-        Log.d("ERRORLOG", (mTextColor == null) ? "mTextColor = NULL" : "mTextColor != NULL");
-        Log.d("ERRORLOG", (mSet == null) ? "mSet = NULL" : "mSet != NULL");
         mSet.setTextColor(mTextColor);
         mSet.setBackgroundResource(mButtonBackgroundResId);
         mCancel.setTextColor(mTextColor);
