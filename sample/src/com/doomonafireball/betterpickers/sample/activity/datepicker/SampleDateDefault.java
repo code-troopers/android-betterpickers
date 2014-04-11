@@ -32,7 +32,7 @@ public class SampleDateDefault extends BaseSampleActivity implements DatePickerD
             @Override
             public void onClick(View v) {
                 DatePickerBuilder dpb = new DatePickerBuilder()
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 dpb.show();
             }

@@ -1,12 +1,11 @@
 package com.doomonafireball.betterpickers.sample;
 
-import com.actionbarsherlock.app.SherlockListActivity;
-import com.actionbarsherlock.view.MenuItem;
-
+import android.app.ListActivity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -19,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ListSamples extends SherlockListActivity {
+public class ListSamples extends ListActivity {
 
     public static final String INTENT_PATH = "com.doomonafireball.betterpickers.sample.Path";
     public static final String INTENT_SAMPLE = "com.doomonafireball.betterpickers.sample.SAMPLE";
@@ -34,8 +33,8 @@ public class ListSamples extends SherlockListActivity {
         if (path == null) {
             path = "";
         } else {
-            getSupportActionBar().setTitle(path);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getActionBar().setTitle(path);
+            getActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
         setListAdapter(new SimpleAdapter(this, getData(path),

@@ -33,7 +33,7 @@ public class SampleTimeDefaultLight extends BaseSampleActivity
             @Override
             public void onClick(View v) {
                 TimePickerBuilder tpb = new TimePickerBuilder()
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment_Light);
                 tpb.show();
             }

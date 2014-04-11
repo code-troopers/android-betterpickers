@@ -17,7 +17,6 @@
 package com.doomonafireball.betterpickers.recurrencepicker;
 
 import android.content.Context;
-import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -48,11 +47,11 @@ public class WeekButton extends android.widget.ToggleButton {
         int w = getMeasuredWidth();
         if (h > 0 && w > 0) {
             if (w < h) {
-                if (View.MeasureSpec.getMode(ViewCompat.getMeasuredHeightAndState(this)) != MeasureSpec.EXACTLY) {
+                if (View.MeasureSpec.getMode(getMeasuredHeightAndState()) != MeasureSpec.EXACTLY) {
                     h = w;
                 }
             } else if (h < w) {
-                if (View.MeasureSpec.getMode(ViewCompat.getMeasuredWidthAndState(this)) != MeasureSpec.EXACTLY) {
+                if (View.MeasureSpec.getMode(getMeasuredWidthAndState()) != MeasureSpec.EXACTLY) {
                     w = h;
                 }
             }

@@ -30,9 +30,6 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.support.v4.widget.ExploreByTouchHelper;
 import android.text.format.DateFormat;
 import android.text.format.DateUtils;
 import android.text.format.Time;
@@ -168,7 +165,7 @@ public abstract class MonthView extends View {
 
     private final Calendar mCalendar;
     private final Calendar mDayLabelCalendar;
-    private final MonthViewTouchHelper mTouchHelper;
+//    private final MonthViewTouchHelper mTouchHelper;
 
     private int mNumRows = DEFAULT_NUM_ROWS;
 
@@ -212,10 +209,10 @@ public abstract class MonthView extends View {
                 - MONTH_HEADER_SIZE) / MAX_NUM_ROWS;
 
         // Set up accessibility components.
-        mTouchHelper = new MonthViewTouchHelper(this);
-        ViewCompat.setAccessibilityDelegate(this, mTouchHelper);
-        ViewCompat.setImportantForAccessibility(this, ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_YES);
-        mLockAccessibilityDelegate = true;
+//        mTouchHelper = new MonthViewTouchHelper(this);
+//        setAccessibilityDelegate(mTouchHelper);
+//        setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_YES);
+//        mLockAccessibilityDelegate = true;
 
         // Sets up any standard paints that will be used
         initView();
@@ -226,7 +223,7 @@ public abstract class MonthView extends View {
         // Workaround for a JB MR1 issue where accessibility delegates on
         // top-level ListView items are overwritten.
         if (!mLockAccessibilityDelegate && Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-            super.setAccessibilityDelegate(delegate);
+//            super.setAccessibilityDelegate(delegate);
         }
     }
 
@@ -367,7 +364,7 @@ public abstract class MonthView extends View {
         mNumRows = calculateNumRows();
 
         // Invalidate cached accessibility information.
-        mTouchHelper.invalidateRoot();
+//        mTouchHelper.invalidateRoot();
     }
 
     public void reuse() {
@@ -399,7 +396,7 @@ public abstract class MonthView extends View {
         mWidth = w;
 
         // Invalidate cached accessibility information.
-        mTouchHelper.invalidateRoot();
+//        mTouchHelper.invalidateRoot();
     }
 
     private String getMonthAndYearString() {
@@ -519,26 +516,26 @@ public abstract class MonthView extends View {
         }
 
         // This is a no-op if accessibility is turned off.
-        mTouchHelper.sendEventForVirtualView(day, AccessibilityEvent.TYPE_VIEW_CLICKED);
+//        mTouchHelper.sendEventForVirtualView(day, AccessibilityEvent.TYPE_VIEW_CLICKED);
     }
 
     /**
      * @return The date that has accessibility focus, or {@code null} if no date has focus
      */
-    public CalendarDay getAccessibilityFocus() {
-        final int day = mTouchHelper.getFocusedVirtualView();
-        if (day >= 0) {
-            return new CalendarDay(mYear, mMonth, day);
-        }
-        return null;
-    }
+//    public CalendarDay getAccessibilityFocus() {
+//        final int day = mTouchHelper.getFocusedVirtualView();
+//        if (day >= 0) {
+//            return new CalendarDay(mYear, mMonth, day);
+//        }
+//        return null;
+//    }
 
     /**
      * Clears accessibility focus within the view. No-op if the view does not contain accessibility focus.
      */
-    public void clearAccessibilityFocus() {
-        mTouchHelper.clearFocusedVirtualView();
-    }
+//    public void clearAccessibilityFocus() {
+//        mTouchHelper.clearFocusedVirtualView();
+//    }
 
     /**
      * Attempts to restore accessibility focus to the specified date.
@@ -546,130 +543,130 @@ public abstract class MonthView extends View {
      * @param day The date which should receive focus
      * @return {@code false} if the date is not valid for this month view, or {@code true} if the date received focus
      */
-    public boolean restoreAccessibilityFocus(CalendarDay day) {
-        if ((day.year != mYear) || (day.month != mMonth) || (day.day > mNumCells)) {
-            return false;
-        }
-        mTouchHelper.setFocusedVirtualView(day.day);
-        return true;
-    }
+//    public boolean restoreAccessibilityFocus(CalendarDay day) {
+//        if ((day.year != mYear) || (day.month != mMonth) || (day.day > mNumCells)) {
+//            return false;
+//        }
+//        mTouchHelper.setFocusedVirtualView(day.day);
+//        return true;
+//    }
 
     /**
      * Provides a virtual view hierarchy for interfacing with an accessibility service.
      */
-    private class MonthViewTouchHelper extends ExploreByTouchHelper {
-
-        private static final String DATE_FORMAT = "dd MMMM yyyy";
-
-        private final Rect mTempRect = new Rect();
-        private final Calendar mTempCalendar = Calendar.getInstance();
-
-        public MonthViewTouchHelper(View host) {
-            super(host);
-        }
-
-        public void setFocusedVirtualView(int virtualViewId) {
-            getAccessibilityNodeProvider(MonthView.this).performAction(
-                    virtualViewId, AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS, null);
-        }
-
-        public void clearFocusedVirtualView() {
-            final int focusedVirtualView = getFocusedVirtualView();
-            if (focusedVirtualView != ExploreByTouchHelper.INVALID_ID) {
-                getAccessibilityNodeProvider(MonthView.this).performAction(
-                        focusedVirtualView,
-                        AccessibilityNodeInfoCompat.ACTION_CLEAR_ACCESSIBILITY_FOCUS,
-                        null);
-            }
-        }
-
-        @Override
-        protected int getVirtualViewAt(float x, float y) {
-            final int day = getDayFromLocation(x, y);
-            if (day >= 0) {
-                return day;
-            }
-            return ExploreByTouchHelper.INVALID_ID;
-        }
-
-        @Override
-        protected void getVisibleVirtualViews(List<Integer> virtualViewIds) {
-            for (int day = 1; day <= mNumCells; day++) {
-                virtualViewIds.add(day);
-            }
-        }
-
-        @Override
-        protected void onPopulateEventForVirtualView(int virtualViewId, AccessibilityEvent event) {
-            event.setContentDescription(getItemDescription(virtualViewId));
-        }
-
-        @Override
-        protected void onPopulateNodeForVirtualView(int virtualViewId,
-                AccessibilityNodeInfoCompat node) {
-            getItemBounds(virtualViewId, mTempRect);
-
-            node.setContentDescription(getItemDescription(virtualViewId));
-            node.setBoundsInParent(mTempRect);
-            node.addAction(AccessibilityNodeInfo.ACTION_CLICK);
-
-            if (virtualViewId == mSelectedDay) {
-                node.setSelected(true);
-            }
-
-        }
-
-        @Override
-        protected boolean onPerformActionForVirtualView(int virtualViewId, int action,
-                Bundle arguments) {
-            switch (action) {
-                case AccessibilityNodeInfo.ACTION_CLICK:
-                    onDayClick(virtualViewId);
-                    return true;
-            }
-
-            return false;
-        }
-
-        /**
-         * Calculates the bounding rectangle of a given time object.
-         *
-         * @param day The day to calculate bounds for
-         * @param rect The rectangle in which to store the bounds
-         */
-        private void getItemBounds(int day, Rect rect) {
-            final int offsetX = mPadding;
-            final int offsetY = MONTH_HEADER_SIZE;
-            final int cellHeight = mRowHeight;
-            final int cellWidth = ((mWidth - (2 * mPadding)) / mNumDays);
-            final int index = ((day - 1) + findDayOffset());
-            final int row = (index / mNumDays);
-            final int column = (index % mNumDays);
-            final int x = (offsetX + (column * cellWidth));
-            final int y = (offsetY + (row * cellHeight));
-
-            rect.set(x, y, (x + cellWidth), (y + cellHeight));
-        }
-
-        /**
-         * Generates a description for a given time object. Since this description will be spoken, the components are
-         * ordered by descending specificity as DAY MONTH YEAR.
-         *
-         * @param day The day to generate a description for
-         * @return A description of the time object
-         */
-        private CharSequence getItemDescription(int day) {
-            mTempCalendar.set(mYear, mMonth, day);
-            final CharSequence date = DateFormat.format(DATE_FORMAT,
-                    mTempCalendar.getTimeInMillis());
-
-            if (day == mSelectedDay) {
-                return getContext().getString(R.string.item_is_selected, date);
-            }
-
-            return date;
-        }
-    }
+//    private class MonthViewTouchHelper extends ExploreByTouchHelper {
+//
+//        private static final String DATE_FORMAT = "dd MMMM yyyy";
+//
+//        private final Rect mTempRect = new Rect();
+//        private final Calendar mTempCalendar = Calendar.getInstance();
+//
+//        public MonthViewTouchHelper(View host) {
+//            super(host);
+//        }
+//
+//        public void setFocusedVirtualView(int virtualViewId) {
+//            getAccessibilityNodeProvider(MonthView.this).performAction(
+//                    virtualViewId, AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS, null);
+//        }
+//
+//        public void clearFocusedVirtualView() {
+//            final int focusedVirtualView = getFocusedVirtualView();
+//            if (focusedVirtualView != ExploreByTouchHelper.INVALID_ID) {
+//                getAccessibilityNodeProvider(MonthView.this).performAction(
+//                        focusedVirtualView,
+//                        AccessibilityNodeInfoCompat.ACTION_CLEAR_ACCESSIBILITY_FOCUS,
+//                        null);
+//            }
+//        }
+//
+//        @Override
+//        protected int getVirtualViewAt(float x, float y) {
+//            final int day = getDayFromLocation(x, y);
+//            if (day >= 0) {
+//                return day;
+//            }
+//            return ExploreByTouchHelper.INVALID_ID;
+//        }
+//
+//        @Override
+//        protected void getVisibleVirtualViews(List<Integer> virtualViewIds) {
+//            for (int day = 1; day <= mNumCells; day++) {
+//                virtualViewIds.add(day);
+//            }
+//        }
+//
+//        @Override
+//        protected void onPopulateEventForVirtualView(int virtualViewId, AccessibilityEvent event) {
+//            event.setContentDescription(getItemDescription(virtualViewId));
+//        }
+//
+//        @Override
+//        protected void onPopulateNodeForVirtualView(int virtualViewId,
+//                AccessibilityNodeInfoCompat node) {
+//            getItemBounds(virtualViewId, mTempRect);
+//
+//            node.setContentDescription(getItemDescription(virtualViewId));
+//            node.setBoundsInParent(mTempRect);
+//            node.addAction(AccessibilityNodeInfo.ACTION_CLICK);
+//
+//            if (virtualViewId == mSelectedDay) {
+//                node.setSelected(true);
+//            }
+//
+//        }
+//
+//        @Override
+//        protected boolean onPerformActionForVirtualView(int virtualViewId, int action,
+//                Bundle arguments) {
+//            switch (action) {
+//                case AccessibilityNodeInfo.ACTION_CLICK:
+//                    onDayClick(virtualViewId);
+//                    return true;
+//            }
+//
+//            return false;
+//        }
+//
+//        /**
+//         * Calculates the bounding rectangle of a given time object.
+//         *
+//         * @param day The day to calculate bounds for
+//         * @param rect The rectangle in which to store the bounds
+//         */
+//        private void getItemBounds(int day, Rect rect) {
+//            final int offsetX = mPadding;
+//            final int offsetY = MONTH_HEADER_SIZE;
+//            final int cellHeight = mRowHeight;
+//            final int cellWidth = ((mWidth - (2 * mPadding)) / mNumDays);
+//            final int index = ((day - 1) + findDayOffset());
+//            final int row = (index / mNumDays);
+//            final int column = (index % mNumDays);
+//            final int x = (offsetX + (column * cellWidth));
+//            final int y = (offsetY + (row * cellHeight));
+//
+//            rect.set(x, y, (x + cellWidth), (y + cellHeight));
+//        }
+//
+//        /**
+//         * Generates a description for a given time object. Since this description will be spoken, the components are
+//         * ordered by descending specificity as DAY MONTH YEAR.
+//         *
+//         * @param day The day to generate a description for
+//         * @return A description of the time object
+//         */
+//        private CharSequence getItemDescription(int day) {
+//            mTempCalendar.set(mYear, mMonth, day);
+//            final CharSequence date = DateFormat.format(DATE_FORMAT,
+//                    mTempCalendar.getTimeInMillis());
+//
+//            if (day == mSelectedDay) {
+//                return getContext().getString(R.string.item_is_selected, date);
+//            }
+//
+//            return date;
+//        }
+//    }
 
     /**
      * Handles callbacks when the user clicks on a time object.

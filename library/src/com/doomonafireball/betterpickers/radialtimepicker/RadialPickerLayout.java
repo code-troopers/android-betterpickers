@@ -27,8 +27,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.SystemClock;
-import android.support.v4.view.accessibility.AccessibilityManagerCompat;
 import android.text.format.DateUtils;
 import android.text.format.Time;
 import android.util.AttributeSet;
@@ -171,7 +169,7 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
 
         mHapticFeedbackController = hapticFeedbackController;
         mIs24HourMode = is24HourMode;
-        mHideAmPm = AccessibilityManagerCompat.isTouchExplorationEnabled(mAccessibilityManager) ? true : mIs24HourMode;
+        mHideAmPm = mAccessibilityManager.isTouchExplorationEnabled() ? true : mIs24HourMode;
 
         // Initialize the circle and AM/PM circles if applicable.
         mCircleView.initialize(context, mHideAmPm);
@@ -596,7 +594,7 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
                 } else {
                     // If we're in accessibility mode, force the touch to be legal. Otherwise,
                     // it will only register within the given touch target zone.
-                    boolean forceLegal = AccessibilityManagerCompat.isTouchExplorationEnabled(mAccessibilityManager);
+                    boolean forceLegal = mAccessibilityManager.isTouchExplorationEnabled();
                     // Calculate the degrees that is currently being touched.
                     mDownDegrees = getDegreesFromCoords(eventX, eventY, forceLegal, isInnerCircle);
                     if (mDownDegrees != -1) {

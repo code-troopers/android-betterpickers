@@ -32,7 +32,7 @@ public class SampleTimeDefault extends BaseSampleActivity implements TimePickerD
             @Override
             public void onClick(View v) {
                 TimePickerBuilder tpb = new TimePickerBuilder()
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 tpb.show();
             }

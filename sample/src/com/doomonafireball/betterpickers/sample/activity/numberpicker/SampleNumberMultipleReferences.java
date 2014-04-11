@@ -44,7 +44,7 @@ public class SampleNumberMultipleReferences extends BaseSampleActivity
             public void onClick(View v) {
                 NumberPickerBuilder npb = new NumberPickerBuilder()
                         .setReference(BUTTON_ONE_REFERENCE)
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 npb.show();
             }
@@ -54,7 +54,7 @@ public class SampleNumberMultipleReferences extends BaseSampleActivity
             public void onClick(View v) {
                 NumberPickerBuilder npb = new NumberPickerBuilder()
                         .setReference(BUTTON_TWO_REFERENCE)
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 npb.show();
             }
@@ -64,7 +64,7 @@ public class SampleNumberMultipleReferences extends BaseSampleActivity
             public void onClick(View v) {
                 NumberPickerBuilder npb = new NumberPickerBuilder()
                         .setReference(BUTTON_THREE_REFERENCE)
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 npb.show();
             }
@@ -74,7 +74,7 @@ public class SampleNumberMultipleReferences extends BaseSampleActivity
             public void onClick(View v) {
                 NumberPickerBuilder npb = new NumberPickerBuilder()
                         .setReference(BUTTON_FOUR_REFERENCE)
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 npb.show();
             }

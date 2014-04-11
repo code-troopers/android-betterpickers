@@ -33,7 +33,7 @@ public class SampleHmsDefaultCustom extends BaseSampleActivity
             @Override
             public void onClick(View v) {
                 HmsPickerBuilder hpb = new HmsPickerBuilder()
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.MyCustomBetterPickerTheme);
                 hpb.show();
             }

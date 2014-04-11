@@ -44,7 +44,7 @@ public class SampleTimeMultipleReferences extends BaseSampleActivity
             public void onClick(View v) {
                 TimePickerBuilder tpb = new TimePickerBuilder()
                         .setReference(BUTTON_ONE_REFERENCE)
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 tpb.show();
             }
@@ -54,7 +54,7 @@ public class SampleTimeMultipleReferences extends BaseSampleActivity
             public void onClick(View v) {
                 TimePickerBuilder tpb = new TimePickerBuilder()
                         .setReference(BUTTON_TWO_REFERENCE)
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 tpb.show();
             }
@@ -64,7 +64,7 @@ public class SampleTimeMultipleReferences extends BaseSampleActivity
             public void onClick(View v) {
                 TimePickerBuilder tpb = new TimePickerBuilder()
                         .setReference(BUTTON_THREE_REFERENCE)
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 tpb.show();
             }
@@ -74,7 +74,7 @@ public class SampleTimeMultipleReferences extends BaseSampleActivity
             public void onClick(View v) {
                 TimePickerBuilder tpb = new TimePickerBuilder()
                         .setReference(BUTTON_FOUR_REFERENCE)
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 tpb.show();
             }

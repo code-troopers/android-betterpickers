@@ -6,8 +6,8 @@ import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
 
 import org.joda.time.DateTime;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
@@ -37,7 +37,7 @@ public class SampleRadialTimeDark extends BaseSampleActivity
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fm = getSupportFragmentManager();
+                FragmentManager fm = getFragmentManager();
                 DateTime now = DateTime.now();
                 RadialTimePickerDialog timePickerDialog = RadialTimePickerDialog
                         .newInstance(SampleRadialTimeDark.this, now.getHourOfDay(), now.getMinuteOfHour(),
@@ -57,7 +57,7 @@ public class SampleRadialTimeDark extends BaseSampleActivity
     public void onResume() {
         // Example of reattaching to the fragment
         super.onResume();
-        RadialTimePickerDialog rtpd = (RadialTimePickerDialog) getSupportFragmentManager().findFragmentByTag(
+        RadialTimePickerDialog rtpd = (RadialTimePickerDialog) getFragmentManager().findFragmentByTag(
                 FRAG_TAG_TIME_PICKER);
         if (rtpd != null) {
             rtpd.setOnTimeSetListener(this);

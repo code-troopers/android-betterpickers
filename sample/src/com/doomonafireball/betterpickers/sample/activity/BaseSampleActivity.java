@@ -1,17 +1,16 @@
 package com.doomonafireball.betterpickers.sample.activity;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
-
+import android.app.Activity;
 import android.os.Bundle;
+import android.view.MenuItem;
 
-public class BaseSampleActivity extends SherlockFragmentActivity {
+public class BaseSampleActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
