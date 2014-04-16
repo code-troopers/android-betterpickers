@@ -41,8 +41,14 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
 
     private CalendarDay mSelectedDay;
 
+    private boolean mThemeDark;
+
     protected static int WEEK_7_OVERHANG_HEIGHT = 7;
     protected static final int MONTHS_IN_YEAR = 12;
+
+    public void setThemeDark(boolean mThemeDark) {
+        this.mThemeDark = mThemeDark;
+    }
 
     /**
      * A convenience class to represent a specific date.
@@ -164,6 +170,7 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
             drawingParams = (HashMap<String, Integer>) v.getTag();
         } else {
             v = createMonthView(mContext);
+            v.setThemeDark(mThemeDark);
             // Set up the new view
             LayoutParams params = new LayoutParams(
                     LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);

@@ -37,7 +37,7 @@ public class TextViewWithCircularIndicator extends TextView {
     Paint mCirclePaint = new Paint();
 
     private final int mRadius;
-    private final int mCircleColor;
+    private int mCircleColor;
     private final String mItemIsSelectedText;
 
     private boolean mDrawCircle;
@@ -59,6 +59,11 @@ public class TextViewWithCircularIndicator extends TextView {
         mCirclePaint.setTextAlign(Align.CENTER);
         mCirclePaint.setStyle(Style.FILL);
         mCirclePaint.setAlpha(SELECTED_CIRCLE_ALPHA);
+    }
+
+    public void setCircleColor(int circleColor) {
+        this.mCircleColor = circleColor;
+        this.init();
     }
 
     public void drawIndicator(boolean drawCircle) {
