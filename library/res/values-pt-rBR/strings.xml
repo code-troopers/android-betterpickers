@@ -14,7 +14,7 @@
     <string name="time_picker_00_label">:00</string>
     <string name="time_picker_30_label">:30</string>
     <string name="number_picker_minus_label">—</string>
-    <string name="number_picker_seperator">.</string>
+    <string name="number_picker_seperator">,</string>
     <string name="number_delete">Deletar</string>
     <string name="number_picker_plus_minus">+/-</string>
     <string name="hms_picker_hours_label">H</string>
