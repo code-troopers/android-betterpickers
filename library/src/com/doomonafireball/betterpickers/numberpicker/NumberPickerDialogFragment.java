@@ -146,6 +146,9 @@ public class NumberPickerDialogFragment extends DialogFragment {
         mCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                for (NumberPickerDialogHandler handler : mNumberPickerDialogHandlers) {
+                    handler.onDialogCancelled();
+                }
                 dismiss();
             }
         });
@@ -220,6 +223,7 @@ public class NumberPickerDialogFragment extends DialogFragment {
      */
     public interface NumberPickerDialogHandler {
 
+        void onDialogCancelled();
         void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber);
     }
 
