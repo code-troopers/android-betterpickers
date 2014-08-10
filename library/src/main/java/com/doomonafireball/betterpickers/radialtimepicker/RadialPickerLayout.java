@@ -16,18 +16,11 @@
 
 package com.doomonafireball.betterpickers.radialtimepicker;
 
-import com.doomonafireball.betterpickers.HapticFeedbackController;
-import com.doomonafireball.betterpickers.R;
-import com.nineoldandroids.animation.AnimatorSet;
-import com.nineoldandroids.animation.ObjectAnimator;
-import com.nineoldandroids.view.ViewHelper;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.SystemClock;
 import android.support.v4.view.accessibility.AccessibilityManagerCompat;
 import android.text.format.DateUtils;
 import android.text.format.Time;
@@ -42,6 +35,12 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.FrameLayout;
+
+import com.doomonafireball.betterpickers.HapticFeedbackController;
+import com.doomonafireball.betterpickers.R;
+import com.nineoldandroids.animation.AnimatorSet;
+import com.nineoldandroids.animation.ObjectAnimator;
+import com.nineoldandroids.view.ViewHelper;
 
 public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
 

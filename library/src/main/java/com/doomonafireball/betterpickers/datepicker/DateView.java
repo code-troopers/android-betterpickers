@@ -1,10 +1,5 @@
 package com.doomonafireball.betterpickers.datepicker;
 
-import com.doomonafireball.betterpickers.widget.PickerLinearLayout;
-import com.doomonafireball.betterpickers.R;
-import com.doomonafireball.betterpickers.widget.UnderlinePageIndicatorPicker;
-import com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView;
-
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -13,6 +8,11 @@ import android.graphics.Typeface;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.doomonafireball.betterpickers.R;
+import com.doomonafireball.betterpickers.widget.PickerLinearLayout;
+import com.doomonafireball.betterpickers.widget.UnderlinePageIndicatorPicker;
+import com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView;
 
 public class DateView extends PickerLinearLayout {
 

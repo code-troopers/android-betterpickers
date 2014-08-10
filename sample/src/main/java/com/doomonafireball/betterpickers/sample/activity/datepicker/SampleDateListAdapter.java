@@ -1,14 +1,5 @@
 package com.doomonafireball.betterpickers.sample.activity.datepicker;
 
-import com.doomonafireball.betterpickers.datepicker.DatePickerBuilder;
-import com.doomonafireball.betterpickers.datepicker.DatePickerDialogFragment;
-import com.doomonafireball.betterpickers.sample.R;
-import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
-
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormatter;
-import org.joda.time.format.DateTimeFormatterBuilder;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -19,6 +10,15 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.doomonafireball.betterpickers.datepicker.DatePickerBuilder;
+import com.doomonafireball.betterpickers.datepicker.DatePickerDialogFragment;
+import com.doomonafireball.betterpickers.sample.R;
+import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
+
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.DateTimeFormatterBuilder;
 
 import java.util.ArrayList;
 

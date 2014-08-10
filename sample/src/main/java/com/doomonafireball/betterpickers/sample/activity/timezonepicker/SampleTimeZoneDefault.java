@@ -1,21 +1,18 @@
 package com.doomonafireball.betterpickers.sample.activity.timezonepicker;
 
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.text.format.Time;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
 import com.doomonafireball.betterpickers.recurrencepicker.EventRecurrence;
-import com.doomonafireball.betterpickers.recurrencepicker.EventRecurrenceFormatter;
 import com.doomonafireball.betterpickers.recurrencepicker.RecurrencePickerDialog;
 import com.doomonafireball.betterpickers.sample.R;
 import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
 import com.doomonafireball.betterpickers.timezonepicker.TimeZoneInfo;
 import com.doomonafireball.betterpickers.timezonepicker.TimeZonePickerDialog;
-
-import android.content.res.Resources;
-import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.text.TextUtils;
-import android.text.format.Time;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM

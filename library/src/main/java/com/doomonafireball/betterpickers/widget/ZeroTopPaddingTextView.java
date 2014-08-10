@@ -16,13 +16,13 @@
 
 package com.doomonafireball.betterpickers.widget;
 
-import com.doomonafireball.betterpickers.R;
-
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.TextView;
+
+import com.doomonafireball.betterpickers.R;
 
 /**
  * Displays text with no padding at the top.

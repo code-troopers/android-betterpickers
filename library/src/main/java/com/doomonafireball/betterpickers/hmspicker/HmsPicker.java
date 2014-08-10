@@ -1,7 +1,5 @@
 package com.doomonafireball.betterpickers.hmspicker;
 
-import com.doomonafireball.betterpickers.R;
-
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -16,6 +14,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.doomonafireball.betterpickers.R;
 
 
 public class HmsPicker extends LinearLayout implements Button.OnClickListener, Button.OnLongClickListener {

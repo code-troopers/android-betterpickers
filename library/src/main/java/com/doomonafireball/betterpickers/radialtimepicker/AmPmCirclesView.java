@@ -16,9 +16,6 @@
 
 package com.doomonafireball.betterpickers.radialtimepicker;
 
-import com.doomonafireball.betterpickers.R;
-import com.doomonafireball.betterpickers.Utils;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -27,6 +24,9 @@ import android.graphics.Paint.Align;
 import android.graphics.Typeface;
 import android.util.Log;
 import android.view.View;
+
+import com.doomonafireball.betterpickers.R;
+import com.doomonafireball.betterpickers.Utils;
 
 import java.text.DateFormatSymbols;
 

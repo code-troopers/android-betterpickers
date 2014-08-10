@@ -1,14 +1,14 @@
 package com.doomonafireball.betterpickers.sample.activity.timepicker;
 
-import com.doomonafireball.betterpickers.sample.R;
-import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
-import com.doomonafireball.betterpickers.timepicker.TimePickerBuilder;
-import com.doomonafireball.betterpickers.timepicker.TimePickerDialogFragment;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.doomonafireball.betterpickers.sample.R;
+import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
+import com.doomonafireball.betterpickers.timepicker.TimePickerBuilder;
+import com.doomonafireball.betterpickers.timepicker.TimePickerDialogFragment;
 
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM

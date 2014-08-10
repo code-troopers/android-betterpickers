@@ -1,10 +1,5 @@
 package com.doomonafireball.betterpickers.sample.activity.timepicker;
 
-import com.doomonafireball.betterpickers.sample.R;
-import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
-import com.doomonafireball.betterpickers.timepicker.TimePickerBuilder;
-import com.doomonafireball.betterpickers.timepicker.TimePickerDialogFragment;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -15,6 +10,11 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.doomonafireball.betterpickers.sample.R;
+import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
+import com.doomonafireball.betterpickers.timepicker.TimePickerBuilder;
+import com.doomonafireball.betterpickers.timepicker.TimePickerDialogFragment;
 
 import java.util.ArrayList;
 

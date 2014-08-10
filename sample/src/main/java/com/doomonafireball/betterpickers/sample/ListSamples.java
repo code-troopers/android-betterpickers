@@ -1,8 +1,5 @@
 package com.doomonafireball.betterpickers.sample;
 
-import com.actionbarsherlock.app.SherlockListActivity;
-import com.actionbarsherlock.view.MenuItem;
-
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -10,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+
+import com.actionbarsherlock.app.SherlockListActivity;
+import com.actionbarsherlock.view.MenuItem;
 
 import java.text.Collator;
 import java.util.ArrayList;

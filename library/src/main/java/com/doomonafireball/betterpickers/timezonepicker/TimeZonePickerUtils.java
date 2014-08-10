@@ -16,8 +16,6 @@
 
 package com.doomonafireball.betterpickers.timezonepicker;
 
-import com.doomonafireball.betterpickers.R;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
@@ -27,6 +25,8 @@ import android.text.format.DateUtils;
 import android.text.format.Time;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
+
+import com.doomonafireball.betterpickers.R;
 
 import java.util.Locale;
 import java.util.TimeZone;

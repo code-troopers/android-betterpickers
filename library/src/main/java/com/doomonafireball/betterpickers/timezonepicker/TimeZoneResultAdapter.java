@@ -16,10 +16,6 @@
 
 package com.doomonafireball.betterpickers.timezonepicker;
 
-import com.doomonafireball.betterpickers.R;
-import com.doomonafireball.betterpickers.timezonepicker.TimeZoneFilterTypeAdapter.OnSetFilterListener;
-import com.doomonafireball.betterpickers.timezonepicker.TimeZonePickerView.OnTimeZoneSetListener;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -32,6 +28,10 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.doomonafireball.betterpickers.R;
+import com.doomonafireball.betterpickers.timezonepicker.TimeZoneFilterTypeAdapter.OnSetFilterListener;
+import com.doomonafireball.betterpickers.timezonepicker.TimeZonePickerView.OnTimeZoneSetListener;
 
 import java.util.ArrayList;
 import java.util.Iterator;

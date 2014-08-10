@@ -1,11 +1,11 @@
 package com.doomonafireball.betterpickers.expirationpicker;
 
-import com.doomonafireball.betterpickers.expirationpicker.ExpirationPickerDialogFragment.ExpirationPickerDialogHandler;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+
+import com.doomonafireball.betterpickers.expirationpicker.ExpirationPickerDialogFragment.ExpirationPickerDialogHandler;
 
 import java.util.Vector;
 

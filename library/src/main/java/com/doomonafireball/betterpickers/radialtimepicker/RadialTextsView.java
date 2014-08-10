@@ -16,13 +16,6 @@
 
 package com.doomonafireball.betterpickers.radialtimepicker;
 
-import com.doomonafireball.betterpickers.R;
-import com.nineoldandroids.animation.Keyframe;
-import com.nineoldandroids.animation.ObjectAnimator;
-import com.nineoldandroids.animation.PropertyValuesHolder;
-import com.nineoldandroids.animation.ValueAnimator;
-import com.nineoldandroids.view.animation.AnimatorProxy;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -31,6 +24,13 @@ import android.graphics.Paint.Align;
 import android.graphics.Typeface;
 import android.util.Log;
 import android.view.View;
+
+import com.doomonafireball.betterpickers.R;
+import com.nineoldandroids.animation.Keyframe;
+import com.nineoldandroids.animation.ObjectAnimator;
+import com.nineoldandroids.animation.PropertyValuesHolder;
+import com.nineoldandroids.animation.ValueAnimator;
+import com.nineoldandroids.view.animation.AnimatorProxy;
 
 /**
  * A view to show a series of numbers in a circular pattern.

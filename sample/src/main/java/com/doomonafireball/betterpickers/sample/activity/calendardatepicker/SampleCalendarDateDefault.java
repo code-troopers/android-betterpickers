@@ -1,16 +1,16 @@
 package com.doomonafireball.betterpickers.sample.activity.calendardatepicker;
 
-import com.doomonafireball.betterpickers.calendardatepicker.CalendarDatePickerDialog;
-import com.doomonafireball.betterpickers.sample.R;
-import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
-
-import org.joda.time.DateTime;
-
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.doomonafireball.betterpickers.calendardatepicker.CalendarDatePickerDialog;
+import com.doomonafireball.betterpickers.sample.R;
+import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
+
+import org.joda.time.DateTime;
 
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM

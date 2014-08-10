@@ -1,10 +1,5 @@
 package com.doomonafireball.betterpickers.expirationpicker;
 
-import com.doomonafireball.betterpickers.widget.PickerLinearLayout;
-import com.doomonafireball.betterpickers.R;
-import com.doomonafireball.betterpickers.widget.UnderlinePageIndicatorPicker;
-import com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView;
-
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -12,6 +7,11 @@ import android.graphics.Canvas;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.doomonafireball.betterpickers.R;
+import com.doomonafireball.betterpickers.widget.PickerLinearLayout;
+import com.doomonafireball.betterpickers.widget.UnderlinePageIndicatorPicker;
+import com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView;
 
 public class ExpirationView extends PickerLinearLayout {
 

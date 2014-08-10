@@ -16,10 +16,6 @@
 
 package com.doomonafireball.betterpickers.calendardatepicker;
 
-import com.doomonafireball.betterpickers.Utils;
-import com.doomonafireball.betterpickers.calendardatepicker.CalendarDatePickerDialog.OnDateChangedListener;
-import com.doomonafireball.betterpickers.calendardatepicker.MonthAdapter.CalendarDay;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
@@ -34,6 +30,10 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
+
+import com.doomonafireball.betterpickers.Utils;
+import com.doomonafireball.betterpickers.calendardatepicker.CalendarDatePickerDialog.OnDateChangedListener;
+import com.doomonafireball.betterpickers.calendardatepicker.MonthAdapter.CalendarDay;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

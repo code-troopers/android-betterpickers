@@ -16,13 +16,13 @@
 
 package com.doomonafireball.betterpickers.recurrencepicker;
 
-import com.doomonafireball.betterpickers.R;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.text.format.DateUtils;
 import android.text.format.Time;
 import android.util.TimeFormatException;
+
+import com.doomonafireball.betterpickers.R;
 
 import java.util.Calendar;
 

@@ -16,10 +16,6 @@
 
 package com.doomonafireball.betterpickers.calendardatepicker;
 
-import com.doomonafireball.betterpickers.R;
-import com.doomonafireball.betterpickers.Utils;
-import com.doomonafireball.betterpickers.calendardatepicker.MonthAdapter.CalendarDay;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -40,6 +36,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+
+import com.doomonafireball.betterpickers.R;
+import com.doomonafireball.betterpickers.Utils;
+import com.doomonafireball.betterpickers.calendardatepicker.MonthAdapter.CalendarDay;
 
 import java.security.InvalidParameterException;
 import java.util.Calendar;

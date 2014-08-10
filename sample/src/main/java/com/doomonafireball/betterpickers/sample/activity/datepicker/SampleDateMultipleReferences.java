@@ -1,13 +1,13 @@
 package com.doomonafireball.betterpickers.sample.activity.datepicker;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
 import com.doomonafireball.betterpickers.datepicker.DatePickerBuilder;
 import com.doomonafireball.betterpickers.datepicker.DatePickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
 import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
-
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM

@@ -1,14 +1,14 @@
 package com.doomonafireball.betterpickers.sample.activity.expirationpicker;
 
-import com.doomonafireball.betterpickers.expirationpicker.ExpirationPickerBuilder;
-import com.doomonafireball.betterpickers.expirationpicker.ExpirationPickerDialogFragment;
-import com.doomonafireball.betterpickers.sample.R;
-import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.doomonafireball.betterpickers.expirationpicker.ExpirationPickerBuilder;
+import com.doomonafireball.betterpickers.expirationpicker.ExpirationPickerDialogFragment;
+import com.doomonafireball.betterpickers.sample.R;
+import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
 
 /**
  * @author Yuki Nishijima

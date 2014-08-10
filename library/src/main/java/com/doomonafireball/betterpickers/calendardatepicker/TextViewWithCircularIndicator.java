@@ -16,8 +16,6 @@
 
 package com.doomonafireball.betterpickers.calendardatepicker;
 
-import com.doomonafireball.betterpickers.R;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -26,6 +24,8 @@ import android.graphics.Paint.Align;
 import android.graphics.Paint.Style;
 import android.util.AttributeSet;
 import android.widget.TextView;
+
+import com.doomonafireball.betterpickers.R;
 
 /**
  * A text view which, when pressed or activated, displays a blue circle around the text.

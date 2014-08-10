@@ -1,11 +1,5 @@
 package com.doomonafireball.betterpickers.sample.activity.recurrencepicker;
 
-import com.doomonafireball.betterpickers.recurrencepicker.EventRecurrence;
-import com.doomonafireball.betterpickers.recurrencepicker.EventRecurrenceFormatter;
-import com.doomonafireball.betterpickers.recurrencepicker.RecurrencePickerDialog;
-import com.doomonafireball.betterpickers.sample.R;
-import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
-
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -14,6 +8,12 @@ import android.text.format.Time;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.doomonafireball.betterpickers.recurrencepicker.EventRecurrence;
+import com.doomonafireball.betterpickers.recurrencepicker.EventRecurrenceFormatter;
+import com.doomonafireball.betterpickers.recurrencepicker.RecurrencePickerDialog;
+import com.doomonafireball.betterpickers.sample.R;
+import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
 
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM

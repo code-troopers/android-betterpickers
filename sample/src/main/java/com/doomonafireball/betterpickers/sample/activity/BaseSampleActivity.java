@@ -1,9 +1,9 @@
 package com.doomonafireball.betterpickers.sample.activity;
 
+import android.os.Bundle;
+
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
-
-import android.os.Bundle;
 
 public class BaseSampleActivity extends SherlockFragmentActivity {
 

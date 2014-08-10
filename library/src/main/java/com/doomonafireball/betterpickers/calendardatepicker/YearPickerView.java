@@ -16,9 +16,6 @@
 
 package com.doomonafireball.betterpickers.calendardatepicker;
 
-import com.doomonafireball.betterpickers.calendardatepicker.CalendarDatePickerDialog.OnDateChangedListener;
-import com.doomonafireball.betterpickers.R;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.StateListDrawable;
@@ -30,6 +27,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.doomonafireball.betterpickers.R;
+import com.doomonafireball.betterpickers.calendardatepicker.CalendarDatePickerDialog.OnDateChangedListener;
 
 import java.util.ArrayList;
 import java.util.List;

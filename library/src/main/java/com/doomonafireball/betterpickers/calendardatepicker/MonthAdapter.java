@@ -16,8 +16,6 @@
 
 package com.doomonafireball.betterpickers.calendardatepicker;
 
-import com.doomonafireball.betterpickers.calendardatepicker.MonthView.OnDayClickListener;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.format.Time;
@@ -25,6 +23,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView.LayoutParams;
 import android.widget.BaseAdapter;
+
+import com.doomonafireball.betterpickers.calendardatepicker.MonthView.OnDayClickListener;
 
 import java.util.Calendar;
 import java.util.HashMap;

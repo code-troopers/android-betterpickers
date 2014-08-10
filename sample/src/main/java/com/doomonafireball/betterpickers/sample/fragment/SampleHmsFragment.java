@@ -1,16 +1,16 @@
 package com.doomonafireball.betterpickers.sample.fragment;
 
-import com.actionbarsherlock.app.SherlockFragment;
-import com.doomonafireball.betterpickers.hmspicker.HmsPickerBuilder;
-import com.doomonafireball.betterpickers.hmspicker.HmsPickerDialogFragment;
-import com.doomonafireball.betterpickers.sample.R;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.actionbarsherlock.app.SherlockFragment;
+import com.doomonafireball.betterpickers.hmspicker.HmsPickerBuilder;
+import com.doomonafireball.betterpickers.hmspicker.HmsPickerDialogFragment;
+import com.doomonafireball.betterpickers.sample.R;
 
 /**
  * User: derek Date: 4/30/13 Time: 7:43 PM

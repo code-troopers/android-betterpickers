@@ -1,15 +1,15 @@
 package com.doomonafireball.betterpickers.sample.activity.numberpicker;
 
-import com.doomonafireball.betterpickers.numberpicker.NumberPickerBuilder;
-import com.doomonafireball.betterpickers.numberpicker.NumberPickerDialogFragment;
-import com.doomonafireball.betterpickers.sample.R;
-import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.doomonafireball.betterpickers.numberpicker.NumberPickerBuilder;
+import com.doomonafireball.betterpickers.numberpicker.NumberPickerDialogFragment;
+import com.doomonafireball.betterpickers.sample.R;
+import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
 
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
