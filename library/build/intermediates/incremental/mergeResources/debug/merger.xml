@@ -1,0 +1,4273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger
+    version="2"
+    xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" >
+
+    <dataSet config="1.3.1" >
+        <source path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res" >
+            <file
+                name="primary_text_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/color/primary_text_holo_dark.xml"
+                qualifiers=""
+                type="color" />
+            <file
+                name="secondary_text_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/color/secondary_text_holo_dark.xml"
+                qualifiers=""
+                type="color" />
+            <file
+                name="switch_inner_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable/switch_inner_holo_dark.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="switch_inner_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable/switch_inner_holo_light.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="switch_track_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable/switch_track_holo_dark.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="switch_track_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable/switch_track_holo_light.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="switch_bg_disabled_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi/switch_bg_disabled_holo_dark.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi/switch_bg_disabled_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_focused_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi/switch_bg_focused_holo_dark.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi/switch_bg_focused_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi/switch_bg_holo_dark.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi/switch_bg_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_activated_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi/switch_thumb_activated_holo_dark.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_activated_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi/switch_thumb_activated_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_disabled_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi/switch_thumb_disabled_holo_dark.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi/switch_thumb_disabled_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi/switch_thumb_holo_dark.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi/switch_thumb_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi/switch_thumb_pressed_holo_dark.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi/switch_thumb_pressed_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_activated_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi-v16/switch_thumb_activated_holo_dark.9.png"
+                qualifiers="hdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_activated_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi-v16/switch_thumb_activated_holo_light.9.png"
+                qualifiers="hdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_disabled_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi-v16/switch_thumb_disabled_holo_dark.9.png"
+                qualifiers="hdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi-v16/switch_thumb_disabled_holo_light.9.png"
+                qualifiers="hdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi-v16/switch_thumb_holo_dark.9.png"
+                qualifiers="hdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi-v16/switch_thumb_holo_light.9.png"
+                qualifiers="hdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi-v16/switch_thumb_pressed_holo_dark.9.png"
+                qualifiers="hdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-hdpi-v16/switch_thumb_pressed_holo_light.9.png"
+                qualifiers="hdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_bg_disabled_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi/switch_bg_disabled_holo_dark.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi/switch_bg_disabled_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_focused_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi/switch_bg_focused_holo_dark.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi/switch_bg_focused_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi/switch_bg_holo_dark.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi/switch_bg_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_activated_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi/switch_thumb_activated_holo_dark.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_activated_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi/switch_thumb_activated_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_disabled_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi/switch_thumb_disabled_holo_dark.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi/switch_thumb_disabled_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi/switch_thumb_holo_dark.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi/switch_thumb_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi/switch_thumb_pressed_holo_dark.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi/switch_thumb_pressed_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_activated_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi-v16/switch_thumb_activated_holo_dark.9.png"
+                qualifiers="mdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_activated_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi-v16/switch_thumb_activated_holo_light.9.png"
+                qualifiers="mdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_disabled_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi-v16/switch_thumb_disabled_holo_dark.9.png"
+                qualifiers="mdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi-v16/switch_thumb_disabled_holo_light.9.png"
+                qualifiers="mdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi-v16/switch_thumb_holo_dark.9.png"
+                qualifiers="mdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi-v16/switch_thumb_holo_light.9.png"
+                qualifiers="mdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi-v16/switch_thumb_pressed_holo_dark.9.png"
+                qualifiers="mdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-mdpi-v16/switch_thumb_pressed_holo_light.9.png"
+                qualifiers="mdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_bg_disabled_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi/switch_bg_disabled_holo_dark.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi/switch_bg_disabled_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_focused_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi/switch_bg_focused_holo_dark.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi/switch_bg_focused_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi/switch_bg_holo_dark.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi/switch_bg_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_activated_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi/switch_thumb_activated_holo_dark.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_activated_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi/switch_thumb_activated_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_disabled_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi/switch_thumb_disabled_holo_dark.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi/switch_thumb_disabled_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi/switch_thumb_holo_dark.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi/switch_thumb_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi/switch_thumb_pressed_holo_dark.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi/switch_thumb_pressed_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_activated_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi-v16/switch_thumb_activated_holo_dark.9.png"
+                qualifiers="xhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_activated_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi-v16/switch_thumb_activated_holo_light.9.png"
+                qualifiers="xhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_disabled_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi-v16/switch_thumb_disabled_holo_dark.9.png"
+                qualifiers="xhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi-v16/switch_thumb_disabled_holo_light.9.png"
+                qualifiers="xhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi-v16/switch_thumb_holo_dark.9.png"
+                qualifiers="xhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi-v16/switch_thumb_holo_light.9.png"
+                qualifiers="xhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi-v16/switch_thumb_pressed_holo_dark.9.png"
+                qualifiers="xhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xhdpi-v16/switch_thumb_pressed_holo_light.9.png"
+                qualifiers="xhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_bg_disabled_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xxhdpi-v16/switch_bg_disabled_holo_dark.9.png"
+                qualifiers="xxhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_bg_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xxhdpi-v16/switch_bg_disabled_holo_light.9.png"
+                qualifiers="xxhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_bg_focused_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xxhdpi-v16/switch_bg_focused_holo_dark.9.png"
+                qualifiers="xxhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_bg_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xxhdpi-v16/switch_bg_focused_holo_light.9.png"
+                qualifiers="xxhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_bg_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xxhdpi-v16/switch_bg_holo_dark.9.png"
+                qualifiers="xxhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_bg_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xxhdpi-v16/switch_bg_holo_light.9.png"
+                qualifiers="xxhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_activated_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xxhdpi-v16/switch_thumb_activated_holo_dark.9.png"
+                qualifiers="xxhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_activated_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xxhdpi-v16/switch_thumb_activated_holo_light.9.png"
+                qualifiers="xxhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_disabled_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xxhdpi-v16/switch_thumb_disabled_holo_dark.9.png"
+                qualifiers="xxhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xxhdpi-v16/switch_thumb_disabled_holo_light.9.png"
+                qualifiers="xxhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xxhdpi-v16/switch_thumb_holo_dark.9.png"
+                qualifiers="xxhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xxhdpi-v16/switch_thumb_holo_light.9.png"
+                qualifiers="xxhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_light_v2"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xxhdpi-v16/switch_thumb_holo_light_v2.9.png"
+                qualifiers="xxhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xxhdpi-v16/switch_thumb_pressed_holo_dark.9.png"
+                qualifiers="xxhdpi-v16"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/drawable-xxhdpi-v16/switch_thumb_pressed_holo_light.9.png"
+                qualifiers="xxhdpi-v16"
+                type="drawable" />
+            <file
+                name="preference"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/layout/preference.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="preference_widget_switch"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/layout/preference_widget_switch.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="preference"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/layout-v11/preference.xml"
+                qualifiers="v11"
+                type="layout" />
+            <file
+                name="preference"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/layout-v17/preference.xml"
+                qualifiers="v17"
+                type="layout" />
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/values/values.xml"
+                qualifiers="" >
+
+                <style
+                    name="TextAppearance.Holo.Light.Widget.Switch"
+                    parent="android:TextAppearance.Small" >
+
+                    <!-- Switch thumb asset presents a dark background. -->
+                    <item name="android:textColor">
+@color/primary_text_holo_dark
+                    </item>
+                </style>
+
+                <string name="switch_off" >OFF
+                </string>
+
+                <color name="bright_foreground_disabled_holo_dark" >#ff4c4c4c
+                </color>
+
+                <dimen name="preference_icon_minWidth" >0dp
+                </dimen>
+
+                <declare-styleable name="Android" >
+
+                    <!-- Text color. -->
+                    <attr name="android:textColor" />
+                    <!-- Size of the text. Recommended dimension type for text is "sp" for scaled-pixels (example: 15sp). -->
+                    <attr name="android:textSize" />
+                    <!-- Style (bold, italic, bolditalic) for the text. -->
+                    <attr name="android:textStyle" />
+                    <!-- Typeface (normal, sans, serif, monospace) for the text. -->
+                    <attr name="android:typeface" />
+                    <!-- Color of the text selection highlight. -->
+                    <attr name="android:textColorHighlight" />
+                    <!-- Color of the hint text. -->
+                    <attr name="android:textColorHint" />
+                    <!-- Color of the links. -->
+                    <attr name="android:textColorLink" />
+                </declare-styleable>
+
+                <style
+                    name="Widget.Holo.Light.CompoundButton.Switch"
+                    parent="android:Widget.CompoundButton" >
+                    <item name="track">
+@drawable/switch_track_holo_light
+                    </item>
+                    <item name="thumb">
+@drawable/switch_inner_holo_light
+                    </item>
+                    <item name="switchTextAppearance">
+@style/TextAppearance.Holo.Light.Widget.Switch
+                    </item>
+                    <item name="textOn">
+@string/switch_on
+                    </item>
+                    <item name="textOff">
+@string/switch_off
+                    </item>
+                    <item name="thumbTextPadding">
+12dip
+                    </item>
+                    <item name="switchMinWidth">
+96dip
+                    </item>
+                    <item name="switchPadding">
+16dip
+                    </item>
+                </style>
+
+                <color name="dim_foreground_holo_dark" >#bebebe
+                </color>
+
+                <declare-styleable name="Switch" >
+
+                    <!-- Drawable to use as the "thumb" that switches back and forth. -->
+                    <attr
+                        name="thumb"
+                        format="reference" />
+                    <!-- Drawable to use as the "track" that the switch thumb slides within. -->
+                    <attr
+                        name="track"
+                        format="reference" />
+                    <!-- Text to use when the switch is in the checked/"on" state. -->
+                    <attr
+                        name="textOn"
+                        format="reference" />
+                    <!-- Text to use when the switch is in the unchecked/"off" state. -->
+                    <attr
+                        name="textOff"
+                        format="reference" />
+                    <!-- Amount of padding on either side of text within the switch thumb. -->
+                    <attr
+                        name="thumbTextPadding"
+                        format="dimension" />
+                    <!-- TextAppearance style for text displayed on the switch thumb. -->
+                    <attr
+                        name="switchTextAppearance"
+                        format="reference" />
+                    <!-- Minimum width for the switch component -->
+                    <attr
+                        name="switchMinWidth"
+                        format="dimension" />
+                    <!-- Minimum space between the switch and caption text -->
+                    <attr
+                        name="switchPadding"
+                        format="dimension" />
+                </declare-styleable>
+
+                <dimen name="preference_item_padding_inner" >8dip
+                </dimen>
+
+                <color name="dim_foreground_disabled_holo_dark" >#80bebebe
+                </color>
+
+                <declare-styleable name="SwitchPreference" >
+
+                    <!--
+             The summary for the Preference in a PreferenceActivity screen when the
+             SwitchPreference is checked. If separate on/off summaries are not
+             needed, the summary attribute can be used instead.
+                    -->
+                    <attr
+                        name="summaryOn"
+                        format="reference" />
+                    <!--
+             The summary for the Preference in a PreferenceActivity screen when the
+             SwitchPreference is unchecked. If separate on/off summaries are not
+             needed, the summary attribute can be used instead.
+                    -->
+                    <attr
+                        name="summaryOff"
+                        format="reference" />
+                    <!--
+             The text used on the switch itself when in the "on" state.
+             This should be a very SHORT string, as it appears in a small space.
+                    -->
+                    <attr
+                        name="switchTextOn"
+                        format="reference" />
+                    <!--
+             The text used on the switch itself when in the "off" state.
+             This should be a very SHORT string, as it appears in a small space.
+                    -->
+                    <attr
+                        name="switchTextOff"
+                        format="reference" />
+                    <!--
+             The state (true for on, or false for off) that causes dependents to be disabled. By default,
+             dependents will be disabled when this is unchecked, so the value of this preference is false.
+                    -->
+                    <attr
+                        name="disableDependentsState"
+                        format="boolean" />
+                </declare-styleable>
+
+                <style
+                    name="Widget.Holo.CompoundButton.Switch"
+                    parent="android:Widget.CompoundButton" >
+                    <item name="track">
+@drawable/switch_track_holo_dark
+                    </item>
+                    <item name="thumb">
+@drawable/switch_inner_holo_dark
+                    </item>
+                    <item name="switchTextAppearance">
+@style/TextAppearance.Holo.Widget.Switch
+                    </item>
+                    <item name="textOn">
+@string/switch_on
+                    </item>
+                    <item name="textOff">
+@string/switch_off
+                    </item>
+                    <item name="thumbTextPadding">
+12dip
+                    </item>
+                    <item name="switchMinWidth">
+96dip
+                    </item>
+                    <item name="switchPadding">
+16dip
+                    </item>
+                </style>
+
+                <string name="switch_on" >ON
+                </string>
+
+                <dimen name="preference_widget_width" >48dp
+                </dimen>
+                <dimen name="preference_item_padding_side" >8dip
+                </dimen>
+
+                <style
+                    name="Preference.SwitchPreference"
+                    parent="" >
+                    <item name="android:layout">
+@layout/preference
+                    </item>
+                    <item name="android:widgetLayout">
+@layout/preference_widget_switch
+                    </item>
+                    <item name="switchTextOn">
+@string/switch_on
+                    </item>
+                    <item name="switchTextOff">
+@string/switch_off
+                    </item>
+                </style>
+
+                <color name="background_holo_light" >#fff3f3f3
+                </color>
+                <color name="bright_foreground_holo_dark" >@color/background_holo_light
+                </color>
+
+                <style
+                    name="TextAppearance.Holo.Widget.Switch"
+                    parent="android:TextAppearance.Small" >
+
+                    <!-- Switch thumb asset presents a dark background. -->
+                    <item name="android:textColor">
+@color/secondary_text_holo_dark
+                    </item>
+                </style>
+
+                <declare-styleable name="SwitchBackportTheme" >
+                    <attr
+                        name="switchStyle"
+                        format="reference" />
+                    <attr
+                        name="switchPreferenceStyle"
+                        format="reference" />
+                </declare-styleable>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/values-land/values.xml"
+                qualifiers="land" >
+                <dimen name="preference_widget_width" >72dp
+                </dimen>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/values-large/values.xml"
+                qualifiers="large-v4" >
+                <dimen name="preference_widget_width" >56dp
+                </dimen>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/values-sw720dp/values.xml"
+                qualifiers="sw720dp-v13" >
+                <dimen name="preference_icon_minWidth" >56dp
+                </dimen>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/res/values-sw720dp-w1280dp/values.xml"
+                qualifiers="sw720dp-w1280dp-v13" >
+                <dimen name="preference_widget_width" >64dp
+                </dimen>
+            </file>
+        </source>
+    </dataSet>
+    <dataSet config="20.0.0" >
+        <source path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/res" />
+    </dataSet>
+    <dataSet config="main" >
+        <source path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res" >
+            <file
+                name="date_picker_selector"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/color/date_picker_selector.xml"
+                qualifiers=""
+                type="color" />
+            <file
+                name="date_picker_year_selector"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/color/date_picker_year_selector.xml"
+                qualifiers=""
+                type="color" />
+            <file
+                name="dialog_text_color_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/color/dialog_text_color_holo_dark.xml"
+                qualifiers=""
+                type="color" />
+            <file
+                name="dialog_text_color_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/color/dialog_text_color_holo_light.xml"
+                qualifiers=""
+                type="color" />
+            <file
+                name="done_text_color"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/color/done_text_color.xml"
+                qualifiers=""
+                type="color" />
+            <file
+                name="done_text_color_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/color/done_text_color_dark.xml"
+                qualifiers=""
+                type="color" />
+            <file
+                name="recurrence_bubble_text_color"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/color/recurrence_bubble_text_color.xml"
+                qualifiers=""
+                type="color" />
+            <file
+                name="recurrence_spinner_text_color"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/color/recurrence_spinner_text_color.xml"
+                qualifiers=""
+                type="color" />
+            <file
+                name="button_background_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable/button_background_dark.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="button_background_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable/button_background_light.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="done_background_color"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable/done_background_color.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="done_background_color_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable/done_background_color_dark.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="edit_text_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable/edit_text_holo_light.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="ic_backspace_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable/ic_backspace_dark.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="ic_backspace_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable/ic_backspace_light.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="ic_check_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable/ic_check_dark.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="ic_check_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable/ic_check_light.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="item_background_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable/item_background_holo_light.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="key_background_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable/key_background_dark.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="key_background_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable/key_background_light.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="list_selector_background_transition_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable/list_selector_background_transition_holo_light.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="recurrence_bubble_fill"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable/recurrence_bubble_fill.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="spinner_background_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable/spinner_background_holo_light.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="switch_thumb"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable/switch_thumb.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="switch_track_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable/switch_track_holo_light.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="dialog_full_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/dialog_full_holo_dark.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="dialog_full_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/dialog_full_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_backspace_disabled_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/ic_backspace_disabled_dark.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_backspace_disabled_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/ic_backspace_disabled_light.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_backspace_normal_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/ic_backspace_normal_dark.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_backspace_normal_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/ic_backspace_normal_light.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_clear_search_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/ic_clear_search_holo_light.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_recurrence_bubble_disabled"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/ic_recurrence_bubble_disabled.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_recurrence_bubble_fill"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/ic_recurrence_bubble_fill.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_recurrence_bubble_outline"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/ic_recurrence_bubble_outline.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_recurrence_bubble_outline_disabled"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/ic_recurrence_bubble_outline_disabled.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_search_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/ic_search_holo_light.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="spinner_default_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/spinner_default_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="spinner_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/spinner_disabled_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="spinner_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/spinner_focused_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="spinner_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/spinner_pressed_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/switch_bg_disabled_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/switch_bg_focused_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/switch_bg_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_activated_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/switch_thumb_activated_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/switch_thumb_disabled_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_light_v2"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/switch_thumb_holo_light_v2.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/switch_thumb_pressed_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_activated_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/textfield_activated_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_default_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/textfield_default_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_disabled_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/textfield_disabled_focused_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/textfield_disabled_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi/textfield_focused_holo_light.9.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-hdpi-v19/switch_thumb_pressed_holo_light.9.png"
+                qualifiers="hdpi-v19"
+                type="drawable" />
+            <file
+                name="dialog_full_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/dialog_full_holo_dark.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="dialog_full_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/dialog_full_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_backspace_disabled_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/ic_backspace_disabled_dark.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_backspace_disabled_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/ic_backspace_disabled_light.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_backspace_normal_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/ic_backspace_normal_dark.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_backspace_normal_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/ic_backspace_normal_light.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_clear_search_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/ic_clear_search_holo_light.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_recurrence_bubble_disabled"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/ic_recurrence_bubble_disabled.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_recurrence_bubble_fill"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/ic_recurrence_bubble_fill.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_recurrence_bubble_outline"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/ic_recurrence_bubble_outline.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_recurrence_bubble_outline_disabled"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/ic_recurrence_bubble_outline_disabled.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_search_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/ic_search_holo_light.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="spinner_default_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/spinner_default_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="spinner_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/spinner_disabled_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="spinner_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/spinner_focused_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="spinner_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/spinner_pressed_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/switch_bg_disabled_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/switch_bg_focused_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/switch_bg_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_activated_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/switch_thumb_activated_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/switch_thumb_disabled_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_light_v2"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/switch_thumb_holo_light_v2.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/switch_thumb_pressed_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_activated_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/textfield_activated_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_default_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/textfield_default_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_disabled_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/textfield_disabled_focused_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/textfield_disabled_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi/textfield_focused_holo_light.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-mdpi-v19/switch_thumb_pressed_holo_light.9.png"
+                qualifiers="mdpi-v19"
+                type="drawable" />
+            <file
+                name="ic_backspace_disabled_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-sw600dp-hdpi/ic_backspace_disabled_dark.png"
+                qualifiers="sw600dp-hdpi-v13"
+                type="drawable" />
+            <file
+                name="ic_backspace_disabled_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-sw600dp-hdpi/ic_backspace_disabled_light.png"
+                qualifiers="sw600dp-hdpi-v13"
+                type="drawable" />
+            <file
+                name="ic_backspace_normal_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-sw600dp-hdpi/ic_backspace_normal_dark.png"
+                qualifiers="sw600dp-hdpi-v13"
+                type="drawable" />
+            <file
+                name="ic_backspace_normal_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-sw600dp-hdpi/ic_backspace_normal_light.png"
+                qualifiers="sw600dp-hdpi-v13"
+                type="drawable" />
+            <file
+                name="ic_backspace_disabled_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-sw600dp-mdpi/ic_backspace_disabled_dark.png"
+                qualifiers="sw600dp-mdpi-v13"
+                type="drawable" />
+            <file
+                name="ic_backspace_disabled_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-sw600dp-mdpi/ic_backspace_disabled_light.png"
+                qualifiers="sw600dp-mdpi-v13"
+                type="drawable" />
+            <file
+                name="ic_backspace_normal_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-sw600dp-mdpi/ic_backspace_normal_dark.png"
+                qualifiers="sw600dp-mdpi-v13"
+                type="drawable" />
+            <file
+                name="ic_backspace_normal_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-sw600dp-mdpi/ic_backspace_normal_light.png"
+                qualifiers="sw600dp-mdpi-v13"
+                type="drawable" />
+            <file
+                name="ic_backspace_disabled_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-sw600dp-xhdpi/ic_backspace_disabled_dark.png"
+                qualifiers="sw600dp-xhdpi-v13"
+                type="drawable" />
+            <file
+                name="ic_backspace_disabled_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-sw600dp-xhdpi/ic_backspace_disabled_light.png"
+                qualifiers="sw600dp-xhdpi-v13"
+                type="drawable" />
+            <file
+                name="ic_backspace_normal_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-sw600dp-xhdpi/ic_backspace_normal_dark.png"
+                qualifiers="sw600dp-xhdpi-v13"
+                type="drawable" />
+            <file
+                name="ic_backspace_normal_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-sw600dp-xhdpi/ic_backspace_normal_light.png"
+                qualifiers="sw600dp-xhdpi-v13"
+                type="drawable" />
+            <file
+                name="dialog_full_holo_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/dialog_full_holo_dark.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="dialog_full_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/dialog_full_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_backspace_disabled_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/ic_backspace_disabled_dark.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_backspace_disabled_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/ic_backspace_disabled_light.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_backspace_normal_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/ic_backspace_normal_dark.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_backspace_normal_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/ic_backspace_normal_light.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_check_dark_disabled"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/ic_check_dark_disabled.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_check_light_disabled"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/ic_check_light_disabled.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_check_normal_dark"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/ic_check_normal_dark.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_check_normal_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/ic_check_normal_light.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_clear_search_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/ic_clear_search_holo_light.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_recurrence_bubble_disabled"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/ic_recurrence_bubble_disabled.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_recurrence_bubble_fill"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/ic_recurrence_bubble_fill.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_recurrence_bubble_outline"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/ic_recurrence_bubble_outline.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_recurrence_bubble_outline_disabled"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/ic_recurrence_bubble_outline_disabled.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_search_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/ic_search_holo_light.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="list_focused_holo"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/list_focused_holo.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="list_longpressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/list_longpressed_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="list_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/list_pressed_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="list_selector_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/list_selector_disabled_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="spinner_default_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/spinner_default_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="spinner_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/spinner_disabled_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="spinner_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/spinner_focused_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="spinner_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/spinner_pressed_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/switch_bg_disabled_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/switch_bg_focused_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/switch_bg_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_activated_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/switch_thumb_activated_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/switch_thumb_disabled_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_light_v2"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/switch_thumb_holo_light_v2.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/switch_thumb_pressed_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_activated_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/textfield_activated_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_default_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/textfield_default_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_disabled_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/textfield_disabled_focused_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/textfield_disabled_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi/textfield_focused_holo_light.9.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xhdpi-v19/switch_thumb_pressed_holo_light.9.png"
+                qualifiers="xhdpi-v19"
+                type="drawable" />
+            <file
+                name="ic_recurrence_bubble_disabled"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/ic_recurrence_bubble_disabled.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_recurrence_bubble_fill"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/ic_recurrence_bubble_fill.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_recurrence_bubble_outline"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/ic_recurrence_bubble_outline.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_recurrence_bubble_outline_disabled"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/ic_recurrence_bubble_outline_disabled.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="list_focused_holo"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/list_focused_holo.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="list_longpressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/list_longpressed_holo_light.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="list_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/list_pressed_holo_light.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="spinner_default_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/spinner_default_holo_light.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="spinner_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/spinner_disabled_holo_light.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="spinner_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/spinner_focused_holo_light.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="spinner_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/spinner_pressed_holo_light.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/switch_bg_disabled_holo_light.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/switch_bg_focused_holo_light.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_bg_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/switch_bg_holo_light.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_activated_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/switch_thumb_activated_holo_light.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/switch_thumb_disabled_holo_light.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_holo_light_v2"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/switch_thumb_holo_light_v2.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/switch_thumb_pressed_holo_light.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_activated_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/textfield_activated_holo_light.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_default_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/textfield_default_holo_light.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_disabled_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/textfield_disabled_focused_holo_light.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_disabled_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/textfield_disabled_holo_light.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="textfield_focused_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi/textfield_focused_holo_light.9.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="switch_thumb_pressed_holo_light"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/drawable-xxhdpi-v19/switch_thumb_pressed_holo_light.9.png"
+                qualifiers="xxhdpi-v19"
+                type="drawable" />
+            <file
+                name="calendar_date_picker_dialog"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/calendar_date_picker_dialog.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="calendar_date_picker_done_button"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/calendar_date_picker_done_button.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="calendar_date_picker_header_view"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/calendar_date_picker_header_view.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="calendar_date_picker_selected_date"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/calendar_date_picker_selected_date.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="calendar_date_picker_view_animator"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/calendar_date_picker_view_animator.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="calendar_year_label_text_view"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/calendar_year_label_text_view.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="date_picker_dialog"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/date_picker_dialog.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="date_picker_view"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/date_picker_view.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="empty_time_zone_item"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/empty_time_zone_item.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="expiration_picker_dialog"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/expiration_picker_dialog.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="expiration_picker_view"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/expiration_picker_view.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="hms_picker_dialog"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/hms_picker_dialog.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="hms_picker_view"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/hms_picker_view.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="keyboard"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/keyboard.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="keyboard_right_drawable"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/keyboard_right_drawable.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="keyboard_right_drawable_with_header"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/keyboard_right_drawable_with_header.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="keyboard_text"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/keyboard_text.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="keyboard_text_with_header"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/keyboard_text_with_header.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="keyboard_with_header"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/keyboard_with_header.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="number_picker_dialog"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/number_picker_dialog.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="number_picker_view"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/number_picker_view.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="radial_time_header_label"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/radial_time_header_label.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="radial_time_picker_dialog"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/radial_time_picker_dialog.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="recurrencepicker"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/recurrencepicker.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="recurrencepicker_end_text"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/recurrencepicker_end_text.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="recurrencepicker_freq_item"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/recurrencepicker_freq_item.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="three_keys_view"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/three_keys_view.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="three_keys_view_leftright"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/three_keys_view_leftright.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="three_keys_view_right_drawable"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/three_keys_view_right_drawable.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="three_keys_view_text"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/three_keys_view_text.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="time_picker_dialog"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/time_picker_dialog.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="time_picker_view"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/time_picker_view.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="time_zone_filter_item"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/time_zone_filter_item.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="time_zone_item"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/time_zone_item.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="timezonepickerview"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout/timezonepickerview.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="calendar_date_picker_dialog"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout-land/calendar_date_picker_dialog.xml"
+                qualifiers="land"
+                type="layout" />
+            <file
+                name="radial_time_picker_dialog"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout-land/radial_time_picker_dialog.xml"
+                qualifiers="land"
+                type="layout" />
+            <file
+                name="calendar_date_picker_dialog"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout-sw600dp/calendar_date_picker_dialog.xml"
+                qualifiers="sw600dp-v13"
+                type="layout" />
+            <file
+                name="three_keys_view"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout-sw600dp/three_keys_view.xml"
+                qualifiers="sw600dp-v13"
+                type="layout" />
+            <file
+                name="three_keys_view_leftright"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout-sw600dp/three_keys_view_leftright.xml"
+                qualifiers="sw600dp-v13"
+                type="layout" />
+            <file
+                name="three_keys_view_right_drawable"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout-sw600dp/three_keys_view_right_drawable.xml"
+                qualifiers="sw600dp-v13"
+                type="layout" />
+            <file
+                name="three_keys_view_text"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout-sw600dp/three_keys_view_text.xml"
+                qualifiers="sw600dp-v13"
+                type="layout" />
+            <file
+                name="calendar_date_picker_dialog"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout-sw600dp-land/calendar_date_picker_dialog.xml"
+                qualifiers="sw600dp-land-v13"
+                type="layout" />
+            <file
+                name="calendar_date_picker_dialog"
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/layout-w270dp-h560dp/calendar_date_picker_dialog.xml"
+                qualifiers="w270dp-h560dp-v13"
+                type="layout" />
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values/arrays.xml"
+                qualifiers="" >
+                <string-array name="repeat_by_nth_sun" >
+                    <item>
+on every first Sunday
+                    </item>
+                    <item>
+on every second Sunday
+                    </item>
+                    <item>
+on every third Sunday
+                    </item>
+                    <item>
+on every fourth Sunday
+                    </item>
+                    <item>
+on every last Sunday
+                    </item>
+                </string-array>
+                <string-array name="timezone_rename_labels" >
+
+                    <!-- Australia -->
+                    <item>
+"Australian Central - NT"
+                    </item>
+                    <item>
+"Australian Central - SA"
+                    </item>
+                    <item>
+"Australian Eastern - QLD"
+                    </item>
+                    <item>
+"Australian Eastern - NSW"
+                    </item>
+
+                    <!-- Canada -->
+                    <item>
+"Mountain Standard - Dawson Creek"
+                    </item>
+                    <item>
+"Central Standard - Saskatchewan"
+                    </item>
+                    <item>
+"Eastern Standard - Atikokan"
+                    </item>
+                    <item>
+"Atlantic Standard - Quebec"
+                    </item>
+
+                    <!-- US -->
+                    <item>
+"Hawaii-Aleutian - Hawaii"
+                    </item>
+                    <item>
+"Hawaii-Aleutian - Alaska"
+                    </item>
+                    <item>
+"Pacific Standard - Metlakatla"
+                    </item>
+                    <item>
+"Mountain Standard - Arizona"
+                    </item>
+
+                    <!-- Mexico -->
+                    <item>
+"Pacific - Baja California"
+                    </item>
+                    <item>
+"Mountain - Chihuahua"
+                    </item>
+                    <item>
+"Central - Tamaulipas"
+                    </item>
+                    <item>
+"Mountain - Sonora"
+                    </item>
+
+                    <!-- Other countries with missing or undesirable labels from the framework -->
+                    <item>
+"East Africa Time"
+                    </item>
+                    <item>
+"Atlantic Standard Time"
+                    </item>
+                    <item>
+"Atlantic Standard Time"
+                    </item>
+                    <item>
+"Eastern European Time"
+                    </item>
+                    <item>
+"Kaliningrad Time"
+                    </item>
+
+                    <!-- Brazil -->
+                    <!-- Non DST version of Amazon Standard Time -->
+                    <item>
+"Amazon - Rondônia"
+                    </item>
+                    <!-- Non DST version of Brasilia Standard Time -->
+                    <item>
+"Brasilia - Pará"
+                    </item>
+                </string-array>
+                <string-array name="repeat_by_nth_wed" >
+                    <item>
+on every first Wednesday
+                    </item>
+                    <item>
+on every second Wednesday
+                    </item>
+                    <item>
+on every third Wednesday
+                    </item>
+                    <item>
+on every fourth Wednesday
+                    </item>
+                    <item>
+on every last Wednesday
+                    </item>
+                </string-array>
+                <string-array
+                    name="backup_country_codes"
+                    translatable="false" >
+                    <item>
+"SX"
+                    </item>
+                    <item>
+"BQ"
+                    </item>
+                    <item>
+"CW"
+                    </item>
+                    <item>
+"SS"
+                    </item>
+                </string-array>
+                <string-array name="repeat_by_nth_mon" >
+                    <item>
+on every first Monday
+                    </item>
+                    <item>
+on every second Monday
+                    </item>
+                    <item>
+on every third Monday
+                    </item>
+                    <item>
+on every fourth Monday
+                    </item>
+                    <item>
+on every last Monday
+                    </item>
+                </string-array>
+                <string-array name="repeat_by_nth_fri" >
+                    <item>
+on every first Friday
+                    </item>
+                    <item>
+on every second Friday
+                    </item>
+                    <item>
+on every third Friday
+                    </item>
+                    <item>
+on every fourth Friday
+                    </item>
+                    <item>
+on every last Friday
+                    </item>
+                </string-array>
+                <string-array
+                    name="timezone_rename_ids"
+                    translatable="false" >
+
+                    <!-- Australia -->
+                    <item>
+"Australia/Darwin"
+                    </item>
+                    <item>
+"Australia/Adelaide"
+                    </item>
+                    <item>
+"Australia/Brisbane"
+                    </item>
+                    <item>
+"Australia/Sydney"
+                    </item>
+
+                    <!-- Canada -->
+                    <!-- Non DST version -->
+                    <item>
+"America/Dawson_Creek"
+                    </item>
+                    <!-- Non DST version -->
+                    <item>
+"America/Regina"
+                    </item>
+                    <!-- Non DST version -->
+                    <item>
+"America/Atikokan"
+                    </item>
+                    <!-- Non DST version -->
+                    <item>
+"America/Blanc-Sablon"
+                    </item>
+
+                    <!-- US -->
+                    <!-- Non DST version -->
+                    <item>
+"Pacific/Honolulu"
+                    </item>
+                    <!-- DST version -->
+                    <item>
+"America/Adak"
+                    </item>
+                    <!-- Non DST version -->
+                    <item>
+"America/Metlakatla"
+                    </item>
+                    <!-- Non DST version -->
+                    <item>
+"America/Phoenix"
+                    </item>
+
+                    <!-- Mexico -->
+                    <!-- DST version with post-2006 US rule -->
+                    <item>
+"America/Tijuana"
+                    </item>
+                    <!-- DST version with post-2006 US rule -->
+                    <item>
+"America/Ojinaga"
+                    </item>
+                    <!-- DST version with post-2006 US rule -->
+                    <item>
+"America/Matamoros"
+                    </item>
+                    <!-- Non DST version -->
+                    <item>
+"America/Hermosillo"
+                    </item>
+
+                    <!-- Other time zones with missing labels from the framework -->
+                    <!-- Missing string in ICS -->
+                    <item>
+"Africa/Juba"
+                    </item>
+                    <!-- Missing string in ICS -->
+                    <item>
+"America/Kralendijk"
+                    </item>
+                    <!-- Missing string in ICS -->
+                    <item>
+"America/Lower_Princes"
+                    </item>
+                    <!-- Only had GMT as the display string -->
+                    <item>
+"Europe/Minsk"
+                    </item>
+                    <!-- Only had GMT as the display string -->
+                    <item>
+"Europe/Kaliningrad"
+                    </item>
+
+                    <!-- Brazil -->
+                    <!-- Non DST version -->
+                    <item>
+"America/Porto_Velho"
+                    </item>
+                    <!-- Non DST version -->
+                    <item>
+"America/Belem"
+                    </item>
+                </string-array>
+                <string-array name="repeat_by_nth_sat" >
+                    <item>
+on every first Saturday
+                    </item>
+                    <item>
+on every second Saturday
+                    </item>
+                    <item>
+on every third Saturday
+                    </item>
+                    <item>
+on every fourth Saturday
+                    </item>
+                    <item>
+on every last Saturday
+                    </item>
+                </string-array>
+                <string-array name="backup_country_names" >
+                    <item>
+"Sint Maarten"
+                    </item>
+                    <item>
+"Caribbean Netherlands"
+                    </item>
+                    <item>
+"Curaçao"
+                    </item>
+                    <item>
+"South Sudan"
+                    </item>
+                </string-array>
+                <string-array name="recurrence_freq" >
+                    <item>
+REPEAT DAILY
+                    </item>
+                    <item>
+REPEAT WEEKLY
+                    </item>
+                    <item>
+REPEAT MONTHLY
+                    </item>
+                    <item>
+REPEAT YEARLY
+                    </item>
+                </string-array>
+                <string-array name="repeat_by_nth_thurs" >
+                    <item>
+on every first Thursday
+                    </item>
+                    <item>
+on every second Thursday
+                    </item>
+                    <item>
+on every third Thursday
+                    </item>
+                    <item>
+on every fourth Thursday
+                    </item>
+                    <item>
+on every last Thursday
+                    </item>
+                </string-array>
+                <string-array name="repeat_by_nth_tues" >
+                    <item>
+on every first Tuesday
+                    </item>
+                    <item>
+on every second Tuesday
+                    </item>
+                    <item>
+on every third Tuesday
+                    </item>
+                    <item>
+on every fourth Tuesday
+                    </item>
+                    <item>
+on every last Tuesday
+                    </item>
+                </string-array>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values/attrs.xml"
+                qualifiers="" >
+                <declare-styleable name="BetterPickersDialogFragment" >
+                    <attr
+                        name="bpTextColor"
+                        format="reference" />
+                    <attr
+                        name="bpTitleColor"
+                        format="reference" />
+                    <attr
+                        name="bpDeleteIcon"
+                        format="reference" />
+                    <attr
+                        name="bpCheckIcon"
+                        format="reference" />
+                    <attr
+                        name="bpKeyBackground"
+                        format="reference" />
+                    <attr
+                        name="bpButtonBackground"
+                        format="reference" />
+                    <attr
+                        name="bpTitleDividerColor"
+                        format="color" />
+                    <attr
+                        name="bpDividerColor"
+                        format="color" />
+                    <attr
+                        name="bpKeyboardIndicatorColor"
+                        format="color" />
+                    <attr
+                        name="bpDialogBackground"
+                        format="reference" />
+                </declare-styleable>
+                <declare-styleable name="Android" >
+
+                    <!-- Text color. -->
+                    <attr name="android:textColor" />
+                    <!-- Size of the text. Recommended dimension type for text is "sp" for scaled-pixels (example: 15sp). -->
+                    <attr name="android:textSize" />
+                    <!-- Style (bold, italic, bolditalic) for the text. -->
+                    <attr name="android:textStyle" />
+                    <!-- Typeface (normal, sans, serif, monospace) for the text. -->
+                    <attr name="android:typeface" />
+                    <!-- Color of the text selection highlight. -->
+                    <attr name="android:textColorHighlight" />
+                    <!-- Color of the hint text. -->
+                    <attr name="android:textColorHint" />
+                    <!-- Color of the links. -->
+                    <attr name="android:textColorLink" />
+                </declare-styleable>
+                <declare-styleable name="Switch" >
+
+                    <!-- Drawable to use as the "thumb" that switches back and forth. -->
+                    <attr
+                        name="thumb"
+                        format="reference" />
+                    <!-- Drawable to use as the "track" that the switch thumb slides within. -->
+                    <attr
+                        name="track"
+                        format="reference" />
+                    <!-- Text to use when the switch is in the checked/"on" state. -->
+                    <attr
+                        name="textOn"
+                        format="reference" />
+                    <!-- Text to use when the switch is in the unchecked/"off" state. -->
+                    <attr
+                        name="textOff"
+                        format="reference" />
+                    <!-- Amount of padding on either side of text within the switch thumb. -->
+                    <attr
+                        name="thumbTextPadding"
+                        format="dimension" />
+                    <!-- TextAppearance style for text displayed on the switch thumb. -->
+                    <attr
+                        name="switchTextAppearance"
+                        format="reference" />
+                    <!-- Minimum width for the switch component -->
+                    <attr
+                        name="switchMinWidth"
+                        format="dimension" />
+                    <!-- Minimum space between the switch and caption text -->
+                    <attr
+                        name="switchPadding"
+                        format="dimension" />
+                </declare-styleable>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values/colors.xml"
+                qualifiers="" >
+                <color name="default_text_color_holo_light" >#ff000000
+                </color>
+                <color name="red_focused" >#853333
+                </color>
+                <color name="ampm_text_color" >#8c8c8c
+                </color>
+                <color name="done_text_color_normal" >#000000
+                </color>
+                <color name="default_button_background_pressed_dark" >#46c5c1ff
+                </color>
+                <color name="line_dark" >#808080
+                </color>
+                <color name="numbers_text_color" >#8c8c8c
+                </color>
+                <color name="neutral_pressed" >#33999999
+                </color>
+                <color name="recurrence_bubble_text_normal" >#ff737373
+                </color>
+                <color name="line_background" >#cccccc
+                </color>
+                <color name="dark_gray" >#363636
+                </color>
+                <color name="default_text_color_holo_dark" >#ffffffff
+                </color>
+                <color name="calendar_selected_date_text" >#ffd1d2d4
+                </color>
+                <color name="default_button_background_pressed_light" >#ff00ddff
+                </color>
+                <color name="default_divider_color_dark" >#28ffffff
+                </color>
+                <color name="default_text_color_holo_light_disabled" >#ffb2b2b2
+                </color>
+                <color name="transparent_black" >#7f000000
+                </color>
+                <color name="default_divider_color_light" >#28000000
+                </color>
+                <color name="transparent" >#00000000
+                </color>
+                <color name="blue_focused" >#c1e8f7
+                </color>
+                <color name="default_keyboard_indicator_color_dark" >#ff33b5e5
+                </color>
+                <color name="blue" >#33b5e5
+                </color>
+                <color name="done_text_color_disabled" >#cccccc
+                </color>
+                <color name="darker_blue" >#0099cc
+                </color>
+                <color name="done_disabled_dark" >#bfbfbf
+                </color>
+                <color name="light_gray" >#404040
+                </color>
+                <color name="red" >#ff3333
+                </color>
+                <color name="done_text_color_dark_disabled" >#888888
+                </color>
+                <color name="default_text_color_holo_dark_disabled" >#ff4c4c4c
+                </color>
+                <color name="done_text_color_dark_normal" >#ffffff
+                </color>
+                <color name="default_button_background_dark" >#00000000
+                </color>
+                <color name="circle_background" >#f2f2f2
+                </color>
+                <color name="default_button_background_light" >#00000000
+                </color>
+                <color name="date_picker_view_animator" >#f2f2f2
+                </color>
+                <color name="white" >#ffffff
+                </color>
+                <color name="calendar_header" >#999999
+                </color>
+                <color name="recurrence_picker_background" >#fff2f2f2
+                </color>
+                <color name="date_picker_text_normal" >#ff999999
+                </color>
+                <color name="default_keyboard_indicator_color_light" >#ff00ddff
+                </color>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values/dimens.xml"
+                qualifiers="" >
+                <item
+                    name="text_size_multiplier_inner"
+                    format="float"
+                    type="string">
+0.14
+                </item>
+
+                <dimen name="minimum_margin_sides" >48dip
+                </dimen>
+                <dimen name="dialpad_font_size" >48sp
+                </dimen>
+
+                <item
+                    name="numbers_radius_multiplier_inner"
+                    format="float"
+                    type="string">
+0.60
+                </item>
+                <item
+                    name="numbers_radius_multiplier_normal"
+                    format="float"
+                    type="string">
+0.81
+                </item>
+                <item
+                    name="text_size_multiplier_outer"
+                    format="float"
+                    type="string">
+0.11
+                </item>
+
+                <dimen name="picker_dimen" >270dip
+                </dimen>
+                <dimen name="date_picker_view_animator_height" >270dp
+                </dimen>
+                <dimen name="selected_date_year_size" >30dp
+                </dimen>
+                <dimen name="tablet_dialpad_font_size" >60sp
+                </dimen>
+                <dimen name="date_picker_header_text_size" >14dp
+                </dimen>
+                <dimen name="ampm_left_padding" >6dip
+                </dimen>
+                <dimen name="dialog_button_font_size" >14sp
+                </dimen>
+                <dimen name="minimum_margin_top_bottom" >24dip
+                </dimen>
+                <dimen name="selected_date_day_size" >75dp
+                </dimen>
+                <dimen name="recurrence_picker_height" >340dp
+                </dimen>
+                <dimen name="date_viewpager_height" >275dip
+                </dimen>
+                <dimen name="recurrence_picker_width" >300dp
+                </dimen>
+                <dimen name="medium_expiration_font_size" >40dp
+                </dimen>
+                <dimen name="footer_height" >48dip
+                </dimen>
+                <dimen name="date_picker_header_height" >30dp
+                </dimen>
+
+                <item
+                    name="circle_radius_multiplier_24HourMode"
+                    format="float"
+                    type="string">
+0.85
+                </item>
+
+                <dimen name="medium_font_padding" >12dp
+                </dimen>
+                <dimen name="medium_font_size_header" >24sp
+                </dimen>
+                <dimen name="year_label_text_size" >22dp
+                </dimen>
+                <dimen name="body_font_padding" >4dp
+                </dimen>
+                <dimen name="time_label_size" >60sp
+                </dimen>
+                <dimen name="timer_padding_left" >16dip
+                </dimen>
+                <dimen name="header_height" >96dip
+                </dimen>
+                <dimen name="medium_font_size_hms" >54dp
+                </dimen>
+
+                <item
+                    name="numbers_radius_multiplier_outer"
+                    format="float"
+                    type="string">
+0.83
+                </item>
+
+                <dimen name="month_list_item_header_height" >50dp
+                </dimen>
+                <dimen name="day_number_size" >16sp
+                </dimen>
+                <dimen name="done_button_height" >42dp
+                </dimen>
+                <dimen name="day_number_select_circle_radius" >16dp
+                </dimen>
+
+                <item
+                    name="ampm_circle_radius_multiplier"
+                    format="float"
+                    type="string">
+0.19
+                </item>
+
+                <dimen name="separator_padding" >4dip
+                </dimen>
+
+                <item
+                    name="selection_radius_multiplier"
+                    format="float"
+                    type="string">
+0.16
+                </item>
+
+                <dimen name="medium_font_size" >60dp
+                </dimen>
+                <dimen name="year_label_height" >64dp
+                </dimen>
+                <dimen name="month_day_label_text_size" >10sp
+                </dimen>
+                <dimen name="done_label_size" >14sp
+                </dimen>
+                <dimen name="dialpad_font_size_ampm" >24sp
+                </dimen>
+                <dimen name="medium_date_font_size" >48dp
+                </dimen>
+                <dimen name="tablet_dialpad_font_size_ampm" >30sp
+                </dimen>
+                <dimen name="month_select_circle_radius" >45dp
+                </dimen>
+
+                <item
+                    name="text_size_multiplier_normal"
+                    format="float"
+                    type="string">
+0.17
+                </item>
+
+                <dimen name="selected_date_month_size" >30dp
+                </dimen>
+                <dimen name="label_font_size" >14sp
+                </dimen>
+                <dimen name="selected_calendar_layout_height" >155dp
+                </dimen>
+
+                <item
+                    name="circle_radius_multiplier"
+                    format="float"
+                    type="string">
+0.82
+                </item>
+
+                <dimen name="ampm_label_size" >16sp
+                </dimen>
+                <dimen name="date_picker_component_width" >270dp
+                </dimen>
+                <dimen name="month_label_size" >16sp
+                </dimen>
+                <dimen name="extra_time_label_margin" >-30dp
+                </dimen>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values/ids.xml"
+                qualifiers="" >
+                <item
+                    name="date_month_int"
+                    type="id"/>
+                <item
+                    name="date_keyboard"
+                    type="id"/>
+                <item
+                    name="numbers_key"
+                    type="id"/>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values/strings.xml"
+                qualifiers="" >
+                <string name="timer_delete" >Delete
+                </string>
+                <string name="recurrence_end_date_label" >Until a date
+                </string>
+                <string name="endByDate" >; until 
+<ns1:g id="date" >
+%s
+                    </ns1:g></string>
+                <string name="time_picker_00_label" >:00
+                </string>
+                <string name="hint_time_zone_search" >Type country name
+                </string>
+                <string name="switch_off" >OFF
+                </string>
+                <string name="hms_picker_hours_label" >H
+                </string>
+                <string name="expiration_picker_seperator" >/
+                </string>
+                <string name="year_picker_description" >Year list
+                </string>
+                <string name="palestine_display_name" >Palestine
+                </string>
+
+                <plurals name="endByCount" >
+                    <item quantity="one">
+; for one time
+                    </item>
+                    <item quantity="other">
+; for 
+                        <ns1:g id="number" >
+%d
+                        </ns1:g>
+ times
+                    </item>
+                </plurals>
+
+                <string name="hours_label" >h
+                </string>
+
+                <plurals name="recurrence_interval_monthly" >
+
+                    <!-- Singular form [CHAR LIMIT=30] -->
+                    <item quantity="one">
+Every 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ month
+                    </item>
+                    <!-- Plural form [CHAR LIMIT=30] -->
+                    <item quantity="other">
+Every 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ months
+                    </item>
+                </plurals>
+
+                <string name="time_picker_30_label" >:30
+                </string>
+                <string name="hours_label_description" >hours
+                </string>
+                <string name="minutes_label" >m
+                </string>
+                <string name="day_c" >DAY
+                </string>
+                <string name="select_hours" >Select hours
+                </string>
+                <string name="item_is_selected" >%1$s selected
+                </string>
+                <string name="recurrence_end_date" >Until 
+<ns1:g id="date" >
+%s
+                    </ns1:g></string>
+                <string name="recurrence_end_continously" >Forever
+                </string>
+                <string name="number_picker_seperator" >.
+                </string>
+                <string name="sans_serif" >sans-serif
+                </string>
+                <string name="deleted_key" >%1$s deleted
+                </string>
+
+                <plurals name="recurrence_interval_daily" >
+
+                    <!-- Singular form [CHAR LIMIT=30] -->
+                    <item quantity="one">
+Every 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ day
+                    </item>
+                    <!-- Plural form [CHAR LIMIT=30] -->
+                    <item quantity="other">
+Every 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ days
+                    </item>
+                </plurals>
+
+                <string name="time_separator" >:
+                </string>
+                <string name="yearly_plain" >Yearly
+                </string>
+                <string name="number_picker_plus_minus" >+/-
+                </string>
+                <string name="picker_set" >OK
+                </string>
+                <string name="day_picker_description" >Month grid of days
+                </string>
+                <string name="month_c" >MONTH
+                </string>
+                <string name="done_label" >Done
+                </string>
+                <string name="acessibility_recurrence_choose_end_date_description" >change end date
+                </string>
+                <string name="monthly" >Monthly
+                </string>
+                <string name="hms_picker_minutes_label" >M
+                </string>
+                <string name="day_of_week_label_typeface" >sans-serif
+                </string>
+                <string name="save_label" >Done
+                </string>
+                <string name="searchview_description_clear" >Clear query
+                </string>
+                <string name="select_year" >Select year
+                </string>
+
+                <plurals name="weekly" >
+                    <item quantity="one">
+Weekly on 
+                        <ns1:g id="days_of_week" >
+%2$s
+                        </ns1:g>
+                    </item>
+                    <item quantity="other">
+Every 
+                        <ns1:g id="number" >
+%1$d
+                        </ns1:g>
+ weeks on 
+                        <ns1:g id="days_of_week" >
+%2$s
+                        </ns1:g>
+                    </item>
+                </plurals>
+
+                <string name="number_delete" >Delete
+                </string>
+                <string name="hour_picker_description" >Hours circular slider
+                </string>
+                <string name="time_picker_ampm_label" >--
+                </string>
+                <string name="no_results_found" >No results found
+                </string>
+
+                <plurals name="recurrence_interval_weekly" >
+
+                    <!-- Singular form [CHAR LIMIT=30] -->
+                    <item quantity="one">
+Every 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ week
+                    </item>
+                    <!-- Plural form [CHAR LIMIT=30] -->
+                    <item quantity="other">
+Every 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ weeks
+                    </item>
+                </plurals>
+
+                <string name="min_max_error" >Please input a number between %1$d and %2$d
+                </string>
+                <string name="year_c" >YEAR
+                </string>
+                <string name="time_picker_time_seperator" >:
+                </string>
+                <string name="recurrence_month_pattern_by_day" >on the same day each month
+                </string>
+                <string name="recurrence_end_count_label" >For a number of events
+                </string>
+                <string name="seconds_label" >s
+                </string>
+
+                <plurals name="recurrence_interval_yearly" >
+
+                    <!-- Singular form [CHAR LIMIT=30] -->
+                    <item quantity="one">
+Every 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ year
+                    </item>
+                    <!-- Plural form [CHAR LIMIT=30] -->
+                    <item quantity="other">
+Every 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ years
+                    </item>
+                </plurals>
+
+                <string name="number_picker_minus_label" >—
+                </string>
+                <string name="max_error" >Please input a number less than or equal to %1$d
+                </string>
+                <string name="switch_on" >ON
+                </string>
+                <string name="minute_picker_description" >Minutes circular slider
+                </string>
+                <string name="select_day" >Select month and day
+                </string>
+                <string name="minutes_label_description" >minutes
+                </string>
+                <string name="every_weekday" >"Every weekday (Mon\u2013Fri)"
+                </string>
+                <string name="select_minutes" >Select minutes
+                </string>
+                <string name="min_error" >Please input a number greater than or equal to %1$d
+                </string>
+                <string name="hms_picker_seconds_label" >S
+                </string>
+
+                <plurals name="daily" >
+                    <item quantity="one">
+Daily
+                    </item>
+                    <item quantity="other">
+Every 
+                        <ns1:g id="number" >
+%d
+                        </ns1:g>
+ days
+                    </item>
+                </plurals>
+                <plurals name="recurrence_end_count" >
+                    <item quantity="one">
+For 
+                        <ns1:g id="event_count" >
+%d
+                        </ns1:g>
+ event
+                    </item>
+                    <item quantity="other">
+For 
+                        <ns1:g id="event_count" >
+%d
+                        </ns1:g>
+ events
+                    </item>
+                </plurals>
+
+                <string name="picker_cancel" >Cancel
+                </string>
+                <string name="seconds_label_description" >seconds
+                </string>
+                <string name="time_placeholder" >--
+                </string>
+                <string name="radial_numbers_typeface" >sans-serif
+                </string>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values/styles.xml"
+                qualifiers="" >
+
+                <style name="dialpad" >
+                    <item name="android:textSize">
+@dimen/dialpad_font_size
+                    </item>
+                    <item name="android:textAllCaps">
+true
+                    </item>
+                    <item name="android:fontFamily">
+sans-serif-light
+                    </item>
+                </style>
+
+                <style
+                    name="medium_bold_hms"
+                    parent="medium_bold" >
+                    <item name="android:textSize">
+@dimen/medium_font_size_hms
+                    </item>
+                </style>
+
+                <style name="aosp_time_label" >
+                    <item name="android:textSize">
+@dimen/time_label_size
+                    </item>
+                    <item name="android:textColor">
+@color/numbers_text_color
+                    </item>
+                </style>
+
+                <style
+                    name="TextAppearance.EditEvent_Spinner"
+                    parent="@android:style/Widget.Holo.Light.Spinner" >
+                    <item name="android:textSize">
+18sp
+                    </item>
+                    <item name="android:textColor">
+#FF333333
+                    </item>
+                    <item name="android:layout_marginRight">
+12dp
+                    </item>
+                    <item name="android:layout_marginLeft">
+12dp
+                    </item>
+                </style>
+
+                <style name="aosp_ampm_label" >
+                    <item name="android:textSize">
+@dimen/ampm_label_size
+                    </item>
+                    <item name="android:textAllCaps">
+true
+                    </item>
+                    <item name="android:textColor">
+@color/ampm_text_color
+                    </item>
+                    <item name="android:textStyle">
+bold
+                    </item>
+                </style>
+
+                <style
+                    name="medium_bold_date"
+                    parent="@style/medium_bold" >
+                    <item name="android:textSize">
+@dimen/medium_date_font_size
+                    </item>
+                </style>
+
+                <style
+                    name="TextAppearance.RecurrencePickerStyle"
+                    parent="@android:style/TextAppearance" >
+                    <item name="android:textSize">
+15sp
+                    </item>
+                    <item name="android:textColor">
+@color/dialog_text_color_holo_light
+                    </item>
+                </style>
+
+                <style name="medium_light_expiration" >
+                    <item name="android:textSize">
+@dimen/medium_expiration_font_size
+                    </item>
+                    <item name="android:fontFamily">
+sans-serif
+                    </item>
+                </style>
+
+                <style
+                    name="TextAppearance.Holo.Light.Widget.Switch"
+                    parent="android:TextAppearance.Small" >
+
+                    <!-- Switch thumb asset presents a dark background. -->
+                    <item name="android:textColor">
+@color/white
+                    </item>
+                </style>
+
+                <style name="tablet_dialpad_text" >
+                    <item name="android:textSize">
+@dimen/tablet_dialpad_font_size_ampm
+                    </item>
+                    <item name="android:textAllCaps">
+true
+                    </item>
+                    <item name="android:fontFamily">
+sans-serif-condensed
+                    </item>
+                </style>
+
+                <style name="RecurrenceDayOfWeekStyle" >
+                    <item name="android:layout_width">
+wrap_content
+                    </item>
+                    <item name="android:layout_height">
+wrap_content
+                    </item>
+                    <item name="android:layout_marginTop">
+4dip
+                    </item>
+                    <item name="android:layout_marginBottom">
+4dip
+                    </item>
+                    <item name="android:layout_marginLeft">
+8dip
+                    </item>
+                    <item name="android:layout_marginRight">
+8dip
+                    </item>
+                    <item name="android:layout_weight">
+1
+                    </item>
+                    <item name="android:textColor">
+@color/recurrence_bubble_text_color
+                    </item>
+                    <item name="android:textAllCaps">
+true
+                    </item>
+                    <item name="android:textSize">
+12sp
+                    </item>
+                    <item name="android:textStyle">
+bold
+                    </item>
+                    <item name="android:singleLine">
+true
+                    </item>
+                    <item name="android:background">
+@drawable/recurrence_bubble_fill
+                    </item>
+                    <item name="android:paddingLeft">
+4dp
+                    </item>
+                    <item name="android:paddingRight">
+4dp
+                    </item>
+                    <item name="android:paddingTop">
+4dp
+                    </item>
+                    <item name="android:paddingBottom">
+4dp
+                    </item>
+                </style>
+
+                <style name="label" >
+                    <item name="android:textSize">
+@dimen/label_font_size
+                    </item>
+                    <item name="android:textStyle">
+bold
+                    </item>
+                    <item name="android:textAllCaps">
+true
+                    </item>
+                    <item name="android:fontFamily">
+sans-serif-condensed
+                    </item>
+                </style>
+
+                <style name="medium_bold" >
+                    <item name="android:textSize">
+@dimen/medium_font_size
+                    </item>
+                    <item name="android:textStyle">
+bold
+                    </item>
+                    <item name="android:fontFamily">
+sans-serif
+                    </item>
+                </style>
+
+                <style name="medium_light" >
+                    <item name="android:textSize">
+@dimen/medium_font_size
+                    </item>
+                    <item name="android:fontFamily">
+sans-serif-light
+                    </item>
+                </style>
+
+                <style
+                    name="medium_light_header"
+                    parent="medium_light" >
+                    <item name="android:textSize">
+@dimen/medium_font_size_header
+                    </item>
+                </style>
+
+                <style
+                    name="medium_light_date"
+                    parent="@style/medium_bold" >
+                    <item name="android:textSize">
+@dimen/medium_date_font_size
+                    </item>
+                </style>
+
+                <style
+                    name="TextAppearance.EditEvent_SpinnerButton"
+                    parent="TextAppearance.EditEvent_Spinner" >
+                    <item name="android:paddingLeft">
+12dp
+                    </item>
+                    <item name="android:paddingRight">
+12dp
+                    </item>
+                </style>
+
+                <style name="aosp_day_of_week_label_condensed" />
+
+                <style
+                    name="Widget.Holo.Light.CompoundButton.Switch"
+                    parent="android:Widget.CompoundButton" >
+                    <item name="track">
+@drawable/switch_track_holo_light
+                    </item>
+                    <item name="thumb">
+@drawable/switch_thumb
+                    </item>
+                    <item name="switchTextAppearance">
+@style/TextAppearance.Holo.Light.Widget.Switch
+                    </item>
+                    <item name="textOn">
+@string/switch_on
+                    </item>
+                    <item name="textOff">
+@string/switch_off
+                    </item>
+                    <item name="thumbTextPadding">
+12dip
+                    </item>
+                    <item name="switchMinWidth">
+96dip
+                    </item>
+                    <item name="switchPadding">
+16dip
+                    </item>
+                </style>
+
+                <style
+                    name="medium_light_hms"
+                    parent="medium_light" >
+                    <item name="android:textSize">
+@dimen/medium_font_size_hms
+                    </item>
+                </style>
+
+                <style name="dialog_button" >
+                    <item name="android:textSize">
+@dimen/dialog_button_font_size
+                    </item>
+                    <item name="android:fontFamily">
+sans-serif
+                    </item>
+                    <item name="android:minHeight">
+48dp
+                    </item>
+                </style>
+
+                <style name="tablet_dialpad" >
+                    <item name="android:textSize">
+@dimen/tablet_dialpad_font_size
+                    </item>
+                    <item name="android:textAllCaps">
+true
+                    </item>
+                    <item name="android:fontFamily">
+sans-serif-condensed
+                    </item>
+                </style>
+
+                <style
+                    name="dialpad_text"
+                    parent="dialpad" >
+                    <item name="android:textSize">
+@dimen/dialpad_font_size_ampm
+                    </item>
+                </style>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values/themes.xml"
+                qualifiers="" >
+
+                <style name="BetterPickersDialogFragment" >
+                    <item name="bpDialogBackground">
+@drawable/dialog_full_holo_dark
+                    </item>
+                    <item name="bpTitleColor">
+@color/dialog_text_color_holo_dark
+                    </item>
+                    <item name="bpTextColor">
+@color/dialog_text_color_holo_dark
+                    </item>
+                    <item name="bpDeleteIcon">
+@drawable/ic_backspace_dark
+                    </item>
+                    <item name="bpCheckIcon">
+@drawable/ic_check_dark
+                    </item>
+                    <item name="bpKeyBackground">
+@drawable/key_background_dark
+                    </item>
+                    <item name="bpButtonBackground">
+@drawable/button_background_dark
+                    </item>
+                    <item name="bpTitleDividerColor">
+@color/default_keyboard_indicator_color_dark
+                    </item>
+                    <item name="bpDividerColor">
+@color/default_divider_color_dark
+                    </item>
+                    <item name="bpKeyboardIndicatorColor">
+@color/default_keyboard_indicator_color_dark
+                    </item>
+                </style>
+
+                <style name="BetterPickersDialogFragment.Light" >
+                    <item name="bpDialogBackground">
+@drawable/dialog_full_holo_light
+                    </item>
+                    <item name="bpTitleColor">
+@color/dialog_text_color_holo_light
+                    </item>
+                    <item name="bpTextColor">
+@color/dialog_text_color_holo_light
+                    </item>
+                    <item name="bpDeleteIcon">
+@drawable/ic_backspace_light
+                    </item>
+                    <item name="bpCheckIcon">
+@drawable/ic_check_light
+                    </item>
+                    <item name="bpKeyBackground">
+@drawable/key_background_light
+                    </item>
+                    <item name="bpButtonBackground">
+@drawable/button_background_light
+                    </item>
+                    <item name="bpTitleDividerColor">
+@color/default_keyboard_indicator_color_dark
+                    </item>
+                    <item name="bpDividerColor">
+@color/default_divider_color_light
+                    </item>
+                    <item name="bpKeyboardIndicatorColor">
+@color/default_keyboard_indicator_color_light
+                    </item>
+                </style>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values-ca/strings.xml"
+                qualifiers="ca" >
+                <string name="time_picker_30_label" >:30
+                </string>
+                <string name="picker_set" >Acceptar
+                </string>
+                <string name="minutes_label_description" >minuts
+                </string>
+                <string name="time_picker_time_seperator" >:
+                </string>
+                <string name="number_picker_seperator" >.
+                </string>
+                <string name="seconds_label" >s
+                </string>
+                <string name="hours_label" >h
+                </string>
+                <string name="hms_picker_hours_label" >H
+                </string>
+                <string name="time_picker_00_label" >:00
+                </string>
+                <string name="hms_picker_seconds_label" >S
+                </string>
+                <string name="number_delete" >Esborrar
+                </string>
+                <string name="picker_cancel" >Cancellar
+                </string>
+                <string name="minutes_label" >m
+                </string>
+                <string name="timer_delete" >Esborrar
+                </string>
+                <string name="seconds_label_description" >segons
+                </string>
+                <string name="hms_picker_minutes_label" >M
+                </string>
+                <string name="number_picker_plus_minus" >+/-
+                </string>
+                <string name="number_picker_minus_label" >—
+                </string>
+                <string name="hours_label_description" >hores
+                </string>
+                <string name="time_picker_ampm_label" >--
+                </string>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values-es/strings.xml"
+                qualifiers="es" >
+                <string name="picker_set" >Aceptar
+                </string>
+                <string name="hours_label_description" >horas
+                </string>
+                <string name="time_picker_30_label" >:30
+                </string>
+                <string name="time_picker_00_label" >:00
+                </string>
+                <string name="minutes_label_description" >minutos
+                </string>
+                <string name="hms_picker_hours_label" >H
+                </string>
+                <string name="number_picker_minus_label" >—
+                </string>
+                <string name="hours_label" >h
+                </string>
+                <string name="picker_cancel" >Cancelar
+                </string>
+                <string name="timer_delete" >Borrar
+                </string>
+                <string name="seconds_label" >s
+                </string>
+                <string name="number_picker_seperator" >.
+                </string>
+                <string name="hms_picker_minutes_label" >M
+                </string>
+                <string name="number_delete" >Borrar
+                </string>
+                <string name="time_picker_time_seperator" >:
+                </string>
+                <string name="time_picker_ampm_label" >--
+                </string>
+                <string name="number_picker_plus_minus" >+/-
+                </string>
+                <string name="minutes_label" >m
+                </string>
+                <string name="hms_picker_seconds_label" >S
+                </string>
+                <string name="seconds_label_description" >segundos
+                </string>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values-fr/strings.xml"
+                qualifiers="fr" >
+                <string name="switch_off" >OFF
+                </string>
+                <string name="time_separator" >:
+                </string>
+                <string name="time_picker_ampm_label" >--
+                </string>
+                <string name="endByDate" >; jusq\'à 
+<ns1:g id="date" >
+%s
+                    </ns1:g></string>
+                <string name="hours_label" >h
+                </string>
+
+                <plurals name="endByCount" >
+                    <item quantity="one">
+; pour une fois
+                    </item>
+                    <item quantity="other">
+; pour 
+                        <ns1:g id="number" >
+%d
+                        </ns1:g>
+ fois
+                    </item>
+                </plurals>
+                <plurals name="weekly" >
+                    <item quantity="one">
+Hebdomadaire le 
+                        <ns1:g id="days_of_week" >
+%2$s
+                        </ns1:g>
+                    </item>
+                    <item quantity="other">
+Toutes les 
+                        <ns1:g id="number" >
+%1$d
+                        </ns1:g>
+ semaines le 
+                        <ns1:g id="days_of_week" >
+%2$s
+                        </ns1:g>
+                    </item>
+                </plurals>
+
+                <string name="done_label" >Fini
+                </string>
+                <string name="number_picker_plus_minus" >+/-
+                </string>
+                <string name="minute_picker_description" >Slider de minutes circulaire
+                </string>
+                <string name="recurrence_end_date" >Jusqu\'au 
+<ns1:g id="date" >
+%s
+                    </ns1:g></string>
+                <string name="time_placeholder" >--
+                </string>
+                <string name="picker_cancel" >Annuler
+                </string>
+                <string name="time_picker_00_label" >:00
+                </string>
+                <string name="save_label" >Fini
+                </string>
+                <string name="day_picker_description" >Grille mensuelle
+                </string>
+                <string name="year_picker_description" >Liste des années
+                </string>
+                <string name="month_c" >MOIS
+                </string>
+                <string name="seconds_label_description" >secondes
+                </string>
+                <string name="day_of_week_label_typeface" >sans-serif
+                </string>
+                <string name="searchview_description_clear" >Effacer
+                </string>
+                <string name="time_picker_30_label" >:30
+                </string>
+                <string name="hms_picker_seconds_label" >S
+                </string>
+
+                <plurals name="recurrence_end_count" >
+                    <item quantity="one">
+Pour 
+                        <ns1:g id="event_count" >
+%d
+                        </ns1:g>
+ événement
+                    </item>
+                    <item quantity="other">
+Pour 
+                        <ns1:g id="event_count" >
+%d
+                        </ns1:g>
+ événements
+                    </item>
+                </plurals>
+                <plurals name="recurrence_interval_monthly" >
+
+                    <!-- Singular form [CHAR LIMIT=30] -->
+                    <item quantity="one">
+Tous les 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ mois
+                    </item>
+                    <!-- Plural form [CHAR LIMIT=30] -->
+                    <item quantity="other">
+Tous les 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ mois
+                    </item>
+                </plurals>
+                <plurals name="recurrence_interval_daily" >
+
+                    <!-- Singular form [CHAR LIMIT=30] -->
+                    <item quantity="one">
+Tous les 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ jour
+                    </item>
+                    <!-- Plural form [CHAR LIMIT=30] -->
+                    <item quantity="other">
+Tous les 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ jours
+                    </item>
+                </plurals>
+
+                <string name="hours_label_description" >heures
+                </string>
+                <string name="monthly" >Mensuel
+                </string>
+                <string name="day_c" >JOUR
+                </string>
+                <string name="item_is_selected" >%1$s choisi
+                </string>
+                <string name="minutes_label_description" >minutes
+                </string>
+                <string name="min_error" >S\'il vous plaît, veuillez indiquer un nombre plus grand ou égal à %1$d
+                </string>
+                <string name="every_weekday" >"Tous les jours de semaine (Mon\u2013Fri)"
+                </string>
+                <string name="radial_numbers_typeface" >sans-serif
+                </string>
+
+                <plurals name="recurrence_interval_weekly" >
+
+                    <!-- Singular form [CHAR LIMIT=30] -->
+                    <item quantity="one">
+Toutes les 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ semaine
+                    </item>
+                    <!-- Plural form [CHAR LIMIT=30] -->
+                    <item quantity="other">
+Toutes les 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ semaines
+                    </item>
+                </plurals>
+
+                <string name="time_picker_time_seperator" >:
+                </string>
+                <string name="seconds_label" >s
+                </string>
+                <string name="number_picker_minus_label" >—
+                </string>
+                <string name="hms_picker_minutes_label" >M
+                </string>
+                <string name="number_picker_seperator" >.
+                </string>
+                <string name="expiration_picker_seperator" >/
+                </string>
+                <string name="hms_picker_hours_label" >H
+                </string>
+                <string name="min_max_error" >S\'il vous plaît, veuillez indiquer un nombre entre %1$d et %2$d
+                </string>
+                <string name="recurrence_end_continously" >Toujours
+                </string>
+                <string name="switch_on" >ON
+                </string>
+                <string name="recurrence_end_date_label" >Jusqu\'à une date
+                </string>
+                <string name="minutes_label" >m
+                </string>
+                <string name="yearly_plain" >Annuel
+                </string>
+
+                <plurals name="recurrence_interval_yearly" >
+
+                    <!-- Singular form [CHAR LIMIT=30] -->
+                    <item quantity="one">
+Toutes les 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ année
+                    </item>
+                    <!-- Plural form [CHAR LIMIT=30] -->
+                    <item quantity="other">
+Toutes les 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ années
+                    </item>
+                </plurals>
+
+                <string name="select_day" >Choisir le mois et le jour
+                </string>
+                <string name="picker_set" >OK
+                </string>
+                <string name="number_delete" >Effacer
+                </string>
+                <string name="hint_time_zone_search" >Nom du pays
+                </string>
+                <string name="year_c" >ANNÉE
+                </string>
+                <string name="timer_delete" >Effacer
+                </string>
+                <string name="select_minutes" >Choisir les minutes
+                </string>
+                <string name="sans_serif" >sans-serif
+                </string>
+                <string name="hour_picker_description" >Slider d\'heures circulaire
+                </string>
+                <string name="palestine_display_name" >Palestine
+                </string>
+                <string name="select_hours" >Choisir les heures
+                </string>
+                <string name="select_year" >Choisir l\'année
+                </string>
+                <string name="deleted_key" >%1$s effacé
+                </string>
+                <string name="acessibility_recurrence_choose_end_date_description" >modifier la date de fin
+                </string>
+                <string name="recurrence_month_pattern_by_day" >le même jour tous les mois
+                </string>
+                <string name="no_results_found" >Aucun résultat trouvé
+                </string>
+                <string name="max_error" >S\'il vous plaît, veuillez indiquer un nombre plus petit ou égal à %1$d
+                </string>
+                <string name="recurrence_end_count_label" >Pour un nombre d\événements
+                </string>
+
+                <plurals name="daily" >
+                    <item quantity="one">
+Quotidien
+                    </item>
+                    <item quantity="other">
+Tous les 
+                        <ns1:g id="number" >
+%d
+                        </ns1:g>
+ jours
+                    </item>
+                </plurals>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values-it/strings.xml"
+                qualifiers="it" >
+                <string name="minutes_label_description" >minuti
+                </string>
+                <string name="day_of_week_label_typeface" >sans-serif
+                </string>
+                <string name="select_year" >Seleziona Anno
+                </string>
+                <string name="year_picker_description" >Lista Anno
+                </string>
+                <string name="time_separator" >:
+                </string>
+                <string name="month_c" >MESE
+                </string>
+                <string name="sans_serif" >sans-serif
+                </string>
+                <string name="select_day" >Seleziona Mese e Giorno
+                </string>
+                <string name="number_delete" >Elimina
+                </string>
+                <string name="hms_picker_hours_label" >H
+                </string>
+                <string name="select_hours" >Seleziona le Ore
+                </string>
+                <string name="day_picker_description" >Griglia mensile dei giorni
+                </string>
+                <string name="picker_set" >OK
+                </string>
+                <string name="deleted_key" >%1$s eliminato
+                </string>
+                <string name="year_c" >ANNO
+                </string>
+                <string name="picker_cancel" >Cancella
+                </string>
+                <string name="number_picker_plus_minus" >+/-
+                </string>
+                <string name="number_picker_seperator" >.
+                </string>
+                <string name="hms_picker_seconds_label" >S
+                </string>
+                <string name="number_picker_minus_label" >—
+                </string>
+                <string name="radial_numbers_typeface" >sans-serif
+                </string>
+                <string name="select_minutes" >Seleziona i Minuti
+                </string>
+                <string name="time_placeholder" >--
+                </string>
+                <string name="time_picker_ampm_label" >--
+                </string>
+                <string name="minutes_label" >m
+                </string>
+                <string name="hour_picker_description" >Cursore circolare delle Ore
+                </string>
+                <string name="expiration_picker_seperator" >/
+                </string>
+                <string name="max_error" >Inserisci un numero uguale o minore di %1$d
+                </string>
+                <string name="min_max_error" >Inserisci un numero compreso tra %1$d e %2$d
+                </string>
+                <string name="hours_label" >h
+                </string>
+                <string name="minute_picker_description" >Cursore circolare dei Minuti
+                </string>
+                <string name="hours_label_description" >ore
+                </string>
+                <string name="done_label" >Fine
+                </string>
+                <string name="seconds_label" >s
+                </string>
+                <string name="time_picker_time_seperator" >:
+                </string>
+                <string name="min_error" >Inserisci un numero uguale o maggiore di %1$d
+                </string>
+                <string name="seconds_label_description" >secondi
+                </string>
+                <string name="time_picker_30_label" >:30
+                </string>
+                <string name="item_is_selected" >%1$s selezionato
+                </string>
+                <string name="time_picker_00_label" >:00
+                </string>
+                <string name="hms_picker_minutes_label" >M
+                </string>
+                <string name="day_c" >GIORNO
+                </string>
+                <string name="timer_delete" >Elimina
+                </string>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values-land/dimens.xml"
+                qualifiers="land" >
+                <dimen name="selected_date_day_size" >100dp
+                </dimen>
+                <dimen name="dialog_height" >200dip
+                </dimen>
+                <dimen name="left_side_width" >250dip
+                </dimen>
+                <dimen name="date_viewpager_height" >189dip
+                </dimen>
+                <dimen name="recurrence_picker_height" >281dp
+                </dimen>
+                <dimen name="dialpad_font_size" >24sp
+                </dimen>
+                <dimen name="recurrence_picker_width" >500dp
+                </dimen>
+                <dimen name="selected_date_month_size" >30dp
+                </dimen>
+                <dimen name="selected_date_year_size" >30dp
+                </dimen>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values-mdpi/dimens.xml"
+                qualifiers="mdpi-v4" >
+                <dimen name="selected_calendar_layout_height" >100dp
+                </dimen>
+                <dimen name="selected_date_year_size" >24dp
+                </dimen>
+                <dimen name="date_picker_component_width" >270dp
+                </dimen>
+                <dimen name="done_button_height" >42dp
+                </dimen>
+                <dimen name="month_day_label_text_size" >10sp
+                </dimen>
+                <dimen name="month_list_item_header_height" >50dp
+                </dimen>
+                <dimen name="month_label_size" >16sp
+                </dimen>
+                <dimen name="date_picker_header_text_size" >14dp
+                </dimen>
+                <dimen name="date_picker_header_height" >30dp
+                </dimen>
+                <dimen name="selected_date_day_size" >50dp
+                </dimen>
+                <dimen name="recurrence_picker_width" >300dp
+                </dimen>
+                <dimen name="recurrence_picker_height" >340dp
+                </dimen>
+                <dimen name="day_number_select_circle_radius" >16dp
+                </dimen>
+                <dimen name="year_label_text_size" >22dp
+                </dimen>
+                <dimen name="date_picker_view_animator_height" >270dp
+                </dimen>
+                <dimen name="year_label_height" >64dp
+                </dimen>
+                <dimen name="month_select_circle_radius" >45dp
+                </dimen>
+                <dimen name="selected_date_month_size" >24dp
+                </dimen>
+                <dimen name="day_number_size" >16sp
+                </dimen>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values-pl/strings.xml"
+                qualifiers="pl" >
+                <plurals name="recurrence_interval_monthly" >
+
+                    <!-- Singular form [CHAR LIMIT=30] -->
+                    <item quantity="one">
+Co 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ miesiąc
+                    </item>
+                    <!-- Plural form [CHAR LIMIT=30] -->
+                    <item quantity="other">
+Co 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ miesięcy
+                    </item>
+                </plurals>
+
+                <string name="seconds_label_description" >sekund
+                </string>
+                <string name="min_max_error" >Proszę wpisz liczbę z zakresu od %1$d do %2$d
+                </string>
+                <string name="hint_time_zone_search" >Wpisz nazwę kraju
+                </string>
+                <string name="max_error" >Proszę wpisz liczbę równą bądź mniejszą od %1$d
+                </string>
+                <string name="min_error" >Proszę wpisz liczbę równą bądź większą od %1$d
+                </string>
+                <string name="day_of_week_label_typeface" >sans-serif
+                </string>
+                <string name="day_c" >DZIEŃ
+                </string>
+                <string name="acessibility_recurrence_choose_end_date_description" >zmień datę końcową
+                </string>
+                <string name="year_c" >ROK
+                </string>
+                <string name="number_delete" >Usuń
+                </string>
+                <string name="hour_picker_description" >Okrągły suwak godzinowy
+                </string>
+                <string name="save_label" >Gotowe
+                </string>
+                <string name="seconds_label" >s
+                </string>
+                <string name="select_day" >Wybierz miesiąc i dzień
+                </string>
+                <string name="searchview_description_clear" >Wyczyść zapytanie
+                </string>
+                <string name="switch_on" >WŁ
+                </string>
+
+                <plurals name="weekly" >
+                    <item quantity="one">
+Co tydzień w 
+                        <ns1:g id="days_of_week" >
+%2$s
+                        </ns1:g>
+                    </item>
+                    <item quantity="other">
+Co 
+                        <ns1:g id="number" >
+%1$d
+                        </ns1:g>
+ tygodni w 
+                        <ns1:g id="days_of_week" >
+%2$s
+                        </ns1:g>
+                    </item>
+                </plurals>
+
+                <string name="hours_label" >h
+                </string>
+                <string name="recurrence_end_date_label" >Do daty
+                </string>
+                <string name="timer_delete" >Usuń
+                </string>
+
+                <plurals name="recurrence_interval_weekly" >
+
+                    <!-- Singular form [CHAR LIMIT=30] -->
+                    <item quantity="one">
+Co 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ tydzień
+                    </item>
+                    <!-- Plural form [CHAR LIMIT=30] -->
+                    <item quantity="other">
+Co 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ tygodni
+                    </item>
+                </plurals>
+
+                <string name="item_is_selected" >%1$s został wybrany
+                </string>
+                <string name="radial_numbers_typeface" >sans-serif
+                </string>
+                <string name="year_picker_description" >Lista lat
+                </string>
+                <string name="time_picker_30_label" >:30
+                </string>
+                <string name="sans_serif" >sans-serif
+                </string>
+                <string name="hms_picker_hours_label" >H
+                </string>
+                <string name="switch_off" >WYŁ
+                </string>
+                <string name="recurrence_end_date" >Until 
+<ns1:g id="date" >
+%s
+                    </ns1:g></string>
+                <string name="minute_picker_description" >Okrągły suwak minutowy
+                </string>
+                <string name="picker_set" >OK
+                </string>
+                <string name="select_minutes" >Wybierz minuty
+                </string>
+                <string name="recurrence_month_pattern_by_day" >tego samego dnia co miesiąc
+                </string>
+
+                <plurals name="daily" >
+                    <item quantity="one">
+Raz dziennie
+                    </item>
+                    <item quantity="other">
+Co 
+                        <ns1:g id="number" >
+%d
+                        </ns1:g>
+ dni
+                    </item>
+                </plurals>
+                <plurals name="recurrence_end_count" >
+                    <item quantity="one">
+Co 
+                        <ns1:g id="event_count" >
+%d
+                        </ns1:g>
+ wystąpienie
+                    </item>
+                    <item quantity="other">
+Co 
+                        <ns1:g id="event_count" >
+%d
+                        </ns1:g>
+ wystapień
+                    </item>
+                </plurals>
+
+                <string name="monthly" >Miesięcznie
+                </string>
+                <string name="time_picker_ampm_label" >--
+                </string>
+                <string name="expiration_picker_seperator" >/
+                </string>
+                <string name="time_picker_time_seperator" >:
+                </string>
+                <string name="time_placeholder" >--
+                </string>
+                <string name="no_results_found" >Nie znaleziono wyników
+                </string>
+                <string name="every_weekday" >"W dni robocze (Pon\u2013Pią)"
+                </string>
+                <string name="day_picker_description" >Miesięczna siatka dni
+                </string>
+
+                <plurals name="endByCount" >
+                    <item quantity="one">
+; jeden raz
+                    </item>
+                    <item quantity="other">
+; 
+                        <ns1:g id="number" >
+%d
+                        </ns1:g>
+ razy
+                    </item>
+                </plurals>
+
+                <string name="month_c" >MIESIĄĆ
+                </string>
+                <string name="minutes_label_description" >minut
+                </string>
+                <string name="time_separator" >:
+                </string>
+                <string name="select_hours" >Wybierz godziny
+                </string>
+                <string name="picker_cancel" >Anuluj
+                </string>
+                <string name="hours_label_description" >godzin
+                </string>
+                <string name="yearly_plain" >Rocznie
+                </string>
+                <string name="recurrence_end_continously" >Bez końca
+                </string>
+                <string name="number_picker_minus_label" >—
+                </string>
+                <string name="minutes_label" >m
+                </string>
+                <string name="select_year" >Wybierz rok
+                </string>
+                <string name="recurrence_end_count_label" >Do wybranej ilości wystąpień
+                </string>
+
+                <plurals name="recurrence_interval_daily" >
+
+                    <!-- Singular form [CHAR LIMIT=30] -->
+                    <item quantity="one">
+Co 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ dzień
+                    </item>
+                    <!-- Plural form [CHAR LIMIT=30] -->
+                    <item quantity="other">
+Co 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ dni
+                    </item>
+                </plurals>
+
+                <string name="endByDate" >; until 
+<ns1:g id="date" >
+%s
+                    </ns1:g></string>
+                <string name="number_picker_plus_minus" >+/-
+                </string>
+                <string name="deleted_key" >%1$s został usunięty
+                </string>
+                <string name="hms_picker_seconds_label" >S
+                </string>
+                <string name="time_picker_00_label" >:00
+                </string>
+                <string name="palestine_display_name" >Palestyna
+                </string>
+                <string name="number_picker_seperator" >.
+                </string>
+                <string name="hms_picker_minutes_label" >M
+                </string>
+                <string name="done_label" >Gotowe
+                </string>
+
+                <plurals name="recurrence_interval_yearly" >
+
+                    <!-- Singular form [CHAR LIMIT=30] -->
+                    <item quantity="one">
+Co 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ rok
+                    </item>
+                    <!-- Plural form [CHAR LIMIT=30] -->
+                    <item quantity="other">
+Co 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ lat
+                    </item>
+                </plurals>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values-ru/strings.xml"
+                qualifiers="ru" >
+                <plurals name="recurrence_interval_daily" >
+
+                    <!-- Singular form [CHAR LIMIT=30] -->
+                    <item quantity="one">
+Каждый 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ день
+                    </item>
+                    <!-- Plural form [CHAR LIMIT=30] -->
+                    <item quantity="other">
+Каждые 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ дн.
+                    </item>
+                </plurals>
+
+                <string name="save_label" >Готово
+                </string>
+                <string name="endByDate" >; до 
+<ns1:g id="date" >
+%s
+                    </ns1:g></string>
+                <string name="hms_picker_minutes_label" >М
+                </string>
+                <string name="min_max_error" >Пожалуйста, введите число между %1$d и %2$d
+                </string>
+                <string name="number_delete" >Удалить
+                </string>
+                <string name="select_hours" >Выберите час
+                </string>
+                <string name="time_picker_30_label" >:30
+                </string>
+                <string name="expiration_picker_seperator" >/
+                </string>
+                <string name="time_picker_time_seperator" >:
+                </string>
+                <string name="no_results_found" >Результатов не найдено
+                </string>
+
+                <plurals name="recurrence_end_count" >
+                    <item quantity="one">
+Для 
+                        <ns1:g id="event_count" >
+%d
+                        </ns1:g>
+ события
+                    </item>
+                    <item quantity="other">
+Для 
+                        <ns1:g id="event_count" >
+%d
+                        </ns1:g>
+ событий
+                    </item>
+                </plurals>
+
+                <string name="month_c" >МЕСЯЦ
+                </string>
+                <string name="recurrence_end_count_label" >Для ряда событий
+                </string>
+                <string name="recurrence_month_pattern_by_day" >тот же день каждый месяц
+                </string>
+                <string name="timer_delete" >Удалить
+                </string>
+                <string name="deleted_key" >%1$s удален
+                </string>
+                <string name="palestine_display_name" >Палестина
+                </string>
+                <string name="monthly" >Ежемесячно
+                </string>
+                <string name="hours_label_description" >часы
+                </string>
+                <string name="switch_on" >Вкл.
+                </string>
+                <string name="yearly_plain" >Ежегодно
+                </string>
+                <string name="hours_label" >ч
+                </string>
+                <string name="day_c" >ДЕНЬ
+                </string>
+                <string name="select_day" >Выберите месяц и день
+                </string>
+                <string name="time_separator" >:
+                </string>
+                <string name="switch_off" >Выкл.
+                </string>
+                <string name="every_weekday" >"Каждый будний день (Пон\u2013Пят)"
+                </string>
+                <string name="recurrence_end_date" >До 
+<ns1:g id="date" >
+%s
+                    </ns1:g></string>
+                <string name="hms_picker_hours_label" >Ч
+                </string>
+                <string name="item_is_selected" >%1$s выбран
+                </string>
+                <string name="max_error" >Пожалуйста, введите число меньше или равно чем %1$d
+                </string>
+
+                <plurals name="recurrence_interval_weekly" >
+
+                    <!-- Singular form [CHAR LIMIT=30] -->
+                    <item quantity="one">
+Каждую 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ неделю
+                    </item>
+                    <!-- Plural form [CHAR LIMIT=30] -->
+                    <item quantity="other">
+Каждые 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ нед.
+                    </item>
+                </plurals>
+
+                <string name="select_minutes" >Выберите минуты
+                </string>
+                <string name="day_picker_description" >Сетка дней месяца
+                </string>
+                <string name="select_year" >Выберите год
+                </string>
+                <string name="number_picker_plus_minus" >+/-
+                </string>
+                <string name="hms_picker_seconds_label" >С
+                </string>
+                <string name="day_of_week_label_typeface" >sans-serif
+                </string>
+
+                <plurals name="recurrence_interval_yearly" >
+
+                    <!-- Singular form [CHAR LIMIT=30] -->
+                    <item quantity="one">
+Каждый 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ год
+                    </item>
+                    <!-- Plural form [CHAR LIMIT=30] -->
+                    <item quantity="other">
+Каждые 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ лет
+                    </item>
+                </plurals>
+
+                <string name="seconds_label" >с
+                </string>
+                <string name="number_picker_minus_label" >—
+                </string>
+                <string name="time_picker_00_label" >:00
+                </string>
+                <string name="seconds_label_description" >секунды
+                </string>
+                <string name="recurrence_end_date_label" >До даты
+                </string>
+
+                <plurals name="endByCount" >
+                    <item quantity="one">
+; один раз
+                    </item>
+                    <item quantity="other">
+; для 
+                        <ns1:g id="number" >
+%d
+                        </ns1:g>
+ раз
+                    </item>
+                </plurals>
+
+                <string name="minute_picker_description" >Круговой ползунок минут
+                </string>
+                <string name="searchview_description_clear" >Очистить запрос
+                </string>
+
+                <plurals name="weekly" >
+                    <item quantity="one">
+Еженедельно в 
+                        <ns1:g id="days_of_week" >
+%2$s
+                        </ns1:g>
+                    </item>
+                    <item quantity="other">
+Каждые 
+                        <ns1:g id="number" >
+%1$d
+                        </ns1:g>
+ недель в 
+                        <ns1:g id="days_of_week" >
+%2$s
+                        </ns1:g>
+                    </item>
+                </plurals>
+
+                <string name="time_picker_ampm_label" >--
+                </string>
+                <string name="year_picker_description" >Список годов
+                </string>
+                <string name="time_placeholder" >--
+                </string>
+                <string name="radial_numbers_typeface" >sans-serif
+                </string>
+                <string name="year_c" >ГОД
+                </string>
+                <string name="picker_cancel" >Отмена
+                </string>
+                <string name="done_label" >Готово
+                </string>
+                <string name="recurrence_end_continously" >Навсегда
+                </string>
+                <string name="picker_set" >ОК
+                </string>
+                <string name="hint_time_zone_search" >Введите название страны
+                </string>
+                <string name="hour_picker_description" >Круговой ползунок часов
+                </string>
+                <string name="minutes_label_description" >минуты
+                </string>
+
+                <plurals name="recurrence_interval_monthly" >
+
+                    <!-- Singular form [CHAR LIMIT=30] -->
+                    <item quantity="one">
+Каждый 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ месяц
+                    </item>
+                    <!-- Plural form [CHAR LIMIT=30] -->
+                    <item quantity="other">
+Каждые 
+                        <ns1:g id="count" >
+%d
+                        </ns1:g>
+ мес.
+                    </item>
+                </plurals>
+
+                <string name="minutes_label" >м
+                </string>
+                <string name="acessibility_recurrence_choose_end_date_description" >изменить конечную дату
+                </string>
+
+                <plurals name="daily" >
+                    <item quantity="one">
+Ежедневно
+                    </item>
+                    <item quantity="other">
+Каждые 
+                        <ns1:g id="number" >
+%d
+                        </ns1:g>
+ дн.
+                    </item>
+                </plurals>
+
+                <string name="number_picker_seperator" >.
+                </string>
+                <string name="min_error" >Пожалуйста, введите число больше или равно чем %1$d
+                </string>
+                <string name="sans_serif" >sans-serif
+                </string>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values-sw600dp/dimens.xml"
+                qualifiers="sw600dp-v13" >
+                <dimen name="day_number_size" >24sp
+                </dimen>
+                <dimen name="ampm_label_size" >20sp
+                </dimen>
+                <dimen name="time_label_size" >75sp
+                </dimen>
+                <dimen name="extra_time_label_margin" >-50dp
+                </dimen>
+                <dimen name="selected_date_year_size" >45dp
+                </dimen>
+                <dimen name="date_picker_view_animator_height" >400dp
+                </dimen>
+                <dimen name="medium_font_size_hms" >100dp
+                </dimen>
+                <dimen name="picker_dimen" >400dip
+                </dimen>
+                <dimen name="medium_date_font_size" >80dp
+                </dimen>
+                <dimen name="day_number_select_circle_radius" >24dp
+                </dimen>
+                <dimen name="month_list_item_padding" >24dp
+                </dimen>
+                <dimen name="date_picker_header_text_size" >21dp
+                </dimen>
+                <dimen name="separator_padding" >5dip
+                </dimen>
+                <dimen name="footer_height" >60dip
+                </dimen>
+                <dimen name="selected_date_day_size" >150dp
+                </dimen>
+                <dimen name="selected_date_month_size" >45dp
+                </dimen>
+                <dimen name="minimum_margin_top_bottom" >24dip
+                </dimen>
+                <dimen name="date_picker_component_width" >400dp
+                </dimen>
+                <dimen name="month_day_label_text_size" >15sp
+                </dimen>
+                <dimen name="month_list_item_size" >24sp
+                </dimen>
+                <dimen name="month_label_size" >24sp
+                </dimen>
+                <dimen name="date_viewpager_height" >354dip
+                </dimen>
+                <dimen name="label_font_size" >18sp
+                </dimen>
+                <dimen name="ampm_left_padding" >8dip
+                </dimen>
+                <dimen name="recurrence_picker_height" >300dp
+                </dimen>
+                <dimen name="medium_font_size" >100dp
+                </dimen>
+                <dimen name="body_font_padding" >8dp
+                </dimen>
+                <dimen name="year_label_text_size" >33dp
+                </dimen>
+                <dimen name="recurrence_picker_width" >480dp
+                </dimen>
+                <dimen name="medium_font_padding" >24dp
+                </dimen>
+                <dimen name="date_picker_header_height" >45dp
+                </dimen>
+                <dimen name="year_label_height" >96dp
+                </dimen>
+                <dimen name="selected_calendar_layout_height" >360dp
+                </dimen>
+                <dimen name="month_select_circle_radius" >36dp
+                </dimen>
+                <dimen name="month_list_item_header_height" >75dp
+                </dimen>
+                <dimen name="minimum_margin_sides" >48dip
+                </dimen>
+                <dimen name="header_height" >120dip
+                </dimen>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values-sw600dp-land/dimens.xml"
+                qualifiers="sw600dp-land-v13" >
+                <dimen name="time_label_size" >64sp
+                </dimen>
+                <dimen name="ampm_left_padding" >7dip
+                </dimen>
+                <dimen name="date_picker_header_height" >45dp
+                </dimen>
+                <dimen name="ampm_label_size" >21sp
+                </dimen>
+                <dimen name="recurrence_picker_width" >600dp
+                </dimen>
+                <dimen name="left_side_width" >315dip
+                </dimen>
+                <dimen name="recurrence_picker_height" >300dp
+                </dimen>
+                <dimen name="separator_padding" >5dip
+                </dimen>
+                <dimen name="header_height" >96dip
+                </dimen>
+                <dimen name="time_label_right_padding" >16sp
+                </dimen>
+                <dimen name="footer_height" >48dip
+                </dimen>
+            </file>
+            <file
+                path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values-w270dp-h560dp/dimens.xml"
+                qualifiers="w270dp-h560dp-v13" >
+                <dimen name="selected_date_day_size" >100dp
+                </dimen>
+                <dimen name="selected_calendar_layout_height" >230dp
+                </dimen>
+                <dimen name="selected_date_month_size" >30dp
+                </dimen>
+                <dimen name="selected_date_year_size" >30dp
+                </dimen>
+            </file>
+        </source>
+        <source path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/generated/res/rs/debug" />
+        <source path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/build/generated/res/generated/debug" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/debug/res" />
+    </dataSet>
+
+</merger>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/sample/build/intermediates/pre-dexed/debug/classes-6d76007d44bcf2022063fa5148fa288d08804cf9.jar"
+        jar="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/sample/build/intermediates/exploded-aar/android-betterpickers/library/unspecified/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="40bd9e5d96f9ae699be809eca8da0d68bee009b8"/>
+    <item
+        dex="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/sample/build/intermediates/pre-dexed/debug/library-2.4.0-b0f521607882162819c95cbdd797ad30872a57dc.jar"
+        jar="/Users/art.beatte/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb"/>
+    <item
+        dex="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/sample/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-661cadb29b1e4972441d9416c22c95df94d2094d.jar"
+        jar="/Applications/adt-bundle-mac-x86_64/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+    <item
+        dex="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/sample/build/intermediates/pre-dexed/debug/joda-time-2.1-686db5850f1de97ba45ab039c96a484ca2164c36.jar"
+        jar="/Users/art.beatte/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.1/8f79e353ef77da6710e1f10d34fc3698eaaacbca/joda-time-2.1.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8f79e353ef77da6710e1f10d34fc3698eaaacbca"/>
+    <item
+        dex="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/sample/build/intermediates/pre-dexed/debug/classes-f5e19e79a8ce96c55d88b09bc25090bbdf1c0fbd.jar"
+        jar="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/sample/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
+    <item
+        dex="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/sample/build/intermediates/pre-dexed/debug/classes-f8f29c3fbd25350b5cea7751100ebb0dc7e43b35.jar"
+        jar="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/sample/build/intermediates/exploded-aar/org.jraf/android-switch-backport/1.3.1/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="1be3f819d3a9f59f671dbb95680e60824552b3a7"/>
+    <item
+        dex="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/sample/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-221d5854b84f2e0f39dbd2a8c5e08a7e5a3300f0.jar"
+        jar="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/sample/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
+    <item
+        dex="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/sample/build/intermediates/pre-dexed/debug/classes-04ddd3b18ef6a7be436f6c0bcf5d573feeb938de.jar"
+        jar="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/sample/build/intermediates/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="af64527b748983a75de9c0756e9768b56b240a49"/>
+
+</pre-dex-items>

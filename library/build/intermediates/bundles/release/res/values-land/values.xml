@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values-land/dimens.xml -->
+    <eat-comment />
+
+    <dimen name="date_viewpager_height">189dip</dimen>
+    <dimen name="dialog_height">200dip</dimen>
+    <dimen name="dialpad_font_size">24sp</dimen>
+    <dimen name="left_side_width">250dip</dimen>
+    <dimen name="recurrence_picker_height">281dp</dimen>
+    <dimen name="recurrence_picker_width">500dp</dimen>
+    <dimen name="selected_date_day_size">100dp</dimen>
+    <dimen name="selected_date_month_size">30dp</dimen>
+    <dimen name="selected_date_year_size">30dp</dimen>
+
+</resources>

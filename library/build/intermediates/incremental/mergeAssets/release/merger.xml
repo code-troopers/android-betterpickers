@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="2" >
+
+    <dataSet config="main" >
+        <source path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/assets" />
+    </dataSet>
+    <dataSet config="release" >
+        <source path="/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/release/assets" />
+    </dataSet>
+
+</merger>

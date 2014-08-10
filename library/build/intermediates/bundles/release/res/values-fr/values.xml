@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- From: file:/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values-fr/strings.xml -->
+    <eat-comment />
+
+    <plurals name="daily">
+        <item quantity="one">Quotidien</item>
+        <item quantity="other">Tous les <ns1:g id="number">%d</ns1:g> jours</item>
+    </plurals>
+    <plurals name="endByCount">
+        <item quantity="one">; pour une fois</item>
+        <item quantity="other">; pour <ns1:g id="number">%d</ns1:g> fois</item>
+    </plurals>
+    <plurals name="recurrence_end_count">
+        <item quantity="one">Pour <ns1:g id="event_count">%d</ns1:g> événement</item>
+        <item quantity="other">Pour <ns1:g id="event_count">%d</ns1:g> événements</item>
+    </plurals>
+    <plurals name="recurrence_interval_daily">
+
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">Tous les <ns1:g id="count">%d</ns1:g> jour</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="other">Tous les <ns1:g id="count">%d</ns1:g> jours</item>
+    </plurals>
+    <plurals name="recurrence_interval_monthly">
+
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">Tous les <ns1:g id="count">%d</ns1:g> mois</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="other">Tous les <ns1:g id="count">%d</ns1:g> mois</item>
+    </plurals>
+    <plurals name="recurrence_interval_weekly">
+
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">Toutes les <ns1:g id="count">%d</ns1:g> semaine</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="other">Toutes les <ns1:g id="count">%d</ns1:g> semaines</item>
+    </plurals>
+    <plurals name="recurrence_interval_yearly">
+
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">Toutes les <ns1:g id="count">%d</ns1:g> année</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="other">Toutes les <ns1:g id="count">%d</ns1:g> années</item>
+    </plurals>
+    <plurals name="weekly">
+        <item quantity="one">Hebdomadaire le <ns1:g id="days_of_week">%2$s</ns1:g></item>
+        <item quantity="other">Toutes les <ns1:g id="number">%1$d</ns1:g> semaines le <ns1:g id="days_of_week">%2$s</ns1:g></item>
+    </plurals>
+
+    <string name="acessibility_recurrence_choose_end_date_description">modifier la date de fin</string>
+    <string name="day_c">JOUR</string>
+    <string name="day_of_week_label_typeface">sans-serif</string>
+    <string name="day_picker_description">Grille mensuelle</string>
+    <string name="deleted_key">%1$s effacé</string>
+    <string name="done_label">Fini</string>
+    <string name="endByDate">; jusq\'à <ns1:g id="date">%s</ns1:g></string>
+    <string name="every_weekday">"Tous les jours de semaine (Mon\u2013Fri)"</string>
+    <string name="expiration_picker_seperator">/</string>
+    <string name="hint_time_zone_search">Nom du pays</string>
+    <string name="hms_picker_hours_label">H</string>
+    <string name="hms_picker_minutes_label">M</string>
+    <string name="hms_picker_seconds_label">S</string>
+    <string name="hour_picker_description">Slider d\'heures circulaire</string>
+    <string name="hours_label">h</string>
+    <string name="hours_label_description">heures</string>
+    <string name="item_is_selected">%1$s choisi</string>
+    <string name="max_error">S\'il vous plaît, veuillez indiquer un nombre plus petit ou égal à %1$d</string>
+    <string name="min_error">S\'il vous plaît, veuillez indiquer un nombre plus grand ou égal à %1$d</string>
+    <string name="min_max_error">S\'il vous plaît, veuillez indiquer un nombre entre %1$d et %2$d</string>
+    <string name="minute_picker_description">Slider de minutes circulaire</string>
+    <string name="minutes_label">m</string>
+    <string name="minutes_label_description">minutes</string>
+    <string name="month_c">MOIS</string>
+    <string name="monthly">Mensuel</string>
+    <string name="no_results_found">Aucun résultat trouvé</string>
+    <string name="number_delete">Effacer</string>
+    <string name="number_picker_minus_label">—</string>
+    <string name="number_picker_plus_minus">+/-</string>
+    <string name="number_picker_seperator">.</string>
+    <string name="palestine_display_name">Palestine</string>
+    <string name="picker_cancel">Annuler</string>
+    <string name="picker_set">OK</string>
+    <string name="radial_numbers_typeface">sans-serif</string>
+    <string name="recurrence_end_continously">Toujours</string>
+    <string name="recurrence_end_count_label">Pour un nombre d\événements</string>
+    <string name="recurrence_end_date">Jusqu\'au <ns1:g id="date">%s</ns1:g></string>
+    <string name="recurrence_end_date_label">Jusqu\'à une date</string>
+    <string name="recurrence_month_pattern_by_day">le même jour tous les mois</string>
+    <string name="sans_serif">sans-serif</string>
+    <string name="save_label">Fini</string>
+    <string name="searchview_description_clear">Effacer</string>
+    <string name="seconds_label">s</string>
+    <string name="seconds_label_description">secondes</string>
+    <string name="select_day">Choisir le mois et le jour</string>
+    <string name="select_hours">Choisir les heures</string>
+    <string name="select_minutes">Choisir les minutes</string>
+    <string name="select_year">Choisir l\'année</string>
+    <string name="switch_off">OFF</string>
+    <string name="switch_on">ON</string>
+    <string name="time_picker_00_label">:00</string>
+    <string name="time_picker_30_label">:30</string>
+    <string name="time_picker_ampm_label">--</string>
+    <string name="time_picker_time_seperator">:</string>
+    <string name="time_placeholder">--</string>
+    <string name="time_separator">:</string>
+    <string name="timer_delete">Effacer</string>
+    <string name="year_c">ANNÉE</string>
+    <string name="year_picker_description">Liste des années</string>
+    <string name="yearly_plain">Annuel</string>
+
+</resources>

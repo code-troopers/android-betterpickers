@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/Users/art.beatte/Android_Studio/Smart_Scale/android-betterpickers/library/src/main/res/values-it/strings.xml -->
+    <eat-comment />
+
+    <string name="day_c">GIORNO</string>
+    <string name="day_of_week_label_typeface">sans-serif</string>
+    <string name="day_picker_description">Griglia mensile dei giorni</string>
+    <string name="deleted_key">%1$s eliminato</string>
+    <string name="done_label">Fine</string>
+    <string name="expiration_picker_seperator">/</string>
+    <string name="hms_picker_hours_label">H</string>
+    <string name="hms_picker_minutes_label">M</string>
+    <string name="hms_picker_seconds_label">S</string>
+    <string name="hour_picker_description">Cursore circolare delle Ore</string>
+    <string name="hours_label">h</string>
+    <string name="hours_label_description">ore</string>
+    <string name="item_is_selected">%1$s selezionato</string>
+    <string name="max_error">Inserisci un numero uguale o minore di %1$d</string>
+    <string name="min_error">Inserisci un numero uguale o maggiore di %1$d</string>
+    <string name="min_max_error">Inserisci un numero compreso tra %1$d e %2$d</string>
+    <string name="minute_picker_description">Cursore circolare dei Minuti</string>
+    <string name="minutes_label">m</string>
+    <string name="minutes_label_description">minuti</string>
+    <string name="month_c">MESE</string>
+    <string name="number_delete">Elimina</string>
+    <string name="number_picker_minus_label">—</string>
+    <string name="number_picker_plus_minus">+/-</string>
+    <string name="number_picker_seperator">.</string>
+    <string name="picker_cancel">Cancella</string>
+    <string name="picker_set">OK</string>
+    <string name="radial_numbers_typeface">sans-serif</string>
+    <string name="sans_serif">sans-serif</string>
+    <string name="seconds_label">s</string>
+    <string name="seconds_label_description">secondi</string>
+    <string name="select_day">Seleziona Mese e Giorno</string>
+    <string name="select_hours">Seleziona le Ore</string>
+    <string name="select_minutes">Seleziona i Minuti</string>
+    <string name="select_year">Seleziona Anno</string>
+    <string name="time_picker_00_label">:00</string>
+    <string name="time_picker_30_label">:30</string>
+    <string name="time_picker_ampm_label">--</string>
+    <string name="time_picker_time_seperator">:</string>
+    <string name="time_placeholder">--</string>
+    <string name="time_separator">:</string>
+    <string name="timer_delete">Elimina</string>
+    <string name="year_c">ANNO</string>
+    <string name="year_picker_description">Lista Anno</string>
+
+</resources>
