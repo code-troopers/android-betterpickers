@@ -24,3 +24,5 @@ dependencies {
     compile 'com.android.support:support-v4:20.0.0'
     compile "com.nineoldandroids:library:2.4.0"
 }
+
+apply from: 'http://git.oschina.net/chenyoca/GradlePublish/raw/master/publish_aar.gradle'

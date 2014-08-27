@@ -12,6 +12,14 @@ Try out the sample application on [Google Play][6].
 Changelog
 =========
 
+**1.5.3**
+
+* 将项目由Maven转换为Gradle项目
+* 已加入中文支持
+* 已上传到本人的Maven Central组ID中，
+
+    compile 'com.github.yoojia:betterpickers:1.5.3@aar'
+
 **1.5.2**
 * Bugfix for Gradle resource processing Switch backport attrs.
 
