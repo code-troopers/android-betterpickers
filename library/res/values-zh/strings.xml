@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="picker_cancel">取消</string>
+    <string name="picker_set">确定</string>
+    <string name="hours_label">时</string>
+    <string name="minutes_label">分</string>
+    <string name="seconds_label">秒</string>
+    <string name="hours_label_description">小时</string>
+    <string name="minutes_label_description">分钟</string>
+    <string name="seconds_label_description">秒</string>
+    <string name="timer_delete">删除</string>
+    <string name="time_picker_ampm_label">--</string>
+    <string name="time_picker_time_seperator">:</string>
+    <string name="time_picker_00_label">:00</string>
+    <string name="time_picker_30_label">:30</string>
+    <string name="number_picker_minus_label">—</string>
+    <string name="number_picker_seperator">.</string>
+    <string name="number_delete">删除</string>
+    <string name="number_picker_plus_minus">+/-</string>
+    <string name="hms_picker_hours_label">时</string>
+    <string name="hms_picker_minutes_label">分</string>
+    <string name="hms_picker_seconds_label">秒</string>
+    <string name="expiration_picker_seperator">/</string>
+    <string name="month_c">设置月份</string>
+    <string name="day_c">设置日期</string>
+    <string name="year_c">设置年份</string>
+    <string name="done_label">完成</string>
+ 
+</resources>
+
