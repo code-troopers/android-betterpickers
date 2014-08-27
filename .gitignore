@@ -12,11 +12,13 @@ bin/
 gen/
 local.properties
 target/
+build/
 classes/
 gen-external-apklibs/
 out/
 tmp/
 .project
+.gradle
 target
 release.properties
 pom.xml.*
