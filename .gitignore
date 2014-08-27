@@ -12,6 +12,7 @@ bin/
 gen/
 local.properties
 target/
+build/
 classes/
 gen-external-apklibs/
 out/
