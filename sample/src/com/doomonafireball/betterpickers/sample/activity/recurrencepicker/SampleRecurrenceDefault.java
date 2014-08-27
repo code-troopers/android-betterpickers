@@ -75,6 +75,17 @@ public class SampleRecurrenceDefault extends BaseSampleActivity
         populateRepeats();
     }
 
+    @Override
+    public void onResume() {
+        // Example of reattaching to the fragment
+        super.onResume();
+        RecurrencePickerDialog rpd = (RecurrencePickerDialog) getSupportFragmentManager().findFragmentByTag(
+                FRAG_TAG_RECUR_PICKER);
+        if (rpd != null) {
+            rpd.setOnRecurrenceSetListener(this);
+        }
+    }
+
     private void populateRepeats() {
         Resources r = getResources();
         String repeatString = "";

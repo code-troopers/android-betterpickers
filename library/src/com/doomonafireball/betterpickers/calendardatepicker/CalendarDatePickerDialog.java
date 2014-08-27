@@ -16,16 +16,15 @@
 
 package com.doomonafireball.betterpickers.calendardatepicker;
 
+import com.doomonafireball.betterpickers.HapticFeedbackController;
 import com.doomonafireball.betterpickers.R;
 import com.doomonafireball.betterpickers.Utils;
+import com.doomonafireball.betterpickers.calendardatepicker.MonthAdapter.CalendarDay;
 import com.nineoldandroids.animation.ObjectAnimator;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.os.Vibrator;
 import android.support.v4.app.DialogFragment;
 import android.text.format.DateUtils;
 import android.util.Log;
@@ -99,8 +98,7 @@ public class CalendarDatePickerDialog extends DialogFragment implements
     private int mMinYear = DEFAULT_START_YEAR;
     private int mMaxYear = DEFAULT_END_YEAR;
 
-    private Vibrator mVibrator;
-    private long mLastVibrate;
+    private HapticFeedbackController mHapticFeedbackController;
 
     private boolean mDelayAnimation = true;
 
@@ -116,7 +114,7 @@ public class CalendarDatePickerDialog extends DialogFragment implements
     public interface OnDateSetListener {
 
         /**
-         * @param DatePickerDialog The view associated with this listener.
+         * @param CalendarDatePickerDialog The view associated with this listener.
          * @param year The year that was set.
          * @param monthOfYear The month that was set (0-11) for compatibility with {@link java.util.Calendar}.
          * @param dayOfMonth The day of the month that was set.
@@ -127,7 +125,7 @@ public class CalendarDatePickerDialog extends DialogFragment implements
     /**
      * The callback used to notify other date picker components of a change in selected date.
      */
-    interface OnDateChangedListener {
+    public interface OnDateChangedListener {
 
         public void onDateChanged();
     }
@@ -164,7 +162,6 @@ public class CalendarDatePickerDialog extends DialogFragment implements
         final Activity activity = getActivity();
         activity.getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-        mVibrator = (Vibrator) activity.getSystemService(Context.VIBRATOR_SERVICE);
         if (savedInstanceState != null) {
             mCalendar.set(Calendar.YEAR, savedInstanceState.getInt(KEY_SELECTED_YEAR));
             mCalendar.set(Calendar.MONTH, savedInstanceState.getInt(KEY_SELECTED_MONTH));
@@ -221,7 +218,7 @@ public class CalendarDatePickerDialog extends DialogFragment implements
         }
 
         final Activity activity = getActivity();
-        mDayPickerView = new DayPickerView(activity, this);
+        mDayPickerView = new SimpleDayPickerView(activity, this);
         mYearPickerView = new YearPickerView(activity, this);
 
         Resources res = getResources();
@@ -267,7 +264,21 @@ public class CalendarDatePickerDialog extends DialogFragment implements
                 mYearPickerView.postSetSelectionFromTop(listPosition, listPositionOffset);
             }
         }
+
+        mHapticFeedbackController = new HapticFeedbackController(activity);
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mHapticFeedbackController.start();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mHapticFeedbackController.stop();
     }
 
     private void setCurrentView(final int viewIndex) {
@@ -417,8 +428,8 @@ public class CalendarDatePickerDialog extends DialogFragment implements
 
 
     @Override
-    public SimpleMonthAdapter.CalendarDay getSelectedDay() {
-        return new SimpleMonthAdapter.CalendarDay(mCalendar);
+    public CalendarDay getSelectedDay() {
+        return new CalendarDay(mCalendar);
     }
 
     @Override
@@ -446,19 +457,8 @@ public class CalendarDatePickerDialog extends DialogFragment implements
         mListeners.remove(listener);
     }
 
-    /**
-     * Try to vibrate. To prevent this becoming a single continuous vibration, nothing will happen if we have vibrated
-     * very recently.
-     */
     @Override
     public void tryVibrate() {
-        if (mVibrator != null) {
-            long now = SystemClock.uptimeMillis();
-            // We want to try to vibrate each individual tick discretely.
-            if (now - mLastVibrate >= 125) {
-                mVibrator.vibrate(5);
-                mLastVibrate = now;
-            }
-        }
+        mHapticFeedbackController.tryVibrate();
     }
 }

@@ -34,8 +34,8 @@ public class CircleView extends View {
 
     private final Paint mPaint = new Paint();
     private boolean mIs24HourMode;
-    private int mWhite;
-    private int mBlack;
+    private int mCircleColor;
+    private int mDotColor;
     private float mCircleRadiusMultiplier;
     private float mAmPmCircleRadiusMultiplier;
     private boolean mIsInitialized;
@@ -49,8 +49,8 @@ public class CircleView extends View {
         super(context);
 
         Resources res = context.getResources();
-        mWhite = res.getColor(R.color.white);
-        mBlack = res.getColor(R.color.numbers_text_color);
+        mCircleColor = res.getColor(R.color.white);
+        mDotColor = res.getColor(R.color.numbers_text_color);
         mPaint.setAntiAlias(true);
 
         mIsInitialized = false;
@@ -77,6 +77,16 @@ public class CircleView extends View {
         mIsInitialized = true;
     }
 
+    /* package */ void setTheme(Context context, boolean dark) {
+        Resources res = context.getResources();
+        if (dark) {
+            mCircleColor = res.getColor(R.color.dark_gray);
+            mDotColor = res.getColor(R.color.light_gray);
+        } else {
+            mCircleColor = res.getColor(R.color.white);
+            mDotColor = res.getColor(R.color.numbers_text_color);
+        }
+    }
 
     @Override
     public void onDraw(Canvas canvas) {
@@ -102,11 +112,11 @@ public class CircleView extends View {
         }
 
         // Draw the white circle.
-        mPaint.setColor(mWhite);
+        mPaint.setColor(mCircleColor);
         canvas.drawCircle(mXCenter, mYCenter, mCircleRadius, mPaint);
 
         // Draw a small black circle in the center.
-        mPaint.setColor(mBlack);
+        mPaint.setColor(mDotColor);
         canvas.drawCircle(mXCenter, mYCenter, 2, mPaint);
     }
 }

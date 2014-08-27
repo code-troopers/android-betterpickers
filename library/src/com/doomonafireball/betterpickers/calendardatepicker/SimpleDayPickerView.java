@@ -17,18 +17,24 @@
 package com.doomonafireball.betterpickers.calendardatepicker;
 
 import android.content.Context;
+import android.util.AttributeSet;
 
 /**
- * An adapter for a list of {@link SimpleMonthView} items.
+ * A DayPickerView customized for {@link SimpleMonthAdapter}
  */
-public class SimpleMonthAdapter extends MonthAdapter {
+public class SimpleDayPickerView extends DayPickerView {
 
-    public SimpleMonthAdapter(Context context, CalendarDatePickerController controller) {
+    public SimpleDayPickerView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public SimpleDayPickerView(Context context, CalendarDatePickerController controller) {
         super(context, controller);
     }
 
     @Override
-    public MonthView createMonthView(Context context) {
-        return new SimpleMonthView(context);
+    public MonthAdapter createMonthAdapter(Context context, CalendarDatePickerController controller) {
+        return new SimpleMonthAdapter(context, controller);
     }
+
 }

@@ -144,6 +144,17 @@ public class RadialTextsView extends View {
         mIsInitialized = true;
     }
 
+    /* package */ void setTheme(Context context, boolean themeDark) {
+        Resources res = context.getResources();
+        int textColor;
+        if (themeDark) {
+            textColor = res.getColor(R.color.white);
+        } else {
+            textColor = res.getColor(R.color.numbers_text_color);
+        }
+        mPaint.setColor(textColor);
+    }
+
     /**
      * Allows for smoother animation.
      */
