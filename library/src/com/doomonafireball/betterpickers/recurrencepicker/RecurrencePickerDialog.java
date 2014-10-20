@@ -19,7 +19,7 @@ package com.doomonafireball.betterpickers.recurrencepicker;
 import com.doomonafireball.betterpickers.R;
 import com.doomonafireball.betterpickers.calendardatepicker.CalendarDatePickerDialog;
 
-import org.jraf.android.backport.switchwidget.Switch;
+import android.support.v7.widget.SwitchCompat;
 
 import android.app.Activity;
 import android.content.Context;
@@ -310,7 +310,7 @@ public class RecurrencePickerDialog extends DialogFragment implements OnItemSele
 
     private static final String FRAG_TAG_DATE_PICKER = "tag_date_picker_frag";
 
-    private Switch mRepeatSwitch;
+    private android.support.v7.widget.SwitchCompat mRepeatSwitch;
 
     private EditText mInterval;
     private TextView mIntervalPreText;
@@ -668,7 +668,7 @@ public class RecurrencePickerDialog extends DialogFragment implements OnItemSele
         final Activity activity = getActivity();
         final Configuration config = activity.getResources().getConfiguration();
 
-        mRepeatSwitch = (Switch) mView.findViewById(R.id.repeat_switch);
+        mRepeatSwitch = (android.support.v7.widget.SwitchCompat) mView.findViewById(R.id.repeat_switch);
         mRepeatSwitch.setChecked(mModel.recurrenceState == RecurrenceModel.STATE_RECURRENCE);
         mRepeatSwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
