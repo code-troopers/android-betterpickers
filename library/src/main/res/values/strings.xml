@@ -102,6 +102,14 @@
     <!-- Specifies that a repeating event to repeat for a number of times. A repeating event can repeat forever, repeat in a certain frequency until a certain date, or repeat for a number of times. e.g. repeat 10 times and stop. This string is for the last case [CHAR LIMIT=25] -->
     <string name="recurrence_end_count_label">For a number of events</string>
 
+    <!-- Strings to describe how frequently to repeat an event (e.g. every 5 hours) -->
+    <plurals name="recurrence_interval_hourly">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">Every <xliff:g id="count">%d</xliff:g> hour</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="other">Every <xliff:g id="count">%d</xliff:g> hours</item>
+    </plurals>
+
     <!-- Strings to describe how frequently to repeat an event (e.g. every 5 days) -->
     <plurals name="recurrence_interval_daily">
         <!-- Singular form [CHAR LIMIT=30] -->
@@ -148,6 +156,13 @@
         <item quantity="one">; for one time</item>
         <item quantity="other">; for <xliff:g id="number">%d</xliff:g> times</item>
     </plurals>
+
+    <!-- A description for an event that repeats daily. For example, Every 2 days [CHAR LIMIT=15]-->
+    <plurals name="hourly">
+        <item quantity="one">Hourly</item>
+        <item quantity="other">Every <xliff:g id="number">%d</xliff:g> hours</item>
+    </plurals>
+
     <!-- A description for an event that repeats daily. For example, Every 2 days [CHAR LIMIT=15]-->
     <plurals name="daily">
         <item quantity="one">Daily</item>
