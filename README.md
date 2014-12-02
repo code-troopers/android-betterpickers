@@ -80,22 +80,28 @@ Eclipse or ant.  Note that to use this library, both it and your project must be
 If you are a Maven user you can easily include the library by specifying it as
 a dependency:
 
-    <dependency>
-      <groupId>com.doomonafireball.betterpickers</groupId>
-      <artifactId>library</artifactId>
-      <version>1.5.2</version>
-      <type>aar</type>
-    </dependency>
+```xml
+<dependency>
+  <groupId>com.doomonafireball.betterpickers</groupId>
+  <artifactId>library</artifactId>
+  <version>1.5.2</version>
+  <type>aar</type>
+</dependency>
+```
 
 If you are a Gradle user you can also easily include the library:
 
-    compile 'com.doomonafireball.betterpickers:library:1.5.2'
+```groovy
+compile 'com.doomonafireball.betterpickers:library:1.5.2'
+```
 
 If you are bringing in the support library you may need to add an exclusion:
 
-    compile ("com.doomonafireball.betterpickers:library:1.5.2") {
-        exclude group: 'com.android.support', module: 'support-v4'
-    }
+```groovy
+compile ("com.doomonafireball.betterpickers:library:1.5.2") {
+    exclude group: 'com.android.support', module: 'support-v4'
+}
+```
 
 There is a standalone Gradle demo [here][14] that may also help.
 
@@ -106,25 +112,30 @@ Usage
 
   1. Implement the appropriate Handler callbacks:
 
-        public class MyActivity extends Activity implements DatePickerDialogFragment.DatePickerDialogHandler {
-        
-          @Override
-          public void onCreate(Bundle savedInstanceState) {
-            // ...
-          }
-          
-          @Override
-          public void onDialogDateSet(int year, int monthOfYear, int dayOfMonth) {
-            // Do something with your date!
-          }
-        }  
+  ```java
+  public class MyActivity extends Activity implements 
+    DatePickerDialogFragment.DatePickerDialogHandler {
+  
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+      // ...
+    }
+    
+    @Override
+    public void onDialogDateSet(int year, int monthOfYear, int dayOfMonth) {
+      // Do something with your date!
+    }
+  }
+  ```
 
   2. Use one of the Builder classes to create a PickerDialog with a theme:
 
-        DatePickerBuilder dpb = new DatePickerBuilder()
-            .setFragmentManager(getSupportFragmentManager())
-            .setStyleResId(R.style.BetterPickersDialogFragment);
-        dpb.show();
+  ```java
+  DatePickerBuilder dpb = new DatePickerBuilder()
+      .setFragmentManager(getSupportFragmentManager())
+      .setStyleResId(R.style.BetterPickersDialogFragment);
+  dpb.show();
+  ```
 
 Theming
 =======
@@ -144,23 +155,27 @@ You can use your own themes if you'd like to change certain attributes.  BetterP
 
   1. Create your own custom theme in `styles.xml`:
 
-        <style name="MyCustomBetterPickerTheme">
-            <item name="bpDialogBackground">@drawable/custom_dialog_background</item>
-            <item name="bpTextColor">@color/custom_text_color</item>
-            <item name="bpDeleteIcon">@drawable/ic_backspace_custom</item>
-            <item name="bpCheckIcon">@drawable/ic_check_custom</item>
-            <item name="bpKeyBackground">@drawable/key_background_custom</item>
-            <item name="bpButtonBackground">@drawable/button_background_custom</item>
-            <item name="bpDividerColor">@color/custom_divider_color</item>
-            <item name="bpKeyboardIndicatorColor">@color/custom_keyboard_indicator_color</item>
-        </style>
-        
+  ```xml
+  <style name="MyCustomBetterPickerTheme">
+      <item name="bpDialogBackground">@drawable/custom_dialog_background</item>
+      <item name="bpTextColor">@color/custom_text_color</item>
+      <item name="bpDeleteIcon">@drawable/ic_backspace_custom</item>
+      <item name="bpCheckIcon">@drawable/ic_check_custom</item>
+      <item name="bpKeyBackground">@drawable/key_background_custom</item>
+      <item name="bpButtonBackground">@drawable/button_background_custom</item>
+      <item name="bpDividerColor">@color/custom_divider_color</item>
+      <item name="bpKeyboardIndicatorColor">@color/custom_keyboard_indicator_color</item>
+  </style>
+  ```
+
   2. Instantiate your `DialogFragment` using your custom theme:
 
-        DatePickerBuilder dpb = new DatePickerBuilder()
-            .setFragmentManager(getSupportFragmentManager())
-            .setStyleResId(R.style.MyCustomBetterPickerTheme);
-        dpb.show();
+  ```java
+  DatePickerBuilder dpb = new DatePickerBuilder()
+      .setFragmentManager(getSupportFragmentManager())
+      .setStyleResId(R.style.MyCustomBetterPickerTheme);
+  dpb.show();
+  ```
 
 Contribution
 ============
