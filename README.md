@@ -12,7 +12,7 @@ Try out the sample application on [Google Play][6].
 Changelog
 =========
 ***1.5.4***
-* Re-Added setMaxDate and SetMinDate from the AOSP DateTimePickers, and change it to don't disallow select date before or after this sets.
+* Re-Added setMaxDate and SetMinDate from the AOSP DateTimePickers, and change it to disallow select date before or after this sets.
 
 ***1.5.3***
 * BugFix to work with support library V21+
