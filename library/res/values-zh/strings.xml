@@ -173,13 +173,13 @@
 
     <!-- Hint text to encourage the user to enter a country name to find a time zone
      [CHAR LIMIT=25] -->
-    <string name="hint_time_zone_search">Type country name</string>
+    <string name="hint_time_zone_search">输入国家名称</string>
 
     <!-- Description of clear icon in the search bar, for accessibility. [CHAR LIMIT=NONE]-->
-    <string name="searchview_description_clear">Clear query</string>
+    <string name="searchview_description_clear">清空查询</string>
 
     <!-- Item to show when no timezones are found. [CHAR LIMIT=NONE]-->
-    <string name="no_results_found">No results found</string>
+    <string name="no_results_found">没有找到结果</string>
 
     <!-- Name to be displayed for "Palestine". This will be used when searching for a country to
          select a timezone. [CHAR LIMIT=NONE]
@@ -187,6 +187,6 @@
                  "Palestinian Territories". This is for use following Google's updated policy on
                  this matter.
                   -->
-    <string name="palestine_display_name">Palestine</string>
+    <string name="palestine_display_name">巴勒斯坦</string>
 </resources>
 
