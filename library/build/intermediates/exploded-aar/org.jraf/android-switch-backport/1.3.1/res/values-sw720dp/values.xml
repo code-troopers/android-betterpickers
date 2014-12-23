@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <!-- From: file:/Users/bod/gitrepo/android-switch-backport/library/res/values-sw720dp/dimens.xml -->
-    <eat-comment />
-
-    <dimen name="preference_icon_minWidth">56dp</dimen>
-
-</resources>

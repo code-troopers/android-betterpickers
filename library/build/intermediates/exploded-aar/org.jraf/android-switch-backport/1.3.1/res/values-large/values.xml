@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <!-- From: file:/Users/bod/gitrepo/android-switch-backport/library/res/values-large/dimens.xml -->
-    <eat-comment />
-
-    <dimen name="preference_widget_width">56dp</dimen>
-
-</resources>
