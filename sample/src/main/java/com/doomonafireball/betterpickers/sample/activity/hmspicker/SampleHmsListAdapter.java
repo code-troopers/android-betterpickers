@@ -99,12 +99,13 @@ public class SampleHmsListAdapter extends BaseSampleActivity {
                 holder = (ViewHolder) view.getTag();
             }
 
-            Hms hms = getItem(position);
+            final Hms hms = getItem(position);
             holder.text.setText("" + hms.hours + "h, " + hms.minutes + "m, " + hms.seconds + "s");
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     mHmsPickerBuilder.setReference(position);
+                    mHmsPickerBuilder.setTime(hms.hours, hms.minutes, hms.seconds);
                     mHmsPickerBuilder.addHmsPickerDialogHandler(SampleAdapter.this);
                     mHmsPickerBuilder.show();
                 }

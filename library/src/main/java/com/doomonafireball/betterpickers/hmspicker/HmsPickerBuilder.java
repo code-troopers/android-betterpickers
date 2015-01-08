@@ -19,6 +19,9 @@ public class HmsPickerBuilder {
     private Fragment targetFragment;
     private int mReference;
     private Vector<HmsPickerDialogHandler> mHmsPickerDialogHandlers = new Vector<HmsPickerDialogHandler>();
+    private int mHours;
+    private int mMinutes;
+    private int mSeconds;
 
     /**
      * Attach a FragmentManager. This is required for creation of the Fragment.
@@ -90,6 +93,21 @@ public class HmsPickerBuilder {
     }
 
     /**
+     * Set some initial values for the picker
+     *
+     * @param hours the initial hours value
+     * @param minutes the initial minutes value
+     * @param seconds the initial seconds value
+     * @return the current Builder object
+     */
+    public HmsPickerBuilder setTime(int hours, int minutes, int seconds) {
+        this.mHours = bounded(hours, 0, 99);
+        this.mMinutes = bounded(minutes, 0, 99);
+        this.mSeconds = bounded(seconds, 0, 99);
+        return this;
+    }
+
+    /**
      * Instantiate and show the Picker
      */
     public void show() {
@@ -109,6 +127,15 @@ public class HmsPickerBuilder {
             fragment.setTargetFragment(targetFragment, 0);
         }
         fragment.setHmsPickerDialogHandlers(mHmsPickerDialogHandlers);
+
+        if ((mHours | mMinutes | mSeconds) != 0) {
+            fragment.setTime(mHours, mMinutes, mSeconds);
+        }
+
         fragment.show(ft, "hms_dialog");
+    }
+
+    private static int bounded(int i, int min, int max) {
+        return Math.min(Math.max(i, min), max);
     }
 }
