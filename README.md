@@ -12,6 +12,11 @@ Try out the sample application on [Google Play][6].
 Changelog
 =========
 
+**1.5.3**
+* allow proper use of appcompat 21
+* added a few translations
+* first release made from the new support team (Code-Troopers)
+
 **1.5.2**
 * Bugfix for Gradle resource processing Switch backport attrs.
 
@@ -84,7 +89,7 @@ a dependency:
 <dependency>
   <groupId>com.doomonafireball.betterpickers</groupId>
   <artifactId>library</artifactId>
-  <version>1.5.2</version>
+  <version>1.5.3</version>
   <type>aar</type>
 </dependency>
 ```
@@ -92,13 +97,13 @@ a dependency:
 If you are a Gradle user you can also easily include the library:
 
 ```groovy
-compile 'com.doomonafireball.betterpickers:library:1.5.2'
+compile 'com.doomonafireball.betterpickers:library:1.5.3'
 ```
 
 If you are bringing in the support library you may need to add an exclusion:
 
 ```groovy
-compile ("com.doomonafireball.betterpickers:library:1.5.2") {
+compile ("com.doomonafireball.betterpickers:library:1.5.3") {
     exclude group: 'com.android.support', module: 'support-v4'
 }
 ```
