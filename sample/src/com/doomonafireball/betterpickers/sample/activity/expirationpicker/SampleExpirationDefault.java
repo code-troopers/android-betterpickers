@@ -32,7 +32,7 @@ public class SampleExpirationDefault extends BaseSampleActivity implements Expir
             @Override
             public void onClick(View v) {
                 ExpirationPickerBuilder dpb = new ExpirationPickerBuilder()
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 dpb.show();
             }

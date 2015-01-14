@@ -56,7 +56,7 @@ public class SampleDatePresetLight extends BaseSampleActivity
                     y = -1;
                 }
                 DatePickerBuilder dpb = new DatePickerBuilder()
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment_Light)
                         .setMonthOfYear(m)
                         .setDayOfMonth(d)

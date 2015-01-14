@@ -55,7 +55,7 @@ public class SampleDatePreset extends BaseSampleActivity implements DatePickerDi
                     y = -1;
                 }
                 DatePickerBuilder dpb = new DatePickerBuilder()
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment)
                         .setMonthOfYear(m)
                         .setDayOfMonth(d)

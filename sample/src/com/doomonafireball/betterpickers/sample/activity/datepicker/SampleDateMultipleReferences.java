@@ -44,7 +44,7 @@ public class SampleDateMultipleReferences extends BaseSampleActivity
             public void onClick(View v) {
                 DatePickerBuilder dpb = new DatePickerBuilder()
                         .setReference(BUTTON_ONE_REFERENCE)
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 dpb.show();
             }
@@ -54,7 +54,7 @@ public class SampleDateMultipleReferences extends BaseSampleActivity
             public void onClick(View v) {
                 DatePickerBuilder dpb = new DatePickerBuilder()
                         .setReference(BUTTON_TWO_REFERENCE)
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 dpb.show();
             }
@@ -64,7 +64,7 @@ public class SampleDateMultipleReferences extends BaseSampleActivity
             public void onClick(View v) {
                 DatePickerBuilder dpb = new DatePickerBuilder()
                         .setReference(BUTTON_THREE_REFERENCE)
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 dpb.show();
             }
@@ -74,7 +74,7 @@ public class SampleDateMultipleReferences extends BaseSampleActivity
             public void onClick(View v) {
                 DatePickerBuilder dpb = new DatePickerBuilder()
                         .setReference(BUTTON_FOUR_REFERENCE)
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 dpb.show();
             }

@@ -34,7 +34,7 @@ public class SampleNumberMultipleHandlers extends BaseSampleActivity
             @Override
             public void onClick(View v) {
                 NumberPickerBuilder npb = new NumberPickerBuilder()
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment)
                         .addNumberPickerDialogHandler(new MyCustomHandler());
                 npb.show();

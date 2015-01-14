@@ -22,6 +22,7 @@ import com.doomonafireball.betterpickers.calendardatepicker.CalendarDatePickerDi
 import org.jraf.android.backport.switchwidget.Switch;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -29,8 +30,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.view.ViewConfigurationCompat;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;

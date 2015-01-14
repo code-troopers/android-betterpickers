@@ -214,7 +214,7 @@ public abstract class MonthView extends View {
         // Set up accessibility components.
         mTouchHelper = new MonthViewTouchHelper(this);
         ViewCompat.setAccessibilityDelegate(this, mTouchHelper);
-        ViewCompat.setImportantForAccessibility(this, ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_YES);
+        ViewCompat.setImportantForAccessibility(this, IMPORTANT_FOR_ACCESSIBILITY_YES);
         mLockAccessibilityDelegate = true;
 
         // Sets up any standard paints that will be used

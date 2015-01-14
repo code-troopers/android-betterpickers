@@ -6,8 +6,8 @@ import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
 
 import org.joda.time.DateTime;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -36,7 +36,7 @@ public class SampleCalendarDateDefault extends BaseSampleActivity
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fm = getSupportFragmentManager();
+                FragmentManager fm = getFragmentManager();
                 DateTime now = DateTime.now();
                 CalendarDatePickerDialog calendarDatePickerDialog = CalendarDatePickerDialog
                         .newInstance(SampleCalendarDateDefault.this, now.getYear(), now.getMonthOfYear() - 1,
@@ -55,7 +55,7 @@ public class SampleCalendarDateDefault extends BaseSampleActivity
     public void onResume() {
         // Example of reattaching to the fragment
         super.onResume();
-        CalendarDatePickerDialog calendarDatePickerDialog = (CalendarDatePickerDialog) getSupportFragmentManager()
+        CalendarDatePickerDialog calendarDatePickerDialog = (CalendarDatePickerDialog) getFragmentManager()
                 .findFragmentByTag(FRAG_TAG_DATE_PICKER);
         if (calendarDatePickerDialog != null) {
             calendarDatePickerDialog.setOnDateSetListener(this);

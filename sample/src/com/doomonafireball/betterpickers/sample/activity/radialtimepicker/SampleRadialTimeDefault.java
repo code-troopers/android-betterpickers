@@ -6,8 +6,8 @@ import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
 
 import org.joda.time.DateTime;
 
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
@@ -53,13 +53,13 @@ public class SampleRadialTimeDefault extends BaseSampleActivity
                         .newInstance(SampleRadialTimeDefault.this, now.getHourOfDay(), now.getMinuteOfHour(),
                                 DateFormat.is24HourFormat(SampleRadialTimeDefault.this));
                 if (mHasDialogFrame) {
-                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                    FragmentTransaction ft = getFragmentManager().beginTransaction();
 
                     ft.add(R.id.frame, timePickerDialog, FRAG_TAG_TIME_PICKER)
                             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                             .commit();
                 } else {
-                    timePickerDialog.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
+                    timePickerDialog.show(getFragmentManager(), FRAG_TAG_TIME_PICKER);
                 }
             }
         });
@@ -74,7 +74,7 @@ public class SampleRadialTimeDefault extends BaseSampleActivity
     public void onResume() {
         // Example of reattaching to the fragment
         super.onResume();
-        RadialTimePickerDialog rtpd = (RadialTimePickerDialog) getSupportFragmentManager().findFragmentByTag(
+        RadialTimePickerDialog rtpd = (RadialTimePickerDialog) getFragmentManager().findFragmentByTag(
                 FRAG_TAG_TIME_PICKER);
         if (rtpd != null) {
             rtpd.setOnTimeSetListener(this);

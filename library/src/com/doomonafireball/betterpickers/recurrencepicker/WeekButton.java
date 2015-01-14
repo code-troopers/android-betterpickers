@@ -52,7 +52,7 @@ public class WeekButton extends android.widget.ToggleButton {
                     h = w;
                 }
             } else if (h < w) {
-                if (View.MeasureSpec.getMode(ViewCompat.getMeasuredWidthAndState(this)) != MeasureSpec.EXACTLY) {
+                if (View.MeasureSpec.getMode(ViewCompat.getMeasuredHeightAndState(this)) != MeasureSpec.EXACTLY) {
                     w = h;
                 }
             }

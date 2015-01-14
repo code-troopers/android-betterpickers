@@ -1,10 +1,10 @@
 package com.doomonafireball.betterpickers.sample.fragment;
 
-import com.actionbarsherlock.app.SherlockFragment;
 import com.doomonafireball.betterpickers.hmspicker.HmsPickerBuilder;
 import com.doomonafireball.betterpickers.hmspicker.HmsPickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +15,7 @@ import android.widget.TextView;
 /**
  * User: derek Date: 4/30/13 Time: 7:43 PM
  */
-public class SampleHmsFragment extends SherlockFragment
+public class SampleHmsFragment extends Fragment
         implements HmsPickerDialogFragment.HmsPickerDialogHandler {
 
     private TextView text;
@@ -34,7 +34,7 @@ public class SampleHmsFragment extends SherlockFragment
             @Override
             public void onClick(View v) {
                 HmsPickerBuilder hpb = new HmsPickerBuilder()
-                        .setFragmentManager(getChildFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment)
                         .setTargetFragment(SampleHmsFragment.this);
                 hpb.show();

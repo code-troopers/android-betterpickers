@@ -33,7 +33,7 @@ public class SampleNumberDefaultLight extends BaseSampleActivity
             @Override
             public void onClick(View v) {
                 NumberPickerBuilder npb = new NumberPickerBuilder()
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment_Light);
                 npb.show();
             }

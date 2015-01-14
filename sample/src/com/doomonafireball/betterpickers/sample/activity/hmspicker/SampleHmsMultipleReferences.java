@@ -44,7 +44,7 @@ public class SampleHmsMultipleReferences extends BaseSampleActivity
             public void onClick(View v) {
                 HmsPickerBuilder hpb = new HmsPickerBuilder()
                         .setReference(BUTTON_ONE_REFERENCE)
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 hpb.show();
             }
@@ -54,7 +54,7 @@ public class SampleHmsMultipleReferences extends BaseSampleActivity
             public void onClick(View v) {
                 HmsPickerBuilder hpb = new HmsPickerBuilder()
                         .setReference(BUTTON_TWO_REFERENCE)
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 hpb.show();
             }
@@ -64,7 +64,7 @@ public class SampleHmsMultipleReferences extends BaseSampleActivity
             public void onClick(View v) {
                 HmsPickerBuilder hpb = new HmsPickerBuilder()
                         .setReference(BUTTON_THREE_REFERENCE)
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 hpb.show();
             }
@@ -74,7 +74,7 @@ public class SampleHmsMultipleReferences extends BaseSampleActivity
             public void onClick(View v) {
                 HmsPickerBuilder hpb = new HmsPickerBuilder()
                         .setReference(BUTTON_FOUR_REFERENCE)
-                        .setFragmentManager(getSupportFragmentManager())
+                        .setFragmentManager(getFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
                 hpb.show();
             }

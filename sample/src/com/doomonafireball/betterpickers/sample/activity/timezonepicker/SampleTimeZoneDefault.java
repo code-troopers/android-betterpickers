@@ -8,9 +8,9 @@ import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
 import com.doomonafireball.betterpickers.timezonepicker.TimeZoneInfo;
 import com.doomonafireball.betterpickers.timezonepicker.TimeZonePickerDialog;
 
+import android.app.FragmentManager;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
 import android.text.format.Time;
 import android.view.View;
@@ -45,7 +45,7 @@ public class SampleTimeZoneDefault extends BaseSampleActivity
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fm = getSupportFragmentManager();
+                FragmentManager fm = getFragmentManager();
                 Bundle b = new Bundle();
                 Time t = new Time();
                 t.setToNow();

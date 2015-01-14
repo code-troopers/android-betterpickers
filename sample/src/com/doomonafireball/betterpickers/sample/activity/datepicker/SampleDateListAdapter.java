@@ -9,9 +9,9 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.DateTimeFormatterBuilder;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +34,7 @@ public class SampleDateListAdapter extends BaseSampleActivity {
 
         ListView list = (ListView) findViewById(R.id.list);
 
-        list.setAdapter(new SampleAdapter(this, getSupportFragmentManager()));
+        list.setAdapter(new SampleAdapter(this, getFragmentManager()));
     }
 
     private class SampleAdapter extends BaseAdapter implements DatePickerDialogFragment.DatePickerDialogHandler {
