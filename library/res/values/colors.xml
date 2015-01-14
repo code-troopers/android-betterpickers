@@ -16,6 +16,7 @@
     <color name="default_keyboard_indicator_color_light">#ff00ddff</color>
 
     <color name="white">#ffffff</color>
+    <color name="black">#ff000000</color>
     <color name="circle_background">#f2f2f2</color>
     <color name="line_background">#cccccc</color>
     <color name="ampm_text_color">#8c8c8c</color>
@@ -36,6 +37,7 @@
 
     <!-- Colors for red theme -->
     <color name="red">#ff3333</color>
+    <color name="darker_red">#ffc92d2d</color>
     <color name="red_focused">#853333</color>
     <color name="light_gray">#404040</color>
     <color name="dark_gray">#363636</color>

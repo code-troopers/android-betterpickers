@@ -39,6 +39,7 @@
         </LinearLayout>
 
         <View
+            android:id="@+id/calendar_date_picker_line"
             android:layout_width="match_parent"
             android:layout_height="1dip"
             android:background="@color/line_background" />

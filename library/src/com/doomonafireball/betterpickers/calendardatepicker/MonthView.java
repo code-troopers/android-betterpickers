@@ -169,6 +169,7 @@ public abstract class MonthView extends View {
     private final Calendar mCalendar;
     private final Calendar mDayLabelCalendar;
     private final MonthViewTouchHelper mTouchHelper;
+    private final Context mContext;
 
     private int mNumRows = DEFAULT_NUM_ROWS;
 
@@ -184,8 +185,8 @@ public abstract class MonthView extends View {
 
     public MonthView(Context context) {
         super(context);
-
-        Resources res = context.getResources();
+        mContext = context;
+        Resources res = mContext.getResources();
 
         mDayLabelCalendar = Calendar.getInstance();
         mCalendar = Calendar.getInstance();
@@ -218,6 +219,15 @@ public abstract class MonthView extends View {
         mLockAccessibilityDelegate = true;
 
         // Sets up any standard paints that will be used
+        initView();
+    }
+
+    public void setThemeDark(boolean themeDark) {
+        Resources res = mContext.getResources();
+        mDayTextColor = res.getColor(themeDark ? R.color.white : R.color.date_picker_text_normal);
+        mTodayNumberColor = res.getColor(themeDark ? R.color.red : R.color.blue);
+        mMonthTitleColor = res.getColor(R.color.white);
+        mMonthTitleBGColor = res.getColor(R.color.circle_background);
         initView();
     }
 

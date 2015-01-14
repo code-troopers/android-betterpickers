@@ -91,6 +91,9 @@ public abstract class DayPickerView extends ListView implements OnScrollListener
     private CalendarDatePickerController mController;
     private boolean mPerformingScroll;
 
+    private boolean mThemeDark = false;
+
+
     public DayPickerView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
@@ -132,6 +135,7 @@ public abstract class DayPickerView extends ListView implements OnScrollListener
         } else {
             mAdapter.setSelectedDay(mSelectedDay);
         }
+        mAdapter.setThemeDark(mThemeDark);
         // refresh the view with the new parameters
         setAdapter(mAdapter);
     }
@@ -278,6 +282,17 @@ public abstract class DayPickerView extends ListView implements OnScrollListener
     }
 
     protected ScrollStateRunnable mScrollStateChangedRunnable = new ScrollStateRunnable();
+
+    public boolean isThemeDark() {
+        return mThemeDark;
+    }
+
+    public void setThemeDark(boolean ThemeDark) {
+        this.mThemeDark = ThemeDark;
+        if (mAdapter != null) {
+            mAdapter.setThemeDark(mThemeDark);
+        }
+    }
 
     protected class ScrollStateRunnable implements Runnable {
 

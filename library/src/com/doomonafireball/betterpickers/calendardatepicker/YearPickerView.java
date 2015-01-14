@@ -46,12 +46,24 @@ public class YearPickerView extends ListView implements OnItemClickListener, OnD
     private int mViewSize;
     private int mChildSize;
     private TextViewWithCircularIndicator mSelectedView;
+    private Context mContext;
+
+    private boolean mThemeDark;
+
+    public boolean isThemeDark() {
+        return mThemeDark;
+    }
+
+    public void setThemeDark(boolean themeDark) {
+        this.mThemeDark = themeDark;
+    }
 
     /**
      * @param context
      */
     public YearPickerView(Context context, CalendarDatePickerController controller) {
         super(context);
+        mContext = context;
         mController = controller;
         mController.registerOnDateChangedListener(this);
         ViewGroup.LayoutParams frame = new ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT,
@@ -67,6 +79,7 @@ public class YearPickerView extends ListView implements OnItemClickListener, OnD
         setSelector(new StateListDrawable());
         setDividerHeight(0);
         onDateChanged();
+        mThemeDark = false;
     }
 
     private void init(Context context) {
@@ -113,6 +126,13 @@ public class YearPickerView extends ListView implements OnItemClickListener, OnD
                     super.getView(position, convertView, parent);
             v.requestLayout();
             int year = getYearFromTextView(v);
+            Resources res = getResources();
+
+            if (res!= null) {
+                v.setBackgroundColor(res.getColor(mThemeDark ?  R.color.light_gray : R.color.white));
+                v.setCircleColor(res.getColor(mThemeDark ? R.color.red : R.color.blue));
+                v.setTextColor(res.getColorStateList(mThemeDark ? R.color.calendar_date_holo_dark : R.color.calendar_date_holo_light));
+            }
             boolean selected = mController.getSelectedDay().year == year;
             v.drawIndicator(selected);
             if (selected) {
