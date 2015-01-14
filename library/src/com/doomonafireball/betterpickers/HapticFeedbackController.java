@@ -1,7 +1,9 @@
 package com.doomonafireball.betterpickers;
 
+import android.Manifest;
 import android.app.Service;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.SystemClock;
@@ -20,11 +22,16 @@ public class HapticFeedbackController {
                 Settings.System.HAPTIC_FEEDBACK_ENABLED, 0) == 1;
     }
 
+    private static boolean checkAppPermissions(Context context) {
+        return context.checkCallingOrSelfPermission(Manifest.permission.VIBRATE) == PackageManager.PERMISSION_GRANTED;
+    }
+
     private final Context mContext;
     private final ContentObserver mContentObserver;
 
     private Vibrator mVibrator;
     private boolean mIsGloballyEnabled;
+    private boolean mHasPermissions;
     private long mLastVibrate;
 
     public HapticFeedbackController(Context context) {
@@ -45,6 +52,7 @@ public class HapticFeedbackController {
 
         // Setup a listener for changes in haptic feedback settings
         mIsGloballyEnabled = checkGlobalSetting(mContext);
+        mHasPermissions = checkAppPermissions(mContext);
         Uri uri = Settings.System.getUriFor(Settings.System.HAPTIC_FEEDBACK_ENABLED);
         mContext.getContentResolver().registerContentObserver(uri, false, mContentObserver);
     }
@@ -62,7 +70,7 @@ public class HapticFeedbackController {
      * happen if we have vibrated very recently.
      */
     public void tryVibrate() {
-        if (mVibrator != null && mIsGloballyEnabled) {
+        if (mVibrator != null && mIsGloballyEnabled && mHasPermissions) {
             long now = SystemClock.uptimeMillis();
             // We want to try to vibrate each individual tick discretely.
             if (now - mLastVibrate >= VIBRATE_DELAY_MS) {
