@@ -16,21 +16,25 @@
     <declare-styleable name="Switch">
 
         <!-- Drawable to use as the "thumb" that switches back and forth. -->
-        <attr name="thumb" format="reference" />
+        <attr name="bpThumb" format="reference" />
         <!-- Drawable to use as the "track" that the switch thumb slides within. -->
-        <attr name="track" format="reference" />
+        <attr name="bpTrack" format="reference" />
         <!-- Text to use when the switch is in the checked/"on" state. -->
-        <attr name="textOn" format="reference" />
+        <attr name="bpTextOn" format="reference" />
         <!-- Text to use when the switch is in the unchecked/"off" state. -->
-        <attr name="textOff" format="reference" />
+        <attr name="bpTextOff" format="reference" />
         <!-- Amount of padding on either side of text within the switch thumb. -->
-        <attr name="thumbTextPadding" format="dimension" />
+        <attr name="bpThumbTextPadding" format="dimension" />
         <!-- TextAppearance style for text displayed on the switch thumb. -->
-        <attr name="switchTextAppearance" format="reference" />
+        <attr name="bpSwitchTextAppearance" format="reference" />
         <!-- Minimum width for the switch component -->
-        <attr name="switchMinWidth" format="dimension" />
+        <attr name="bpSwitchMinWidth" format="dimension" />
         <!-- Minimum space between the switch and caption text -->
-        <attr name="switchPadding" format="dimension" />
+        <attr name="bpSwitchPadding" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="BetterPickersSwitchTheme">
+        <attr name="bpSwitchStyle" format="reference" />
+        <attr name="bpSwitchPreferenceStyle" format="reference" />
     </declare-styleable>
     <declare-styleable name="Android">
 
