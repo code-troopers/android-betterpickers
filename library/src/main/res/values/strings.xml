@@ -168,9 +168,6 @@
     <!-- Calendar spinner item, to select that an event recurs every year. -->
     <string name="yearly_plain">Yearly</string>
 
-    <string name="switch_on">ON</string>
-    <string name="switch_off">OFF</string>
-
     <!-- Hint text to encourage the user to enter a country name to find a time zone
      [CHAR LIMIT=25] -->
     <string name="hint_time_zone_search">Type country name</string>
