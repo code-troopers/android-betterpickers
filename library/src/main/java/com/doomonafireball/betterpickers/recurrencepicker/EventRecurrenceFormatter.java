@@ -26,14 +26,13 @@ import com.doomonafireball.betterpickers.R;
 
 import java.util.Calendar;
 
-public class EventRecurrenceFormatter
-{
+public class EventRecurrenceFormatter {
 
     private static int[] mMonthRepeatByDayOfWeekIds;
     private static String[][] mMonthRepeatByDayOfWeekStrs;
 
     public static String getRepeatString(Context context, Resources r, EventRecurrence recurrence,
-            boolean includeEndString) {
+                                         boolean includeEndString) {
         String endString = "";
         if (includeEndString) {
             StringBuilder sb = new StringBuilder();
@@ -78,7 +77,7 @@ public class EventRecurrenceFormatter
 
                     if (recurrence.bydayCount > 0) {
                         int count = recurrence.bydayCount - 1;
-                        for (int i = 0 ; i < count ; i++) {
+                        for (int i = 0; i < count; i++) {
                             days.append(dayToString(recurrence.byday[i], dayOfWeekLength));
                             days.append(", ");
                         }
@@ -103,7 +102,11 @@ public class EventRecurrenceFormatter
             }
             case EventRecurrence.MONTHLY: {
                 if (recurrence.bydayCount == 1) {
-                    int weekday = recurrence.startDate.weekDay;
+                    int weekday;
+                    if (recurrence.startDate == null) {
+                        return null;
+                    }
+                    weekday = recurrence.startDate.weekDay;
                     // Cache this stuff so we won't have to redo work again later.
                     cacheMonthRepeatStrings(r, weekday);
                     int dayNumber = (recurrence.startDate.monthDay - 1) / 7;
@@ -146,6 +149,7 @@ public class EventRecurrenceFormatter
 
     /**
      * Converts day of week to a String.
+     *
      * @param day a EventRecurrence constant
      * @return day of week as a string
      */
@@ -155,19 +159,28 @@ public class EventRecurrenceFormatter
 
     /**
      * Converts EventRecurrence's day of week to DateUtil's day of week.
+     *
      * @param day of week as an EventRecurrence value
      * @return day of week as a DateUtil value.
      */
     private static int dayToUtilDay(int day) {
         switch (day) {
-        case EventRecurrence.SU: return Calendar.SUNDAY;
-        case EventRecurrence.MO: return Calendar.MONDAY;
-        case EventRecurrence.TU: return Calendar.TUESDAY;
-        case EventRecurrence.WE: return Calendar.WEDNESDAY;
-        case EventRecurrence.TH: return Calendar.THURSDAY;
-        case EventRecurrence.FR: return Calendar.FRIDAY;
-        case EventRecurrence.SA: return Calendar.SATURDAY;
-        default: throw new IllegalArgumentException("bad day argument: " + day);
+            case EventRecurrence.SU:
+                return Calendar.SUNDAY;
+            case EventRecurrence.MO:
+                return Calendar.MONDAY;
+            case EventRecurrence.TU:
+                return Calendar.TUESDAY;
+            case EventRecurrence.WE:
+                return Calendar.WEDNESDAY;
+            case EventRecurrence.TH:
+                return Calendar.THURSDAY;
+            case EventRecurrence.FR:
+                return Calendar.FRIDAY;
+            case EventRecurrence.SA:
+                return Calendar.SATURDAY;
+            default:
+                throw new IllegalArgumentException("bad day argument: " + day);
         }
     }
 }
