@@ -300,7 +300,7 @@ public class CalendarDatePickerDialog extends DialogFragment implements
         mYearView.setBackgroundColor(darkBackground);
         mMonthAndDayView.setBackgroundColor(darkBackground);
         view.setBackgroundColor(darkBackground);
-        if (mThemeDark) {
+        if (mThemeDark && mDayOfWeekView != null) {
             mDayOfWeekView.setBackgroundColor(lightBackground);
         }
         view.findViewById(R.id.day_picker_selected_date_layout).setBackgroundColor(darkBackground);
