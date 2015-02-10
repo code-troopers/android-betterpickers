@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BetterPickersDialogFragment">
+        <attr name="bpTextColor" format="reference"/>
+        <attr name="bpTitleColor" format="reference"/>
+        <attr name="bpDeleteIcon" format="reference"/>
+        <attr name="bpCheckIcon" format="reference"/>
+        <attr name="bpKeyBackground" format="reference"/>
+        <attr name="bpButtonBackground" format="reference"/>
+        <attr name="bpTitleDividerColor" format="color"/>
+        <attr name="bpDividerColor" format="color"/>
+        <attr name="bpKeyboardIndicatorColor" format="color"/>
+        <attr name="bpDialogBackground" format="reference"/>
+    </declare-styleable>
+    <declare-styleable name="Android">
+
+        <!-- Text color. -->
+        <attr name="android:textColor" />
+        <!-- Size of the text. Recommended dimension type for text is "sp" for scaled-pixels (example: 15sp). -->
+        <attr name="android:textSize" />
+        <!-- Style (bold, italic, bolditalic) for the text. -->
+        <attr name="android:textStyle" />
+        <!-- Typeface (normal, sans, serif, monospace) for the text. -->
+        <attr name="android:typeface" />
+        <!-- Color of the text selection highlight. -->
+        <attr name="android:textColorHighlight" />
+        <!-- Color of the hint text. -->
+        <attr name="android:textColorHint" />
+        <!-- Color of the links. -->
+        <attr name="android:textColorLink" />
+    </declare-styleable>
+</resources>
