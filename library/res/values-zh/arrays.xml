@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Recurrence picker: How events are to be repeated.  [CHAR LIMIT = 20] -->
+    <string-array name="recurrence_freq">
+        <item>按天重复</item>
+        <item>按星期重复</item>
+        <item>按月份重复</item>
+        <item>按年份重复</item>
+    </string-array>
+
+    <!-- The following sets of strings describe a monthly recurring event, which will repeat
+         on the Nth WEEKDAY of every month. For example, the 3rd Monday of every month, or
+         the last Sunday. These are set up like this to resolve any gender-matching issues
+         that were present in some languages.
+     -->
+    <!-- Repeat a monthly event on the same nth day of every Sunday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_sun">
+        <item >每月第一个周末</item>
+        <item >每月第二个周末</item>
+        <item >每月第三个周末</item>
+        <item >每月第四个周末</item>
+        <item >每月最后一个周末</item>
+     
+    </string-array>
+    <!-- Repeat a monthly event on the same nth day of every Monday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_mon">
+        <item >每月第一个周一</item>
+        <item >每月第二个周一</item>
+        <item >每月第三个周一</item>
+        <item >每月第四个周一</item>
+        <item >每月最后一个周一</item>
+
+    </string-array>
+    <!-- Repeat a monthly event on the same nth day of every Tuesday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_tues">
+        <item >每月第一个周二</item>
+        <item >每月第二个周二</item>
+        <item >每月第三个周二</item>
+        <item >每月第四个周二</item>
+        <item >每月最后一个周二</item>
+    </string-array>
+    <!-- Repeat a monthly event on the same nth day of every Wednesday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_wed">
+        <item >每月第一个周三</item>
+        <item >每月第二个周三</item>
+        <item >每月第三个周三</item>
+        <item >每月第四个周三</item>
+        <item >每月最后一个周三</item>
+    </string-array>
+    <!-- Repeat a monthly event on the same nth day of every Thursday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_thurs">
+        <item >每月第一个周四</item>
+        <item >每月第二个周四</item>
+        <item >每月第三个周四</item>
+        <item >每月第四个周四</item>
+        <item >每月最后一个周四</item>
+    </string-array>
+    <!-- Repeat a monthly event on the same nth day of every Friday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_fri">
+        <item >每月第一个周五</item>
+        <item >每月第二个周五</item>
+        <item >每月第三个周五</item>
+        <item >每月第四个周五</item>
+        <item >每月最后一个周五</item>
+    </string-array>
+    <!-- Repeat a monthly event on the same nth day of every Saturday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_sat">
+        <item >每月第一个周六</item>
+        <item >每月第二个周六</item>
+        <item >每月第三个周六</item>
+        <item >每月第四个周六</item>
+        <item >每月最后一个周六</item>
+    </string-array>
+
+
+
+</resources>
