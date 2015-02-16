@@ -164,6 +164,8 @@ public class HmsPickerDialogFragment extends DialogFragment {
         this.mHours = hours;
         this.mMinutes = minutes;
         this.mSeconds = seconds;
-        if (mPicker != null) mPicker.setTime(hours, minutes, seconds);
+        if (mPicker != null) {
+            mPicker.setTime(hours, minutes, seconds);
+        }
     }
 }
