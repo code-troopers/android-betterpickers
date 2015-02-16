@@ -34,6 +34,9 @@ public class HmsPickerDialogFragment extends DialogFragment {
     private int mButtonBackgroundResId;
     private int mDialogBackgroundResId;
     private Vector<HmsPickerDialogHandler> mHmsPickerDialogHandlers = new Vector<HmsPickerDialogHandler>();
+    private int mHours;
+    private int mMinutes;
+    private int mSeconds;
 
     /**
      * Create an instance of the Picker (used internally)
@@ -104,6 +107,7 @@ public class HmsPickerDialogFragment extends DialogFragment {
         });
         mPicker = (HmsPicker) v.findViewById(R.id.hms_picker);
         mPicker.setSetButton(mSet);
+        mPicker.setTime(mHours, mMinutes, mSeconds);
         mSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -154,5 +158,14 @@ public class HmsPickerDialogFragment extends DialogFragment {
      */
     public void setHmsPickerDialogHandlers(Vector<HmsPickerDialogHandler> handlers) {
         mHmsPickerDialogHandlers = handlers;
+    }
+
+    public void setTime(int hours, int minutes, int seconds) {
+        this.mHours = hours;
+        this.mMinutes = minutes;
+        this.mSeconds = seconds;
+        if (mPicker != null) {
+            mPicker.setTime(hours, minutes, seconds);
+        }
     }
 }
