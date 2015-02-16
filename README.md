@@ -112,7 +112,7 @@ compile ("com.doomonafireball.betterpickers:library:1.5.4") {
 }
 ```
 
-`You MUST manually add dependency to android-switch-backport`
+_You MUST manually add dependency to android-switch-backport_
 
 ```
 compile 'org.jraf:android-switch-backport:1.3.1@aar'
