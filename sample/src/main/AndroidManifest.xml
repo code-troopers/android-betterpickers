@@ -138,8 +138,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.numberpicker.SampleNumberListAdapter"
-            android:label="Number/List Adapter">
+            android:name=".activity.numberpicker.SampleNumberIntegerListAdapter"
+            android:label="Number/List Adapter - Integer">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.numberpicker.SampleNumberDoubleListAdapter"
+            android:label="Number/List Adapter - Double">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
