@@ -42,6 +42,6 @@ public class SampleTimeDefaultCustom extends BaseSampleActivity
 
     @Override
     public void onDialogTimeSet(int reference, int hourOfDay, int minute) {
-        text.setText("" + hourOfDay + ":" + minute);
+        text.setText("" + hourOfDay + ":" + String.format("%02d", minute));
     }
 }

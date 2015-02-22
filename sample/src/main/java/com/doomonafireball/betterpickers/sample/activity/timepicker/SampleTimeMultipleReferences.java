@@ -100,6 +100,6 @@ public class SampleTimeMultipleReferences extends BaseSampleActivity
             default:
                 buttonToSet = buttonOne;
         }
-        buttonToSet.setText("" + hourOfDay + ":" + minute);
+        buttonToSet.setText("" + hourOfDay + ":" + String.format("%02d", minute));
     }
 }
