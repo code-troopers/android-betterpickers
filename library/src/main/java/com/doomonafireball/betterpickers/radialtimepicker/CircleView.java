@@ -49,7 +49,7 @@ public class CircleView extends View {
         super(context);
 
         Resources res = context.getResources();
-        mCircleColor = res.getColor(R.color.white);
+        mCircleColor = res.getColor(R.color.bpWhite);
         mDotColor = res.getColor(R.color.numbers_text_color);
         mPaint.setAntiAlias(true);
 
@@ -80,10 +80,10 @@ public class CircleView extends View {
     /* package */ void setTheme(Context context, boolean dark) {
         Resources res = context.getResources();
         if (dark) {
-            mCircleColor = res.getColor(R.color.dark_gray);
-            mDotColor = res.getColor(R.color.light_gray);
+            mCircleColor = res.getColor(R.color.bpDark_gray);
+            mDotColor = res.getColor(R.color.bpLight_gray);
         } else {
-            mCircleColor = res.getColor(R.color.white);
+            mCircleColor = res.getColor(R.color.bpWhite);
             mDotColor = res.getColor(R.color.numbers_text_color);
         }
     }

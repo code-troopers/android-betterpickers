@@ -34,7 +34,7 @@
     <View
         android:layout_width="@dimen/date_picker_component_width"
         android:layout_height="1dip"
-        android:background="@color/line_background" />
+        android:background="@color/bpLine_background" />
 
     <include layout="@layout/calendar_date_picker_done_button" />
 

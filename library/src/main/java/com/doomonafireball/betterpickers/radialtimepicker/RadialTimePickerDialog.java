@@ -216,8 +216,8 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         mSelectHours = res.getString(R.string.select_hours);
         mMinutePickerDescription = res.getString(R.string.minute_picker_description);
         mSelectMinutes = res.getString(R.string.select_minutes);
-        mSelectedColor = res.getColor(mThemeDark ? R.color.red : R.color.blue);
-        mUnselectedColor = res.getColor(mThemeDark ? R.color.white : R.color.numbers_text_color);
+        mSelectedColor = res.getColor(mThemeDark ? R.color.bpRed : R.color.bpBlue);
+        mUnselectedColor = res.getColor(mThemeDark ? R.color.bpWhite : R.color.numbers_text_color);
 
         mHourView = (TextView) view.findViewById(R.id.hours);
         mHourView.setOnKeyListener(keyboardListener);
@@ -333,16 +333,16 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         // Set the theme at the end so that the initialize()s above don't counteract the theme.
         mTimePicker.setTheme(getActivity().getApplicationContext(), mThemeDark);
         // Prepare some colors to use.
-        int white = res.getColor(R.color.white);
+        int white = res.getColor(R.color.bpWhite);
         int circleBackground = res.getColor(R.color.circle_background);
-        int line = res.getColor(R.color.line_background);
+        int line = res.getColor(R.color.bpLine_background);
         int timeDisplay = res.getColor(R.color.numbers_text_color);
         ColorStateList doneTextColor = res.getColorStateList(R.color.done_text_color);
         int doneBackground = R.drawable.done_background_color;
 
-        int darkGray = res.getColor(R.color.dark_gray);
-        int lightGray = res.getColor(R.color.light_gray);
-        int darkLine = res.getColor(R.color.line_dark);
+        int darkGray = res.getColor(R.color.bpDark_gray);
+        int lightGray = res.getColor(R.color.bpLight_gray);
+        int darkLine = res.getColor(R.color.bpLine_dark);
         ColorStateList darkDoneTextColor = res.getColorStateList(R.color.done_text_color_dark);
         int darkDoneBackground = R.drawable.done_background_color_dark;
 

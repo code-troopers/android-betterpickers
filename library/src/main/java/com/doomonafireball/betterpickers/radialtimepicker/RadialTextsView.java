@@ -148,7 +148,7 @@ public class RadialTextsView extends View {
         Resources res = context.getResources();
         int textColor;
         if (themeDark) {
-            textColor = res.getColor(R.color.white);
+            textColor = res.getColor(R.color.bpWhite);
         } else {
             textColor = res.getColor(R.color.numbers_text_color);
         }
