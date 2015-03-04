@@ -16,10 +16,10 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_focused="true"
           android:state_pressed="false"
-          android:drawable="@color/blue_focused" />
+          android:drawable="@color/bpBlue_focused" />
 
     <item android:state_pressed="true"
-          android:drawable="@color/blue" />
+          android:drawable="@color/bpBlue" />
 
     <item android:drawable="@color/circle_background" />
 </selector>
