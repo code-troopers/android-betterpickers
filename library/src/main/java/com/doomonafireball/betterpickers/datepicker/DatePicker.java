@@ -236,6 +236,159 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         }
 
         /**
+         * Inflate the month view
+         * 
+         * @param position the position within the ViewPager
+         * @param res the resource handle
+         * @return an inflated View representing the keyboard for the month view
+         */
+        private View month(int position, Resources res) {
+            View view;
+            // Months
+            sMonthKeyboardPosition = position;
+            view = mInflater.inflate(R.layout.keyboard_text_with_header, null);
+            View v1 = view.findViewById(R.id.first);
+            View v2 = view.findViewById(R.id.second);
+            View v3 = view.findViewById(R.id.third);
+            View v4 = view.findViewById(R.id.fourth);
+            TextView header = (TextView) view.findViewById(R.id.header);
+
+            header.setText(R.string.month_c);
+
+            mMonths[0] = (Button) v1.findViewById(R.id.key_left);
+            mMonths[1] = (Button) v1.findViewById(R.id.key_middle);
+            mMonths[2] = (Button) v1.findViewById(R.id.key_right);
+
+            mMonths[3] = (Button) v2.findViewById(R.id.key_left);
+            mMonths[4] = (Button) v2.findViewById(R.id.key_middle);
+            mMonths[5] = (Button) v2.findViewById(R.id.key_right);
+
+            mMonths[6] = (Button) v3.findViewById(R.id.key_left);
+            mMonths[7] = (Button) v3.findViewById(R.id.key_middle);
+            mMonths[8] = (Button) v3.findViewById(R.id.key_right);
+
+            mMonths[9] = (Button) v4.findViewById(R.id.key_left);
+            mMonths[10] = (Button) v4.findViewById(R.id.key_middle);
+            mMonths[11] = (Button) v4.findViewById(R.id.key_right);
+
+            for (int i = 0; i < 12; i++) {
+                mMonths[i].setOnClickListener(DatePicker.this);
+                mMonths[i].setText(mMonthAbbreviations[i]);
+                mMonths[i].setTextColor(mTextColor);
+                mMonths[i].setBackgroundResource(mKeyBackgroundResId);
+                mMonths[i].setTag(R.id.date_keyboard, KEYBOARD_MONTH);
+                mMonths[i].setTag(R.id.date_month_int, i);
+            }
+
+            return view;
+        }
+
+        /**
+         * Inflate the date view
+         *
+         * @param position the position within the ViewPager
+         * @param res the resource handle
+         * @return an inflated View representing the keyboard for the month view
+         */
+        private View date(int position, Resources res) {
+            View view;
+            // Date
+            sDateKeyboardPosition = position;
+            view = mInflater.inflate(R.layout.keyboard_right_drawable_with_header, null);
+            View v1 = view.findViewById(R.id.first);
+            View v2 = view.findViewById(R.id.second);
+            View v3 = view.findViewById(R.id.third);
+            View v4 = view.findViewById(R.id.fourth);
+            TextView header = (TextView) view.findViewById(R.id.header);
+
+            header.setText(R.string.day_c);
+
+            mDateNumbers[1] = (Button) v1.findViewById(R.id.key_left);
+            mDateNumbers[2] = (Button) v1.findViewById(R.id.key_middle);
+            mDateNumbers[3] = (Button) v1.findViewById(R.id.key_right);
+
+            mDateNumbers[4] = (Button) v2.findViewById(R.id.key_left);
+            mDateNumbers[5] = (Button) v2.findViewById(R.id.key_middle);
+            mDateNumbers[6] = (Button) v2.findViewById(R.id.key_right);
+
+            mDateNumbers[7] = (Button) v3.findViewById(R.id.key_left);
+            mDateNumbers[8] = (Button) v3.findViewById(R.id.key_middle);
+            mDateNumbers[9] = (Button) v3.findViewById(R.id.key_right);
+
+            mDateLeft = (Button) v4.findViewById(R.id.key_left);
+            mDateLeft.setTextColor(mTextColor);
+            mDateLeft.setBackgroundResource(mKeyBackgroundResId);
+            mDateNumbers[0] = (Button) v4.findViewById(R.id.key_middle);
+            mDateRight = (ImageButton) v4.findViewById(R.id.key_right);
+
+            for (int i = 0; i < 10; i++) {
+                mDateNumbers[i].setOnClickListener(DatePicker.this);
+                mDateNumbers[i].setText(String.format("%d", i));
+                mDateNumbers[i].setTextColor(mTextColor);
+                mDateNumbers[i].setBackgroundResource(mKeyBackgroundResId);
+                mDateNumbers[i].setTag(R.id.date_keyboard, KEYBOARD_DATE);
+                mDateNumbers[i].setTag(R.id.numbers_key, i);
+            }
+
+            mDateRight.setImageDrawable(res.getDrawable(mCheckDrawableSrcResId));
+            mDateRight.setBackgroundResource(mKeyBackgroundResId);
+            mDateRight.setOnClickListener(DatePicker.this);
+
+            return view;
+        }
+
+        /**
+         * Inflate the year view
+         *
+         * @param position the position within the ViewPager
+         * @param res the resource handle
+         * @return an inflated View representing the keyboard for the month view
+         */
+        private View year(int position, Resources res) {
+            View view;
+            // Year
+            sYearKeyboardPosition = position;
+            view = mInflater.inflate(R.layout.keyboard_with_header, null);
+            View v1 = view.findViewById(R.id.first);
+            View v2 = view.findViewById(R.id.second);
+            View v3 = view.findViewById(R.id.third);
+            View v4 = view.findViewById(R.id.fourth);
+            TextView header = (TextView) view.findViewById(R.id.header);
+
+            header.setText(R.string.year_c);
+
+            mYearNumbers[1] = (Button) v1.findViewById(R.id.key_left);
+            mYearNumbers[2] = (Button) v1.findViewById(R.id.key_middle);
+            mYearNumbers[3] = (Button) v1.findViewById(R.id.key_right);
+
+            mYearNumbers[4] = (Button) v2.findViewById(R.id.key_left);
+            mYearNumbers[5] = (Button) v2.findViewById(R.id.key_middle);
+            mYearNumbers[6] = (Button) v2.findViewById(R.id.key_right);
+
+            mYearNumbers[7] = (Button) v3.findViewById(R.id.key_left);
+            mYearNumbers[8] = (Button) v3.findViewById(R.id.key_middle);
+            mYearNumbers[9] = (Button) v3.findViewById(R.id.key_right);
+
+            mYearLeft = (Button) v4.findViewById(R.id.key_left);
+            mYearLeft.setTextColor(mTextColor);
+            mYearLeft.setBackgroundResource(mKeyBackgroundResId);
+            mYearNumbers[0] = (Button) v4.findViewById(R.id.key_middle);
+            mYearRight = (Button) v4.findViewById(R.id.key_right);
+            mYearRight.setTextColor(mTextColor);
+            mYearRight.setBackgroundResource(mKeyBackgroundResId);
+
+            for (int i = 0; i < 10; i++) {
+                mYearNumbers[i].setOnClickListener(DatePicker.this);
+                mYearNumbers[i].setText(String.format("%d", i));
+                mYearNumbers[i].setTextColor(mTextColor);
+                mYearNumbers[i].setBackgroundResource(mKeyBackgroundResId);
+                mYearNumbers[i].setTag(R.id.date_keyboard, KEYBOARD_YEAR);
+                mYearNumbers[i].setTag(R.id.numbers_key, i);
+            }
+            return view;
+        }
+
+        /**
          * Based on the Locale, inflate the day, month, or year keyboard
          *
          * @param collection the ViewPager collection group
@@ -245,126 +398,26 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         public Object instantiateItem(ViewGroup collection, int position) {
             View view;
             Resources res = mContext.getResources();
-            if (mDateFormatOrder[position] == DateFormat.MONTH) {
-                // Months
-                sMonthKeyboardPosition = position;
-                view = mInflater.inflate(R.layout.keyboard_text_with_header, null);
-                View v1 = view.findViewById(R.id.first);
-                View v2 = view.findViewById(R.id.second);
-                View v3 = view.findViewById(R.id.third);
-                View v4 = view.findViewById(R.id.fourth);
-                TextView header = (TextView) view.findViewById(R.id.header);
-
-                header.setText(R.string.month_c);
-
-                mMonths[0] = (Button) v1.findViewById(R.id.key_left);
-                mMonths[1] = (Button) v1.findViewById(R.id.key_middle);
-                mMonths[2] = (Button) v1.findViewById(R.id.key_right);
-
-                mMonths[3] = (Button) v2.findViewById(R.id.key_left);
-                mMonths[4] = (Button) v2.findViewById(R.id.key_middle);
-                mMonths[5] = (Button) v2.findViewById(R.id.key_right);
-
-                mMonths[6] = (Button) v3.findViewById(R.id.key_left);
-                mMonths[7] = (Button) v3.findViewById(R.id.key_middle);
-                mMonths[8] = (Button) v3.findViewById(R.id.key_right);
-
-                mMonths[9] = (Button) v4.findViewById(R.id.key_left);
-                mMonths[10] = (Button) v4.findViewById(R.id.key_middle);
-                mMonths[11] = (Button) v4.findViewById(R.id.key_right);
-
-                for (int i = 0; i < 12; i++) {
-                    mMonths[i].setOnClickListener(DatePicker.this);
-                    mMonths[i].setText(mMonthAbbreviations[i]);
-                    mMonths[i].setTextColor(mTextColor);
-                    mMonths[i].setBackgroundResource(mKeyBackgroundResId);
-                    mMonths[i].setTag(R.id.date_keyboard, KEYBOARD_MONTH);
-                    mMonths[i].setTag(R.id.date_month_int, i);
-                }
-            } else if (mDateFormatOrder[position] == DateFormat.DATE) {
-                // Date
-                sDateKeyboardPosition = position;
-                view = mInflater.inflate(R.layout.keyboard_right_drawable_with_header, null);
-                View v1 = view.findViewById(R.id.first);
-                View v2 = view.findViewById(R.id.second);
-                View v3 = view.findViewById(R.id.third);
-                View v4 = view.findViewById(R.id.fourth);
-                TextView header = (TextView) view.findViewById(R.id.header);
-
-                header.setText(R.string.day_c);
-
-                mDateNumbers[1] = (Button) v1.findViewById(R.id.key_left);
-                mDateNumbers[2] = (Button) v1.findViewById(R.id.key_middle);
-                mDateNumbers[3] = (Button) v1.findViewById(R.id.key_right);
-
-                mDateNumbers[4] = (Button) v2.findViewById(R.id.key_left);
-                mDateNumbers[5] = (Button) v2.findViewById(R.id.key_middle);
-                mDateNumbers[6] = (Button) v2.findViewById(R.id.key_right);
-
-                mDateNumbers[7] = (Button) v3.findViewById(R.id.key_left);
-                mDateNumbers[8] = (Button) v3.findViewById(R.id.key_middle);
-                mDateNumbers[9] = (Button) v3.findViewById(R.id.key_right);
-
-                mDateLeft = (Button) v4.findViewById(R.id.key_left);
-                mDateLeft.setTextColor(mTextColor);
-                mDateLeft.setBackgroundResource(mKeyBackgroundResId);
-                mDateNumbers[0] = (Button) v4.findViewById(R.id.key_middle);
-                mDateRight = (ImageButton) v4.findViewById(R.id.key_right);
-
-                for (int i = 0; i < 10; i++) {
-                    mDateNumbers[i].setOnClickListener(DatePicker.this);
-                    mDateNumbers[i].setText(String.format("%d", i));
-                    mDateNumbers[i].setTextColor(mTextColor);
-                    mDateNumbers[i].setBackgroundResource(mKeyBackgroundResId);
-                    mDateNumbers[i].setTag(R.id.date_keyboard, KEYBOARD_DATE);
-                    mDateNumbers[i].setTag(R.id.numbers_key, i);
-                }
-
-                mDateRight.setImageDrawable(res.getDrawable(mCheckDrawableSrcResId));
-                mDateRight.setBackgroundResource(mKeyBackgroundResId);
-                mDateRight.setOnClickListener(DatePicker.this);
-            } else if (mDateFormatOrder[position] == DateFormat.YEAR) {
-                // Year
-                sYearKeyboardPosition = position;
-                view = mInflater.inflate(R.layout.keyboard_with_header, null);
-                View v1 = view.findViewById(R.id.first);
-                View v2 = view.findViewById(R.id.second);
-                View v3 = view.findViewById(R.id.third);
-                View v4 = view.findViewById(R.id.fourth);
-                TextView header = (TextView) view.findViewById(R.id.header);
-
-                header.setText(R.string.year_c);
-
-                mYearNumbers[1] = (Button) v1.findViewById(R.id.key_left);
-                mYearNumbers[2] = (Button) v1.findViewById(R.id.key_middle);
-                mYearNumbers[3] = (Button) v1.findViewById(R.id.key_right);
-
-                mYearNumbers[4] = (Button) v2.findViewById(R.id.key_left);
-                mYearNumbers[5] = (Button) v2.findViewById(R.id.key_middle);
-                mYearNumbers[6] = (Button) v2.findViewById(R.id.key_right);
-
-                mYearNumbers[7] = (Button) v3.findViewById(R.id.key_left);
-                mYearNumbers[8] = (Button) v3.findViewById(R.id.key_middle);
-                mYearNumbers[9] = (Button) v3.findViewById(R.id.key_right);
-
-                mYearLeft = (Button) v4.findViewById(R.id.key_left);
-                mYearLeft.setTextColor(mTextColor);
-                mYearLeft.setBackgroundResource(mKeyBackgroundResId);
-                mYearNumbers[0] = (Button) v4.findViewById(R.id.key_middle);
-                mYearRight = (Button) v4.findViewById(R.id.key_right);
-                mYearRight.setTextColor(mTextColor);
-                mYearRight.setBackgroundResource(mKeyBackgroundResId);
-
-                for (int i = 0; i < 10; i++) {
-                    mYearNumbers[i].setOnClickListener(DatePicker.this);
-                    mYearNumbers[i].setText(String.format("%d", i));
-                    mYearNumbers[i].setTextColor(mTextColor);
-                    mYearNumbers[i].setBackgroundResource(mKeyBackgroundResId);
-                    mYearNumbers[i].setTag(R.id.date_keyboard, KEYBOARD_YEAR);
-                    mYearNumbers[i].setTag(R.id.numbers_key, i);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                if (mDateFormatOrder[position] == 'M') {
+                    view = month(position, res);
+                } else if (mDateFormatOrder[position] == 'd') {
+                    view = date(position, res);
+                } else if (mDateFormatOrder[position] == 'y') {
+                    view = year(position, res);
+                } else {
+                    view = new View(mContext);
                 }
             } else {
-                view = new View(mContext);
+                if (mDateFormatOrder[position] == DateFormat.MONTH) {
+                    view = month(position, res);
+                } else if (mDateFormatOrder[position] == DateFormat.DATE) {
+                    view = date(position, res);
+                } else if (mDateFormatOrder[position] == DateFormat.YEAR) {
+                    view = year(position, res);
+                } else {
+                    view = new View(mContext);
+                }
             }
             setLeftRightEnabled();
             updateDate();
@@ -410,13 +463,13 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
     protected void doOnClick(View v) {
         if (v == mDelete) {
             // Delete is dependent on which keyboard
-            switch (mDateFormatOrder[mKeyboardPager.getCurrentItem()]) {
-                case DateFormat.MONTH:
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                char c = mDateFormatOrder[mKeyboardPager.getCurrentItem()];
+                if (c == 'M') {
                     if (mMonthInput != -1) {
                         mMonthInput = -1;
                     }
-                    break;
-                case DateFormat.DATE:
+                } else if (c == 'd') {
                     if (mDateInputPointer >= 0) {
                         for (int i = 0; i < mDateInputPointer; i++) {
                             mDateInput[i] = mDateInput[i + 1];
@@ -426,8 +479,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
                     } else if (mKeyboardPager.getCurrentItem() > 0) {
                         mKeyboardPager.setCurrentItem(mKeyboardPager.getCurrentItem() - 1, true);
                     }
-                    break;
-                case DateFormat.YEAR:
+                } else if (c == 'y') {
                     if (mYearInputPointer >= 0) {
                         for (int i = 0; i < mYearInputPointer; i++) {
                             mYearInput[i] = mYearInput[i + 1];
@@ -437,7 +489,37 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
                     } else if (mKeyboardPager.getCurrentItem() > 0) {
                         mKeyboardPager.setCurrentItem(mKeyboardPager.getCurrentItem() - 1, true);
                     }
-                    break;
+                }
+            } else {
+                switch (mDateFormatOrder[mKeyboardPager.getCurrentItem()]) {
+                    case DateFormat.MONTH:
+                        if (mMonthInput != -1) {
+                            mMonthInput = -1;
+                        }
+                        break;
+                    case DateFormat.DATE:
+                        if (mDateInputPointer >= 0) {
+                            for (int i = 0; i < mDateInputPointer; i++) {
+                                mDateInput[i] = mDateInput[i + 1];
+                            }
+                            mDateInput[mDateInputPointer] = 0;
+                            mDateInputPointer--;
+                        } else if (mKeyboardPager.getCurrentItem() > 0) {
+                            mKeyboardPager.setCurrentItem(mKeyboardPager.getCurrentItem() - 1, true);
+                        }
+                        break;
+                    case DateFormat.YEAR:
+                        if (mYearInputPointer >= 0) {
+                            for (int i = 0; i < mYearInputPointer; i++) {
+                                mYearInput[i] = mYearInput[i + 1];
+                            }
+                            mYearInput[mYearInputPointer] = 0;
+                            mYearInputPointer--;
+                        } else if (mKeyboardPager.getCurrentItem() > 0) {
+                            mKeyboardPager.setCurrentItem(mKeyboardPager.getCurrentItem() - 1, true);
+                        }
+                        break;
+                }
             }
         } else if (v == mDateRight) {
             onDateRightClicked();
@@ -787,15 +869,29 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         }
         for (int i = 0; i < mDateFormatOrder.length; i++) {
             char c = mDateFormatOrder[i];
-            if (c == DateFormat.MONTH && monthOfYear == -1) {
-                mKeyboardPager.setCurrentItem(i, true);
-                break;
-            } else if (c == DateFormat.DATE && dayOfMonth <= 0) {
-                mKeyboardPager.setCurrentItem(i, true);
-                break;
-            } else if (c == DateFormat.YEAR && year <= 0) {
-                mKeyboardPager.setCurrentItem(i, true);
-                break;
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                if (c == 'M' && monthOfYear == -1) {
+                    mKeyboardPager.setCurrentItem(i, true);
+                    break;
+                } else if (c == 'd' && dayOfMonth <= 0) {
+                    mKeyboardPager.setCurrentItem(i, true);
+                    break;
+                } else if (c == 'y' && year <= 0) {
+                    mKeyboardPager.setCurrentItem(i, true);
+                    break;
+                }
+            } else {
+                if (c == DateFormat.MONTH && monthOfYear == -1) {
+                    mKeyboardPager.setCurrentItem(i, true);
+                    break;
+                } else if (c == DateFormat.DATE && dayOfMonth <= 0) {
+                    mKeyboardPager.setCurrentItem(i, true);
+                    break;
+                } else if (c == DateFormat.YEAR && year <= 0) {
+                    mKeyboardPager.setCurrentItem(i, true);
+                    break;
+                }
             }
         }
         updateKeypad();

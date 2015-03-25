@@ -92,16 +92,26 @@ public class DateView extends PickerLinearLayout {
         char[] dateFormatOrder = DateFormat.getDateFormatOrder(getContext());
         removeAllViews();
         for (int i = 0; i < dateFormatOrder.length; i++) {
-            switch (dateFormatOrder[i]) {
-                case DateFormat.DATE:
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                if (dateFormatOrder[i] == 'd') {
                     addView(mDate);
-                    break;
-                case DateFormat.MONTH:
+                } else if (dateFormatOrder[i] == 'M') {
                     addView(mMonth);
-                    break;
-                case DateFormat.YEAR:
+                } else if (dateFormatOrder[i] == 'y') {
                     addView(mYearLabel);
-                    break;
+                }
+            } else {
+                switch (dateFormatOrder[i]) {
+                    case DateFormat.DATE:
+                        addView(mDate);
+                        break;
+                    case DateFormat.MONTH:
+                        addView(mMonth);
+                        break;
+                    case DateFormat.YEAR:
+                        addView(mYearLabel);
+                        break;
+                }
             }
         }
 
