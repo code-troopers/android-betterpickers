@@ -133,14 +133,14 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
     }
 
     public static RadialTimePickerDialog newInstance(OnTimeSetListener callback,
-                                                     int hourOfDay, int minute, boolean is24HourMode) {
+            int hourOfDay, int minute, boolean is24HourMode) {
         RadialTimePickerDialog ret = new RadialTimePickerDialog();
         ret.initialize(callback, hourOfDay, minute, is24HourMode);
         return ret;
     }
 
     public void initialize(OnTimeSetListener callback,
-                           int hourOfDay, int minute, boolean is24HourMode) {
+            int hourOfDay, int minute, boolean is24HourMode) {
         mCallback = callback;
 
         mInitialHourOfDay = hourOfDay;
@@ -216,7 +216,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+            Bundle savedInstanceState) {
         if (getShowsDialog()) {
             getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         }
@@ -474,7 +474,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
 
     // Show either Hours or Minutes.
     private void setCurrentItemShowing(int index, boolean animateCircle, boolean delayLabelAnimate,
-                                       boolean announce) {
+            boolean announce) {
         mTimePicker.setCurrentItemShowing(index, animateCircle);
 
         TextView labelToAnimate;

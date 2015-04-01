@@ -163,7 +163,7 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
      * Initialize the Layout with starting values.
      */
     public void initialize(Context context, HapticFeedbackController hapticFeedbackController, int initialHoursOfDay,
-                           int initialMinutes, boolean is24HourMode) {
+            int initialMinutes, boolean is24HourMode) {
         if (mTimeInitialized) {
             Log.e(TAG, "Time has already been initialized.");
             return;
@@ -426,7 +426,7 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
      * @return The value that was selected, i.e. 0-23 for hours, 0-59 for minutes.
      */
     private int reselectSelector(int degrees, boolean isInnerCircle,
-                                 boolean forceToVisibleValue, boolean forceDrawDot) {
+            boolean forceToVisibleValue, boolean forceDrawDot) {
         if (degrees == -1) {
             return -1;
         }
@@ -485,7 +485,7 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
      * @return Degrees from 0 to 360, if the selection was within the legal range. -1 if not.
      */
     private int getDegreesFromCoords(float pointX, float pointY, boolean forceLegal,
-                                     final Boolean[] isInnerCircle) {
+            final Boolean[] isInnerCircle) {
         int currentItem = getCurrentItemShowing();
         if (currentItem == HOUR_INDEX) {
             return mHourRadialSelectorView.getDegreesFromCoords(
