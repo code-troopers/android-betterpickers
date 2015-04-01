@@ -20,6 +20,7 @@ import android.app.ActionBar.LayoutParams;
 import android.content.DialogInterface;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
@@ -57,7 +58,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
     private static final String KEY_CURRENT_ITEM_SHOWING = "current_item_showing";
     private static final String KEY_IN_KB_MODE = "in_kb_mode";
     private static final String KEY_TYPED_TIMES = "typed_times";
-    private static final String KEY_DARK_THEME = "dark_theme";
+    private static final String KEY_STYLE = "theme";
 
     public static final int HOUR_INDEX = 0;
     public static final int MINUTE_INDEX = 1;
@@ -95,7 +96,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
     private int mInitialHourOfDay;
     private int mInitialMinute;
     private boolean mIs24HourMode;
-    private boolean mThemeDark;
+    private int mStyleResId;
 
     // For hardware IME input.
     private char mPlaceholderText;
@@ -119,7 +120,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
     public interface OnTimeSetListener {
 
         /**
-         * @param RadialTimePickerDialog The view associated with this listener.
+         * @param dialog The view associated with this listener.
          * @param hourOfDay The hour that was set.
          * @param minute The minute that was set.
          */
@@ -132,32 +133,45 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
     }
 
     public static RadialTimePickerDialog newInstance(OnTimeSetListener callback,
-            int hourOfDay, int minute, boolean is24HourMode) {
+                                                     int hourOfDay, int minute, boolean is24HourMode) {
         RadialTimePickerDialog ret = new RadialTimePickerDialog();
         ret.initialize(callback, hourOfDay, minute, is24HourMode);
         return ret;
     }
 
     public void initialize(OnTimeSetListener callback,
-            int hourOfDay, int minute, boolean is24HourMode) {
+                           int hourOfDay, int minute, boolean is24HourMode) {
         mCallback = callback;
 
         mInitialHourOfDay = hourOfDay;
         mInitialMinute = minute;
         mIs24HourMode = is24HourMode;
         mInKbMode = false;
-        mThemeDark = false;
+        mStyleResId = R.style.BetterPickersTimePickerDialog;
     }
 
     /**
      * Set a dark or light theme. NOTE: this will only take effect for the next onCreateView.
      */
     public void setThemeDark(boolean dark) {
-        mThemeDark = dark;
+
+        if(dark){
+            mStyleResId = R.style.BetterPickersTimePickerDialog_Dark;
+        }else{
+            mStyleResId = R.style.BetterPickersTimePickerDialog;
+        }
+    }
+
+    /**
+     * @param styleResId a style modeled after the styleable "BetterPickersTimePickerDialog".
+     * There is an example in the android-betterpickers sample under res/values/styles.xml
+     */
+    public void setThemeCustom(int styleResId){
+        mStyleResId = styleResId;
     }
 
     public boolean isThemeDark() {
-        return mThemeDark;
+        return mStyleResId == R.style.BetterPickersTimePickerDialog_Dark;
     }
 
     public void setOnDismissListener(OnDialogDismissListener ondialogdismisslistener) {
@@ -196,13 +210,13 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
             mInitialMinute = savedInstanceState.getInt(KEY_MINUTE);
             mIs24HourMode = savedInstanceState.getBoolean(KEY_IS_24_HOUR_VIEW);
             mInKbMode = savedInstanceState.getBoolean(KEY_IN_KB_MODE);
-            mThemeDark = savedInstanceState.getBoolean(KEY_DARK_THEME);
+            mStyleResId = savedInstanceState.getInt(KEY_STYLE);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         if (getShowsDialog()) {
             getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         }
@@ -212,12 +226,14 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         view.findViewById(R.id.time_picker_dialog).setOnKeyListener(keyboardListener);
 
         Resources res = getResources();
+        TypedArray themeColors = getActivity().obtainStyledAttributes(mStyleResId, R.styleable.BetterPickersTimePickerDialog);
+
         mHourPickerDescription = res.getString(R.string.hour_picker_description);
         mSelectHours = res.getString(R.string.select_hours);
         mMinutePickerDescription = res.getString(R.string.minute_picker_description);
         mSelectMinutes = res.getString(R.string.select_minutes);
-        mSelectedColor = res.getColor(mThemeDark ? R.color.bpRed : R.color.bpBlue);
-        mUnselectedColor = res.getColor(mThemeDark ? R.color.bpWhite : R.color.numbers_text_color);
+        mSelectedColor = themeColors.getColor(R.styleable.BetterPickersTimePickerDialog_bpAccentColor, R.color.bpBlue);
+        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickersTimePickerDialog_bpMainTextColor, R.color.numbers_text_color);
 
         mHourView = (TextView) view.findViewById(R.id.hours);
         mHourView.setOnKeyListener(keyboardListener);
@@ -331,30 +347,25 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         }
 
         // Set the theme at the end so that the initialize()s above don't counteract the theme.
-        mTimePicker.setTheme(getActivity().getApplicationContext(), mThemeDark);
-        // Prepare some colors to use.
-        int white = res.getColor(R.color.bpWhite);
-        int circleBackground = res.getColor(R.color.circle_background);
-        int line = res.getColor(R.color.bpLine_background);
-        int timeDisplay = res.getColor(R.color.numbers_text_color);
-        ColorStateList doneTextColor = res.getColorStateList(R.color.done_text_color);
-        int doneBackground = R.drawable.done_background_color;
+        mTimePicker.setTheme(themeColors);
 
-        int darkGray = res.getColor(R.color.bpDark_gray);
-        int lightGray = res.getColor(R.color.bpLight_gray);
-        int darkLine = res.getColor(R.color.bpLine_dark);
-        ColorStateList darkDoneTextColor = res.getColorStateList(R.color.done_text_color_dark);
-        int darkDoneBackground = R.drawable.done_background_color_dark;
+        // Prepare some colors to use.
+        int mainColor1 = themeColors.getColor(R.styleable.BetterPickersTimePickerDialog_bpMainColor1, R.color.bpWhite);
+        int mainColor2 = themeColors.getColor(R.styleable.BetterPickersTimePickerDialog_bpMainColor2, R.color.circle_background);
+        int lineColor = themeColors.getColor(R.styleable.BetterPickersTimePickerDialog_bpLineColor, R.color.bpLine_background);
+        int mainTextColor = themeColors.getColor(R.styleable.BetterPickersTimePickerDialog_bpMainTextColor, R.color.numbers_text_color);
+        ColorStateList doneTextColor = themeColors.getColorStateList(R.styleable.BetterPickersTimePickerDialog_bpDoneTextColor);
+        int doneBackground = themeColors.getResourceId(R.styleable.BetterPickersTimePickerDialog_bpDoneBackgroundColor, R.drawable.done_background_color);
 
         // Set the colors for each view based on the theme.
-        view.findViewById(R.id.time_display_background).setBackgroundColor(mThemeDark ? darkGray : white);
-        view.findViewById(R.id.time_display).setBackgroundColor(mThemeDark ? darkGray : white);
-        ((TextView) view.findViewById(R.id.separator)).setTextColor(mThemeDark ? white : timeDisplay);
-        ((TextView) view.findViewById(R.id.ampm_label)).setTextColor(mThemeDark ? white : timeDisplay);
-        view.findViewById(R.id.line).setBackgroundColor(mThemeDark ? darkLine : line);
-        mDoneButton.setTextColor(mThemeDark ? darkDoneTextColor : doneTextColor);
-        mTimePicker.setBackgroundColor(mThemeDark ? lightGray : circleBackground);
-        mDoneButton.setBackgroundResource(mThemeDark ? darkDoneBackground : doneBackground);
+        view.findViewById(R.id.time_display_background).setBackgroundColor(mainColor1);
+        view.findViewById(R.id.time_display).setBackgroundColor(mainColor1);
+        ((TextView) view.findViewById(R.id.separator)).setTextColor(mainTextColor);
+        ((TextView) view.findViewById(R.id.ampm_label)).setTextColor(mainTextColor);
+        view.findViewById(R.id.line).setBackgroundColor(lineColor);
+        mDoneButton.setTextColor(doneTextColor);
+        mTimePicker.setBackgroundColor(mainColor2);
+        mDoneButton.setBackgroundResource(doneBackground);
         return view;
     }
 
@@ -399,7 +410,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
             if (mInKbMode) {
                 outState.putIntegerArrayList(KEY_TYPED_TIMES, mTypedTimes);
             }
-            outState.putBoolean(KEY_DARK_THEME, mThemeDark);
+            outState.putInt(KEY_STYLE, mStyleResId);
         }
     }
 
@@ -463,7 +474,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
 
     // Show either Hours or Minutes.
     private void setCurrentItemShowing(int index, boolean animateCircle, boolean delayLabelAnimate,
-            boolean announce) {
+                                       boolean announce) {
         mTimePicker.setCurrentItemShowing(index, animateCircle);
 
         TextView labelToAnimate;
@@ -658,7 +669,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
     /**
      * Get out of keyboard mode. If there is nothing in typedTimes, revert to TimePicker's time.
      *
-     * @param changeDisplays If true, update the displays with the relevant time.
+     * @param updateDisplays If true, update the displays with the relevant time.
      */
     private void finishKbMode(boolean updateDisplays) {
         mInKbMode = false;
@@ -784,8 +795,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
             }
         }
 
-        int[] ret = {hour, minute, amOrPm};
-        return ret;
+        return new int[]{hour, minute, amOrPm};
     }
 
     /**
@@ -998,10 +1008,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
 
         @Override
         public boolean onKey(View v, int keyCode, KeyEvent event) {
-            if (event.getAction() == KeyEvent.ACTION_UP) {
-                return processKeyUp(keyCode);
-            }
-            return false;
+            return event.getAction() == KeyEvent.ACTION_UP && processKeyUp(keyCode);
         }
     }
 }

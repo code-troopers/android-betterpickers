@@ -36,9 +36,6 @@ public class Utils {
     public static final int MONDAY_BEFORE_JULIAN_EPOCH = Time.EPOCH_JULIAN_DAY - 3;
     public static final int PULSE_ANIMATOR_DURATION = 544;
 
-    // Alpha level for time picker selection.
-    public static final int SELECTED_ALPHA = 51;
-    public static final int SELECTED_ALPHA_THEME_DARK = 102;
     // Alpha level for fully opaque.
     public static final int FULL_ALPHA = 255;
 
@@ -125,7 +122,7 @@ public class Utils {
      * @return The animator object. Use .start() to begin.
      */
     public static ObjectAnimator getPulseAnimator(View labelToAnimate, float decreaseRatio,
-            float increaseRatio) {
+                                                  float increaseRatio) {
         Keyframe k0 = Keyframe.ofFloat(0f, 1f);
         Keyframe k1 = Keyframe.ofFloat(0.275f, decreaseRatio);
         Keyframe k2 = Keyframe.ofFloat(0.69f, increaseRatio);

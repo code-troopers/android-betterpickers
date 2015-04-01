@@ -18,6 +18,7 @@ package com.doomonafireball.betterpickers.radialtimepicker;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
@@ -81,7 +82,7 @@ public class RadialTextsView extends View {
     }
 
     public void initialize(Resources res, String[] texts, String[] innerTexts,
-            boolean is24HourMode, boolean disappearsOut) {
+                           boolean is24HourMode, boolean disappearsOut) {
         if (mIsInitialized) {
             Log.e(TAG, "This RadialTextsView may only be initialized once.");
             return;
@@ -144,15 +145,8 @@ public class RadialTextsView extends View {
         mIsInitialized = true;
     }
 
-    /* package */ void setTheme(Context context, boolean themeDark) {
-        Resources res = context.getResources();
-        int textColor;
-        if (themeDark) {
-            textColor = res.getColor(R.color.bpWhite);
-        } else {
-            textColor = res.getColor(R.color.numbers_text_color);
-        }
-        mPaint.setColor(textColor);
+    /* package */ void setTheme(TypedArray themeColors) {
+        mPaint.setColor(themeColors.getColor(R.styleable.BetterPickersTimePickerDialog_bpMainTextColor, R.color.numbers_text_color));
     }
 
     /**
@@ -233,7 +227,7 @@ public class RadialTextsView extends View {
      * specified circle radius. Place the values in the textGridHeights and textGridWidths parameters.
      */
     private void calculateGridSizes(float numbersRadius, float xCenter, float yCenter,
-            float textSize, float[] textGridHeights, float[] textGridWidths) {
+                                    float textSize, float[] textGridHeights, float[] textGridWidths) {
         /*
          * The numbers need to be drawn in a 7x7 grid, representing the points on the Unit Circle.
          */
@@ -266,7 +260,7 @@ public class RadialTextsView extends View {
      * Draw the 12 text values at the positions specified by the textGrid parameters.
      */
     private void drawTexts(Canvas canvas, float textSize, Typeface typeface, String[] texts,
-            float[] textGridWidths, float[] textGridHeights) {
+                           float[] textGridWidths, float[] textGridHeights) {
         mPaint.setTextSize(textSize);
         mPaint.setTypeface(typeface);
         canvas.drawText(texts[0], textGridWidths[3], textGridHeights[0], mPaint);

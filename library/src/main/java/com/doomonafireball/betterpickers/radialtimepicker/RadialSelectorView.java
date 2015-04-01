@@ -18,6 +18,7 @@ package com.doomonafireball.betterpickers.radialtimepicker;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.Log;
@@ -39,9 +40,6 @@ public class RadialSelectorView extends View {
 
     private static final String TAG = "RadialSelectorView";
 
-    // Alpha level for selected circle.
-    private static final int SELECTED_ALPHA = Utils.SELECTED_ALPHA;
-    private static final int SELECTED_ALPHA_THEME_DARK = Utils.SELECTED_ALPHA_THEME_DARK;
     // Alpha level for the line.
     private static final int FULL_ALPHA = Utils.FULL_ALPHA;
 
@@ -93,7 +91,7 @@ public class RadialSelectorView extends View {
      * hasInnerCircle is false.
      */
     public void initialize(Context context, boolean is24HourMode, boolean hasInnerCircle,
-            boolean disappearsOut, int selectionDegrees, boolean isInnerCircle) {
+                           boolean disappearsOut, int selectionDegrees, boolean isInnerCircle) {
         if (mIsInitialized) {
             Log.e(TAG, "This RadialSelectorView may only be initialized once.");
             return;
@@ -101,10 +99,7 @@ public class RadialSelectorView extends View {
 
         Resources res = context.getResources();
 
-        int blue = res.getColor(R.color.bpBlue);
-        mPaint.setColor(blue);
         mPaint.setAntiAlias(true);
-        mSelectionAlpha = SELECTED_ALPHA;
 
         // Calculate values for the circle radius size.
         mIs24HourMode = is24HourMode;
@@ -142,17 +137,10 @@ public class RadialSelectorView extends View {
         mIsInitialized = true;
     }
 
-    /* package */ void setTheme(Context context, boolean themeDark) {
-        Resources res = context.getResources();
-        int color;
-        if (themeDark) {
-            color = res.getColor(R.color.bpRed);
-            mSelectionAlpha = SELECTED_ALPHA_THEME_DARK;
-        } else {
-            color = res.getColor(R.color.bpBlue);
-            mSelectionAlpha = SELECTED_ALPHA;
-        }
-        mPaint.setColor(color);
+    /* package */
+    void setTheme(TypedArray themeColors) {
+        mPaint.setColor(themeColors.getColor(R.styleable.BetterPickersTimePickerDialog_bpAccentColor, R.color.bpBlue));
+        mSelectionAlpha = themeColors.getInt(R.styleable.BetterPickersTimePickerDialog_bpSelectionAlpha, 51);
     }
 
     /**
@@ -194,7 +182,7 @@ public class RadialSelectorView extends View {
     }
 
     public int getDegreesFromCoords(float pointX, float pointY, boolean forceLegal,
-            final Boolean[] isInnerCircle) {
+                                    final Boolean[] isInnerCircle) {
         if (!mDrawValuesReady) {
             return -1;
         }

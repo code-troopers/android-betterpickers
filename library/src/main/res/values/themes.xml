@@ -24,4 +24,25 @@
         <item name="bpDividerColor">@color/default_divider_color_light</item>
         <item name="bpKeyboardIndicatorColor">@color/default_keyboard_indicator_color_light</item>
     </style>
+
+    <style name="BetterPickersTimePickerDialog">
+        <item name="bpMainColor1">@color/bpWhite</item>
+        <item name="bpMainColor2">@color/circle_background</item>
+        <item name="bpAccentColor">@color/bpBlue</item>
+        <item name="bpMainTextColor">@color/numbers_text_color</item>
+        <item name="bpDoneTextColor">@color/done_text_color_normal</item>
+        <item name="bpLineColor">@color/bpLine_background</item>
+        <item name="bpDoneBackgroundColor">@drawable/done_background_color</item>
+        <item name="bpSelectionAlpha">51</item>
+    </style>
+    <style name="BetterPickersTimePickerDialog.Dark">
+        <item name="bpMainColor1">@color/bpDark_gray</item>
+        <item name="bpMainColor2">@color/bpLight_gray</item>
+        <item name="bpAccentColor">@color/bpRed</item>
+        <item name="bpMainTextColor">@color/bpWhite</item>
+        <item name="bpDoneTextColor">@color/bpWhite</item>
+        <item name="bpLineColor">@color/bpLine_dark</item>
+        <item name="bpDoneBackgroundColor">@drawable/done_background_color_dark</item>
+        <item name="bpSelectionAlpha">102</item>
+    </style>
 </resources>
