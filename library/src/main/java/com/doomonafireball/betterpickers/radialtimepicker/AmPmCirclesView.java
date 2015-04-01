@@ -38,9 +38,6 @@ public class AmPmCirclesView extends View {
 
     private static final String TAG = "AmPmCirclesView";
 
-    // Alpha level for selected circle.
-    private static final int SELECTED_ALPHA = 51;
-
     private final Paint mPaint = new Paint();
     private int mSelectedAlpha;
     private int mUnselectedColor;
@@ -78,7 +75,6 @@ public class AmPmCirclesView extends View {
         mUnselectedColor = res.getColor(R.color.bpWhite);
         mSelectedColor = res.getColor(R.color.bpBlue);
         mAmPmTextColor = res.getColor(R.color.ampm_text_color);
-        mSelectedAlpha = SELECTED_ALPHA;
         String typefaceFamily = res.getString(R.string.sans_serif);
         Typeface tf = Typeface.create(typefaceFamily, Typeface.NORMAL);
         mPaint.setTypeface(tf);
