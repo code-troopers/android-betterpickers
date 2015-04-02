@@ -3,12 +3,12 @@ apply from: 'https://raw.githubusercontent.com/shamanland/gradle-mvn-push/master
 
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.1"
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
 
     defaultConfig {
         minSdkVersion 9
-        targetSdkVersion 21
+        targetSdkVersion 22
         versionCode 10
         versionName "1.5.5"
     }
