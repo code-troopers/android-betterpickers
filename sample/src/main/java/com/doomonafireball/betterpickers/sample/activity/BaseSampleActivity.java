@@ -1,11 +1,10 @@
 package com.doomonafireball.betterpickers.sample.activity;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.MenuItem;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
-
-public class BaseSampleActivity extends SherlockFragmentActivity {
+public class BaseSampleActivity extends ActionBarActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

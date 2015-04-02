@@ -1,13 +1,13 @@
 package com.doomonafireball.betterpickers.sample.fragment;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockFragment;
 import com.doomonafireball.betterpickers.datepicker.DatePickerBuilder;
 import com.doomonafireball.betterpickers.datepicker.DatePickerDialogFragment;
 import com.doomonafireball.betterpickers.sample.R;
@@ -15,7 +15,7 @@ import com.doomonafireball.betterpickers.sample.R;
 /**
  * User: derek Date: 4/30/13 Time: 7:43 PM
  */
-public class SampleDateFragment extends SherlockFragment
+public class SampleDateFragment extends Fragment
         implements DatePickerDialogFragment.DatePickerDialogHandler {
 
     private TextView text;

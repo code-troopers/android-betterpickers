@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.app.DialogFragment;
+import android.support.v7.widget.SwitchCompat;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -59,7 +60,6 @@ import android.widget.ToggleButton;
 import com.doomonafireball.betterpickers.R;
 import com.doomonafireball.betterpickers.calendardatepicker.CalendarDatePickerDialog;
 
-import org.jraf.android.backport.switchwidget.Switch;
 
 import java.text.DateFormatSymbols;
 import java.util.ArrayList;
@@ -309,7 +309,7 @@ public class RecurrencePickerDialog extends DialogFragment implements OnItemSele
 
     private static final String FRAG_TAG_DATE_PICKER = "tag_date_picker_frag";
 
-    private Switch mRepeatSwitch;
+    private SwitchCompat mRepeatSwitch;
 
     private EditText mInterval;
     private TextView mIntervalPreText;
@@ -667,7 +667,7 @@ public class RecurrencePickerDialog extends DialogFragment implements OnItemSele
         final Activity activity = getActivity();
         final Configuration config = activity.getResources().getConfiguration();
 
-        mRepeatSwitch = (Switch) mView.findViewById(R.id.repeat_switch);
+        mRepeatSwitch = (SwitchCompat) mView.findViewById(R.id.repeat_switch);
         mRepeatSwitch.setChecked(mModel.recurrenceState == RecurrenceModel.STATE_RECURRENCE);
         mRepeatSwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 

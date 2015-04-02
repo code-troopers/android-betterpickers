@@ -4,12 +4,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-
-import com.actionbarsherlock.app.SherlockListActivity;
-import com.actionbarsherlock.view.MenuItem;
 
 import java.text.Collator;
 import java.util.ArrayList;
@@ -19,7 +19,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ListSamples extends SherlockListActivity {
+import static com.doomonafireball.betterpickers.R.*;
+
+public class ListSamples extends ActionBarActivity {
 
     public static final String INTENT_PATH = "com.doomonafireball.betterpickers.sample.Path";
     public static final String INTENT_SAMPLE = "com.doomonafireball.betterpickers.sample.SAMPLE";
@@ -27,6 +29,7 @@ public class ListSamples extends SherlockListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.list);
 
         Intent intent = getIntent();
         String path = intent.getStringExtra(INTENT_PATH);
@@ -38,10 +41,20 @@ public class ListSamples extends SherlockListActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        setListAdapter(new SimpleAdapter(this, getData(path),
+        final ListView list = (ListView) findViewById(R.id.list);
+        list.setAdapter(new SimpleAdapter(this, getData(path),
                 android.R.layout.simple_list_item_1, new String[]{"title"},
                 new int[]{android.R.id.text1}));
-        getListView().setTextFilterEnabled(true);
+        list.setTextFilterEnabled(true);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Map<String, Object> map = (Map<String, Object>) list.getItemAtPosition(position);
+
+                Intent intent = (Intent) map.get("intent");
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -140,14 +153,5 @@ public class ListSamples extends SherlockListActivity {
         temp.put("title", name);
         temp.put("intent", intent);
         data.add(temp);
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        Map<String, Object> map = (Map<String, Object>) l.getItemAtPosition(position);
-
-        Intent intent = (Intent) map.get("intent");
-        startActivity(intent);
     }
 }
