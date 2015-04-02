@@ -567,10 +567,10 @@ public class ExpirationPicker extends LinearLayout implements Button.OnClickList
         }
         for (int i = 0; i < mDateFormatOrder.length; i++) {
             char c = mDateFormatOrder[i];
-            if (c == DateFormat.MONTH && monthOfYear == -1) {
+            if (c == 'M' && monthOfYear == -1) {
                 mKeyboardPager.setCurrentItem(i, true);
                 break;
-            } else if (c == DateFormat.YEAR && year <= 0) {
+            } else if (c == 'y' && year <= 0) {
                 mKeyboardPager.setCurrentItem(i, true);
                 break;
             }
