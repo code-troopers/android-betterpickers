@@ -25,7 +25,7 @@
         <item name="bpKeyboardIndicatorColor">@color/default_keyboard_indicator_color_light</item>
     </style>
 
-    <style name="BetterPickersTimePickerDialog">
+    <style name="BetterPickersRadialTimePickerDialog">
         <item name="bpMainColor1">@color/bpWhite</item>
         <item name="bpMainColor2">@color/circle_background</item>
         <item name="bpAccentColor">@color/bpBlue</item>
@@ -35,7 +35,7 @@
         <item name="bpDoneBackgroundColor">@drawable/done_background_color</item>
         <item name="bpSelectionAlpha">51</item>
     </style>
-    <style name="BetterPickersTimePickerDialog.Dark">
+    <style name="BetterPickersRadialTimePickerDialog.Dark">
         <item name="bpMainColor1">@color/bpDark_gray</item>
         <item name="bpMainColor2">@color/bpLight_gray</item>
         <item name="bpAccentColor">@color/bpRed</item>

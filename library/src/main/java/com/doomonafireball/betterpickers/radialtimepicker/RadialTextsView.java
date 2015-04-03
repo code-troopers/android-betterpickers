@@ -146,7 +146,7 @@ public class RadialTextsView extends View {
     }
 
     /* package */ void setTheme(TypedArray themeColors) {
-        mPaint.setColor(themeColors.getColor(R.styleable.BetterPickersTimePickerDialog_bpMainTextColor, R.color.numbers_text_color));
+        mPaint.setColor(themeColors.getColor(R.styleable.BetterPickersRadialTimePickerDialog_bpMainTextColor, R.color.numbers_text_color));
     }
 
     /**
