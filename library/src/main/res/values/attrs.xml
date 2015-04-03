@@ -13,6 +13,17 @@
         <attr name="bpDialogBackground" format="reference"/>
     </declare-styleable>
 
+    <declare-styleable name="BetterPickersRadialTimePickerDialog">
+        <attr name="bpMainColor1" format="color"/>
+        <attr name="bpMainColor2" format="color"/>
+        <attr name="bpAccentColor" format="color"/>
+        <attr name="bpMainTextColor" format="color"/>
+        <attr name="bpDoneTextColor" format="color"/>
+        <attr name="bpLineColor" format="color"/>
+        <attr name="bpDoneBackgroundColor" format="color"/>
+        <attr name="bpSelectionAlpha" format="integer"/>
+    </declare-styleable>
+
     <declare-styleable name="Android">
 
         <!-- Text color. -->

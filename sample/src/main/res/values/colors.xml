@@ -8,4 +8,10 @@
     <color name="custom_key_background">#00000000</color>
     <color name="custom_key_background_pressed">#ffcc6600</color>
     <color name="custom_keyboard_indicator_color">#ffcc6600</color>
+
+    <color name="custom_tp_main1">#d32f2f</color>
+    <color name="custom_tp_main2">#f44336</color>
+    <color name="custom_tp_accent">#536dfe</color>
+    <color name="custom_tp_text">#ffffff</color>
+    <color name="custom_tp_divider">#808080</color>
 </resources>
