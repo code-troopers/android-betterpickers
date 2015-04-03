@@ -130,7 +130,7 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
         mGrayBox = new View(context);
         mGrayBox.setLayoutParams(new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        mGrayBox.setBackgroundColor(getResources().getColor(R.color.transparent_black));
+        mGrayBox.setBackgroundColor(getResources().getColor(R.color.bpTransparent_black));
         mGrayBox.setVisibility(View.INVISIBLE);
         addView(mGrayBox);
 

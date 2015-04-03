@@ -11,6 +11,10 @@ Try out the sample application on [Google Play][6].
 
 Changelog
 =========
+
+**1.5.5**
+* updated dependency to android-switch-backport:1.4.0 (fix for `1.5.4` problems)
+
 **1.5.4**
 * remove transitive dependency to org.jraf:android-switch-backport
 * add setTime() in HMSPicker
@@ -93,7 +97,7 @@ a dependency:
 <dependency>
   <groupId>com.doomonafireball.betterpickers</groupId>
   <artifactId>library</artifactId>
-  <version>1.5.4</version>
+  <version>1.5.5</version>
   <type>aar</type>
 </dependency>
 ```
@@ -101,13 +105,13 @@ a dependency:
 If you are a Gradle user you can also easily include the library:
 
 ```groovy
-compile 'com.doomonafireball.betterpickers:library:1.5.4'
+compile 'com.doomonafireball.betterpickers:library:1.5.5'
 ```
 
 If you are bringing in the support library you may need to add an exclusion:
 
 ```groovy
-compile ("com.doomonafireball.betterpickers:library:1.5.4") {
+compile ("com.doomonafireball.betterpickers:library:1.5.5") {
     exclude group: 'com.android.support', module: 'support-v4'
 }
 ```
@@ -115,7 +119,7 @@ compile ("com.doomonafireball.betterpickers:library:1.5.4") {
 _You MUST manually add dependency to android-switch-backport_
 
 ```
-compile 'org.jraf:android-switch-backport:1.3.1@aar'
+compile 'org.jraf:android-switch-backport:1.4.0@aar'
 ```
 And as it not available on maven central add a new maven repository
 ```
