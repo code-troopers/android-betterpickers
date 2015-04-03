@@ -1,3 +1,7 @@
+[![Maven Central](https://img.shields.io/maven-central/v/com.doomonafireball.betterpickers/library.svg?style=flat)](https://repo1.maven.org/maven2/com/doomonafireball/betterpickers/library/)
+[![API](https://img.shields.io/badge/API-9%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=9)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android%20Betterpickers-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/118)
+
 ![BetterPickers Feature Graphic][5]
 
 DialogFragments modeled after the AOSP Clock and Calendar apps to improve UX for picking time, date, numbers, and other things.
