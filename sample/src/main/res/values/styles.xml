@@ -13,7 +13,7 @@
         <item name="bpKeyboardIndicatorColor">@color/custom_keyboard_indicator_color</item>
     </style>
 
-    <style name="MyCustomBetterPickersTimePickerDialog">
+    <style name="MyCustomBetterPickersRadialTimePickerDialog">
         <item name="bpMainColor1">@color/custom_tp_main1</item>
         <item name="bpMainColor2">@color/custom_tp_main2</item>
         <item name="bpAccentColor">@color/custom_tp_accent</item>
