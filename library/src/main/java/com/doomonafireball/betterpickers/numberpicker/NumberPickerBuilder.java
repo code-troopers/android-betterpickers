@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.doomonafireball.betterpickers.numberpicker.NumberPickerDialogFragment.NumberPickerDialogHandler;
 
+import java.math.BigDecimal;
 import java.util.Vector;
 
 /**
@@ -24,6 +25,9 @@ public class NumberPickerBuilder {
     private String labelText;
     private int mReference;
     private Vector<NumberPickerDialogHandler> mNumberPickerDialogHandlers = new Vector<NumberPickerDialogHandler>();
+    private Integer currentNumberValue;
+    private Double currentDecimalValue;
+    private Integer currentSignValue;
 
     /**
      * Attach a FragmentManager. This is required for creation of the Fragment.
@@ -67,6 +71,42 @@ public class NumberPickerBuilder {
      */
     public NumberPickerBuilder setReference(int reference) {
         this.mReference = reference;
+        return this;
+    }
+
+    /**
+     * Set initial value to display
+     */
+    public NumberPickerBuilder setCurrentNumber(Integer number) {
+        if (number != null) {
+            if (number >= 0) {
+                this.currentSignValue = NumberPicker.SIGN_POSITIVE;
+            } else {
+                this.currentSignValue = NumberPicker.SIGN_NEGATIVE;
+                number = number * -1;
+            }
+
+            this.currentNumberValue = number;
+            this.currentDecimalValue = null;
+        }
+        return this;
+    }
+
+    /**
+     * Set initial value to display
+     */
+    public NumberPickerBuilder setCurrentNumber(Double number) {
+        if (number != null) {
+            if (number >= 0) {
+                this.currentSignValue = NumberPicker.SIGN_POSITIVE;
+            } else {
+                this.currentSignValue = NumberPicker.SIGN_NEGATIVE;
+                number = number * -1;
+            }
+            BigDecimal[] numberInput = BigDecimal.valueOf(number).divideAndRemainder(BigDecimal.ONE);
+            this.currentNumberValue = numberInput[0].intValue();
+            this.currentDecimalValue = numberInput[1].doubleValue();
+        }
         return this;
     }
 
@@ -174,7 +214,7 @@ public class NumberPickerBuilder {
 
         final NumberPickerDialogFragment fragment = NumberPickerDialogFragment
                 .newInstance(mReference, styleResId, minNumber, maxNumber, plusMinusVisibility, decimalVisibility,
-                        labelText);
+                        labelText, currentNumberValue, currentDecimalValue, currentSignValue);
         if (targetFragment != null) {
             fragment.setTargetFragment(targetFragment, 0);
         }

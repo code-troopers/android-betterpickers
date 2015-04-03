@@ -27,6 +27,9 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private static final String PLUS_MINUS_VISIBILITY_KEY = "NumberPickerDialogFragment_PlusMinusVisibilityKey";
     private static final String DECIMAL_VISIBILITY_KEY = "NumberPickerDialogFragment_DecimalVisibilityKey";
     private static final String LABEL_TEXT_KEY = "NumberPickerDialogFragment_LabelTextKey";
+    private static final String CURRENT_NUMBER_KEY = "NumberPickerDialogFragment_CurrentNumberKey";
+    private static final String CURRENT_DECIMAL_KEY = "NumberPickerDialogFragment_CurrentDecimalKey";
+    private static final String CURRENT_SIGN_KEY = "NumberPickerDialogFragment_CurrentSignKey";
 
     private Button mSet, mCancel;
     private NumberPicker mPicker;
@@ -42,6 +45,9 @@ public class NumberPickerDialogFragment extends DialogFragment {
 
     private Integer mMinNumber = null;
     private Integer mMaxNumber = null;
+    private Integer mCurrentNumber = null;
+    private Double mCurrentDecimal = null;
+    private Integer mCurrentSign = null;
     private int mPlusMinusVisibility = View.VISIBLE;
     private int mDecimalVisibility = View.VISIBLE;
     private Vector<NumberPickerDialogHandler> mNumberPickerDialogHandlers = new Vector<NumberPickerDialogHandler>();
@@ -59,7 +65,10 @@ public class NumberPickerDialogFragment extends DialogFragment {
      * @return a Picker!
      */
     public static NumberPickerDialogFragment newInstance(int reference, int themeResId, Integer minNumber,
-            Integer maxNumber, Integer plusMinusVisibility, Integer decimalVisibility, String labelText) {
+                                                         Integer maxNumber, Integer plusMinusVisibility,
+                                                         Integer decimalVisibility, String labelText,
+                                                         Integer currentNumberValue, Double currentDecimalValue,
+                                                         Integer currentNumberSign) {
         final NumberPickerDialogFragment frag = new NumberPickerDialogFragment();
         Bundle args = new Bundle();
         args.putInt(REFERENCE_KEY, reference);
@@ -78,6 +87,15 @@ public class NumberPickerDialogFragment extends DialogFragment {
         }
         if (labelText != null) {
             args.putString(LABEL_TEXT_KEY, labelText);
+        }
+        if (currentNumberValue != null) {
+            args.putInt(CURRENT_NUMBER_KEY, currentNumberValue);
+        }
+        if (currentDecimalValue != null) {
+            args.putDouble(CURRENT_DECIMAL_KEY, currentDecimalValue);
+        }
+        if (currentNumberSign != null) {
+            args.putInt(CURRENT_SIGN_KEY, currentNumberSign);
         }
         frag.setArguments(args);
         return frag;
@@ -113,6 +131,15 @@ public class NumberPickerDialogFragment extends DialogFragment {
         }
         if (args != null && args.containsKey(LABEL_TEXT_KEY)) {
             mLabelText = args.getString(LABEL_TEXT_KEY);
+        }
+        if (args != null && args.containsKey(CURRENT_NUMBER_KEY)) {
+            mCurrentNumber = args.getInt(CURRENT_NUMBER_KEY);
+        }
+        if (args != null && args.containsKey(CURRENT_DECIMAL_KEY)) {
+            mCurrentDecimal = args.getDouble(CURRENT_DECIMAL_KEY);
+        }
+        if (args != null && args.containsKey(CURRENT_SIGN_KEY)) {
+            mCurrentSign = args.getInt(CURRENT_SIGN_KEY);
         }
 
         setStyle(DialogFragment.STYLE_NO_TITLE, 0);
@@ -211,7 +238,7 @@ public class NumberPickerDialogFragment extends DialogFragment {
         if (mMaxNumber != null) {
             mPicker.setMax(mMaxNumber);
         }
-
+        mPicker.setNumber(mCurrentNumber, mCurrentDecimal, mCurrentSign);
         return v;
     }
 
