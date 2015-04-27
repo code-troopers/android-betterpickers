@@ -20,4 +20,7 @@
     <string name="hms_picker_hours_label">H</string>
     <string name="hms_picker_minutes_label">M</string>
     <string name="hms_picker_seconds_label">S</string>
+
+    <string name="done_label">Listo</string>
+    <string name="save_label">Listo</string>
 </resources>
