@@ -31,7 +31,7 @@ a dependency:
 <dependency>
   <groupId>com.doomonafireball.betterpickers</groupId>
   <artifactId>library</artifactId>
-  <version>1.5.5</version>
+  <version>1.6.0</version>
   <type>aar</type>
 </dependency>
 ```
@@ -39,13 +39,13 @@ a dependency:
 If you are a Gradle user you can also easily include the library:
 
 ```groovy
-compile 'com.doomonafireball.betterpickers:library:1.5.5'
+compile 'com.doomonafireball.betterpickers:library:1.6.0'
 ```
 
 If you are bringing in the support library you may need to add an exclusion:
 
 ```groovy
-compile ("com.doomonafireball.betterpickers:library:1.5.5") {
+compile ("com.doomonafireball.betterpickers:library:1.6.0") {
     exclude group: 'com.android.support', module: 'support-v4'
 }
 ```
