@@ -132,8 +132,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.numberpicker.SampleNumberListAdapter"
-            android:label="Number/List Adapter">
+            android:name=".activity.numberpicker.SampleNumberIntegerListAdapter"
+            android:label="Number/List Adapter - Integer">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.numberpicker.SampleNumberDoubleListAdapter"
+            android:label="Number/List Adapter - Double">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
@@ -278,6 +286,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activity.expirationpicker.SampleExpirationMinDate"
+            android:label="Expiration/Minimum Date">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activity.calendardatepicker.SampleCalendarDateDefault"
             android:label="Calendar Date/Default">
             <intent-filter>
@@ -296,6 +312,14 @@
         <activity
             android:name=".activity.radialtimepicker.SampleRadialTimeDark"
             android:label="Radial Time/Dark">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.radialtimepicker.SampleRadialTimeCustom"
+            android:label="Radial Time/Custom">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />

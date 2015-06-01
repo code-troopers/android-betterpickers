@@ -17,11 +17,12 @@ import com.doomonafireball.betterpickers.sample.R;
 import com.doomonafireball.betterpickers.sample.activity.BaseSampleActivity;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleNumberListAdapter extends BaseSampleActivity {
+public class SampleNumberDoubleListAdapter extends BaseSampleActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class SampleNumberListAdapter extends BaseSampleActivity {
 
     private class SampleAdapter extends BaseAdapter implements NumberPickerDialogFragment.NumberPickerDialogHandler {
 
-        private ArrayList<Integer> mNumbers;
+        private ArrayList<Double> mNumbers;
         private LayoutInflater mInflater;
         private ViewHolder holder;
         private NumberPickerBuilder mNumberPickerBuilder;
@@ -44,9 +45,17 @@ public class SampleNumberListAdapter extends BaseSampleActivity {
             super();
             mInflater = LayoutInflater.from(context);
 
-            mNumbers = new ArrayList<Integer>();
+            Random random = new Random();
+            mNumbers = new ArrayList<Double>();
+            mNumbers.add(150d);
+            mNumbers.add(-150d);
+            mNumbers.add(150.65);
+            mNumbers.add(-150.65);
+            mNumbers.add(0.65);
+            mNumbers.add(-0.65);
             for (int i = 1; i < 31; i++) {
-                mNumbers.add(i);
+                Integer randomNumber = (random.nextInt(65536) - 32768);
+                mNumbers.add(randomNumber.doubleValue());
             }
 
             mNumberPickerBuilder = new NumberPickerBuilder()
@@ -66,7 +75,7 @@ public class SampleNumberListAdapter extends BaseSampleActivity {
         }
 
         @Override
-        public Integer getItem(int position) {
+        public Double getItem(int position) {
             return mNumbers.get(position);
         }
 
@@ -88,12 +97,13 @@ public class SampleNumberListAdapter extends BaseSampleActivity {
                 holder = (ViewHolder) view.getTag();
             }
 
-            Integer i = getItem(position);
+            final Double i = getItem(position);
             holder.text.setText("" + i);
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     mNumberPickerBuilder.setReference(position);
+                    mNumberPickerBuilder.setCurrentNumber(i);
                     mNumberPickerBuilder.addNumberPickerDialogHandler(SampleAdapter.this);
                     mNumberPickerBuilder.show();
                 }
@@ -105,7 +115,7 @@ public class SampleNumberListAdapter extends BaseSampleActivity {
         @Override
         public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative,
                 double fullNumber) {
-            mNumbers.set(reference, number);
+            mNumbers.set(reference, (number + decimal));
             notifyDataSetChanged();
         }
     }

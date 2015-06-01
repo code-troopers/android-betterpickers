@@ -193,7 +193,9 @@ public class CalendarDatePickerDialog extends DialogFragment implements
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView: ");
-        getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        if (getShowsDialog()) {
+            getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        }
 
         View view = inflater.inflate(R.layout.calendar_date_picker_dialog, null);
 

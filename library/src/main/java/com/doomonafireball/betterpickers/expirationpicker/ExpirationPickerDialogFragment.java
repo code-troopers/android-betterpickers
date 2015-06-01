@@ -24,12 +24,14 @@ public class ExpirationPickerDialogFragment extends DialogFragment {
     private static final String THEME_RES_ID_KEY = "ExpirationPickerDialogFragment_ThemeResIdKey";
     private static final String MONTH_KEY = "ExpirationPickerDialogFragment_MonthKey";
     private static final String YEAR_KEY = "ExpirationPickerDialogFragment_YearKey";
+    private static final String MINIMUM_YEAR_KEY = "ExpirationPickerDialogFragment_MinimumYearKey";
 
     private Button mSet, mCancel;
     private ExpirationPicker mPicker;
 
     private int mMonthOfYear = -1;
     private int mYear = 0;
+    private int mMinimumYear = 0;
 
     private int mReference = -1;
     private int mTheme = -1;
@@ -50,7 +52,7 @@ public class ExpirationPickerDialogFragment extends DialogFragment {
      * @return a Picker!
      */
     public static ExpirationPickerDialogFragment newInstance(int reference, int themeResId, Integer monthOfYear,
-            Integer year) {
+            Integer year, Integer minimumYear) {
         final ExpirationPickerDialogFragment frag = new ExpirationPickerDialogFragment();
         Bundle args = new Bundle();
         args.putInt(REFERENCE_KEY, reference);
@@ -60,6 +62,9 @@ public class ExpirationPickerDialogFragment extends DialogFragment {
         }
         if (year != null) {
             args.putInt(YEAR_KEY, year);
+        }
+        if (minimumYear != null) {
+            args.putInt(MINIMUM_YEAR_KEY, minimumYear);
         }
         frag.setArguments(args);
         return frag;
@@ -86,6 +91,10 @@ public class ExpirationPickerDialogFragment extends DialogFragment {
         }
         if (args != null && args.containsKey(YEAR_KEY)) {
             mYear = args.getInt(YEAR_KEY);
+        }
+
+        if (args != null && args.containsKey(MINIMUM_YEAR_KEY)) {
+            mMinimumYear = args.getInt(MINIMUM_YEAR_KEY);
         }
 
         setStyle(DialogFragment.STYLE_NO_TITLE, 0);
@@ -128,6 +137,10 @@ public class ExpirationPickerDialogFragment extends DialogFragment {
 
         if (mMonthOfYear != -1 || mYear != 0)
             mPicker.setExpiration(mYear, mMonthOfYear);
+
+        if (mMinimumYear != 0) {
+            mPicker.setMinYear(mMinimumYear);
+        }
 
         mSet.setOnClickListener(new View.OnClickListener() {
             @Override
