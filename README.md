@@ -15,10 +15,6 @@ Try out the sample application on [Google Play][6].
          src="http://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
 </a>
 
-How it's looks
-==============
-
-
 Including in Your Project
 =========================
 Android-BetterPickers is presented as an [Android library project][7]. A
@@ -121,9 +117,9 @@ You can use your own themes if you'd like to change certain attributes.  BetterP
 
 Actionbarsherlock compatibility
 ===============================
-If you use actionbarsherlock which is not compatible with appcompat-v7 you can use last version of library before 2.0.0.
+If you use actionbarsherlock which is not compatible with appcompat-v7 you can use the latest version of the library on the 1.x.x branch.
 
-You can access readme [here](README_1.6.0.md)
+You can view the readme [here](README_1.6.0.md)
 
 ChangeLog
 =========
@@ -138,19 +134,23 @@ Feel free to contribute to BetterPickers.
 
 If you've fixed a bug or have a feature you've added, just create a pull request.
 
-If you've found a bug, want a new feature, or have other questions, [file an issue][10]. I'll try to answer as soon as I find the time.
+If you've found a bug, want a new feature, or have other questions, [file an issue][10]. We will try to answer as soon as possible.
 
 Credits
 =======
+
+Thanks to [Derek Brameyer][15] for the initial version.
 
 Thanks to [JakeWharton][11] for his work on [ViewPagerIndicator][9].
 
 Thanks to [OAK][12] and [WillowTree Apps][13] for Maven assistance and possible future improvements.
 
+Thanks to all contributors !
+
 License
 =======
 
-    Copyright 2013 Derek Brameyer
+    Copyright 2013 Derek Brameyer, Code-Troopers
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -174,3 +174,4 @@ License
  [12]: http://willowtreeapps.github.io/OAK/
  [13]: http://www.willowtreeapps.com/
  [14]: https://github.com/derekbrameyer/android-betterpickers-gradle-sample
+ [15]: https://github.com/derekbrameyer/
