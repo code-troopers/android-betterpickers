@@ -1,5 +1,5 @@
-1.6.0
-====
+Version 1.6.0
+=============
 
 If you don't want appcompat-v7 you can use last release of library before this change : 1.6.0
 Release 1.6.0 was build with _support-v4_ and _android-switch-backport_

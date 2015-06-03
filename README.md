@@ -122,11 +122,12 @@ You can use your own themes if you'd like to change certain attributes.  BetterP
 Actionbarsherlock compatibility
 ===============================
 If you use actionbarsherlock which is not compatible with appcompat-v7 you can use last version of library before 2.0.0.
+
 You can access readme [here](README_1.6.0.md)
 
 ChangeLog
 =========
-Change log file is available [here](changelog.md)
+Change log file is available [here](Changelog.md)
 
 Contribution
 ============
