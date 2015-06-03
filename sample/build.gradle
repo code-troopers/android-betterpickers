@@ -6,11 +6,11 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "com.doomonafireball.betterpickersapp"
+        applicationId "com.codetroopers.betterpickersapp"
         minSdkVersion 9
         targetSdkVersion 22
-        versionCode 10
-        versionName "1.5.5"
+        versionCode 12
+        versionName "2.0.0-SNAPSHOT"
     }
     buildTypes {
         release {

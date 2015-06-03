@@ -8,7 +8,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
-        <com.doomonafireball.betterpickers.expirationpicker.ExpirationView
+        <com.codetroopers.betterpickers.expirationpicker.ExpirationView
                 android:id="@+id/date_text"
                 android:layout_width="0dip"
                 android:layout_weight="2"
@@ -19,14 +19,14 @@
                 android:layout_gravity="center"
                 android:baselineAligned="false"
                 android:gravity="top">
-            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/month"
                     android:singleLine="true"
                     android:ellipsize="none"
                     style="@style/medium_light_expiration"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
-            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/expiration_seperator"
                     android:singleLine="true"
                     android:ellipsize="none"
@@ -34,7 +34,7 @@
                     android:text="@string/expiration_picker_seperator"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
-            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/year_label"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
                     android:ellipsize="none"
                     style="@style/medium_light_expiration"
                     android:gravity="top"/>
-        </com.doomonafireball.betterpickers.expirationpicker.ExpirationView>
+        </com.codetroopers.betterpickers.expirationpicker.ExpirationView>
         <ImageButton
                 android:id="@+id/delete"
                 android:layout_width="0dip"
@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dip"
             android:background="@color/default_divider_color_dark"/>
-    <com.doomonafireball.betterpickers.widget.UnderlinePageIndicatorPicker
+    <com.codetroopers.betterpickers.widget.UnderlinePageIndicatorPicker
             android:id="@+id/keyboard_indicator"
             android:layout_width="match_parent"
             android:layout_height="2dip"/>

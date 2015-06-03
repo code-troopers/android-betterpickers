@@ -8,7 +8,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
-        <com.doomonafireball.betterpickers.timepicker.TimerView
+        <com.codetroopers.betterpickers.timepicker.TimerView
                 android:id="@+id/timer_time_text"
                 android:layout_width="0dip"
                 android:layout_weight="2"
@@ -19,21 +19,21 @@
                 android:layout_gravity="center"
                 android:baselineAligned="false"
                 android:gravity="top">
-            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/hours_tens"
                     android:singleLine="true"
                     android:ellipsize="none"
                     style="@style/medium_bold"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
-            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/hours_ones"
                     android:singleLine="true"
                     android:ellipsize="none"
                     style="@style/medium_bold"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
-            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/hours_seperator"
                     android:singleLine="true"
                     android:ellipsize="none"
@@ -41,21 +41,21 @@
                     android:text="@string/time_picker_time_seperator"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
-            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/minutes_tens"
                     android:singleLine="true"
                     android:ellipsize="none"
                     style="@style/medium_bold"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
-            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/minutes_ones"
                     android:singleLine="true"
                     android:ellipsize="none"
                     style="@style/medium_bold"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
-            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/ampm_label"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -64,7 +64,7 @@
                     style="@style/label"
                     android:gravity="top"
                     android:text="@string/time_picker_ampm_label"/>
-        </com.doomonafireball.betterpickers.timepicker.TimerView>
+        </com.codetroopers.betterpickers.timepicker.TimerView>
         <ImageButton
                 android:id="@+id/delete"
                 android:layout_width="0dip"
