@@ -15,54 +15,37 @@ Try out the sample application on [Google Play][6].
          src="http://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
 </a>
 
+How it's looks
+==============
+
+
 Including in Your Project
 =========================
-
 Android-BetterPickers is presented as an [Android library project][7]. A
 standalone JAR is not possible due to the theming capabilities offered by the DialogFragments.
 
-You can include this project by [referencing it as a library project][8] in
-Eclipse or ant.  Note that to use this library, both it and your project must be compiled with Android 4.0 (API level 14) or newer, similar to ActionBarSherlock.
+You can include this project by [referencing it as a library project][8].
 
-If you are a Maven user you can easily include the library by specifying it as
-a dependency:
+### Gradle
+
+If you are a Gradle user you can also easily include the library:
+
+```groovy
+compile 'com.doomonafireball.betterpickers:library:2.0.0'
+```
+
+### Maven
+
+If you are a Maven user you can easily include the library by specifying it as a dependency:
 
 ```xml
 <dependency>
   <groupId>com.doomonafireball.betterpickers</groupId>
   <artifactId>library</artifactId>
-  <version>1.6.0</version>
+  <version>2.0.0</version>
   <type>aar</type>
 </dependency>
 ```
-
-If you are a Gradle user you can also easily include the library:
-
-```groovy
-compile 'com.doomonafireball.betterpickers:library:1.6.0'
-```
-
-If you are bringing in the support library you may need to add an exclusion:
-
-```groovy
-compile ("com.doomonafireball.betterpickers:library:1.6.0") {
-    exclude group: 'com.android.support', module: 'support-v4'
-}
-```
-
-_You MUST manually add dependency to android-switch-backport_
-
-```
-compile 'org.jraf:android-switch-backport:1.4.0@aar'
-```
-And as it not available on maven central add a new maven repository
-```
-maven {
-    url "http://JRAF.org/static/maven/2"
-}
-```
-
-There is a standalone Gradle demo [here][14] that may also help.
 
 Usage
 =====
@@ -135,6 +118,15 @@ You can use your own themes if you'd like to change certain attributes.  BetterP
       .setStyleResId(R.style.MyCustomBetterPickerTheme);
   dpb.show();
   ```
+
+Actionbarsherlock compatibility
+===============================
+If you use actionbarsherlock which is not compatible with appcompat-v7 you can use last version of library before 2.0.0.
+You can access readme [here](README_1.6.0.md)
+
+ChangeLog
+=========
+Change log file is available [here](changelog.md)
 
 Contribution
 ============
