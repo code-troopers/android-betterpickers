@@ -18,6 +18,8 @@ Try out the sample application on [Google Play][6].
 Including in Your Project
 =========================
 
+[![Join the chat at https://gitter.im/derekbrameyer/android-betterpickers](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/derekbrameyer/android-betterpickers?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Android-BetterPickers is presented as an [Android library project][7]. A
 standalone JAR is not possible due to the theming capabilities offered by the DialogFragments.
 
