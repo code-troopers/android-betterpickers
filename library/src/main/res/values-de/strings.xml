@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="picker_cancel">Abbrechen</string>
+    <string name="picker_set">OK</string>
+    <string name="hours_label">h</string>
+    <string name="minutes_label">m</string>
+    <string name="seconds_label">s</string>
+    <string name="hours_label_description">Stunden</string>
+    <string name="minutes_label_description">Minuten</string>
+    <string name="seconds_label_description">Sekunden</string>
+    <string name="timer_delete">Löschen</string>
+    <string name="time_picker_ampm_label">--</string>
+    <string name="time_picker_time_seperator">:</string>
+    <string name="time_picker_00_label">:00</string>
+    <string name="time_picker_30_label">:30</string>
+    <string name="number_picker_minus_label">—</string>
+    <string name="number_picker_seperator">.</string>
+    <string name="number_delete">Löschen</string>
+    <string name="number_picker_plus_minus">+/-</string>
+    <string name="hms_picker_hours_label">H</string>
+    <string name="hms_picker_minutes_label">M</string>
+    <string name="hms_picker_seconds_label">S</string>
+    <string name="expiration_picker_seperator">/</string>
+    <string name="month_c">MONAT</string>
+    <string name="day_c">TAG</string>
+    <string name="year_c">JAHR</string>
+
+    <!-- 1.3.1 -->
+    <string name="min_error">Bitte eine Zahl größer oder gleich %1$d eingeben</string>
+    <string name="max_error">Bitte eine Zahl kleiner oder gleich %1$d eingeben</string>
+    <string name="min_max_error">Bitte eine Zahl zwischen %1$d und %2$d eingeben</string>
+
+    <!-- From AOSP -->
+    <!-- Label for button to confirm chosen date or time [CHAR LIMIT=30] -->
+    <string name="done_label">Fertig</string>
+    <!--
+         Content description for the hour selector in the time picker, which displays
+         selectable hours of the day along the inside edge of a circle, as in an analog clock.
+         [CHAR LIMIT=50]
+    -->
+    <string name="hour_picker_description">Runder Stunden-Slider</string>
+    <!--
+         Content description for the minute selector in the time picker, which displays
+         selectable five-minute intervals along the inside edge of a circle, as in an analog clock.
+         [CHAR LIMIT=50]
+    -->
+    <string name="minute_picker_description">Runder Minuten-Slider</string>
+    <!-- Accessibility announcement for hour circular picker [CHAR LIMIT=NONE] -->
+    <string name="select_hours">Stunden auswählen</string>
+    <!-- Accessibility announcement for minute circular picker [CHAR LIMIT=NONE] -->
+    <string name="select_minutes">Minuten auswählen</string>
+
+    <!--
+        Content description for the month and day selector in the date picker, which displays
+        a selectable grid of days laid out by month.
+        [CHAR LIMIT=50]
+     -->
+    <string name="day_picker_description">Monatsübersicht</string>
+    <!--
+        Content description for the year selector in the date picker, which displays
+        a scrolling, vertical list of years.
+        [CHAR LIMIT=50]
+     -->
+    <string name="year_picker_description">Jahresliste</string>
+    <!-- Accessibility announcement for the day picker [CHAR LIMIT=NONE] -->
+    <string name="select_day">Monat und Tag auswählen</string>
+    <!-- Accessibility announcement for the year picker [CHAR LIMIT=NONE] -->
+    <string name="select_year">Jahr auswählen</string>
+    <!-- Accessibility description for the item that is currently selected. -->
+    <string name="item_is_selected">%1$s ausgewählt</string>
+    <!-- Accessibility announcement when a number that had been typed in is deleted [CHAR_LIMIT=NONE] -->
+    <string name="deleted_key">%1$s gelöscht</string>
+
+    <!-- Repeat an monthly event on the same day of every month [CHAR LIMIT=20] -->
+    <string name="recurrence_month_pattern_by_day">am gleichen Tag des Monats</string>
+
+    <!-- Description of the selected marker for accessibility support [CHAR LIMIT = NONE]-->
+    <string name="acessibility_recurrence_choose_end_date_description">Enddatum ändern</string>
+
+    <!-- The button label for saving an event -->
+    <string name="save_label">Fertig</string>
+
+    <!-- Specifies that a repeating event to repeat forever (based on the defined frequency) instead of ending at a future date[CHAR LIMIT=20] -->
+    <string name="recurrence_end_continously">Dauerhaft</string>
+    <!-- Specifies that a repeating event to repeat until a certain date[CHAR LIMIT=25] -->
+    <string name="recurrence_end_date_label">Bis zu bestimmtem Datum</string>
+    <!-- Specifies that a repeating event to repeat until a certain date[CHAR LIMIT=20] -->
+    <string name="recurrence_end_date">Bis zum <xliff:g id="date">%s</xliff:g></string>
+    <!-- Specifies that a repeating event to repeat for a number of times. A repeating event can repeat forever, repeat in a certain frequency until a certain date, or repeat for a number of times. e.g. repeat 10 times and stop. This string is for the last case [CHAR LIMIT=25] -->
+    <string name="recurrence_end_count_label">Mehrere Wiederholungen</string>
+
+    <!-- Strings to describe how frequently to repeat an event (e.g. every 5 days) -->
+    <plurals name="recurrence_interval_daily">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">Nach <xliff:g id="count">%d</xliff:g> Tag</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="other">Nach <xliff:g id="count">%d</xliff:g> Tagen</item>
+    </plurals>
+    <!-- Strings to describe how frequently to repeat an event (e.g. every 5 weeks) -->
+    <plurals name="recurrence_interval_weekly">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">Nach <xliff:g id="count">%d</xliff:g> Woche</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="other">Nach <xliff:g id="count">%d</xliff:g> Wochen</item>
+    </plurals>
+    <!-- Strings to describe how frequently to repeat an event (e.g. every 5 months) -->
+    <plurals name="recurrence_interval_monthly">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">Nach <xliff:g id="count">%d</xliff:g> Monat</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="other">Nach <xliff:g id="count">%d</xliff:g> Monaten</item>
+    </plurals>
+    <!-- Strings to describe how frequently to repeat an event (e.g. every 5 years) -->
+    <plurals name="recurrence_interval_yearly">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">Nach <xliff:g id="count">%d</xliff:g> Jahr</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="other">Nach <xliff:g id="count">%d</xliff:g> Jahren</item>
+    </plurals>
+
+    <!-- Specifies that a repeating event should repeat for a certain number of iterations. [CHAR LIMIT=20]-->
+    <plurals name="recurrence_end_count">
+        <item quantity="one"><xliff:g id="event_count">%d</xliff:g> Wiederholung</item>
+        <item quantity="other"><xliff:g id="event_count">%d</xliff:g> Wiederholungen</item>
+    </plurals>
+
+    <!-- Part of a description of an repeating event. This part states the date when a repeating
+         event ends. The part before the semi-colon describes how it repeats.
+         e.g. Every 2 weeks; until 1/1/2030 [CHAR LIMIT=21] -->
+    <string name="endByDate">; bis <xliff:g id="date">%s</xliff:g></string>
+    <!-- Part of a description of an repeating event. This part how many times the event repeats.
+         The part before the semi-colon describes how it repeats.
+         e.g. Every 2 weeks; for 15 times [CHAR LIMIT=15] -->
+    <plurals name="endByCount">
+        <item quantity="one">; einmal</item>
+        <item quantity="other">; <xliff:g id="number">%d</xliff:g> mal</item>
+    </plurals>
+    <!-- A description for an event that repeats daily. For example, Every 2 days [CHAR LIMIT=15]-->
+    <plurals name="daily">
+        <item quantity="one">Täglich</item>
+        <item quantity="other">Alle <xliff:g id="number">%d</xliff:g> Tage</item>
+    </plurals>
+    <!-- A label in a multiple-choice list for the specifying that an event
+         repeats every weekday (Monday through Friday) -->
+    <string name="every_weekday">"Jeden Wochentag (Mo\u2013Fr)"</string>
+    <!-- A description for an event that repeats weekly on some day of the week. For example,
+         'Weekly on Tuesday' or Every 2 weeks on Monday, Tuesday.  [CHAR LIMIT=25]-->
+    <plurals name="weekly">
+        <item quantity="one">Wöchentlich am <xliff:g id="days_of_week">%2$s</xliff:g></item>
+        <item quantity="other">Alle <xliff:g id="number">%1$d</xliff:g> Wochen am <xliff:g id="days_of_week">%2$s</xliff:g></item>
+    </plurals>
+    <!-- The common portion of a string describing how often an event repeats,
+         example: 'Monthly (on day 2)' -->
+    <string name="monthly">Monatlich</string>
+    <!-- Calendar spinner item, to select that an event recurs every year. -->
+    <string name="yearly_plain">Jährlich</string>
+
+    <string name="switch_on">AN</string>
+    <string name="switch_off">AUS</string>
+
+    <!-- Hint text to encourage the user to enter a country name to find a time zone
+     [CHAR LIMIT=25] -->
+    <string name="hint_time_zone_search">Ländernamen eingeben</string>
+
+    <!-- Description of clear icon in the search bar, for accessibility. [CHAR LIMIT=NONE]-->
+    <string name="searchview_description_clear">Anfrage zurücksetzen</string>
+
+    <!-- Item to show when no timezones are found. [CHAR LIMIT=NONE]-->
+    <string name="no_results_found">Keine Ergebnisse gefunden</string>
+
+    <!-- Name to be displayed for "Palestine". This will be used when searching for a country to
+         select a timezone. [CHAR LIMIT=NONE]
+         *NOTE*: Please be sure to translate this as "Palestine", specifically instead of
+                 "Palestinian Territories". This is for use following Google's updated policy on
+                 this matter.
+                  -->
+    <string name="palestine_display_name">Palästina</string>
+</resources>

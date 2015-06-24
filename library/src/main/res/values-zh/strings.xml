@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="picker_cancel">取消</string>
+    <string name="picker_set">确认</string>
+    <string name="hours_label">h</string>
+    <string name="minutes_label">m</string>
+    <string name="seconds_label">s</string>
+    <string name="hours_label_description">小时</string>
+    <string name="minutes_label_description">分钟</string>
+    <string name="seconds_label_description">秒</string>
+    <string name="timer_delete">删除</string>
+    <string name="time_picker_ampm_label">--</string>
+    <string name="time_picker_time_seperator">:</string>
+    <string name="time_picker_00_label">:00</string>
+    <string name="time_picker_30_label">:30</string>
+    <string name="number_picker_minus_label">—</string>
+    <string name="number_picker_seperator">.</string>
+    <string name="number_delete">删除</string>
+    <string name="number_picker_plus_minus">+/-</string>
+    <string name="hms_picker_hours_label">H</string>
+    <string name="hms_picker_minutes_label">M</string>
+    <string name="hms_picker_seconds_label">S</string>
+    <string name="expiration_picker_seperator">/</string>
+    <string name="month_c">月</string>
+    <string name="day_c">天</string>
+    <string name="year_c">年</string>
+
+    <!-- 1.3.1 -->
+    <string name="min_error">请输入一个数字大于或等于 %1$d</string>
+    <string name="max_error">请输入一个数字小于或等于 %1$d</string>
+    <string name="min_max_error">请输入一个数字在 %1$d 和 %2$d 之间</string>
+
+    <!-- From AOSP -->
+    <!-- Label for button to confirm chosen date or time [CHAR LIMIT=30] -->
+    <string name="done_label">完成</string>
+    <!--
+         Content description for the hour selector in the time picker, which displays
+         selectable hours of the day along the inside edge of a circle, as in an analog clock.
+         [CHAR LIMIT=50]
+    -->
+    <string name="hour_picker_description">滑动选择小时</string>
+    <!--
+         Content description for the minute selector in the time picker, which displays
+         selectable five-minute intervals along the inside edge of a circle, as in an analog clock.
+         [CHAR LIMIT=50]
+    -->
+    <string name="minute_picker_description">滑动选择分钟</string>
+    <!-- Accessibility announcement for hour circular picker [CHAR LIMIT=NONE] -->
+    <string name="select_hours">选择小时</string>
+    <!-- Accessibility announcement for minute circular picker [CHAR LIMIT=NONE] -->
+    <string name="select_minutes">选择分钟</string>
+
+    <!--
+        Content description for the month and day selector in the date picker, which displays
+        a selectable grid of days laid out by month.
+        [CHAR LIMIT=50]
+     -->
+    <string name="day_picker_description">表格按月选择天</string>
+    <!--
+        Content description for the year selector in the date picker, which displays
+        a scrolling, vertical list of years.
+        [CHAR LIMIT=50]
+     -->
+    <string name="year_picker_description">年份列表</string>
+    <!-- Accessibility announcement for the day picker [CHAR LIMIT=NONE] -->
+    <string name="select_day">选择日期</string>
+    <!-- Accessibility announcement for the year picker [CHAR LIMIT=NONE] -->
+    <string name="select_year">选择年</string>
+    <!-- Accessibility description for the item that is currently selected. -->
+    <string name="item_is_selected">%1$已选</string>
+    <!-- Accessibility announcement when a number that had been typed in is deleted [CHAR_LIMIT=NONE] -->
+    <string name="deleted_key">%1$已删除</string>
+
+    <!-- DO NOT TRANSLATE -->
+    <string name="time_placeholder">--</string>
+    <!-- DO NOT TRANSLATE -->
+    <string name="time_separator">:</string>
+
+    <!-- DO NOT TRANSLATE -->
+    <string name="radial_numbers_typeface">sans-serif</string>
+    <!-- DO NOT TRANSLATE -->
+    <string name="sans_serif">sans-serif</string>
+
+    <!-- DO NOT TRANSLATE -->
+    <string name="day_of_week_label_typeface">sans-serif</string>
+
+    <!-- Repeat an monthly event on the same day of every month [CHAR LIMIT=20] -->
+    <string name="recurrence_month_pattern_by_day">每个月的同一天</string>
+
+    <!-- Description of the selected marker for accessibility support [CHAR LIMIT = NONE]-->
+    <string name="acessibility_recurrence_choose_end_date_description">改变截至日期</string>
+
+    <!-- The button label for saving an event -->
+    <string name="save_label">完成</string>
+
+    <!-- Specifies that a repeating event to repeat forever (based on the defined frequency) instead of ending at a future date[CHAR LIMIT=20] -->
+    <string name="recurrence_end_continously">永久</string>
+    <!-- Specifies that a repeating event to repeat until a certain date[CHAR LIMIT=25] -->
+    <string name="recurrence_end_date_label">直到</string>
+    <!-- Specifies that a repeating event to repeat until a certain date[CHAR LIMIT=20] -->
+    <string name="recurrence_end_date">直到 <xliff:g id="date">%s</xliff:g></string>
+    <!-- Specifies that a repeating event to repeat for a number of times. A repeating event can repeat forever, repeat in a certain frequency until a certain date, or repeat for a number of times. e.g. repeat 10 times and stop. This string is for the last case [CHAR LIMIT=25] -->
+    <string name="recurrence_end_count_label">事件发生几次后</string>
+
+    <!-- Strings to describe how frequently to repeat an event (e.g. every 5 days) -->
+    <plurals name="recurrence_interval_daily">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">每 <xliff:g id="count">%d</xliff:g> 天</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="other">每 <xliff:g id="count">%d</xliff:g> 天</item>
+    </plurals>
+    <!-- Strings to describe how frequently to repeat an event (e.g. every 5 weeks) -->
+    <plurals name="recurrence_interval_weekly">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">每 <xliff:g id="count">%d</xliff:g> 周</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="other">每 <xliff:g id="count">%d</xliff:g> 周</item>
+    </plurals>
+    <!-- Strings to describe how frequently to repeat an event (e.g. every 5 months) -->
+    <plurals name="recurrence_interval_monthly">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">每 <xliff:g id="count">%d</xliff:g> 月</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="other">每 <xliff:g id="count">%d</xliff:g> 月</item>
+    </plurals>
+    <!-- Strings to describe how frequently to repeat an event (e.g. every 5 years) -->
+    <plurals name="recurrence_interval_yearly">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">每 <xliff:g id="count">%d</xliff:g> 年</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="other">每 <xliff:g id="count">%d</xliff:g> 年</item>
+    </plurals>
+
+    <!-- Specifies that a repeating event should repeat for a certain number of iterations. [CHAR LIMIT=20]-->
+    <plurals name="recurrence_end_count">
+        <item quantity="one">执行  <xliff:g id="event_count">%d</xliff:g> 次</item>
+        <item quantity="other">执行 <xliff:g id="event_count">%d</xliff:g> 次</item>
+    </plurals>
+
+    <!-- Part of a description of an repeating event. This part states the date when a repeating
+         event ends. The part before the semi-colon describes how it repeats.
+         e.g. Every 2 weeks; until 1/1/2030 [CHAR LIMIT=21] -->
+    <string name="endByDate">; 直到 <xliff:g id="date">%s</xliff:g></string>
+    <!-- Part of a description of an repeating event. This part how many times the event repeats.
+         The part before the semi-colon describes how it repeats.
+         e.g. Every 2 weeks; for 15 times [CHAR LIMIT=15] -->
+    <plurals name="endByCount">
+        <item quantity="one">; 一次</item>
+        <item quantity="other">; 执行 <xliff:g id="number">%d</xliff:g> 次</item>
+    </plurals>
+    <!-- A description for an event that repeats daily. For example, Every 2 days [CHAR LIMIT=15]-->
+    <plurals name="daily">
+        <item quantity="one">日常</item>
+        <item quantity="other">每 <xliff:g id="number">%d</xliff:g> 天</item>
+    </plurals>
+    <!-- A label in a multiple-choice list for the specifying that an event
+         repeats every weekday (Monday through Friday) -->
+    <string name="every_weekday">"Every weekday (Mon\u2013Fri)"</string>
+    <!-- A description for an event that repeats weekly on some day of the week. For example,
+         'Weekly on Tuesday' or Every 2 weeks on Monday, Tuesday.  [CHAR LIMIT=25]-->
+    <plurals name="weekly">
+        <item quantity="one">每周的 <xliff:g id="days_of_week">%2$s</xliff:g></item>
+        <item quantity="other">每 <xliff:g id="number">%1$d</xliff:g> 周的 <xliff:g id="days_of_week">%2$s</xliff:g></item>
+    </plurals>
+    <!-- The common portion of a string describing how often an event repeats,
+         example: 'Monthly (on day 2)' -->
+    <string name="monthly">月份</string>
+    <!-- Calendar spinner item, to select that an event recurs every year. -->
+    <string name="yearly_plain">年份</string>
+
+    <string name="switch_on">开</string>
+    <string name="switch_off">关</string>
+
+    <!-- Hint text to encourage the user to enter a country name to find a time zone
+     [CHAR LIMIT=25] -->
+    <string name="hint_time_zone_search">输入国家名称</string>
+
+    <!-- Description of clear icon in the search bar, for accessibility. [CHAR LIMIT=NONE]-->
+    <string name="searchview_description_clear">清空查询</string>
+
+    <!-- Item to show when no timezones are found. [CHAR LIMIT=NONE]-->
+    <string name="no_results_found">没有找到结果</string>
+
+    <!-- Name to be displayed for "Palestine". This will be used when searching for a country to
+         select a timezone. [CHAR LIMIT=NONE]
+         *NOTE*: Please be sure to translate this as "Palestine", specifically instead of
+                 "Palestinian Territories". This is for use following Google's updated policy on
+                 this matter.
+                  -->
+    <string name="palestine_display_name">巴勒斯坦</string>
+</resources>
+

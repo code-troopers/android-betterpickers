@@ -18,6 +18,7 @@ package com.doomonafireball.betterpickers.radialtimepicker;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.Log;
@@ -49,7 +50,7 @@ public class CircleView extends View {
         super(context);
 
         Resources res = context.getResources();
-        mCircleColor = res.getColor(R.color.white);
+        mCircleColor = res.getColor(R.color.bpWhite);
         mDotColor = res.getColor(R.color.numbers_text_color);
         mPaint.setAntiAlias(true);
 
@@ -77,15 +78,9 @@ public class CircleView extends View {
         mIsInitialized = true;
     }
 
-    /* package */ void setTheme(Context context, boolean dark) {
-        Resources res = context.getResources();
-        if (dark) {
-            mCircleColor = res.getColor(R.color.dark_gray);
-            mDotColor = res.getColor(R.color.light_gray);
-        } else {
-            mCircleColor = res.getColor(R.color.white);
-            mDotColor = res.getColor(R.color.numbers_text_color);
-        }
+    /* package */ void setTheme(TypedArray themeColors) {
+        mCircleColor = themeColors.getColor(R.styleable.BetterPickersRadialTimePickerDialog_bpMainColor1, R.color.bpWhite);
+        mDotColor = themeColors.getColor(R.styleable.BetterPickersRadialTimePickerDialog_bpMainColor2, R.color.numbers_text_color);
     }
 
     @Override

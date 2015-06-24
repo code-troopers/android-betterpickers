@@ -52,6 +52,6 @@ public class SampleTimeMultipleHandlers extends BaseSampleActivity
     }
 
     public void onDialogTimeSet(int reference, int hourOfDay, int minute) {
-        text.setText("" + hourOfDay + ":" + minute);
+        text.setText("" + hourOfDay + ":" + String.format("%02d", minute));
     }
 }

@@ -38,8 +38,8 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     private Button mSetButton;
     private static final int CLICKED_DECIMAL = 10;
 
-    private static final int SIGN_POSITIVE = 0;
-    private static final int SIGN_NEGATIVE = 1;
+    public static final int SIGN_POSITIVE = 0;
+    public static final int SIGN_NEGATIVE = 1;
 
     protected View mDivider;
     private ColorStateList mTextColor;
@@ -547,6 +547,48 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         mSign = savedState.mSign;
         updateKeypad();
     }
+
+    public void setNumber(Integer integerPart, Double decimalPart, Integer mCurrentSign) {
+        if (mCurrentSign != null) {
+            mSign = mCurrentSign;
+        } else {
+            mSign = SIGN_POSITIVE;
+        }
+
+        if (decimalPart != null) {
+            if (decimalPart.equals(Double.valueOf(0))) {
+                mInputPointer++;
+                mInput[mInputPointer] = 0;
+            } else {
+                BigDecimal bigDecimal = BigDecimal.valueOf(decimalPart);
+                bigDecimal = bigDecimal.movePointRight(bigDecimal.scale());
+                readAndRightDigits(bigDecimal.intValue());
+            }
+            mInputPointer++;
+            mInput[mInputPointer] = CLICKED_DECIMAL;
+        }
+
+        if (integerPart != null) {
+            if (integerPart.equals(Integer.valueOf(0))) {
+                mInputPointer++;
+                mInput[mInputPointer] = 0;
+            } else {
+                readAndRightDigits(integerPart);
+            }
+        }
+        updateKeypad();
+    }
+
+    private void readAndRightDigits(Integer digitsToRead) {
+        while (digitsToRead > 0) {
+            int d = digitsToRead / 10;
+            int k = digitsToRead - (d * 10);
+            digitsToRead = d;
+            mInputPointer++;
+            mInput[mInputPointer] = k;
+        }
+    }
+
 
     private static class SavedState extends BaseSavedState {
 

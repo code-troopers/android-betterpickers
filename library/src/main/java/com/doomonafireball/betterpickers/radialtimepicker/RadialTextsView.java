@@ -18,6 +18,7 @@ package com.doomonafireball.betterpickers.radialtimepicker;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
@@ -144,15 +145,8 @@ public class RadialTextsView extends View {
         mIsInitialized = true;
     }
 
-    /* package */ void setTheme(Context context, boolean themeDark) {
-        Resources res = context.getResources();
-        int textColor;
-        if (themeDark) {
-            textColor = res.getColor(R.color.white);
-        } else {
-            textColor = res.getColor(R.color.numbers_text_color);
-        }
-        mPaint.setColor(textColor);
+    /* package */ void setTheme(TypedArray themeColors) {
+        mPaint.setColor(themeColors.getColor(R.styleable.BetterPickersRadialTimePickerDialog_bpMainTextColor, R.color.numbers_text_color));
     }
 
     /**

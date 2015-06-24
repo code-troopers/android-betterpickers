@@ -73,7 +73,7 @@
     <style name="aosp_day_of_week_label_condensed" />
     <style name="TextAppearance.Holo.Light.Widget.Switch" parent="android:TextAppearance.Small">
         <!-- Switch thumb asset presents a dark background. -->
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/bpWhite</item>
     </style>
 
     <style name="TextAppearance.RecurrencePickerStyle" parent="@android:style/TextAppearance">

@@ -12,4 +12,15 @@
         <item name="bpDividerColor">@color/custom_divider_color</item>
         <item name="bpKeyboardIndicatorColor">@color/custom_keyboard_indicator_color</item>
     </style>
+
+    <style name="MyCustomBetterPickersRadialTimePickerDialog">
+        <item name="bpMainColor1">@color/custom_tp_main1</item>
+        <item name="bpMainColor2">@color/custom_tp_main2</item>
+        <item name="bpAccentColor">@color/custom_tp_accent</item>
+        <item name="bpMainTextColor">@color/custom_tp_text</item>
+        <item name="bpDoneTextColor">@color/custom_tp_text</item>
+        <item name="bpLineColor">@color/custom_tp_divider</item>
+        <item name="bpDoneBackgroundColor">@drawable/tp_done_background_color</item>
+        <item name="bpSelectionAlpha">102</item>
+    </style>
 </resources>

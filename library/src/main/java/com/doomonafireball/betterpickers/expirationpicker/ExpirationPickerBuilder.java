@@ -17,6 +17,7 @@ public class ExpirationPickerBuilder {
     private FragmentManager manager; // Required
     private Integer styleResId; // Required
     private Fragment targetFragment;
+    private Integer minimumYear;
     private Integer monthOfYear;
     private Integer year;
     private int mReference = -1;
@@ -64,6 +65,17 @@ public class ExpirationPickerBuilder {
      */
     public ExpirationPickerBuilder setReference(int reference) {
         this.mReference = reference;
+        return this;
+    }
+
+    /**
+     * Set the minimum year that the user is allowed to pick. The default is the current year.
+     *
+     * @param year the year to set as the minimum
+     * @return the current Builder object
+     */
+    public ExpirationPickerBuilder setMinYear(int year) {
+        this.minimumYear = year;
         return this;
     }
 
@@ -132,7 +144,7 @@ public class ExpirationPickerBuilder {
         ft.addToBackStack(null);
 
         final ExpirationPickerDialogFragment fragment = ExpirationPickerDialogFragment
-                .newInstance(mReference, styleResId, monthOfYear, year);
+                .newInstance(mReference, styleResId, monthOfYear, year, minimumYear);
         if (targetFragment != null) {
             fragment.setTargetFragment(targetFragment, 0);
         }

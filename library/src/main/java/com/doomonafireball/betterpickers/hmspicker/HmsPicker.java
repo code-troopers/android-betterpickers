@@ -317,7 +317,32 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
         return mInput[1] * 10 + mInput[0];
     }
 
-    @Override
+    /**
+     * Set the current hours, minutes, and seconds on the picker.
+     *
+     * @param hours the input hours value
+     * @param minutes the input minutes value
+     * @param seconds the input seconds value
+     */
+    public void setTime(int hours, int minutes, int seconds) {
+        mInput[4] = hours;
+        mInput[3] = minutes / 10;
+        mInput[2] = minutes % 10;
+        mInput[1] = seconds / 10;
+        mInput[0] = seconds % 10;
+
+        for (int i=4; i>=0; i--) {
+            if (mInput[i] > 0) {
+                mInputPointer = i;
+                break;
+            }
+        }
+
+        updateKeypad();
+    }
+
+
+  @Override
     public Parcelable onSaveInstanceState() {
         final Parcelable parcel = super.onSaveInstanceState();
         final SavedState state = new SavedState(parcel);
