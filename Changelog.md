@@ -6,6 +6,7 @@ Changelog
 * updated dependency to android-switch-backport:1.4.0 (fix for `1.5.4` problems)
 
 **1.5.4**
+* Re-Added setMaxDate and SetMinDate from the AOSP DateTimePickers, and change it to disallow select date before or after this sets.
 * remove transitive dependency to org.jraf:android-switch-backport
 * add setTime() in HMSPicker
 * add some translations

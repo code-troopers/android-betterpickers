@@ -19,6 +19,8 @@ package com.doomonafireball.betterpickers.calendardatepicker;
 import com.doomonafireball.betterpickers.calendardatepicker.CalendarDatePickerDialog.OnDateChangedListener;
 import com.doomonafireball.betterpickers.calendardatepicker.MonthAdapter.CalendarDay;
 
+import java.util.Calendar;
+
 /**
  * Controller class to communicate among the various components of the date picker dialog.
  */
@@ -39,6 +41,10 @@ interface CalendarDatePickerController {
     int getMinYear();
 
     int getMaxYear();
+
+    Calendar getMinDate();
+    
+    Calendar getMaxDate();
 
     void tryVibrate();
 }

@@ -37,7 +37,7 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
     private static final String TAG = "SimpleMonthAdapter";
 
     private final Context mContext;
-    private final CalendarDatePickerController mController;
+    protected final CalendarDatePickerController mController;
 
     private CalendarDay mSelectedDay;
 
@@ -206,6 +206,10 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
 
     @Override
     public void onDayClick(MonthView view, CalendarDay day) {
+        if (isOutOfRange(day.year, day.month, day.day)) {
+            return;
+        }
+
         if (day != null) {
             onDayTapped(day);
         }
@@ -221,4 +225,72 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
         mController.onDayOfMonthSelected(day.year, day.month, day.day);
         setSelectedDay(day);
     }
+
+    protected boolean isOutOfRange(int year, int month, int day) {
+        if (isBeforeMin(year, month, day)) {
+            return true;
+        } else if (isAfterMax(year, month, day)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean isBeforeMin(int year, int month, int day) {
+        if (mController == null) {
+            return false;
+        }
+        Calendar minDate = mController.getMinDate();
+        if (minDate == null) {
+            return false;
+        }
+
+        if (year < minDate.get(Calendar.YEAR)) {
+            return true;
+        } else if (year > minDate.get(Calendar.YEAR)) {
+            return false;
+        }
+
+        if (month < minDate.get(Calendar.MONTH)) {
+            return true;
+        } else if (month > minDate.get(Calendar.MONTH)) {
+            return false;
+        }
+
+        if (day < minDate.get(Calendar.DAY_OF_MONTH)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    private boolean isAfterMax(int year, int month, int day) {
+        if (mController == null) {
+            return false;
+        }
+        Calendar maxDate = mController.getMaxDate();
+        if (maxDate == null) {
+            return false;
+        }
+
+        if (year > maxDate.get(Calendar.YEAR)) {
+            return true;
+        } else if (year < maxDate.get(Calendar.YEAR)) {
+            return false;
+        }
+
+        if (month > maxDate.get(Calendar.MONTH)) {
+            return true;
+        } else if (month < maxDate.get(Calendar.MONTH)) {
+            return false;
+        }
+
+        if (day > maxDate.get(Calendar.DAY_OF_MONTH)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

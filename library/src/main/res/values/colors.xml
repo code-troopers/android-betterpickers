@@ -14,6 +14,8 @@
     <color name="default_button_background_pressed_light">#ff00ddff</color>
     <color name="default_keyboard_indicator_color_light">#ff00ddff</color>
 
+    <color name="date_picker_text_disabled">#ccc</color>
+    <color name="white">#ffffff</color>
     <color name="circle_background">#f2f2f2</color>
     <color name="ampm_text_color">#8c8c8c</color>
     <color name="done_text_color_normal">#000000</color>

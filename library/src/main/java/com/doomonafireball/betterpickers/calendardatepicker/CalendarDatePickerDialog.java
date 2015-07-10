@@ -107,6 +107,8 @@ public class CalendarDatePickerDialog extends DialogFragment implements
     private String mSelectDay;
     private String mYearPickerDescription;
     private String mSelectYear;
+    private Calendar mMaxDate;
+    private Calendar mMinDate;
 
     /**
      * The callback used to indicate the user is done filling in the date.
@@ -375,6 +377,75 @@ public class CalendarDatePickerDialog extends DialogFragment implements
         if (mDayPickerView != null) {
             mDayPickerView.onChange();
         }
+    }
+   
+    public void setMinDate(Calendar calendar) {
+        mMinDate = calendar;
+
+        if (mDayPickerView != null) {
+            mDayPickerView.onChange();
+        }
+    }
+
+    /**
+     * @return The minimal date supported by this DatePicker. Null if it has not been set.
+     */
+    @Override
+    public Calendar getMinDate() {
+        return mMinDate;
+    }
+
+    /**
+     * Sets the minimal date supported by this DatePicker. Dates after (but not including) the
+     * specified date will be disallowed from being selected.
+     * @param calendar a Calendar object set to the year, month, day desired as the maxdate.
+     */
+    public void setMaxDate(Calendar calendar) {
+        mMaxDate = calendar;
+
+        if (mDayPickerView != null) {
+            mDayPickerView.onChange();
+        }
+    }
+
+    /**
+     * @return The maximal date supported by this DatePicker. Null if it has not been set.
+     */
+    @Override
+    public Calendar getMaxDate() {
+        return mMaxDate;
+    }
+
+    public int getCurrentYear(){
+    	return mCalendar.get(Calendar.YEAR);
+    }
+
+    public int getCurrentMonth(){
+    	return mCalendar.get(Calendar.MONTH);
+    }
+
+    public int getCurrentDayofMonth(){
+    	return mCalendar.get(Calendar.DAY_OF_MONTH);
+    }
+
+    public void setCurrentYear(int year){
+    	mCalendar.set(Calendar.YEAR, year);
+    }
+
+    public void setCurrentMonth(int month){
+    	mCalendar.set(Calendar.MONTH, month);
+    }
+
+    public void setCurrentDayofMonth(int daym){
+    	mCalendar.set(Calendar.DAY_OF_MONTH, daym);
+    }
+    public void enableButtom(){
+        mDoneButton.setEnabled(true);
+    }
+
+    
+    public void disableButtom(){
+        mDoneButton.setEnabled(false);
     }
 
     public void setOnDateSetListener(OnDateSetListener listener) {

@@ -12,7 +12,6 @@
         <attr name="bpKeyboardIndicatorColor" format="color"/>
         <attr name="bpDialogBackground" format="reference"/>
     </declare-styleable>
-
     <declare-styleable name="BetterPickersRadialTimePickerDialog">
         <attr name="bpMainColor1" format="color"/>
         <attr name="bpMainColor2" format="color"/>

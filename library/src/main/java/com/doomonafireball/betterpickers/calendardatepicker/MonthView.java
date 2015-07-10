@@ -120,6 +120,8 @@ public abstract class MonthView extends View {
     // used for scaling to the device density
     protected static float mScale = 0;
 
+    protected CalendarDatePickerController mController;
+
     // affects the padding on the sides of this view
     protected int mPadding = 0;
 
@@ -181,6 +183,8 @@ public abstract class MonthView extends View {
     protected int mTodayNumberColor;
     protected int mMonthTitleColor;
     protected int mMonthTitleBGColor;
+	protected int mDisabledDayTextColor;
+
 
     public MonthView(Context context) {
         super(context);
@@ -197,6 +201,8 @@ public abstract class MonthView extends View {
         mTodayNumberColor = res.getColor(R.color.bpBlue);
         mMonthTitleColor = res.getColor(R.color.bpWhite);
         mMonthTitleBGColor = res.getColor(R.color.circle_background);
+		mDisabledDayTextColor = res.getColor(R.color.date_picker_text_disabled);
+
 
         mStringBuilder = new StringBuilder(50);
         mFormatter = new Formatter(mStringBuilder, Locale.getDefault());
@@ -219,6 +225,14 @@ public abstract class MonthView extends View {
 
         // Sets up any standard paints that will be used
         initView();
+    }
+
+    public void setDatePickerController(CalendarDatePickerController controller) {
+        mController = controller;
+    }
+
+    protected MonthViewTouchHelper getMonthViewTouchHelper() {
+        return new MonthViewTouchHelper(this);
     }
 
     @Override
@@ -520,6 +534,71 @@ public abstract class MonthView extends View {
 
         // This is a no-op if accessibility is turned off.
         mTouchHelper.sendEventForVirtualView(day, AccessibilityEvent.TYPE_VIEW_CLICKED);
+    }
+
+    protected boolean isOutOfRange(int year, int month, int day) {
+        if (isBeforeMin(year, month, day)) {
+            return true;
+        } else if (isAfterMax(year, month, day)) {
+            return true;
+        }
+
+        return false;
+    }
+    private boolean isBeforeMin(int year, int month, int day) {
+        if (mController == null) {
+            return false;
+        }
+        Calendar minDate = mController.getMinDate();
+        if (minDate == null) {
+            return false;
+        }
+
+        if (year < minDate.get(Calendar.YEAR)) {
+            return true;
+        } else if (year > minDate.get(Calendar.YEAR)) {
+            return false;
+        }
+
+        if (month < minDate.get(Calendar.MONTH)) {
+            return true;
+        } else if (month > minDate.get(Calendar.MONTH)) {
+            return false;
+        }
+
+        if (day < minDate.get(Calendar.DAY_OF_MONTH)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean isAfterMax(int year, int month, int day) {
+        if (mController == null) {
+            return false;
+        }
+        Calendar maxDate = mController.getMaxDate();
+        if (maxDate == null) {
+            return false;
+        }
+
+        if (year > maxDate.get(Calendar.YEAR)) {
+            return true;
+        } else if (year < maxDate.get(Calendar.YEAR)) {
+            return false;
+        }
+
+        if (month > maxDate.get(Calendar.MONTH)) {
+            return true;
+        } else if (month < maxDate.get(Calendar.MONTH)) {
+            return false;
+        }
+
+        if (day > maxDate.get(Calendar.DAY_OF_MONTH)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
