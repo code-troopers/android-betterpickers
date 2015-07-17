@@ -155,7 +155,7 @@
     </plurals>
     <!-- A label in a multiple-choice list for the specifying that an event
          repeats every weekday (Monday through Friday) -->
-    <string name="every_weekday">"Tous les jours de semaine (Mon\u2013Fri)"</string>
+    <string name="every_weekday">"Tous les jours de semaine (Lun\u2013Ven)"</string>
     <!-- A description for an event that repeats weekly on some day of the week. For example,
          'Weekly on mardi' or Every 2 weeks on lundi, mardi.  [CHAR LIMIT=25]-->
     <plurals name="weekly">
