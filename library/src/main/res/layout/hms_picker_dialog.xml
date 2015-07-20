@@ -4,7 +4,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-    <com.doomonafireball.betterpickers.hmspicker.HmsPicker
+    <com.codetroopers.betterpickers.hmspicker.HmsPicker
             android:id="@+id/hms_picker"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

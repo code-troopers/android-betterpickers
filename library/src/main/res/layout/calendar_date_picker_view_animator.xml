@@ -13,7 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<com.doomonafireball.betterpickers.calendardatepicker.AccessibleDateAnimator
+<com.codetroopers.betterpickers.calendardatepicker.AccessibleDateAnimator
      xmlns:android="http://schemas.android.com/apk/res/android"
      android:id="@+id/animator"
      android:layout_width="@dimen/date_picker_component_width"

@@ -47,7 +47,7 @@
             android:layout_marginLeft="@dimen/extra_time_label_margin"
             android:layout_marginRight="@dimen/extra_time_label_margin"
             android:layout_centerVertical="true" >
-            <com.doomonafireball.betterpickers.widget.AccessibleTextView
+            <com.codetroopers.betterpickers.widget.AccessibleTextView
                 android:id="@+id/hours"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
             android:layout_marginLeft="@dimen/extra_time_label_margin"
             android:layout_marginRight="@dimen/extra_time_label_margin"
             android:layout_centerVertical="true" >
-            <com.doomonafireball.betterpickers.widget.AccessibleTextView
+            <com.codetroopers.betterpickers.widget.AccessibleTextView
                 android:id="@+id/minutes"
                 style="@style/aosp_time_label"
                 android:layout_width="wrap_content"
@@ -97,7 +97,7 @@
                 android:text="@string/time_placeholder"
                 android:layout_gravity="center" />
         </FrameLayout>
-        <com.doomonafireball.betterpickers.widget.AccessibleTextView
+        <com.codetroopers.betterpickers.widget.AccessibleTextView
             android:id="@+id/ampm_hitspace"
             android:layout_width="@dimen/ampm_label_size"
             android:layout_height="wrap_content"

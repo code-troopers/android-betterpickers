@@ -4,7 +4,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-    <com.doomonafireball.betterpickers.expirationpicker.ExpirationPicker
+    <com.codetroopers.betterpickers.expirationpicker.ExpirationPicker
             android:id="@+id/expiration_picker"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

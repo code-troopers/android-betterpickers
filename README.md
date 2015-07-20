@@ -1,4 +1,4 @@
-[![Maven Central](https://img.shields.io/maven-central/v/com.doomonafireball.betterpickers/library.svg?style=flat)](https://repo1.maven.org/maven2/com/doomonafireball/betterpickers/library/)
+[![Maven Central](https://img.shields.io/maven-central/v/com.code-troopers.betterpickers/library.svg?style=flat)](https://repo1.maven.org/maven2/com/code-troopers/betterpickers/library/)
 [![API](https://img.shields.io/badge/API-9%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=9)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android%20Betterpickers-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/118)
 [![Join the chat at https://gitter.im/derekbrameyer/android-betterpickers](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/derekbrameyer/android-betterpickers?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -19,52 +19,31 @@ Try out the sample application on [Google Play][6].
 
 Including in Your Project
 =========================
-
 Android-BetterPickers is presented as an [Android library project][7]. A
 standalone JAR is not possible due to the theming capabilities offered by the DialogFragments.
 
-You can include this project by [referencing it as a library project][8] in
-Eclipse or ant.  Note that to use this library, both it and your project must be compiled with Android 4.0 (API level 14) or newer, similar to ActionBarSherlock.
+You can include this project by [referencing it as a library project][8].
 
-If you are a Maven user you can easily include the library by specifying it as
-a dependency:
-
-```xml
-<dependency>
-  <groupId>com.doomonafireball.betterpickers</groupId>
-  <artifactId>library</artifactId>
-  <version>1.6.0</version>
-  <type>aar</type>
-</dependency>
-```
+### Gradle
 
 If you are a Gradle user you can also easily include the library:
 
 ```groovy
-compile 'com.doomonafireball.betterpickers:library:1.6.0'
+compile 'com.code-troopers.betterpickers:library:2.0.0'
 ```
 
-If you are bringing in the support library you may need to add an exclusion:
+### Maven
 
-```groovy
-compile ("com.doomonafireball.betterpickers:library:1.6.0") {
-    exclude group: 'com.android.support', module: 'support-v4'
-}
-```
+If you are a Maven user you can easily include the library by specifying it as a dependency:
 
-_You MUST manually add dependency to android-switch-backport_
-
+```xml
+<dependency>
+  <groupId>com.code-troopers.betterpickers</groupId>
+  <artifactId>library</artifactId>
+  <version>2.0.0</version>
+  <type>aar</type>
+</dependency>
 ```
-compile 'org.jraf:android-switch-backport:1.4.0@aar'
-```
-And as it not available on maven central add a new maven repository
-```
-maven {
-    url "http://JRAF.org/static/maven/2"
-}
-```
-
-There is a standalone Gradle demo [here][14] that may also help.
 
 Usage
 =====
@@ -138,6 +117,16 @@ You can use your own themes if you'd like to change certain attributes.  BetterP
   dpb.show();
   ```
 
+Actionbarsherlock compatibility
+===============================
+If you use actionbarsherlock which is not compatible with appcompat-v7 you can use the latest version of the library on the 1.x.x branch.
+
+You can view the readme [here](README_1.6.0.md)
+
+ChangeLog
+=========
+Change log file is available [here](Changelog.md)
+
 Contribution
 ============
 
@@ -147,19 +136,23 @@ Feel free to contribute to BetterPickers.
 
 If you've fixed a bug or have a feature you've added, just create a pull request.
 
-If you've found a bug, want a new feature, or have other questions, [file an issue][10]. I'll try to answer as soon as I find the time.
+If you've found a bug, want a new feature, or have other questions, [file an issue][10]. We will try to answer as soon as possible.
 
 Credits
 =======
+
+Thanks to [Derek Brameyer][15] for the initial version.
 
 Thanks to [JakeWharton][11] for his work on [ViewPagerIndicator][9].
 
 Thanks to [OAK][12] and [WillowTree Apps][13] for Maven assistance and possible future improvements.
 
+Thanks to all contributors !
+
 License
 =======
 
-    Copyright 2013 Derek Brameyer
+    Copyright 2013 Derek Brameyer, Code-Troopers
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -183,3 +176,4 @@ License
  [12]: http://willowtreeapps.github.io/OAK/
  [13]: http://www.willowtreeapps.com/
  [14]: https://github.com/derekbrameyer/android-betterpickers-gradle-sample
+ [15]: https://github.com/derekbrameyer/
