@@ -25,6 +25,7 @@ public class DatePickerDialogFragment extends DialogFragment {
     private static final String MONTH_KEY = "DatePickerDialogFragment_MonthKey";
     private static final String DAY_KEY = "DatePickerDialogFragment_DayKey";
     private static final String YEAR_KEY = "DatePickerDialogFragment_YearKey";
+    private static final String YEAR_OPTIONAL_KEY = "DatePickerDialogFragment_YearOptionalKey";
 
     private Button mSet, mCancel;
     private DatePicker mPicker;
@@ -32,6 +33,8 @@ public class DatePickerDialogFragment extends DialogFragment {
     private int mMonthOfYear = -1;
     private int mDayOfMonth = 0;
     private int mYear = 0;
+
+    private boolean mYearOptional = false;
 
     private int mReference = -1;
     private int mTheme = -1;
@@ -53,7 +56,7 @@ public class DatePickerDialogFragment extends DialogFragment {
      * @return a Picker!
      */
     public static DatePickerDialogFragment newInstance(int reference, int themeResId, Integer monthOfYear,
-            Integer dayOfMonth, Integer year) {
+            Integer dayOfMonth, Integer year, Boolean yearOptional) {
         final DatePickerDialogFragment frag = new DatePickerDialogFragment();
         Bundle args = new Bundle();
         args.putInt(REFERENCE_KEY, reference);
@@ -67,6 +70,8 @@ public class DatePickerDialogFragment extends DialogFragment {
         if (year != null) {
             args.putInt(YEAR_KEY, year);
         }
+        args.putBoolean(YEAR_OPTIONAL_KEY, yearOptional);
+
         frag.setArguments(args);
         return frag;
     }
@@ -95,6 +100,9 @@ public class DatePickerDialogFragment extends DialogFragment {
         }
         if (args != null && args.containsKey(YEAR_KEY)) {
             mYear = args.getInt(YEAR_KEY);
+        }
+        if (args != null && args.containsKey(YEAR_OPTIONAL_KEY)) {
+            mYearOptional = args.getBoolean(YEAR_OPTIONAL_KEY);
         }
 
         setStyle(DialogFragment.STYLE_NO_TITLE, 0);
@@ -135,6 +143,7 @@ public class DatePickerDialogFragment extends DialogFragment {
         mPicker = (DatePicker) v.findViewById(R.id.date_picker);
         mPicker.setSetButton(mSet);
         mPicker.setDate(mYear, mMonthOfYear, mDayOfMonth);
+        mPicker.setYearOptional(mYearOptional);
         mSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
