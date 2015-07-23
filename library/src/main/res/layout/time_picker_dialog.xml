@@ -4,7 +4,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-    <com.doomonafireball.betterpickers.timepicker.TimePicker
+    <com.codetroopers.betterpickers.timepicker.TimePicker
             android:id="@+id/time_picker"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

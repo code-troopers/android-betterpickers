@@ -8,7 +8,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
-        <com.doomonafireball.betterpickers.hmspicker.HmsView
+        <com.codetroopers.betterpickers.hmspicker.HmsView
                 android:id="@+id/hms_text"
                 android:layout_width="0dip"
                 android:layout_weight="2"
@@ -19,14 +19,14 @@
                 android:layout_gravity="center"
                 android:baselineAligned="false"
                 android:gravity="top">
-            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/hours_ones"
                     android:singleLine="true"
                     android:ellipsize="none"
                     style="@style/medium_bold_hms"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
-            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/hours_label"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -35,21 +35,21 @@
                     style="@style/label"
                     android:gravity="top"
                     android:text="@string/hms_picker_hours_label"/>
-            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/minutes_tens"
                     android:singleLine="true"
                     android:ellipsize="none"
                     style="@style/medium_bold_hms"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
-            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/minutes_ones"
                     android:singleLine="true"
                     android:ellipsize="none"
                     style="@style/medium_bold_hms"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
-            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/minutes_label"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -58,21 +58,21 @@
                     style="@style/label"
                     android:gravity="top"
                     android:text="@string/hms_picker_minutes_label"/>
-            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/seconds_tens"
                     android:singleLine="true"
                     android:ellipsize="none"
                     style="@style/medium_light_hms"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
-            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/seconds_ones"
                     android:singleLine="true"
                     android:ellipsize="none"
                     style="@style/medium_light_hms"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
-            <com.doomonafireball.betterpickers.widget.ZeroTopPaddingTextView
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/seconds_label"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -81,7 +81,7 @@
                     style="@style/label"
                     android:gravity="top"
                     android:text="@string/hms_picker_seconds_label"/>
-        </com.doomonafireball.betterpickers.hmspicker.HmsView>
+        </com.codetroopers.betterpickers.hmspicker.HmsView>
         <ImageButton
                 android:id="@+id/delete"
                 android:layout_width="0dip"

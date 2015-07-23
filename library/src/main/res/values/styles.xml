@@ -72,6 +72,17 @@
 
     <style name="aosp_day_of_week_label_condensed" />
 
+    <style name="Widget.Holo.Light.CompoundButton.Switch" parent="android:Widget.CompoundButton">
+        <item name="bpTrack">@drawable/switch_track_holo_light</item>
+        <item name="bpThumb">@drawable/switch_thumb</item>
+        <item name="bpSwitchTextAppearance">@style/TextAppearance.Holo.Light.Widget.Switch</item>
+        <item name="bpTextOn">@string/switch_on</item>
+        <item name="bpTextOff">@string/switch_off</item>
+        <item name="bpThumbTextPadding">12dip</item>
+        <item name="bpSwitchMinWidth">96dip</item>
+        <item name="bpSwitchPadding">16dip</item>
+    </style>
+
     <style name="TextAppearance.Holo.Light.Widget.Switch" parent="android:TextAppearance.Small">
         <!-- Switch thumb asset presents a dark background. -->
         <item name="android:textColor">@color/bpWhite</item>

@@ -55,7 +55,7 @@
             android:textSize="@dimen/done_label_size"
             android:textColor="@color/done_text_color" />
     </LinearLayout>
-    <com.doomonafireball.betterpickers.radialtimepicker.RadialPickerLayout
+    <com.codetroopers.betterpickers.radialtimepicker.RadialPickerLayout
         android:id="@+id/time_picker"
         android:layout_width="@dimen/picker_dimen"
         android:layout_height="match_parent"

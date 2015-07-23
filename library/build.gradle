@@ -9,8 +9,8 @@ android {
     defaultConfig {
         minSdkVersion 9
         targetSdkVersion 22
-        versionCode 10
-        versionName "1.5.5"
+        versionCode 12
+        versionName "2.0.0-SNAPSHOT"
     }
 
     buildTypes {
@@ -35,7 +35,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:support-v4:20.0.+'
     compile 'com.nineoldandroids:library:2.4.0'
-    compile 'org.jraf:android-switch-backport:1.4.0@aar'
+    compile 'com.android.support:appcompat-v7:22.2.0'
 }
