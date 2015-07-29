@@ -17,6 +17,7 @@
 package com.codetroopers.betterpickers.calendardatepicker;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -79,10 +80,11 @@ public class CalendarDatePickerDialog extends DialogFragment implements
 
     private final Calendar mCalendar = Calendar.getInstance();
     private OnDateSetListener mCallBack;
+    private OnDialogDismissListener mDimissCallback;
+
     private HashSet<OnDateChangedListener> mListeners = new HashSet<OnDateChangedListener>();
 
     private AccessibleDateAnimator mAnimator;
-
     private TextView mDayOfWeekView;
     private LinearLayout mMonthAndDayView;
     private TextView mSelectedMonthTextView;
@@ -90,18 +92,18 @@ public class CalendarDatePickerDialog extends DialogFragment implements
     private TextView mYearView;
     private DayPickerView mDayPickerView;
     private YearPickerView mYearPickerView;
+
     private Button mDoneButton;
 
     private int mCurrentView = UNINITIALIZED;
-
     private int mWeekStart = mCalendar.getFirstDayOfWeek();
     private int mMinYear = DEFAULT_START_YEAR;
+
     private int mMaxYear = DEFAULT_END_YEAR;
 
     private HapticFeedbackController mHapticFeedbackController;
 
     private boolean mDelayAnimation = true;
-
     // Accessibility strings.
     private String mDayPickerDescription;
     private String mSelectDay;
@@ -115,9 +117,9 @@ public class CalendarDatePickerDialog extends DialogFragment implements
 
         /**
          * @param CalendarDatePickerDialog The view associated with this listener.
-         * @param year The year that was set.
-         * @param monthOfYear The month that was set (0-11) for compatibility with {@link java.util.Calendar}.
-         * @param dayOfMonth The day of the month that was set.
+         * @param year                     The year that was set.
+         * @param monthOfYear              The month that was set (0-11) for compatibility with {@link java.util.Calendar}.
+         * @param dayOfMonth               The day of the month that was set.
          */
         void onDateSet(CalendarDatePickerDialog dialog, int year, int monthOfYear, int dayOfMonth);
     }
@@ -130,20 +132,24 @@ public class CalendarDatePickerDialog extends DialogFragment implements
         public void onDateChanged();
     }
 
+    public static interface OnDialogDismissListener {
+
+        public abstract void onDialogDismiss(DialogInterface dialoginterface);
+    }
 
     public CalendarDatePickerDialog() {
         // Empty constructor required for dialog fragment.
     }
 
     /**
-     * @param callBack How the parent is notified that the date is set.
-     * @param year The initial year of the dialog.
+     * @param callBack    How the parent is notified that the date is set.
+     * @param year        The initial year of the dialog.
      * @param monthOfYear The initial month of the dialog.
-     * @param dayOfMonth The initial day of the dialog.
+     * @param dayOfMonth  The initial day of the dialog.
      */
     public static CalendarDatePickerDialog newInstance(OnDateSetListener callBack, int year,
-            int monthOfYear,
-            int dayOfMonth) {
+                                                       int monthOfYear,
+                                                       int dayOfMonth) {
         CalendarDatePickerDialog ret = new CalendarDatePickerDialog();
         ret.initialize(callBack, year, monthOfYear, dayOfMonth);
         return ret;
@@ -190,8 +196,9 @@ public class CalendarDatePickerDialog extends DialogFragment implements
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,
+                             ViewGroup container,
+                             Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView: ");
         if (getShowsDialog()) {
             getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
@@ -381,6 +388,10 @@ public class CalendarDatePickerDialog extends DialogFragment implements
         mCallBack = listener;
     }
 
+    public void setOnDismissListener(OnDialogDismissListener ondialogdismisslistener) {
+        mDimissCallback = ondialogdismisslistener;
+    }
+
     // If the newly selected month / year does not contain the currently selected day number,
     // change the selected day number to the last day of the selected month or year.
     //      e.g. Switching from Mar to Apr when Mar 31 is selected -> Apr 30
@@ -390,6 +401,14 @@ public class CalendarDatePickerDialog extends DialogFragment implements
         int daysInMonth = Utils.getDaysInMonth(month, year);
         if (day > daysInMonth) {
             mCalendar.set(Calendar.DAY_OF_MONTH, daysInMonth);
+        }
+    }
+
+    @Override
+    public void onDismiss(DialogInterface dialoginterface) {
+        super.onDismiss(dialoginterface);
+        if (mDimissCallback != null) {
+            mDimissCallback.onDialogDismiss(dialoginterface);
         }
     }
 
