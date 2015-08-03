@@ -4,7 +4,7 @@ Changelog
 **2.0.0**
 * remove switch-backport import
 * add support-appcompat import (which break integration/compatibility with project using actionBarSherlock)
-* change package name from com.doomonafireball.betterpickers to com.codetroopers.betterpickers (change of maintainer for project)
+* change package name from _com.doomonafireball.betterpickers_ to _com.codetroopers.betterpickers_ (change of maintainer for project)
 
 **1.5.5**
 * updated dependency to android-switch-backport:1.4.0 (fix for `1.5.4` problems)
