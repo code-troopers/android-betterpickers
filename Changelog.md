@@ -1,6 +1,10 @@
 
 Changelog
 =========
+**2.0.1**
+* add spanish translations (#184)
+* add onDismissListener on DatePickerDialog in the same way that for RadialTimePickerDialog (#189)
+
 **2.0.0**
 * remove switch-backport import
 * add support-appcompat import (which break integration/compatibility with project using actionBarSherlock)
