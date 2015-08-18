@@ -383,7 +383,7 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
         private SavedState(Parcel in) {
             super(in);
             mInputPointer = in.readInt();
-            in.readIntArray(mInput);
+            mInput = in.createIntArray();
             mAmPmState = in.readInt();
         }
 
