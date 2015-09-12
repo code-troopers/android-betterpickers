@@ -108,6 +108,31 @@ public class HmsPickerBuilder {
     }
 
     /**
+     * Set some initial values for the picker
+     *
+     * @param timeInSeconds the time in seconds
+     * @return the current Builder object
+     */
+    public HmsPickerBuilder setTimeInSeconds(int timeInSeconds) {
+        int hours = timeInSeconds / 3600;
+        int remaining = timeInSeconds % 3600;
+        int minutes = remaining / 60;
+        int seconds = remaining % 60;
+
+        return this.setTime(hours, minutes, seconds);
+    }
+
+    /**
+     * Set some initial values for the picker
+     *
+     * @param timeInMilliseconds the time in milliseconds
+     * @return the current Builder object
+     */
+    public HmsPickerBuilder setTimeInMilliseconds(long timeInMilliseconds) {
+        return this.setTimeInSeconds((int) (timeInMilliseconds / 1000L));
+    }
+
+    /**
      * Instantiate and show the Picker
      */
     public void show() {
