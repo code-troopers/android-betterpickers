@@ -1,6 +1,13 @@
 
 Changelog
 =========
+**2.0.3**
+* add setTimeInSeconds and setTimeInMilliseconds to HmsPickerBuilder (#185)
+* Fix DatePicker button size issues
+
+**2.0.2**
+* Fix NullPointerException in HMSPicker (#190)
+
 **2.0.1**
 * add spanish translations (#184)
 * add onDismissListener on DatePickerDialog in the same way that for RadialTimePickerDialog (#189)
