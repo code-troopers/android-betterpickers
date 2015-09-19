@@ -17,6 +17,7 @@
 package com.codetroopers.betterpickers.timezonepicker;
 
 import android.content.Context;
+import android.os.Build;
 import android.text.Spannable;
 import android.text.Spannable.Factory;
 import android.text.format.DateUtils;
@@ -47,7 +48,7 @@ public class TimeZoneInfo implements Comparable<TimeZoneInfo> {
     TimeZone mTz;
     public String mTzId;
     int mRawoffset;
-    public int[] mTransitions; // may have trailing 0's.
+    public long[] mTransitions; // may have trailing 0's.
     public String mCountry;
     public int groupId;
     public String mDisplayName;
@@ -195,15 +196,19 @@ public class TimeZoneInfo implements Comparable<TimeZoneInfo> {
         return displayName;
     }
 
-    private static int[] getTransitions(TimeZone tz, long time)
-            throws IllegalAccessException, NoSuchFieldException {
+    private static long[] getTransitions(TimeZone tz, long time) throws IllegalAccessException, NoSuchFieldException {
         Class<?> zoneInfoClass = tz.getClass();
         Field mTransitionsField = zoneInfoClass.getDeclaredField("mTransitions");
         mTransitionsField.setAccessible(true);
-        int[] objTransitions = (int[]) mTransitionsField.get(tz);
-        int[] transitions = null;
+        long[] objTransitions;
+        long[] transitions = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            objTransitions = (long[]) mTransitionsField.get(tz);
+        } else {
+            objTransitions = copyFromIntArray((int[]) mTransitionsField.get(tz));
+        }
         if (objTransitions.length != 0) {
-            transitions = new int[NUM_OF_TRANSITIONS];
+            transitions = new long[NUM_OF_TRANSITIONS];
             int numOfTransitions = 0;
             for (int i = 0; i < objTransitions.length; ++i) {
                 if (objTransitions[i] < time) {
@@ -216,6 +221,14 @@ public class TimeZoneInfo implements Comparable<TimeZoneInfo> {
             }
         }
         return transitions;
+    }
+
+    public static long[] copyFromIntArray(int[] source) {
+        long[] dest = new long[source.length];
+        for (int i = 0; i < source.length; i++) {
+            dest[i] = source[i];
+        }
+        return dest;
     }
 
     public boolean hasSameRules(TimeZoneInfo tzi) {
