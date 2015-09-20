@@ -224,6 +224,9 @@ public class TimeZoneInfo implements Comparable<TimeZoneInfo> {
     }
 
     public static long[] copyFromIntArray(int[] source) {
+        if(source == null){
+            return new long[0];
+        }
         long[] dest = new long[source.length];
         for (int i = 0; i < source.length; i++) {
             dest[i] = source[i];
