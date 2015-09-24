@@ -23,4 +23,9 @@
         <item name="bpDoneBackgroundColor">@drawable/tp_done_background_color</item>
         <item name="bpSelectionAlpha">102</item>
     </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!--used by switch compat-->
+        <item name="colorControlActivated">@color/bpBlue</item>
+    </style>
 </resources>

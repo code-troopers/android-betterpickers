@@ -7,7 +7,7 @@
     <application
         android:label="BetterPickers Samples"
         android:icon="@drawable/ic_launcher"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        android:theme="@style/AppTheme">
         <activity
             android:name="com.codetroopers.betterpickers.sample.ListSamples"
             android:label="BetterPickers Samples">
