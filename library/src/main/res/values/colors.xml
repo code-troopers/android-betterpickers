@@ -32,6 +32,7 @@
     <color name="date_picker_text_normal">#ff999999</color>
 
     <color name="calendar_header">#999999</color>
+    <color name="date_picker_view_animator">#f2f2f2</color>
     <color name="calendar_selected_date_text">#ffd1d2d4</color>
 
     <!-- Colors for red theme -->

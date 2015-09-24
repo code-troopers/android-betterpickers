@@ -7,6 +7,7 @@ Changelog
 * Rename RadialTimePickerDialog to RadialTimePickerDialogFragment
 * Rename RecurrencePickerDialog to RecurrencePickerDialogFragment
 * Rename TimeZonePickerDialog to TimeZonePickerDialogFragment
+* update support-appcompat-v7
 
 **2.0.3**
 * add setTimeInSeconds and setTimeInMilliseconds to HmsPickerBuilder (#185)
