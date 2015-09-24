@@ -18,7 +18,6 @@ package com.codetroopers.betterpickers.radialtimepicker;
 
 import android.app.ActionBar.LayoutParams;
 import android.content.DialogInterface;
-import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -49,7 +48,7 @@ import java.util.Locale;
 /**
  * Dialog to set a time.
  */
-public class RadialTimePickerDialog extends DialogFragment implements OnValueSelectedListener {
+public class RadialTimePickerDialogFragment extends DialogFragment implements OnValueSelectedListener {
 
     private static final String TAG = "TimePickerDialog";
 
@@ -125,7 +124,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
          * @param hourOfDay The hour that was set.
          * @param minute    The minute that was set.
          */
-        void onTimeSet(RadialTimePickerDialog dialog, int hourOfDay, int minute);
+        void onTimeSet(RadialTimePickerDialogFragment dialog, int hourOfDay, int minute);
     }
 
     public static interface OnDialogDismissListener {
@@ -133,9 +132,9 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         public abstract void onDialogDismiss(DialogInterface dialoginterface);
     }
 
-    public static RadialTimePickerDialog newInstance(OnTimeSetListener callback,
+    public static RadialTimePickerDialogFragment newInstance(OnTimeSetListener callback,
                                                      int hourOfDay, int minute, boolean is24HourMode) {
-        RadialTimePickerDialog ret = new RadialTimePickerDialog();
+        RadialTimePickerDialogFragment ret = new RadialTimePickerDialogFragment();
         ret.initialize(callback, hourOfDay, minute, is24HourMode);
         return ret;
     }
@@ -291,7 +290,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
                     tryVibrate();
                 }
                 if (mCallback != null) {
-                    mCallback.onTimeSet(RadialTimePickerDialog.this,
+                    mCallback.onTimeSet(RadialTimePickerDialogFragment.this,
                             mTimePicker.getHours(), mTimePicker.getMinutes());
                 }
                 dismiss();
@@ -541,7 +540,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
                 finishKbMode(false);
             }
             if (mCallback != null) {
-                mCallback.onTimeSet(RadialTimePickerDialog.this,
+                mCallback.onTimeSet(RadialTimePickerDialogFragment.this,
                         mTimePicker.getHours(), mTimePicker.getMinutes());
             }
             dismiss();

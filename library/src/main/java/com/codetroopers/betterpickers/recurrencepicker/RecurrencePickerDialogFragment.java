@@ -66,11 +66,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 
-public class RecurrencePickerDialog extends DialogFragment implements OnItemSelectedListener,
+public class RecurrencePickerDialogFragment extends DialogFragment implements OnItemSelectedListener,
         OnCheckedChangeListener, OnClickListener,
         android.widget.RadioGroup.OnCheckedChangeListener, CalendarDatePickerDialogFragment.OnDateSetListener {
 
-    private static final String TAG = "RecurrencePickerDialog";
+    private static final String TAG = "RecurrencePickerDialogFragment";
 
     // in dp's
     private static final int MIN_SCREEN_WIDTH_FOR_SINGLE_ROW_WEEK = 450;
@@ -378,7 +378,7 @@ public class RecurrencePickerDialog extends DialogFragment implements OnItemSele
 
     private OnRecurrenceSetListener mRecurrenceSetListener;
 
-    public RecurrencePickerDialog() {
+    public RecurrencePickerDialogFragment() {
     }
 
     static public boolean isSupportedMonthlyByNthDayOfWeek(int num) {

@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.codetroopers.betterpickers.recurrencepicker.EventRecurrence;
-import com.codetroopers.betterpickers.recurrencepicker.RecurrencePickerDialog;
+import com.codetroopers.betterpickers.recurrencepicker.RecurrencePickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 import com.codetroopers.betterpickers.timezonepicker.TimeZoneInfo;
@@ -50,7 +50,7 @@ public class SampleTimeZoneDefault extends BaseSampleActivity
                 b.putString(TimeZonePickerDialogFragment.BUNDLE_TIME_ZONE, t.timezone);
 
                 // may be more efficient to serialize and pass in EventRecurrence
-                b.putString(RecurrencePickerDialog.BUNDLE_RRULE, mRrule);
+                b.putString(RecurrencePickerDialogFragment.BUNDLE_RRULE, mRrule);
 
                 TimeZonePickerDialogFragment tzpd = (TimeZonePickerDialogFragment) fm
                         .findFragmentByTag(FRAG_TAG_TIME_ZONE_PICKER);
