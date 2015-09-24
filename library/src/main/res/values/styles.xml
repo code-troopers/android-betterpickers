@@ -126,14 +126,14 @@
     </style>
 
 
-    <style name="mdtp_ActionButton">
+    <style name="bp_ActionButton">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">@dimen/mdtp_material_button_height</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:focusable">true</item>
     </style>
 
-    <style name="mdtp_ActionButton.Text">
+    <style name="bp_ActionButton.Text">
         <item name="android:textSize">@dimen/mdtp_material_button_textsize</item>
         <item name="android:singleLine">true</item>
         <item name="android:layout_gravity">center_vertical</item>

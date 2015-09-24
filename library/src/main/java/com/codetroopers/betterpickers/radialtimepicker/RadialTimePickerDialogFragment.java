@@ -367,7 +367,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
 
         // Set the colors for each view based on the theme.
         view.findViewById(R.id.time_display_background).setBackgroundColor(mainColor1);
-        view.findViewById(R.id.done_background).setBackgroundColor(mainColor1);
+        view.findViewById(R.id.ok_cancel_buttons_layout).setBackgroundColor(mainColor1);
         view.findViewById(R.id.time_display).setBackgroundColor(mainColor1);
         ((TextView) view.findViewById(R.id.separator)).setTextColor(mainTextColor);
         ((TextView) view.findViewById(R.id.ampm_label)).setTextColor(mainTextColor);
