@@ -16,7 +16,7 @@
 
 package com.codetroopers.betterpickers.calendardatepicker;
 
-import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialog.OnDateChangedListener;
+import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialogFragment.OnDateChangedListener;
 import com.codetroopers.betterpickers.calendardatepicker.MonthAdapter.CalendarDay;
 
 /**

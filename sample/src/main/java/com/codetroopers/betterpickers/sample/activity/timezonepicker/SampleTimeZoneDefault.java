@@ -12,13 +12,13 @@ import com.codetroopers.betterpickers.recurrencepicker.RecurrencePickerDialog;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 import com.codetroopers.betterpickers.timezonepicker.TimeZoneInfo;
-import com.codetroopers.betterpickers.timezonepicker.TimeZonePickerDialog;
+import com.codetroopers.betterpickers.timezonepicker.TimeZonePickerDialogFragment;
 
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
 public class SampleTimeZoneDefault extends BaseSampleActivity
-        implements TimeZonePickerDialog.OnTimeZoneSetListener {
+        implements TimeZonePickerDialogFragment.OnTimeZoneSetListener {
 
     private TextView text;
     private Button button;
@@ -46,18 +46,18 @@ public class SampleTimeZoneDefault extends BaseSampleActivity
                 Bundle b = new Bundle();
                 Time t = new Time();
                 t.setToNow();
-                b.putLong(TimeZonePickerDialog.BUNDLE_START_TIME_MILLIS, t.toMillis(false));
-                b.putString(TimeZonePickerDialog.BUNDLE_TIME_ZONE, t.timezone);
+                b.putLong(TimeZonePickerDialogFragment.BUNDLE_START_TIME_MILLIS, t.toMillis(false));
+                b.putString(TimeZonePickerDialogFragment.BUNDLE_TIME_ZONE, t.timezone);
 
                 // may be more efficient to serialize and pass in EventRecurrence
                 b.putString(RecurrencePickerDialog.BUNDLE_RRULE, mRrule);
 
-                TimeZonePickerDialog tzpd = (TimeZonePickerDialog) fm
+                TimeZonePickerDialogFragment tzpd = (TimeZonePickerDialogFragment) fm
                         .findFragmentByTag(FRAG_TAG_TIME_ZONE_PICKER);
                 if (tzpd != null) {
                     tzpd.dismiss();
                 }
-                tzpd = new TimeZonePickerDialog();
+                tzpd = new TimeZonePickerDialogFragment();
                 tzpd.setArguments(b);
                 tzpd.setOnTimeZoneSetListener(SampleTimeZoneDefault.this);
                 tzpd.show(fm, FRAG_TAG_TIME_ZONE_PICKER);

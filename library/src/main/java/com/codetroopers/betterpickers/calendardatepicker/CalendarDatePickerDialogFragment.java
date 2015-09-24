@@ -50,7 +50,7 @@ import java.util.Locale;
 /**
  * Dialog allowing users to select a date.
  */
-public class CalendarDatePickerDialog extends DialogFragment implements OnClickListener, CalendarDatePickerController {
+public class CalendarDatePickerDialogFragment extends DialogFragment implements OnClickListener, CalendarDatePickerController {
 
     private static final String TAG = "DatePickerDialog";
 
@@ -118,7 +118,7 @@ public class CalendarDatePickerDialog extends DialogFragment implements OnClickL
          * @param monthOfYear The month that was set (0-11) for compatibility with {@link java.util.Calendar}.
          * @param dayOfMonth  The day of the month that was set.
          */
-        void onDateSet(CalendarDatePickerDialog dialog, int year, int monthOfYear, int dayOfMonth);
+        void onDateSet(CalendarDatePickerDialogFragment dialog, int year, int monthOfYear, int dayOfMonth);
     }
 
     /**
@@ -134,7 +134,7 @@ public class CalendarDatePickerDialog extends DialogFragment implements OnClickL
         public abstract void onDialogDismiss(DialogInterface dialoginterface);
     }
 
-    public CalendarDatePickerDialog() {
+    public CalendarDatePickerDialogFragment() {
         // Empty constructor required for dialog fragment.
     }
 
@@ -144,8 +144,8 @@ public class CalendarDatePickerDialog extends DialogFragment implements OnClickL
      * @param monthOfYear The initial month of the dialog.
      * @param dayOfMonth  The initial day of the dialog.
      */
-    public static CalendarDatePickerDialog newInstance(OnDateSetListener callBack, int year, int monthOfYear, int dayOfMonth) {
-        CalendarDatePickerDialog ret = new CalendarDatePickerDialog();
+    public static CalendarDatePickerDialogFragment newInstance(OnDateSetListener callBack, int year, int monthOfYear, int dayOfMonth) {
+        CalendarDatePickerDialogFragment ret = new CalendarDatePickerDialogFragment();
         ret.initialize(callBack, year, monthOfYear, dayOfMonth);
         return ret;
     }
@@ -248,7 +248,7 @@ public class CalendarDatePickerDialog extends DialogFragment implements OnClickL
             public void onClick(View v) {
                 tryVibrate();
                 if (mCallBack != null) {
-                    mCallBack.onDateSet(CalendarDatePickerDialog.this, mCalendar.get(Calendar.YEAR),
+                    mCallBack.onDateSet(CalendarDatePickerDialogFragment.this, mCalendar.get(Calendar.YEAR),
                             mCalendar.get(Calendar.MONTH), mCalendar.get(Calendar.DAY_OF_MONTH));
                 }
                 dismiss();
