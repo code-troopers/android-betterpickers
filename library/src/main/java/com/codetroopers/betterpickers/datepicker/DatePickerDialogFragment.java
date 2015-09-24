@@ -26,7 +26,6 @@ public class DatePickerDialogFragment extends DialogFragment {
     private static final String DAY_KEY = "DatePickerDialogFragment_DayKey";
     private static final String YEAR_KEY = "DatePickerDialogFragment_YearKey";
 
-    private Button mSet, mCancel;
     private DatePicker mPicker;
 
     private int mMonthOfYear = -1;
@@ -35,8 +34,6 @@ public class DatePickerDialogFragment extends DialogFragment {
 
     private int mReference = -1;
     private int mTheme = -1;
-    private View mDividerOne, mDividerTwo;
-    private int mDividerColor;
     private ColorStateList mTextColor;
     private int mButtonBackgroundResId;
     private int mDialogBackgroundResId;
@@ -45,15 +42,15 @@ public class DatePickerDialogFragment extends DialogFragment {
     /**
      * Create an instance of the Picker (used internally)
      *
-     * @param reference an (optional) user-defined reference, helpful when tracking multiple Pickers
-     * @param themeResId the style resource ID for theming
+     * @param reference   an (optional) user-defined reference, helpful when tracking multiple Pickers
+     * @param themeResId  the style resource ID for theming
      * @param monthOfYear (optional) zero-indexed month of year to pre-set
-     * @param dayOfMonth (optional) day of month to pre-set
-     * @param year (optional) year to pre-set
+     * @param dayOfMonth  (optional) day of month to pre-set
+     * @param year        (optional) year to pre-set
      * @return a Picker!
      */
     public static DatePickerDialogFragment newInstance(int reference, int themeResId, Integer monthOfYear,
-            Integer dayOfMonth, Integer year) {
+                                                       Integer dayOfMonth, Integer year) {
         final DatePickerDialogFragment frag = new DatePickerDialogFragment();
         Bundle args = new Bundle();
         args.putInt(REFERENCE_KEY, reference);
@@ -102,30 +99,24 @@ public class DatePickerDialogFragment extends DialogFragment {
         // Init defaults
         mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
         mButtonBackgroundResId = R.drawable.button_background_dark;
-        mDividerColor = getResources().getColor(R.color.default_divider_color_dark);
+        int mDividerColor = getResources().getColor(R.color.default_divider_color_dark);
         mDialogBackgroundResId = R.drawable.dialog_full_holo_dark;
 
         if (mTheme != -1) {
-
-            TypedArray a = getActivity().getApplicationContext()
-                    .obtainStyledAttributes(mTheme, R.styleable.BetterPickersDialogFragment);
-
+            TypedArray a = getActivity().getApplicationContext().obtainStyledAttributes(mTheme, R.styleable.BetterPickersDialogFragment);
             mTextColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTextColor);
-            mButtonBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpButtonBackground,
-                    mButtonBackgroundResId);
+            mButtonBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpButtonBackground, mButtonBackgroundResId);
             mDividerColor = a.getColor(R.styleable.BetterPickersDialogFragment_bpDividerColor, mDividerColor);
-            mDialogBackgroundResId = a
-                    .getResourceId(R.styleable.BetterPickersDialogFragment_bpDialogBackground, mDialogBackgroundResId);
+            mDialogBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpDialogBackground, mDialogBackgroundResId);
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.date_picker_dialog, null);
-        mSet = (Button) v.findViewById(R.id.set_button);
-        mCancel = (Button) v.findViewById(R.id.cancel_button);
+        Button mSet = (Button) v.findViewById(R.id.done_button);
+        Button mCancel = (Button) v.findViewById(R.id.cancel_button);
         mCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -159,14 +150,8 @@ public class DatePickerDialogFragment extends DialogFragment {
             }
         });
 
-        mDividerOne = v.findViewById(R.id.divider_1);
-        mDividerTwo = v.findViewById(R.id.divider_2);
-        mDividerOne.setBackgroundColor(mDividerColor);
-        mDividerTwo.setBackgroundColor(mDividerColor);
         mSet.setTextColor(mTextColor);
-        mSet.setBackgroundResource(mButtonBackgroundResId);
         mCancel.setTextColor(mTextColor);
-        mCancel.setBackgroundResource(mButtonBackgroundResId);
         mPicker.setTheme(mTheme);
         getDialog().getWindow().setBackgroundDrawableResource(mDialogBackgroundResId);
 

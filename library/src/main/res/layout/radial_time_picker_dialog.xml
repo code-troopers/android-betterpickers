@@ -43,5 +43,5 @@
         android:focusableInTouchMode="true" />
 
 
-    <include layout="@layout/calendar_date_picker_done_button" />
+    <include layout="@layout/layout_ok_cancel_buttons" />
 </LinearLayout>

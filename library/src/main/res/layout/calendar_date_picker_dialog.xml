@@ -14,9 +14,8 @@
      limitations under the License.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/date_picker_component_width"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/date_picker_view_animator"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -30,6 +29,6 @@
         <include layout="@layout/calendar_date_picker_view_animator" />
     </LinearLayout>
 
-    <include layout="@layout/calendar_date_picker_done_button" />
+    <include layout="@layout/layout_ok_cancel_buttons" />
 
 </LinearLayout>

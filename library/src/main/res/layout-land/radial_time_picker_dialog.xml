@@ -42,7 +42,7 @@
         </FrameLayout>
 
 
-        <include layout="@layout/calendar_date_picker_done_button" />
+        <include layout="@layout/layout_ok_cancel_buttons" />
     </LinearLayout>
     <com.codetroopers.betterpickers.radialtimepicker.RadialPickerLayout
         android:id="@+id/time_picker"

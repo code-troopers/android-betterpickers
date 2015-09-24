@@ -79,7 +79,6 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
     private HapticFeedbackController mHapticFeedbackController;
 
     private Button mDoneButton;
-    private Button mCancelButton;
     private TextView mHourView;
     private TextView mHourSpaceView;
     private TextView mMinuteView;
@@ -301,7 +300,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         });
         mDoneButton.setOnKeyListener(keyboardListener);
 
-        mCancelButton = (Button) view.findViewById(R.id.cancel_button);
+        Button mCancelButton = (Button) view.findViewById(R.id.cancel_button);
         mCancelButton.setOnClickListener(new OnClickListener() {
 
             @Override

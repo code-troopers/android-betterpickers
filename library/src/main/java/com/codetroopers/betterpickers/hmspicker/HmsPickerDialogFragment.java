@@ -23,13 +23,10 @@ public class HmsPickerDialogFragment extends DialogFragment {
     private static final String REFERENCE_KEY = "HmsPickerDialogFragment_ReferenceKey";
     private static final String THEME_RES_ID_KEY = "HmsPickerDialogFragment_ThemeResIdKey";
 
-    private Button mSet, mCancel;
     private HmsPicker mPicker;
 
     private int mReference = -1;
     private int mTheme = -1;
-    private View mDividerOne, mDividerTwo;
-    private int mDividerColor;
     private ColorStateList mTextColor;
     private int mButtonBackgroundResId;
     private int mDialogBackgroundResId;
@@ -41,7 +38,7 @@ public class HmsPickerDialogFragment extends DialogFragment {
     /**
      * Create an instance of the Picker (used internally)
      *
-     * @param reference an (optional) user-defined reference, helpful when tracking multiple Pickers
+     * @param reference  an (optional) user-defined reference, helpful when tracking multiple Pickers
      * @param themeResId the style resource ID for theming
      * @return a Picker!
      */
@@ -76,29 +73,26 @@ public class HmsPickerDialogFragment extends DialogFragment {
         // Init defaults
         mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
         mButtonBackgroundResId = R.drawable.button_background_dark;
-        mDividerColor = getResources().getColor(R.color.default_divider_color_dark);
+        int mDividerColor = getResources().getColor(R.color.default_divider_color_dark);
         mDialogBackgroundResId = R.drawable.dialog_full_holo_dark;
 
         if (mTheme != -1) {
-            TypedArray a = getActivity().getApplicationContext()
-                    .obtainStyledAttributes(mTheme, R.styleable.BetterPickersDialogFragment);
+            TypedArray a = getActivity().getApplicationContext().obtainStyledAttributes(mTheme, R.styleable.BetterPickersDialogFragment);
 
             mTextColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTextColor);
-            mButtonBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpButtonBackground,
-                    mButtonBackgroundResId);
+            mButtonBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpButtonBackground, mButtonBackgroundResId);
             mDividerColor = a.getColor(R.styleable.BetterPickersDialogFragment_bpDividerColor, mDividerColor);
-            mDialogBackgroundResId = a
-                    .getResourceId(R.styleable.BetterPickersDialogFragment_bpDialogBackground, mDialogBackgroundResId);
+            mDialogBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpDialogBackground, mDialogBackgroundResId);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.hms_picker_dialog, null);
-        mSet = (Button) v.findViewById(R.id.set_button);
-        mCancel = (Button) v.findViewById(R.id.cancel_button);
+        Button mSet = (Button) v.findViewById(R.id.done_button);
+        Button mCancel = (Button) v.findViewById(R.id.cancel_button);
         mCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -129,14 +123,8 @@ public class HmsPickerDialogFragment extends DialogFragment {
             }
         });
 
-        mDividerOne = v.findViewById(R.id.divider_1);
-        mDividerTwo = v.findViewById(R.id.divider_2);
-        mDividerOne.setBackgroundColor(mDividerColor);
-        mDividerTwo.setBackgroundColor(mDividerColor);
         mSet.setTextColor(mTextColor);
-        mSet.setBackgroundResource(mButtonBackgroundResId);
         mCancel.setTextColor(mTextColor);
-        mCancel.setBackgroundResource(mButtonBackgroundResId);
         mPicker.setTheme(mTheme);
         getDialog().getWindow().setBackgroundDrawableResource(mDialogBackgroundResId);
 
