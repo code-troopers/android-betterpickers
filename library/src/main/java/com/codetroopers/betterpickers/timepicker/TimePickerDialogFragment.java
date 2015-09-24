@@ -81,19 +81,19 @@ public class TimePickerDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.time_picker_dialog, null);
-        Button mSetButton = (Button) view.findViewById(R.id.done_button);
-        Button mCancelButton = (Button) view.findViewById(R.id.cancel_button);
+        Button doneButton = (Button) view.findViewById(R.id.done_button);
+        Button cancelButton = (Button) view.findViewById(R.id.cancel_button);
 
-        mCancelButton.setOnClickListener(new View.OnClickListener() {
+        cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dismiss();
             }
         });
-        mCancelButton.setTextColor(mTextColor);
+        cancelButton.setTextColor(mTextColor);
 
-        mSetButton.setTextColor(mTextColor);
-        mSetButton.setOnClickListener(new View.OnClickListener() {
+        doneButton.setTextColor(mTextColor);
+        doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 for (TimePickerDialogHandler handler : mTimePickerDialogHandlers) {
@@ -115,7 +115,7 @@ public class TimePickerDialogFragment extends DialogFragment {
         });
 
         mPicker = (TimePicker) view.findViewById(R.id.time_picker);
-        mPicker.setSetButton(mSetButton);
+        mPicker.setSetButton(doneButton);
         mPicker.setTheme(mTheme);
 
         getDialog().getWindow().setBackgroundDrawableResource(mDialogBackgroundResId);

@@ -156,19 +156,19 @@ public class NumberPickerDialogFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.number_picker_dialog, null);
-        Button mSetButton = (Button) view.findViewById(R.id.done_button);
-        Button mCancelButton = (Button) view.findViewById(R.id.cancel_button);
+        Button doneButton = (Button) view.findViewById(R.id.done_button);
+        Button cancelButton = (Button) view.findViewById(R.id.cancel_button);
 
-        mCancelButton.setTextColor(mTextColor);
-        mCancelButton.setOnClickListener(new View.OnClickListener() {
+        cancelButton.setTextColor(mTextColor);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dismiss();
             }
         });
 
-        mSetButton.setTextColor(mTextColor);
-        mSetButton.setOnClickListener(new View.OnClickListener() {
+        doneButton.setTextColor(mTextColor);
+        doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 double number = mPicker.getEnteredNumber();
@@ -209,7 +209,7 @@ public class NumberPickerDialogFragment extends DialogFragment {
         });
 
         mPicker = (NumberPicker) view.findViewById(R.id.number_picker);
-        mPicker.setSetButton(mSetButton);
+        mPicker.setSetButton(doneButton);
         mPicker.setTheme(mTheme);
         mPicker.setDecimalVisibility(mDecimalVisibility);
         mPicker.setPlusMinusVisibility(mPlusMinusVisibility);

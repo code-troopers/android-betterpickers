@@ -113,19 +113,19 @@ public class ExpirationPickerDialogFragment extends DialogFragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.expiration_picker_dialog, null);
-        Button mSetButton = (Button) view.findViewById(R.id.done_button);
-        Button mCancelButton = (Button) view.findViewById(R.id.cancel_button);
+        Button doneButton = (Button) view.findViewById(R.id.done_button);
+        Button cancelButton = (Button) view.findViewById(R.id.cancel_button);
 
-        mCancelButton.setTextColor(mTextColor);
-        mCancelButton.setOnClickListener(new View.OnClickListener() {
+        cancelButton.setTextColor(mTextColor);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dismiss();
             }
         });
 
-        mSetButton.setTextColor(mTextColor);
-        mSetButton.setOnClickListener(new View.OnClickListener() {
+        doneButton.setTextColor(mTextColor);
+        doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 for (ExpirationPickerDialogHandler handler : mExpirationPickerDialogHandlers) {
@@ -147,7 +147,7 @@ public class ExpirationPickerDialogFragment extends DialogFragment {
         });
 
         mPicker = (ExpirationPicker) view.findViewById(R.id.expiration_picker);
-        mPicker.setSetButton(mSetButton);
+        mPicker.setSetButton(doneButton);
         mPicker.setTheme(mTheme);
 
         if (mMonthOfYear != -1 || mYear != 0)

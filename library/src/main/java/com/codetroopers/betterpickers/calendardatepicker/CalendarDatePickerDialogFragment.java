@@ -241,8 +241,8 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         animation2.setDuration(ANIMATION_DURATION);
         mAnimator.setOutAnimation(animation2);
 
-        Button mDoneButton = (Button) view.findViewById(R.id.done_button);
-        mDoneButton.setOnClickListener(new OnClickListener() {
+        Button doneButton = (Button) view.findViewById(R.id.done_button);
+        doneButton.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -254,8 +254,8 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
                 dismiss();
             }
         });
-        Button mCancelButton = (Button) view.findViewById(R.id.cancel_button);
-        mCancelButton.setOnClickListener(new OnClickListener() {
+        Button cancelButton = (Button) view.findViewById(R.id.cancel_button);
+        cancelButton.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {

@@ -298,9 +298,9 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         });
         mDoneButton.setOnKeyListener(keyboardListener);
 
-        Button mCancelButton = (Button) view.findViewById(R.id.cancel_button);
-        mCancelButton.setTextColor(mSelectedColor);
-        mCancelButton.setOnClickListener(new OnClickListener() {
+        Button cancelButton = (Button) view.findViewById(R.id.cancel_button);
+        cancelButton.setTextColor(mSelectedColor);
+        cancelButton.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {

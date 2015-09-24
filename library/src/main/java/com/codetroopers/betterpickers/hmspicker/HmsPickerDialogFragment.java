@@ -87,18 +87,18 @@ public class HmsPickerDialogFragment extends DialogFragment {
 
         View view = inflater.inflate(R.layout.hms_picker_dialog, null);
 
-        Button mSetButton = (Button) view.findViewById(R.id.done_button);
-        Button mCancelButton = (Button) view.findViewById(R.id.cancel_button);
+        Button doneButton = (Button) view.findViewById(R.id.done_button);
+        Button cancelButton = (Button) view.findViewById(R.id.cancel_button);
 
-        mCancelButton.setTextColor(mTextColor);
-        mCancelButton.setOnClickListener(new View.OnClickListener() {
+        cancelButton.setTextColor(mTextColor);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dismiss();
             }
         });
-        mSetButton.setTextColor(mTextColor);
-        mSetButton.setOnClickListener(new View.OnClickListener() {
+        doneButton.setTextColor(mTextColor);
+        doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 for (HmsPickerDialogHandler handler : mHmsPickerDialogHandlers) {
@@ -120,7 +120,7 @@ public class HmsPickerDialogFragment extends DialogFragment {
         });
 
         mPicker = (HmsPicker) view.findViewById(R.id.hms_picker);
-        mPicker.setSetButton(mSetButton);
+        mPicker.setSetButton(doneButton);
         mPicker.setTime(mHours, mMinutes, mSeconds);
         mPicker.setTheme(mTheme);
 
