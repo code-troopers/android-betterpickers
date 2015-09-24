@@ -94,6 +94,7 @@ public class CalendarDatePickerDialog extends DialogFragment implements
     private YearPickerView mYearPickerView;
 
     private Button mDoneButton;
+    private Button mCancelButton;
 
     private int mCurrentView = UNINITIALIZED;
     private int mWeekStart = mCalendar.getFirstDayOfWeek();
@@ -249,7 +250,7 @@ public class CalendarDatePickerDialog extends DialogFragment implements
         animation2.setDuration(ANIMATION_DURATION);
         mAnimator.setOutAnimation(animation2);
 
-        mDoneButton = (Button) view.findViewById(R.id.done);
+        mDoneButton = (Button) view.findViewById(R.id.done_button);
         mDoneButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -262,6 +263,16 @@ public class CalendarDatePickerDialog extends DialogFragment implements
                 dismiss();
             }
         });
+        mCancelButton = (Button) view.findViewById(R.id.cancel_button);
+        mCancelButton.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                tryVibrate();
+                dismiss();
+            }
+        });
+
 
         updateDisplay(false);
         setCurrentView(currentView);

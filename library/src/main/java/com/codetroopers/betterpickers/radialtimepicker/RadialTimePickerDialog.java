@@ -32,6 +32,7 @@ import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -77,7 +78,8 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
 
     private HapticFeedbackController mHapticFeedbackController;
 
-    private TextView mDoneButton;
+    private Button mDoneButton;
+    private Button mCancelButton;
     private TextView mHourView;
     private TextView mHourSpaceView;
     private TextView mMinuteView;
@@ -278,7 +280,7 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
             }
         });
 
-        mDoneButton = (TextView) view.findViewById(R.id.done_button);
+        mDoneButton = (Button) view.findViewById(R.id.done_button);
         if (mDoneText != null) {
             mDoneButton.setText(mDoneText);
         }
@@ -298,6 +300,16 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
             }
         });
         mDoneButton.setOnKeyListener(keyboardListener);
+
+        mCancelButton = (Button) view.findViewById(R.id.cancel_button);
+        mCancelButton.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                tryVibrate();
+                dismiss();
+            }
+        });
 
         // Enable or disable the AM/PM view.
         mAmPmHitspace = view.findViewById(R.id.ampm_hitspace);
@@ -354,18 +366,16 @@ public class RadialTimePickerDialog extends DialogFragment implements OnValueSel
         int mainColor2 = themeColors.getColor(R.styleable.BetterPickersRadialTimePickerDialog_bpMainColor2, R.color.circle_background);
         int lineColor = themeColors.getColor(R.styleable.BetterPickersRadialTimePickerDialog_bpLineColor, R.color.bpLine_background);
         int mainTextColor = themeColors.getColor(R.styleable.BetterPickersRadialTimePickerDialog_bpMainTextColor, R.color.numbers_text_color);
-        ColorStateList doneTextColor = themeColors.getColorStateList(R.styleable.BetterPickersRadialTimePickerDialog_bpDoneTextColor);
-        int doneBackground = themeColors.getResourceId(R.styleable.BetterPickersRadialTimePickerDialog_bpDoneBackgroundColor, R.drawable.done_background_color);
 
         // Set the colors for each view based on the theme.
         view.findViewById(R.id.time_display_background).setBackgroundColor(mainColor1);
+        view.findViewById(R.id.done_background).setBackgroundColor(mainColor1);
         view.findViewById(R.id.time_display).setBackgroundColor(mainColor1);
         ((TextView) view.findViewById(R.id.separator)).setTextColor(mainTextColor);
         ((TextView) view.findViewById(R.id.ampm_label)).setTextColor(mainTextColor);
-        view.findViewById(R.id.line).setBackgroundColor(lineColor);
-        mDoneButton.setTextColor(doneTextColor);
         mTimePicker.setBackgroundColor(mainColor2);
-        mDoneButton.setBackgroundResource(doneBackground);
+        mDoneButton.setTextColor(mSelectedColor);
+        mCancelButton.setTextColor(mSelectedColor);
         return view;
     }
 

@@ -38,11 +38,6 @@
             <include layout="@layout/calendar_date_picker_selected_date" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dip"
-            android:background="@color/bpLine_background" />
-
         <include layout="@layout/calendar_date_picker_done_button" />
     </LinearLayout>
 

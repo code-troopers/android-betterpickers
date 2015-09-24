@@ -40,20 +40,9 @@
                 android:layout_height="@dimen/header_height"
                 android:layout_gravity="center" />
         </FrameLayout>
-        <View
-            android:id="@+id/line"
-            android:layout_width="match_parent"
-            android:layout_height="1dip"
-            android:background="@color/bpLine_background" />
-        <Button
-            android:id="@+id/done_button"
-            android:background="@drawable/done_background_color"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:text="@string/done_label"
-            android:textSize="@dimen/done_label_size"
-            android:textColor="@color/done_text_color" />
+
+
+        <include layout="@layout/calendar_date_picker_done_button" />
     </LinearLayout>
     <com.codetroopers.betterpickers.radialtimepicker.RadialPickerLayout
         android:id="@+id/time_picker"
