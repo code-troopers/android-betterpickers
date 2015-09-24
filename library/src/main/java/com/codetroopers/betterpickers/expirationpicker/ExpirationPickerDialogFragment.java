@@ -97,7 +97,6 @@ public class ExpirationPickerDialogFragment extends DialogFragment {
 
         // Init defaults
         mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
-        int mButtonBackgroundResId = R.drawable.button_background_dark;
         mDialogBackgroundResId = R.drawable.dialog_full_holo_dark;
 
         if (mTheme != -1) {
