@@ -36,6 +36,7 @@ public class ExpirationPickerDialogFragment extends DialogFragment {
     private int mTheme = -1;
     private int mDialogBackgroundResId;
     private Vector<ExpirationPickerDialogHandler> mExpirationPickerDialogHandlers = new Vector<ExpirationPickerDialogHandler>();
+    private ColorStateList mTextColor;
 
     /**
      * Create an instance of the Picker (used internally)
@@ -95,7 +96,7 @@ public class ExpirationPickerDialogFragment extends DialogFragment {
         setStyle(DialogFragment.STYLE_NO_TITLE, 0);
 
         // Init defaults
-        ColorStateList mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
+        mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
         int mButtonBackgroundResId = R.drawable.button_background_dark;
         mDialogBackgroundResId = R.drawable.dialog_full_holo_dark;
 
@@ -103,7 +104,6 @@ public class ExpirationPickerDialogFragment extends DialogFragment {
             TypedArray a = getActivity().getApplicationContext().obtainStyledAttributes(mTheme, R.styleable.BetterPickersDialogFragment);
 
             mTextColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTextColor);
-            mButtonBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpButtonBackground, mButtonBackgroundResId);
             mDialogBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpDialogBackground, mDialogBackgroundResId);
         }
     }
@@ -112,25 +112,19 @@ public class ExpirationPickerDialogFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.expiration_picker_dialog, null);
-        Button mSetButton = (Button) v.findViewById(R.id.done_button);
-        Button mCancelButton = (Button) v.findViewById(R.id.cancel_button);
+        View view = inflater.inflate(R.layout.expiration_picker_dialog, null);
+        Button mSetButton = (Button) view.findViewById(R.id.done_button);
+        Button mCancelButton = (Button) view.findViewById(R.id.cancel_button);
+
+        mCancelButton.setTextColor(mTextColor);
         mCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dismiss();
             }
         });
-        mPicker = (ExpirationPicker) v.findViewById(R.id.expiration_picker);
-        mPicker.setSetButton(mSetButton);
 
-        if (mMonthOfYear != -1 || mYear != 0)
-            mPicker.setExpiration(mYear, mMonthOfYear);
-
-        if (mMinimumYear != 0) {
-            mPicker.setMinYear(mMinimumYear);
-        }
-
+        mSetButton.setTextColor(mTextColor);
         mSetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -152,10 +146,19 @@ public class ExpirationPickerDialogFragment extends DialogFragment {
             }
         });
 
+        mPicker = (ExpirationPicker) view.findViewById(R.id.expiration_picker);
+        mPicker.setSetButton(mSetButton);
         mPicker.setTheme(mTheme);
-        getDialog().getWindow().setBackgroundDrawableResource(mDialogBackgroundResId);
 
-        return v;
+        if (mMonthOfYear != -1 || mYear != 0)
+            mPicker.setExpiration(mYear, mMonthOfYear);
+
+        if (mMinimumYear != 0) {
+            mPicker.setMinYear(mMinimumYear);
+        }
+
+        getDialog().getWindow().setBackgroundDrawableResource(mDialogBackgroundResId);
+        return view;
     }
 
     /**

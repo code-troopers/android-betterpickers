@@ -878,6 +878,7 @@ public class RecurrencePickerDialog extends DialogFragment implements OnItemSele
         mDoneButton.setOnClickListener(this);
 
         Button mCancelButton = (Button) mView.findViewById(R.id.cancel_button);
+        //FIXME no text color for this one ?
         mCancelButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

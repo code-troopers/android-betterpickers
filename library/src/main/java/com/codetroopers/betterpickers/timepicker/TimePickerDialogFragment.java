@@ -28,7 +28,6 @@ public class TimePickerDialogFragment extends DialogFragment {
     private int mReference = -1;
     private int mTheme = -1;
     private ColorStateList mTextColor;
-    private int mButtonBackgroundResId;
     private int mDialogBackgroundResId;
     private Vector<TimePickerDialogHandler> mTimePickerDialogHandlers = new Vector<TimePickerDialogHandler>();
 
@@ -69,38 +68,31 @@ public class TimePickerDialogFragment extends DialogFragment {
 
         // Init defaults
         mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
-        mButtonBackgroundResId = R.drawable.button_background_dark;
-        int mDividerColor = getResources().getColor(R.color.default_divider_color_dark);
         mDialogBackgroundResId = R.drawable.dialog_full_holo_dark;
 
         if (mTheme != -1) {
-
-            TypedArray a = getActivity().getApplicationContext()
-                    .obtainStyledAttributes(mTheme, R.styleable.BetterPickersDialogFragment);
+            TypedArray a = getActivity().getApplicationContext().obtainStyledAttributes(mTheme, R.styleable.BetterPickersDialogFragment);
 
             mTextColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTextColor);
-            mButtonBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpButtonBackground,
-                    mButtonBackgroundResId);
-            mDividerColor = a.getColor(R.styleable.BetterPickersDialogFragment_bpDividerColor, mDividerColor);
-            mDialogBackgroundResId = a
-                    .getResourceId(R.styleable.BetterPickersDialogFragment_bpDialogBackground, mDialogBackgroundResId);
+            mDialogBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpDialogBackground, mDialogBackgroundResId);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.time_picker_dialog, null);
+        Button mSetButton = (Button) view.findViewById(R.id.done_button);
+        Button mCancelButton = (Button) view.findViewById(R.id.cancel_button);
 
-        View v = inflater.inflate(R.layout.time_picker_dialog, null);
-        Button mSetButton = (Button) v.findViewById(R.id.done_button);
-        Button mCancelButton = (Button) v.findViewById(R.id.cancel_button);
         mCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dismiss();
             }
         });
-        mPicker = (TimePicker) v.findViewById(R.id.time_picker);
-        mPicker.setSetButton(mSetButton);
+        mCancelButton.setTextColor(mTextColor);
+
+        mSetButton.setTextColor(mTextColor);
         mSetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -122,12 +114,13 @@ public class TimePickerDialogFragment extends DialogFragment {
             }
         });
 
-        mSetButton.setTextColor(mTextColor);
-        mCancelButton.setTextColor(mTextColor);
+        mPicker = (TimePicker) view.findViewById(R.id.time_picker);
+        mPicker.setSetButton(mSetButton);
         mPicker.setTheme(mTheme);
+
         getDialog().getWindow().setBackgroundDrawableResource(mDialogBackgroundResId);
 
-        return v;
+        return view;
     }
 
     /**

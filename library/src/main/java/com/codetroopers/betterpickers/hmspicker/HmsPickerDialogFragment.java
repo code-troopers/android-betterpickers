@@ -28,7 +28,6 @@ public class HmsPickerDialogFragment extends DialogFragment {
     private int mReference = -1;
     private int mTheme = -1;
     private ColorStateList mTextColor;
-    private int mButtonBackgroundResId;
     private int mDialogBackgroundResId;
     private Vector<HmsPickerDialogHandler> mHmsPickerDialogHandlers = new Vector<HmsPickerDialogHandler>();
     private int mHours;
@@ -72,16 +71,12 @@ public class HmsPickerDialogFragment extends DialogFragment {
 
         // Init defaults
         mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
-        mButtonBackgroundResId = R.drawable.button_background_dark;
-        int mDividerColor = getResources().getColor(R.color.default_divider_color_dark);
         mDialogBackgroundResId = R.drawable.dialog_full_holo_dark;
 
         if (mTheme != -1) {
             TypedArray a = getActivity().getApplicationContext().obtainStyledAttributes(mTheme, R.styleable.BetterPickersDialogFragment);
 
             mTextColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTextColor);
-            mButtonBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpButtonBackground, mButtonBackgroundResId);
-            mDividerColor = a.getColor(R.styleable.BetterPickersDialogFragment_bpDividerColor, mDividerColor);
             mDialogBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpDialogBackground, mDialogBackgroundResId);
         }
     }
@@ -90,19 +85,20 @@ public class HmsPickerDialogFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.hms_picker_dialog, null);
-        Button mSet = (Button) v.findViewById(R.id.done_button);
-        Button mCancel = (Button) v.findViewById(R.id.cancel_button);
-        mCancel.setOnClickListener(new View.OnClickListener() {
+        View view = inflater.inflate(R.layout.hms_picker_dialog, null);
+
+        Button mSetButton = (Button) view.findViewById(R.id.done_button);
+        Button mCancelButton = (Button) view.findViewById(R.id.cancel_button);
+
+        mCancelButton.setTextColor(mTextColor);
+        mCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dismiss();
             }
         });
-        mPicker = (HmsPicker) v.findViewById(R.id.hms_picker);
-        mPicker.setSetButton(mSet);
-        mPicker.setTime(mHours, mMinutes, mSeconds);
-        mSet.setOnClickListener(new View.OnClickListener() {
+        mSetButton.setTextColor(mTextColor);
+        mSetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 for (HmsPickerDialogHandler handler : mHmsPickerDialogHandlers) {
@@ -123,12 +119,14 @@ public class HmsPickerDialogFragment extends DialogFragment {
             }
         });
 
-        mSet.setTextColor(mTextColor);
-        mCancel.setTextColor(mTextColor);
+        mPicker = (HmsPicker) view.findViewById(R.id.hms_picker);
+        mPicker.setSetButton(mSetButton);
+        mPicker.setTime(mHours, mMinutes, mSeconds);
         mPicker.setTheme(mTheme);
+
         getDialog().getWindow().setBackgroundDrawableResource(mDialogBackgroundResId);
 
-        return v;
+        return view;
     }
 
     /**
