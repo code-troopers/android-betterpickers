@@ -4,6 +4,6 @@
 
     <item
         android:id="@android:id/mask"
-        android:drawable="@drawable/mdtp_material_button_selected" />
+        android:drawable="@drawable/bp_material_button_selected" />
 
 </ripple>
