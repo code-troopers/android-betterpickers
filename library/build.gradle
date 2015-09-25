@@ -3,14 +3,15 @@ apply from: 'https://raw.githubusercontent.com/shamanland/gradle-mvn-push/master
 
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "22.0.1"
+
+    compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
+    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 23
-        versionCode 12
-        versionName "2.0.0-SNAPSHOT"
+        minSdkVersion Integer.parseInt(project.ANDROID_BUILD_MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(project.ANDROID_BUILD_TARGET_SDK_VERSION)
+        versionName project.VERSION_NAME
+        versionCode Integer.parseInt(project.VERSION_CODE)
     }
 
     buildTypes {
