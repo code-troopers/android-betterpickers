@@ -100,7 +100,7 @@
     <!-- Specifies that a repeating event to repeat until a certain date[CHAR LIMIT=20] -->
     <string name="recurrence_end_date">Jusqu\'au <xliff:g id="date">%s</xliff:g></string>
     <!-- Specifies that a repeating event to repeat for a number of times. A repeating event can repeat forever, repeat in a certain frequency until a certain date, or repeat for a number of times. e.g. repeat 10 times and stop. This string is for the last case [CHAR LIMIT=25] -->
-    <string name="recurrence_end_count_label">Pour un nombre d\événements</string>
+    <string name="recurrence_end_count_label">Pour un nombre d\'événements</string>
 
     <!-- Strings to describe how frequently to repeat an event (e.g. every 5 days) -->
     <plurals name="recurrence_interval_daily">
@@ -188,77 +188,6 @@
                  this matter.
                   -->
     <string name="palestine_display_name">Palestine</string>
-
-
-    <!-- Recurrence picker: How events are to be repeated.  [CHAR LIMIT = 20] -->
-    <string-array name="recurrence_freq">
-        <item>Tous les jours</item>
-        <item>Toutes les semaines</item>
-        <item>Tous les mois</item>
-        <item>Tous les ans</item>
-    </string-array>
-
-    <!-- The following sets of strings describe a monthly recurring event, which will repeat
-         on the Nth WEEKDAY of every month. For example, the 3rd lundi of every month, or
-         the dernier dimanche. These are set up like this to resolve any gender-matching issues
-         that were present in some languages.
-     -->
-    <!-- Repeat a monthly event on the same nth day of every dimanche. [CHAR LIMIT=30] -->
-    <string-array name="repeat_by_nth_sun">
-        <item>chaque premier dimanche</item>
-        <item>chaque second dimanche</item>
-        <item>chaque troisième dimanche</item>
-        <item>chaque quatrième dimanche</item>
-        <item>chaque dernier dimanche</item>
-    </string-array>
-    <!-- Repeat a monthly event on the same nth day of every lundi. [CHAR LIMIT=30] -->
-    <string-array name="repeat_by_nth_mon">
-        <item>chaque premier lundi</item>
-        <item>chaque second lundi</item>
-        <item>chaque troisième lundi</item>
-        <item>chaque quatrième lundi</item>
-        <item>chaque dernier lundi</item>
-    </string-array>
-    <!-- Repeat a monthly event on the same nth day of every mardi. [CHAR LIMIT=30] -->
-    <string-array name="repeat_by_nth_tues">
-        <item>chaque premier mardi</item>
-        <item>chaque second mardi</item>
-        <item>chaque troisième mardi</item>
-        <item>chaque quatrième mardi</item>
-        <item>chaque dernier mardi</item>
-    </string-array>
-    <!-- Repeat a monthly event on the same nth day of every mercredi. [CHAR LIMIT=30] -->
-    <string-array name="repeat_by_nth_wed">
-        <item>chaque premier mercredi</item>
-        <item>chaque second mercredi</item>
-        <item>chaque troisième mercredi</item>
-        <item>chaque quatrième mercredi</item>
-        <item>chaque dernier mercredi</item>
-    </string-array>
-    <!-- Repeat a monthly event on the same nth day of every jeudi. [CHAR LIMIT=30] -->
-    <string-array name="repeat_by_nth_thurs">
-        <item>chaque premier jeudi</item>
-        <item>chaque second jeudi</item>
-        <item>chaque troisième jeudi</item>
-        <item>chaque quatrième jeudi</item>
-        <item>chaque dernier jeudi</item>
-    </string-array>
-    <!-- Repeat a monthly event on the same nth day of every vendredi. [CHAR LIMIT=30] -->
-    <string-array name="repeat_by_nth_fri">
-        <item>chaque premier vendredi</item>
-        <item>chaque second vendredi</item>
-        <item>chaque troisième vendredi</item>
-        <item>chaque quatrième vendredi</item>
-        <item>chaque dernier vendredi</item>
-    </string-array>
-    <!-- Repeat a monthly event on the same nth day of every samedi. [CHAR LIMIT=30] -->
-    <string-array name="repeat_by_nth_sat">
-        <item>chaque premier samedi</item>
-        <item>chaque second samedi</item>
-        <item>chaque troisième samedi</item>
-        <item>chaque quatrième samedi</item>
-        <item>chaque dernier samedi</item>
-    </string-array>
 
 </resources>
 
