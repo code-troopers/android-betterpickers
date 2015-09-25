@@ -62,6 +62,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
     private static int sYearKeyboardPosition = -1;
 
     private Button mSetButton;
+    private boolean mYearOptional = false;
 
     protected View mDivider;
     private ColorStateList mTextColor;
@@ -716,7 +717,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         if (mSetButton == null) {
             return;
         }
-        mSetButton.setEnabled(getDayOfMonth() > 0 && getYear() > 0 && getMonthOfYear() >= 0);
+        mSetButton.setEnabled(getDayOfMonth() > 0 && (mYearOptional || getYear() > 0) && getMonthOfYear() >= 0);
     }
 
     /**
@@ -799,6 +800,10 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
             }
         }
         updateKeypad();
+    }
+
+    public void setYearOptional(boolean yearOptional) {
+        mYearOptional = yearOptional;
     }
 
     /**

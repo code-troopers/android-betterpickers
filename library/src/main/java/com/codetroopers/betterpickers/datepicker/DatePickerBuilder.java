@@ -20,6 +20,7 @@ public class DatePickerBuilder {
     private Integer monthOfYear;
     private Integer dayOfMonth;
     private Integer year;
+    private Boolean yearOptional = false;
     private int mReference = -1;
     private Vector<DatePickerDialogHandler> mDatePickerDialogHandlers = new Vector<DatePickerDialogHandler>();
 
@@ -106,6 +107,17 @@ public class DatePickerBuilder {
     }
 
     /**
+     * Set if year should be an optional field in the picker. False by default.
+     *
+     * @param yearOptional whether the year is optional
+     * @return the current Builder object
+     */
+    public DatePickerBuilder setYearOptional(boolean yearOptional) {
+        this.yearOptional = yearOptional;
+        return this;
+    }
+
+    /**
      * Attach universal objects as additional handlers for notification when the Picker is set. For most use cases, this
      * method is not necessary as attachment to an Activity or Fragment is done automatically.  If, however, you would
      * like additional objects to subscribe to this Picker being set, attach Handlers here.
@@ -145,7 +157,7 @@ public class DatePickerBuilder {
         ft.addToBackStack(null);
 
         final DatePickerDialogFragment fragment = DatePickerDialogFragment
-                .newInstance(mReference, styleResId, monthOfYear, dayOfMonth, year);
+                .newInstance(mReference, styleResId, monthOfYear, dayOfMonth, year, yearOptional);
         if (targetFragment != null) {
             fragment.setTargetFragment(targetFragment, 0);
         }

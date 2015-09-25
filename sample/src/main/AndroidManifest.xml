@@ -190,6 +190,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.codetroopers.betterpickers.sample.activity.datepicker.SampleDateYearOptional"
+            android:label="Date/Year Optional">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="com.codetroopers.betterpickers.sample.activity.datepicker.SampleDateUsingFragment"
             android:label="Date/Using Fragment">
             <intent-filter>
