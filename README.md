@@ -166,14 +166,13 @@ License
     See the License for the specific language governing permissions and
     limitations under the License.
 
- [5]: https://raw.github.com/derekbrameyer/android-betterpickers/master/sample/imagery/web_feature_graphic.png
+ [5]: https://raw.github.com/code-troopers/android-betterpickers/master/sample/imagery/web_feature_graphic.png
  [6]: https://play.google.com/store/apps/details?id=com.doomonafireball.betterpickers.sample
  [7]: http://developer.android.com/guide/developing/projects/projects-eclipse.html
  [8]: http://developer.android.com/guide/developing/projects/projects-eclipse.html#ReferencingLibraryProject
  [9]: http://viewpagerindicator.com/
- [10]: https://github.com/derekbrameyer/android-betterpickers/issues/new
+ [10]: https://github.com/code-troopers/android-betterpickers/issues/new
  [11]: https://plus.google.com/108284392618554783657/posts
  [12]: http://willowtreeapps.github.io/OAK/
  [13]: http://www.willowtreeapps.com/
- [14]: https://github.com/derekbrameyer/android-betterpickers-gradle-sample
  [15]: https://github.com/derekbrameyer/
