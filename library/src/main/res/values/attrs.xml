@@ -36,7 +36,7 @@
         <attr name="bpSwitchPreferenceStyle" format="reference" />
     </declare-styleable>
 
-    <declare-styleable name="BetterPickersRadialTimePickerDialog">
+    <declare-styleable name="BetterPickersDialog">
         <attr name="bpMainColor1" format="color"/>
         <attr name="bpMainColor2" format="color"/>
         <attr name="bpAccentColor" format="color"/>
@@ -48,7 +48,6 @@
     </declare-styleable>
 
     <declare-styleable name="Android">
-
         <!-- Text color. -->
         <attr name="android:textColor" />
         <!-- Size of the text. Recommended dimension type for text is "sp" for scaled-pixels (example: 15sp). -->

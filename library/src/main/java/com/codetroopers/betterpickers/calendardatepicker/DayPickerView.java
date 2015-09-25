@@ -18,6 +18,7 @@ package com.codetroopers.betterpickers.calendardatepicker;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -278,6 +279,12 @@ public abstract class DayPickerView extends ListView implements OnScrollListener
     }
 
     protected ScrollStateRunnable mScrollStateChangedRunnable = new ScrollStateRunnable();
+
+    public void setTheme(TypedArray themeColors) {
+        if (mAdapter != null) {
+            mAdapter.setThemeDark(themeColors);
+        }
+    }
 
     protected class ScrollStateRunnable implements Runnable {
 

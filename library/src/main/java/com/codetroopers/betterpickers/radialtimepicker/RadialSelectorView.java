@@ -139,8 +139,8 @@ public class RadialSelectorView extends View {
 
     /* package */
     void setTheme(TypedArray themeColors) {
-        mPaint.setColor(themeColors.getColor(R.styleable.BetterPickersRadialTimePickerDialog_bpAccentColor, R.color.bpBlue));
-        mSelectionAlpha = themeColors.getInt(R.styleable.BetterPickersRadialTimePickerDialog_bpSelectionAlpha, 51);
+        mPaint.setColor(themeColors.getColor(R.styleable.BetterPickersDialog_bpAccentColor, R.color.bpBlue));
+        mSelectionAlpha = themeColors.getInt(R.styleable.BetterPickersDialog_bpSelectionAlpha, 51);
     }
 
     /**

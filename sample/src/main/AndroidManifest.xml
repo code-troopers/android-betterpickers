@@ -310,6 +310,22 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.codetroopers.betterpickers.sample.activity.calendardatepicker.SampleCalendarDateDark"
+            android:label="Calendar Date/Dark">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.codetroopers.betterpickers.sample.activity.calendardatepicker.SampleCalendarDateCustom"
+            android:label="Calendar Date/Custom">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="com.codetroopers.betterpickers.sample.activity.radialtimepicker.SampleRadialTimeDefault"
             android:label="Radial Time/Default">
             <intent-filter>

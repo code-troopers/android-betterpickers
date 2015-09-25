@@ -18,6 +18,7 @@ package com.codetroopers.betterpickers.calendardatepicker;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.drawable.StateListDrawable;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +48,16 @@ public class YearPickerView extends ListView implements OnItemClickListener, OnD
     private int mChildSize;
     private TextViewWithCircularIndicator mSelectedView;
 
+    private int mTextColor;
+    private int mCircleColor;
+    private int mBackgroundColor;
+
+    public void setTheme(TypedArray themeColors) {
+        mBackgroundColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainColor2, R.color.circle_background);
+        mCircleColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpAccentColor, R.color.bpBlue);
+        mTextColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainTextColor, R.color.ampm_text_color);
+    }
+
     /**
      * @param context
      */
@@ -67,6 +78,10 @@ public class YearPickerView extends ListView implements OnItemClickListener, OnD
         setSelector(new StateListDrawable());
         setDividerHeight(0);
         onDateChanged();
+
+        mBackgroundColor = R.color.circle_background;
+        mCircleColor = R.color.bpBlue;
+        mTextColor = R.color.ampm_text_color;
     }
 
     private void init(Context context) {
@@ -113,6 +128,10 @@ public class YearPickerView extends ListView implements OnItemClickListener, OnD
                     super.getView(position, convertView, parent);
             v.requestLayout();
             int year = getYearFromTextView(v);
+
+            v.setBackgroundColor(mBackgroundColor);
+            v.setCircleColor(mCircleColor);
+            v.setTextColor(mTextColor);
             boolean selected = mController.getSelectedDay().year == year;
             v.drawIndicator(selected);
             if (selected) {

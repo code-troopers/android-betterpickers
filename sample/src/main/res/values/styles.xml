@@ -19,7 +19,7 @@
         <item name="bpAccentColor">@color/custom_tp_accent</item>
         <item name="bpMainTextColor">@color/custom_tp_text</item>
         <item name="bpDoneTextColor">@color/custom_tp_text</item>
-        <item name="bpLineColor">@color/custom_tp_divider</item>
+        <item name="bpLineColor">@color/custom_tp_main2</item>
         <item name="bpDoneBackgroundColor">@drawable/tp_done_background_color</item>
         <item name="bpSelectionAlpha">102</item>
     </style>
