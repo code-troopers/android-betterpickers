@@ -10,9 +10,7 @@ import com.codetroopers.betterpickers.datepicker.DatePickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
-/**
- * User: derek Date: 3/17/13 Time: 3:59 PM
- */
+
 public class SampleDateYearOptional extends BaseSampleActivity implements DatePickerDialogFragment.DatePickerDialogHandler {
 
     private TextView text;
@@ -33,7 +31,8 @@ public class SampleDateYearOptional extends BaseSampleActivity implements DatePi
             public void onClick(View v) {
                 DatePickerBuilder dpb = new DatePickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
-                        .setStyleResId(R.style.BetterPickersDialogFragment);
+                        .setStyleResId(R.style.BetterPickersDialogFragment)
+                        .setYearOptional(true);
                 dpb.show();
             }
         });
