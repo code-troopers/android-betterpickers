@@ -3,6 +3,7 @@
 
     <!-- Recurrence picker: How events are to be repeated.  [CHAR LIMIT = 20] -->
     <string-array name="recurrence_freq">
+        <item>Toutes les heures</item>
         <item>Tous les jours</item>
         <item>Toutes les semaines</item>
         <item>Tous les mois</item>
