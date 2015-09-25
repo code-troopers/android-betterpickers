@@ -32,7 +32,7 @@ import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
 
 import com.codetroopers.betterpickers.Utils;
-import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialog.OnDateChangedListener;
+import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialogFragment.OnDateChangedListener;
 import com.codetroopers.betterpickers.calendardatepicker.MonthAdapter.CalendarDay;
 
 import java.text.SimpleDateFormat;

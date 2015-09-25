@@ -48,8 +48,8 @@ public class AmPmCirclesView extends View {
     private String mPmText;
     private boolean mIsInitialized;
 
-    private static final int AM = RadialTimePickerDialog.AM;
-    private static final int PM = RadialTimePickerDialog.PM;
+    private static final int AM = RadialTimePickerDialogFragment.AM;
+    private static final int PM = RadialTimePickerDialogFragment.PM;
 
     private boolean mDrawValuesReady;
     private int mAmPmCircleRadius;

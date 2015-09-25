@@ -7,14 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.codetroopers.betterpickers.radialtimepicker.RadialTimePickerDialog;
+import com.codetroopers.betterpickers.radialtimepicker.RadialTimePickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
 import org.joda.time.DateTime;
 
 public class SampleRadialTimeCustom extends BaseSampleActivity
-        implements RadialTimePickerDialog.OnTimeSetListener {
+        implements RadialTimePickerDialogFragment.OnTimeSetListener {
 
     private static final String FRAG_TAG_TIME_PICKER = "timePickerDialogFragment";
 
@@ -36,7 +36,7 @@ public class SampleRadialTimeCustom extends BaseSampleActivity
             public void onClick(View v) {
                 FragmentManager fm = getSupportFragmentManager();
                 DateTime now = DateTime.now();
-                RadialTimePickerDialog timePickerDialog = RadialTimePickerDialog
+                RadialTimePickerDialogFragment timePickerDialog = RadialTimePickerDialogFragment
                         .newInstance(SampleRadialTimeCustom.this, now.getHourOfDay(), now.getMinuteOfHour(),
                                 DateFormat.is24HourFormat(SampleRadialTimeCustom.this));
                 timePickerDialog.setThemeCustom(R.style.MyCustomBetterPickersRadialTimePickerDialog);
@@ -46,7 +46,7 @@ public class SampleRadialTimeCustom extends BaseSampleActivity
     }
 
     @Override
-    public void onTimeSet(RadialTimePickerDialog dialog, int hourOfDay, int minute) {
+    public void onTimeSet(RadialTimePickerDialogFragment dialog, int hourOfDay, int minute) {
         text.setText("" + hourOfDay + ":" + minute);
     }
 
@@ -54,7 +54,7 @@ public class SampleRadialTimeCustom extends BaseSampleActivity
     public void onResume() {
         // Example of reattaching to the fragment
         super.onResume();
-        RadialTimePickerDialog rtpd = (RadialTimePickerDialog) getSupportFragmentManager().findFragmentByTag(
+        RadialTimePickerDialogFragment rtpd = (RadialTimePickerDialogFragment) getSupportFragmentManager().findFragmentByTag(
                 FRAG_TAG_TIME_PICKER);
         if (rtpd != null) {
             rtpd.setOnTimeSetListener(this);

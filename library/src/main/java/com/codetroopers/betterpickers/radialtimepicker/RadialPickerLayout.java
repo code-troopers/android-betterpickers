@@ -53,12 +53,12 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
     private static final int VISIBLE_DEGREES_STEP_SIZE = 30;
     private static final int HOUR_VALUE_TO_DEGREES_STEP_SIZE = VISIBLE_DEGREES_STEP_SIZE;
     private static final int MINUTE_VALUE_TO_DEGREES_STEP_SIZE = 6;
-    private static final int HOUR_INDEX = RadialTimePickerDialog.HOUR_INDEX;
-    private static final int MINUTE_INDEX = RadialTimePickerDialog.MINUTE_INDEX;
-    private static final int AMPM_INDEX = RadialTimePickerDialog.AMPM_INDEX;
-    private static final int ENABLE_PICKER_INDEX = RadialTimePickerDialog.ENABLE_PICKER_INDEX;
-    private static final int AM = RadialTimePickerDialog.AM;
-    private static final int PM = RadialTimePickerDialog.PM;
+    private static final int HOUR_INDEX = RadialTimePickerDialogFragment.HOUR_INDEX;
+    private static final int MINUTE_INDEX = RadialTimePickerDialogFragment.MINUTE_INDEX;
+    private static final int AMPM_INDEX = RadialTimePickerDialogFragment.AMPM_INDEX;
+    private static final int ENABLE_PICKER_INDEX = RadialTimePickerDialogFragment.ENABLE_PICKER_INDEX;
+    private static final int AM = RadialTimePickerDialogFragment.AM;
+    private static final int PM = RadialTimePickerDialogFragment.PM;
 
     private int mLastValueSelected;
 

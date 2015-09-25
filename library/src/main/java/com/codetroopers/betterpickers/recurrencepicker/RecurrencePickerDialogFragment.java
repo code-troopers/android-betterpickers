@@ -58,7 +58,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.codetroopers.betterpickers.R;
-import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialog;
+import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialogFragment;
 
 
 import java.text.DateFormatSymbols;
@@ -66,11 +66,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 
-public class RecurrencePickerDialog extends DialogFragment implements OnItemSelectedListener,
+public class RecurrencePickerDialogFragment extends DialogFragment implements OnItemSelectedListener,
         OnCheckedChangeListener, OnClickListener,
-        android.widget.RadioGroup.OnCheckedChangeListener, CalendarDatePickerDialog.OnDateSetListener {
+        android.widget.RadioGroup.OnCheckedChangeListener, CalendarDatePickerDialogFragment.OnDateSetListener {
 
-    private static final String TAG = "RecurrencePickerDialog";
+    private static final String TAG = "RecurrencePickerDialogFragment";
 
     // in dp's
     private static final int MIN_SCREEN_WIDTH_FOR_SINGLE_ROW_WEEK = 450;
@@ -86,7 +86,7 @@ public class RecurrencePickerDialog extends DialogFragment implements OnItemSele
     private static final int FIFTH_WEEK_IN_A_MONTH = 5;
     private static final int LAST_NTH_DAY_OF_WEEK = -1;
 
-    private CalendarDatePickerDialog mDatePickerDialog;
+    private CalendarDatePickerDialogFragment mDatePickerDialog;
 
     private static class RecurrenceModel implements Parcelable {
 
@@ -168,7 +168,7 @@ public class RecurrencePickerDialog extends DialogFragment implements OnItemSele
         /**
          * Nth day of the week to repeat. Used when monthlyRepeat == MONTHLY_BY_NTH_DAY_OF_WEEK 0=undefined, -1=Last,
          * 1=1st, 2=2nd, ..., 5=5th
-         *
+         * <p/>
          * We support 5th, just to handle backwards capabilities with old bug, but it gets converted to -1 once edited.
          */
         int monthlyByNthDayOfWeek;
@@ -374,11 +374,11 @@ public class RecurrencePickerDialog extends DialogFragment implements OnItemSele
     private RadioButton mRepeatMonthlyByNthDayOfMonth;
     private String mMonthRepeatByDayOfWeekStr;
 
-    private Button mDone;
+    private Button mDoneButton;
 
     private OnRecurrenceSetListener mRecurrenceSetListener;
 
-    public RecurrencePickerDialog() {
+    public RecurrencePickerDialogFragment() {
     }
 
     static public boolean isSupportedMonthlyByNthDayOfWeek(int num) {
@@ -445,7 +445,7 @@ public class RecurrencePickerDialog extends DialogFragment implements OnItemSele
 
     // TODO don't lose data when getting data that our UI can't handle
     static private void copyEventRecurrenceToModel(final EventRecurrence er,
-            RecurrenceModel model) {
+                                                   RecurrenceModel model) {
         // Freq:
         switch (er.freq) {
             case EventRecurrence.DAILY:
@@ -546,7 +546,7 @@ public class RecurrencePickerDialog extends DialogFragment implements OnItemSele
     }
 
     static private void copyModelToEventRecurrence(final RecurrenceModel model,
-            EventRecurrence er) {
+                                                   EventRecurrence er) {
         if (model.recurrenceState == RecurrenceModel.STATE_NO_RECURRENCE) {
             throw new IllegalStateException("There's no recurrence");
         }
@@ -645,8 +645,7 @@ public class RecurrencePickerDialog extends DialogFragment implements OnItemSele
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mRecurrence.wkst = EventRecurrence.timeDay2Day(Utils.getFirstDayOfWeek(getActivity()));
 
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
@@ -875,8 +874,17 @@ public class RecurrencePickerDialog extends DialogFragment implements OnItemSele
         mRepeatMonthlyByNthDayOfMonth = (RadioButton) mView
                 .findViewById(R.id.repeatMonthlyByNthDayOfMonth);
 
-        mDone = (Button) mView.findViewById(R.id.done);
-        mDone.setOnClickListener(this);
+        mDoneButton = (Button) mView.findViewById(R.id.done_button);
+        mDoneButton.setOnClickListener(this);
+
+        Button cancelButton = (Button) mView.findViewById(R.id.cancel_button);
+        //FIXME no text color for this one ?
+        cancelButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
 
         togglePickerOptions();
         updateDialog();
@@ -924,33 +932,33 @@ public class RecurrencePickerDialog extends DialogFragment implements OnItemSele
 
     private void updateDoneButtonState() {
         if (mModel.recurrenceState == RecurrenceModel.STATE_NO_RECURRENCE) {
-            mDone.setEnabled(true);
+            mDoneButton.setEnabled(true);
             return;
         }
 
         if (mInterval.getText().toString().length() == 0) {
-            mDone.setEnabled(false);
+            mDoneButton.setEnabled(false);
             return;
         }
 
         if (mEndCount.getVisibility() == View.VISIBLE &&
                 mEndCount.getText().toString().length() == 0) {
-            mDone.setEnabled(false);
+            mDoneButton.setEnabled(false);
             return;
         }
 
         if (mModel.freq == RecurrenceModel.FREQ_WEEKLY) {
             for (CompoundButton b : mWeekByDayButtons) {
                 if (b.isChecked()) {
-                    mDone.setEnabled(true);
+                    mDoneButton.setEnabled(true);
                     return;
                 }
             }
-            mDone.setEnabled(false);
+            mDoneButton.setEnabled(false);
             return;
         }
 
-        mDone.setEnabled(true);
+        mDoneButton.setEnabled(true);
     }
 
     @Override
@@ -1154,7 +1162,7 @@ public class RecurrencePickerDialog extends DialogFragment implements OnItemSele
     }
 
     @Override
-    public void onDateSet(CalendarDatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+    public void onDateSet(CalendarDatePickerDialogFragment view, int year, int monthOfYear, int dayOfMonth) {
         if (mModel.endDate == null) {
             mModel.endDate = new Time(mTime.timezone);
             mModel.endDate.hour = mModel.endDate.minute = mModel.endDate.second = 0;
@@ -1201,12 +1209,12 @@ public class RecurrencePickerDialog extends DialogFragment implements OnItemSele
             if (mDatePickerDialog != null) {
                 mDatePickerDialog.dismiss();
             }
-            mDatePickerDialog = CalendarDatePickerDialog.newInstance(this, mModel.endDate.year,
+            mDatePickerDialog = CalendarDatePickerDialogFragment.newInstance(this, mModel.endDate.year,
                     mModel.endDate.month, mModel.endDate.monthDay);
             mDatePickerDialog.setFirstDayOfWeek(Utils.getFirstDayOfWeekAsCalendar(getActivity()));
             mDatePickerDialog.setYearRange(Utils.YEAR_MIN, Utils.YEAR_MAX);
             mDatePickerDialog.show(getFragmentManager(), FRAG_TAG_DATE_PICKER);
-        } else if (mDone == v) {
+        } else if (mDoneButton == v) {
             String rrule;
             if (mModel.recurrenceState == RecurrenceModel.STATE_NO_RECURRENCE) {
                 rrule = null;
@@ -1222,7 +1230,7 @@ public class RecurrencePickerDialog extends DialogFragment implements OnItemSele
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mDatePickerDialog = (CalendarDatePickerDialog) getFragmentManager()
+        mDatePickerDialog = (CalendarDatePickerDialogFragment) getFragmentManager()
                 .findFragmentByTag(FRAG_TAG_DATE_PICKER);
         if (mDatePickerDialog != null) {
             mDatePickerDialog.setOnDateSetListener(this);
@@ -1256,7 +1264,7 @@ public class RecurrencePickerDialog extends DialogFragment implements OnItemSele
          * @param objects
          */
         public EndSpinnerAdapter(Context context, ArrayList<CharSequence> strings,
-                int itemResourceId, int textResourceId) {
+                                 int itemResourceId, int textResourceId) {
             super(context, itemResourceId, strings);
             mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             mItemResourceId = itemResourceId;

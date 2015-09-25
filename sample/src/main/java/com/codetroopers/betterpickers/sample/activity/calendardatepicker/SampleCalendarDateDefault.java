@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialog;
+import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
@@ -16,7 +16,7 @@ import org.joda.time.DateTime;
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
 public class SampleCalendarDateDefault extends BaseSampleActivity
-        implements CalendarDatePickerDialog.OnDateSetListener {
+        implements CalendarDatePickerDialogFragment.OnDateSetListener {
 
     private static final String FRAG_TAG_DATE_PICKER = "fragment_date_picker_name";
 
@@ -38,16 +38,16 @@ public class SampleCalendarDateDefault extends BaseSampleActivity
             public void onClick(View v) {
                 FragmentManager fm = getSupportFragmentManager();
                 DateTime now = DateTime.now();
-                CalendarDatePickerDialog calendarDatePickerDialog = CalendarDatePickerDialog
+                CalendarDatePickerDialogFragment calendarDatePickerDialogFragment = CalendarDatePickerDialogFragment
                         .newInstance(SampleCalendarDateDefault.this, now.getYear(), now.getMonthOfYear() - 1,
                                 now.getDayOfMonth());
-                calendarDatePickerDialog.show(fm, FRAG_TAG_DATE_PICKER);
+                calendarDatePickerDialogFragment.show(fm, FRAG_TAG_DATE_PICKER);
             }
         });
     }
 
     @Override
-    public void onDateSet(CalendarDatePickerDialog dialog, int year, int monthOfYear, int dayOfMonth) {
+    public void onDateSet(CalendarDatePickerDialogFragment dialog, int year, int monthOfYear, int dayOfMonth) {
         text.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
     }
 
@@ -55,10 +55,10 @@ public class SampleCalendarDateDefault extends BaseSampleActivity
     public void onResume() {
         // Example of reattaching to the fragment
         super.onResume();
-        CalendarDatePickerDialog calendarDatePickerDialog = (CalendarDatePickerDialog) getSupportFragmentManager()
+        CalendarDatePickerDialogFragment calendarDatePickerDialogFragment = (CalendarDatePickerDialogFragment) getSupportFragmentManager()
                 .findFragmentByTag(FRAG_TAG_DATE_PICKER);
-        if (calendarDatePickerDialog != null) {
-            calendarDatePickerDialog.setOnDateSetListener(this);
+        if (calendarDatePickerDialogFragment != null) {
+            calendarDatePickerDialogFragment.setOnDateSetListener(this);
         }
     }
 }

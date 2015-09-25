@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.codetroopers.betterpickers.recurrencepicker.EventRecurrence;
 import com.codetroopers.betterpickers.recurrencepicker.EventRecurrenceFormatter;
-import com.codetroopers.betterpickers.recurrencepicker.RecurrencePickerDialog;
+import com.codetroopers.betterpickers.recurrencepicker.RecurrencePickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
@@ -19,7 +19,7 @@ import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
 public class SampleRecurrenceDefault extends BaseSampleActivity
-        implements RecurrencePickerDialog.OnRecurrenceSetListener {
+        implements RecurrencePickerDialogFragment.OnRecurrenceSetListener {
 
     private TextView text;
     private Button button;
@@ -47,18 +47,18 @@ public class SampleRecurrenceDefault extends BaseSampleActivity
                 Bundle b = new Bundle();
                 Time t = new Time();
                 t.setToNow();
-                b.putLong(RecurrencePickerDialog.BUNDLE_START_TIME_MILLIS, t.toMillis(false));
-                b.putString(RecurrencePickerDialog.BUNDLE_TIME_ZONE, t.timezone);
+                b.putLong(RecurrencePickerDialogFragment.BUNDLE_START_TIME_MILLIS, t.toMillis(false));
+                b.putString(RecurrencePickerDialogFragment.BUNDLE_TIME_ZONE, t.timezone);
 
                 // may be more efficient to serialize and pass in EventRecurrence
-                b.putString(RecurrencePickerDialog.BUNDLE_RRULE, mRrule);
+                b.putString(RecurrencePickerDialogFragment.BUNDLE_RRULE, mRrule);
 
-                RecurrencePickerDialog rpd = (RecurrencePickerDialog) fm.findFragmentByTag(
+                RecurrencePickerDialogFragment rpd = (RecurrencePickerDialogFragment) fm.findFragmentByTag(
                         FRAG_TAG_RECUR_PICKER);
                 if (rpd != null) {
                     rpd.dismiss();
                 }
-                rpd = new RecurrencePickerDialog();
+                rpd = new RecurrencePickerDialogFragment();
                 rpd.setArguments(b);
                 rpd.setOnRecurrenceSetListener(SampleRecurrenceDefault.this);
                 rpd.show(fm, FRAG_TAG_RECUR_PICKER);
@@ -79,7 +79,7 @@ public class SampleRecurrenceDefault extends BaseSampleActivity
     public void onResume() {
         // Example of reattaching to the fragment
         super.onResume();
-        RecurrencePickerDialog rpd = (RecurrencePickerDialog) getSupportFragmentManager().findFragmentByTag(
+        RecurrencePickerDialogFragment rpd = (RecurrencePickerDialogFragment) getSupportFragmentManager().findFragmentByTag(
                 FRAG_TAG_RECUR_PICKER);
         if (rpd != null) {
             rpd.setOnRecurrenceSetListener(this);

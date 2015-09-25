@@ -29,7 +29,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.codetroopers.betterpickers.R;
-import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialog.OnDateChangedListener;
+import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialogFragment.OnDateChangedListener;
 
 import java.util.ArrayList;
 import java.util.List;
