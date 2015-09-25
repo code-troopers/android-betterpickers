@@ -91,10 +91,11 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
     private static class RecurrenceModel implements Parcelable {
 
         // Should match EventRecurrence.DAILY, etc
-        static final int FREQ_DAILY = 0;
-        static final int FREQ_WEEKLY = 1;
-        static final int FREQ_MONTHLY = 2;
-        static final int FREQ_YEARLY = 3;
+        static final int FREQ_HOURLY = 0;
+        static final int FREQ_DAILY = 1;
+        static final int FREQ_WEEKLY = 2;
+        static final int FREQ_MONTHLY = 3;
+        static final int FREQ_YEARLY = 4;
 
         static final int END_NEVER = 0;
         static final int END_BY_DATE = 1;
@@ -115,6 +116,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
          * @see #FREQ_WEEKLY
          * @see #FREQ_MONTHLY
          * @see #FREQ_YEARLY
+         * @see FREQ_HOURLY
          */
         int freq = FREQ_WEEKLY;
 
@@ -320,6 +322,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
 
     private Spinner mFreqSpinner;
     private static final int[] mFreqModelToEventRecurrence = {
+            EventRecurrence.HOURLY,
             EventRecurrence.DAILY,
             EventRecurrence.WEEKLY,
             EventRecurrence.MONTHLY,
@@ -389,6 +392,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
 
     static public boolean canHandleRecurrenceRule(EventRecurrence er) {
         switch (er.freq) {
+            case EventRecurrence.HOURLY:
             case EventRecurrence.DAILY:
             case EventRecurrence.MONTHLY:
             case EventRecurrence.YEARLY:
@@ -448,6 +452,9 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
                                                    RecurrenceModel model) {
         // Freq:
         switch (er.freq) {
+            case EventRecurrence.HOURLY:
+                model.freq = RecurrenceModel.FREQ_HOURLY;
+                break;
             case EventRecurrence.DAILY:
                 model.freq = RecurrenceModel.FREQ_DAILY;
                 break;
@@ -757,6 +764,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
         if (mModel.endDate == null) {
             mModel.endDate = new Time(mTime);
             switch (mModel.freq) {
+                case RecurrenceModel.FREQ_HOURLY:
                 case RecurrenceModel.FREQ_DAILY:
                 case RecurrenceModel.FREQ_WEEKLY:
                     mModel.endDate.month += 1;
@@ -985,6 +993,9 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
         mMonthGroup.setVisibility(mModel.freq == RecurrenceModel.FREQ_MONTHLY ? View.VISIBLE : View.GONE);
 
         switch (mModel.freq) {
+            case RecurrenceModel.FREQ_HOURLY:
+                mIntervalResId = R.plurals.recurrence_interval_hourly;
+                break;
             case RecurrenceModel.FREQ_DAILY:
                 mIntervalResId = R.plurals.recurrence_interval_daily;
                 break;
