@@ -146,6 +146,18 @@ If you've fixed a bug or have a feature you've added, just create a pull request
 
 If you've found a bug, want a new feature, or have other questions, [file an issue][10]. We will try to answer as soon as possible.
 
+
+### Applications using BetterPickers
+
+Please send a pull request if you would like to be added here.
+
+Icon | Application
+------------ | -------------
+<img src="https://lh6.ggpht.com/wG3RSgReZcIcKsqFfsKSibR-j1UYfOekNmtY8x0n0mjWJT84U2V3l2lh3TmxeXfJis0z=w300-rw" width="48" height="48" /> | [Trello]
+<img src="https://lh3.ggpht.com/OuJF91ba0PiNItxw_zAqwjarenly_LiaeaPJQOHBrVWPsGzydjUZ1ANp1wVDpU4cLsE=w300-rw" width="48" height="48" /> | [Navig'Tours] 
+
+
+
 Credits
 =======
 
@@ -184,3 +196,6 @@ License
  [12]: http://willowtreeapps.github.io/OAK/
  [13]: http://www.willowtreeapps.com/
  [15]: https://github.com/derekbrameyer/
+
+ [Trello]:https://play.google.com/store/apps/details?id=com.trello
+ [Navig'Tours]: https://play.google.com/store/apps/details?id=com.codetroopers.transport.tours
