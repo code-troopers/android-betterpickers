@@ -37,7 +37,7 @@ You can include this project by [referencing it as a library project][8].
 If you are a Gradle user you can also easily include the library:
 
 ```groovy
-compile 'com.code-troopers.betterpickers:library:2.0.0'
+compile 'com.code-troopers.betterpickers:library:2.1.0'
 ```
 
 ### Maven
@@ -48,7 +48,7 @@ If you are a Maven user you can easily include the library by specifying it as a
 <dependency>
   <groupId>com.code-troopers.betterpickers</groupId>
   <artifactId>library</artifactId>
-  <version>2.0.0</version>
+  <version>2.1.0</version>
   <type>aar</type>
 </dependency>
 ```
