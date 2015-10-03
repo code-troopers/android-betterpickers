@@ -83,6 +83,16 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
             this.year = year;
             this.month = month;
             this.day = day;
+            calendar = Calendar.getInstance();
+            calendar.set(year, month, day, 0, 0, 0);
+        }
+
+        public long getDateInMillis() {
+            if (calendar == null) {
+                calendar = Calendar.getInstance();
+                calendar.set(year, month, day, 0, 0, 0);
+            }
+            return calendar.getTimeInMillis();
         }
 
         public synchronized void setJulianDay(int julianDay) {
@@ -134,7 +144,8 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
 
     @Override
     public int getCount() {
-        return ((mController.getMaxYear() - mController.getMinYear()) + 1) * MONTHS_IN_YEAR;
+        return (((mController.getMaxDate().year - mController.getMinDate().year) + 1) * MONTHS_IN_YEAR) -
+                (MONTHS_IN_YEAR - 1 - mController.getMaxDate().month) - mController.getMinDate().month;
     }
 
     @Override
@@ -176,9 +187,8 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
         }
         drawingParams.clear();
 
-        final int month = position % MONTHS_IN_YEAR;
-        final int year = position / MONTHS_IN_YEAR + mController.getMinYear();
-
+        final int month = (position + mController.getMinDate().month) % MONTHS_IN_YEAR;
+        final int year = (position + mController.getMinDate().month)/ MONTHS_IN_YEAR + mController.getMinDate().year;
         int selectedDay = -1;
         if (isSelectedDayInMonth(year, month)) {
             selectedDay = mSelectedDay.day;
