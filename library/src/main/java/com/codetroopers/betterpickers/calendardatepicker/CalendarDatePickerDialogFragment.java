@@ -385,8 +385,16 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         }
     }
 
+    /**
+     * Sets the range of the dialog to be within the specific dates. Years and months outside of the
+     * range are not shown, the days that are outside of the range are visible but cannot be selected.
+     *
+     * @param startDate The start date of the range (inclusive)
+     * @param endDate The end date of the range (inclusive)
+     * @throws IllegalArgumentException in case the end date is smaller than the start date
+     */
     public void setDateRange(CalendarDay startDate, CalendarDay endDate) {
-        if (endDate.getDateInMillis() <= startDate.getDateInMillis()) {
+        if (endDate.compareTo(startDate) < 0) {
             throw new IllegalArgumentException("End date must be larger than start date");
         }
 
