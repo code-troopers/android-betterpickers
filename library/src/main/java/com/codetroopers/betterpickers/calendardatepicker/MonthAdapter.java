@@ -81,11 +81,11 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
         }
 
         public void setDay(int year, int month, int day) {
-            this.year = year;
-            this.month = month;
-            this.day = day;
             calendar = Calendar.getInstance();
             calendar.set(year, month, day, 0, 0, 0);
+            this.year = calendar.get(Calendar.YEAR);
+            this.month = calendar.get(Calendar.MONTH);
+            this.day = calendar.get(Calendar.DAY_OF_MONTH);
         }
 
         public long getDateInMillis() {
