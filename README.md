@@ -37,7 +37,7 @@ You can include this project by [referencing it as a library project][8].
 If you are a Gradle user you can also easily include the library:
 
 ```groovy
-compile 'com.code-troopers.betterpickers:library:2.0.0'
+compile 'com.code-troopers.betterpickers:library:2.1.0'
 ```
 
 ### Maven
@@ -48,7 +48,7 @@ If you are a Maven user you can easily include the library by specifying it as a
 <dependency>
   <groupId>com.code-troopers.betterpickers</groupId>
   <artifactId>library</artifactId>
-  <version>2.0.0</version>
+  <version>2.1.0</version>
   <type>aar</type>
 </dependency>
 ```
@@ -146,6 +146,18 @@ If you've fixed a bug or have a feature you've added, just create a pull request
 
 If you've found a bug, want a new feature, or have other questions, [file an issue][10]. We will try to answer as soon as possible.
 
+
+### Applications using BetterPickers
+
+Please send a pull request if you would like to be added here.
+
+Icon | Application
+------------ | -------------
+<img src="https://lh6.ggpht.com/wG3RSgReZcIcKsqFfsKSibR-j1UYfOekNmtY8x0n0mjWJT84U2V3l2lh3TmxeXfJis0z=w300-rw" width="48" height="48" /> | [Trello]
+<img src="https://lh3.ggpht.com/OuJF91ba0PiNItxw_zAqwjarenly_LiaeaPJQOHBrVWPsGzydjUZ1ANp1wVDpU4cLsE=w300-rw" width="48" height="48" /> | [Navig'Tours] 
+
+
+
 Credits
 =======
 
@@ -184,3 +196,6 @@ License
  [12]: http://willowtreeapps.github.io/OAK/
  [13]: http://www.willowtreeapps.com/
  [15]: https://github.com/derekbrameyer/
+
+ [Trello]:https://play.google.com/store/apps/details?id=com.trello
+ [Navig'Tours]: https://play.google.com/store/apps/details?id=com.codetroopers.transport.tours

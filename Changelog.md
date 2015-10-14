@@ -2,12 +2,13 @@
 Changelog
 =========
 **2.1.0**
-* Set all dialogs buttons to material requierements
+* Set all dialogs buttons to material requirements
 * Rename CalendarDatePickerDialog to CalendarDatePickerDialogFragment
 * Rename RadialTimePickerDialog to RadialTimePickerDialogFragment
 * Rename RecurrencePickerDialog to RecurrencePickerDialogFragment
 * Rename TimeZonePickerDialog to TimeZonePickerDialogFragment
 * update support-appcompat-v7
+* Add year as optionnal in DatePicker (#187)
 
 **2.0.3**
 * add setTimeInSeconds and setTimeInMilliseconds to HmsPickerBuilder (#185)

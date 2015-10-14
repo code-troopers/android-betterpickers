@@ -31,7 +31,7 @@ public class SimpleMonthView extends MonthView {
 
     @Override
     public void drawMonthDay(Canvas canvas, int year, int month, int day,
-            int x, int y, int startX, int stopX, int startY, int stopY) {
+            int x, int y, int startX, int stopX, int startY, int stopY, boolean isEnabled) {
         if (mSelectedDay == day) {
             canvas.drawCircle(x, y - (MINI_DAY_NUMBER_TEXT_SIZE / 3), DAY_SELECTED_CIRCLE_SIZE,
                     mSelectedCirclePaint);
@@ -39,8 +39,10 @@ public class SimpleMonthView extends MonthView {
 
         if (mHasToday && mToday == day) {
             mMonthNumPaint.setColor(mTodayNumberColor);
+        } else if (isEnabled) {
+            mMonthNumPaint.setColor(mDayTextColorEnabled);
         } else {
-            mMonthNumPaint.setColor(mDayTextColor);
+            mMonthNumPaint.setColor(mDayTextColorDisabled);
         }
         canvas.drawText(String.format("%d", day), x, y, mMonthNumPaint);
     }
