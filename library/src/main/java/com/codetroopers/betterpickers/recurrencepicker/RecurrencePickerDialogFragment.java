@@ -1223,7 +1223,6 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
             mDatePickerDialog = CalendarDatePickerDialogFragment.newInstance(this, mModel.endDate.year,
                     mModel.endDate.month, mModel.endDate.monthDay);
             mDatePickerDialog.setFirstDayOfWeek(Utils.getFirstDayOfWeekAsCalendar(getActivity()));
-            mDatePickerDialog.setYearRange(Utils.YEAR_MIN, Utils.YEAR_MAX);
             mDatePickerDialog.show(getFragmentManager(), FRAG_TAG_DATE_PICKER);
         } else if (mDoneButton == v) {
             String rrule;

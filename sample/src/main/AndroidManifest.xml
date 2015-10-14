@@ -311,7 +311,23 @@
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.calendardatepicker.SampleCalendarDateRange"
-            android:label="Calendar Date/Range">
+            android:label="Calendar Date/Range Min and Max">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.codetroopers.betterpickers.sample.activity.calendardatepicker.SampleCalendarDateRangeMin"
+            android:label="Calendar Date/Range Min only">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.codetroopers.betterpickers.sample.activity.calendardatepicker.SampleCalendarDateRangeMax"
+            android:label="Calendar Date/Range Max only">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
