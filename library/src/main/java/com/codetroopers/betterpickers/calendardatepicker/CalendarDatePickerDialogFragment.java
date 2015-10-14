@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.text.format.DateUtils;
 import android.util.Log;
@@ -373,18 +374,6 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         }
     }
 
-    public void setYearRange(int startYear, int endYear) {
-        if (endYear <= startYear) {
-            throw new IllegalArgumentException("Year end must be larger than year start");
-        }
-
-        mMinDate = new CalendarDay(startYear, Calendar.JANUARY, 1);
-        mMaxDate = new CalendarDay(endYear, Calendar.DECEMBER, 31);
-        if (mDayPickerView != null) {
-            mDayPickerView.onChange();
-        }
-    }
-
     /**
      * Sets the range of the dialog to be within the specific dates. Years and months outside of the
      * range are not shown, the days that are outside of the range are visible but cannot be selected.
@@ -393,13 +382,20 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
      * @param endDate The end date of the range (inclusive)
      * @throws IllegalArgumentException in case the end date is smaller than the start date
      */
-    public void setDateRange(CalendarDay startDate, CalendarDay endDate) {
-        if (endDate.compareTo(startDate) < 0) {
+    public void setDateRange(@Nullable CalendarDay startDate, @Nullable CalendarDay endDate) {
+        if(startDate == null){
+            mMinDate = DEFAULT_START_DATE;
+        }else{
+            mMinDate = startDate;
+        }
+        if(endDate == null){
+            mMaxDate = DEFAULT_END_DATE;
+        }else{
+            mMaxDate = endDate;
+        }
+        if (mMaxDate.compareTo(mMinDate) < 0) {
             throw new IllegalArgumentException("End date must be larger than start date");
         }
-
-        mMinDate = startDate;
-        mMaxDate = endDate;
         if (mDayPickerView != null) {
             mDayPickerView.onChange();
         }
