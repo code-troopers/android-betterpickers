@@ -6,7 +6,7 @@
 
     <com.codetroopers.betterpickers.datepicker.DatePicker
         android:id="@+id/date_picker"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/dialog_body_weight"
         android:layout_height="@dimen/dialog_body_height" />
 
     <include layout="@layout/layout_ok_cancel_buttons" />
