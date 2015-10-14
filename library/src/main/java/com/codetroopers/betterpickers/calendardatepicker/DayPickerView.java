@@ -181,9 +181,8 @@ public abstract class DayPickerView extends ListView implements OnScrollListener
         }
 
         mTempDay.set(day);
-        final int position = (day.year - mController.getMinYear())
-                * SimpleMonthAdapter.MONTHS_IN_YEAR + day.month;
-
+        final int position = (day.year - mController.getMinDate().year) * SimpleMonthAdapter.MONTHS_IN_YEAR
+                + (day.month - mController.getMinDate().month);
         View child;
         int i = 0;
         int top = 0;
@@ -467,7 +466,7 @@ public abstract class DayPickerView extends ListView implements OnScrollListener
         // Figure out what month is showing.
         int firstVisiblePosition = getFirstVisiblePosition();
         int month = firstVisiblePosition % 12;
-        int year = firstVisiblePosition / 12 + mController.getMinYear();
+        int year = firstVisiblePosition / 12 + mController.getMinDate().year;
         CalendarDay day = new CalendarDay(year, month, 1);
 
         // Scroll either forward or backward one month.

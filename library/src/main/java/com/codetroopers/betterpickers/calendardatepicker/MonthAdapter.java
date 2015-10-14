@@ -18,6 +18,7 @@ package com.codetroopers.betterpickers.calendardatepicker;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.text.format.Time;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +48,7 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
     /**
      * A convenience class to represent a specific date.
      */
-    public static class CalendarDay {
+    public static class CalendarDay implements Comparable<CalendarDay> {
 
         private Calendar calendar;
         private Time time;
@@ -80,9 +81,19 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
         }
 
         public void setDay(int year, int month, int day) {
-            this.year = year;
-            this.month = month;
-            this.day = day;
+            calendar = Calendar.getInstance();
+            calendar.set(year, month, day, 0, 0, 0);
+            this.year = calendar.get(Calendar.YEAR);
+            this.month = calendar.get(Calendar.MONTH);
+            this.day = calendar.get(Calendar.DAY_OF_MONTH);
+        }
+
+        public long getDateInMillis() {
+            if (calendar == null) {
+                calendar = Calendar.getInstance();
+                calendar.set(year, month, day, 0, 0, 0);
+            }
+            return calendar.getTimeInMillis();
         }
 
         public synchronized void setJulianDay(int julianDay) {
@@ -101,6 +112,18 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
             month = calendar.get(Calendar.MONTH);
             year = calendar.get(Calendar.YEAR);
             day = calendar.get(Calendar.DAY_OF_MONTH);
+        }
+
+        @Override
+        public int compareTo(@NonNull CalendarDay another) {
+            if (year < another.year || (year == another.year && month < another.month)
+                    || (year == another.year && month == another.month && day < another.day)) {
+                return -1;
+            }
+            if ((year == another.year && month == another.month && day == another.day)) {
+                return 0;
+            }
+            return 1;
         }
     }
 
@@ -130,11 +153,18 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
      */
     protected void init() {
         mSelectedDay = new CalendarDay(System.currentTimeMillis());
+        if (mSelectedDay.compareTo(mController.getMaxDate()) > 0) {
+            mSelectedDay = mController.getMaxDate();
+        }
+        if (mSelectedDay.compareTo(mController.getMinDate()) < 0) {
+            mSelectedDay = mController.getMinDate();
+        }
     }
 
     @Override
     public int getCount() {
-        return ((mController.getMaxYear() - mController.getMinYear()) + 1) * MONTHS_IN_YEAR;
+        return (((mController.getMaxDate().year - mController.getMinDate().year) + 1) * MONTHS_IN_YEAR) -
+                (MONTHS_IN_YEAR - 1 - mController.getMaxDate().month) - mController.getMinDate().month;
     }
 
     @Override
@@ -176,14 +206,22 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
         }
         drawingParams.clear();
 
-        final int month = position % MONTHS_IN_YEAR;
-        final int year = position / MONTHS_IN_YEAR + mController.getMinYear();
-
+        final int month = (position + mController.getMinDate().month) % MONTHS_IN_YEAR;
+        final int year = (position + mController.getMinDate().month)/ MONTHS_IN_YEAR + mController.getMinDate().year;
         int selectedDay = -1;
         if (isSelectedDayInMonth(year, month)) {
             selectedDay = mSelectedDay.day;
         }
 
+        int rangeMin = -1;
+        if (isRangeMinInMonth(year, month)) {
+            rangeMin = mController.getMinDate().day;
+        }
+
+        int rangeMax = -1;
+        if (isRangeMaxInMonth(year, month)) {
+            rangeMax = mController.getMaxDate().day;
+        }
         // Invokes requestLayout() to ensure that the recycled view is set with the appropriate
         // height/number of weeks before being displayed.
         v.reuse();
@@ -192,6 +230,8 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
         drawingParams.put(MonthView.VIEW_PARAMS_YEAR, year);
         drawingParams.put(MonthView.VIEW_PARAMS_MONTH, month);
         drawingParams.put(MonthView.VIEW_PARAMS_WEEK_START, mController.getFirstDayOfWeek());
+        drawingParams.put(MonthView.VIEW_PARAMS_RANGE_MIN, rangeMin);
+        drawingParams.put(MonthView.VIEW_PARAMS_RANGE_MAX, rangeMax);
         v.setMonthParams(drawingParams);
         v.invalidate();
         return v;
@@ -203,12 +243,23 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
         return mSelectedDay.year == year && mSelectedDay.month == month;
     }
 
+    private boolean isRangeMinInMonth(int year, int month) {
+        return mController.getMinDate().year == year && mController.getMinDate().month == month;
+    }
+
+    private boolean isRangeMaxInMonth(int year, int month) {
+        return mController.getMaxDate().year == year && mController.getMaxDate().month == month;
+    }
 
     @Override
     public void onDayClick(MonthView view, CalendarDay day) {
-        if (day != null) {
+        if (day != null && isDayInRange(day)) {
             onDayTapped(day);
         }
+    }
+
+    private boolean isDayInRange(CalendarDay day) {
+        return day.compareTo(mController.getMinDate()) >= 0 && day.compareTo(mController.getMaxDate()) <= 0;
     }
 
     /**

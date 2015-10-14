@@ -97,6 +97,14 @@ public abstract class MonthView extends View {
      * If this month should display week numbers. false if 0, true otherwise.
      */
     public static final String VIEW_PARAMS_SHOW_WK_NUM = "show_wk_num";
+    /**
+     * Day in month that is the start of the selected date range. Only set if the day is in the given month
+     */
+    public static final String VIEW_PARAMS_RANGE_MIN = "range_min";
+    /**
+     * Day in month that is the end of the selected date range. Only set if the day is in the given month.
+     */
+    public static final String VIEW_PARAMS_RANGE_MAX = "range_max";
 
     protected static int DEFAULT_HEIGHT = 32;
     protected static int MIN_HEIGHT = 10;
@@ -165,7 +173,10 @@ public abstract class MonthView extends View {
     protected int mSelectedLeft = -1;
     // The right edge of the selected day
     protected int mSelectedRight = -1;
-
+    // The minimum day that fits into the provided range and is enabled.
+    protected int mRangeMin = -1;
+    // The maximum day that fits into the provided range and is enabled.
+    protected int mRangeMax = -1;
     private final Calendar mCalendar;
     private final Calendar mDayLabelCalendar;
     private final MonthViewTouchHelper mTouchHelper;
@@ -177,7 +188,8 @@ public abstract class MonthView extends View {
     // Whether to prevent setting the accessibility delegate
     private boolean mLockAccessibilityDelegate;
 
-    protected int mDayTextColor;
+    protected int mDayTextColorEnabled;
+    protected int mDayTextColorDisabled;
     protected int mTodayNumberColor;
     protected int mMonthTitleColor;
     protected int mMonthTitleBGColor;
@@ -193,7 +205,8 @@ public abstract class MonthView extends View {
         mDayOfWeekTypeface = res.getString(R.string.day_of_week_label_typeface);
         mMonthTitleTypeface = res.getString(R.string.sans_serif);
 
-        mDayTextColor = res.getColor(R.color.date_picker_text_normal);
+        mDayTextColorEnabled = res.getColor(R.color.date_picker_text_normal);
+        mDayTextColorDisabled = res.getColor(R.color.date_picker_text_disabled);
         mTodayNumberColor = res.getColor(R.color.bpBlue);
         mMonthTitleColor = res.getColor(R.color.bpWhite);
         mMonthTitleBGColor = res.getColor(R.color.circle_background);
@@ -266,7 +279,7 @@ public abstract class MonthView extends View {
         mMonthTitlePaint.setAntiAlias(true);
         mMonthTitlePaint.setTextSize(MONTH_LABEL_TEXT_SIZE);
         mMonthTitlePaint.setTypeface(Typeface.create(mMonthTitleTypeface, Typeface.BOLD));
-        mMonthTitlePaint.setColor(mDayTextColor);
+        mMonthTitlePaint.setColor(mDayTextColorEnabled);
         mMonthTitlePaint.setTextAlign(Align.CENTER);
         mMonthTitlePaint.setStyle(Style.FILL);
 
@@ -288,7 +301,7 @@ public abstract class MonthView extends View {
         mMonthDayLabelPaint = new Paint();
         mMonthDayLabelPaint.setAntiAlias(true);
         mMonthDayLabelPaint.setTextSize(MONTH_DAY_LABEL_TEXT_SIZE);
-        mMonthDayLabelPaint.setColor(mDayTextColor);
+        mMonthDayLabelPaint.setColor(mDayTextColorEnabled);
         mMonthDayLabelPaint.setTypeface(Typeface.create(mDayOfWeekTypeface, Typeface.NORMAL));
         mMonthDayLabelPaint.setStyle(Style.FILL);
         mMonthDayLabelPaint.setTextAlign(Align.CENTER);
@@ -333,6 +346,12 @@ public abstract class MonthView extends View {
         }
         if (params.containsKey(VIEW_PARAMS_SELECTED_DAY)) {
             mSelectedDay = params.get(VIEW_PARAMS_SELECTED_DAY);
+        }
+        if (params.containsKey(VIEW_PARAMS_RANGE_MIN)) {
+            mRangeMin = params.get(VIEW_PARAMS_RANGE_MIN);
+        }
+        if (params.containsKey(VIEW_PARAMS_RANGE_MAX)) {
+            mRangeMax = params.get(VIEW_PARAMS_RANGE_MAX);
         }
 
         // Allocate space for caching the day numbers and focus values
@@ -451,7 +470,7 @@ public abstract class MonthView extends View {
             int startY = y - yRelativeToDay;
             int stopY = startY + mRowHeight;
 
-            drawMonthDay(canvas, mYear, mMonth, dayNumber, x, y, startX, stopX, startY, stopY);
+            drawMonthDay(canvas, mYear, mMonth, dayNumber, x, y, startX, stopX, startY, stopY, isDayInRange(dayNumber));
 
             j++;
             if (j == mNumDays) {
@@ -459,6 +478,10 @@ public abstract class MonthView extends View {
                 y += mRowHeight;
             }
         }
+    }
+
+    private boolean isDayInRange(int day) {
+        return !(mRangeMax >= 0 && day > mRangeMax) && !(mRangeMin >= 0 && day < mRangeMin);
     }
 
     /**
@@ -474,9 +497,10 @@ public abstract class MonthView extends View {
      * @param stopX The right boundary of the day number rect
      * @param startY The top boundary of the day number rect
      * @param stopY The bottom boundary of the day number rect
+     * @param isEnabled The flag to show if the day should look enabled or not
      */
     public abstract void drawMonthDay(Canvas canvas, int year, int month, int day,
-            int x, int y, int startX, int stopX, int startY, int stopY);
+            int x, int y, int startX, int stopX, int startY, int stopY, boolean isEnabled);
 
     private int findDayOffset() {
         return (mDayOfWeekStart < mWeekStart ? (mDayOfWeekStart + mNumDays) : mDayOfWeekStart)

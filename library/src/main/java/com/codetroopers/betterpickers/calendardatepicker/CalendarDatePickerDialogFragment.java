@@ -63,13 +63,13 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
     private static final String KEY_SELECTED_DAY = "day";
     private static final String KEY_LIST_POSITION = "list_position";
     private static final String KEY_WEEK_START = "week_start";
-    private static final String KEY_YEAR_START = "year_start";
-    private static final String KEY_YEAR_END = "year_end";
+    private static final String KEY_DATE_START = "date_start";
+    private static final String KEY_DATE_END = "date_end";
     private static final String KEY_CURRENT_VIEW = "current_view";
     private static final String KEY_LIST_POSITION_OFFSET = "list_position_offset";
 
-    private static final int DEFAULT_START_YEAR = 1900;
-    private static final int DEFAULT_END_YEAR = 2100;
+    private static final CalendarDay DEFAULT_START_DATE = new CalendarDay(1900, Calendar.JANUARY, 1);
+    private static final CalendarDay DEFAULT_END_DATE = new CalendarDay(2100, Calendar.DECEMBER, 31);
 
     private static final int ANIMATION_DURATION = 300;
     private static final int ANIMATION_DELAY = 500;
@@ -94,9 +94,9 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
 
     private int mCurrentView = UNINITIALIZED;
     private int mWeekStart = mCalendar.getFirstDayOfWeek();
-    private int mMinYear = DEFAULT_START_YEAR;
+    private CalendarDay mMinDate = DEFAULT_START_DATE;
 
-    private int mMaxYear = DEFAULT_END_YEAR;
+    private CalendarDay mMaxDate = DEFAULT_END_DATE;
 
     private HapticFeedbackController mHapticFeedbackController;
 
@@ -176,8 +176,8 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         outState.putInt(KEY_SELECTED_MONTH, mCalendar.get(Calendar.MONTH));
         outState.putInt(KEY_SELECTED_DAY, mCalendar.get(Calendar.DAY_OF_MONTH));
         outState.putInt(KEY_WEEK_START, mWeekStart);
-        outState.putInt(KEY_YEAR_START, mMinYear);
-        outState.putInt(KEY_YEAR_END, mMaxYear);
+        outState.putLong(KEY_DATE_START, mMinDate.getDateInMillis());
+        outState.putLong(KEY_DATE_END, mMaxDate.getDateInMillis());
         outState.putInt(KEY_CURRENT_VIEW, mCurrentView);
         int listPosition = -1;
         if (mCurrentView == MONTH_AND_DAY_VIEW) {
@@ -211,8 +211,8 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         int currentView = MONTH_AND_DAY_VIEW;
         if (savedInstanceState != null) {
             mWeekStart = savedInstanceState.getInt(KEY_WEEK_START);
-            mMinYear = savedInstanceState.getInt(KEY_YEAR_START);
-            mMaxYear = savedInstanceState.getInt(KEY_YEAR_END);
+            mMinDate = new CalendarDay(savedInstanceState.getLong(KEY_DATE_START));
+            mMaxDate = new CalendarDay(savedInstanceState.getLong(KEY_DATE_END));
             currentView = savedInstanceState.getInt(KEY_CURRENT_VIEW);
             listPosition = savedInstanceState.getInt(KEY_LIST_POSITION);
             listPositionOffset = savedInstanceState.getInt(KEY_LIST_POSITION_OFFSET);
@@ -377,8 +377,29 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         if (endYear <= startYear) {
             throw new IllegalArgumentException("Year end must be larger than year start");
         }
-        mMinYear = startYear;
-        mMaxYear = endYear;
+
+        mMinDate = new CalendarDay(startYear, Calendar.JANUARY, 1);
+        mMaxDate = new CalendarDay(endYear, Calendar.DECEMBER, 31);
+        if (mDayPickerView != null) {
+            mDayPickerView.onChange();
+        }
+    }
+
+    /**
+     * Sets the range of the dialog to be within the specific dates. Years and months outside of the
+     * range are not shown, the days that are outside of the range are visible but cannot be selected.
+     *
+     * @param startDate The start date of the range (inclusive)
+     * @param endDate The end date of the range (inclusive)
+     * @throws IllegalArgumentException in case the end date is smaller than the start date
+     */
+    public void setDateRange(CalendarDay startDate, CalendarDay endDate) {
+        if (endDate.compareTo(startDate) < 0) {
+            throw new IllegalArgumentException("End date must be larger than start date");
+        }
+
+        mMinDate = startDate;
+        mMaxDate = endDate;
         if (mDayPickerView != null) {
             mDayPickerView.onChange();
         }
@@ -454,13 +475,13 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
     }
 
     @Override
-    public int getMinYear() {
-        return mMinYear;
+    public CalendarDay getMinDate() {
+        return mMinDate;
     }
 
     @Override
-    public int getMaxYear() {
-        return mMaxYear;
+    public CalendarDay getMaxDate() {
+        return mMaxDate;
     }
 
     @Override
