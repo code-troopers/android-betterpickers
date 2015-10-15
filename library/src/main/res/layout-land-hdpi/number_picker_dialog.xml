@@ -6,7 +6,7 @@
 
     <com.codetroopers.betterpickers.numberpicker.NumberPicker
         android:id="@+id/number_picker"
-        android:layout_width="@dimen/dialog_body_weight"
+        android:layout_width="@dimen/dialog_body_width"
         android:layout_height="@dimen/dialog_body_height" />
 
     <include layout="@layout/layout_ok_cancel_buttons" />
