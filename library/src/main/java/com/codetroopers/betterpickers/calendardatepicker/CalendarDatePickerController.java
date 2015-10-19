@@ -36,9 +36,9 @@ interface CalendarDatePickerController {
 
     int getFirstDayOfWeek();
 
-    int getMinYear();
+    CalendarDay getMinDate();
 
-    int getMaxYear();
+    CalendarDay getMaxDate();
 
     void tryVibrate();
 }

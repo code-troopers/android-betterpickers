@@ -1,6 +1,11 @@
 
 Changelog
 =========
+**2.1.2**
+* Fix Landscape height issue on small dpi devices (#203)
+* Add min or max value for datepicker (#200 #202)
+* Fix Leap Years calculation (#201)
+
 **2.1.0**
 * Set all dialogs buttons to material requirements
 * Rename CalendarDatePickerDialog to CalendarDatePickerDialogFragment

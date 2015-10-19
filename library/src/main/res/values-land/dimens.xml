@@ -2,6 +2,8 @@
 <resources>
     <dimen name="dialpad_font_size">24sp</dimen>
     <dimen name="date_viewpager_height">189dip</dimen>
+    <dimen name="dialog_body_height">210dp</dimen>
+    <dimen name="dialog_body_width">300dp</dimen>
 
     <!-- From AOSP -->
     <dimen name="dialog_height">200dip</dimen>
