@@ -53,6 +53,8 @@ public class SampleNumberDoubleListAdapter extends BaseSampleActivity {
             mNumbers.add(-150.65);
             mNumbers.add(0.65);
             mNumbers.add(-0.65);
+            mNumbers.add(-1.002);
+            mNumbers.add(0.00002);
             for (int i = 1; i < 31; i++) {
                 Integer randomNumber = (random.nextInt(65536) - 32768);
                 mNumbers.add(randomNumber.doubleValue());
