@@ -27,11 +27,6 @@ Try out the sample application on [Google Play][6].
 
 Including in Your Project
 =========================
-Android-BetterPickers is presented as an [Android library project][7]. A
-standalone JAR is not possible due to the theming capabilities offered by the DialogFragments.
-
-You can include this project by [referencing it as a library project][8].
-
 ### Gradle
 
 ```groovy
