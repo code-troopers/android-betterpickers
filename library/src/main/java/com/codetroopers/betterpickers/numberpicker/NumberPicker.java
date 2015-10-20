@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import com.codetroopers.betterpickers.R;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 public class NumberPicker extends LinearLayout implements Button.OnClickListener,
         Button.OnLongClickListener {
@@ -494,8 +496,8 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
      * @return an int representation of the number with no decimal
      */
     public int getNumber() {
-        String numberString = Double.toString(getEnteredNumber());
-        String[] split = numberString.split("\\.");
+        String numberString = doubleToString(getEnteredNumber());
+        String[] split = numberString.split("\\.|,");
         return Integer.parseInt(split[0]);
     }
 
@@ -556,37 +558,36 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         }
 
         if (decimalPart != null) {
-            if (decimalPart.equals(Double.valueOf(0))) {
-                mInputPointer++;
-                mInput[mInputPointer] = 0;
-            } else {
-                BigDecimal bigDecimal = BigDecimal.valueOf(decimalPart);
-                bigDecimal = bigDecimal.movePointRight(bigDecimal.scale());
-                readAndRightDigits(bigDecimal.intValue());
-            }
+            String decimalString = doubleToString(decimalPart);
+            // remove "0." from the string
+            readAndRightDigits(TextUtils.substring(decimalString,2,decimalString.length()));
             mInputPointer++;
             mInput[mInputPointer] = CLICKED_DECIMAL;
         }
 
         if (integerPart != null) {
-            if (integerPart.equals(Integer.valueOf(0))) {
-                mInputPointer++;
-                mInput[mInputPointer] = 0;
-            } else {
-                readAndRightDigits(integerPart);
-            }
+            readAndRightDigits(String.valueOf(integerPart));
         }
         updateKeypad();
     }
 
-    private void readAndRightDigits(Integer digitsToRead) {
-        while (digitsToRead > 0) {
-            int d = digitsToRead / 10;
-            int k = digitsToRead - (d * 10);
-            digitsToRead = d;
+    private void readAndRightDigits(String digitsToRead) {
+        for (int i = digitsToRead.length() -1; i >= 0 ; i--) {
             mInputPointer++;
-            mInput[mInputPointer] = k;
+            mInput[mInputPointer] = digitsToRead.charAt(i) - '0';
         }
+    }
+
+    /**
+     * Method used to format double and avoid scientific notation x.xE-x (ex: 4.0E-4)
+     * @param value double value to format
+     * @return string representation of double value
+     */
+    private String doubleToString(double value){
+        // Use decimal format to avoid
+        DecimalFormat format = new DecimalFormat("0.0");
+        format.setMaximumFractionDigits(Integer.MAX_VALUE);
+        return format.format(value);
     }
 
 
