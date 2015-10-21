@@ -18,6 +18,7 @@ package com.codetroopers.betterpickers.calendardatepicker;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
 import android.text.format.Time;
 import android.view.View;
@@ -42,8 +43,14 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
 
     private CalendarDay mSelectedDay;
 
+    private TypedArray mThemeColors;
+
     protected static int WEEK_7_OVERHANG_HEIGHT = 7;
     protected static final int MONTHS_IN_YEAR = 12;
+
+    public void setThemeDark(TypedArray mThemeColors) {
+        this.mThemeColors = mThemeColors;
+    }
 
     /**
      * A convenience class to represent a specific date.
@@ -194,6 +201,7 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
             drawingParams = (HashMap<String, Integer>) v.getTag();
         } else {
             v = createMonthView(mContext);
+            v.setTheme(mThemeColors);
             // Set up the new view
             LayoutParams params = new LayoutParams(
                     LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);

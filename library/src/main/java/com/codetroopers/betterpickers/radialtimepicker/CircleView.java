@@ -79,8 +79,8 @@ public class CircleView extends View {
     }
 
     /* package */ void setTheme(TypedArray themeColors) {
-        mCircleColor = themeColors.getColor(R.styleable.BetterPickersRadialTimePickerDialog_bpMainColor1, R.color.bpWhite);
-        mDotColor = themeColors.getColor(R.styleable.BetterPickersRadialTimePickerDialog_bpMainColor2, R.color.numbers_text_color);
+        mCircleColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainColor1, R.color.bpWhite);
+        mDotColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainColor2, R.color.numbers_text_color);
     }
 
     @Override

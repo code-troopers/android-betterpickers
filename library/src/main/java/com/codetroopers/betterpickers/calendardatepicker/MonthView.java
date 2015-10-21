@@ -18,6 +18,7 @@ package com.codetroopers.betterpickers.calendardatepicker;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
@@ -196,7 +197,6 @@ public abstract class MonthView extends View {
 
     public MonthView(Context context) {
         super(context);
-
         Resources res = context.getResources();
 
         mDayLabelCalendar = Calendar.getInstance();
@@ -208,7 +208,7 @@ public abstract class MonthView extends View {
         mDayTextColorEnabled = res.getColor(R.color.date_picker_text_normal);
         mDayTextColorDisabled = res.getColor(R.color.date_picker_text_disabled);
         mTodayNumberColor = res.getColor(R.color.bpBlue);
-        mMonthTitleColor = res.getColor(R.color.bpWhite);
+        mMonthTitleColor = res.getColor(R.color.date_picker_text_normal);
         mMonthTitleBGColor = res.getColor(R.color.circle_background);
 
         mStringBuilder = new StringBuilder(50);
@@ -221,8 +221,7 @@ public abstract class MonthView extends View {
         DAY_SELECTED_CIRCLE_SIZE = res
                 .getDimensionPixelSize(R.dimen.day_number_select_circle_radius);
 
-        mRowHeight = (res.getDimensionPixelOffset(R.dimen.date_picker_view_animator_height)
-                - MONTH_HEADER_SIZE) / MAX_NUM_ROWS;
+        mRowHeight = (res.getDimensionPixelOffset(R.dimen.date_picker_view_animator_height) - MONTH_HEADER_SIZE) / MAX_NUM_ROWS;
 
         // Set up accessibility components.
         mTouchHelper = new MonthViewTouchHelper(this);
@@ -231,6 +230,15 @@ public abstract class MonthView extends View {
         mLockAccessibilityDelegate = true;
 
         // Sets up any standard paints that will be used
+        initView();
+    }
+
+    public void setTheme(TypedArray themeColors) {
+        mMonthTitleBGColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainColor2, R.color.circle_background);
+        mTodayNumberColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpAccentColor, R.color.bpBlue);
+        mDayTextColorDisabled = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainTextColor, R.color.ampm_text_color);
+        mMonthTitleColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainTextColor, R.color.ampm_text_color);
+
         initView();
     }
 
@@ -445,7 +453,7 @@ public abstract class MonthView extends View {
             int x = (2 * i + 1) * dayWidthHalf + mPadding;
             mDayLabelCalendar.set(Calendar.DAY_OF_WEEK, calendarDay);
             canvas.drawText(mDayLabelCalendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT,
-                    Locale.getDefault()).toUpperCase(Locale.getDefault()), x, y,
+                            Locale.getDefault()).toUpperCase(Locale.getDefault()), x, y,
                     mMonthDayLabelPaint);
         }
     }
@@ -488,19 +496,20 @@ public abstract class MonthView extends View {
      * This method should draw the month day.  Implemented by sub-classes to allow customization.
      *
      * @param canvas The canvas to draw on
-     * @param year The year of this month day
-     * @param month The month of this month day
-     * @param day The day number of this month day
-     * @param x The default x position to draw the day number
-     * @param y The default y position to draw the day number
+     * @param year   The year of this month day
+     * @param month  The month of this month day
+     * @param day    The day number of this month day
+     * @param x      The default x position to draw the day number
+     * @param y      The default y position to draw the day number
      * @param startX The left boundary of the day number rect
-     * @param stopX The right boundary of the day number rect
+     * @param stopX  The right boundary of the day number rect
      * @param startY The top boundary of the day number rect
+     * @param stopY  The bottom boundary of the day number rect
      * @param stopY The bottom boundary of the day number rect
      * @param isEnabled The flag to show if the day should look enabled or not
      */
     public abstract void drawMonthDay(Canvas canvas, int year, int month, int day,
-            int x, int y, int startX, int stopX, int startY, int stopY, boolean isEnabled);
+                                      int x, int y, int startX, int stopX, int startY, int stopY, boolean isEnabled);
 
     private int findDayOffset() {
         return (mDayOfWeekStart < mWeekStart ? (mDayOfWeekStart + mNumDays) : mDayOfWeekStart)
@@ -630,7 +639,7 @@ public abstract class MonthView extends View {
 
         @Override
         protected void onPopulateNodeForVirtualView(int virtualViewId,
-                AccessibilityNodeInfoCompat node) {
+                                                    AccessibilityNodeInfoCompat node) {
             getItemBounds(virtualViewId, mTempRect);
 
             node.setContentDescription(getItemDescription(virtualViewId));
@@ -645,7 +654,7 @@ public abstract class MonthView extends View {
 
         @Override
         protected boolean onPerformActionForVirtualView(int virtualViewId, int action,
-                Bundle arguments) {
+                                                        Bundle arguments) {
             switch (action) {
                 case AccessibilityNodeInfo.ACTION_CLICK:
                     onDayClick(virtualViewId);
@@ -658,7 +667,7 @@ public abstract class MonthView extends View {
         /**
          * Calculates the bounding rectangle of a given time object.
          *
-         * @param day The day to calculate bounds for
+         * @param day  The day to calculate bounds for
          * @param rect The rectangle in which to store the bounds
          */
         private void getItemBounds(int day, Rect rect) {

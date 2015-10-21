@@ -21,6 +21,7 @@
     <color name="numbers_text_color">#8c8c8c</color>
 
     <color name="bpWhite">#ffffff</color>
+    <color name="bpblack">#ff000000</color>
     <color name="bpLine_background">#cccccc</color>
     <color name="bpTransparent">#00000000</color>
     <color name="bpTransparent_black">#7f000000</color>
@@ -38,6 +39,7 @@
 
     <!-- Colors for red theme -->
     <color name="bpRed">#ff3333</color>
+    <color name="bpDarker_red">#ffc92d2d</color>
     <color name="bpRed_focused">#853333</color>
     <color name="bpLight_gray">#404040</color>
     <color name="bpDark_gray">#363636</color>
