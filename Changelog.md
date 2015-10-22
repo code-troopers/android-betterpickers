@@ -1,8 +1,11 @@
 
 Changelog
 =========
-**2.next**
+**2.2.0**
 * Fix Number Picker Double issues (#206)
+* Add customizable methods on DatePicker and RadialTimePicker (#198)
+
+
 **2.1.2**
 * Fix Landscape height issue on small dpi devices (#203)
 * Add min or max value for datepicker (#200 #202)
