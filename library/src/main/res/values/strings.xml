@@ -200,5 +200,7 @@
                  this matter.
                   -->
     <string name="palestine_display_name">Palestine</string>
+    <string name="switch_on">ON</string>
+    <string name="switch_off">OFF</string>
 </resources>
 
