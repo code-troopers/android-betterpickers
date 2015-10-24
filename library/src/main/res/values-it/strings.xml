@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="picker_cancel">Cancella</string>
+    <string name="picker_cancel">Annulla</string>
     <string name="picker_set">OK</string>
     <string name="hours_label">h</string>
     <string name="minutes_label">m</string>
