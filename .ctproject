@@ -1,1 +1,1 @@
-release='gradle clean build uploadArchives' #upload to sonatype
+release='./gradlew clean build uploadArchives' #upload to sonatype
