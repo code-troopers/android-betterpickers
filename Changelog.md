@@ -1,6 +1,10 @@
 
 Changelog
 =========
+**2.2.1**
+* Remove annoying warning when compiling (#208)
+* Fix italian translation (#207)
+
 **2.2.0**
 * Fix Number Picker Double issues (#206)
 * Add customizable methods on DatePicker and RadialTimePicker (#198)
