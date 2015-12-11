@@ -22,16 +22,30 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/selected_calendar_layout_height"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <include layout="@layout/calendar_date_picker_header_view" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical">
 
-        <include layout="@layout/calendar_date_picker_selected_date" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <include layout="@layout/calendar_date_picker_header_view" />
+
+                <include layout="@layout/calendar_date_picker_selected_date" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <include layout="@layout/calendar_date_picker_view_animator" />
     </LinearLayout>
 
-    <include layout="@layout/calendar_date_picker_view_animator" />
-
     <include layout="@layout/layout_ok_cancel_buttons" />
-
 </LinearLayout>
