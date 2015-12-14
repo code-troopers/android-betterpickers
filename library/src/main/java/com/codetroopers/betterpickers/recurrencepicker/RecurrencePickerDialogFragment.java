@@ -68,7 +68,8 @@ import java.util.Calendar;
 
 public class RecurrencePickerDialogFragment extends DialogFragment implements OnItemSelectedListener,
         OnCheckedChangeListener, OnClickListener,
-        android.widget.RadioGroup.OnCheckedChangeListener, CalendarDatePickerDialogFragment.OnDateSetListener {
+        android.widget.RadioGroup.OnCheckedChangeListener,
+        CalendarDatePickerDialogFragment.OnDateSetListener {
 
     private static final String TAG = "RecurrencePickerDialogFragment";
 
@@ -116,7 +117,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
          * @see #FREQ_WEEKLY
          * @see #FREQ_MONTHLY
          * @see #FREQ_YEARLY
-         * @see FREQ_HOURLY
+         * @see #FREQ_HOURLY
          */
         int freq = FREQ_WEEKLY;
 
@@ -175,6 +176,12 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
          */
         int monthlyByNthDayOfWeek;
 
+
+        /**
+         * Force to hide switch to force user to select a reccurency
+         */
+        boolean forceHideSwitchButton;
+
         /*
          * (generated method)
          */
@@ -210,6 +217,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
             dest.writeInt(monthlyByMonthDay);
             dest.writeInt(monthlyByDayOfWeek);
             dest.writeInt(monthlyByNthDayOfWeek);
+            dest.writeByte((byte) (forceHideSwitchButton ? 1 : 0));
         }
 
         private RecurrenceModel(Parcel in) {
@@ -218,15 +226,16 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
             this.interval = in.readInt();
             this.end = in.readInt();
             this.endDate = new Time();
-            endDate.year = in.readInt();
-            endDate.month = in.readInt();
-            endDate.monthDay = in.readInt();
+            this.endDate.year = in.readInt();
+            this.endDate.month = in.readInt();
+            this.endDate.monthDay = in.readInt();
             this.endCount = in.readInt();
             this.weeklyByDayOfWeek = in.createBooleanArray();
             this.monthlyRepeat = in.readInt();
             this.monthlyByMonthDay = in.readInt();
             this.monthlyByDayOfWeek = in.readInt();
             this.monthlyByNthDayOfWeek = in.readInt();
+            this.forceHideSwitchButton = in.readByte() != 0;
         }
 
         public static final Creator<RecurrenceModel> CREATOR = new Creator<RecurrenceModel>() {
@@ -332,6 +341,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
     public static final String BUNDLE_START_TIME_MILLIS = "bundle_event_start_time";
     public static final String BUNDLE_TIME_ZONE = "bundle_event_time_zone";
     public static final String BUNDLE_RRULE = "bundle_event_rrule";
+    public static final String BUNDLE_HIDE_SWITCH_BUTTON = "bundle_hide_switch_button";
 
     private static final String BUNDLE_MODEL = "bundle_model";
     private static final String BUNDLE_END_COUNT_HAS_FOCUS = "bundle_end_count_has_focus";
@@ -552,8 +562,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
         }
     }
 
-    static private void copyModelToEventRecurrence(final RecurrenceModel model,
-                                                   EventRecurrence er) {
+    static private void copyModelToEventRecurrence(final RecurrenceModel model, EventRecurrence er) {
         if (model.recurrenceState == RecurrenceModel.STATE_NO_RECURRENCE) {
             throw new IllegalStateException("There's no recurrence");
         }
@@ -665,11 +674,11 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
             }
             endCountHasFocus = savedInstanceState.getBoolean(BUNDLE_END_COUNT_HAS_FOCUS);
         } else {
-            Bundle b = getArguments();
-            if (b != null) {
-                mTime.set(b.getLong(BUNDLE_START_TIME_MILLIS));
+            Bundle bundle = getArguments();
+            if (bundle != null) {
+                mTime.set(bundle.getLong(BUNDLE_START_TIME_MILLIS));
 
-                String tz = b.getString(BUNDLE_TIME_ZONE);
+                String tz = bundle.getString(BUNDLE_TIME_ZONE);
                 if (!TextUtils.isEmpty(tz)) {
                     mTime.timezone = tz;
                 }
@@ -677,7 +686,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
 
                 // Time days of week: Sun=0, Mon=1, etc
                 mModel.weeklyByDayOfWeek[mTime.weekDay] = true;
-                String rrule = b.getString(BUNDLE_RRULE);
+                String rrule = bundle.getString(BUNDLE_RRULE);
                 if (!TextUtils.isEmpty(rrule)) {
                     mModel.recurrenceState = RecurrenceModel.STATE_RECURRENCE;
                     mRecurrence.parse(rrule);
@@ -688,6 +697,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
                     }
                 }
 
+                mModel.forceHideSwitchButton = bundle.getBoolean(BUNDLE_HIDE_SWITCH_BUTTON, false);
             } else {
                 mTime.setToNow();
             }
@@ -700,17 +710,21 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
         final Configuration config = activity.getResources().getConfiguration();
 
         mRepeatSwitch = (SwitchCompat) mView.findViewById(R.id.repeat_switch);
-        mRepeatSwitch.setChecked(mModel.recurrenceState == RecurrenceModel.STATE_RECURRENCE);
-        mRepeatSwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+        if (mModel.forceHideSwitchButton) {
+            mRepeatSwitch.setChecked(true);
+            mRepeatSwitch.setVisibility(View.GONE);
+            mModel.recurrenceState = RecurrenceModel.STATE_RECURRENCE;
+        } else {
+            mRepeatSwitch.setChecked(mModel.recurrenceState == RecurrenceModel.STATE_RECURRENCE);
+            mRepeatSwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mModel.recurrenceState = isChecked ? RecurrenceModel.STATE_RECURRENCE
-                        : RecurrenceModel.STATE_NO_RECURRENCE;
-                togglePickerOptions();
-            }
-        });
-
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    mModel.recurrenceState = isChecked ? RecurrenceModel.STATE_RECURRENCE : RecurrenceModel.STATE_NO_RECURRENCE;
+                    togglePickerOptions();
+                }
+            });
+        }
         mFreqSpinner = (Spinner) mView.findViewById(R.id.freqSpinner);
         mFreqSpinner.setOnItemSelectedListener(this);
         ArrayAdapter<CharSequence> freqAdapter = ArrayAdapter.createFromResource(getActivity(),
