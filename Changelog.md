@@ -1,6 +1,10 @@
 
 Changelog
 =========
+**2.2.2**
+* fix layout for date picker on large screens
+* add param to hide switch button of recurrence picker (#204)
+
 **2.2.1**
 * Remove annoying warning when compiling (#208)
 * Fix italian translation (#207)
