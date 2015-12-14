@@ -382,6 +382,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.codetroopers.betterpickers.sample.activity.recurrencepicker.SampleRecurrenceForcedOn"
+            android:label="Recurrence/Switch hidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="com.codetroopers.betterpickers.sample.activity.timezonepicker.SampleTimeZoneDefault"
             android:label="Time Zone/Default">
             <intent-filter>
