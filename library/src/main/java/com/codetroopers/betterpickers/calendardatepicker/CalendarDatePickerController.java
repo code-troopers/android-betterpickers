@@ -19,6 +19,8 @@ package com.codetroopers.betterpickers.calendardatepicker;
 import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialogFragment.OnDateChangedListener;
 import com.codetroopers.betterpickers.calendardatepicker.MonthAdapter.CalendarDay;
 
+import java.util.HashMap;
+
 /**
  * Controller class to communicate among the various components of the date picker dialog.
  */
@@ -39,6 +41,8 @@ interface CalendarDatePickerController {
     CalendarDay getMinDate();
 
     CalendarDay getMaxDate();
+
+    HashMap<String, CalendarDay> getDisabledDays();
 
     void tryVibrate();
 }

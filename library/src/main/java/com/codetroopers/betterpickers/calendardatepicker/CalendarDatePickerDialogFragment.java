@@ -21,6 +21,7 @@ import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.text.format.DateUtils;
@@ -45,6 +46,7 @@ import com.nineoldandroids.animation.ObjectAnimator;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Locale;
@@ -99,8 +101,9 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
     private int mCurrentView = UNINITIALIZED;
     private int mWeekStart = mCalendar.getFirstDayOfWeek();
     private CalendarDay mMinDate = DEFAULT_START_DATE;
-
     private CalendarDay mMaxDate = DEFAULT_END_DATE;
+
+    private HashMap<String, CalendarDay> mDisabledDays;
 
     private HapticFeedbackController mHapticFeedbackController;
 
@@ -458,6 +461,21 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         }
     }
 
+    /**
+     * Sets a map of disabled days to declare as unselectable by the user. These days can be styled
+     * in a different way than the currently selected day
+     *
+     * @param disabledDays hash map of key date string (yyyyMMdd) to a calendar day object
+     * @throws IllegalArgumentException in case the end date is smaller than the start date
+     */
+    public void setDisabledDays(@NonNull HashMap<String, CalendarDay> disabledDays) {
+        mDisabledDays = disabledDays;
+
+        if (mDayPickerView != null) {
+            mDayPickerView.onChange();
+        }
+    }
+
     public void setOnDateSetListener(OnDateSetListener listener) {
         mCallBack = listener;
     }
@@ -535,6 +553,11 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
     @Override
     public CalendarDay getMaxDate() {
         return mMaxDate;
+    }
+
+    @Override
+    public HashMap<String, CalendarDay> getDisabledDays() {
+        return mDisabledDays;
     }
 
     @Override

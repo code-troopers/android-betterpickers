@@ -334,6 +334,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.codetroopers.betterpickers.sample.activity.calendardatepicker.SampleCalendarDateDisabledDays"
+            android:label="Calendar Date/Range Min and Max with Disabled Days">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="com.codetroopers.betterpickers.sample.activity.calendardatepicker.SampleCalendarDateRangeMin"
             android:label="Calendar Date/Range Min only">
             <intent-filter>

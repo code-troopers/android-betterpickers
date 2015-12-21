@@ -234,6 +234,11 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
         // height/number of weeks before being displayed.
         v.reuse();
 
+        // Set disabled days if they exist
+        if (mController.getDisabledDays() != null) {
+            v.setDisabledDays(mController.getDisabledDays());
+        }
+
         drawingParams.put(MonthView.VIEW_PARAMS_SELECTED_DAY, selectedDay);
         drawingParams.put(MonthView.VIEW_PARAMS_YEAR, year);
         drawingParams.put(MonthView.VIEW_PARAMS_MONTH, month);
@@ -261,13 +266,22 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
 
     @Override
     public void onDayClick(MonthView view, CalendarDay day) {
-        if (day != null && isDayInRange(day)) {
+        if (day != null && isDayInRange(day)
+                && !isDayDisabled(day)) {
             onDayTapped(day);
         }
     }
 
     private boolean isDayInRange(CalendarDay day) {
         return day.compareTo(mController.getMinDate()) >= 0 && day.compareTo(mController.getMaxDate()) <= 0;
+    }
+
+    private boolean isDayDisabled(CalendarDay day) {
+        if (mController.getDisabledDays() == null) {
+            return false;
+        }
+        String dayKey = String.format("%d%d%d", day.year, day.month, day.day);
+        return mController.getDisabledDays().containsKey(dayKey);
     }
 
     /**

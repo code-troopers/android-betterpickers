@@ -36,6 +36,11 @@ public class SimpleMonthView extends MonthView {
             canvas.drawCircle(x, y - (MINI_DAY_NUMBER_TEXT_SIZE / 3), DAY_SELECTED_CIRCLE_SIZE,
                     mSelectedCirclePaint);
         }
+        String disabledDayKey = String.format("%d%d%d", year, month, day);
+        if (mDisabledDays != null
+                && mDisabledDays.containsKey(disabledDayKey)) {
+            canvas.drawRect(startX, startY, stopX, stopY, mDisabledDaySquarePaint);
+        }
 
         if (mHasToday && mToday == day) {
             mMonthNumPaint.setColor(mTodayNumberColor);
