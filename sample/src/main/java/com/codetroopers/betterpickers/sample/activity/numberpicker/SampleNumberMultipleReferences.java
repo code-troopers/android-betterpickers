@@ -82,7 +82,7 @@ public class SampleNumberMultipleReferences extends BaseSampleActivity
     }
 
     @Override
-    public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber) {
+    public void onDialogNumberSet(int reference, String number, double decimal, boolean isNegative, double fullNumber) {
         Button buttonToSet;
         switch (reference) {
             case BUTTON_ONE_REFERENCE:

@@ -189,20 +189,16 @@ public class NumberPickerDialogFragment extends DialogFragment {
                     return;
                 }
                 for (NumberPickerDialogHandler handler : mNumberPickerDialogHandlers) {
-                    handler.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(),
-                            mPicker.getIsNegative(), number);
+                    handler.onDialogNumberSet(mReference, mPicker.getNumberAsString(), mPicker.getDecimal(), mPicker.getIsNegative(), number);
                 }
                 final Activity activity = getActivity();
                 final Fragment fragment = getTargetFragment();
                 if (activity instanceof NumberPickerDialogHandler) {
-                    final NumberPickerDialogHandler act =
-                            (NumberPickerDialogHandler) activity;
-                    act.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(),
-                            mPicker.getIsNegative(), number);
+                    final NumberPickerDialogHandler act = (NumberPickerDialogHandler) activity;
+                    act.onDialogNumberSet(mReference, mPicker.getNumberAsString(), mPicker.getDecimal(), mPicker.getIsNegative(), number);
                 } else if (fragment instanceof NumberPickerDialogHandler) {
                     final NumberPickerDialogHandler frag = (NumberPickerDialogHandler) fragment;
-                    frag.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(),
-                            mPicker.getIsNegative(), number);
+                    frag.onDialogNumberSet(mReference, mPicker.getNumberAsString(), mPicker.getDecimal(), mPicker.getIsNegative(), number);
                 }
                 dismiss();
             }
@@ -230,8 +226,7 @@ public class NumberPickerDialogFragment extends DialogFragment {
      * This interface allows objects to register for the Picker's set action.
      */
     public interface NumberPickerDialogHandler {
-
-        void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber);
+        void onDialogNumberSet(int reference, String number, double decimal, boolean isNegative, double fullNumber);
     }
 
     /**

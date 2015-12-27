@@ -85,7 +85,7 @@ public class SampleNumberWithOptions extends BaseSampleActivity
     }
 
     @Override
-    public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber) {
+    public void onDialogNumberSet(int reference, String number, double decimal, boolean isNegative, double fullNumber) {
         switch (reference) {
             case BUTTON_ONE_REFERENCE:
                 text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative
@@ -93,11 +93,11 @@ public class SampleNumberWithOptions extends BaseSampleActivity
                         + fullNumber);
                 return;
             case BUTTON_TWO_REFERENCE:
-                mMin = number;
+                mMin = 0; //FIXME
                 buttonTwo.setText("Min Number: " + mMin);
                 return;
             case BUTTON_THREE_REFERENCE:
-                mMax = number;
+                mMax = 0; //FIXME
                 buttonThree.setText("Max Number: " + mMax);
                 return;
             default:

@@ -115,9 +115,10 @@ public class SampleNumberDoubleListAdapter extends BaseSampleActivity {
         }
 
         @Override
-        public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative,
+        public void onDialogNumberSet(int reference, String number, double decimal, boolean isNegative,
                 double fullNumber) {
-            mNumbers.set(reference, (number + decimal));
+            //FIXME
+            mNumbers.set(reference, (decimal));
             notifyDataSetChanged();
         }
     }
