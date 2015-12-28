@@ -1,20 +1,19 @@
-package com.codetroopers.betterpickers.sample.activity.numberpicker;
+package com.codetroopers.betterpickers.sample.activity.timepicker;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.codetroopers.betterpickers.numberpicker.NumberPickerBuilder;
-import com.codetroopers.betterpickers.numberpicker.NumberPickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
+import com.codetroopers.betterpickers.timepicker.TimePickerBuilder;
+import com.codetroopers.betterpickers.timepicker.TimePickerDialogFragment;
 
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleNumberDefault extends BaseSampleActivity
-        implements NumberPickerDialogFragment.NumberPickerDialogHandler {
+public class SampleTimeBasicUsage extends BaseSampleActivity implements TimePickerDialogFragment.TimePickerDialogHandler {
 
     private TextView text;
     private Button button;
@@ -28,21 +27,20 @@ public class SampleNumberDefault extends BaseSampleActivity
         button = (Button) findViewById(R.id.button);
 
         text.setText("--");
-        button.setText("Set Number");
+        button.setText("Set Time");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NumberPickerBuilder npb = new NumberPickerBuilder()
+                TimePickerBuilder tpb = new TimePickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
-                npb.show();
+                tpb.show();
             }
         });
     }
 
     @Override
-    public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber) {
-        text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: "
-                + fullNumber);
+    public void onDialogTimeSet(int reference, int hourOfDay, int minute) {
+        text.setText("" + hourOfDay + ":" + String.format("%02d", minute));
     }
 }

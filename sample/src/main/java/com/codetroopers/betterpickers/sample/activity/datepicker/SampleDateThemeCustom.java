@@ -13,7 +13,7 @@ import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleDateDefaultCustom extends BaseSampleActivity
+public class SampleDateThemeCustom extends BaseSampleActivity
         implements DatePickerDialogFragment.DatePickerDialogHandler {
 
     private TextView text;

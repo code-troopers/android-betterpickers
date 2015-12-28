@@ -13,7 +13,7 @@ import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleNumberDefaultCustom extends BaseSampleActivity
+public class SampleNumberBasicUsage extends BaseSampleActivity
         implements NumberPickerDialogFragment.NumberPickerDialogHandler {
 
     private TextView text;
@@ -34,7 +34,7 @@ public class SampleNumberDefaultCustom extends BaseSampleActivity
             public void onClick(View v) {
                 NumberPickerBuilder npb = new NumberPickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
-                        .setStyleResId(R.style.MyCustomBetterPickerTheme);
+                        .setStyleResId(R.style.BetterPickersDialogFragment);
                 npb.show();
             }
         });

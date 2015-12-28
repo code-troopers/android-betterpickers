@@ -18,7 +18,7 @@ import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleRecurrenceDefault extends BaseSampleActivity
+public class SampleRecurrenceBasicUsage extends BaseSampleActivity
         implements RecurrencePickerDialogFragment.OnRecurrenceSetListener {
 
     private TextView text;
@@ -60,7 +60,7 @@ public class SampleRecurrenceDefault extends BaseSampleActivity
                 }
                 rpd = new RecurrencePickerDialogFragment();
                 rpd.setArguments(b);
-                rpd.setOnRecurrenceSetListener(SampleRecurrenceDefault.this);
+                rpd.setOnRecurrenceSetListener(SampleRecurrenceBasicUsage.this);
                 rpd.show(fm, FRAG_TAG_RECUR_PICKER);
             }
         });

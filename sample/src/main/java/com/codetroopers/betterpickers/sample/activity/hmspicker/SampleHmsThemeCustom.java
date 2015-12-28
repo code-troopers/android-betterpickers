@@ -1,20 +1,20 @@
-package com.codetroopers.betterpickers.sample.activity.numberpicker;
+package com.codetroopers.betterpickers.sample.activity.hmspicker;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.codetroopers.betterpickers.numberpicker.NumberPickerBuilder;
-import com.codetroopers.betterpickers.numberpicker.NumberPickerDialogFragment;
+import com.codetroopers.betterpickers.hmspicker.HmsPickerBuilder;
+import com.codetroopers.betterpickers.hmspicker.HmsPickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleNumberDefaultLight extends BaseSampleActivity
-        implements NumberPickerDialogFragment.NumberPickerDialogHandler {
+public class SampleHmsThemeCustom extends BaseSampleActivity
+        implements HmsPickerDialogFragment.HmsPickerDialogHandler {
 
     private TextView text;
     private Button button;
@@ -28,21 +28,20 @@ public class SampleNumberDefaultLight extends BaseSampleActivity
         button = (Button) findViewById(R.id.button);
 
         text.setText("--");
-        button.setText("Set Number");
+        button.setText("Set Hms");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NumberPickerBuilder npb = new NumberPickerBuilder()
+                HmsPickerBuilder hpb = new HmsPickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
-                        .setStyleResId(R.style.BetterPickersDialogFragment_Light);
-                npb.show();
+                        .setStyleResId(R.style.MyCustomBetterPickerTheme);
+                hpb.show();
             }
         });
     }
 
     @Override
-    public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber) {
-        text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: "
-                + fullNumber);
+    public void onDialogHmsSet(int reference, int hours, int minutes, int seconds) {
+        text.setText("" + hours + ":" + minutes + ":" + seconds);
     }
 }

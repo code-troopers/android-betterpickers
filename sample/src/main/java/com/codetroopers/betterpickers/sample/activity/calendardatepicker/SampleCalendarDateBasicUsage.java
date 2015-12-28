@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleCalendarDateDefault extends BaseSampleActivity
+public class SampleCalendarDateBasicUsage extends BaseSampleActivity
         implements CalendarDatePickerDialogFragment.OnDateSetListener {
 
     private static final String FRAG_TAG_DATE_PICKER = "fragment_date_picker_name";
@@ -39,7 +39,7 @@ public class SampleCalendarDateDefault extends BaseSampleActivity
                 FragmentManager fm = getSupportFragmentManager();
                 DateTime now = DateTime.now();
                 CalendarDatePickerDialogFragment calendarDatePickerDialogFragment = CalendarDatePickerDialogFragment
-                        .newInstance(SampleCalendarDateDefault.this, now.getYear(), now.getMonthOfYear() - 1,
+                        .newInstance(SampleCalendarDateBasicUsage.this, now.getYear(), now.getMonthOfYear() - 1,
                                 now.getDayOfMonth());
                 calendarDatePickerDialogFragment.show(fm, FRAG_TAG_DATE_PICKER);
             }

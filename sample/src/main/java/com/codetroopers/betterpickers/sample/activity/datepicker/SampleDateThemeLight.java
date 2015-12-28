@@ -1,20 +1,20 @@
-package com.codetroopers.betterpickers.sample.activity.timepicker;
+package com.codetroopers.betterpickers.sample.activity.datepicker;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.codetroopers.betterpickers.datepicker.DatePickerBuilder;
+import com.codetroopers.betterpickers.datepicker.DatePickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
-import com.codetroopers.betterpickers.timepicker.TimePickerBuilder;
-import com.codetroopers.betterpickers.timepicker.TimePickerDialogFragment;
 
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleTimeDefaultLight extends BaseSampleActivity
-        implements TimePickerDialogFragment.TimePickerDialogHandler {
+public class SampleDateThemeLight extends BaseSampleActivity
+        implements DatePickerDialogFragment.DatePickerDialogHandler {
 
     private TextView text;
     private Button button;
@@ -28,20 +28,20 @@ public class SampleTimeDefaultLight extends BaseSampleActivity
         button = (Button) findViewById(R.id.button);
 
         text.setText("--");
-        button.setText("Set Time");
+        button.setText("Set Date");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TimePickerBuilder tpb = new TimePickerBuilder()
+                DatePickerBuilder dpb = new DatePickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment_Light);
-                tpb.show();
+                dpb.show();
             }
         });
     }
 
     @Override
-    public void onDialogTimeSet(int reference, int hourOfDay, int minute) {
-        text.setText("" + hourOfDay + ":" + String.format("%02d", minute));
+    public void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth) {
+        text.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
     }
 }

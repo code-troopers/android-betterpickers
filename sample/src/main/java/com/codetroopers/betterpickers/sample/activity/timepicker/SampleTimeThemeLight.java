@@ -13,7 +13,7 @@ import com.codetroopers.betterpickers.timepicker.TimePickerDialogFragment;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleTimeDefaultCustom extends BaseSampleActivity
+public class SampleTimeThemeLight extends BaseSampleActivity
         implements TimePickerDialogFragment.TimePickerDialogHandler {
 
     private TextView text;
@@ -34,7 +34,7 @@ public class SampleTimeDefaultCustom extends BaseSampleActivity
             public void onClick(View v) {
                 TimePickerBuilder tpb = new TimePickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
-                        .setStyleResId(R.style.MyCustomBetterPickerTheme);
+                        .setStyleResId(R.style.BetterPickersDialogFragment_Light);
                 tpb.show();
             }
         });

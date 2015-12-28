@@ -13,7 +13,8 @@ import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleHmsDefault extends BaseSampleActivity implements HmsPickerDialogFragment.HmsPickerDialogHandler {
+public class SampleHmsThemetLight extends BaseSampleActivity
+        implements HmsPickerDialogFragment.HmsPickerDialogHandler {
 
     private TextView text;
     private Button button;
@@ -33,7 +34,7 @@ public class SampleHmsDefault extends BaseSampleActivity implements HmsPickerDia
             public void onClick(View v) {
                 HmsPickerBuilder hpb = new HmsPickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
-                        .setStyleResId(R.style.BetterPickersDialogFragment);
+                        .setStyleResId(R.style.BetterPickersDialogFragment_Light);
                 hpb.show();
             }
         });
