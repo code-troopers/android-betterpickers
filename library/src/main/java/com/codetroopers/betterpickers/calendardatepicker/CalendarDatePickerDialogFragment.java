@@ -72,6 +72,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
     private static final String KEY_CURRENT_VIEW = "current_view";
     private static final String KEY_LIST_POSITION_OFFSET = "list_position_offset";
     private static final String KEY_THEME = "theme";
+    private static final String KEY_DISABLED_DAYS = "disabled_days";
 
     private static final CalendarDay DEFAULT_START_DATE = new CalendarDay(1900, Calendar.JANUARY, 1);
     private static final CalendarDay DEFAULT_END_DATE = new CalendarDay(2100, Calendar.DECEMBER, 31);
@@ -216,6 +217,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
             outState.putInt(KEY_LIST_POSITION_OFFSET, mYearPickerView.getFirstPositionOffset());
         }
         outState.putInt(KEY_LIST_POSITION, listPosition);
+        outState.putSerializable(KEY_DISABLED_DAYS, mDisabledDays);
     }
 
     @Override
@@ -247,6 +249,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
             listPosition = savedInstanceState.getInt(KEY_LIST_POSITION);
             listPositionOffset = savedInstanceState.getInt(KEY_LIST_POSITION_OFFSET);
             mStyleResId = savedInstanceState.getInt(KEY_THEME);
+            mDisabledDays = (HashMap<String, CalendarDay>) savedInstanceState.getSerializable(KEY_DISABLED_DAYS);
         }
 
         final Activity activity = getActivity();
