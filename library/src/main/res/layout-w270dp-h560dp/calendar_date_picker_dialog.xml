@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2013 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -31,7 +30,10 @@
         <include layout="@layout/calendar_date_picker_selected_date" />
     </LinearLayout>
 
-    <include layout="@layout/calendar_date_picker_view_animator" />
+    <include
+        layout="@layout/calendar_date_picker_view_animator"
+        android:layout_width="@dimen/date_picker_component_width"
+        android:layout_height="@dimen/selected_calendar_layout_height" />
 
 
     <include layout="@layout/layout_ok_cancel_buttons" />
