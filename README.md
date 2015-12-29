@@ -60,6 +60,8 @@ button.setOnClickListener(new View.OnClickListener() {
         DateTime now = DateTime.now();
         CalendarDatePickerDialogFragment calendarDatePickerDialogFragment = CalendarDatePickerDialogFragment
                 .newInstance(SampleCalendarDateBasicUsage.this, now.getYear(), now.getMonthOfYear() - 1, now.getDayOfMonth());
+        calendarDatePickerDialogFragment.setDateRange(new MonthAdapter.CalendarDay(now.getYear(), now.getMonthOfYear() - 2, now.getDayOfMonth()), null);
+        calendarDatePickerDialogFragment.setThemeCustom(R.style.MyCustomBetterPickersRadialTimePickerDialog);
         calendarDatePickerDialogFragment.show(fm, FRAG_TAG_DATE_PICKER);
     }
 });
@@ -75,6 +77,7 @@ button.setOnClickListener(new View.OnClickListener() {
         RadialTimePickerDialogFragment timePickerDialog = RadialTimePickerDialogFragment
               .newInstance(SampleRadialTimeBasicUsage.this, now.getHourOfDay(), now.getMinuteOfHour(),
                       DateFormat.is24HourFormat(SampleRadialTimeBasicUsage.this));
+        timePickerDialog.setThemeCustom(R.style.MyCustomBetterPickersRadialTimePickerDialog);
         timePickerDialog.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
     }
 });
@@ -93,6 +96,7 @@ button.setOnClickListener(new View.OnClickListener() {
         bundle.putLong(RecurrencePickerDialogFragment.BUNDLE_START_TIME_MILLIS, time.toMillis(false));
         bundle.putString(RecurrencePickerDialogFragment.BUNDLE_TIME_ZONE, time.timezone);
         bundle.putString(RecurrencePickerDialogFragment.BUNDLE_RRULE, mRrule);
+        bundle.putBoolean(RecurrencePickerDialogFragment.BUNDLE_HIDE_SWITCH_BUTTON, true);
         
         RecurrencePickerDialogFragment rpd = new RecurrencePickerDialogFragment();
         rpd.setArguments(bundle);
@@ -132,7 +136,8 @@ button.setOnClickListener(new View.OnClickListener() {
     public void onClick(View v) {
         DatePickerBuilder dpb = new DatePickerBuilder()
                 .setFragmentManager(getSupportFragmentManager())
-                .setStyleResId(R.style.BetterPickersDialogFragment);
+                .setStyleResId(R.style.BetterPickersDialogFragment)
+                .setYearOptional(true);
         dpb.show();
     }
 });
@@ -146,7 +151,8 @@ button.setOnClickListener(new View.OnClickListener() {
     public void onClick(View v) {
         ExpirationPickerBuilder dpb = new ExpirationPickerBuilder()
                   .setFragmentManager(getSupportFragmentManager())
-                  .setStyleResId(R.style.BetterPickersDialogFragment);
+                  .setStyleResId(R.style.BetterPickersDialogFragment) 
+                  .setMinYear(2000);
         dpb.show();
     }
 });
@@ -174,7 +180,8 @@ button.setOnClickListener(new View.OnClickListener() {
     public void onClick(View v) {
         NumberPickerBuilder npb = new NumberPickerBuilder()
                 .setFragmentManager(getSupportFragmentManager())
-                .setStyleResId(R.style.BetterPickersDialogFragment);
+                .setStyleResId(R.style.BetterPickersDialogFragment)
+                .setLabelText("LBS.");
         npb.show();
 }
 });
