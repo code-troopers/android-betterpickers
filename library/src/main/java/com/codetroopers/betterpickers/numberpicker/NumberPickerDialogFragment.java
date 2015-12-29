@@ -13,6 +13,8 @@ import android.widget.Button;
 
 import com.codetroopers.betterpickers.R;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Vector;
 
 /**
@@ -171,34 +173,34 @@ public class NumberPickerDialogFragment extends DialogFragment {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                double number = mPicker.getEnteredNumber();
-                if (mMinNumber != null && mMaxNumber != null && (number < mMinNumber || number > mMaxNumber)) {
+                BigDecimal number = mPicker.getEnteredNumber();
+                if (mMinNumber != null && mMaxNumber != null && (isSmaller(number) || isBigger(number))) {
                     String errorText = String.format(getString(R.string.min_max_error), mMinNumber, mMaxNumber);
                     mPicker.getErrorView().setText(errorText);
                     mPicker.getErrorView().show();
                     return;
-                } else if (mMinNumber != null && number < mMinNumber) {
+                } else if (mMinNumber != null && isSmaller(number)) {
                     String errorText = String.format(getString(R.string.min_error), mMinNumber);
                     mPicker.getErrorView().setText(errorText);
                     mPicker.getErrorView().show();
                     return;
-                } else if (mMaxNumber != null && number > mMaxNumber) {
+                } else if (mMaxNumber != null && isBigger(number)) {
                     String errorText = String.format(getString(R.string.max_error), mMaxNumber);
                     mPicker.getErrorView().setText(errorText);
                     mPicker.getErrorView().show();
                     return;
                 }
                 for (NumberPickerDialogHandler handler : mNumberPickerDialogHandlers) {
-                    handler.onDialogNumberSet(mReference, mPicker.getNumberAsString(), mPicker.getDecimal(), mPicker.getIsNegative(), number);
+                    handler.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(), mPicker.getIsNegative(), number);
                 }
                 final Activity activity = getActivity();
                 final Fragment fragment = getTargetFragment();
                 if (activity instanceof NumberPickerDialogHandler) {
                     final NumberPickerDialogHandler act = (NumberPickerDialogHandler) activity;
-                    act.onDialogNumberSet(mReference, mPicker.getNumberAsString(), mPicker.getDecimal(), mPicker.getIsNegative(), number);
+                    act.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(), mPicker.getIsNegative(), number);
                 } else if (fragment instanceof NumberPickerDialogHandler) {
                     final NumberPickerDialogHandler frag = (NumberPickerDialogHandler) fragment;
-                    frag.onDialogNumberSet(mReference, mPicker.getNumberAsString(), mPicker.getDecimal(), mPicker.getIsNegative(), number);
+                    frag.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(), mPicker.getIsNegative(), number);
                 }
                 dismiss();
             }
@@ -222,11 +224,19 @@ public class NumberPickerDialogFragment extends DialogFragment {
         return view;
     }
 
+    private boolean isBigger(BigDecimal number) {
+        return number.compareTo(new BigDecimal(mMinNumber)) > 0;
+    }
+
+    private boolean isSmaller(BigDecimal number) {
+        return number.compareTo(new BigDecimal(mMinNumber)) < 0;
+    }
+
     /**
      * This interface allows objects to register for the Picker's set action.
      */
     public interface NumberPickerDialogHandler {
-        void onDialogNumberSet(int reference, String number, double decimal, boolean isNegative, double fullNumber);
+        void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber);
     }
 
     /**

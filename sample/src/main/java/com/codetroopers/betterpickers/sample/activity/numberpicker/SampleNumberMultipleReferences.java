@@ -9,6 +9,9 @@ import com.codetroopers.betterpickers.numberpicker.NumberPickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
@@ -82,7 +85,7 @@ public class SampleNumberMultipleReferences extends BaseSampleActivity
     }
 
     @Override
-    public void onDialogNumberSet(int reference, String number, double decimal, boolean isNegative, double fullNumber) {
+    public void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber) {
         Button buttonToSet;
         switch (reference) {
             case BUTTON_ONE_REFERENCE:

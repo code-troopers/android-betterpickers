@@ -16,6 +16,8 @@ import com.codetroopers.betterpickers.numberpicker.NumberPickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -115,8 +117,7 @@ public class SampleNumberDoubleListAdapter extends BaseSampleActivity {
         }
 
         @Override
-        public void onDialogNumberSet(int reference, String number, double decimal, boolean isNegative,
-                double fullNumber) {
+        public void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber) {
             //FIXME
             mNumbers.set(reference, (decimal));
             notifyDataSetChanged();
