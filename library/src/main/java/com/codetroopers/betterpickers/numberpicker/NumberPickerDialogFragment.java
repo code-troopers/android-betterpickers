@@ -225,7 +225,7 @@ public class NumberPickerDialogFragment extends DialogFragment {
     }
 
     private boolean isBigger(BigDecimal number) {
-        return number.compareTo(new BigDecimal(mMinNumber)) > 0;
+        return number.compareTo(new BigDecimal(mMaxNumber)) > 0;
     }
 
     private boolean isSmaller(BigDecimal number) {
