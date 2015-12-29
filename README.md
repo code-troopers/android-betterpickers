@@ -53,91 +53,131 @@ Usage
 ### Calendar Date Picker
 
 ```java
-FragmentManager fm = getSupportFragmentManager();
-DateTime now = DateTime.now();
-CalendarDatePickerDialogFragment calendarDatePickerDialogFragment = CalendarDatePickerDialogFragment
-        .newInstance(SampleCalendarDateBasicUsage.this, now.getYear(), now.getMonthOfYear() - 1, now.getDayOfMonth());
-calendarDatePickerDialogFragment.show(fm, FRAG_TAG_DATE_PICKER);
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        FragmentManager fm = getSupportFragmentManager();
+        DateTime now = DateTime.now();
+        CalendarDatePickerDialogFragment calendarDatePickerDialogFragment = CalendarDatePickerDialogFragment
+                .newInstance(SampleCalendarDateBasicUsage.this, now.getYear(), now.getMonthOfYear() - 1, now.getDayOfMonth());
+        calendarDatePickerDialogFragment.show(fm, FRAG_TAG_DATE_PICKER);
+    }
+});
 ```
 
 ### Radial Time Picker
 
 ```java
-DateTime now = DateTime.now();
-RadialTimePickerDialogFragment timePickerDialog = RadialTimePickerDialogFragment
-      .newInstance(SampleRadialTimeBasicUsage.this, now.getHourOfDay(), now.getMinuteOfHour(),
-              DateFormat.is24HourFormat(SampleRadialTimeBasicUsage.this));
-timePickerDialog.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        DateTime now = DateTime.now();
+        RadialTimePickerDialogFragment timePickerDialog = RadialTimePickerDialogFragment
+              .newInstance(SampleRadialTimeBasicUsage.this, now.getHourOfDay(), now.getMinuteOfHour(),
+                      DateFormat.is24HourFormat(SampleRadialTimeBasicUsage.this));
+        timePickerDialog.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
+    }
+});
 ```
  
 ### Recurrence Picker
 
 ```java
-FragmentManager fm = getSupportFragmentManager();
-Bundle bundle = new Bundle();
-Time time = new Time();
-time.setToNow();
-bundle.putLong(RecurrencePickerDialogFragment.BUNDLE_START_TIME_MILLIS, time.toMillis(false));
-bundle.putString(RecurrencePickerDialogFragment.BUNDLE_TIME_ZONE, time.timezone);
-bundle.putString(RecurrencePickerDialogFragment.BUNDLE_RRULE, mRrule);
-
-RecurrencePickerDialogFragment rpd = new RecurrencePickerDialogFragment();
-rpd.setArguments(bundle);
-rpd.setOnRecurrenceSetListener(SampleRecurrenceBasicUsage.this);
-rpd.show(fm, FRAG_TAG_RECUR_PICKER);
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        FragmentManager fm = getSupportFragmentManager();
+        Bundle bundle = new Bundle();
+        Time time = new Time();
+        time.setToNow();
+        bundle.putLong(RecurrencePickerDialogFragment.BUNDLE_START_TIME_MILLIS, time.toMillis(false));
+        bundle.putString(RecurrencePickerDialogFragment.BUNDLE_TIME_ZONE, time.timezone);
+        bundle.putString(RecurrencePickerDialogFragment.BUNDLE_RRULE, mRrule);
+        
+        RecurrencePickerDialogFragment rpd = new RecurrencePickerDialogFragment();
+        rpd.setArguments(bundle);
+        rpd.setOnRecurrenceSetListener(SampleRecurrenceBasicUsage.this);
+        rpd.show(fm, FRAG_TAG_RECUR_PICKER);
+    }
+});
 ```
 
 ### Timezone Picker
 
 ```java
-FragmentManager fm = getSupportFragmentManager();
-Bundle bundle = new Bundle();
-Time time = new Time();
-time.setToNow();
-bundle.putLong(TimeZonePickerDialogFragment.BUNDLE_START_TIME_MILLIS, time.toMillis(false));
-bundle.putString(TimeZonePickerDialogFragment.BUNDLE_TIME_ZONE, time.timezone);
-bundle.putString(RecurrencePickerDialogFragment.BUNDLE_RRULE, mRrule);
-
-TimeZonePickerDialogFragment tzpd = new TimeZonePickerDialogFragment();
-tzpd.setArguments(bundle);
-tzpd.setOnTimeZoneSetListener(SampleTimeZoneBasicUsage.this);
-tzpd.show(fm, FRAG_TAG_TIME_ZONE_PICKER);
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        FragmentManager fm = getSupportFragmentManager();
+        Bundle bundle = new Bundle();
+        Time time = new Time();
+        time.setToNow();
+        bundle.putLong(TimeZonePickerDialogFragment.BUNDLE_START_TIME_MILLIS, time.toMillis(false));
+        bundle.putString(TimeZonePickerDialogFragment.BUNDLE_TIME_ZONE, time.timezone);
+        bundle.putString(RecurrencePickerDialogFragment.BUNDLE_RRULE, mRrule);
+        
+        TimeZonePickerDialogFragment tzpd = new TimeZonePickerDialogFragment();
+        tzpd.setArguments(bundle);
+        tzpd.setOnTimeZoneSetListener(SampleTimeZoneBasicUsage.this);
+        tzpd.show(fm, FRAG_TAG_TIME_ZONE_PICKER);
+    }
+});
 ```
 
 ### Date Picker
 
 ```java
-DatePickerBuilder dpb = new DatePickerBuilder()
-        .setFragmentManager(getSupportFragmentManager())
-        .setStyleResId(R.style.BetterPickersDialogFragment);
-dpb.show();
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        DatePickerBuilder dpb = new DatePickerBuilder()
+                .setFragmentManager(getSupportFragmentManager())
+                .setStyleResId(R.style.BetterPickersDialogFragment);
+        dpb.show();
+    }
+});
 ```
   
 ### Expiration Picker
 
 ```java
-ExpirationPickerBuilder dpb = new ExpirationPickerBuilder()
-          .setFragmentManager(getSupportFragmentManager())
-          .setStyleResId(R.style.BetterPickersDialogFragment);
-dpb.show();
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        ExpirationPickerBuilder dpb = new ExpirationPickerBuilder()
+                  .setFragmentManager(getSupportFragmentManager())
+                  .setStyleResId(R.style.BetterPickersDialogFragment);
+        dpb.show();
+    }
+});
 ```
  
 ### HMS Picker
 
 ```java
-HmsPickerBuilder hpb = new HmsPickerBuilder()
-        .setFragmentManager(getSupportFragmentManager())
-        .setStyleResId(R.style.BetterPickersDialogFragment);
-hpb.show();
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        HmsPickerBuilder hpb = new HmsPickerBuilder()
+                .setFragmentManager(getSupportFragmentManager())
+                .setStyleResId(R.style.BetterPickersDialogFragment);
+        hpb.show();
+    }
+});
 ```
 
 ### Number Picker
 
 ```java
-NumberPickerBuilder npb = new NumberPickerBuilder()
-        .setFragmentManager(getSupportFragmentManager())
-        .setStyleResId(R.style.BetterPickersDialogFragment);
-npb.show();
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        NumberPickerBuilder npb = new NumberPickerBuilder()
+                .setFragmentManager(getSupportFragmentManager())
+                .setStyleResId(R.style.BetterPickersDialogFragment);
+        npb.show();
+}
+});
 ```
 
 ### Time Picker
