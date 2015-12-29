@@ -67,7 +67,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
      * Instantiates a NumberPicker object
      *
      * @param context the Context required for creation
-     * @param attrs additional attributes that define custom colors, selectors, and backgrounds.
+     * @param attrs   additional attributes that define custom colors, selectors, and backgrounds.
      */
     public NumberPicker(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -99,13 +99,10 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
             TypedArray a = getContext().obtainStyledAttributes(themeResId, R.styleable.BetterPickersDialogFragment);
 
             mTextColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTextColor);
-            mKeyBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpKeyBackground,
-                    mKeyBackgroundResId);
-            mButtonBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpButtonBackground,
-                    mButtonBackgroundResId);
+            mKeyBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpKeyBackground, mKeyBackgroundResId);
+            mButtonBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpButtonBackground, mButtonBackgroundResId);
             mDividerColor = a.getColor(R.styleable.BetterPickersDialogFragment_bpDividerColor, mDividerColor);
-            mDeleteDrawableSrcResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpDeleteIcon,
-                    mDeleteDrawableSrcResId);
+            mDeleteDrawableSrcResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpDeleteIcon, mDeleteDrawableSrcResId);
         }
 
         restyleViews();
@@ -560,7 +557,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         if (decimalPart != null) {
             String decimalString = doubleToString(decimalPart);
             // remove "0." from the string
-            readAndRightDigits(TextUtils.substring(decimalString,2,decimalString.length()));
+            readAndRightDigits(TextUtils.substring(decimalString, 2, decimalString.length()));
             mInputPointer++;
             mInput[mInputPointer] = CLICKED_DECIMAL;
         }
@@ -572,7 +569,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     }
 
     private void readAndRightDigits(String digitsToRead) {
-        for (int i = digitsToRead.length() -1; i >= 0 ; i--) {
+        for (int i = digitsToRead.length() - 1; i >= 0; i--) {
             mInputPointer++;
             mInput[mInputPointer] = digitsToRead.charAt(i) - '0';
         }
@@ -580,10 +577,11 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
 
     /**
      * Method used to format double and avoid scientific notation x.xE-x (ex: 4.0E-4)
+     *
      * @param value double value to format
      * @return string representation of double value
      */
-    private String doubleToString(double value){
+    private String doubleToString(double value) {
         // Use decimal format to avoid
         DecimalFormat format = new DecimalFormat("0.0");
         format.setMaximumFractionDigits(Integer.MAX_VALUE);
