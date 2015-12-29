@@ -2,10 +2,12 @@ package com.codetroopers.betterpickers.sample.activity.calendardatepicker;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.util.SparseArray;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.codetroopers.betterpickers.Utils;
 import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialogFragment;
 import com.codetroopers.betterpickers.calendardatepicker.MonthAdapter;
 import com.codetroopers.betterpickers.sample.R;
@@ -54,8 +56,8 @@ public class SampleCalendarDateDisabledDays extends BaseSampleActivity
                                 now.getMonthOfYear() + 2, now.getDayOfMonth());
 
                 // Initialize disabled days list
-                // Which days are disabled (key is formatted as a date in the format "yyyyMMdd")
-                HashMap<String, MonthAdapter.CalendarDay> disabledDays = new HashMap<>();
+                // Disabled days are located at a formatted location in the format "yyyyMMdd"
+                SparseArray<MonthAdapter.CalendarDay> disabledDays = new SparseArray<>();
                 Calendar startCal = Calendar.getInstance();
                 startCal.setTimeInMillis(minDay.getDateInMillis());
                 Calendar endCal = Calendar.getInstance();
@@ -64,9 +66,9 @@ public class SampleCalendarDateDisabledDays extends BaseSampleActivity
                 while (startCal.before(endCal)) {
                     if (startCal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY
                             || startCal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
-                        disabledDays.put(String.format("%d%d%d", startCal.get(Calendar.YEAR),
-                                startCal.get(Calendar.MONTH), startCal.get(Calendar.DAY_OF_MONTH)),
-                                new MonthAdapter.CalendarDay(startCal));
+                        int key = Utils.formatDisabledDayForKey(startCal.get(Calendar.YEAR),
+                                startCal.get(Calendar.MONTH), startCal.get(Calendar.DAY_OF_MONTH));
+                        disabledDays.put(key, new MonthAdapter.CalendarDay(startCal));
                     }
                     startCal.add(Calendar.DATE, 1);
                 }

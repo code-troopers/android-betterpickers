@@ -19,6 +19,8 @@ package com.codetroopers.betterpickers.calendardatepicker;
 import android.content.Context;
 import android.graphics.Canvas;
 
+import com.codetroopers.betterpickers.Utils;
+
 /**
  * A calendar-like view displaying a specified month and the appropriate selectable day numbers within the specified
  * month.
@@ -36,9 +38,10 @@ public class SimpleMonthView extends MonthView {
             canvas.drawCircle(x, y - (MINI_DAY_NUMBER_TEXT_SIZE / 3), DAY_SELECTED_CIRCLE_SIZE,
                     mSelectedCirclePaint);
         }
-        String disabledDayKey = String.format("%d%d%d", year, month, day);
+        int disabledDayKey = Utils.formatDisabledDayForKey(year, month, day);
+        // If this day is disabled, color the background
         if (mDisabledDays != null
-                && mDisabledDays.containsKey(disabledDayKey)) {
+                && mDisabledDays.indexOfKey(disabledDayKey) > 0) {
             canvas.drawRect(startX, startY, stopX, stopY, mDisabledDaySquarePaint);
         }
 

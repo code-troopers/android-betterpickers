@@ -26,6 +26,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.text.format.DateUtils;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -46,7 +47,6 @@ import com.nineoldandroids.animation.ObjectAnimator;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Locale;
@@ -104,7 +104,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
     private CalendarDay mMinDate = DEFAULT_START_DATE;
     private CalendarDay mMaxDate = DEFAULT_END_DATE;
 
-    private HashMap<String, CalendarDay> mDisabledDays;
+    private SparseArray<CalendarDay> mDisabledDays;
 
     private HapticFeedbackController mHapticFeedbackController;
 
@@ -217,7 +217,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
             outState.putInt(KEY_LIST_POSITION_OFFSET, mYearPickerView.getFirstPositionOffset());
         }
         outState.putInt(KEY_LIST_POSITION, listPosition);
-        outState.putSerializable(KEY_DISABLED_DAYS, mDisabledDays);
+        outState.putSparseParcelableArray(KEY_DISABLED_DAYS, mDisabledDays);
     }
 
     @Override
@@ -249,7 +249,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
             listPosition = savedInstanceState.getInt(KEY_LIST_POSITION);
             listPositionOffset = savedInstanceState.getInt(KEY_LIST_POSITION_OFFSET);
             mStyleResId = savedInstanceState.getInt(KEY_THEME);
-            mDisabledDays = (HashMap<String, CalendarDay>) savedInstanceState.getSerializable(KEY_DISABLED_DAYS);
+            mDisabledDays = savedInstanceState.getSparseParcelableArray(KEY_DISABLED_DAYS);
         }
 
         final Activity activity = getActivity();
@@ -468,10 +468,10 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
      * Sets a map of disabled days to declare as unselectable by the user. These days can be styled
      * in a different way than the currently selected day
      *
-     * @param disabledDays hash map of key date string (yyyyMMdd) to a calendar day object
+     * @param disabledDays sparse array of key date int (yyyyMMdd) to a calendar day object
      * @throws IllegalArgumentException in case the end date is smaller than the start date
      */
-    public void setDisabledDays(@NonNull HashMap<String, CalendarDay> disabledDays) {
+    public void setDisabledDays(@NonNull SparseArray<CalendarDay> disabledDays) {
         mDisabledDays = disabledDays;
 
         if (mDayPickerView != null) {
@@ -559,7 +559,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
     }
 
     @Override
-    public HashMap<String, CalendarDay> getDisabledDays() {
+    public SparseArray<CalendarDay> getDisabledDays() {
         return mDisabledDays;
     }
 

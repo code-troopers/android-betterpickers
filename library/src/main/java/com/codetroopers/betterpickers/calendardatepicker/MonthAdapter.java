@@ -19,6 +19,8 @@ package com.codetroopers.betterpickers.calendardatepicker;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.text.format.Time;
 import android.view.View;
@@ -26,6 +28,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView.LayoutParams;
 import android.widget.BaseAdapter;
 
+import com.codetroopers.betterpickers.Utils;
 import com.codetroopers.betterpickers.calendardatepicker.MonthView.OnDayClickListener;
 
 import java.util.Calendar;
@@ -55,10 +58,12 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
     /**
      * A convenience class to represent a specific date.
      */
-    public static class CalendarDay implements Comparable<CalendarDay> {
+    public static class CalendarDay implements Comparable<CalendarDay>, Parcelable {
 
         private Calendar calendar;
+        private long calendarTimeInMillis;
         private Time time;
+        private long timeInMillis;
         int year;
         int month;
         int day;
@@ -79,6 +84,18 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
 
         public CalendarDay(int year, int month, int day) {
             setDay(year, month, day);
+        }
+
+        public CalendarDay(Parcel in) {
+            this.calendarTimeInMillis = in.readLong();
+            this.calendar = Calendar.getInstance();
+            this.calendar.setTimeInMillis(this.calendarTimeInMillis);
+            this.timeInMillis = in.readLong();
+            this.time = new Time();
+            this.time.set(this.timeInMillis);
+            this.year = in.readInt();
+            this.month = in.readInt();
+            this.day = in.readInt();
         }
 
         public void set(CalendarDay date) {
@@ -132,6 +149,34 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
             }
             return 1;
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            calendarTimeInMillis = calendar.getTimeInMillis();
+            dest.writeLong(calendarTimeInMillis);
+            timeInMillis = time.toMillis(false);
+
+            dest.writeInt(year);
+            dest.writeInt(month);
+            dest.writeInt(day);
+        }
+
+        public static final Parcelable.Creator<CalendarDay> CREATOR
+                = new Parcelable.Creator<CalendarDay>() {
+
+            public CalendarDay createFromParcel(Parcel in) {
+                return new CalendarDay(in);
+            }
+
+            public CalendarDay[] newArray(int size) {
+                return new CalendarDay[size];
+            }
+        };
     }
 
     public MonthAdapter(Context context, CalendarDatePickerController controller) {
@@ -280,8 +325,8 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
         if (mController.getDisabledDays() == null) {
             return false;
         }
-        String dayKey = String.format("%d%d%d", day.year, day.month, day.day);
-        return mController.getDisabledDays().containsKey(dayKey);
+        return mController.getDisabledDays()
+                .indexOfKey(Utils.formatDisabledDayForKey(day.year, day.month, day.day)) > 0;
     }
 
     /**

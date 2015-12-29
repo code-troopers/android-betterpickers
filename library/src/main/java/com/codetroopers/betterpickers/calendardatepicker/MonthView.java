@@ -34,6 +34,7 @@ import android.support.v4.widget.ExploreByTouchHelper;
 import android.text.format.DateFormat;
 import android.text.format.DateUtils;
 import android.text.format.Time;
+import android.util.SparseArray;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
@@ -166,7 +167,7 @@ public abstract class MonthView extends View {
     // Which day is selected [0-6] or -1 if no day is selected
     protected int mSelectedDay = -1;
     // Which days are disabled in the view so that they are unselectable
-    protected HashMap<String, MonthAdapter.CalendarDay> mDisabledDays;
+    protected SparseArray<CalendarDay> mDisabledDays;
     // Which day is today [0-6] or -1 if no day is today
     protected int mToday = DEFAULT_SELECTED_DAY;
     // Which day of the week to start on [0-6]
@@ -413,7 +414,7 @@ public abstract class MonthView extends View {
         mTouchHelper.invalidateRoot();
     }
 
-    public void setDisabledDays(@NonNull HashMap<String, CalendarDay> disabledDays) {
+    public void setDisabledDays(@NonNull SparseArray<CalendarDay> disabledDays) {
         mDisabledDays = disabledDays;
     }
 
@@ -498,9 +499,10 @@ public abstract class MonthView extends View {
             int startY = y - yRelativeToDay;
             int stopY = startY + mRowHeight;
 
-            String disabledDayKey = String.format("%d%d%d", mYear, mMonth, dayNumber);
+            int disabledDayKey = Utils.formatDisabledDayForKey(mYear, mMonth, dayNumber);
+            // A day is enabled if it is in range and is not explicitly set as disabled
             boolean dayIsEnabled = isDayInRange(dayNumber)
-                    && (mDisabledDays != null && !mDisabledDays.containsKey(disabledDayKey));
+                    && (mDisabledDays != null && mDisabledDays.indexOfKey(disabledDayKey) < 0);
             drawMonthDay(canvas, mYear, mMonth, dayNumber, x, y, startX, stopX, startY, stopY, dayIsEnabled);
 
             j++;
