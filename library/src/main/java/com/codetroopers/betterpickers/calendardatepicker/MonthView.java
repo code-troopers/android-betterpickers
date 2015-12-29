@@ -244,7 +244,7 @@ public abstract class MonthView extends View {
         mMonthTitleBGColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainColor2, R.color.circle_background);
         mTodayNumberColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpAccentColor, R.color.bpBlue);
         mDisabledDayColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpDisabledDayColor, R.color.bpDarker_red);
-        mDayTextColorDisabled = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainTextColor, R.color.ampm_text_color);
+        mDayTextColorDisabled = themeColors.getColor(R.styleable.BetterPickersDialog_bpDisabledDayTextColor, R.color.ampm_text_color);
         mMonthTitleColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainTextColor, R.color.ampm_text_color);
 
         initView();
@@ -498,7 +498,10 @@ public abstract class MonthView extends View {
             int startY = y - yRelativeToDay;
             int stopY = startY + mRowHeight;
 
-            drawMonthDay(canvas, mYear, mMonth, dayNumber, x, y, startX, stopX, startY, stopY, isDayInRange(dayNumber));
+            String disabledDayKey = String.format("%d%d%d", mYear, mMonth, dayNumber);
+            boolean dayIsEnabled = isDayInRange(dayNumber)
+                    && (mDisabledDays != null && !mDisabledDays.containsKey(disabledDayKey));
+            drawMonthDay(canvas, mYear, mMonth, dayNumber, x, y, startX, stopX, startY, stopY, dayIsEnabled);
 
             j++;
             if (j == mNumDays) {
