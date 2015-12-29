@@ -47,6 +47,9 @@ compile 'com.code-troopers.betterpickers:library:2.2.2'
 
 Usage
 =====
+
+*For a working implementation of this project see the `sample/` folder.*
+
 ### Calendar Date Picker
 
 ```java
@@ -140,41 +143,16 @@ npb.show();
 ### Time Picker
 
 ```java
-TimePickerBuilder tpb = new TimePickerBuilder()
-        .setFragmentManager(getSupportFragmentManager())
-        .setStyleResId(R.style.BetterPickersDialogFragment);
-tpb.show();
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        TimePickerBuilder tpb = new TimePickerBuilder()
+                .setFragmentManager(getSupportFragmentManager())
+                .setStyleResId(R.style.BetterPickersDialogFragment);
+        tpb.show();
+    }
+});
 ```
-
-
-*For a working implementation of this project see the `sample/` folder.*
-
-  1. Implement the appropriate Handler callbacks:
-
-  ```java
-  public class MyActivity extends Activity implements 
-    DatePickerDialogFragment.DatePickerDialogHandler {
-  
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-      // ...
-    }
-    
-    @Override
-    public void onDialogDateSet(int year, int monthOfYear, int dayOfMonth) {
-      // Do something with your date!
-    }
-  }
-  ```
-
-  2. Use one of the Builder classes to create a PickerDialog with a theme:
-
-  ```java
-  DatePickerBuilder dpb = new DatePickerBuilder()
-      .setFragmentManager(getSupportFragmentManager())
-      .setStyleResId(R.style.BetterPickersDialogFragment);
-  dpb.show();
-  ```
 
 Theming
 =======
