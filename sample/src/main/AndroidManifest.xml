@@ -5,8 +5,8 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
-        android:label="BetterPickers Samples"
         android:icon="@drawable/ic_launcher"
+        android:label="BetterPickers Samples"
         android:theme="@style/AppTheme">
         <activity
             android:name="com.codetroopers.betterpickers.sample.ListSamples"
@@ -17,8 +17,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.timepicker.SampleTimeDefault"
-            android:label="Time/Default"
+            android:name=".activity.timepicker.SampleTimeBasicUsage"
+            android:label="Time/Basic Usage"
             android:theme="@style/Theme.AppCompat">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,16 +26,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.timepicker.SampleTimeDefaultLight"
-            android:label="Time/Default Light Theme">
+            android:name=".activity.timepicker.SampleTimeThemeLight"
+            android:label="Time/Theme Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.timepicker.SampleTimeDefaultCustom"
-            android:label="Time/Default Custom Theme">
+            android:name=".activity.timepicker.SampleTimeThemeCustom"
+            android:label="Time/Theme Custom">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
@@ -74,8 +74,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.numberpicker.SampleNumberDefault"
-            android:label="Number/Default"
+            android:name=".activity.numberpicker.SampleNumberBasicUsage"
+            android:label="Number/Basic Usage"
             android:theme="@style/Theme.AppCompat">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -83,8 +83,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.numberpicker.SampleNumberDefaultLight"
-            android:label="Number/Default Light Theme">
+            android:name=".activity.numberpicker.SampleNumberThemeLight"
+            android:label="Number/Theme Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
@@ -100,8 +100,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.numberpicker.SampleNumberDefaultCustom"
-            android:label="Number/Default Custom Theme">
+            android:name=".activity.numberpicker.SampleNumberThemeCustom"
+            android:label="Number/Theme Custom">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
@@ -148,8 +148,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.datepicker.SampleDateDefault"
-            android:label="Date/Default"
+            android:name=".activity.datepicker.SampleDateBasicUsage"
+            android:label="Date/Basic Usage"
             android:theme="@style/Theme.AppCompat">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -157,16 +157,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.datepicker.SampleDateDefaultLight"
-            android:label="Date/Default Light Theme">
+            android:name=".activity.datepicker.SampleDateThemeLight"
+            android:label="Date/Theme Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.datepicker.SampleDateDefaultCustom"
-            android:label="Date/Default Custom Theme">
+            android:name=".activity.datepicker.SampleDateThemeCustom"
+            android:label="Date/Theme Custom">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
@@ -230,24 +230,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.hmspicker.SampleHmsDefault"
-            android:label="HMS/Default">
+            android:name=".activity.hmspicker.SampleHmsBasicUsage"
+            android:label="HMS/Basic Usage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.hmspicker.SampleHmsDefaultCustom"
-            android:label="HMS/Default Custom Theme">
+            android:name=".activity.hmspicker.SampleHmsThemeCustom"
+            android:label="HMS/Theme Custom">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.hmspicker.SampleHmsDefaultLight"
-            android:label="HMS/Default Light Theme">
+            android:name=".activity.hmspicker.SampleHmsThemetLight"
+            android:label="HMS/Theme Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
@@ -286,8 +286,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.expirationpicker.SampleExpirationDefault"
-            android:label="Expiration/Default">
+            android:name=".activity.expirationpicker.SampleExpirationBasicUsage"
+            android:label="Expiration/Basic Usage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
@@ -302,24 +302,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.calendardatepicker.SampleCalendarDateDefault"
-            android:label="Calendar Date/Default">
+            android:name=".activity.calendardatepicker.SampleCalendarDateBasicUsage"
+            android:label="Calendar Date/Basic Usage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.calendardatepicker.SampleCalendarDateDark"
-            android:label="Calendar Date/Dark">
+            android:name=".activity.calendardatepicker.SampleCalendarDateThemeDark"
+            android:label="Calendar Date/Theme Dark">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.calendardatepicker.SampleCalendarDateCustom"
-            android:label="Calendar Date/Custom">
+            android:name=".activity.calendardatepicker.SampleCalendarDateThemeCustom"
+            android:label="Calendar Date/Theme Custom">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
@@ -350,32 +350,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.radialtimepicker.SampleRadialTimeDefault"
-            android:label="Radial Time/Default">
+            android:name=".activity.radialtimepicker.SampleRadialTimeBasicUsage"
+            android:label="Radial Time/Basic Usage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.radialtimepicker.SampleRadialTimeDark"
-            android:label="Radial Time/Dark">
+            android:name=".activity.radialtimepicker.SampleRadialTimeThemeDark"
+            android:label="Radial Time/Theme Dark">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.radialtimepicker.SampleRadialTimeCustom"
-            android:label="Radial Time/Custom">
+            android:name=".activity.radialtimepicker.SampleRadialTimeThemeCustom"
+            android:label="Radial Time/Theme Custom">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.recurrencepicker.SampleRecurrenceDefault"
-            android:label="Recurrence/Default">
+            android:name=".activity.recurrencepicker.SampleRecurrenceBasicUsage"
+            android:label="Recurrence/Basic Usage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
@@ -390,8 +390,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.timezonepicker.SampleTimeZoneDefault"
-            android:label="Time Zone/Default">
+            android:name=".activity.timezonepicker.SampleTimeZoneBasicUsage"
+            android:label="Time Zone/Basic Usage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />

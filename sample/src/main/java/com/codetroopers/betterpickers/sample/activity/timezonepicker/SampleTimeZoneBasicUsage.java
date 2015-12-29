@@ -17,7 +17,7 @@ import com.codetroopers.betterpickers.timezonepicker.TimeZonePickerDialogFragmen
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleTimeZoneDefault extends BaseSampleActivity
+public class SampleTimeZoneBasicUsage extends BaseSampleActivity
         implements TimeZonePickerDialogFragment.OnTimeZoneSetListener {
 
     private TextView text;
@@ -59,7 +59,7 @@ public class SampleTimeZoneDefault extends BaseSampleActivity
                 }
                 tzpd = new TimeZonePickerDialogFragment();
                 tzpd.setArguments(b);
-                tzpd.setOnTimeZoneSetListener(SampleTimeZoneDefault.this);
+                tzpd.setOnTimeZoneSetListener(SampleTimeZoneBasicUsage.this);
                 tzpd.show(fm, FRAG_TAG_TIME_ZONE_PICKER);
             }
         });

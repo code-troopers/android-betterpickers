@@ -1,7 +1,7 @@
 package com.codetroopers.betterpickers.sample.activity.radialtimepicker;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +13,10 @@ import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
 import org.joda.time.DateTime;
 
-public class SampleRadialTimeCustom extends BaseSampleActivity
+/**
+ * User: derek Date: 3/17/13 Time: 3:59 PM
+ */
+public class SampleRadialTimeBasicUsage extends BaseSampleActivity
         implements RadialTimePickerDialogFragment.OnTimeSetListener {
 
     private static final String FRAG_TAG_TIME_PICKER = "timePickerDialogFragment";
@@ -21,26 +24,43 @@ public class SampleRadialTimeCustom extends BaseSampleActivity
     private TextView text;
     private Button button;
 
+    private boolean mHasDialogFrame;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_and_button);
 
+        if (savedInstanceState == null) {
+            mHasDialogFrame = findViewById(R.id.frame) != null;
+        }
+
         text = (TextView) findViewById(R.id.text);
         button = (Button) findViewById(R.id.button);
 
-        text.setText("--");
+        if (mHasDialogFrame) {
+            text.setText("|");
+        } else {
+            text.setText("--");
+        }
+
         button.setText("Set Time");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fm = getSupportFragmentManager();
                 DateTime now = DateTime.now();
                 RadialTimePickerDialogFragment timePickerDialog = RadialTimePickerDialogFragment
-                        .newInstance(SampleRadialTimeCustom.this, now.getHourOfDay(), now.getMinuteOfHour(),
-                                DateFormat.is24HourFormat(SampleRadialTimeCustom.this));
-                timePickerDialog.setThemeCustom(R.style.MyCustomBetterPickersRadialTimePickerDialog);
-                timePickerDialog.show(fm, FRAG_TAG_TIME_PICKER);
+                        .newInstance(SampleRadialTimeBasicUsage.this, now.getHourOfDay(), now.getMinuteOfHour(),
+                                DateFormat.is24HourFormat(SampleRadialTimeBasicUsage.this));
+                if (mHasDialogFrame) {
+                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+                    ft.add(R.id.frame, timePickerDialog, FRAG_TAG_TIME_PICKER)
+                            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                            .commit();
+                } else {
+                    timePickerDialog.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
+                }
             }
         });
     }

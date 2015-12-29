@@ -13,8 +13,7 @@ import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleDateDefaultLight extends BaseSampleActivity
-        implements DatePickerDialogFragment.DatePickerDialogHandler {
+public class SampleDateBasicUsage extends BaseSampleActivity implements DatePickerDialogFragment.DatePickerDialogHandler {
 
     private TextView text;
     private Button button;
@@ -34,7 +33,7 @@ public class SampleDateDefaultLight extends BaseSampleActivity
             public void onClick(View v) {
                 DatePickerBuilder dpb = new DatePickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
-                        .setStyleResId(R.style.BetterPickersDialogFragment_Light);
+                        .setStyleResId(R.style.BetterPickersDialogFragment);
                 dpb.show();
             }
         });

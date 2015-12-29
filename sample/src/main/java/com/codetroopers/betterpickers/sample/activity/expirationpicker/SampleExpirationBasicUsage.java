@@ -13,7 +13,7 @@ import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 /**
  * @author Yuki Nishijima
  */
-public class SampleExpirationDefault extends BaseSampleActivity implements ExpirationPickerDialogFragment.ExpirationPickerDialogHandler {
+public class SampleExpirationBasicUsage extends BaseSampleActivity implements ExpirationPickerDialogFragment.ExpirationPickerDialogHandler {
 
     private TextView text;
     private Button button;
@@ -31,10 +31,10 @@ public class SampleExpirationDefault extends BaseSampleActivity implements Expir
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ExpirationPickerBuilder dpb = new ExpirationPickerBuilder()
+                ExpirationPickerBuilder epb = new ExpirationPickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
-                dpb.show();
+                epb.show();
             }
         });
     }

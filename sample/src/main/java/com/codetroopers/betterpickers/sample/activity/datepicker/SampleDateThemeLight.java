@@ -1,20 +1,20 @@
-package com.codetroopers.betterpickers.sample.activity.numberpicker;
+package com.codetroopers.betterpickers.sample.activity.datepicker;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.codetroopers.betterpickers.numberpicker.NumberPickerBuilder;
-import com.codetroopers.betterpickers.numberpicker.NumberPickerDialogFragment;
+import com.codetroopers.betterpickers.datepicker.DatePickerBuilder;
+import com.codetroopers.betterpickers.datepicker.DatePickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleNumberDefault extends BaseSampleActivity
-        implements NumberPickerDialogFragment.NumberPickerDialogHandler {
+public class SampleDateThemeLight extends BaseSampleActivity
+        implements DatePickerDialogFragment.DatePickerDialogHandler {
 
     private TextView text;
     private Button button;
@@ -28,21 +28,20 @@ public class SampleNumberDefault extends BaseSampleActivity
         button = (Button) findViewById(R.id.button);
 
         text.setText("--");
-        button.setText("Set Number");
+        button.setText("Set Date");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NumberPickerBuilder npb = new NumberPickerBuilder()
+                DatePickerBuilder dpb = new DatePickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
-                        .setStyleResId(R.style.BetterPickersDialogFragment);
-                npb.show();
+                        .setStyleResId(R.style.BetterPickersDialogFragment_Light);
+                dpb.show();
             }
         });
     }
 
     @Override
-    public void onDialogNumberSet(int reference, String number, double decimal, boolean isNegative, double fullNumber) {
-        text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: "
-                + fullNumber);
+    public void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth) {
+        text.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
     }
 }

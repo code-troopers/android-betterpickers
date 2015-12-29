@@ -1,20 +1,20 @@
-package com.codetroopers.betterpickers.sample.activity.hmspicker;
+package com.codetroopers.betterpickers.sample.activity.numberpicker;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.codetroopers.betterpickers.hmspicker.HmsPickerBuilder;
-import com.codetroopers.betterpickers.hmspicker.HmsPickerDialogFragment;
+import com.codetroopers.betterpickers.numberpicker.NumberPickerBuilder;
+import com.codetroopers.betterpickers.numberpicker.NumberPickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleHmsDefaultCustom extends BaseSampleActivity
-        implements HmsPickerDialogFragment.HmsPickerDialogHandler {
+public class SampleNumberThemeLight extends BaseSampleActivity
+        implements NumberPickerDialogFragment.NumberPickerDialogHandler {
 
     private TextView text;
     private Button button;
@@ -28,20 +28,21 @@ public class SampleHmsDefaultCustom extends BaseSampleActivity
         button = (Button) findViewById(R.id.button);
 
         text.setText("--");
-        button.setText("Set Hms");
+        button.setText("Set Number");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HmsPickerBuilder hpb = new HmsPickerBuilder()
+                NumberPickerBuilder npb = new NumberPickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
-                        .setStyleResId(R.style.MyCustomBetterPickerTheme);
-                hpb.show();
+                        .setStyleResId(R.style.BetterPickersDialogFragment_Light);
+                npb.show();
             }
         });
     }
 
     @Override
-    public void onDialogHmsSet(int reference, int hours, int minutes, int seconds) {
-        text.setText("" + hours + ":" + minutes + ":" + seconds);
+    public void onDialogNumberSet(int reference, String number, double decimal, boolean isNegative, double fullNumber) {
+        text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: "
+                + fullNumber);
     }
 }

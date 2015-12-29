@@ -13,10 +13,8 @@ import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
 import org.joda.time.DateTime;
 
-import java.util.Calendar;
-
 /**
- * A copy of {@link SampleCalendarDateDefault} with added custom range using
+ * A copy of {@link SampleCalendarDateBasicUsage} with added custom range using
  * {@link CalendarDatePickerDialogFragment#setDateRange(MonthAdapter.CalendarDay, MonthAdapter.CalendarDay)}.
  * The range is arbitrarily set from one month in the past to one month in the future from current date.
  */

@@ -16,7 +16,7 @@ import org.joda.time.DateTime;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleRadialTimeDark extends BaseSampleActivity
+public class SampleRadialTimeThemeDark extends BaseSampleActivity
         implements RadialTimePickerDialogFragment.OnTimeSetListener {
 
     private static final String FRAG_TAG_TIME_PICKER = "timePickerDialogFragment";
@@ -40,8 +40,8 @@ public class SampleRadialTimeDark extends BaseSampleActivity
                 FragmentManager fm = getSupportFragmentManager();
                 DateTime now = DateTime.now();
                 RadialTimePickerDialogFragment timePickerDialog = RadialTimePickerDialogFragment
-                        .newInstance(SampleRadialTimeDark.this, now.getHourOfDay(), now.getMinuteOfHour(),
-                                DateFormat.is24HourFormat(SampleRadialTimeDark.this));
+                        .newInstance(SampleRadialTimeThemeDark.this, now.getHourOfDay(), now.getMinuteOfHour(),
+                                DateFormat.is24HourFormat(SampleRadialTimeThemeDark.this));
                 timePickerDialog.setThemeDark(true);
                 timePickerDialog.show(fm, FRAG_TAG_TIME_PICKER);
             }
