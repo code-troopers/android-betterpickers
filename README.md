@@ -47,6 +47,123 @@ compile 'com.code-troopers.betterpickers:library:2.2.2'
 
 Usage
 =====
+### Calendar Date Picker
+
+<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_calendar_date.png" width="120">
+
+    ```java
+        FragmentManager fm = getSupportFragmentManager();
+        DateTime now = DateTime.now();
+        CalendarDatePickerDialogFragment calendarDatePickerDialogFragment = CalendarDatePickerDialogFragment
+                .newInstance(SampleCalendarDateBasicUsage.this, now.getYear(), now.getMonthOfYear() - 1, now.getDayOfMonth());
+        calendarDatePickerDialogFragment.show(fm, FRAG_TAG_DATE_PICKER);
+    ```
+
+### Radial Time Picker
+
+<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_radial_time.png" width="120">
+    
+    ```java
+        DateTime now = DateTime.now();
+        RadialTimePickerDialogFragment timePickerDialog = RadialTimePickerDialogFragment
+                .newInstance(SampleRadialTimeBasicUsage.this, now.getHourOfDay(), now.getMinuteOfHour(),
+                        DateFormat.is24HourFormat(SampleRadialTimeBasicUsage.this));
+        timePickerDialog.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
+    ```
+    
+### Recurrence Picker
+
+<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_recurrence.png" width="120">
+
+    ```java
+        FragmentManager fm = getSupportFragmentManager();
+        Bundle bundle = new Bundle();
+        Time time = new Time();
+        time.setToNow();
+        bundle.putLong(RecurrencePickerDialogFragment.BUNDLE_START_TIME_MILLIS, time.toMillis(false));
+        bundle.putString(RecurrencePickerDialogFragment.BUNDLE_TIME_ZONE, time.timezone);
+        bundle.putString(RecurrencePickerDialogFragment.BUNDLE_RRULE, mRrule);
+
+        RecurrencePickerDialogFragment rpd = new RecurrencePickerDialogFragment();
+        rpd.setArguments(bundle);
+        rpd.setOnRecurrenceSetListener(SampleRecurrenceBasicUsage.this);
+        rpd.show(fm, FRAG_TAG_RECUR_PICKER);
+    ```
+    
+### Timezone Picker
+
+<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_time_zone.png" width="120">
+
+    ```java
+        FragmentManager fm = getSupportFragmentManager();
+        Bundle bundle = new Bundle();
+        Time time = new Time();
+        time.setToNow();
+        bundle.putLong(TimeZonePickerDialogFragment.BUNDLE_START_TIME_MILLIS, time.toMillis(false));
+        bundle.putString(TimeZonePickerDialogFragment.BUNDLE_TIME_ZONE, time.timezone);
+        bundle.putString(RecurrencePickerDialogFragment.BUNDLE_RRULE, mRrule);
+
+        TimeZonePickerDialogFragment tzpd = new TimeZonePickerDialogFragment();
+        tzpd.setArguments(bundle);
+        tzpd.setOnTimeZoneSetListener(SampleTimeZoneBasicUsage.this);
+        tzpd.show(fm, FRAG_TAG_TIME_ZONE_PICKER);
+    ```
+    
+### Date Picker
+
+<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_date.png" width="120">
+
+    ```java
+        DatePickerBuilder dpb = new DatePickerBuilder()
+                .setFragmentManager(getSupportFragmentManager())
+                .setStyleResId(R.style.BetterPickersDialogFragment);
+        dpb.show();
+    ```
+    
+### Expiration Picker
+
+<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_expiration.png" width="120">
+
+    ```java
+         ExpirationPickerBuilder dpb = new ExpirationPickerBuilder()
+                    .setFragmentManager(getSupportFragmentManager())
+                    .setStyleResId(R.style.BetterPickersDialogFragment);
+         dpb.show();
+    ```
+    
+### HMS Picker
+
+<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_hms.png" width="120">
+    
+    ```java
+        HmsPickerBuilder hpb = new HmsPickerBuilder()
+                .setFragmentManager(getSupportFragmentManager())
+                .setStyleResId(R.style.BetterPickersDialogFragment);
+        hpb.show();
+    ```
+    
+### Number Picker
+
+<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_number.png" width="120">
+
+    ```java
+        NumberPickerBuilder npb = new NumberPickerBuilder()
+                .setFragmentManager(getSupportFragmentManager())
+                .setStyleResId(R.style.BetterPickersDialogFragment);
+        npb.show();
+    ```
+    
+### Time Picker
+
+<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_time.png" width="120">
+
+    ```java
+        TimePickerBuilder tpb = new TimePickerBuilder()
+                .setFragmentManager(getSupportFragmentManager())
+                .setStyleResId(R.style.BetterPickersDialogFragment);
+        tpb.show();
+    ```
+
 
 *For a working implementation of this project see the `sample/` folder.*
 
