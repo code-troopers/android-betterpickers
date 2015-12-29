@@ -31,10 +31,10 @@ public class SampleExpirationBasicUsage extends BaseSampleActivity implements Ex
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ExpirationPickerBuilder dpb = new ExpirationPickerBuilder()
+                ExpirationPickerBuilder epb = new ExpirationPickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment);
-                dpb.show();
+                epb.show();
             }
         });
     }

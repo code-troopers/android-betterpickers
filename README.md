@@ -149,11 +149,11 @@ button.setOnClickListener(new View.OnClickListener() {
 button.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        ExpirationPickerBuilder dpb = new ExpirationPickerBuilder()
+        ExpirationPickerBuilder epb = new ExpirationPickerBuilder()
                   .setFragmentManager(getSupportFragmentManager())
                   .setStyleResId(R.style.BetterPickersDialogFragment) 
                   .setMinYear(2000);
-        dpb.show();
+        epb.show();
     }
 });
 ```
