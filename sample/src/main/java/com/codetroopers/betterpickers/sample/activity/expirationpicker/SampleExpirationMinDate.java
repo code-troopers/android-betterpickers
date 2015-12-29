@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import com.codetroopers.betterpickers.expirationpicker.ExpirationPickerBuilder;
 import com.codetroopers.betterpickers.expirationpicker.ExpirationPickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
@@ -30,11 +31,11 @@ public class SampleExpirationMinDate extends BaseSampleActivity implements Expir
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ExpirationPickerBuilder dpb = new ExpirationPickerBuilder()
+                ExpirationPickerBuilder epb = new ExpirationPickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment)
                         .setMinYear(2000);
-                dpb.show();
+                epb.show();
             }
         });
     }
