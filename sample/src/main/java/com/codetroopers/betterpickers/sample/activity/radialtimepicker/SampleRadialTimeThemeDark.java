@@ -13,27 +13,24 @@ import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
 import org.joda.time.DateTime;
 
-/**
- * User: derek Date: 3/17/13 Time: 3:59 PM
- */
+
 public class SampleRadialTimeThemeDark extends BaseSampleActivity
         implements RadialTimePickerDialogFragment.OnTimeSetListener {
 
     private static final String FRAG_TAG_TIME_PICKER = "timePickerDialogFragment";
 
-    private TextView text;
-    private Button button;
+    private TextView mResultTextView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_and_button);
 
-        text = (TextView) findViewById(R.id.text);
-        button = (Button) findViewById(R.id.button);
+        mResultTextView = (TextView) findViewById(R.id.text);
+        Button button = (Button) findViewById(R.id.button);
 
-        text.setText("--");
-        button.setText("Set Time");
+        mResultTextView.setText(R.string.no_value);
+        button.setText(R.string.radial_time_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,15 +47,14 @@ public class SampleRadialTimeThemeDark extends BaseSampleActivity
 
     @Override
     public void onTimeSet(RadialTimePickerDialogFragment dialog, int hourOfDay, int minute) {
-        text.setText("" + hourOfDay + ":" + minute);
+        mResultTextView.setText(getString(R.string.radial_time_picker_result_value, hourOfDay, minute));
     }
 
     @Override
     public void onResume() {
         // Example of reattaching to the fragment
         super.onResume();
-        RadialTimePickerDialogFragment rtpd = (RadialTimePickerDialogFragment) getSupportFragmentManager().findFragmentByTag(
-                FRAG_TAG_TIME_PICKER);
+        RadialTimePickerDialogFragment rtpd = (RadialTimePickerDialogFragment) getSupportFragmentManager().findFragmentByTag(FRAG_TAG_TIME_PICKER);
         if (rtpd != null) {
             rtpd.setOnTimeSetListener(this);
         }
