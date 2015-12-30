@@ -1,7 +1,6 @@
 package com.codetroopers.betterpickers.sample.activity.radialtimepicker;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
@@ -19,26 +18,16 @@ public class SampleRadialTimeBasicUsage extends BaseSampleActivity
     private static final String FRAG_TAG_TIME_PICKER = "timePickerDialogFragment";
 
     private TextView mResultTextView;
-    private boolean mHasDialogFrame;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_and_button);
 
-        if (savedInstanceState == null) {
-            mHasDialogFrame = findViewById(R.id.frame) != null;
-        }
-
         mResultTextView = (TextView) findViewById(R.id.text);
         Button button = (Button) findViewById(R.id.button);
 
-        if (mHasDialogFrame) {
-            mResultTextView.setText("|");
-        } else {
-            mResultTextView.setText(R.string.no_value);
-        }
-
+        mResultTextView.setText(R.string.no_value);
         button.setText(R.string.radial_time_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,15 +36,7 @@ public class SampleRadialTimeBasicUsage extends BaseSampleActivity
                 RadialTimePickerDialogFragment timePickerDialog = RadialTimePickerDialogFragment
                         .newInstance(SampleRadialTimeBasicUsage.this, now.getHourOfDay(), now.getMinuteOfHour(),
                                 DateFormat.is24HourFormat(SampleRadialTimeBasicUsage.this));
-                if (mHasDialogFrame) {
-                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-
-                    ft.add(R.id.frame, timePickerDialog, FRAG_TAG_TIME_PICKER)
-                            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                            .commit();
-                } else {
-                    timePickerDialog.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
-                }
+                timePickerDialog.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
             }
         });
     }
