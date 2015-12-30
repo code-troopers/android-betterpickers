@@ -60,7 +60,6 @@ import android.widget.ToggleButton;
 import com.codetroopers.betterpickers.R;
 import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialogFragment;
 
-
 import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1234,8 +1233,9 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
             if (mDatePickerDialog != null) {
                 mDatePickerDialog.dismiss();
             }
-            mDatePickerDialog = CalendarDatePickerDialogFragment.newInstance(this, mModel.endDate.year,
-                    mModel.endDate.month, mModel.endDate.monthDay);
+            mDatePickerDialog = new CalendarDatePickerDialogFragment();
+            mDatePickerDialog.setOnDateSetListener(this);
+            mDatePickerDialog.setPreselectedDate(mModel.endDate.year, mModel.endDate.month, mModel.endDate.monthDay);
             mDatePickerDialog.setFirstDayOfWeek(Utils.getFirstDayOfWeekAsCalendar(getActivity()));
             mDatePickerDialog.show(getFragmentManager(), FRAG_TAG_DATE_PICKER);
         } else if (mDoneButton == v) {

@@ -4,4 +4,8 @@
     <string name="date_hint">Date (int)</string>
     <string name="year_hint">Year (int)</string>
     <string name="set">Set</string>
+
+    <string name="no_value">--</string>
+    <string name="calendar_date_picker_set_date">Set Date</string>
+    <string name="calendar_date_picker_result_values">Year: %1$s\nMonth: %2$s\nDay: %3$s</string>
 </resources>

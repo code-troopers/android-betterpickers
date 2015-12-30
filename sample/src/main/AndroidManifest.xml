@@ -310,6 +310,22 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activity.calendardatepicker.SampleCalendarDatePreselectedDate"
+            android:label="Calendar Date/Preselected Date">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.calendardatepicker.SampleCalendarDateFirstDayOfWeek"
+            android:label="Calendar Date/Forced First Day Of Week">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activity.calendardatepicker.SampleCalendarDateThemeDark"
             android:label="Calendar Date/Theme Dark">
             <intent-filter>
