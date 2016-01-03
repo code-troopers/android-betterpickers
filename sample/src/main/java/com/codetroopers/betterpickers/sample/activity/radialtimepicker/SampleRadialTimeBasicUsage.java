@@ -1,7 +1,6 @@
 package com.codetroopers.betterpickers.sample.activity.radialtimepicker;
 
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -9,8 +8,6 @@ import android.widget.TextView;
 import com.codetroopers.betterpickers.radialtimepicker.RadialTimePickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
-
-import org.joda.time.DateTime;
 
 public class SampleRadialTimeBasicUsage extends BaseSampleActivity
         implements RadialTimePickerDialogFragment.OnTimeSetListener {
@@ -32,11 +29,9 @@ public class SampleRadialTimeBasicUsage extends BaseSampleActivity
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DateTime now = DateTime.now();
-                RadialTimePickerDialogFragment timePickerDialog = RadialTimePickerDialogFragment
-                        .newInstance(SampleRadialTimeBasicUsage.this, now.getHourOfDay(), now.getMinuteOfHour(),
-                                DateFormat.is24HourFormat(SampleRadialTimeBasicUsage.this));
-                timePickerDialog.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
+                RadialTimePickerDialogFragment rtpd = new RadialTimePickerDialogFragment()
+                        .setOnTimeSetListener(SampleRadialTimeBasicUsage.this);
+                rtpd.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
             }
         });
     }

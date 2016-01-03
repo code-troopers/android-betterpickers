@@ -390,6 +390,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activity.radialtimepicker.SampleRadialTimeStartTime"
+            android:label="Radial Time/Forced Start Time">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activity.recurrencepicker.SampleRecurrenceBasicUsage"
             android:label="Recurrence/Basic Usage">
             <intent-filter>
