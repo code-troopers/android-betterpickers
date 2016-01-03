@@ -41,8 +41,8 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private String mLabelText = "";
     private int mDialogBackgroundResId;
 
-    private Integer mMinNumber = null;
-    private Integer mMaxNumber = null;
+    private BigDecimal mMinNumber = null;
+    private BigDecimal mMaxNumber = null;
     private Integer mCurrentNumber = null;
     private Double mCurrentDecimal = null;
     private Integer mCurrentSign = null;
@@ -62,20 +62,25 @@ public class NumberPickerDialogFragment extends DialogFragment {
      * @param labelText           (optional) text to add as a label
      * @return a Picker!
      */
-    public static NumberPickerDialogFragment newInstance(int reference, int themeResId, Integer minNumber,
-                                                         Integer maxNumber, Integer plusMinusVisibility,
-                                                         Integer decimalVisibility, String labelText,
-                                                         Integer currentNumberValue, Double currentDecimalValue,
+    public static NumberPickerDialogFragment newInstance(int reference,
+                                                         int themeResId,
+                                                         BigDecimal minNumber,
+                                                         BigDecimal maxNumber,
+                                                         Integer plusMinusVisibility,
+                                                         Integer decimalVisibility,
+                                                         String labelText,
+                                                         Integer currentNumberValue,
+                                                         Double currentDecimalValue,
                                                          Integer currentNumberSign) {
         final NumberPickerDialogFragment frag = new NumberPickerDialogFragment();
         Bundle args = new Bundle();
         args.putInt(REFERENCE_KEY, reference);
         args.putInt(THEME_RES_ID_KEY, themeResId);
         if (minNumber != null) {
-            args.putInt(MIN_NUMBER_KEY, minNumber);
+            args.putSerializable(MIN_NUMBER_KEY, minNumber);
         }
         if (maxNumber != null) {
-            args.putInt(MAX_NUMBER_KEY, maxNumber);
+            args.putSerializable(MAX_NUMBER_KEY, maxNumber);
         }
         if (plusMinusVisibility != null) {
             args.putInt(PLUS_MINUS_VISIBILITY_KEY, plusMinusVisibility);
@@ -122,10 +127,10 @@ public class NumberPickerDialogFragment extends DialogFragment {
             mDecimalVisibility = args.getInt(DECIMAL_VISIBILITY_KEY);
         }
         if (args != null && args.containsKey(MIN_NUMBER_KEY)) {
-            mMinNumber = args.getInt(MIN_NUMBER_KEY);
+            mMinNumber = (BigDecimal) args.getSerializable(MIN_NUMBER_KEY);
         }
         if (args != null && args.containsKey(MAX_NUMBER_KEY)) {
-            mMaxNumber = args.getInt(MAX_NUMBER_KEY);
+            mMaxNumber = (BigDecimal) args.getSerializable(MAX_NUMBER_KEY);
         }
         if (args != null && args.containsKey(LABEL_TEXT_KEY)) {
             mLabelText = args.getString(LABEL_TEXT_KEY);
@@ -175,17 +180,17 @@ public class NumberPickerDialogFragment extends DialogFragment {
             public void onClick(View view) {
                 BigDecimal number = mPicker.getEnteredNumber();
                 if (mMinNumber != null && mMaxNumber != null && (isSmaller(number) || isBigger(number))) {
-                    String errorText = String.format(getString(R.string.min_max_error), mMinNumber, mMaxNumber);
+                    String errorText = getString(R.string.min_max_error, mMinNumber, mMaxNumber);
                     mPicker.getErrorView().setText(errorText);
                     mPicker.getErrorView().show();
                     return;
                 } else if (mMinNumber != null && isSmaller(number)) {
-                    String errorText = String.format(getString(R.string.min_error), mMinNumber);
+                    String errorText = getString(R.string.min_error, mMinNumber);
                     mPicker.getErrorView().setText(errorText);
                     mPicker.getErrorView().show();
                     return;
                 } else if (mMaxNumber != null && isBigger(number)) {
-                    String errorText = String.format(getString(R.string.max_error), mMaxNumber);
+                    String errorText = getString(R.string.max_error, mMaxNumber);
                     mPicker.getErrorView().setText(errorText);
                     mPicker.getErrorView().show();
                     return;
@@ -225,11 +230,11 @@ public class NumberPickerDialogFragment extends DialogFragment {
     }
 
     private boolean isBigger(BigDecimal number) {
-        return number.compareTo(new BigDecimal(mMaxNumber)) > 0;
+        return number.compareTo(mMaxNumber) > 0;
     }
 
     private boolean isSmaller(BigDecimal number) {
-        return number.compareTo(new BigDecimal(mMinNumber)) < 0;
+        return number.compareTo(mMinNumber) < 0;
     }
 
     /**

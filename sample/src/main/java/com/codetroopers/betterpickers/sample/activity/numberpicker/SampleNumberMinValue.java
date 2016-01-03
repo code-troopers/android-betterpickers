@@ -29,10 +29,10 @@ public class SampleNumberMinValue extends BaseSampleActivity
 
         text = (TextView) findViewById(R.id.text);
         button = (Button) findViewById(R.id.button);
-        final int minNumberAllowed = 1227;
+        final BigDecimal minNumberAllowed = new BigDecimal("1227");
 
         text.setText("--");
-        button.setText("Set Number above "+ minNumberAllowed);
+        button.setText("Set Number above " + minNumberAllowed);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

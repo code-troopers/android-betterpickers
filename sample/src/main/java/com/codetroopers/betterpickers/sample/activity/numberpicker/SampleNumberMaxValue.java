@@ -29,10 +29,10 @@ public class SampleNumberMaxValue extends BaseSampleActivity
 
         text = (TextView) findViewById(R.id.text);
         button = (Button) findViewById(R.id.button);
-        final int maxNumberAllowed = 1227;
+        final BigDecimal maxNumberAllowed = new BigDecimal("1227");
 
         text.setText("--");
-        button.setText("Set Number below "+ maxNumberAllowed);
+        button.setText("Set Number below " + maxNumberAllowed);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

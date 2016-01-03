@@ -52,8 +52,8 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     private int mDeleteDrawableSrcResId;
     private int mTheme = -1;
 
-    private Integer mMinNumber = null;
-    private Integer mMaxNumber = null;
+    private BigDecimal mMinNumber = null;
+    private BigDecimal mMaxNumber = null;
 
     /**
      * Instantiates a NumberPicker object
@@ -228,7 +228,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
      *
      * @param min the minimum required number
      */
-    public void setMin(int min) {
+    public void setMin(BigDecimal min) {
         mMinNumber = min;
     }
 
@@ -237,7 +237,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
      *
      * @param max the maximum required number
      */
-    public void setMax(int max) {
+    public void setMax(BigDecimal max) {
         mMaxNumber = max;
     }
 

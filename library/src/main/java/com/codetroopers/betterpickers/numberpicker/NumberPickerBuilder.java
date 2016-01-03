@@ -18,8 +18,8 @@ public class NumberPickerBuilder {
     private FragmentManager manager; // Required
     private Integer styleResId; // Required
     private Fragment targetFragment;
-    private Integer minNumber;
-    private Integer maxNumber;
+    private BigDecimal minNumber;
+    private BigDecimal maxNumber;
     private Integer plusMinusVisibility;
     private Integer decimalVisibility;
     private String labelText;
@@ -95,15 +95,15 @@ public class NumberPickerBuilder {
     /**
      * Set initial value to display
      */
-    public NumberPickerBuilder setCurrentNumber(Double number) {
+    public NumberPickerBuilder setCurrentNumber(BigDecimal number) {
         if (number != null) {
-            if (number >= 0) {
+            if (number.signum() >= 0) {
                 this.currentSignValue = NumberPicker.SIGN_POSITIVE;
             } else {
                 this.currentSignValue = NumberPicker.SIGN_NEGATIVE;
-                number = number * -1;
+                number = number.abs();
             }
-            BigDecimal[] numberInput = BigDecimal.valueOf(number).divideAndRemainder(BigDecimal.ONE);
+            BigDecimal[] numberInput = number.divideAndRemainder(BigDecimal.ONE);
             this.currentNumberValue = numberInput[0].intValue();
             this.currentDecimalValue = numberInput[1].doubleValue();
         }
@@ -116,7 +116,7 @@ public class NumberPickerBuilder {
      * @param minNumber the minimum required number
      * @return the current Builder object
      */
-    public NumberPickerBuilder setMinNumber(int minNumber) {
+    public NumberPickerBuilder setMinNumber(BigDecimal minNumber) {
         this.minNumber = minNumber;
         return this;
     }
@@ -127,7 +127,7 @@ public class NumberPickerBuilder {
      * @param maxNumber the maximum required number
      * @return the current Builder object
      */
-    public NumberPickerBuilder setMaxNumber(int maxNumber) {
+    public NumberPickerBuilder setMaxNumber(BigDecimal maxNumber) {
         this.maxNumber = maxNumber;
         return this;
     }

@@ -38,7 +38,7 @@ public class SampleNumberDoubleListAdapter extends BaseSampleActivity {
 
     private class SampleAdapter extends BaseAdapter implements NumberPickerDialogFragment.NumberPickerDialogHandler {
 
-        private ArrayList<Double> mNumbers;
+        private ArrayList<BigDecimal> mNumbers;
         private LayoutInflater mInflater;
         private ViewHolder holder;
         private NumberPickerBuilder mNumberPickerBuilder;
@@ -48,18 +48,18 @@ public class SampleNumberDoubleListAdapter extends BaseSampleActivity {
             mInflater = LayoutInflater.from(context);
 
             Random random = new Random();
-            mNumbers = new ArrayList<Double>();
-            mNumbers.add(150d);
-            mNumbers.add(-150d);
-            mNumbers.add(150.65);
-            mNumbers.add(-150.65);
-            mNumbers.add(0.65);
-            mNumbers.add(-0.65);
-            mNumbers.add(-1.002);
-            mNumbers.add(0.00002);
+            mNumbers = new ArrayList<BigDecimal>();
+            mNumbers.add(new BigDecimal("150"));
+            mNumbers.add(new BigDecimal("-150"));
+            mNumbers.add(new BigDecimal("150.65"));
+            mNumbers.add(new BigDecimal("-150.65"));
+            mNumbers.add(new BigDecimal("0.65"));
+            mNumbers.add(new BigDecimal("-0.65"));
+            mNumbers.add(new BigDecimal("-1.002"));
+            mNumbers.add(new BigDecimal("0.00002"));
             for (int i = 1; i < 31; i++) {
                 Integer randomNumber = (random.nextInt(65536) - 32768);
-                mNumbers.add(randomNumber.doubleValue());
+                mNumbers.add(new BigDecimal(randomNumber));
             }
 
             mNumberPickerBuilder = new NumberPickerBuilder()
@@ -79,7 +79,7 @@ public class SampleNumberDoubleListAdapter extends BaseSampleActivity {
         }
 
         @Override
-        public Double getItem(int position) {
+        public BigDecimal getItem(int position) {
             return mNumbers.get(position);
         }
 
@@ -101,7 +101,7 @@ public class SampleNumberDoubleListAdapter extends BaseSampleActivity {
                 holder = (ViewHolder) view.getTag();
             }
 
-            final Double i = getItem(position);
+            final BigDecimal i = getItem(position);
             holder.text.setText("" + i);
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -119,7 +119,7 @@ public class SampleNumberDoubleListAdapter extends BaseSampleActivity {
         @Override
         public void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber) {
             //FIXME
-            mNumbers.set(reference, (decimal));
+            mNumbers.set(reference, fullNumber);
             notifyDataSetChanged();
         }
     }

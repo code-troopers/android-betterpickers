@@ -113,8 +113,7 @@ public class SampleNumberIntegerListAdapter extends BaseSampleActivity {
 
         @Override
         public void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber) {
-            //FIXME
-            mNumbers.set(reference, 0);
+            mNumbers.set(reference, number.intValue());
             notifyDataSetChanged();
         }
     }

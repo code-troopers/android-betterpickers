@@ -26,7 +26,8 @@ public class SampleNumberWithOptions extends BaseSampleActivity
     private TextView text;
     private Button buttonOne, buttonTwo, buttonThree;
 
-    private Integer mMin, mMax;
+    private BigDecimal mMin;
+    private BigDecimal mMax;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -94,11 +95,11 @@ public class SampleNumberWithOptions extends BaseSampleActivity
                 text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: " + fullNumber);
                 return;
             case BUTTON_TWO_REFERENCE:
-                mMin = 0; //FIXME
+                mMin = fullNumber;
                 buttonTwo.setText("Min Number: " + mMin);
                 return;
             case BUTTON_THREE_REFERENCE:
-                mMax = 0; //FIXME
+                mMax = fullNumber;
                 buttonThree.setText("Max Number: " + mMax);
                 return;
             default:
