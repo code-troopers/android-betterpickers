@@ -1,8 +1,14 @@
 
 Changelog
 =========
+**nextRelease**
+* Fix numberPicker exception (#230, #220, #183). Add new Handler that return BigDecimal for user entered value
+* Fix CalendarDatePicker Header cutted (#226, #222)
+* Clean unused resources (#229)
+* Add Ripple Effect on all picker numbers (#231)
+
 **2.2.2**
-* fix layout for date picker on large screens
+* Fix layout for date picker on large screens
 * add param to hide switch button of recurrence picker (#204)
 
 **2.2.1**
