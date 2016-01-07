@@ -18,6 +18,7 @@
     android:id="@+id/date_picker_header"
     android:layout_width="@dimen/date_picker_component_width"
     android:layout_height="@dimen/date_picker_header_height"
+    android:minHeight="@dimen/date_picker_header_height"
     android:background="@color/calendar_header"
     android:gravity="center"
     android:includeFontPadding="false"
