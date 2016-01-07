@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.codetroopers.betterpickers.R;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.text.DecimalFormat;
 
 public class NumberPicker extends LinearLayout implements Button.OnClickListener,
@@ -51,8 +52,8 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     private int mDeleteDrawableSrcResId;
     private int mTheme = -1;
 
-    private Integer mMinNumber = null;
-    private Integer mMaxNumber = null;
+    private BigDecimal mMinNumber = null;
+    private BigDecimal mMaxNumber = null;
 
     /**
      * Instantiates a NumberPicker object
@@ -224,7 +225,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
      *
      * @param min the minimum required number
      */
-    public void setMin(int min) {
+    public void setMin(BigDecimal min) {
         mMinNumber = min;
     }
 
@@ -233,7 +234,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
      *
      * @param max the maximum required number
      */
-    public void setMax(int max) {
+    public void setMax(BigDecimal max) {
         mMaxNumber = max;
     }
 
@@ -438,7 +439,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
      *
      * @return a double representing the entered number
      */
-    public double getEnteredNumber() {
+    public BigDecimal getEnteredNumber() {
         String value = "0";
         for (int i = mInputPointer; i >= 0; i--) {
             if (mInput[i] == -1) {
@@ -452,7 +453,8 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         if (mSign == SIGN_NEGATIVE) {
             value = "-" + value;
         }
-        return Double.parseDouble(value);
+
+        return new BigDecimal(value);
     }
 
     private void updateLeftRightButtons() {
@@ -490,12 +492,11 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     /**
      * Returns the number as currently inputted by the user
      *
-     * @return an int representation of the number with no decimal
+     * @return an String representation of the number with no decimal
      */
-    public int getNumber() {
-        String numberString = doubleToString(getEnteredNumber());
-        String[] split = numberString.split("\\.|,");
-        return Integer.parseInt(split[0]);
+    public BigInteger getNumber() {
+        BigDecimal bigDecimal = getEnteredNumber().setScale(0, BigDecimal.ROUND_FLOOR);
+        return bigDecimal.toBigIntegerExact();
     }
 
     /**
@@ -504,8 +505,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
      * @return a double representation of the decimal value
      */
     public double getDecimal() {
-        double decimal = BigDecimal.valueOf(getEnteredNumber()).divideAndRemainder(BigDecimal.ONE)[1].doubleValue();
-        return decimal;
+        return getEnteredNumber().remainder(BigDecimal.ONE).doubleValue();
     }
 
     /**

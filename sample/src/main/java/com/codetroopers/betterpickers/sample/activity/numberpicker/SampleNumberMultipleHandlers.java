@@ -11,11 +11,14 @@ import com.codetroopers.betterpickers.numberpicker.NumberPickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
 public class SampleNumberMultipleHandlers extends BaseSampleActivity
-        implements NumberPickerDialogFragment.NumberPickerDialogHandler {
+        implements NumberPickerDialogFragment.NumberPickerDialogHandlerV2 {
 
     private TextView text;
     private Button button;
@@ -42,18 +45,17 @@ public class SampleNumberMultipleHandlers extends BaseSampleActivity
         });
     }
 
-    class MyCustomHandler implements NumberPickerDialogFragment.NumberPickerDialogHandler {
+    class MyCustomHandler implements NumberPickerDialogFragment.NumberPickerDialogHandlerV2 {
 
         @Override
-        public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative,
-                double fullNumber) {
+        public void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber) {
             Toast.makeText(SampleNumberMultipleHandlers.this, "MyCustomHandler onDialogNumberSet!", Toast.LENGTH_SHORT)
                     .show();
         }
     }
 
     @Override
-    public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber) {
+    public void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber) {
         text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: "
                 + fullNumber);
     }

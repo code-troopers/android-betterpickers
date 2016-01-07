@@ -16,7 +16,7 @@ import java.math.BigInteger;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleNumberThemeLight extends BaseSampleActivity
+public class SampleNumberMaxValue extends BaseSampleActivity
         implements NumberPickerDialogFragment.NumberPickerDialogHandlerV2 {
 
     private TextView text;
@@ -29,15 +29,17 @@ public class SampleNumberThemeLight extends BaseSampleActivity
 
         text = (TextView) findViewById(R.id.text);
         button = (Button) findViewById(R.id.button);
+        final BigDecimal maxNumberAllowed = new BigDecimal("1227");
 
         text.setText("--");
-        button.setText("Set Number");
+        button.setText("Set Number below " + maxNumberAllowed);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 NumberPickerBuilder npb = new NumberPickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
-                        .setStyleResId(R.style.BetterPickersDialogFragment_Light);
+                        .setStyleResId(R.style.BetterPickersDialogFragment)
+                        .setMaxNumber(maxNumberAllowed);
                 npb.show();
             }
         });
@@ -45,6 +47,7 @@ public class SampleNumberThemeLight extends BaseSampleActivity
 
     @Override
     public void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber) {
-        text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: " + fullNumber);
+        text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: "
+                + fullNumber);
     }
 }
