@@ -6,6 +6,7 @@ Changelog
 * Fix CalendarDatePicker Header cutted (#226, #222)
 * Clean unused resources (#229)
 * Add Ripple Effect on all picker numbers (#231)
+* Fix NumberPicker display for some big screens (#227, #224, #225)
 
 **2.2.2**
 * Fix layout for date picker on large screens
