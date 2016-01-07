@@ -17,7 +17,7 @@ import java.math.BigInteger;
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
 public class SampleNumberWithOptions extends BaseSampleActivity
-        implements NumberPickerDialogFragment.NumberPickerDialogHandler {
+        implements NumberPickerDialogFragment.NumberPickerDialogHandlerV2 {
 
     private static final int BUTTON_ONE_REFERENCE = 0;
     private static final int BUTTON_TWO_REFERENCE = 1;

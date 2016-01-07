@@ -19,7 +19,7 @@ import java.math.BigInteger;
  * User: derek Date: 4/30/13 Time: 7:43 PM
  */
 public class SampleNumberFragment extends Fragment
-        implements NumberPickerDialogFragment.NumberPickerDialogHandler {
+        implements NumberPickerDialogFragment.NumberPickerDialogHandlerV2 {
 
     private TextView text;
     private Button button;

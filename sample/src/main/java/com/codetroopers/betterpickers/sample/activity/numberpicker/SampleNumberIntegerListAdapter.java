@@ -36,7 +36,7 @@ public class SampleNumberIntegerListAdapter extends BaseSampleActivity {
         list.setAdapter(new SampleAdapter(this, getSupportFragmentManager()));
     }
 
-    private class SampleAdapter extends BaseAdapter implements NumberPickerDialogFragment.NumberPickerDialogHandler {
+    private class SampleAdapter extends BaseAdapter implements NumberPickerDialogFragment.NumberPickerDialogHandlerV2 {
 
         private ArrayList<Integer> mNumbers;
         private LayoutInflater mInflater;

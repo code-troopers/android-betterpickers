@@ -10,14 +10,12 @@ import com.codetroopers.betterpickers.numberpicker.NumberPickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
 /**
- * User: derek Date: 3/17/13 Time: 3:59 PM
+ * @Deprecated : usage of NumberPickerDialogHandler is deprecated
  */
-public class SampleNumberThemeLight extends BaseSampleActivity
-        implements NumberPickerDialogFragment.NumberPickerDialogHandlerV2 {
+@Deprecated
+public class SampleNumberOldBasicUsage extends BaseSampleActivity
+        implements NumberPickerDialogFragment.NumberPickerDialogHandler {
 
     private TextView text;
     private Button button;
@@ -37,14 +35,15 @@ public class SampleNumberThemeLight extends BaseSampleActivity
             public void onClick(View v) {
                 NumberPickerBuilder npb = new NumberPickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
-                        .setStyleResId(R.style.BetterPickersDialogFragment_Light);
+                        .setStyleResId(R.style.BetterPickersDialogFragment);
                 npb.show();
             }
         });
     }
 
     @Override
-    public void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber) {
-        text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: " + fullNumber);
+    public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber) {
+        text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: "
+                + fullNumber);
     }
 }

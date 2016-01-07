@@ -17,7 +17,7 @@ import java.math.BigInteger;
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
 public class SampleNumberMinValue extends BaseSampleActivity
-        implements NumberPickerDialogFragment.NumberPickerDialogHandler {
+        implements NumberPickerDialogFragment.NumberPickerDialogHandlerV2 {
 
     private TextView text;
     private Button button;

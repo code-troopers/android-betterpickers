@@ -18,7 +18,7 @@ import java.math.BigInteger;
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
 public class SampleNumberMultipleHandlers extends BaseSampleActivity
-        implements NumberPickerDialogFragment.NumberPickerDialogHandler {
+        implements NumberPickerDialogFragment.NumberPickerDialogHandlerV2 {
 
     private TextView text;
     private Button button;
@@ -45,7 +45,7 @@ public class SampleNumberMultipleHandlers extends BaseSampleActivity
         });
     }
 
-    class MyCustomHandler implements NumberPickerDialogFragment.NumberPickerDialogHandler {
+    class MyCustomHandler implements NumberPickerDialogFragment.NumberPickerDialogHandlerV2 {
 
         @Override
         public void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber) {
