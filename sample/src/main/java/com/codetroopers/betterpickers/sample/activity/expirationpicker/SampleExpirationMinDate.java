@@ -26,8 +26,8 @@ public class SampleExpirationMinDate extends BaseSampleActivity implements Expir
         text = (TextView) findViewById(R.id.text);
         button = (Button) findViewById(R.id.button);
 
-        text.setText("--");
-        button.setText("Set Expiration");
+        text.setText(R.string.no_value);
+        button.setText(R.string.expiration_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

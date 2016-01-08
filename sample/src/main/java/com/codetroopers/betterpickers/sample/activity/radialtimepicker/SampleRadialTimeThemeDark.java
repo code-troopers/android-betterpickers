@@ -26,7 +26,7 @@ public class SampleRadialTimeThemeDark extends BaseSampleActivity
         Button button = (Button) findViewById(R.id.button);
 
         mResultTextView.setText(R.string.no_value);
-        button.setText(R.string.radial_time_picker_set);
+        button.setText(R.string.radial_time_picker);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

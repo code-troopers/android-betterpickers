@@ -6,8 +6,16 @@
     <string name="set">Set</string>
 
     <string name="no_value">--</string>
-    <string name="calendar_date_picker_set_date">Set Date</string>
+    <string name="calendar_date_picker_set">Set Date</string>
     <string name="calendar_date_picker_result_values">Year: %1$s\nMonth: %2$s\nDay: %3$s</string>
-    <string name="radial_time_picker_set">Set Time</string>
+    <string name="radial_time_picker">Set Time</string>
     <string name="radial_time_picker_result_value">%1$d:%2$d</string>
+    <string name="date_picker_set">Set Date</string>
+    <string name="expiration_picker_set">Set Expiration</string>
+    <string name="hms_picker_set">Set HMS</string>
+    <string name="time_picker_set">Set Time</string>
+    <string name="timezone_picker_set">Set Time Zone</string>
+    <string name="recurrence_picker_set">Set Recurrence</string>
+    <string name="number_picker_set">Set Number</string>
+
 </resources>

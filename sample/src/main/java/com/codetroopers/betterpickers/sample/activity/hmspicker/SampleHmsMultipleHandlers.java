@@ -28,8 +28,8 @@ public class SampleHmsMultipleHandlers extends BaseSampleActivity
         text = (TextView) findViewById(R.id.text);
         button = (Button) findViewById(R.id.button);
 
-        text.setText("--");
-        button.setText("Set Hms");
+        text.setText(R.string.no_value);
+        button.setText(R.string.hms_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

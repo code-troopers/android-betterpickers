@@ -31,7 +31,7 @@ public class SampleNumberMaxValue extends BaseSampleActivity
         button = (Button) findViewById(R.id.button);
         final BigDecimal maxNumberAllowed = new BigDecimal("1227");
 
-        text.setText("--");
+        text.setText(R.string.no_value);
         button.setText("Set Number below " + maxNumberAllowed);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

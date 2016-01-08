@@ -26,8 +26,8 @@ public class SampleTimeBasicUsage extends BaseSampleActivity implements TimePick
         text = (TextView) findViewById(R.id.text);
         button = (Button) findViewById(R.id.button);
 
-        text.setText("--");
-        button.setText("Set Time");
+        text.setText(R.string.no_value);
+        button.setText(R.string.time_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -26,7 +26,7 @@ public class SampleCalendarDateThemeCustom extends BaseSampleActivity
         Button button = (Button) findViewById(R.id.button);
 
         mResultTextView.setText(R.string.no_value);
-        button.setText(R.string.calendar_date_picker_set_date);
+        button.setText(R.string.calendar_date_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

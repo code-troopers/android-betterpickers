@@ -31,8 +31,8 @@ public class SampleDatePreset extends BaseSampleActivity implements DatePickerDi
         date = (EditText) findViewById(R.id.date);
         year = (EditText) findViewById(R.id.year);
 
-        text.setText("--");
-        button.setText("Set Date");
+        text.setText(R.string.no_value);
+        button.setText(R.string.date_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

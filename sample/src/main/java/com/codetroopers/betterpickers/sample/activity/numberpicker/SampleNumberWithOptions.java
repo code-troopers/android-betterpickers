@@ -39,8 +39,8 @@ public class SampleNumberWithOptions extends BaseSampleActivity
         buttonTwo = (Button) findViewById(R.id.button_two);
         buttonThree = (Button) findViewById(R.id.button_three);
 
-        text.setText("--");
-        buttonOne.setText("Set Number");
+        text.setText(R.string.no_value);
+        buttonOne.setText(R.string.number_picker_set);
         buttonOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
