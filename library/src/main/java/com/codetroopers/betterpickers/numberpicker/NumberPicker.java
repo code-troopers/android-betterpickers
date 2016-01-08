@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.codetroopers.betterpickers.R;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.text.DecimalFormat;
 
 public class NumberPicker extends LinearLayout implements Button.OnClickListener,
@@ -51,8 +52,8 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     private int mDeleteDrawableSrcResId;
     private int mTheme = -1;
 
-    private Integer mMinNumber = null;
-    private Integer mMaxNumber = null;
+    private BigDecimal mMinNumber = null;
+    private BigDecimal mMaxNumber = null;
 
     /**
      * Instantiates a NumberPicker object
@@ -67,7 +68,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
      * Instantiates a NumberPicker object
      *
      * @param context the Context required for creation
-     * @param attrs additional attributes that define custom colors, selectors, and backgrounds.
+     * @param attrs   additional attributes that define custom colors, selectors, and backgrounds.
      */
     public NumberPicker(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -99,13 +100,10 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
             TypedArray a = getContext().obtainStyledAttributes(themeResId, R.styleable.BetterPickersDialogFragment);
 
             mTextColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTextColor);
-            mKeyBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpKeyBackground,
-                    mKeyBackgroundResId);
-            mButtonBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpButtonBackground,
-                    mButtonBackgroundResId);
+            mKeyBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpKeyBackground, mKeyBackgroundResId);
+            mButtonBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpButtonBackground, mButtonBackgroundResId);
             mDividerColor = a.getColor(R.styleable.BetterPickersDialogFragment_bpDividerColor, mDividerColor);
-            mDeleteDrawableSrcResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpDeleteIcon,
-                    mDeleteDrawableSrcResId);
+            mDeleteDrawableSrcResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpDeleteIcon, mDeleteDrawableSrcResId);
         }
 
         restyleViews();
@@ -227,7 +225,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
      *
      * @param min the minimum required number
      */
-    public void setMin(int min) {
+    public void setMin(BigDecimal min) {
         mMinNumber = min;
     }
 
@@ -236,7 +234,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
      *
      * @param max the maximum required number
      */
-    public void setMax(int max) {
+    public void setMax(BigDecimal max) {
         mMaxNumber = max;
     }
 
@@ -441,7 +439,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
      *
      * @return a double representing the entered number
      */
-    public double getEnteredNumber() {
+    public BigDecimal getEnteredNumber() {
         String value = "0";
         for (int i = mInputPointer; i >= 0; i--) {
             if (mInput[i] == -1) {
@@ -455,7 +453,8 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         if (mSign == SIGN_NEGATIVE) {
             value = "-" + value;
         }
-        return Double.parseDouble(value);
+
+        return new BigDecimal(value);
     }
 
     private void updateLeftRightButtons() {
@@ -493,12 +492,11 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     /**
      * Returns the number as currently inputted by the user
      *
-     * @return an int representation of the number with no decimal
+     * @return an String representation of the number with no decimal
      */
-    public int getNumber() {
-        String numberString = doubleToString(getEnteredNumber());
-        String[] split = numberString.split("\\.|,");
-        return Integer.parseInt(split[0]);
+    public BigInteger getNumber() {
+        BigDecimal bigDecimal = getEnteredNumber().setScale(0, BigDecimal.ROUND_FLOOR);
+        return bigDecimal.toBigIntegerExact();
     }
 
     /**
@@ -507,8 +505,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
      * @return a double representation of the decimal value
      */
     public double getDecimal() {
-        double decimal = BigDecimal.valueOf(getEnteredNumber()).divideAndRemainder(BigDecimal.ONE)[1].doubleValue();
-        return decimal;
+        return getEnteredNumber().remainder(BigDecimal.ONE).doubleValue();
     }
 
     /**
@@ -560,7 +557,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         if (decimalPart != null) {
             String decimalString = doubleToString(decimalPart);
             // remove "0." from the string
-            readAndRightDigits(TextUtils.substring(decimalString,2,decimalString.length()));
+            readAndRightDigits(TextUtils.substring(decimalString, 2, decimalString.length()));
             mInputPointer++;
             mInput[mInputPointer] = CLICKED_DECIMAL;
         }
@@ -572,7 +569,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     }
 
     private void readAndRightDigits(String digitsToRead) {
-        for (int i = digitsToRead.length() -1; i >= 0 ; i--) {
+        for (int i = digitsToRead.length() - 1; i >= 0; i--) {
             mInputPointer++;
             mInput[mInputPointer] = digitsToRead.charAt(i) - '0';
         }
@@ -580,10 +577,11 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
 
     /**
      * Method used to format double and avoid scientific notation x.xE-x (ex: 4.0E-4)
+     *
      * @param value double value to format
      * @return string representation of double value
      */
-    private String doubleToString(double value){
+    private String doubleToString(double value) {
         // Use decimal format to avoid
         DecimalFormat format = new DecimalFormat("0.0");
         format.setMaximumFractionDigits(Integer.MAX_VALUE);

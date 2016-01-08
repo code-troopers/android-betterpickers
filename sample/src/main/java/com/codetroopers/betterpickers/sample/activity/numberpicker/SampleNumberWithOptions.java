@@ -10,11 +10,14 @@ import com.codetroopers.betterpickers.numberpicker.NumberPickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
 public class SampleNumberWithOptions extends BaseSampleActivity
-        implements NumberPickerDialogFragment.NumberPickerDialogHandler {
+        implements NumberPickerDialogFragment.NumberPickerDialogHandlerV2 {
 
     private static final int BUTTON_ONE_REFERENCE = 0;
     private static final int BUTTON_TWO_REFERENCE = 1;
@@ -23,7 +26,8 @@ public class SampleNumberWithOptions extends BaseSampleActivity
     private TextView text;
     private Button buttonOne, buttonTwo, buttonThree;
 
-    private Integer mMin, mMax;
+    private BigDecimal mMin;
+    private BigDecimal mMax;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -85,19 +89,17 @@ public class SampleNumberWithOptions extends BaseSampleActivity
     }
 
     @Override
-    public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber) {
+    public void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber) {
         switch (reference) {
             case BUTTON_ONE_REFERENCE:
-                text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative
-                        + "\nFull number: "
-                        + fullNumber);
+                text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: " + fullNumber);
                 return;
             case BUTTON_TWO_REFERENCE:
-                mMin = number;
+                mMin = fullNumber;
                 buttonTwo.setText("Min Number: " + mMin);
                 return;
             case BUTTON_THREE_REFERENCE:
-                mMax = number;
+                mMax = fullNumber;
                 buttonThree.setText("Max Number: " + mMax);
                 return;
             default:

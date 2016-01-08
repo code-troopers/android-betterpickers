@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 
 import com.codetroopers.betterpickers.numberpicker.NumberPickerDialogFragment.NumberPickerDialogHandler;
+import com.codetroopers.betterpickers.numberpicker.NumberPickerDialogFragment.NumberPickerDialogHandlerV2;
 
 import java.math.BigDecimal;
 import java.util.Vector;
@@ -18,13 +19,15 @@ public class NumberPickerBuilder {
     private FragmentManager manager; // Required
     private Integer styleResId; // Required
     private Fragment targetFragment;
-    private Integer minNumber;
-    private Integer maxNumber;
+    private BigDecimal minNumber;
+    private BigDecimal maxNumber;
     private Integer plusMinusVisibility;
     private Integer decimalVisibility;
     private String labelText;
     private int mReference;
+    @Deprecated
     private Vector<NumberPickerDialogHandler> mNumberPickerDialogHandlers = new Vector<NumberPickerDialogHandler>();
+    private Vector<NumberPickerDialogHandlerV2> mNumberPickerDialogHandlersV2 = new Vector<>();
     private Integer currentNumberValue;
     private Double currentDecimalValue;
     private Integer currentSignValue;
@@ -95,15 +98,15 @@ public class NumberPickerBuilder {
     /**
      * Set initial value to display
      */
-    public NumberPickerBuilder setCurrentNumber(Double number) {
+    public NumberPickerBuilder setCurrentNumber(BigDecimal number) {
         if (number != null) {
-            if (number >= 0) {
+            if (number.signum() >= 0) {
                 this.currentSignValue = NumberPicker.SIGN_POSITIVE;
             } else {
                 this.currentSignValue = NumberPicker.SIGN_NEGATIVE;
-                number = number * -1;
+                number = number.abs();
             }
-            BigDecimal[] numberInput = BigDecimal.valueOf(number).divideAndRemainder(BigDecimal.ONE);
+            BigDecimal[] numberInput = number.divideAndRemainder(BigDecimal.ONE);
             this.currentNumberValue = numberInput[0].intValue();
             this.currentDecimalValue = numberInput[1].doubleValue();
         }
@@ -116,7 +119,7 @@ public class NumberPickerBuilder {
      * @param minNumber the minimum required number
      * @return the current Builder object
      */
-    public NumberPickerBuilder setMinNumber(int minNumber) {
+    public NumberPickerBuilder setMinNumber(BigDecimal minNumber) {
         this.minNumber = minNumber;
         return this;
     }
@@ -127,7 +130,7 @@ public class NumberPickerBuilder {
      * @param maxNumber the maximum required number
      * @return the current Builder object
      */
-    public NumberPickerBuilder setMaxNumber(int maxNumber) {
+    public NumberPickerBuilder setMaxNumber(BigDecimal maxNumber) {
         this.maxNumber = maxNumber;
         return this;
     }
@@ -181,8 +184,14 @@ public class NumberPickerBuilder {
      * @param handler an Object implementing the appropriate Picker Handler
      * @return the current Builder object
      */
+    @Deprecated
     public NumberPickerBuilder addNumberPickerDialogHandler(NumberPickerDialogHandler handler) {
         this.mNumberPickerDialogHandlers.add(handler);
+        return this;
+    }
+
+    public NumberPickerBuilder addNumberPickerDialogHandler(NumberPickerDialogHandlerV2 handler) {
+        this.mNumberPickerDialogHandlersV2.add(handler);
         return this;
     }
 
@@ -192,8 +201,14 @@ public class NumberPickerBuilder {
      * @param handler the Object to remove
      * @return the current Builder object
      */
+    @Deprecated
     public NumberPickerBuilder removeNumberPickerDialogHandler(NumberPickerDialogHandler handler) {
         this.mNumberPickerDialogHandlers.remove(handler);
+        return this;
+    }
+
+    public NumberPickerBuilder removeNumberPickerDialogHandler(NumberPickerDialogHandlerV2 handler) {
+        this.mNumberPickerDialogHandlersV2.remove(handler);
         return this;
     }
 
@@ -219,6 +234,7 @@ public class NumberPickerBuilder {
             fragment.setTargetFragment(targetFragment, 0);
         }
         fragment.setNumberPickerDialogHandlers(mNumberPickerDialogHandlers);
+        fragment.setNumberPickerDialogHandlersV2(mNumberPickerDialogHandlersV2);
         fragment.show(ft, "number_dialog");
     }
 }

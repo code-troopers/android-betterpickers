@@ -83,6 +83,33 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activity.numberpicker.SampleNumberOldBasicUsage"
+            android:label="Number/Deprecated Basic Usage"
+            android:theme="@style/Theme.AppCompat">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.numberpicker.SampleNumberMaxValue"
+            android:label="Number/Max Value"
+            android:theme="@style/Theme.AppCompat">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.numberpicker.SampleNumberMinValue"
+            android:label="Number/Min Value"
+            android:theme="@style/Theme.AppCompat">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activity.numberpicker.SampleNumberThemeLight"
             android:label="Number/Theme Light">
             <intent-filter>

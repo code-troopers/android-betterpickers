@@ -10,11 +10,14 @@ import com.codetroopers.betterpickers.numberpicker.NumberPickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
 public class SampleNumberThemeCustom extends BaseSampleActivity
-        implements NumberPickerDialogFragment.NumberPickerDialogHandler {
+        implements NumberPickerDialogFragment.NumberPickerDialogHandlerV2 {
 
     private TextView text;
     private Button button;
@@ -41,8 +44,7 @@ public class SampleNumberThemeCustom extends BaseSampleActivity
     }
 
     @Override
-    public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber) {
-        text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: "
-                + fullNumber);
+    public void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber) {
+        text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: " + fullNumber);
     }
 }
