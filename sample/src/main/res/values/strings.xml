@@ -11,6 +11,7 @@
     <string name="radial_time_picker">Set Time</string>
     <string name="radial_time_picker_result_value">%1$d:%2$d</string>
     <string name="date_picker_set">Set Date</string>
+    <string name="date_picker_result_value">Year: %1$s\nMonth: %2$s\nDay: %3$s</string>
     <string name="expiration_picker_set">Set Expiration</string>
     <string name="hms_picker_set">Set HMS</string>
     <string name="hms_picker_result_value_multiline">Hours: %1$s\nMinutes: %2$s\nSeconds: %3$s</string>

@@ -67,6 +67,6 @@ public class SampleDatePreset extends BaseSampleActivity implements DatePickerDi
 
     @Override
     public void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth) {
-        text.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
+        text.setText(getString(R.string.date_picker_result_value, year, monthOfYear, dayOfMonth));
     }
 }

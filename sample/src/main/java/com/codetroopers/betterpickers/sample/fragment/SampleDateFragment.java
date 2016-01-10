@@ -28,8 +28,8 @@ public class SampleDateFragment extends Fragment
         text = (TextView) view.findViewById(R.id.text);
         button = (Button) view.findViewById(R.id.button);
 
-        text.setText("--");
-        button.setText("Set Date");
+        text.setText(R.string.no_value);
+        button.setText(R.string.date_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,6 +47,6 @@ public class SampleDateFragment extends Fragment
 
     @Override
     public void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth) {
-        text.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
+        text.setText(getString(R.string.date_picker_result_value, year, monthOfYear, dayOfMonth));
     }
 }

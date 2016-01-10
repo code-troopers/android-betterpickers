@@ -100,6 +100,6 @@ public class SampleDateMultipleReferences extends BaseSampleActivity
             default:
                 buttonToSet = buttonOne;
         }
-        buttonToSet.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
+        buttonToSet.setText(getString(R.string.date_picker_result_value, year, monthOfYear, dayOfMonth));
     }
 }
