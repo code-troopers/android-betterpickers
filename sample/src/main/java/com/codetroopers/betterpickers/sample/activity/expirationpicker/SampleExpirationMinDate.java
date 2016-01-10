@@ -39,6 +39,6 @@ public class SampleExpirationMinDate extends BaseSampleActivity implements Expir
 
     @Override
     public void onDialogExpirationSet(int reference, int year, int monthOfYear) {
-        mResultTextView.setText(String.format("%02d/%d", monthOfYear, year));
+        mResultTextView.setText(getString(R.string.expiration_picker_result_value, String.format("%02d", monthOfYear), year));
     }
 }
