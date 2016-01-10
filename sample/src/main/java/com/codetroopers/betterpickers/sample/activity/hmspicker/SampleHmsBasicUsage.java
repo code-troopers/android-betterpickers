@@ -40,6 +40,6 @@ public class SampleHmsBasicUsage extends BaseSampleActivity implements HmsPicker
 
     @Override
     public void onDialogHmsSet(int reference, int hours, int minutes, int seconds) {
-        mResultTextView.setText("" + hours + ":" + minutes + ":" + seconds);
+        mResultTextView.setText(getString(R.string.hms_picker_result_value_multiline, hours, minutes, seconds));
     }
 }

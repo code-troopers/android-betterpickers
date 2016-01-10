@@ -100,6 +100,6 @@ public class SampleHmsMultipleReferences extends BaseSampleActivity
             default:
                 buttonToSet = buttonOne;
         }
-        buttonToSet.setText("" + hours + ":" + minutes + ":" + seconds);
+        buttonToSet.setText(getString(R.string.hms_picker_result_value_oneline, hours, minutes, seconds));
     }
 }
