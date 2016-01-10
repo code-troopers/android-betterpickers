@@ -17,9 +17,10 @@ import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 public class SampleDatePresetLight extends BaseSampleActivity
         implements DatePickerDialogFragment.DatePickerDialogHandler {
 
-    private EditText month, date, year;
+    private EditText month;
+    private EditText date;
+    private EditText year;
     private TextView text;
-    private Button button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class SampleDatePresetLight extends BaseSampleActivity
         setContentView(R.layout.date_preset);
 
         text = (TextView) findViewById(R.id.text);
-        button = (Button) findViewById(R.id.button);
+        Button button = (Button) findViewById(R.id.button);
         month = (EditText) findViewById(R.id.month);
         date = (EditText) findViewById(R.id.date);
         year = (EditText) findViewById(R.id.year);
