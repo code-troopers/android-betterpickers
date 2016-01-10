@@ -19,18 +19,17 @@ import java.math.BigInteger;
 public class SampleNumberBasicUsage extends BaseSampleActivity
         implements NumberPickerDialogFragment.NumberPickerDialogHandlerV2 {
 
-    private TextView text;
-    private Button button;
+    private TextView mResultTextView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_and_button);
 
-        text = (TextView) findViewById(R.id.text);
-        button = (Button) findViewById(R.id.button);
+        mResultTextView = (TextView) findViewById(R.id.text);
+        Button button = (Button) findViewById(R.id.button);
 
-        text.setText(R.string.no_value);
+        mResultTextView.setText(R.string.no_value);
         button.setText(R.string.number_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +44,6 @@ public class SampleNumberBasicUsage extends BaseSampleActivity
 
     @Override
     public void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber) {
-        text.setText(getString(R.string.number_picker_result_value, number, decimal, isNegative, fullNumber));
+        mResultTextView.setText(getString(R.string.number_picker_result_value, number, decimal, isNegative, fullNumber));
     }
 }
