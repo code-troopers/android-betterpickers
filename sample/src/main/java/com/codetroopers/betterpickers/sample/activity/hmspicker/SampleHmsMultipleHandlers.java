@@ -17,18 +17,17 @@ import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 public class SampleHmsMultipleHandlers extends BaseSampleActivity
         implements HmsPickerDialogFragment.HmsPickerDialogHandler {
 
-    private TextView text;
-    private Button button;
+    private TextView mResultTextView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_and_button);
 
-        text = (TextView) findViewById(R.id.text);
-        button = (Button) findViewById(R.id.button);
+        mResultTextView = (TextView) findViewById(R.id.text);
+        Button button = (Button) findViewById(R.id.button);
 
-        text.setText(R.string.no_value);
+        mResultTextView.setText(R.string.no_value);
         button.setText(R.string.hms_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +52,6 @@ public class SampleHmsMultipleHandlers extends BaseSampleActivity
 
     @Override
     public void onDialogHmsSet(int reference, int hours, int minutes, int seconds) {
-        text.setText("" + hours + ":" + minutes + ":" + seconds);
+        mResultTextView.setText("" + hours + ":" + minutes + ":" + seconds);
     }
 }

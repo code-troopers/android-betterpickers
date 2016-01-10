@@ -273,7 +273,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.hmspicker.SampleHmsThemetLight"
+            android:name=".activity.hmspicker.SampleHmsThemeLight"
             android:label="HMS/Theme Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
