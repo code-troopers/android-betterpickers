@@ -10,23 +10,20 @@ import com.codetroopers.betterpickers.expirationpicker.ExpirationPickerDialogFra
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
-/**
- * @author Yuki Nishijima
- */
+
 public class SampleExpirationMinDate extends BaseSampleActivity implements ExpirationPickerDialogFragment.ExpirationPickerDialogHandler {
 
-    private TextView text;
-    private Button button;
+    private TextView mResultTextView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_and_button);
 
-        text = (TextView) findViewById(R.id.text);
-        button = (Button) findViewById(R.id.button);
+        mResultTextView = (TextView) findViewById(R.id.text);
+        Button button = (Button) findViewById(R.id.button);
 
-        text.setText(R.string.no_value);
+        mResultTextView.setText(R.string.no_value);
         button.setText(R.string.expiration_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +39,6 @@ public class SampleExpirationMinDate extends BaseSampleActivity implements Expir
 
     @Override
     public void onDialogExpirationSet(int reference, int year, int monthOfYear) {
-        text.setText(String.format("%02d/%d", monthOfYear, year));
+        mResultTextView.setText(String.format("%02d/%d", monthOfYear, year));
     }
 }
