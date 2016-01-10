@@ -21,8 +21,7 @@ import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 public class SampleRecurrenceBasicUsage extends BaseSampleActivity
         implements RecurrencePickerDialogFragment.OnRecurrenceSetListener {
 
-    private TextView text;
-    private Button button;
+    private TextView mResultTextView;
 
     private EventRecurrence mEventRecurrence = new EventRecurrence();
 
@@ -35,10 +34,10 @@ public class SampleRecurrenceBasicUsage extends BaseSampleActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_and_button);
 
-        text = (TextView) findViewById(R.id.text);
-        button = (Button) findViewById(R.id.button);
+        mResultTextView = (TextView) findViewById(R.id.text);
+        Button button = (Button) findViewById(R.id.button);
 
-        text.setText(R.string.no_value);
+        mResultTextView.setText(R.string.no_value);
         button.setText(R.string.recurrence_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +93,6 @@ public class SampleRecurrenceBasicUsage extends BaseSampleActivity
             repeatString = EventRecurrenceFormatter.getRepeatString(this, r, mEventRecurrence, true);
         }
 
-        text.setText(mRrule + "\n" + repeatString);
+        mResultTextView.setText(mRrule + "\n" + repeatString);
     }
 }
