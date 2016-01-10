@@ -27,8 +27,8 @@ public class SampleTimeFragment extends Fragment
         mResultTextView = (TextView) view.findViewById(R.id.text);
         Button button = (Button) view.findViewById(R.id.button);
 
-        mResultTextView.setText("--");
-        button.setText("Set Time");
+        mResultTextView.setText(R.string.no_value);
+        button.setText(R.string.time_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,6 +45,6 @@ public class SampleTimeFragment extends Fragment
 
     @Override
     public void onDialogTimeSet(int reference, int hourOfDay, int minute) {
-        mResultTextView.setText("" + hourOfDay + ":" + String.format("%02d", minute));
+        mResultTextView.setText(getString(R.string.time_picker_result_value, String.format("%02d", hourOfDay), String.format("%02d", minute)));
     }
 }

@@ -18,6 +18,7 @@
     <string name="hms_picker_result_value_multiline">Hours: %1$s\nMinutes: %2$s\nSeconds: %3$s</string>
     <string name="hms_picker_result_value_oneline">H:%1$s, M:%2$s, S:%3$s</string>
     <string name="time_picker_set">Set Time</string>
+    <string name="time_picker_result_value">%1$s:%2$s</string>
     <string name="timezone_picker_set">Set Time Zone</string>
     <string name="recurrence_picker_set">Set Recurrence</string>
     <string name="number_picker_set">Set Number</string>

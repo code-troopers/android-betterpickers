@@ -41,6 +41,6 @@ public class SampleTimeThemeCustom extends BaseSampleActivity
 
     @Override
     public void onDialogTimeSet(int reference, int hourOfDay, int minute) {
-        mResultTextView.setText("" + hourOfDay + ":" + String.format("%02d", minute));
+        mResultTextView.setText(getString(R.string.time_picker_result_value, String.format("%02d", hourOfDay), String.format("%02d", minute)));
     }
 }

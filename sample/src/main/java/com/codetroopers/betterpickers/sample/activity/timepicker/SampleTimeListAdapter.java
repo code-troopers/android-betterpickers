@@ -110,7 +110,7 @@ public class SampleTimeListAdapter extends BaseSampleActivity {
             }
 
             Hm hm = getItem(position);
-            holder.text.setText(String.format("%02d", hm.hourOfDay) + ":" + String.format("%02d", hm.minute));
+            holder.text.setText(getString(R.string.time_picker_result_value, String.format("%02d", hm.hourOfDay), String.format("%02d", hm.minute)));
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
