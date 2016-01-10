@@ -92,7 +92,7 @@ public class SampleNumberWithOptions extends BaseSampleActivity
     public void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber) {
         switch (reference) {
             case BUTTON_ONE_REFERENCE:
-                text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: " + fullNumber);
+                text.setText(getString(R.string.number_picker_result_value, number, decimal, isNegative, fullNumber));
                 return;
             case BUTTON_TWO_REFERENCE:
                 mMin = fullNumber;

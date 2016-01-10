@@ -31,8 +31,8 @@ public class SampleNumberFragment extends Fragment
         text = (TextView) view.findViewById(R.id.text);
         button = (Button) view.findViewById(R.id.button);
 
-        text.setText("--");
-        button.setText("Set Number");
+        text.setText(R.string.no_value);
+        button.setText(R.string.number_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +49,6 @@ public class SampleNumberFragment extends Fragment
 
     @Override
     public void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber) {
-        text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: " + fullNumber);
+        text.setText(getString(R.string.number_picker_result_value, number, decimal, isNegative, fullNumber));
     }
 }

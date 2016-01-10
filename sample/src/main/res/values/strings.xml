@@ -21,5 +21,6 @@
     <string name="timezone_picker_set">Set Time Zone</string>
     <string name="recurrence_picker_set">Set Recurrence</string>
     <string name="number_picker_set">Set Number</string>
+    <string name="number_picker_result_value">Number: %1$s\nDecimal: %2$s\nIs negative: %3$b\nFull number: %4$s</string>
 
 </resources>

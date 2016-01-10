@@ -45,6 +45,6 @@ public class SampleNumberThemeLight extends BaseSampleActivity
 
     @Override
     public void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber) {
-        text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: " + fullNumber);
+        text.setText(getString(R.string.number_picker_result_value, number, decimal, isNegative, fullNumber));
     }
 }

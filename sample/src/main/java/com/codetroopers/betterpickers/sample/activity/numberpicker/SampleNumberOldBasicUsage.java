@@ -43,7 +43,6 @@ public class SampleNumberOldBasicUsage extends BaseSampleActivity
 
     @Override
     public void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber) {
-        text.setText("Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: "
-                + fullNumber);
+        text.setText(getString(R.string.number_picker_result_value, number, decimal, isNegative, fullNumber));;
     }
 }
