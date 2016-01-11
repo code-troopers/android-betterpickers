@@ -21,12 +21,10 @@ import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 public class SampleRecurrenceForcedOn extends BaseSampleActivity
         implements RecurrencePickerDialogFragment.OnRecurrenceSetListener {
 
-    private TextView mResultTextView;
-
-    private EventRecurrence mEventRecurrence = new EventRecurrence();
-
     private static final String FRAG_TAG_RECUR_PICKER = "recurrencePickerDialogFragment";
 
+    private TextView mResultTextView;
+    private EventRecurrence mEventRecurrence = new EventRecurrence();
     private String mRrule;
 
     @Override
