@@ -144,22 +144,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
 
     public CalendarDatePickerDialogFragment() {
         // Empty constructor required for dialog fragment.
-    }
-
-    public boolean isThemeDark() {
-        return mStyleResId == R.style.BetterPickersRadialTimePickerDialog_Dark;
-    }
-
-    public void setThemeDark(boolean dark) {
-        if (dark) {
-            mStyleResId = R.style.BetterPickersRadialTimePickerDialog_Dark;
-        } else {
-            mStyleResId = R.style.BetterPickersRadialTimePickerDialog;
-        }
-    }
-
-    public void setThemeCustom(int styleResId) {
-        this.mStyleResId = styleResId;
+        mStyleResId = R.style.BetterPickersRadialTimePickerDialog;
     }
 
     /**
@@ -167,19 +152,50 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
      * @param year        The initial year of the dialog.
      * @param monthOfYear The initial month of the dialog.
      * @param dayOfMonth  The initial day of the dialog.
+     * @Deprecated Will be removed in next major release use setOnDateSetListener() and setPreselectedDate()
      */
+    @Deprecated
     public static CalendarDatePickerDialogFragment newInstance(OnDateSetListener callBack, int year, int monthOfYear, int dayOfMonth) {
         CalendarDatePickerDialogFragment ret = new CalendarDatePickerDialogFragment();
         ret.initialize(callBack, year, monthOfYear, dayOfMonth);
         return ret;
     }
 
+    /**
+     * @Deprecated Will be removed in next major release use setOnDateSetListener() and setPreselectedDate()
+     */
+    @Deprecated
     public void initialize(OnDateSetListener callBack, int year, int monthOfYear, int dayOfMonth) {
         mCallBack = callBack;
         mCalendar.set(Calendar.YEAR, year);
         mCalendar.set(Calendar.MONTH, monthOfYear);
         mCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
         mStyleResId = R.style.BetterPickersRadialTimePickerDialog;
+    }
+
+    public boolean isThemeDark() {
+        return mStyleResId == R.style.BetterPickersRadialTimePickerDialog_Dark;
+    }
+
+    public CalendarDatePickerDialogFragment setThemeDark(boolean dark) {
+        if (dark) {
+            mStyleResId = R.style.BetterPickersRadialTimePickerDialog_Dark;
+        } else {
+            mStyleResId = R.style.BetterPickersRadialTimePickerDialog;
+        }
+        return this;
+    }
+
+    public CalendarDatePickerDialogFragment setThemeCustom(int styleResId) {
+        this.mStyleResId = styleResId;
+        return this;
+    }
+
+    public CalendarDatePickerDialogFragment setPreselectedDate(int year, int monthOfYear, int dayOfMonth) {
+        mCalendar.set(Calendar.YEAR, year);
+        mCalendar.set(Calendar.MONTH, monthOfYear);
+        mCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        return this;
     }
 
     @Override
@@ -421,7 +437,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         }
     }
 
-    public void setFirstDayOfWeek(int startOfWeek) {
+    public CalendarDatePickerDialogFragment setFirstDayOfWeek(int startOfWeek) {
         if (startOfWeek < Calendar.SUNDAY || startOfWeek > Calendar.SATURDAY) {
             throw new IllegalArgumentException("Value must be between Calendar.SUNDAY and Calendar.SATURDAY");
         }
@@ -429,6 +445,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         if (mDayPickerView != null) {
             mDayPickerView.onChange();
         }
+        return this;
     }
 
     /**
@@ -436,18 +453,18 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
      * range are not shown, the days that are outside of the range are visible but cannot be selected.
      *
      * @param startDate The start date of the range (inclusive)
-     * @param endDate The end date of the range (inclusive)
+     * @param endDate   The end date of the range (inclusive)
      * @throws IllegalArgumentException in case the end date is smaller than the start date
      */
-    public void setDateRange(@Nullable CalendarDay startDate, @Nullable CalendarDay endDate) {
-        if(startDate == null){
+    public CalendarDatePickerDialogFragment setDateRange(@Nullable CalendarDay startDate, @Nullable CalendarDay endDate) {
+        if (startDate == null) {
             mMinDate = DEFAULT_START_DATE;
-        }else{
+        } else {
             mMinDate = startDate;
         }
-        if(endDate == null){
+        if (endDate == null) {
             mMaxDate = DEFAULT_END_DATE;
-        }else{
+        } else {
             mMaxDate = endDate;
         }
         if (mMaxDate.compareTo(mMinDate) < 0) {
@@ -456,14 +473,17 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         if (mDayPickerView != null) {
             mDayPickerView.onChange();
         }
+        return this;
     }
 
-    public void setOnDateSetListener(OnDateSetListener listener) {
+    public CalendarDatePickerDialogFragment setOnDateSetListener(OnDateSetListener listener) {
         mCallBack = listener;
+        return this;
     }
 
-    public void setOnDismissListener(OnDialogDismissListener ondialogdismisslistener) {
+    public CalendarDatePickerDialogFragment setOnDismissListener(OnDialogDismissListener ondialogdismisslistener) {
         mDimissCallback = ondialogdismisslistener;
+        return this;
     }
 
     // If the newly selected month / year does not contain the currently selected day number,

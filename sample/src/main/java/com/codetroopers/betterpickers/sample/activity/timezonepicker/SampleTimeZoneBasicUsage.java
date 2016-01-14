@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.codetroopers.betterpickers.recurrencepicker.EventRecurrence;
-import com.codetroopers.betterpickers.recurrencepicker.RecurrencePickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 import com.codetroopers.betterpickers.timezonepicker.TimeZoneInfo;
@@ -20,45 +18,35 @@ import com.codetroopers.betterpickers.timezonepicker.TimeZonePickerDialogFragmen
 public class SampleTimeZoneBasicUsage extends BaseSampleActivity
         implements TimeZonePickerDialogFragment.OnTimeZoneSetListener {
 
-    private TextView text;
-    private Button button;
-
-    private EventRecurrence mEventRecurrence = new EventRecurrence();
-
+    private TextView mResultTextView;
     private static final String FRAG_TAG_TIME_ZONE_PICKER = "timeZonePickerDialogFragment";
-
-    private String mRrule;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_and_button);
 
-        text = (TextView) findViewById(R.id.text);
-        button = (Button) findViewById(R.id.button);
+        mResultTextView = (TextView) findViewById(R.id.text);
+        Button button = (Button) findViewById(R.id.button);
 
-        text.setText("--");
-        button.setText("Set Time Zone");
+        mResultTextView.setText(R.string.no_value);
+        button.setText(R.string.timezone_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentManager fm = getSupportFragmentManager();
-                Bundle b = new Bundle();
-                Time t = new Time();
-                t.setToNow();
-                b.putLong(TimeZonePickerDialogFragment.BUNDLE_START_TIME_MILLIS, t.toMillis(false));
-                b.putString(TimeZonePickerDialogFragment.BUNDLE_TIME_ZONE, t.timezone);
+                Bundle bundle = new Bundle();
+                Time time = new Time();
+                time.setToNow();
+                bundle.putLong(TimeZonePickerDialogFragment.BUNDLE_START_TIME_MILLIS, time.toMillis(false));
+                bundle.putString(TimeZonePickerDialogFragment.BUNDLE_TIME_ZONE, time.timezone);
 
-                // may be more efficient to serialize and pass in EventRecurrence
-                b.putString(RecurrencePickerDialogFragment.BUNDLE_RRULE, mRrule);
-
-                TimeZonePickerDialogFragment tzpd = (TimeZonePickerDialogFragment) fm
-                        .findFragmentByTag(FRAG_TAG_TIME_ZONE_PICKER);
+                TimeZonePickerDialogFragment tzpd = (TimeZonePickerDialogFragment) fm.findFragmentByTag(FRAG_TAG_TIME_ZONE_PICKER);
                 if (tzpd != null) {
                     tzpd.dismiss();
                 }
                 tzpd = new TimeZonePickerDialogFragment();
-                tzpd.setArguments(b);
+                tzpd.setArguments(bundle);
                 tzpd.setOnTimeZoneSetListener(SampleTimeZoneBasicUsage.this);
                 tzpd.show(fm, FRAG_TAG_TIME_ZONE_PICKER);
             }
@@ -67,6 +55,6 @@ public class SampleTimeZoneBasicUsage extends BaseSampleActivity
 
     @Override
     public void onTimeZoneSet(TimeZoneInfo tzi) {
-        text.setText(tzi.mDisplayName);
+        mResultTextView.setText(tzi.mDisplayName);
     }
 }

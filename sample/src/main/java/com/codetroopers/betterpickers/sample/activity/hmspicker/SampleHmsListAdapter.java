@@ -100,7 +100,7 @@ public class SampleHmsListAdapter extends BaseSampleActivity {
             }
 
             final Hms hms = getItem(position);
-            holder.text.setText("" + hms.hours + "h, " + hms.minutes + "m, " + hms.seconds + "s");
+            holder.text.setText(getString(R.string.hms_picker_result_value_oneline, hms.hours, hms.minutes, hms.seconds));
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

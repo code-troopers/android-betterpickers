@@ -18,18 +18,17 @@ import com.codetroopers.betterpickers.sample.R;
 public class SampleHmsFragment extends Fragment
         implements HmsPickerDialogFragment.HmsPickerDialogHandler {
 
-    private TextView text;
-    private Button button;
+    private TextView mResultTextView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.text_and_button, container, false);
 
-        text = (TextView) view.findViewById(R.id.text);
-        button = (Button) view.findViewById(R.id.button);
+        mResultTextView = (TextView) view.findViewById(R.id.text);
+        Button button = (Button) view.findViewById(R.id.button);
 
-        text.setText("--");
-        button.setText("Set Number");
+        mResultTextView.setText(R.string.no_value);
+        button.setText(R.string.hms_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +45,6 @@ public class SampleHmsFragment extends Fragment
 
     @Override
     public void onDialogHmsSet(int reference, int hours, int minutes, int seconds) {
-        text.setText("" + hours + ":" + minutes + ":" + seconds);
+        mResultTextView.setText(getString(R.string.hms_picker_result_value_multiline, hours, minutes, seconds));
     }
 }

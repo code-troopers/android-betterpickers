@@ -100,6 +100,6 @@ public class SampleTimeMultipleReferences extends BaseSampleActivity
             default:
                 buttonToSet = buttonOne;
         }
-        buttonToSet.setText("" + hourOfDay + ":" + String.format("%02d", minute));
+        buttonToSet.setText(getString(R.string.time_picker_result_value, String.format("%02d", hourOfDay), String.format("%02d", minute)));
     }
 }
