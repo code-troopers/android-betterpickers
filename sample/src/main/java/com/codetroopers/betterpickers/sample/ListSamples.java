@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,9 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.codetroopers.betterpickers.R.*;
-
-public class ListSamples extends ActionBarActivity {
+public class ListSamples extends AppCompatActivity {
 
     public static final String INTENT_PATH = "com.doomonafireball.betterpickers.sample.Path";
     public static final String INTENT_SAMPLE = "com.doomonafireball.betterpickers.sample.SAMPLE";
