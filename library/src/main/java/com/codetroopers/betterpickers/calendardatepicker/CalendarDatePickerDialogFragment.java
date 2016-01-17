@@ -170,7 +170,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         mCalendar.set(Calendar.YEAR, year);
         mCalendar.set(Calendar.MONTH, monthOfYear);
         mCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        mStyleResId = R.style.BetterPickersRadialTimePickerDialog_Light;
+        mStyleResId = R.style.BetterPickersRadialTimePickerDialog_PrimaryColor;
     }
 
     public boolean isThemeDark() {

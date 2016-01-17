@@ -162,7 +162,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         mInitialMinute = minute;
         mIs24HourMode = is24HourMode;
         mInKbMode = false;
-        mStyleResId = R.style.BetterPickersRadialTimePickerDialog_Light;
+        mStyleResId = R.style.BetterPickersRadialTimePickerDialog_PrimaryColor;
     }
 
     /**
