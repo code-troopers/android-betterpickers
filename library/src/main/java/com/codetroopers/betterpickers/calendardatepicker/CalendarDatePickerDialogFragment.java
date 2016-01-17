@@ -144,7 +144,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
 
     public CalendarDatePickerDialogFragment() {
         // Empty constructor required for dialog fragment.
-        mStyleResId = R.style.BetterPickersRadialTimePickerDialog;
+        mStyleResId = R.style.BetterPickersRadialTimePickerDialog_PrimaryColor;
     }
 
     /**
@@ -170,19 +170,31 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         mCalendar.set(Calendar.YEAR, year);
         mCalendar.set(Calendar.MONTH, monthOfYear);
         mCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        mStyleResId = R.style.BetterPickersRadialTimePickerDialog;
+        mStyleResId = R.style.BetterPickersRadialTimePickerDialog_Light;
     }
 
     public boolean isThemeDark() {
         return mStyleResId == R.style.BetterPickersRadialTimePickerDialog_Dark;
     }
 
+    /**
+     * @Deprecated use setThemeDark()
+     */
+    @Deprecated
     public CalendarDatePickerDialogFragment setThemeDark(boolean dark) {
         if (dark) {
             mStyleResId = R.style.BetterPickersRadialTimePickerDialog_Dark;
-        } else {
-            mStyleResId = R.style.BetterPickersRadialTimePickerDialog;
         }
+        return this;
+    }
+
+    public CalendarDatePickerDialogFragment setThemeDark() {
+        mStyleResId = R.style.BetterPickersRadialTimePickerDialog_Dark;
+        return this;
+    }
+
+    public CalendarDatePickerDialogFragment setThemeLight() {
+        mStyleResId = R.style.BetterPickersRadialTimePickerDialog_Light;
         return this;
     }
 
