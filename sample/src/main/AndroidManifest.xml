@@ -425,6 +425,22 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activity.radialtimepicker.SampleRadialTimeForced12hFormat"
+            android:label="Radial Time/Forced 12h Format">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.radialtimepicker.SampleRadialTimeForced24hFormat"
+            android:label="Radial Time/Forced 24h Format">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activity.recurrencepicker.SampleRecurrenceBasicUsage"
             android:label="Recurrence/Basic Usage">
             <intent-filter>

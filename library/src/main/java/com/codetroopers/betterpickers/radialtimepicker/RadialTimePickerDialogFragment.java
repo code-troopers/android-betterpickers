@@ -212,6 +212,16 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         return this;
     }
 
+    public RadialTimePickerDialogFragment setForced24hFormat() {
+        mIs24HourMode = true;
+        return this;
+    }
+
+    public RadialTimePickerDialogFragment setForced12hFormat() {
+        mIs24HourMode = false;
+        return this;
+    }
+
     @Override
     public void onDismiss(DialogInterface dialoginterface) {
         super.onDismiss(dialoginterface);
