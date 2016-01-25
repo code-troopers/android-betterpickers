@@ -23,7 +23,7 @@ Try out the sample application on [Google Play][6].
 
 <a href="https://play.google.com/store/apps/details?id=com.doomonafireball.betterpickers.sample">
   <img alt="BetterPickers Samples on Google Play"
-         src="http://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
+         src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" width="140" />
 </a>
 
 Including in Your Project
