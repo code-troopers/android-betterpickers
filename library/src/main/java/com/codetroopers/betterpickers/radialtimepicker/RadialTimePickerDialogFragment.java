@@ -17,11 +17,13 @@
 package com.codetroopers.betterpickers.radialtimepicker;
 
 import android.app.ActionBar.LayoutParams;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
@@ -157,7 +159,6 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
     public void initialize(OnTimeSetListener callback,
                            int hourOfDay, int minute, boolean is24HourMode) {
         mCallback = callback;
-
         mInitialHourOfDay = hourOfDay;
         mInitialMinute = minute;
         mIs24HourMode = is24HourMode;
@@ -219,6 +220,11 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
 
     public RadialTimePickerDialogFragment setForced12hFormat() {
         mIs24HourMode = false;
+        return this;
+    }
+
+    public RadialTimePickerDialogFragment setAutodetectDateFormat(Context context) {
+        mIs24HourMode = DateFormat.is24HourFormat(context);
         return this;
     }
 
