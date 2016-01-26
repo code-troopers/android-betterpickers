@@ -18,18 +18,17 @@ import com.codetroopers.betterpickers.sample.R;
 public class SampleDateFragment extends Fragment
         implements DatePickerDialogFragment.DatePickerDialogHandler {
 
-    private TextView text;
-    private Button button;
+    private TextView mResultTextView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.text_and_button, container, false);
 
-        text = (TextView) view.findViewById(R.id.text);
-        button = (Button) view.findViewById(R.id.button);
+        mResultTextView = (TextView) view.findViewById(R.id.text);
+        Button button = (Button) view.findViewById(R.id.button);
 
-        text.setText("--");
-        button.setText("Set Date");
+        mResultTextView.setText(R.string.no_value);
+        button.setText(R.string.date_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,6 +46,6 @@ public class SampleDateFragment extends Fragment
 
     @Override
     public void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth) {
-        text.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
+        mResultTextView.setText(getString(R.string.date_picker_result_value, year, monthOfYear, dayOfMonth));
     }
 }

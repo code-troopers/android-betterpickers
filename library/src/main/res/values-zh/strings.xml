@@ -67,9 +67,9 @@
     <!-- Accessibility announcement for the year picker [CHAR LIMIT=NONE] -->
     <string name="select_year">选择年</string>
     <!-- Accessibility description for the item that is currently selected. -->
-    <string name="item_is_selected">%1$已选</string>
+    <string name="item_is_selected">%1$s已选</string>
     <!-- Accessibility announcement when a number that had been typed in is deleted [CHAR_LIMIT=NONE] -->
-    <string name="deleted_key">%1$已删除</string>
+    <string name="deleted_key">%1$s已删除</string>
 
     <!-- DO NOT TRANSLATE -->
     <string name="time_placeholder">--</string>

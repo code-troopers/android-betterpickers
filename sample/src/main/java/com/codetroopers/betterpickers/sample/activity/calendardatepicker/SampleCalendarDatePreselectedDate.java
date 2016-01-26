@@ -9,7 +9,10 @@ import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialo
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
-public class SampleCalendarDateThemeDark extends BaseSampleActivity
+import org.joda.time.DateTime;
+
+
+public class SampleCalendarDatePreselectedDate extends BaseSampleActivity
         implements CalendarDatePickerDialogFragment.OnDateSetListener {
 
     private static final String FRAG_TAG_DATE_PICKER = "fragment_date_picker_name";
@@ -29,8 +32,10 @@ public class SampleCalendarDateThemeDark extends BaseSampleActivity
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                DateTime towDaysAgo = DateTime.now().minusDays(2);
                 CalendarDatePickerDialogFragment cdp = new CalendarDatePickerDialogFragment()
-                        .setThemeDark(true);
+                        .setOnDateSetListener(SampleCalendarDatePreselectedDate.this)
+                        .setPreselectedDate(towDaysAgo.getYear(), towDaysAgo.getMonthOfYear() - 1, towDaysAgo.getDayOfMonth());
                 cdp.show(getSupportFragmentManager(), FRAG_TAG_DATE_PICKER);
             }
         });

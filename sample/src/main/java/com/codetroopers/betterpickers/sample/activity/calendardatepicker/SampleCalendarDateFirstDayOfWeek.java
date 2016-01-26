@@ -9,7 +9,10 @@ import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialo
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
-public class SampleCalendarDateThemeDark extends BaseSampleActivity
+import java.util.Calendar;
+
+
+public class SampleCalendarDateFirstDayOfWeek extends BaseSampleActivity
         implements CalendarDatePickerDialogFragment.OnDateSetListener {
 
     private static final String FRAG_TAG_DATE_PICKER = "fragment_date_picker_name";
@@ -30,7 +33,8 @@ public class SampleCalendarDateThemeDark extends BaseSampleActivity
             @Override
             public void onClick(View v) {
                 CalendarDatePickerDialogFragment cdp = new CalendarDatePickerDialogFragment()
-                        .setThemeDark(true);
+                        .setOnDateSetListener(SampleCalendarDateFirstDayOfWeek.this)
+                        .setFirstDayOfWeek(Calendar.SUNDAY);
                 cdp.show(getSupportFragmentManager(), FRAG_TAG_DATE_PICKER);
             }
         });

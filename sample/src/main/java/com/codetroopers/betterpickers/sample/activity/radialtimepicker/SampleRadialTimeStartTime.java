@@ -9,8 +9,7 @@ import com.codetroopers.betterpickers.radialtimepicker.RadialTimePickerDialogFra
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
-
-public class SampleRadialTimeThemeDark extends BaseSampleActivity
+public class SampleRadialTimeStartTime extends BaseSampleActivity
         implements RadialTimePickerDialogFragment.OnTimeSetListener {
 
     private static final String FRAG_TAG_TIME_PICKER = "timePickerDialogFragment";
@@ -31,8 +30,8 @@ public class SampleRadialTimeThemeDark extends BaseSampleActivity
             @Override
             public void onClick(View v) {
                 RadialTimePickerDialogFragment rtpd = new RadialTimePickerDialogFragment()
-                        .setOnTimeSetListener(SampleRadialTimeThemeDark.this)
-                        .setThemeDark(true);
+                        .setOnTimeSetListener(SampleRadialTimeStartTime.this)
+                        .setStartTime(10, 10);
                 rtpd.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
             }
         });

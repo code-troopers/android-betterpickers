@@ -1,7 +1,11 @@
 
 Changelog
 =========
-**nextRelease**
+**next**
+* Fix UnknownFormatConversionException (#240)
+* 
+
+**2.3.0**
 * Fix numberPicker exception (#230, #220, #183). Add new Handler that return BigDecimal for user entered value
 * Fix CalendarDatePicker Header cutted (#226, #222)
 * Clean unused resources (#229)

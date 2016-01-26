@@ -21,13 +21,10 @@ import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 public class SampleRecurrenceForcedOn extends BaseSampleActivity
         implements RecurrencePickerDialogFragment.OnRecurrenceSetListener {
 
-    private TextView text;
-    private Button button;
-
-    private EventRecurrence mEventRecurrence = new EventRecurrence();
-
     private static final String FRAG_TAG_RECUR_PICKER = "recurrencePickerDialogFragment";
 
+    private TextView mResultTextView;
+    private EventRecurrence mEventRecurrence = new EventRecurrence();
     private String mRrule;
 
     @Override
@@ -35,11 +32,11 @@ public class SampleRecurrenceForcedOn extends BaseSampleActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_and_button);
 
-        text = (TextView) findViewById(R.id.text);
-        button = (Button) findViewById(R.id.button);
+        mResultTextView = (TextView) findViewById(R.id.text);
+        Button button = (Button) findViewById(R.id.button);
 
-        text.setText("--");
-        button.setText("Set Recurrence");
+        mResultTextView.setText(R.string.no_value);
+        button.setText(R.string.recurrence_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +91,6 @@ public class SampleRecurrenceForcedOn extends BaseSampleActivity
             repeatString = EventRecurrenceFormatter.getRepeatString(this, r, mEventRecurrence, true);
         }
 
-        text.setText(mRrule + "\n" + repeatString);
+        mResultTextView.setText(mRrule + "\n" + repeatString);
     }
 }

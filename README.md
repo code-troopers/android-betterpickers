@@ -23,7 +23,7 @@ Try out the sample application on [Google Play][6].
 
 <a href="https://play.google.com/store/apps/details?id=com.doomonafireball.betterpickers.sample">
   <img alt="BetterPickers Samples on Google Play"
-         src="http://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
+         src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" width="140" />
 </a>
 
 Including in Your Project
@@ -31,7 +31,7 @@ Including in Your Project
 ### Gradle
 
 ```groovy
-compile 'com.code-troopers.betterpickers:library:2.2.2'
+compile 'com.code-troopers.betterpickers:library:2.3.0'
 ```
 
 ### Maven
@@ -40,7 +40,7 @@ compile 'com.code-troopers.betterpickers:library:2.2.2'
 <dependency>
   <groupId>com.code-troopers.betterpickers</groupId>
   <artifactId>library</artifactId>
-  <version>2.2.2</version>
+  <version>2.3.0</version>
   <type>aar</type>
 </dependency>
 ```
@@ -56,13 +56,13 @@ Usage
 button.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        FragmentManager fm = getSupportFragmentManager();
-        DateTime now = DateTime.now();
-        CalendarDatePickerDialogFragment calendarDatePickerDialogFragment = CalendarDatePickerDialogFragment
-                .newInstance(SampleCalendarDateBasicUsage.this, now.getYear(), now.getMonthOfYear() - 1, now.getDayOfMonth());
-        calendarDatePickerDialogFragment.setDateRange(new MonthAdapter.CalendarDay(now.getYear(), now.getMonthOfYear() - 2, now.getDayOfMonth()), null);
-        calendarDatePickerDialogFragment.setThemeCustom(R.style.MyCustomBetterPickersRadialTimePickerDialog);
-        calendarDatePickerDialogFragment.show(fm, FRAG_TAG_DATE_PICKER);
+        CalendarDatePickerDialogFragment cdp = new CalendarDatePickerDialogFragment()
+                .setOnDateSetListener(SampleCalendarDateBasicUsage.this)
+                .setFirstDayOfWeek(Calendar.SUNDAY)
+                .setPreselectedDate(towDaysAgo.getYear(), towDaysAgo.getMonthOfYear() - 1, towDaysAgo.getDayOfMonth())
+                .setDateRange(minDate, null)
+                .setThemeDark(true);
+        cdp.show(getSupportFragmentManager(), FRAG_TAG_DATE_PICKER);
     }
 });
 ```
@@ -73,12 +73,11 @@ button.setOnClickListener(new View.OnClickListener() {
 button.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        DateTime now = DateTime.now();
-        RadialTimePickerDialogFragment timePickerDialog = RadialTimePickerDialogFragment
-              .newInstance(SampleRadialTimeBasicUsage.this, now.getHourOfDay(), now.getMinuteOfHour(),
-                      DateFormat.is24HourFormat(SampleRadialTimeBasicUsage.this));
-        timePickerDialog.setThemeCustom(R.style.MyCustomBetterPickersRadialTimePickerDialog);
-        timePickerDialog.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
+        RadialTimePickerDialogFragment rtpd = new RadialTimePickerDialogFragment()
+                .setOnTimeSetListener(SampleRadialTimeBasicUsage.this)
+                .setStartTime(10, 10)
+                .setThemeDark(true);
+        rtpd.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
     }
 });
 ```

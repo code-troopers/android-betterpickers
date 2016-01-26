@@ -43,6 +43,7 @@ import com.nineoldandroids.animation.ObjectAnimator;
 
 import java.text.DateFormatSymbols;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Locale;
 
 /**
@@ -132,13 +133,27 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         public abstract void onDialogDismiss(DialogInterface dialoginterface);
     }
 
+    public RadialTimePickerDialogFragment() {
+        mIs24HourMode = true;
+        Calendar calendar = Calendar.getInstance();
+        mInitialMinute = calendar.get(Calendar.MINUTE);
+        mInitialHourOfDay = calendar.get(Calendar.HOUR_OF_DAY);
+        mInKbMode = false;
+        mStyleResId = R.style.BetterPickersRadialTimePickerDialog;
+    }
+
+    @Deprecated
     public static RadialTimePickerDialogFragment newInstance(OnTimeSetListener callback,
-                                                     int hourOfDay, int minute, boolean is24HourMode) {
+                                                             int hourOfDay, int minute, boolean is24HourMode) {
         RadialTimePickerDialogFragment ret = new RadialTimePickerDialogFragment();
         ret.initialize(callback, hourOfDay, minute, is24HourMode);
         return ret;
     }
 
+    /**
+     * @Deprecated will be removed in next major release use setOnTimeSetListener() and setStartTime()
+     */
+    @Deprecated
     public void initialize(OnTimeSetListener callback,
                            int hourOfDay, int minute, boolean is24HourMode) {
         mCallback = callback;
@@ -153,43 +168,48 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
     /**
      * Set a dark or light theme. NOTE: this will only take effect for the next onCreateView.
      */
-    public void setThemeDark(boolean dark) {
-
+    public RadialTimePickerDialogFragment setThemeDark(boolean dark) {
         if (dark) {
             mStyleResId = R.style.BetterPickersRadialTimePickerDialog_Dark;
         } else {
             mStyleResId = R.style.BetterPickersRadialTimePickerDialog;
         }
+        return this;
     }
 
     /**
      * @param styleResId a style modeled after the styleable "BetterPickersRadialTimePickerDialog".
      *                   There is an example in the android-betterpickers sample under res/values/styles.xml
      */
-    public void setThemeCustom(int styleResId) {
+    public RadialTimePickerDialogFragment setThemeCustom(int styleResId) {
         mStyleResId = styleResId;
+        return this;
     }
 
     public boolean isThemeDark() {
         return mStyleResId == R.style.BetterPickersRadialTimePickerDialog_Dark;
     }
 
-    public void setOnDismissListener(OnDialogDismissListener ondialogdismisslistener) {
+    public RadialTimePickerDialogFragment setOnDismissListener(OnDialogDismissListener ondialogdismisslistener) {
         mDimissCallback = ondialogdismisslistener;
+        return this;
     }
 
-    public void setOnTimeSetListener(OnTimeSetListener callback) {
+    public RadialTimePickerDialogFragment setOnTimeSetListener(OnTimeSetListener callback) {
         mCallback = callback;
+        return this;
     }
 
-    public void setStartTime(int hourOfDay, int minute) {
+    public RadialTimePickerDialogFragment setStartTime(int hourOfDay, int minute) {
         mInitialHourOfDay = hourOfDay;
         mInitialMinute = minute;
         mInKbMode = false;
+        return this;
     }
 
-    public void setDoneText(String text) {
+    public RadialTimePickerDialogFragment setDoneText(String text) {
         mDoneText = text;
+        return this;
     }
 
     @Override

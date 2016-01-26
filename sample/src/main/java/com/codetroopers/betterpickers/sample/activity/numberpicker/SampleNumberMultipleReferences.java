@@ -103,8 +103,6 @@ public class SampleNumberMultipleReferences extends BaseSampleActivity
             default:
                 buttonToSet = buttonOne;
         }
-        buttonToSet.setText(
-                "Number: " + number + "\nDecimal: " + decimal + "\nIs negative: " + isNegative + "\nFull number: "
-                        + fullNumber);
+        buttonToSet.setText(getString(R.string.number_picker_result_value, number, decimal, isNegative, fullNumber));
     }
 }
