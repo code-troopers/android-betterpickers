@@ -361,6 +361,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activity.calendardatepicker.SampleCalendarDateThemeLight"
+            android:label="Calendar Date/Theme Light">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activity.calendardatepicker.SampleCalendarDateThemeCustom"
             android:label="Calendar Date/Theme Custom">
             <intent-filter>
@@ -403,6 +411,14 @@
         <activity
             android:name=".activity.radialtimepicker.SampleRadialTimeThemeDark"
             android:label="Radial Time/Theme Dark">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.radialtimepicker.SampleRadialTimeThemeLight"
+            android:label="Radial Time/Theme Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />

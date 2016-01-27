@@ -14,4 +14,8 @@
     <color name="custom_tp_accent">#536dfe</color>
     <color name="custom_tp_text">#ffffff</color>
     <color name="custom_tp_divider">#808080</color>
+
+
+    <color name="colorPrimary">#dec01a</color>
+    <color name="colorPrimaryDark">#FFBCA211</color>
 </resources>

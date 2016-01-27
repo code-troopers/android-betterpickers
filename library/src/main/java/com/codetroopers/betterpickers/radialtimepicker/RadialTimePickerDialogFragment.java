@@ -141,7 +141,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         mInitialMinute = calendar.get(Calendar.MINUTE);
         mInitialHourOfDay = calendar.get(Calendar.HOUR_OF_DAY);
         mInKbMode = false;
-        mStyleResId = R.style.BetterPickersRadialTimePickerDialog;
+        mStyleResId = R.style.BetterPickersRadialTimePickerDialog_PrimaryColor;
     }
 
     @Deprecated
@@ -163,18 +163,32 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         mInitialMinute = minute;
         mIs24HourMode = is24HourMode;
         mInKbMode = false;
-        mStyleResId = R.style.BetterPickersRadialTimePickerDialog;
+        mStyleResId = R.style.BetterPickersRadialTimePickerDialog_PrimaryColor;
     }
 
     /**
      * Set a dark or light theme. NOTE: this will only take effect for the next onCreateView.
+     *
+     * @Deprecated use setThemeDark()
      */
+    @Deprecated
     public RadialTimePickerDialogFragment setThemeDark(boolean dark) {
         if (dark) {
             mStyleResId = R.style.BetterPickersRadialTimePickerDialog_Dark;
         } else {
-            mStyleResId = R.style.BetterPickersRadialTimePickerDialog;
+            mStyleResId = R.style.BetterPickersRadialTimePickerDialog_Light;
         }
+        return this;
+    }
+
+    public RadialTimePickerDialogFragment setThemeDark() {
+        mStyleResId = R.style.BetterPickersRadialTimePickerDialog_Dark;
+        return this;
+    }
+
+
+    public RadialTimePickerDialogFragment setThemeLight() {
+        mStyleResId = R.style.BetterPickersRadialTimePickerDialog_Light;
         return this;
     }
 

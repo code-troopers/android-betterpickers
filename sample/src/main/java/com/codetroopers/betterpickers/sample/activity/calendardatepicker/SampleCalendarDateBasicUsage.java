@@ -19,7 +19,7 @@ public class SampleCalendarDateBasicUsage extends BaseSampleActivity
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.text_and_button);
+        setContentView(R.layout.text_and_button_colored);
 
         mResultTextView = (TextView) findViewById(R.id.text);
         Button button = (Button) findViewById(R.id.button);

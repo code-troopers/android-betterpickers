@@ -27,5 +27,6 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!--used by switch compat-->
         <item name="colorControlActivated">@color/bpBlue</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
     </style>
 </resources>
