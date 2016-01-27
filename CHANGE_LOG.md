@@ -3,7 +3,7 @@ Changelog
 =========
 **next**
 * Fix UnknownFormatConversionException (#240)
-* 
+* Better autodetect of 12/24h format for radialTimePicker (#244)
 
 **2.3.0**
 * Fix numberPicker exception (#230, #220, #183). Add new Handler that return BigDecimal for user entered value
