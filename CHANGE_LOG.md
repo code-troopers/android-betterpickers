@@ -1,7 +1,7 @@
 
 Changelog
 =========
-**next**
+**2.4.0**
 * Add auto detect and use of primaryColor by default for CalendarDatePicker and RadialDatePicker (#238)
 * Fix UnknownFormatConversionException (#240)
 * Better autodetect of 12/24h format for radialTimePicker (#244)
