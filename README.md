@@ -75,6 +75,7 @@ button.setOnClickListener(new View.OnClickListener() {
     public void onClick(View v) {
         RadialTimePickerDialogFragment rtpd = new RadialTimePickerDialogFragment()
                 .setOnTimeSetListener(SampleRadialTimeBasicUsage.this)
+                .setAutodetectDateFormat(SampleRadialTimeBasicUsage.this);
                 .setStartTime(10, 10)
                 .setThemeDark(true);
         rtpd.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
