@@ -98,7 +98,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
     private boolean mAllowAutoAdvance;
     private int mInitialHourOfDay;
     private int mInitialMinute;
-    private boolean mIs24HourMode;
+    private Boolean mIs24HourMode;
     private int mStyleResId;
 
     // For hardware IME input.
@@ -136,7 +136,6 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
     }
 
     public RadialTimePickerDialogFragment() {
-        mIs24HourMode = true;
         Calendar calendar = Calendar.getInstance();
         mInitialMinute = calendar.get(Calendar.MINUTE);
         mInitialHourOfDay = calendar.get(Calendar.HOUR_OF_DAY);
@@ -237,6 +236,10 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         return this;
     }
 
+    /**
+     * Autodetect is done by default if nothing is specified
+     */
+    @Deprecated
     public RadialTimePickerDialogFragment setAutodetectDateFormat(Context context) {
         mIs24HourMode = DateFormat.is24HourFormat(context);
         return this;
@@ -261,12 +264,15 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
             mIs24HourMode = savedInstanceState.getBoolean(KEY_IS_24_HOUR_VIEW);
             mInKbMode = savedInstanceState.getBoolean(KEY_IN_KB_MODE);
             mStyleResId = savedInstanceState.getInt(KEY_STYLE);
+        } else {
+            if (mIs24HourMode == null) {
+                mIs24HourMode = DateFormat.is24HourFormat(getContext());
+            }
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (getShowsDialog()) {
             getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         }
