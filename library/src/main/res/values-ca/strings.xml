@@ -26,9 +26,9 @@
     <string name="year_c">ANY</string>
 
     <!-- 1.3.1 -->
-    <string name="min_error">Si us plau introdueixi un número més gran o igual a %1$d</string>
-    <string name="max_error">Si us plau introdueixi un número més petit o igual a %1$d</string>
-    <string name="min_max_error">Si us plau introdueixi un número entre %1$d i %2$d</string>
+    <string name="min_error">Si us plau introdueixi un número més gran o igual a %1$s</string>
+    <string name="max_error">Si us plau introdueixi un número més petit o igual a %1$s</string>
+    <string name="min_max_error">Si us plau introdueixi un número entre %1$s i %2$s</string>
 
     <!-- From AOSP -->
     <!-- Label for button to confirm chosen date or time [CHAR LIMIT=30] -->

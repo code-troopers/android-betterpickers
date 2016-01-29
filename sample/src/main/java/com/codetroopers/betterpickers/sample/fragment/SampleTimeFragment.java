@@ -18,18 +18,17 @@ import com.codetroopers.betterpickers.timepicker.TimePickerDialogFragment;
 public class SampleTimeFragment extends Fragment
         implements TimePickerDialogFragment.TimePickerDialogHandler {
 
-    private TextView text;
-    private Button button;
+    private TextView mResultTextView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.text_and_button, container, false);
 
-        text = (TextView) view.findViewById(R.id.text);
-        button = (Button) view.findViewById(R.id.button);
+        mResultTextView = (TextView) view.findViewById(R.id.text);
+        Button button = (Button) view.findViewById(R.id.button);
 
-        text.setText("--");
-        button.setText("Set Time");
+        mResultTextView.setText(R.string.no_value);
+        button.setText(R.string.time_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +45,6 @@ public class SampleTimeFragment extends Fragment
 
     @Override
     public void onDialogTimeSet(int reference, int hourOfDay, int minute) {
-        text.setText("" + hourOfDay + ":" + String.format("%02d", minute));
+        mResultTextView.setText(getString(R.string.time_picker_result_value, String.format("%02d", hourOfDay), String.format("%02d", minute)));
     }
 }

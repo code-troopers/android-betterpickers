@@ -13,6 +13,8 @@ import android.widget.Button;
 
 import com.codetroopers.betterpickers.R;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Vector;
 
 /**
@@ -39,14 +41,16 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private String mLabelText = "";
     private int mDialogBackgroundResId;
 
-    private Integer mMinNumber = null;
-    private Integer mMaxNumber = null;
+    private BigDecimal mMinNumber = null;
+    private BigDecimal mMaxNumber = null;
     private Integer mCurrentNumber = null;
     private Double mCurrentDecimal = null;
     private Integer mCurrentSign = null;
     private int mPlusMinusVisibility = View.VISIBLE;
     private int mDecimalVisibility = View.VISIBLE;
+    @Deprecated
     private Vector<NumberPickerDialogHandler> mNumberPickerDialogHandlers = new Vector<NumberPickerDialogHandler>();
+    private Vector<NumberPickerDialogHandlerV2> mNumberPickerDialogHandlersV2 = new Vector<NumberPickerDialogHandlerV2>();
 
     /**
      * Create an instance of the Picker (used internally)
@@ -60,20 +64,25 @@ public class NumberPickerDialogFragment extends DialogFragment {
      * @param labelText           (optional) text to add as a label
      * @return a Picker!
      */
-    public static NumberPickerDialogFragment newInstance(int reference, int themeResId, Integer minNumber,
-                                                         Integer maxNumber, Integer plusMinusVisibility,
-                                                         Integer decimalVisibility, String labelText,
-                                                         Integer currentNumberValue, Double currentDecimalValue,
+    public static NumberPickerDialogFragment newInstance(int reference,
+                                                         int themeResId,
+                                                         BigDecimal minNumber,
+                                                         BigDecimal maxNumber,
+                                                         Integer plusMinusVisibility,
+                                                         Integer decimalVisibility,
+                                                         String labelText,
+                                                         Integer currentNumberValue,
+                                                         Double currentDecimalValue,
                                                          Integer currentNumberSign) {
         final NumberPickerDialogFragment frag = new NumberPickerDialogFragment();
         Bundle args = new Bundle();
         args.putInt(REFERENCE_KEY, reference);
         args.putInt(THEME_RES_ID_KEY, themeResId);
         if (minNumber != null) {
-            args.putInt(MIN_NUMBER_KEY, minNumber);
+            args.putSerializable(MIN_NUMBER_KEY, minNumber);
         }
         if (maxNumber != null) {
-            args.putInt(MAX_NUMBER_KEY, maxNumber);
+            args.putSerializable(MAX_NUMBER_KEY, maxNumber);
         }
         if (plusMinusVisibility != null) {
             args.putInt(PLUS_MINUS_VISIBILITY_KEY, plusMinusVisibility);
@@ -120,10 +129,10 @@ public class NumberPickerDialogFragment extends DialogFragment {
             mDecimalVisibility = args.getInt(DECIMAL_VISIBILITY_KEY);
         }
         if (args != null && args.containsKey(MIN_NUMBER_KEY)) {
-            mMinNumber = args.getInt(MIN_NUMBER_KEY);
+            mMinNumber = (BigDecimal) args.getSerializable(MIN_NUMBER_KEY);
         }
         if (args != null && args.containsKey(MAX_NUMBER_KEY)) {
-            mMaxNumber = args.getInt(MAX_NUMBER_KEY);
+            mMaxNumber = (BigDecimal) args.getSerializable(MAX_NUMBER_KEY);
         }
         if (args != null && args.containsKey(LABEL_TEXT_KEY)) {
             mLabelText = args.getString(LABEL_TEXT_KEY);
@@ -171,38 +180,46 @@ public class NumberPickerDialogFragment extends DialogFragment {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                double number = mPicker.getEnteredNumber();
-                if (mMinNumber != null && mMaxNumber != null && (number < mMinNumber || number > mMaxNumber)) {
-                    String errorText = String.format(getString(R.string.min_max_error), mMinNumber, mMaxNumber);
+                BigDecimal number = mPicker.getEnteredNumber();
+                if (mMinNumber != null && mMaxNumber != null && (isSmaller(number) || isBigger(number))) {
+                    String errorText = getString(R.string.min_max_error, mMinNumber, mMaxNumber);
                     mPicker.getErrorView().setText(errorText);
                     mPicker.getErrorView().show();
                     return;
-                } else if (mMinNumber != null && number < mMinNumber) {
-                    String errorText = String.format(getString(R.string.min_error), mMinNumber);
+                } else if (mMinNumber != null && isSmaller(number)) {
+                    String errorText = getString(R.string.min_error, mMinNumber);
                     mPicker.getErrorView().setText(errorText);
                     mPicker.getErrorView().show();
                     return;
-                } else if (mMaxNumber != null && number > mMaxNumber) {
-                    String errorText = String.format(getString(R.string.max_error), mMaxNumber);
+                } else if (mMaxNumber != null && isBigger(number)) {
+                    String errorText = getString(R.string.max_error, mMaxNumber);
                     mPicker.getErrorView().setText(errorText);
                     mPicker.getErrorView().show();
                     return;
                 }
                 for (NumberPickerDialogHandler handler : mNumberPickerDialogHandlers) {
-                    handler.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(),
-                            mPicker.getIsNegative(), number);
+                    handler.onDialogNumberSet(mReference, mPicker.getNumber().intValue(), mPicker.getDecimal(), mPicker.getIsNegative(), number.doubleValue());
+                }
+                for (NumberPickerDialogHandlerV2 handler : mNumberPickerDialogHandlersV2) {
+                    handler.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(), mPicker.getIsNegative(), number);
                 }
                 final Activity activity = getActivity();
                 final Fragment fragment = getTargetFragment();
+                //TODO To remove after next main release
                 if (activity instanceof NumberPickerDialogHandler) {
-                    final NumberPickerDialogHandler act =
-                            (NumberPickerDialogHandler) activity;
-                    act.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(),
-                            mPicker.getIsNegative(), number);
+                    final NumberPickerDialogHandler act = (NumberPickerDialogHandler) activity;
+                    act.onDialogNumberSet(mReference, mPicker.getNumber().intValue(), mPicker.getDecimal(), mPicker.getIsNegative(), number.doubleValue());
                 } else if (fragment instanceof NumberPickerDialogHandler) {
                     final NumberPickerDialogHandler frag = (NumberPickerDialogHandler) fragment;
-                    frag.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(),
-                            mPicker.getIsNegative(), number);
+                    frag.onDialogNumberSet(mReference, mPicker.getNumber().intValue(), mPicker.getDecimal(), mPicker.getIsNegative(), number.doubleValue());
+                }
+                //End of to Remove
+                if (activity instanceof NumberPickerDialogHandlerV2) {
+                    final NumberPickerDialogHandlerV2 act = (NumberPickerDialogHandlerV2) activity;
+                    act.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(), mPicker.getIsNegative(), number);
+                } else if (fragment instanceof NumberPickerDialogHandlerV2) {
+                    final NumberPickerDialogHandlerV2 frag = (NumberPickerDialogHandlerV2) fragment;
+                    frag.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(), mPicker.getIsNegative(), number);
                 }
                 dismiss();
             }
@@ -226,11 +243,24 @@ public class NumberPickerDialogFragment extends DialogFragment {
         return view;
     }
 
+    private boolean isBigger(BigDecimal number) {
+        return number.compareTo(mMaxNumber) > 0;
+    }
+
+    private boolean isSmaller(BigDecimal number) {
+        return number.compareTo(mMinNumber) < 0;
+    }
+
     /**
      * This interface allows objects to register for the Picker's set action.
      */
-    public interface NumberPickerDialogHandler {
+    public interface NumberPickerDialogHandlerV2 {
+        void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber);
+    }
 
+    @Deprecated
+    public interface NumberPickerDialogHandler {
+        @Deprecated
         void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber);
     }
 
@@ -239,7 +269,12 @@ public class NumberPickerDialogFragment extends DialogFragment {
      *
      * @param handlers a Vector of handlers
      */
+    @Deprecated
     public void setNumberPickerDialogHandlers(Vector<NumberPickerDialogHandler> handlers) {
-        mNumberPickerDialogHandlers = handlers;
+        this.mNumberPickerDialogHandlers = handlers;
+    }
+
+    public void setNumberPickerDialogHandlersV2(Vector<NumberPickerDialogHandlerV2> handlers) {
+        this.mNumberPickerDialogHandlersV2 = handlers;
     }
 }

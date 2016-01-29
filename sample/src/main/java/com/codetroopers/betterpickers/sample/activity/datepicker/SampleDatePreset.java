@@ -11,28 +11,27 @@ import com.codetroopers.betterpickers.datepicker.DatePickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
-/**
- * User: derek Date: 3/17/13 Time: 3:59 PM
- */
+
 public class SampleDatePreset extends BaseSampleActivity implements DatePickerDialogFragment.DatePickerDialogHandler {
 
-    private EditText month, date, year;
-    private TextView text;
-    private Button button;
+    private EditText month;
+    private EditText date;
+    private EditText year;
+    private TextView mResultTextView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.date_preset);
 
-        text = (TextView) findViewById(R.id.text);
-        button = (Button) findViewById(R.id.button);
+        mResultTextView = (TextView) findViewById(R.id.text);
+        Button button = (Button) findViewById(R.id.button);
         month = (EditText) findViewById(R.id.month);
         date = (EditText) findViewById(R.id.date);
         year = (EditText) findViewById(R.id.year);
 
-        text.setText("--");
-        button.setText("Set Date");
+        mResultTextView.setText(R.string.no_value);
+        button.setText(R.string.date_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +66,6 @@ public class SampleDatePreset extends BaseSampleActivity implements DatePickerDi
 
     @Override
     public void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth) {
-        text.setText("Year: " + year + "\nMonth: " + monthOfYear + "\nDay: " + dayOfMonth);
+        mResultTextView.setText(getString(R.string.date_picker_result_value, year, monthOfYear, dayOfMonth));
     }
 }

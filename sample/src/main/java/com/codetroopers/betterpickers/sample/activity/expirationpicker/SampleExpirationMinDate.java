@@ -4,43 +4,41 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import com.codetroopers.betterpickers.expirationpicker.ExpirationPickerBuilder;
 import com.codetroopers.betterpickers.expirationpicker.ExpirationPickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
-/**
- * @author Yuki Nishijima
- */
+
 public class SampleExpirationMinDate extends BaseSampleActivity implements ExpirationPickerDialogFragment.ExpirationPickerDialogHandler {
 
-    private TextView text;
-    private Button button;
+    private TextView mResultTextView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_and_button);
 
-        text = (TextView) findViewById(R.id.text);
-        button = (Button) findViewById(R.id.button);
+        mResultTextView = (TextView) findViewById(R.id.text);
+        Button button = (Button) findViewById(R.id.button);
 
-        text.setText("--");
-        button.setText("Set Expiration");
+        mResultTextView.setText(R.string.no_value);
+        button.setText(R.string.expiration_picker_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ExpirationPickerBuilder dpb = new ExpirationPickerBuilder()
+                ExpirationPickerBuilder epb = new ExpirationPickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
                         .setStyleResId(R.style.BetterPickersDialogFragment)
                         .setMinYear(2000);
-                dpb.show();
+                epb.show();
             }
         });
     }
 
     @Override
     public void onDialogExpirationSet(int reference, int year, int monthOfYear) {
-        text.setText(String.format("%02d/%d", monthOfYear, year));
+        mResultTextView.setText(getString(R.string.expiration_picker_result_value, String.format("%02d", monthOfYear), year));
     }
 }

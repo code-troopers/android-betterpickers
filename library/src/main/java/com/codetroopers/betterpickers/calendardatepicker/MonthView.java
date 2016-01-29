@@ -451,12 +451,11 @@ public abstract class MonthView extends View {
     }
 
     private String getMonthAndYearString() {
-        int flags = DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR
-                | DateUtils.FORMAT_NO_MONTH_DAY;
+        int flags = DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR | DateUtils.FORMAT_NO_MONTH_DAY;
         mStringBuilder.setLength(0);
         long millis = mCalendar.getTimeInMillis();
-        return DateUtils.formatDateRange(getContext(), mFormatter, millis, millis, flags,
-                Time.getCurrentTimezone()).toString();
+        String monthTitle = DateUtils.formatDateRange(getContext(), mFormatter, millis, millis, flags, Time.getCurrentTimezone()).toString();
+        return monthTitle.substring(0, 1).toUpperCase() + monthTitle.substring(1).toLowerCase();
     }
 
     private void drawMonthTitle(Canvas canvas) {

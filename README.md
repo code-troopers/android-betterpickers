@@ -6,22 +6,24 @@
 
 
 <img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_calendar_date.png" width="120">
+<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_radial_time.png" width="120">
+<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_recurrence.png" width="120">
+<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_time_zone.png" width="120">
+
 <img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_date.png" width="120">
 <img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_expiration.png" width="120">
 <img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_hms.png" width="120">
 <img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_number.png" width="120">
-<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_radial_time.png" width="120">
-<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_recurrence.png" width="120">
 <img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_time.png" width="120">
-<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_time_zone.png" width="120">
+
 
 DialogFragments modeled after the AOSP Clock and Calendar apps to improve UX for picking time, date, numbers, and other things.
 
 Try out the sample application on [Google Play][6].
 
-<a href="https://play.google.com/store/apps/details?id=com.doomonafireball.betterpickers.sample">
+<a href="https://play.google.com/store/apps/details?id=com.codetroopers.betterpickersapp">
   <img alt="BetterPickers Samples on Google Play"
-         src="http://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
+         src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" width="140" />
 </a>
 
 Including in Your Project
@@ -29,7 +31,7 @@ Including in Your Project
 ### Gradle
 
 ```groovy
-compile 'com.code-troopers.betterpickers:library:2.2.2'
+compile 'com.code-troopers.betterpickers:library:2.4.0'
 ```
 
 ### Maven
@@ -38,7 +40,7 @@ compile 'com.code-troopers.betterpickers:library:2.2.2'
 <dependency>
   <groupId>com.code-troopers.betterpickers</groupId>
   <artifactId>library</artifactId>
-  <version>2.2.2</version>
+  <version>2.4.0</version>
   <type>aar</type>
 </dependency>
 ```
@@ -48,32 +50,155 @@ Usage
 
 *For a working implementation of this project see the `sample/` folder.*
 
-  1. Implement the appropriate Handler callbacks:
+### Calendar Date Picker
 
-  ```java
-  public class MyActivity extends Activity implements 
-    DatePickerDialogFragment.DatePickerDialogHandler {
+```java
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        CalendarDatePickerDialogFragment cdp = new CalendarDatePickerDialogFragment()
+                .setOnDateSetListener(SampleCalendarDateBasicUsage.this)
+                .setFirstDayOfWeek(Calendar.SUNDAY)
+                .setPreselectedDate(towDaysAgo.getYear(), towDaysAgo.getMonthOfYear() - 1, towDaysAgo.getDayOfMonth())
+                .setDateRange(minDate, null)
+                .setThemeDark(true);
+        cdp.show(getSupportFragmentManager(), FRAG_TAG_DATE_PICKER);
+    }
+});
+```
+
+### Radial Time Picker
+
+```java
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        RadialTimePickerDialogFragment rtpd = new RadialTimePickerDialogFragment()
+                .setOnTimeSetListener(SampleRadialTimeBasicUsage.this)
+                .setStartTime(10, 10)
+                .setThemeDark(true);
+        rtpd.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
+    }
+});
+```
+ 
+### Recurrence Picker
+
+```java
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        FragmentManager fm = getSupportFragmentManager();
+        Bundle bundle = new Bundle();
+        Time time = new Time();
+        time.setToNow();
+        bundle.putLong(RecurrencePickerDialogFragment.BUNDLE_START_TIME_MILLIS, time.toMillis(false));
+        bundle.putString(RecurrencePickerDialogFragment.BUNDLE_TIME_ZONE, time.timezone);
+        bundle.putString(RecurrencePickerDialogFragment.BUNDLE_RRULE, mRrule);
+        bundle.putBoolean(RecurrencePickerDialogFragment.BUNDLE_HIDE_SWITCH_BUTTON, true);
+        
+        RecurrencePickerDialogFragment rpd = new RecurrencePickerDialogFragment();
+        rpd.setArguments(bundle);
+        rpd.setOnRecurrenceSetListener(SampleRecurrenceBasicUsage.this);
+        rpd.show(fm, FRAG_TAG_RECUR_PICKER);
+    }
+});
+```
+
+### Timezone Picker
+
+```java
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        FragmentManager fm = getSupportFragmentManager();
+        Bundle bundle = new Bundle();
+        Time time = new Time();
+        time.setToNow();
+        bundle.putLong(TimeZonePickerDialogFragment.BUNDLE_START_TIME_MILLIS, time.toMillis(false));
+        bundle.putString(TimeZonePickerDialogFragment.BUNDLE_TIME_ZONE, time.timezone);
+        bundle.putString(RecurrencePickerDialogFragment.BUNDLE_RRULE, mRrule);
+        
+        TimeZonePickerDialogFragment tzpd = new TimeZonePickerDialogFragment();
+        tzpd.setArguments(bundle);
+        tzpd.setOnTimeZoneSetListener(SampleTimeZoneBasicUsage.this);
+        tzpd.show(fm, FRAG_TAG_TIME_ZONE_PICKER);
+    }
+});
+```
+
+### Date Picker
+
+```java
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        DatePickerBuilder dpb = new DatePickerBuilder()
+                .setFragmentManager(getSupportFragmentManager())
+                .setStyleResId(R.style.BetterPickersDialogFragment)
+                .setYearOptional(true);
+        dpb.show();
+    }
+});
+```
   
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-      // ...
-    }
-    
-    @Override
-    public void onDialogDateSet(int year, int monthOfYear, int dayOfMonth) {
-      // Do something with your date!
-    }
-  }
-  ```
+### Expiration Picker
 
-  2. Use one of the Builder classes to create a PickerDialog with a theme:
+```java
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        ExpirationPickerBuilder epb = new ExpirationPickerBuilder()
+                  .setFragmentManager(getSupportFragmentManager())
+                  .setStyleResId(R.style.BetterPickersDialogFragment) 
+                  .setMinYear(2000);
+        epb.show();
+    }
+});
+```
+ 
+### HMS Picker
 
-  ```java
-  DatePickerBuilder dpb = new DatePickerBuilder()
-      .setFragmentManager(getSupportFragmentManager())
-      .setStyleResId(R.style.BetterPickersDialogFragment);
-  dpb.show();
-  ```
+```java
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        HmsPickerBuilder hpb = new HmsPickerBuilder()
+                .setFragmentManager(getSupportFragmentManager())
+                .setStyleResId(R.style.BetterPickersDialogFragment);
+        hpb.show();
+    }
+});
+```
+
+### Number Picker
+
+```java
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        NumberPickerBuilder npb = new NumberPickerBuilder()
+                .setFragmentManager(getSupportFragmentManager())
+                .setStyleResId(R.style.BetterPickersDialogFragment)
+                .setLabelText("LBS.");
+        npb.show();
+}
+});
+```
+
+### Time Picker
+
+```java
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        TimePickerBuilder tpb = new TimePickerBuilder()
+                .setFragmentManager(getSupportFragmentManager())
+                .setStyleResId(R.style.BetterPickersDialogFragment);
+        tpb.show();
+    }
+});
+```
 
 Theming
 =======

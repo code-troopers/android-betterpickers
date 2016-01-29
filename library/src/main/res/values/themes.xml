@@ -28,6 +28,21 @@
     <style name="BetterPickersRadialTimePickerDialog">
         <item name="bpMainColor1">@color/bpWhite</item>
         <item name="bpMainColor2">@color/circle_background</item>
+        <item name="bpMainTextColor">@color/numbers_text_color</item>
+        <item name="bpDoneTextColor">@color/done_text_color_normal</item>
+        <item name="bpDoneBackgroundColor">@drawable/done_background_color</item>
+        <item name="bpSelectionAlpha">51</item>
+    </style>
+
+    <style name="BetterPickersRadialTimePickerDialog.PrimaryColor">
+        <item name="bpAccentColor">?attr/colorPrimary</item>
+        <item name="bpTitleColor">?attr/colorPrimary</item>
+        <item name="bpLineColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="BetterPickersRadialTimePickerDialog.Light">
+        <item name="bpMainColor1">@color/bpWhite</item>
+        <item name="bpMainColor2">@color/circle_background</item>
         <item name="bpAccentColor">@color/bpBlue</item>
         <item name="bpMainTextColor">@color/numbers_text_color</item>
         <item name="bpDoneTextColor">@color/done_text_color_normal</item>
@@ -35,6 +50,7 @@
         <item name="bpDoneBackgroundColor">@drawable/done_background_color</item>
         <item name="bpSelectionAlpha">51</item>
     </style>
+
     <style name="BetterPickersRadialTimePickerDialog.Dark">
         <item name="bpMainColor1">@color/bpDark_gray</item>
         <item name="bpMainColor2">@color/bpLight_gray</item>
