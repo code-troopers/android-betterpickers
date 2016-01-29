@@ -1,3 +1,4 @@
+apply plugin: 'android-sdk-manager' //see #248
 apply plugin: 'com.android.application'
 apply from: 'https://raw.githubusercontent.com/shamanland/gradle-mvn-push/master/gradle-mvn-push.gradle' //contains fix for javadoc issues
 
