@@ -157,9 +157,13 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
 
         @Override
         public void writeToParcel(Parcel dest, int flags) {
-            calendarTimeInMillis = calendar.getTimeInMillis();
+            if (calendar != null) {
+                calendarTimeInMillis = calendar.getTimeInMillis();
+            }
             dest.writeLong(calendarTimeInMillis);
-            timeInMillis = time.toMillis(false);
+            if (time != null) {
+                timeInMillis = time.toMillis(false);
+            }
 
             dest.writeInt(year);
             dest.writeInt(month);
@@ -326,7 +330,7 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
             return false;
         }
         return mController.getDisabledDays()
-                .indexOfKey(Utils.formatDisabledDayForKey(day.year, day.month, day.day)) > 0;
+                .indexOfKey(Utils.formatDisabledDayForKey(day.year, day.month, day.day)) >= 0;
     }
 
     /**
