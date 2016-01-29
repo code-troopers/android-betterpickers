@@ -21,7 +21,7 @@ DialogFragments modeled after the AOSP Clock and Calendar apps to improve UX for
 
 Try out the sample application on [Google Play][6].
 
-<a href="https://play.google.com/store/apps/details?id=com.doomonafireball.betterpickers.sample">
+<a href="https://play.google.com/store/apps/details?id=com.codetroopers.betterpickersapp">
   <img alt="BetterPickers Samples on Google Play"
          src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" width="140" />
 </a>
