@@ -24,6 +24,20 @@
         <item name="bpSelectionAlpha">102</item>
     </style>
 
+    <!-- We're just overriding the disabled day color here -->
+    <style name="MyCustomBetterPickersDisabledDaysTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="bpMainColor1">@color/bpWhite</item>
+        <item name="bpMainColor2">@color/circle_background</item>
+        <item name="bpAccentColor">@color/bpBlue</item>
+        <item name="bpMainTextColor">@color/numbers_text_color</item>
+        <item name="bpDoneTextColor">@color/done_text_color_normal</item>
+        <item name="bpLineColor">@color/bpLine_background</item>
+        <item name="bpDoneBackgroundColor">@drawable/done_background_color</item>
+        <item name="bpDisabledDayColor">@color/custom_tp_disabled_day</item>
+        <item name="bpDisabledDayTextColor">@color/circle_background</item>
+        <item name="bpSelectionAlpha">51</item>
+    </style>
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!--used by switch compat-->
         <item name="colorControlActivated">@color/bpBlue</item>

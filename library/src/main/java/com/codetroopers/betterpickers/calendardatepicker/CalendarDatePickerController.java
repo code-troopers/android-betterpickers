@@ -16,6 +16,8 @@
 
 package com.codetroopers.betterpickers.calendardatepicker;
 
+import android.util.SparseArray;
+
 import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialogFragment.OnDateChangedListener;
 import com.codetroopers.betterpickers.calendardatepicker.MonthAdapter.CalendarDay;
 
@@ -39,6 +41,8 @@ interface CalendarDatePickerController {
     CalendarDay getMinDate();
 
     CalendarDay getMaxDate();
+
+    SparseArray<CalendarDay> getDisabledDays();
 
     void tryVibrate();
 }

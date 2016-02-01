@@ -44,6 +44,8 @@
         <attr name="bpDoneTextColor" format="color"/>
         <attr name="bpLineColor" format="color"/>
         <attr name="bpDoneBackgroundColor" format="color"/>
+        <attr name="bpDisabledDayColor" format="color"/>
+        <attr name="bpDisabledDayTextColor" format="color"/>
         <attr name="bpSelectionAlpha" format="integer"/>
     </declare-styleable>
 

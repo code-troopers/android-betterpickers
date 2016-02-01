@@ -21,10 +21,12 @@ import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.text.format.DateUtils;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -70,6 +72,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
     private static final String KEY_CURRENT_VIEW = "current_view";
     private static final String KEY_LIST_POSITION_OFFSET = "list_position_offset";
     private static final String KEY_THEME = "theme";
+    private static final String KEY_DISABLED_DAYS = "disabled_days";
 
     private static final CalendarDay DEFAULT_START_DATE = new CalendarDay(1900, Calendar.JANUARY, 1);
     private static final CalendarDay DEFAULT_END_DATE = new CalendarDay(2100, Calendar.DECEMBER, 31);
@@ -99,8 +102,9 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
     private int mCurrentView = UNINITIALIZED;
     private int mWeekStart = mCalendar.getFirstDayOfWeek();
     private CalendarDay mMinDate = DEFAULT_START_DATE;
-
     private CalendarDay mMaxDate = DEFAULT_END_DATE;
+
+    private SparseArray<CalendarDay> mDisabledDays;
 
     private HapticFeedbackController mHapticFeedbackController;
 
@@ -241,6 +245,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
             outState.putInt(KEY_LIST_POSITION_OFFSET, mYearPickerView.getFirstPositionOffset());
         }
         outState.putInt(KEY_LIST_POSITION, listPosition);
+        outState.putSparseParcelableArray(KEY_DISABLED_DAYS, mDisabledDays);
     }
 
     @Override
@@ -272,6 +277,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
             listPosition = savedInstanceState.getInt(KEY_LIST_POSITION);
             listPositionOffset = savedInstanceState.getInt(KEY_LIST_POSITION_OFFSET);
             mStyleResId = savedInstanceState.getInt(KEY_THEME);
+            mDisabledDays = savedInstanceState.getSparseParcelableArray(KEY_DISABLED_DAYS);
         }
 
         final Activity activity = getActivity();
@@ -488,6 +494,21 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         return this;
     }
 
+    /**
+     * Sets a map of disabled days to declare as unselectable by the user. These days can be styled
+     * in a different way than the currently selected day
+     *
+     * @param disabledDays sparse array of key date int (yyyyMMdd) to a calendar day object
+     * @throws IllegalArgumentException in case the end date is smaller than the start date
+     */
+    public void setDisabledDays(@NonNull SparseArray<CalendarDay> disabledDays) {
+        mDisabledDays = disabledDays;
+
+        if (mDayPickerView != null) {
+            mDayPickerView.onChange();
+        }
+    }
+
     public CalendarDatePickerDialogFragment setOnDateSetListener(OnDateSetListener listener) {
         mCallBack = listener;
         return this;
@@ -567,6 +588,11 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
     @Override
     public CalendarDay getMaxDate() {
         return mMaxDate;
+    }
+
+    @Override
+    public SparseArray<CalendarDay> getDisabledDays() {
+        return mDisabledDays;
     }
 
     @Override

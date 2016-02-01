@@ -27,12 +27,14 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.widget.ExploreByTouchHelper;
 import android.text.format.DateFormat;
 import android.text.format.DateUtils;
 import android.text.format.Time;
+import android.util.SparseArray;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
@@ -118,6 +120,7 @@ public abstract class MonthView extends View {
     protected static final int MAX_NUM_ROWS = 6;
 
     private static final int SELECTED_CIRCLE_ALPHA = 60;
+    private static final int DISABLED_DAY_SQUARE_ALPHA = 60;
 
     protected static int DAY_SEPARATOR_WIDTH = 1;
     protected static int MINI_DAY_NUMBER_TEXT_SIZE;
@@ -139,6 +142,7 @@ public abstract class MonthView extends View {
     protected Paint mMonthTitlePaint;
     protected Paint mMonthTitleBGPaint;
     protected Paint mSelectedCirclePaint;
+    protected Paint mDisabledDaySquarePaint;
     protected Paint mMonthDayLabelPaint;
 
     private final Formatter mFormatter;
@@ -162,6 +166,8 @@ public abstract class MonthView extends View {
     protected boolean mHasToday = false;
     // Which day is selected [0-6] or -1 if no day is selected
     protected int mSelectedDay = -1;
+    // Which days are disabled in the view so that they are unselectable
+    protected SparseArray<CalendarDay> mDisabledDays;
     // Which day is today [0-6] or -1 if no day is today
     protected int mToday = DEFAULT_SELECTED_DAY;
     // Which day of the week to start on [0-6]
@@ -192,6 +198,7 @@ public abstract class MonthView extends View {
     protected int mDayTextColorEnabled;
     protected int mDayTextColorDisabled;
     protected int mTodayNumberColor;
+    protected int mDisabledDayColor;
     protected int mMonthTitleColor;
     protected int mMonthTitleBGColor;
 
@@ -208,6 +215,7 @@ public abstract class MonthView extends View {
         mDayTextColorEnabled = res.getColor(R.color.date_picker_text_normal);
         mDayTextColorDisabled = res.getColor(R.color.date_picker_text_disabled);
         mTodayNumberColor = res.getColor(R.color.bpBlue);
+        mDisabledDayColor = res.getColor(R.color.bpDarker_red);
         mMonthTitleColor = res.getColor(R.color.date_picker_text_normal);
         mMonthTitleBGColor = res.getColor(R.color.circle_background);
 
@@ -236,7 +244,8 @@ public abstract class MonthView extends View {
     public void setTheme(TypedArray themeColors) {
         mMonthTitleBGColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainColor2, R.color.circle_background);
         mTodayNumberColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpAccentColor, R.color.bpBlue);
-        mDayTextColorDisabled = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainTextColor, R.color.ampm_text_color);
+        mDisabledDayColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpDisabledDayColor, R.color.bpDarker_red);
+        mDayTextColorDisabled = themeColors.getColor(R.styleable.BetterPickersDialog_bpDisabledDayTextColor, R.color.ampm_text_color);
         mMonthTitleColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainTextColor, R.color.ampm_text_color);
 
         initView();
@@ -305,6 +314,14 @@ public abstract class MonthView extends View {
         mSelectedCirclePaint.setTextAlign(Align.CENTER);
         mSelectedCirclePaint.setStyle(Style.FILL);
         mSelectedCirclePaint.setAlpha(SELECTED_CIRCLE_ALPHA);
+
+        mDisabledDaySquarePaint = new Paint();
+        mDisabledDaySquarePaint.setFakeBoldText(true);
+        mDisabledDaySquarePaint.setAntiAlias(true);
+        mDisabledDaySquarePaint.setColor(mDisabledDayColor);
+        mDisabledDaySquarePaint.setTextAlign(Align.CENTER);
+        mDisabledDaySquarePaint.setStyle(Style.FILL);
+        mDisabledDaySquarePaint.setAlpha(DISABLED_DAY_SQUARE_ALPHA);
 
         mMonthDayLabelPaint = new Paint();
         mMonthDayLabelPaint.setAntiAlias(true);
@@ -397,6 +414,10 @@ public abstract class MonthView extends View {
         mTouchHelper.invalidateRoot();
     }
 
+    public void setDisabledDays(@NonNull SparseArray<CalendarDay> disabledDays) {
+        mDisabledDays = disabledDays;
+    }
+
     public void reuse() {
         mNumRows = DEFAULT_NUM_ROWS;
         requestLayout();
@@ -477,7 +498,11 @@ public abstract class MonthView extends View {
             int startY = y - yRelativeToDay;
             int stopY = startY + mRowHeight;
 
-            drawMonthDay(canvas, mYear, mMonth, dayNumber, x, y, startX, stopX, startY, stopY, isDayInRange(dayNumber));
+            int disabledDayKey = Utils.formatDisabledDayForKey(mYear, mMonth, dayNumber);
+            // A day is enabled if it is in range and is not explicitly set as disabled
+            boolean dayIsEnabled = isDayInRange(dayNumber)
+                    && (mDisabledDays != null && mDisabledDays.indexOfKey(disabledDayKey) < 0);
+            drawMonthDay(canvas, mYear, mMonth, dayNumber, x, y, startX, stopX, startY, stopY, dayIsEnabled);
 
             j++;
             if (j == mNumDays) {

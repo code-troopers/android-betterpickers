@@ -138,4 +138,15 @@ public class Utils {
 
         return pulseAnimator;
     }
+
+    /**
+     * Return key formatted for sparse array of disabled days
+     * @param year year
+     * @param month month
+     * @param day day
+     * @return key as int formatted as yyyyMMdd
+     */
+    public static int formatDisabledDayForKey(int year, int month, int day) {
+        return year*10000 + month*100 + day;
+    }
 }
