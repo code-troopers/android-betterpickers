@@ -1,6 +1,10 @@
 
 Changelog
 =========
+**2.x.x**
+* Improve auto detect for 12/24h date format for radialTimePicker (#246)
+* Add Feature to set disabled (non selectable) dates in calendarDatePicker (#223)
+* 
 **2.4.0**
 * Add auto detect and use of primaryColor by default for CalendarDatePicker and RadialDatePicker (#238)
 * Fix UnknownFormatConversionException (#240)
