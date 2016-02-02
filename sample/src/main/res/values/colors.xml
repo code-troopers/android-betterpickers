@@ -15,7 +15,6 @@
     <color name="custom_tp_text">#ffffff</color>
     <color name="custom_tp_divider">#808080</color>
 
-    <color name="custom_tp_disabled_day">#f44336</color>
     <color name="colorPrimary">#dec01a</color>
     <color name="colorPrimaryDark">#FFBCA211</color>
 </resources>

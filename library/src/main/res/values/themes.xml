@@ -32,6 +32,8 @@
         <item name="bpDoneTextColor">@color/done_text_color_normal</item>
         <item name="bpDoneBackgroundColor">@drawable/done_background_color</item>
         <item name="bpSelectionAlpha">51</item>
+        <item name="bpDisabledDayColor">@color/bp_disabled_day</item>
+        <item name="bpDisabledDayTextColor">@color/circle_background</item>
     </style>
 
     <style name="BetterPickersRadialTimePickerDialog.PrimaryColor">

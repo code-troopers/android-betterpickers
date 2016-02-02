@@ -385,7 +385,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codetroopers.betterpickers.sample.activity.calendardatepicker.SampleCalendarDateDisabledDays"
+            android:name="com.codetroopers.betterpickers.sample.activity.calendardatepicker.SampleCalendarDateRangeAndDisabledDays"
             android:label="Calendar Date/Range Min and Max with Disabled Days">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -501,12 +501,13 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
      * @param disabledDays sparse array of key date int (yyyyMMdd) to a calendar day object
      * @throws IllegalArgumentException in case the end date is smaller than the start date
      */
-    public void setDisabledDays(@NonNull SparseArray<CalendarDay> disabledDays) {
+    public CalendarDatePickerDialogFragment setDisabledDays(@NonNull SparseArray<CalendarDay> disabledDays) {
         mDisabledDays = disabledDays;
 
         if (mDayPickerView != null) {
             mDayPickerView.onChange();
         }
+        return this;
     }
 
     public CalendarDatePickerDialogFragment setOnDateSetListener(OnDateSetListener listener) {

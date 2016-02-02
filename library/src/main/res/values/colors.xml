@@ -28,6 +28,8 @@
     <color name="bpBlue">#33b5e5</color>
     <color name="bpBlue_focused">#c1e8f7</color>
     <color name="bpDarker_blue">#0099cc</color>
+    <color name="bp_disabled_day">#f44336</color>
+
 
     <color name="neutral_pressed">#33999999</color>
     <color name="date_picker_text_normal">#ff999999</color>
