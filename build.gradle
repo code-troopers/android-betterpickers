@@ -25,4 +25,5 @@ allprojects {
         mavenLocal()
         mavenCentral()
     }
+    apply plugin: 'android-sdk-manager' //see #248
 }
