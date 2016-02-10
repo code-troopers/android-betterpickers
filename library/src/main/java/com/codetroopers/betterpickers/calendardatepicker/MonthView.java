@@ -473,7 +473,7 @@ public abstract class MonthView extends View {
             int x = (2 * i + 1) * dayWidthHalf + mPadding;
             mDayLabelCalendar.set(Calendar.DAY_OF_WEEK, calendarDay);
             canvas.drawText(mDayLabelCalendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT,
-                            Locale.getDefault()).toUpperCase(Locale.getDefault()), x, y,
+                    Locale.getDefault()).toUpperCase(Locale.getDefault()), x, y,
                     mMonthDayLabelPaint);
         }
     }
@@ -500,8 +500,10 @@ public abstract class MonthView extends View {
 
             int disabledDayKey = Utils.formatDisabledDayForKey(mYear, mMonth, dayNumber);
             // A day is enabled if it is in range and is not explicitly set as disabled
-            boolean dayIsEnabled = isDayInRange(dayNumber)
-                    && (mDisabledDays != null && mDisabledDays.indexOfKey(disabledDayKey) < 0);
+            boolean dayIsEnabled = true;
+            if (mDisabledDays != null) {
+                dayIsEnabled = isDayInRange(dayNumber) && mDisabledDays.indexOfKey(disabledDayKey) < 0;
+            }
             drawMonthDay(canvas, mYear, mMonth, dayNumber, x, y, startX, stopX, startY, stopY, dayIsEnabled);
 
             j++;
@@ -519,17 +521,17 @@ public abstract class MonthView extends View {
     /**
      * This method should draw the month day.  Implemented by sub-classes to allow customization.
      *
-     * @param canvas The canvas to draw on
-     * @param year   The year of this month day
-     * @param month  The month of this month day
-     * @param day    The day number of this month day
-     * @param x      The default x position to draw the day number
-     * @param y      The default y position to draw the day number
-     * @param startX The left boundary of the day number rect
-     * @param stopX  The right boundary of the day number rect
-     * @param startY The top boundary of the day number rect
-     * @param stopY  The bottom boundary of the day number rect
-     * @param stopY The bottom boundary of the day number rect
+     * @param canvas    The canvas to draw on
+     * @param year      The year of this month day
+     * @param month     The month of this month day
+     * @param day       The day number of this month day
+     * @param x         The default x position to draw the day number
+     * @param y         The default y position to draw the day number
+     * @param startX    The left boundary of the day number rect
+     * @param stopX     The right boundary of the day number rect
+     * @param startY    The top boundary of the day number rect
+     * @param stopY     The bottom boundary of the day number rect
+     * @param stopY     The bottom boundary of the day number rect
      * @param isEnabled The flag to show if the day should look enabled or not
      */
     public abstract void drawMonthDay(Canvas canvas, int year, int month, int day,

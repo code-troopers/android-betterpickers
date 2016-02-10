@@ -1,6 +1,9 @@
 
 Changelog
 =========
+**2.5.next**
+* Fix day dates not visible in CalendarDatePicker (#252)
+
 **2.5.0**
 * Improve auto detect for 12/24h date format for radialTimePicker (#246)
 * Add Feature to set disabled (non selectable) dates in calendarDatePicker (#223)
