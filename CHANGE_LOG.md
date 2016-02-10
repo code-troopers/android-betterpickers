@@ -3,6 +3,7 @@ Changelog
 =========
 **2.5.next**
 * Fix day dates not visible in CalendarDatePicker (#252)
+* Fix Fragment restoration for NumberPicker (#254)
 
 **2.5.0**
 * Improve auto detect for 12/24h date format for radialTimePicker (#246)
