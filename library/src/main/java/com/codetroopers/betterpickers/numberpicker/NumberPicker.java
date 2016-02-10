@@ -602,15 +602,25 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         private SavedState(Parcel in) {
             super(in);
             mInputPointer = in.readInt();
-            in.readIntArray(mInput);
+            int size = in.readInt();
+            if (size > 0) {
+                mInput = new int[size];
+                in.readIntArray(mInput);
+            }
             mSign = in.readInt();
         }
+
 
         @Override
         public void writeToParcel(Parcel dest, int flags) {
             super.writeToParcel(dest, flags);
             dest.writeInt(mInputPointer);
-            dest.writeIntArray(mInput);
+            if (mInput != null) {
+                dest.writeInt(mInput.length);
+                dest.writeIntArray(mInput);
+            } else {
+                dest.writeInt(0);
+            }
             dest.writeInt(mSign);
         }
 
