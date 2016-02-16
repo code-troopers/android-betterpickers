@@ -1,6 +1,9 @@
 
 Changelog
 =========
+**2.5.next**
+* Fix Chinese translations (#256)
+
 **2.5.1**
 * Fix day dates not visible in CalendarDatePicker (#252)
 * Fix Fragment restoration for NumberPicker (#254)
