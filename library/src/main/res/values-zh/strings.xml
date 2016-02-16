@@ -155,7 +155,7 @@
     </plurals>
     <!-- A label in a multiple-choice list for the specifying that an event
          repeats every weekday (Monday through Friday) -->
-    <string name="every_weekday">"Every weekday (Mon\u2013Fri)"</string>
+    <string name="every_weekday">"每个工作日 (周一\u2013周五)"</string>
     <!-- A description for an event that repeats weekly on some day of the week. For example,
          'Weekly on Tuesday' or Every 2 weeks on Monday, Tuesday.  [CHAR LIMIT=25]-->
     <plurals name="weekly">

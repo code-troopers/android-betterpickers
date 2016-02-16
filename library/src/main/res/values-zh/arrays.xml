@@ -3,6 +3,7 @@
 
     <!-- Recurrence picker: How events are to be repeated.  [CHAR LIMIT = 20] -->
     <string-array name="recurrence_freq">
+        <item>按小时重复</item>
         <item>按天重复</item>
         <item>按星期重复</item>
         <item>按月份重复</item>
@@ -16,11 +17,11 @@
      -->
     <!-- Repeat a monthly event on the same nth day of every Sunday. [CHAR LIMIT=30] -->
     <string-array name="repeat_by_nth_sun">
-        <item >每月第一个周末</item>
-        <item >每月第二个周末</item>
-        <item >每月第三个周末</item>
-        <item >每月第四个周末</item>
-        <item >每月最后一个周末</item>
+        <item >每月第一个周日</item>
+        <item >每月第二个周日</item>
+        <item >每月第三个周日</item>
+        <item >每月第四个周日</item>
+        <item >每月最后一个周日</item>
      
     </string-array>
     <!-- Repeat a monthly event on the same nth day of every Monday. [CHAR LIMIT=30] -->
