@@ -3,6 +3,7 @@ Changelog
 =========
 **2.5.next**
 * Fix Chinese translations (#256)
+* Fix aapt error (#261)
 
 **2.5.1**
 * Fix day dates not visible in CalendarDatePicker (#252)
