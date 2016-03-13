@@ -31,7 +31,7 @@ Including in Your Project
 ### Gradle
 
 ```groovy
-compile 'com.code-troopers.betterpickers:library:2.5.1'
+compile 'com.code-troopers.betterpickers:library:2.5.2'
 ```
 
 ### Maven
@@ -40,7 +40,7 @@ compile 'com.code-troopers.betterpickers:library:2.5.1'
 <dependency>
   <groupId>com.code-troopers.betterpickers</groupId>
   <artifactId>library</artifactId>
-  <version>2.5.1</version>
+  <version>2.5.2</version>
   <type>aar</type>
 </dependency>
 ```
