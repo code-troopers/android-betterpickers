@@ -1,7 +1,7 @@
 
 Changelog
 =========
-**2.5.next**
+**2.5.2**
 * Fix Chinese translations (#256)
 * Fix aapt error (#261)
 * Update roboto font (#258)
