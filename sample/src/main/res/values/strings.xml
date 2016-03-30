@@ -25,4 +25,6 @@
     <string name="number_picker_result_value">Number: %1$s\nDecimal: %2$s\nIs negative: %3$b\nFull number: %4$s</string>
     <string name="colorprimary_text">Here is colorPrimary</string>
 
+    <string name="button_label_custom_ok">Okay</string>
+    <string name="button_label_custom_cancel">Nop</string>
 </resources>

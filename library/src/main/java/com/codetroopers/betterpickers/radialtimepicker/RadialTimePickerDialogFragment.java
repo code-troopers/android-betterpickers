@@ -94,6 +94,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
     private String mAmText;
     private String mPmText;
     private String mDoneText;
+    private String mCancelText;
 
     private boolean mAllowAutoAdvance;
     private int mInitialHourOfDay;
@@ -226,6 +227,11 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         return this;
     }
 
+    public RadialTimePickerDialogFragment setCancelText(String text) {
+        mCancelText = text;
+        return this;
+    }
+
     public RadialTimePickerDialogFragment setForced24hFormat() {
         mIs24HourMode = true;
         return this;
@@ -355,6 +361,9 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         mDoneButton.setOnKeyListener(keyboardListener);
 
         Button cancelButton = (Button) view.findViewById(R.id.cancel_button);
+        if (mCancelText != null) {
+            cancelButton.setText(mCancelText);
+        }
         cancelButton.setTextColor(mSelectedColor);
         cancelButton.setOnClickListener(new OnClickListener() {
 

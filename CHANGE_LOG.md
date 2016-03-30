@@ -1,6 +1,9 @@
 
 Changelog
 =========
+**2.5.next**
+* Add setter for changing cancel button label of RadialDatePicker (#266) 
+
 **2.5.2**
 * Fix Chinese translations (#256)
 * Fix aapt error (#261)

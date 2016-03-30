@@ -31,6 +31,8 @@ public class SampleRadialTimeThemeCustom extends BaseSampleActivity
             public void onClick(View v) {
                 RadialTimePickerDialogFragment rtpd = new RadialTimePickerDialogFragment()
                         .setOnTimeSetListener(SampleRadialTimeThemeCustom.this)
+                        .setCancelText(getString(R.string.button_label_custom_cancel))
+                        .setDoneText(getString(R.string.button_label_custom_ok))
                         .setThemeCustom(R.style.MyCustomBetterPickersRadialTimePickerDialog);
                 rtpd.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
             }
