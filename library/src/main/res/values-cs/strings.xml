@@ -162,12 +162,12 @@
     </plurals>
     <!-- A label in a multiple-choice list for the specifying that an event
          repeats every weekday (Monday through Friday) -->
-    <string name="every_weekday">"Každý pracovní den (Mon\u2013Fri)"</string>
+    <string name="every_weekday">"Každý pracovní den (Po\u2013Pá)"</string>
     <!-- A description for an event that repeats weekly on some day of the week. For example,
          'Weekly on Tuesday' or Every 2 weeks on Monday, Tuesday.  [CHAR LIMIT=25]-->
     <plurals name="weekly">
         <item quantity="one">Týdně <xliff:g id="days_of_week">%2$s</xliff:g></item>
-        <item quantity="few">Každé <xliff:g id="days_of_week">%2$s</xliff:g> týdny v <xliff:g id="days_of_week">%2$s</xliff:g></item>
+        <item quantity="few">Každé <xliff:g id="number">%1$d</xliff:g> týdny v <xliff:g id="days_of_week">%2$s</xliff:g></item>
         <item quantity="other">Každé <xliff:g id="number">%1$d</xliff:g> týdny v <xliff:g id="days_of_week">%2$s</xliff:g></item>
     </plurals>
     <!-- The common portion of a string describing how often an event repeats,
