@@ -72,17 +72,17 @@
     <string name="deleted_key">%1$s deleted</string>
 
     <!-- DO NOT TRANSLATE -->
-    <string name="time_placeholder">--</string>
+    <string name="time_placeholder" translatable="false">--</string>
     <!-- DO NOT TRANSLATE -->
-    <string name="time_separator">:</string>
+    <string name="time_separator" translatable="false">:</string>
 
     <!-- DO NOT TRANSLATE -->
-    <string name="radial_numbers_typeface">sans-serif</string>
+    <string name="radial_numbers_typeface" translatable="false">sans-serif</string>
     <!-- DO NOT TRANSLATE -->
-    <string name="sans_serif">sans-serif</string>
+    <string name="sans_serif" translatable="false">sans-serif</string>
 
     <!-- DO NOT TRANSLATE -->
-    <string name="day_of_week_label_typeface">sans-serif</string>
+    <string name="day_of_week_label_typeface" translatable="false">sans-serif</string>
 
     <!-- Repeat an monthly event on the same day of every month [CHAR LIMIT=20] -->
     <string name="recurrence_month_pattern_by_day">on the same day each month</string>

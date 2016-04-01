@@ -71,19 +71,6 @@
     <!-- Accessibility announcement when a number that had been typed in is deleted [CHAR_LIMIT=NONE] -->
     <string name="deleted_key">%1$s smazáno</string>
 
-    <!-- DO NOT TRANSLATE -->
-    <string name="time_placeholder">--</string>
-    <!-- DO NOT TRANSLATE -->
-    <string name="time_separator">:</string>
-
-    <!-- DO NOT TRANSLATE -->
-    <string name="radial_numbers_typeface">sans-serif</string>
-    <!-- DO NOT TRANSLATE -->
-    <string name="sans_serif">sans-serif</string>
-
-    <!-- DO NOT TRANSLATE -->
-    <string name="day_of_week_label_typeface">sans-serif</string>
-
     <!-- Repeat an monthly event on the same day of every month [CHAR LIMIT=20] -->
     <string name="recurrence_month_pattern_by_day">stejný den každý měsíc</string>
 
