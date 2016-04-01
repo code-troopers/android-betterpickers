@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Recurrence picker: How events are to be repeated.  [CHAR LIMIT = 20] -->
+    <string-array name="recurrence_freq">
+        <item>OPAKOVAT PO HODINĚ</item>
+        <item>OPAKOVAT DENNĚ</item>
+        <item>OPAKOVAT TÝDNĚ</item>
+        <item>OPAKOVAT MĚSÍČNĚ</item>
+        <item>OAPKOVAT ROČNĚ</item>
+    </string-array>
+
+    <!-- The following sets of strings describe a monthly recurring event, which will repeat
+         on the Nth WEEKDAY of every month. For example, the 3rd Monday of every month, or
+         the poslední Sunday. These are set up like this to resolve any gender-matching issues
+         that were present in some languages.
+     -->
+    <!-- Repeat a monthly event on the same nth day of every Sunday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_sun">
+        <item >každou první neděli</item>
+        <item >každou druhou neděli</item>
+        <item >každou třetí neděli</item>
+        <item >každou čtvrtou neděli</item>
+        <item >každou poslední neděli</item>
+    </string-array>
+    <!-- Repeat a monthly event on the same nth day of every Monday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_mon">
+        <item >každé první pondělí</item>
+        <item >každé druhé pondělí</item>
+        <item >každé třetí pondělí</item>
+        <item >každé čtvrté pondělí</item>
+        <item >každé poslední pondělí</item>
+    </string-array>
+    <!-- Repeat a monthly event on the same nth day of every Tuesday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_tues">
+        <item >každé první úterý</item>
+        <item >každé druhé úterý</item>
+        <item >každé třetí úterý</item>
+        <item >každé čtvrté úterý</item>
+        <item >každé poslední úterý</item>
+    </string-array>
+    <!-- Repeat a monthly event on the same nth day of every Wednesday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_wed">
+        <item >každou první středu</item>
+        <item >každou druhou středu</item>
+        <item >každou třetí středu</item>
+        <item >každou čtvrtou středu</item>
+        <item >každou poslední středu</item>
+    </string-array>
+    <!-- Repeat a monthly event on the same nth day of every Thursday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_thurs">
+        <item >každý první čtvrtek</item>
+        <item >každý druhý čtvrtek</item>
+        <item >každý třetí čtvrtek</item>
+        <item >každý čtvrtý čtvrtek</item>
+        <item >každý poslední čtvrtek</item>
+    </string-array>
+    <!-- Repeat a monthly event on the same nth day of every Friday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_fri">
+        <item >každý první pátek</item>
+        <item >každý druhý pátek</item>
+        <item >každý třetí pátek</item>
+        <item >každý čtvrtý pátek</item>
+        <item >každý poslední pátek</item>
+    </string-array>
+    <!-- Repeat a monthly event on the same nth day of every Saturday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_sat">
+        <item >každou první sobotu</item>
+        <item >každou druhou sobotu</item>
+        <item >každou třetí sobotu</item>
+        <item >každou čtvrtou sobotu</item>
+        <item >každou poslední sobotu</item>
+    </string-array>
+
+    <!--
+        Timezone IDs for the time zones that we want to override the display strings.
+        ALWAYS ADD NEW ENTRIES AT THE END. Othewise the entries after the insertion point will
+        not match for languages that didn't get the translations.
+    -->
+    <string-array name="timezone_rename_ids" translatable="false">
+
+        <!-- Australia -->
+        <item>"Australia/Darwin"</item>
+        <item>"Australia/Adelaide"</item>
+        <item>"Australia/Brisbane"</item>
+        <item>"Australia/Sydney"</item>
+
+        <!-- Canada -->
+        <!-- Non DST version -->
+        <item>"America/Dawson_Creek"</item>
+        <!-- Non DST version -->
+        <item>"America/Regina"</item>
+        <!-- Non DST version -->
+        <item>"America/Atikokan"</item>
+        <!-- Non DST version -->
+        <item>"America/Blanc-Sablon"</item>
+
+        <!-- US -->
+        <!-- Non DST version -->
+        <item>"Pacific/Honolulu"</item>
+        <!-- DST version -->
+        <item>"America/Adak"</item>
+        <!-- Non DST version -->
+        <item>"America/Metlakatla"</item>
+        <!-- Non DST version -->
+        <item>"America/Phoenix"</item>
+
+        <!-- Mexico -->
+        <!-- DST version with post-2006 US rule -->
+        <item>"America/Tijuana"</item>
+        <!-- DST version with post-2006 US rule -->
+        <item>"America/Ojinaga"</item>
+        <!-- DST version with post-2006 US rule -->
+        <item>"America/Matamoros"</item>
+        <!-- Non DST version -->
+        <item>"America/Hermosillo"</item>
+
+        <!-- Other time zones with missing labels from the framework -->
+        <!-- Missing string in ICS -->
+        <item>"Africa/Juba"</item>
+        <!-- Missing string in ICS -->
+        <item>"America/Kralendijk"</item>
+        <!-- Missing string in ICS -->
+        <item>"America/Lower_Princes"</item>
+        <!-- Only had GMT as the display string -->
+        <item>"Europe/Minsk"</item>
+        <!-- Only had GMT as the display string -->
+        <item>"Europe/Kaliningrad"</item>
+
+        <!-- Brazil -->
+        <!-- Non DST version -->
+        <item>"America/Porto_Velho"</item>
+        <!-- Non DST version -->
+        <item>"America/Belem"</item>
+    </string-array>
+
+    <!--
+        Replacement display strings for time zones. The order should match the entries in
+        timezone_rename_ids
+        ALWAYS ADD NEW ENTRIES AT THE END. Othewise the array will not be the same size until
+        all the translations are available. [CHAR LIMIT=32]
+    -->
+    <string-array name="timezone_rename_labels">
+
+        <!-- Australia -->
+        <item>"Středoaustralský čas - NT"</item>
+        <item>"Středoaustralský čas - SA"</item>
+        <item>"Východoaustralský čas - QLD"</item>
+        <item>"Východoaustralský čas - NSW"</item>
+
+        <!-- Canada -->
+        <item>"Horský standardní - Dawson Creek"</item>
+        <item>"Centrální standardní - Saskat…"</item>
+        <item>"Východní standardní - Atikokan"</item>
+        <item>"Atlantický standardní - Quebec"</item>
+
+        <!-- US -->
+        <item>"Hawajsko-Aleutský - Hawaii"</item>
+        <item>"Hawajsko-Aleutský - Alaska"</item>
+        <item>"Pacifický standardní - Metlak…"</item>
+        <item>"Horský standardní - Arizona"</item>
+
+        <!-- Mexico -->
+        <item>"Pacifický - Baja California"</item>
+        <item>"Horský - Chihuahua"</item>
+        <item>"Centrální - Tamaulipas"</item>
+        <item>"Horský - Sonora"</item>
+
+        <!-- Other countries with missing or undesirable labels from the framework -->
+        <item>"Východoafrický čas"</item>
+        <item>"Atlantic Standard Time"</item>
+        <item>"Atlantic Standard Time"</item>
+        <item>"Východoevropský čas"</item>
+        <item>"Kaliningrad Time"</item>
+
+        <!-- Brazil -->
+        <!-- Non DST version of Amazon Standard Time -->
+        <item>"Amazon - Rondônia"</item>
+        <!-- Non DST version of Brasilia Standard Time -->
+        <item>"Brasilia - Pará"</item>
+    </string-array>
+
+    <!--
+        Country codes
+        The order should match the entries in backup_country_names
+        ALWAYS ADD NEW ENTRIES AT THE END. Othewise the entries after the insertion point will
+        not match for languages that didn't get the translations.
+    -->
+    <string-array name="backup_country_codes" translatable="false">
+        <item>"SX"</item>
+        <item>"BQ"</item>
+        <item>"CW"</item>
+        <item>"SS"</item>
+    </string-array>
+
+    <!--
+        Display strings for country names. Used only if framework doesn't have translated
+        country names. The order should match the entries in backup_country_codes
+        ALWAYS ADD NEW ENTRIES AT THE END. Othewise the array will not be the same size until
+        all the translations are available. [CHAR LIMIT=32]
+    -->
+    <string-array name="backup_country_names">
+        <item>"Sint Maarten"</item>
+        <item>"Caribbean Netherlands"</item>
+        <item>"Curaçao"</item>
+        <item>"South Sudan"</item>
+    </string-array>
+</resources>
