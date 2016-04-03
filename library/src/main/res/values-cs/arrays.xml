@@ -7,7 +7,7 @@
         <item>OPAKOVAT DENNĚ</item>
         <item>OPAKOVAT TÝDNĚ</item>
         <item>OPAKOVAT MĚSÍČNĚ</item>
-        <item>OAPKOVAT ROČNĚ</item>
+        <item>OPAKOVAT ROČNĚ</item>
     </string-array>
 
     <!-- The following sets of strings describe a monthly recurring event, which will repeat
