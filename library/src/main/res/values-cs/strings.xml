@@ -92,7 +92,7 @@
     <!-- Strings to describe how frequently to repeat an event (e.g. every 5 days) -->
     <plurals name="recurrence_interval_daily">
         <!-- Singular form [CHAR LIMIT=30] -->
-        <item quantity="one">Každý den</item>
+        <item quantity="one">Každý <xliff:g id="count">%d</xliff:g>. den</item>
         <item quantity="few">Každý <xliff:g id="count">%d</xliff:g>. den</item>
         <!-- Plural form [CHAR LIMIT=30] -->
         <item quantity="other">Každý <xliff:g id="count">%d</xliff:g>. den</item>
@@ -100,7 +100,7 @@
     <!-- Strings to describe how frequently to repeat an event (e.g. every 5 weeks) -->
     <plurals name="recurrence_interval_weekly">
         <!-- Singular form [CHAR LIMIT=30] -->
-        <item quantity="one">Každý týden</item>
+        <item quantity="one">Každý <xliff:g id="count">%d</xliff:g>. týden</item>
         <item quantity="few">Každý <xliff:g id="count">%d</xliff:g>. týden</item>
         <!-- Plural form [CHAR LIMIT=30] -->
         <item quantity="other">Každý <xliff:g id="count">%d</xliff:g>. týden</item>
@@ -108,7 +108,7 @@
     <!-- Strings to describe how frequently to repeat an event (e.g. every 5 months) -->
     <plurals name="recurrence_interval_monthly">
         <!-- Singular form [CHAR LIMIT=30] -->
-        <item quantity="one">Každý měsíc</item>
+        <item quantity="one">Každý <xliff:g id="count">%d</xliff:g>. měsíc</item>
         <item quantity="few">Každý <xliff:g id="count">%d</xliff:g>. měsíc</item>
         <!-- Plural form [CHAR LIMIT=30] -->
         <item quantity="other">Každý <xliff:g id="count">%d</xliff:g>. měsíc</item>
@@ -116,7 +116,7 @@
     <!-- Strings to describe how frequently to repeat an event (e.g. every 5 years) -->
     <plurals name="recurrence_interval_yearly">
         <!-- Singular form [CHAR LIMIT=30] -->
-        <item quantity="one">Každý rok</item>
+        <item quantity="one">Každý <xliff:g id="count">%d</xliff:g>. rok</item>
         <item quantity="few">Každý <xliff:g id="count">%d</xliff:g>. rok</item>
         <!-- Plural form [CHAR LIMIT=30] -->
         <item quantity="other">Každý <xliff:g id="count">%d</xliff:g>. rok</item>
