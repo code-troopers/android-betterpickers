@@ -103,6 +103,8 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
     private int mWeekStart = mCalendar.getFirstDayOfWeek();
     private CalendarDay mMinDate = DEFAULT_START_DATE;
     private CalendarDay mMaxDate = DEFAULT_END_DATE;
+    private String mDoneText;
+    private String mCancelText;
 
     private SparseArray<CalendarDay> mDisabledDays;
 
@@ -214,6 +216,17 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         return this;
     }
 
+    public CalendarDatePickerDialogFragment setDoneText(String text) {
+        mDoneText = text;
+        return this;
+    }
+
+    public CalendarDatePickerDialogFragment setCancelText(String text) {
+        mCancelText = text;
+        return this;
+    }
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -307,6 +320,9 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         mAnimator.setOutAnimation(animation2);
 
         Button doneButton = (Button) view.findViewById(R.id.done_button);
+        if (mDoneText != null) {
+            doneButton.setText(mDoneText);
+        }
         doneButton.setTextColor(mSelectedColor);
         doneButton.setOnClickListener(new OnClickListener() {
 
@@ -321,6 +337,9 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
             }
         });
         Button cancelButton = (Button) view.findViewById(R.id.cancel_button);
+        if (mCancelText != null) {
+            cancelButton.setText(mCancelText);
+        }
         cancelButton.setTextColor(mSelectedColor);
         cancelButton.setOnClickListener(new OnClickListener() {
 

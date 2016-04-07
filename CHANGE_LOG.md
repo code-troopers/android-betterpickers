@@ -3,6 +3,7 @@ Changelog
 =========
 **2.5.next**
 * Add setter for changing cancel button label of RadialDatePicker (#266) 
+* Add setter for changing ok and cancel button label of CalendarDatePicker (#268) 
 
 **2.5.2**
 * Fix Chinese translations (#256)

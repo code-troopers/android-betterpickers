@@ -61,6 +61,8 @@ button.setOnClickListener(new View.OnClickListener() {
                 .setFirstDayOfWeek(Calendar.SUNDAY)
                 .setPreselectedDate(towDaysAgo.getYear(), towDaysAgo.getMonthOfYear() - 1, towDaysAgo.getDayOfMonth())
                 .setDateRange(minDate, null)
+                .setDoneText("Yay")
+                .setCancelText("Nop")
                 .setThemeDark(true);
         cdp.show(getSupportFragmentManager(), FRAG_TAG_DATE_PICKER);
     }
@@ -76,6 +78,8 @@ button.setOnClickListener(new View.OnClickListener() {
         RadialTimePickerDialogFragment rtpd = new RadialTimePickerDialogFragment()
                 .setOnTimeSetListener(SampleRadialTimeBasicUsage.this)
                 .setStartTime(10, 10)
+                .setDoneText("Yay")
+                .setCancelText("Nop")
                 .setThemeDark(true);
         rtpd.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
     }
