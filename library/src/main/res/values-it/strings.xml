@@ -70,17 +70,4 @@
     <string name="item_is_selected">%1$s selezionato</string>
     <!-- Accessibility announcement when a number that had been typed in is deleted [CHAR_LIMIT=NONE] -->
     <string name="deleted_key">%1$s eliminato</string>
-
-    <!-- DO NOT TRANSLATE -->
-    <string name="time_placeholder">--</string>
-    <!-- DO NOT TRANSLATE -->
-    <string name="time_separator">:</string>
-
-    <!-- DO NOT TRANSLATE -->
-    <string name="radial_numbers_typeface">sans-serif</string>
-    <!-- DO NOT TRANSLATE -->
-    <string name="sans_serif">sans-serif</string>
-
-    <!-- DO NOT TRANSLATE -->
-    <string name="day_of_week_label_typeface">sans-serif</string>
 </resources>

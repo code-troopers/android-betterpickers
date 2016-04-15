@@ -3,73 +3,73 @@
 
     <!-- Recurrence picker: How events are to be repeated.  [CHAR LIMIT = 20] -->
     <string-array name="recurrence_freq">
-        <item>STÜNDLICH WIEDERHOLEN</item>
-        <item>TÄGLICH WIEDERHOLEN</item>
-        <item>WÖCHENTLICH WIEDERHOLEN</item>
-        <item>MONATLICH WIEDERHOLEN</item>
-        <item>JÄHRLICH WIEDERHOLEN</item>
+        <item>OPAKOVAT PO HODINĚ</item>
+        <item>OPAKOVAT DENNĚ</item>
+        <item>OPAKOVAT TÝDNĚ</item>
+        <item>OPAKOVAT MĚSÍČNĚ</item>
+        <item>OPAKOVAT ROČNĚ</item>
     </string-array>
 
     <!-- The following sets of strings describe a monthly recurring event, which will repeat
          on the Nth WEEKDAY of every month. For example, the 3rd Monday of every month, or
-         the last Sunday. These are set up like this to resolve any gender-matching issues
+         the poslední Sunday. These are set up like this to resolve any gender-matching issues
          that were present in some languages.
      -->
     <!-- Repeat a monthly event on the same nth day of every Sunday. [CHAR LIMIT=30] -->
     <string-array name="repeat_by_nth_sun">
-        <item >jeden ersten Sonntag</item>
-        <item >jeden zweiten Sonntag</item>
-        <item >jeden dritten Sonntag</item>
-        <item >jeden vierten Sonntag</item>
-        <item >jeden letzten Sonntag</item>
+        <item >každou první neděli</item>
+        <item >každou druhou neděli</item>
+        <item >každou třetí neděli</item>
+        <item >každou čtvrtou neděli</item>
+        <item >každou poslední neděli</item>
     </string-array>
     <!-- Repeat a monthly event on the same nth day of every Monday. [CHAR LIMIT=30] -->
     <string-array name="repeat_by_nth_mon">
-        <item >jeden ersten Montag</item>
-        <item >jeden zweiten Montag</item>
-        <item >jeden dritten Montag</item>
-        <item >jeden vierten Montag</item>
-        <item >jeden letzten Montag</item>
+        <item >každé první pondělí</item>
+        <item >každé druhé pondělí</item>
+        <item >každé třetí pondělí</item>
+        <item >každé čtvrté pondělí</item>
+        <item >každé poslední pondělí</item>
     </string-array>
     <!-- Repeat a monthly event on the same nth day of every Tuesday. [CHAR LIMIT=30] -->
     <string-array name="repeat_by_nth_tues">
-        <item >jeden ersten Dienstag</item>
-        <item >jeden zweiten Dienstag</item>
-        <item >jeden dritten Dienstag</item>
-        <item >jeden vierten Dienstag</item>
-        <item >jeden letzten Dienstag</item>
+        <item >každé první úterý</item>
+        <item >každé druhé úterý</item>
+        <item >každé třetí úterý</item>
+        <item >každé čtvrté úterý</item>
+        <item >každé poslední úterý</item>
     </string-array>
     <!-- Repeat a monthly event on the same nth day of every Wednesday. [CHAR LIMIT=30] -->
     <string-array name="repeat_by_nth_wed">
-        <item >jeden ersten Mittwoch</item>
-        <item >jeden zweiten Mittwoch</item>
-        <item >jeden dritten Mittwoch</item>
-        <item >jeden vierten Mittwoch</item>
-        <item >jeden letzten Mittwoch</item>
+        <item >každou první středu</item>
+        <item >každou druhou středu</item>
+        <item >každou třetí středu</item>
+        <item >každou čtvrtou středu</item>
+        <item >každou poslední středu</item>
     </string-array>
     <!-- Repeat a monthly event on the same nth day of every Thursday. [CHAR LIMIT=30] -->
     <string-array name="repeat_by_nth_thurs">
-        <item >jeden ersten Donnerstag</item>
-        <item >jeden zweiten Donnerstag</item>
-        <item >jeden dritten Donnerstag</item>
-        <item >jeden vierten Donnerstag</item>
-        <item >jeden letzten Donnerstag</item>
+        <item >každý první čtvrtek</item>
+        <item >každý druhý čtvrtek</item>
+        <item >každý třetí čtvrtek</item>
+        <item >každý čtvrtý čtvrtek</item>
+        <item >každý poslední čtvrtek</item>
     </string-array>
     <!-- Repeat a monthly event on the same nth day of every Friday. [CHAR LIMIT=30] -->
     <string-array name="repeat_by_nth_fri">
-        <item >jeden ersten Freitag</item>
-        <item >jeden zweiten Freitag</item>
-        <item >jeden dritten Freitag</item>
-        <item >jeden vierten Freitag</item>
-        <item >jeden letzten Freitag</item>
+        <item >každý první pátek</item>
+        <item >každý druhý pátek</item>
+        <item >každý třetí pátek</item>
+        <item >každý čtvrtý pátek</item>
+        <item >každý poslední pátek</item>
     </string-array>
     <!-- Repeat a monthly event on the same nth day of every Saturday. [CHAR LIMIT=30] -->
     <string-array name="repeat_by_nth_sat">
-        <item >jeden ersten Samstag</item>
-        <item >jeden zweiten Samstag</item>
-        <item >jeden dritten Samstag</item>
-        <item >jeden vierten Samstag</item>
-        <item >jeden letzten Samstag</item>
+        <item >každou první sobotu</item>
+        <item >každou druhou sobotu</item>
+        <item >každou třetí sobotu</item>
+        <item >každou čtvrtou sobotu</item>
+        <item >každou poslední sobotu</item>
     </string-array>
 
     <!--
@@ -80,58 +80,58 @@
     <string-array name="timezone_rename_ids" translatable="false">
 
         <!-- Australia -->
-        <item>"Australien/Darwin"</item>
-        <item>"Australien/Adelaide"</item>
-        <item>"Australien/Brisbane"</item>
-        <item>"Australien/Sydney"</item>
+        <item>"Australia/Darwin"</item>
+        <item>"Australia/Adelaide"</item>
+        <item>"Australia/Brisbane"</item>
+        <item>"Australia/Sydney"</item>
 
         <!-- Canada -->
         <!-- Non DST version -->
-        <item>"Amerika/Dawson_Creek"</item>
+        <item>"America/Dawson_Creek"</item>
         <!-- Non DST version -->
-        <item>"Amerika/Regina"</item>
+        <item>"America/Regina"</item>
         <!-- Non DST version -->
-        <item>"Amerika/Atikokan"</item>
+        <item>"America/Atikokan"</item>
         <!-- Non DST version -->
-        <item>"Amerika/Blanc-Sablon"</item>
+        <item>"America/Blanc-Sablon"</item>
 
         <!-- US -->
         <!-- Non DST version -->
-        <item>"Pazifik/Honolulu"</item>
+        <item>"Pacific/Honolulu"</item>
         <!-- DST version -->
-        <item>"Amerika/Adak"</item>
+        <item>"America/Adak"</item>
         <!-- Non DST version -->
-        <item>"Amerika/Metlakatla"</item>
+        <item>"America/Metlakatla"</item>
         <!-- Non DST version -->
-        <item>"Amerika/Phoenix"</item>
+        <item>"America/Phoenix"</item>
 
         <!-- Mexico -->
         <!-- DST version with post-2006 US rule -->
-        <item>"Amerika/Tijuana"</item>
+        <item>"America/Tijuana"</item>
         <!-- DST version with post-2006 US rule -->
-        <item>"Amerika/Ojinaga"</item>
+        <item>"America/Ojinaga"</item>
         <!-- DST version with post-2006 US rule -->
-        <item>"Amerika/Matamoros"</item>
+        <item>"America/Matamoros"</item>
         <!-- Non DST version -->
-        <item>"Amerika/Hermosillo"</item>
+        <item>"America/Hermosillo"</item>
 
         <!-- Other time zones with missing labels from the framework -->
         <!-- Missing string in ICS -->
-        <item>"Afrika/Juba"</item>
+        <item>"Africa/Juba"</item>
         <!-- Missing string in ICS -->
-        <item>"Amerika/Kralendijk"</item>
+        <item>"America/Kralendijk"</item>
         <!-- Missing string in ICS -->
-        <item>"Amerika/Lower_Princes"</item>
+        <item>"America/Lower_Princes"</item>
         <!-- Only had GMT as the display string -->
-        <item>"Europa/Minsk"</item>
+        <item>"Europe/Minsk"</item>
         <!-- Only had GMT as the display string -->
-        <item>"Europa/Kaliningrad"</item>
+        <item>"Europe/Kaliningrad"</item>
 
         <!-- Brazil -->
         <!-- Non DST version -->
-        <item>"Amerika/Porto_Velho"</item>
+        <item>"America/Porto_Velho"</item>
         <!-- Non DST version -->
-        <item>"Amerika/Belem"</item>
+        <item>"America/Belem"</item>
     </string-array>
 
     <!--
@@ -143,35 +143,35 @@
     <string-array name="timezone_rename_labels">
 
         <!-- Australia -->
-        <item>"Zentral-Australien - NT"</item>
-        <item>"Zentral-Australien - SA"</item>
-        <item>"Ost-Australien - QLD"</item>
-        <item>"Ost-Australien - NSW"</item>
+        <item>"Středoaustralský čas - NT"</item>
+        <item>"Středoaustralský čas - SA"</item>
+        <item>"Východoaustralský čas - QLD"</item>
+        <item>"Východoaustralský čas - NSW"</item>
 
         <!-- Canada -->
-        <item>"Mountain Standard - Dawson Creek"</item>
-        <item>"Central Standard - Saskatchewan"</item>
-        <item>"Eastern Standard - Atikokan"</item>
-        <item>"Atlantic Standard - Quebec"</item>
+        <item>"Horský standardní - Dawson Creek"</item>
+        <item>"Centrální standardní - Saskat…"</item>
+        <item>"Východní standardní - Atikokan"</item>
+        <item>"Atlantický standardní - Quebec"</item>
 
         <!-- US -->
-        <item>"Hawaii-Aleutian - Hawaii"</item>
-        <item>"Hawaii-Aleutian - Alaska"</item>
-        <item>"Pacific Standard - Metlakatla"</item>
-        <item>"Mountain Standard - Arizona"</item>
+        <item>"Hawajsko-Aleutský - Hawaii"</item>
+        <item>"Hawajsko-Aleutský - Alaska"</item>
+        <item>"Pacifický standardní - Metlak…"</item>
+        <item>"Horský standardní - Arizona"</item>
 
         <!-- Mexico -->
-        <item>"Pacific - Baja California"</item>
-        <item>"Mountain - Chihuahua"</item>
-        <item>"Central - Tamaulipas"</item>
-        <item>"Mountain - Sonora"</item>
+        <item>"Pacifický - Baja California"</item>
+        <item>"Horský - Chihuahua"</item>
+        <item>"Centrální - Tamaulipas"</item>
+        <item>"Horský - Sonora"</item>
 
         <!-- Other countries with missing or undesirable labels from the framework -->
-        <item>"Ostafrikanische Zeit"</item>
-        <item>"Atlantische Normalzeit"</item>
-        <item>"Atlantische Normalzeit"</item>
-        <item>"Osteuropeische Zeit"</item>
-        <item>"Kaliningrad"</item>
+        <item>"Východoafrický čas"</item>
+        <item>"Atlantic Standard Time"</item>
+        <item>"Atlantic Standard Time"</item>
+        <item>"Východoevropský čas"</item>
+        <item>"Kaliningrad Time"</item>
 
         <!-- Brazil -->
         <!-- Non DST version of Amazon Standard Time -->
@@ -201,8 +201,8 @@
     -->
     <string-array name="backup_country_names">
         <item>"Sint Maarten"</item>
-        <item>"Karibische Niederlande"</item>
+        <item>"Caribbean Netherlands"</item>
         <item>"Curaçao"</item>
-        <item>"Südsudan"</item>
+        <item>"South Sudan"</item>
     </string-array>
 </resources>

@@ -71,19 +71,6 @@
     <!-- Accessibility announcement when a number that had been typed in is deleted [CHAR_LIMIT=NONE] -->
     <string name="deleted_key">%1$s smazáno</string>
 
-    <!-- DO NOT TRANSLATE -->
-    <string name="time_placeholder">--</string>
-    <!-- DO NOT TRANSLATE -->
-    <string name="time_separator">:</string>
-
-    <!-- DO NOT TRANSLATE -->
-    <string name="radial_numbers_typeface">sans-serif</string>
-    <!-- DO NOT TRANSLATE -->
-    <string name="sans_serif">sans-serif</string>
-
-    <!-- DO NOT TRANSLATE -->
-    <string name="day_of_week_label_typeface">sans-serif</string>
-
     <!-- Repeat an monthly event on the same day of every month [CHAR LIMIT=20] -->
     <string name="recurrence_month_pattern_by_day">stejný den každý měsíc</string>
 
@@ -105,7 +92,7 @@
     <!-- Strings to describe how frequently to repeat an event (e.g. every 5 days) -->
     <plurals name="recurrence_interval_daily">
         <!-- Singular form [CHAR LIMIT=30] -->
-        <item quantity="one">Každý den</item>
+        <item quantity="one">Každý <xliff:g id="count">%d</xliff:g>. den</item>
         <item quantity="few">Každý <xliff:g id="count">%d</xliff:g>. den</item>
         <!-- Plural form [CHAR LIMIT=30] -->
         <item quantity="other">Každý <xliff:g id="count">%d</xliff:g>. den</item>
@@ -113,7 +100,7 @@
     <!-- Strings to describe how frequently to repeat an event (e.g. every 5 weeks) -->
     <plurals name="recurrence_interval_weekly">
         <!-- Singular form [CHAR LIMIT=30] -->
-        <item quantity="one">Každý týden</item>
+        <item quantity="one">Každý <xliff:g id="count">%d</xliff:g>. týden</item>
         <item quantity="few">Každý <xliff:g id="count">%d</xliff:g>. týden</item>
         <!-- Plural form [CHAR LIMIT=30] -->
         <item quantity="other">Každý <xliff:g id="count">%d</xliff:g>. týden</item>
@@ -121,7 +108,7 @@
     <!-- Strings to describe how frequently to repeat an event (e.g. every 5 months) -->
     <plurals name="recurrence_interval_monthly">
         <!-- Singular form [CHAR LIMIT=30] -->
-        <item quantity="one">Každý měsíc</item>
+        <item quantity="one">Každý <xliff:g id="count">%d</xliff:g>. měsíc</item>
         <item quantity="few">Každý <xliff:g id="count">%d</xliff:g>. měsíc</item>
         <!-- Plural form [CHAR LIMIT=30] -->
         <item quantity="other">Každý <xliff:g id="count">%d</xliff:g>. měsíc</item>
@@ -129,7 +116,7 @@
     <!-- Strings to describe how frequently to repeat an event (e.g. every 5 years) -->
     <plurals name="recurrence_interval_yearly">
         <!-- Singular form [CHAR LIMIT=30] -->
-        <item quantity="one">Každý rok</item>
+        <item quantity="one">Každý <xliff:g id="count">%d</xliff:g>. rok</item>
         <item quantity="few">Každý <xliff:g id="count">%d</xliff:g>. rok</item>
         <!-- Plural form [CHAR LIMIT=30] -->
         <item quantity="other">Každý <xliff:g id="count">%d</xliff:g>. rok</item>
@@ -162,12 +149,12 @@
     </plurals>
     <!-- A label in a multiple-choice list for the specifying that an event
          repeats every weekday (Monday through Friday) -->
-    <string name="every_weekday">"Každý pracovní den (Mon\u2013Fri)"</string>
+    <string name="every_weekday">"Každý pracovní den (Po\u2013Pá)"</string>
     <!-- A description for an event that repeats weekly on some day of the week. For example,
          'Weekly on Tuesday' or Every 2 weeks on Monday, Tuesday.  [CHAR LIMIT=25]-->
     <plurals name="weekly">
         <item quantity="one">Týdně <xliff:g id="days_of_week">%2$s</xliff:g></item>
-        <item quantity="few">Každé <xliff:g id="days_of_week">%2$s</xliff:g> týdny v <xliff:g id="days_of_week">%2$s</xliff:g></item>
+        <item quantity="few">Každé <xliff:g id="number">%1$d</xliff:g> týdny v <xliff:g id="days_of_week">%2$s</xliff:g></item>
         <item quantity="other">Každé <xliff:g id="number">%1$d</xliff:g> týdny v <xliff:g id="days_of_week">%2$s</xliff:g></item>
     </plurals>
     <!-- The common portion of a string describing how often an event repeats,
