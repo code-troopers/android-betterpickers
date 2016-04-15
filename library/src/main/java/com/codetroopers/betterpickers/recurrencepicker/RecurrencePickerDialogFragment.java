@@ -561,19 +561,19 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
         }
     }
 
-    static private void copyModelToEventRecurrence(final RecurrenceModel model, EventRecurrence er) {
+    static private void copyModelToEventRecurrence(final RecurrenceModel model, EventRecurrence eventRecurrence) {
         if (model.recurrenceState == RecurrenceModel.STATE_NO_RECURRENCE) {
             throw new IllegalStateException("There's no recurrence");
         }
 
         // Freq
-        er.freq = mFreqModelToEventRecurrence[model.freq];
+        eventRecurrence.freq = mFreqModelToEventRecurrence[model.freq];
 
         // Interval
         if (model.interval <= 1) {
-            er.interval = 0;
+            eventRecurrence.interval = 0;
         } else {
-            er.interval = model.interval;
+            eventRecurrence.interval = model.interval;
         }
 
         // End
@@ -582,38 +582,38 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
                 if (model.endDate != null) {
                     model.endDate.switchTimezone(Time.TIMEZONE_UTC);
                     model.endDate.normalize(false);
-                    er.until = model.endDate.format2445();
-                    er.count = 0;
+                    eventRecurrence.until = model.endDate.format2445();
+                    eventRecurrence.count = 0;
                 } else {
                     throw new IllegalStateException("end = END_BY_DATE but endDate is null");
                 }
                 break;
             case RecurrenceModel.END_BY_COUNT:
-                er.count = model.endCount;
-                er.until = null;
-                if (er.count <= 0) {
-                    throw new IllegalStateException("count is " + er.count);
+                eventRecurrence.count = model.endCount;
+                eventRecurrence.until = null;
+                if (eventRecurrence.count <= 0) {
+                    throw new IllegalStateException("count is " + eventRecurrence.count);
                 }
                 break;
             default:
-                er.count = 0;
-                er.until = null;
+                eventRecurrence.count = 0;
+                eventRecurrence.until = null;
                 break;
         }
 
         // Weekly && monthly repeat patterns
-        er.bydayCount = 0;
-        er.bymonthdayCount = 0;
+        eventRecurrence.bydayCount = 0;
+        eventRecurrence.bymonthdayCount = 0;
 
         switch (model.freq) {
             case RecurrenceModel.FREQ_MONTHLY:
                 if (model.monthlyRepeat == RecurrenceModel.MONTHLY_BY_DATE) {
                     if (model.monthlyByMonthDay > 0) {
-                        if (er.bymonthday == null || er.bymonthdayCount < 1) {
-                            er.bymonthday = new int[1];
+                        if (eventRecurrence.bymonthday == null || eventRecurrence.bymonthdayCount < 1) {
+                            eventRecurrence.bymonthday = new int[1];
                         }
-                        er.bymonthday[0] = model.monthlyByMonthDay;
-                        er.bymonthdayCount = 1;
+                        eventRecurrence.bymonthday[0] = model.monthlyByMonthDay;
+                        eventRecurrence.bymonthdayCount = 1;
                     }
                 } else if (model.monthlyRepeat == RecurrenceModel.MONTHLY_BY_NTH_DAY_OF_WEEK) {
                     if (!isSupportedMonthlyByNthDayOfWeek(model.monthlyByNthDayOfWeek)) {
@@ -621,13 +621,13 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
                                 + model.monthlyByNthDayOfWeek);
                     }
                     int count = 1;
-                    if (er.bydayCount < count || er.byday == null || er.bydayNum == null) {
-                        er.byday = new int[count];
-                        er.bydayNum = new int[count];
+                    if (eventRecurrence.bydayCount < count || eventRecurrence.byday == null || eventRecurrence.bydayNum == null) {
+                        eventRecurrence.byday = new int[count];
+                        eventRecurrence.bydayNum = new int[count];
                     }
-                    er.bydayCount = count;
-                    er.byday[0] = EventRecurrence.timeDay2Day(model.monthlyByDayOfWeek);
-                    er.bydayNum[0] = model.monthlyByNthDayOfWeek;
+                    eventRecurrence.bydayCount = count;
+                    eventRecurrence.byday[0] = EventRecurrence.timeDay2Day(model.monthlyByDayOfWeek);
+                    eventRecurrence.bydayNum[0] = model.monthlyByNthDayOfWeek;
                 }
                 break;
             case RecurrenceModel.FREQ_WEEKLY:
@@ -638,24 +638,24 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
                     }
                 }
 
-                if (er.bydayCount < count || er.byday == null || er.bydayNum == null) {
-                    er.byday = new int[count];
-                    er.bydayNum = new int[count];
+                if (eventRecurrence.bydayCount < count || eventRecurrence.byday == null || eventRecurrence.bydayNum == null) {
+                    eventRecurrence.byday = new int[count];
+                    eventRecurrence.bydayNum = new int[count];
                 }
-                er.bydayCount = count;
+                eventRecurrence.bydayCount = count;
 
                 for (int i = 6; i >= 0; i--) {
                     if (model.weeklyByDayOfWeek[i]) {
-                        er.bydayNum[--count] = 0;
-                        er.byday[count] = EventRecurrence.timeDay2Day(i);
+                        eventRecurrence.bydayNum[--count] = 0;
+                        eventRecurrence.byday[count] = EventRecurrence.timeDay2Day(i);
                     }
                 }
                 break;
         }
 
-        if (!canHandleRecurrenceRule(er)) {
+        if (!canHandleRecurrenceRule(eventRecurrence)) {
             throw new IllegalStateException("UI generated recurrence that it can't handle. ER:"
-                    + er.toString() + " Model: " + model.toString());
+                    + eventRecurrence.toString() + " Model: " + model.toString());
         }
     }
 

@@ -180,6 +180,10 @@
     <!-- The common portion of a string describing how often an event repeats,
          example: 'Monthly (on day 2)' -->
     <string name="monthly">Monthly</string>
+    <plurals name="monthly">
+        <item quantity="one">Monthly <xliff:g id="days_of_month">%2$s</xliff:g></item>
+        <item quantity="other">Every <xliff:g id="number">%1$d</xliff:g> months <xliff:g id="days_of_month">%2$s</xliff:g></item>
+    </plurals>
     <!-- Calendar spinner item, to select that an event recurs every year. -->
     <string name="yearly_plain">Yearly</string>
 
