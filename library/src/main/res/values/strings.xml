@@ -186,6 +186,10 @@
     </plurals>
     <!-- Calendar spinner item, to select that an event recurs every year. -->
     <string name="yearly_plain">Yearly</string>
+    <plurals name="yearly_plain">
+        <item quantity="one">Yearly <xliff:g id="days_of_month">%2$s</xliff:g></item>
+        <item quantity="other">Every <xliff:g id="number">%1$d</xliff:g> years <xliff:g id="days_of_month">%2$s</xliff:g></item>
+    </plurals>
 
     <!-- Hint text to encourage the user to enter a country name to find a time zone
      [CHAR LIMIT=25] -->

@@ -112,7 +112,7 @@ public class EventRecurrenceFormatter {
                 return r.getQuantityString(R.plurals.monthly, interval, interval, details) + endString;
             }
             case EventRecurrence.YEARLY:
-                return r.getString(R.string.yearly_plain) + endString;
+                return r.getQuantityString(R.plurals.yearly_plain, interval, interval, "") + endString;
         }
 
         return null;
