@@ -234,8 +234,9 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         return this;
     }
 
-    public void setTitleText(String text) {
+    public RadialTimePickerDialogFragment setTitleText(String text) {
         mTitleText = text;
+        return this;
     }
 
     public RadialTimePickerDialogFragment setDoneText(String text) {
@@ -379,8 +380,12 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         });
 
         mTitleTextView = (TextView) view.findViewById(R.id.time_picker_header);
-        if (mTitleTextView != null && mTitleText != null) {
+        if (mTitleText != null) {
+            mTitleTextView.setVisibility(View.VISIBLE);
             mTitleTextView.setText(mTitleText);
+        }
+        else {
+            mTitleTextView.setVisibility(View.GONE);
         }
 
         mError = (NumberPickerErrorTextView) view.findViewById(R.id.error);
