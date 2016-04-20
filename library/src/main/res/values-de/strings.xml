@@ -29,6 +29,9 @@
     <string name="min_error">Bitte eine Zahl größer oder gleich %1$s eingeben</string>
     <string name="max_error">Bitte eine Zahl kleiner oder gleich %1$s eingeben</string>
     <string name="min_max_error">Bitte eine Zahl zwischen %1$s und %2$s eingeben</string>
+    <!-- Time validation -->
+    <string name="max_time_error">Die eingegebene Zeit liegt zu weit in der Zukunft</string>
+    <string name="min_time_error">Die eingegebene Zeit liegt zu weit in der Vergangenheit</string>
 
     <!-- From AOSP -->
     <!-- Label for button to confirm chosen date or time [CHAR LIMIT=30] -->
