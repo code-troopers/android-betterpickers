@@ -111,7 +111,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
     private int mStyleResId;
     private Integer mFutureMinutesLimit;
     private Integer mPastMinutesLimit;
-    private Calendar mCurrentDate;
+    private Calendar mValidateDateTime;
     private Calendar mPickerDate;
 
     // For hardware IME input.
@@ -254,8 +254,8 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         return this;
     }
 
-    public RadialTimePickerDialogFragment setCurrentDate(Calendar currentDate) {
-        this.mCurrentDate = currentDate;
+    public RadialTimePickerDialogFragment setValidateDateTime(Calendar validateDateTime) {
+        this.mValidateDateTime = validateDateTime;
         return this;
     }
 
@@ -309,11 +309,11 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
             mStyleResId = savedInstanceState.getInt(KEY_STYLE);
             if(savedInstanceState.containsKey(KEY_FUTURE_MINUTES_LIMIT)) mFutureMinutesLimit = savedInstanceState.getInt(KEY_FUTURE_MINUTES_LIMIT);
             if(savedInstanceState.containsKey(KEY_PAST_MINUTES_LIMIT)) mPastMinutesLimit = savedInstanceState.getInt(KEY_PAST_MINUTES_LIMIT);
-            if(savedInstanceState.containsKey(KEY_CURRENT_DATE)) mCurrentDate = (Calendar) savedInstanceState.getSerializable(KEY_CURRENT_DATE);
+            if(savedInstanceState.containsKey(KEY_CURRENT_DATE)) mValidateDateTime = (Calendar) savedInstanceState.getSerializable(KEY_CURRENT_DATE);
             if(savedInstanceState.containsKey(KEY_PICKER_DATE)) mPickerDate = (Calendar) savedInstanceState.getSerializable(KEY_PICKER_DATE);
         } else {
             if (mIs24HourMode == null) {
-                mIs24HourMode = DateFormat.is24HourFormat(getContext());
+                mIs24HourMode = DateFormat.is24HourFormat(getContext());;
             }
         }
     }
@@ -528,7 +528,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
             outState.putBoolean(KEY_IN_KB_MODE, mInKbMode);
             if(mFutureMinutesLimit != null) outState.putInt(KEY_FUTURE_MINUTES_LIMIT, mFutureMinutesLimit);
             if(mPastMinutesLimit != null) outState.putInt(KEY_PAST_MINUTES_LIMIT, mPastMinutesLimit);
-            outState.putSerializable(KEY_CURRENT_DATE, mCurrentDate);
+            outState.putSerializable(KEY_CURRENT_DATE, mValidateDateTime);
             outState.putSerializable(KEY_PICKER_DATE, mPickerDate);
             if (mInKbMode) outState.putIntegerArrayList(KEY_TYPED_TIMES, mTypedTimes);
             outState.putInt(KEY_STYLE, mStyleResId);
@@ -540,14 +540,14 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
      * @return true if too far in the future, false if not
      */
     public boolean isSelectionTooFarInTheFuture() {
-        if(this.mPickerDate != null && this.mCurrentDate != null && this.mFutureMinutesLimit != null) {
+        if(this.mPickerDate != null && this.mValidateDateTime != null && this.mFutureMinutesLimit != null) {
             Calendar selectedDate = Calendar.getInstance();
             selectedDate.setTime(this.mPickerDate.getTime());
             selectedDate.set(Calendar.HOUR_OF_DAY, mTimePicker.getHours());
             selectedDate.set(Calendar.MINUTE, mTimePicker.getMinutes());
 
             Calendar futureLimit = Calendar.getInstance();
-            futureLimit.setTime(this.mCurrentDate.getTime());
+            futureLimit.setTime(this.mValidateDateTime.getTime());
             futureLimit.add(Calendar.MINUTE, this.mFutureMinutesLimit);
             return selectedDate.compareTo(futureLimit) > 0;
         }
@@ -559,14 +559,14 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
      * @return true if too far in the past, false if not
      */
     public boolean isSelectionTooFarInPast() {
-        if(this.mPickerDate != null && this.mCurrentDate != null && this.mPastMinutesLimit != null) {
+        if(this.mPickerDate != null && this.mValidateDateTime != null && this.mPastMinutesLimit != null) {
             Calendar selectedDate = Calendar.getInstance();
             selectedDate.setTime(this.mPickerDate.getTime());
             selectedDate.set(Calendar.HOUR_OF_DAY, mTimePicker.getHours());
             selectedDate.set(Calendar.MINUTE, mTimePicker.getMinutes());
 
             Calendar pastLimit = Calendar.getInstance();
-            pastLimit.setTime(this.mCurrentDate.getTime());
+            pastLimit.setTime(this.mValidateDateTime.getTime());
             pastLimit.add(Calendar.MINUTE, -this.mPastMinutesLimit);
             return selectedDate.compareTo(pastLimit) < 0;
         }

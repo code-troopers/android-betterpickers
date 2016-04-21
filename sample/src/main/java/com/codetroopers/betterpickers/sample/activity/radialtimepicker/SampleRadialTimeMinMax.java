@@ -35,7 +35,7 @@ public class SampleRadialTimeMinMax extends BaseSampleActivity
                         .setOnTimeSetListener(SampleRadialTimeMinMax.this)
                         .setFutureMinutesLimit(60)
                         .setPastMinutesLimit(60)
-                        .setCurrentDate(Calendar.getInstance())
+                        .setValidateDateTime(Calendar.getInstance())
                         .setPickerDate(Calendar.getInstance())
                         .setForced12hFormat();
                 rtpd.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
