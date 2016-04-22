@@ -20,6 +20,23 @@
     android:focusable="true"
     android:orientation="vertical">
 
+    <include layout="@layout/calendar_date_picker_header_view"
+        android:id="@+id/time_picker_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/date_picker_header_height" />
+
+    <com.codetroopers.betterpickers.numberpicker.NumberPickerErrorTextView
+        android:id="@+id/error"
+        android:visibility="invisible"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="#ffff4444"
+        android:textColor="#ffffffff"
+        android:textStyle="bold"/>
+
     <FrameLayout
         android:id="@+id/time_display_background"
         android:layout_width="match_parent"
