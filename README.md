@@ -252,7 +252,7 @@ You can view the readme [here](README_1.6.0.md)
 
 ChangeLog
 =========
-Change log file is available [here](Changelog.md)
+Change log file is available [here](CHANGE_LOG.md)
 
 Contribution
 ============
