@@ -4,6 +4,7 @@ Changelog
 **2.5.next**
 * Add Czech translations (#267)
 * Added min/max limits to RadialTimePicker (#272)
+* Fix Recurrence To string formatter for monthly and yearly events (#270)
 
 **2.5.3**
 * Add setter for changing cancel button label of RadialDatePicker (#266) 
