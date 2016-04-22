@@ -31,17 +31,15 @@ public class EventRecurrenceFormatter {
     private static int[] mMonthRepeatByDayOfWeekIds;
     private static String[][] mMonthRepeatByDayOfWeekStrs;
 
-    public static String getRepeatString(Context context, Resources r, EventRecurrence recurrence,
-                                         boolean includeEndString) {
+    public static String getRepeatString(Context context, Resources r, EventRecurrence recurrence, boolean includeEndString) {
         String endString = "";
         if (includeEndString) {
             StringBuilder sb = new StringBuilder();
             if (recurrence.until != null) {
                 try {
-                    Time t = new Time();
-                    t.parse(recurrence.until);
-                    final String dateStr = DateUtils.formatDateTime(context,
-                            t.toMillis(false), DateUtils.FORMAT_NUMERIC_DATE);
+                    Time time = new Time();
+                    time.parse(recurrence.until);
+                    final String dateStr = DateUtils.formatDateTime(context, time.toMillis(false), DateUtils.FORMAT_NUMERIC_DATE);
                     sb.append(r.getString(R.string.endByDate, dateStr));
                 } catch (TimeFormatException e) {
                 }
@@ -98,32 +96,23 @@ public class EventRecurrenceFormatter {
                         int day = EventRecurrence.timeDay2Day(recurrence.startDate.weekDay);
                         string = dayToString(day, DateUtils.LENGTH_LONG);
                     }
-                    return r.getQuantityString(R.plurals.weekly, interval, interval, string)
-                            + endString;
+                    return r.getQuantityString(R.plurals.weekly, interval, interval, string) + endString;
                 }
             }
             case EventRecurrence.MONTHLY: {
-                if (recurrence.bydayCount == 1) {
-                    int weekday;
-                    if (recurrence.startDate == null) {
-                        return null;
-                    }
-                    weekday = recurrence.startDate.weekDay;
+                String details = "";
+                if (recurrence.byday != null) {
+                    int weekday = EventRecurrence.day2CalendarDay(recurrence.byday[0]) - 1;
+                    int dayNumber = recurrence.bydayNum[0];
                     // Cache this stuff so we won't have to redo work again later.
                     cacheMonthRepeatStrings(r, weekday);
-                    int dayNumber = (recurrence.startDate.monthDay - 1) / 7;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(r.getString(R.string.monthly));
-                    sb.append(" (");
-                    sb.append(mMonthRepeatByDayOfWeekStrs[weekday][dayNumber]);
-                    sb.append(")");
-                    sb.append(endString);
-                    return sb.toString();
+
+                    details = mMonthRepeatByDayOfWeekStrs[weekday][dayNumber - 1];
                 }
-                return r.getString(R.string.monthly) + endString;
+                return r.getQuantityString(R.plurals.monthly, interval, interval, details) + endString;
             }
             case EventRecurrence.YEARLY:
-                return r.getString(R.string.yearly_plain) + endString;
+                return r.getQuantityString(R.plurals.yearly_plain, interval, interval, "") + endString;
         }
 
         return null;
@@ -144,8 +133,7 @@ public class EventRecurrenceFormatter {
             mMonthRepeatByDayOfWeekStrs = new String[7][];
         }
         if (mMonthRepeatByDayOfWeekStrs[weekday] == null) {
-            mMonthRepeatByDayOfWeekStrs[weekday] =
-                    r.getStringArray(mMonthRepeatByDayOfWeekIds[weekday]);
+            mMonthRepeatByDayOfWeekStrs[weekday] = r.getStringArray(mMonthRepeatByDayOfWeekIds[weekday]);
         }
     }
 
