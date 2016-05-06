@@ -81,6 +81,15 @@
                     style="@style/label"
                     android:gravity="top"
                     android:text="@string/hms_picker_seconds_label"/>
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
+                    android:id="@+id/minus_label"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:ellipsize="none"
+                    style="@style/label"
+                    android:gravity="top"
+                    android:text="@string/number_picker_minus_label"/>
         </com.codetroopers.betterpickers.hmspicker.HmsView>
         <ImageButton
                 android:id="@+id/delete"

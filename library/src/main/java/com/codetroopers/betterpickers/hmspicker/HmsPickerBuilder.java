@@ -22,6 +22,22 @@ public class HmsPickerBuilder {
     private int mHours;
     private int mMinutes;
     private int mSeconds;
+    private Integer plusMinusVisibility;
+
+    /**
+     * Set the visibility of the +/- button. This takes an int corresponding to Android's View.VISIBLE, View.INVISIBLE,
+     * or View.GONE.  When using View.INVISIBLE, the +/- button will still be present in the layout but be
+     * non-clickable. When set to View.GONE, the +/- button will disappear entirely, and the "0" button will occupy its
+     * space.
+     *
+     * @param plusMinusVisibility an int corresponding to View.VISIBLE, View.INVISIBLE, or View.GONE
+     * @return the current Builder object
+     */
+    public HmsPickerBuilder setPlusMinusVisibility(int plusMinusVisibility) {
+        this.plusMinusVisibility = plusMinusVisibility;
+        return this;
+    }
+
 
     /**
      * Attach a FragmentManager. This is required for creation of the Fragment.
@@ -147,7 +163,7 @@ public class HmsPickerBuilder {
         }
         ft.addToBackStack(null);
 
-        final HmsPickerDialogFragment fragment = HmsPickerDialogFragment.newInstance(mReference, styleResId);
+        final HmsPickerDialogFragment fragment = HmsPickerDialogFragment.newInstance(mReference, styleResId, plusMinusVisibility);
         if (targetFragment != null) {
             fragment.setTargetFragment(targetFragment, 0);
         }
