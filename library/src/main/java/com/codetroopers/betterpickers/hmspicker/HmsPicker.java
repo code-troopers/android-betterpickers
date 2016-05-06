@@ -2,6 +2,7 @@ package com.codetroopers.betterpickers.hmspicker;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Parcel;
@@ -39,6 +40,10 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
     private int mDividerColor;
     private int mDeleteDrawableSrcResId;
     private int mTheme = -1;
+
+    private int mSign;
+    public static final int SIGN_POSITIVE = 0;
+    public static final int SIGN_NEGATIVE = 1;
 
     /**
      * Instantiates an HmsPicker object
@@ -125,6 +130,10 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
         if (mEnteredHms != null) {
             mEnteredHms.setTheme(mTheme);
         }
+        if(mLeft != null){
+            mLeft.setTextColor(mTextColor);
+            mLeft.setBackgroundResource(mKeyBackgroundResId);
+        }
     }
 
     @Override
@@ -155,7 +164,7 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
         mLeft = (Button) v4.findViewById(R.id.key_left);
         mNumbers[0] = (Button) v4.findViewById(R.id.key_middle);
         mRight = (Button) v4.findViewById(R.id.key_right);
-        setLeftRightEnabled(false);
+        setRightEnabled(false);
 
         for (int i = 0; i < 10; i++) {
             mNumbers[i].setOnClickListener(this);
@@ -163,6 +172,12 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
             mNumbers[i].setTag(R.id.numbers_key, new Integer(i));
         }
         updateHms();
+
+        Resources res = mContext.getResources();
+        mLeft.setText(res.getString(R.string.number_picker_plus_minus));
+        mLeft.setOnClickListener(this);
+//        mLabel = (TextView) findViewById(R.id.label);
+//        mSign = SIGN_POSITIVE;
 
         mHoursLabel = (TextView) findViewById(R.id.hours_label);
         mMinutesLabel = (TextView) findViewById(R.id.minutes_label);
@@ -203,8 +218,18 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
                 mInput[mInputPointer] = 0;
                 mInputPointer--;
             }
+        } else if(v == mLeft){
+            onLeftClicked();
         }
         updateKeypad();
+    }
+
+    private void onLeftClicked() {
+        if (mSign == SIGN_POSITIVE) {
+            mSign = SIGN_NEGATIVE;
+        } else {
+            mSign = SIGN_POSITIVE;
+        }
     }
 
     @Override
@@ -249,7 +274,7 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
      * Hide digit by passing -2 (for highest hours digit only);
      */
     protected void updateHms() {
-        mEnteredHms.setTime(mInput[4], mInput[3], mInput[2], mInput[1], mInput[0]);
+        mEnteredHms.setTime(mSign == SIGN_NEGATIVE, mInput[4], mInput[3], mInput[2], mInput[1], mInput[0]);
     }
 
     private void addClickedNumber(int val) {
@@ -318,6 +343,17 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
     }
 
     /**
+     * Using View.GONE, View.VISIBILE, or View.INVISIBLE, set the visibility of the plus/minus indicator
+     *
+     * @param visibility an int using Android's View.* convention
+     */
+    public void setPlusMinusVisibility(int visibility) {
+        if (mLeft != null) {
+            mLeft.setVisibility(visibility);
+        }
+    }
+
+    /**
      * Set the current hours, minutes, and seconds on the picker.
      *
      * @param hours the input hours value
@@ -342,7 +378,7 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
     }
 
 
-  @Override
+    @Override
     public Parcelable onSaveInstanceState() {
         final Parcelable parcel = super.onSaveInstanceState();
         final SavedState state = new SavedState(parcel);
@@ -433,12 +469,14 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
         }
     }
 
-    protected void setLeftRightEnabled(boolean enabled) {
-        mLeft.setEnabled(enabled);
+    protected void setRightEnabled(boolean enabled) {
         mRight.setEnabled(enabled);
         if (!enabled) {
-            mLeft.setContentDescription(null);
             mRight.setContentDescription(null);
         }
+    }
+
+    public boolean isNegative(){
+        return mSign == SIGN_NEGATIVE;
     }
 }
