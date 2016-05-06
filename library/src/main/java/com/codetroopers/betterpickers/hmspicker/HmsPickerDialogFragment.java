@@ -22,6 +22,7 @@ public class HmsPickerDialogFragment extends DialogFragment {
 
     private static final String REFERENCE_KEY = "HmsPickerDialogFragment_ReferenceKey";
     private static final String THEME_RES_ID_KEY = "HmsPickerDialogFragment_ThemeResIdKey";
+    private static final String HOUR_MINUTES_ONLY_KEY = "HmsPickerDialogFragment_HourMinutesOnly";
 
     private HmsPicker mPicker;
 
@@ -33,6 +34,7 @@ public class HmsPickerDialogFragment extends DialogFragment {
     private int mHours;
     private int mMinutes;
     private int mSeconds;
+    private boolean mHourMinutesOnly = false;
 
     /**
      * Create an instance of the Picker (used internally)
@@ -41,11 +43,14 @@ public class HmsPickerDialogFragment extends DialogFragment {
      * @param themeResId the style resource ID for theming
      * @return a Picker!
      */
-    public static HmsPickerDialogFragment newInstance(int reference, int themeResId) {
+    public static HmsPickerDialogFragment newInstance(int reference, int themeResId, Boolean hourMinutesOnly) {
         final HmsPickerDialogFragment frag = new HmsPickerDialogFragment();
         Bundle args = new Bundle();
         args.putInt(REFERENCE_KEY, reference);
         args.putInt(THEME_RES_ID_KEY, themeResId);
+        if(hourMinutesOnly != null){
+            args.putBoolean(HOUR_MINUTES_ONLY_KEY, hourMinutesOnly);
+        }
         frag.setArguments(args);
         return frag;
     }
@@ -65,6 +70,9 @@ public class HmsPickerDialogFragment extends DialogFragment {
         }
         if (args != null && args.containsKey(THEME_RES_ID_KEY)) {
             mTheme = args.getInt(THEME_RES_ID_KEY);
+        }
+        if(args != null && args.containsKey(HOUR_MINUTES_ONLY_KEY)){
+            mHourMinutesOnly = args.getBoolean(HOUR_MINUTES_ONLY_KEY);
         }
 
         setStyle(DialogFragment.STYLE_NO_TITLE, 0);
@@ -123,6 +131,7 @@ public class HmsPickerDialogFragment extends DialogFragment {
         mPicker.setSetButton(doneButton);
         mPicker.setTime(mHours, mMinutes, mSeconds);
         mPicker.setTheme(mTheme);
+        mPicker.setHourMinutesOnly(mHourMinutesOnly);
 
         getDialog().getWindow().setBackgroundDrawableResource(mDialogBackgroundResId);
 

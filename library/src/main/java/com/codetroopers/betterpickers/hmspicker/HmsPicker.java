@@ -39,6 +39,7 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
     private int mDividerColor;
     private int mDeleteDrawableSrcResId;
     private int mTheme = -1;
+    private boolean mHourMinutesOnly;
 
     /**
      * Instantiates an HmsPicker object
@@ -114,7 +115,7 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
             mMinutesLabel.setTextColor(mTextColor);
             mMinutesLabel.setBackgroundResource(mKeyBackgroundResId);
         }
-        if (mSecondsLabel != null) {
+        if (mSecondsLabel != null && !mHourMinutesOnly) {
             mSecondsLabel.setTextColor(mTextColor);
             mSecondsLabel.setBackgroundResource(mKeyBackgroundResId);
         }
@@ -124,6 +125,11 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
         }
         if (mEnteredHms != null) {
             mEnteredHms.setTheme(mTheme);
+
+            if(mHourMinutesOnly) {
+                mEnteredHms.setHourMinutesOnly(true);
+                mEnteredHms.rearrangeView();
+            }
         }
     }
 
@@ -249,7 +255,11 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
      * Hide digit by passing -2 (for highest hours digit only);
      */
     protected void updateHms() {
-        mEnteredHms.setTime(mInput[4], mInput[3], mInput[2], mInput[1], mInput[0]);
+        if(mHourMinutesOnly) {
+            mEnteredHms.setTime(mInput[3], mInput[2], mInput[1], mInput[0], 0, 0);
+        } else {
+            mEnteredHms.setTime(0, mInput[4], mInput[3], mInput[2], mInput[1], mInput[0]);
+        }
     }
 
     private void addClickedNumber(int val) {
@@ -295,8 +305,11 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
      * @return the inputted hours
      */
     public int getHours() {
-        int hours = mInput[4];
-        return hours;
+        if(mHourMinutesOnly){
+            return mInput[3] * 10 + mInput[2];
+        } else {
+            return mInput[4];
+        }
     }
 
     /**
@@ -305,7 +318,11 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
      * @return the inputted minutes
      */
     public int getMinutes() {
-        return mInput[3] * 10 + mInput[2];
+        if(mHourMinutesOnly){
+            return mInput[1] * 10 + mInput[0];
+        } else {
+            return mInput[3] * 10 + mInput[2];
+        }
     }
 
     /**
@@ -314,7 +331,11 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
      * @return the inputted seconds
      */
     public int getSeconds() {
-        return mInput[1] * 10 + mInput[0];
+        if(mHourMinutesOnly){
+            return 0;
+        } else {
+            return mInput[1] * 10 + mInput[0];
+        }
     }
 
     /**
@@ -325,13 +346,22 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
      * @param seconds the input seconds value
      */
     public void setTime(int hours, int minutes, int seconds) {
-        mInput[4] = hours;
-        mInput[3] = minutes / 10;
-        mInput[2] = minutes % 10;
-        mInput[1] = seconds / 10;
-        mInput[0] = seconds % 10;
 
-        for (int i=4; i>=0; i--) {
+        if(mHourMinutesOnly) {
+            mInput[3] = hours / 10;
+            mInput[2] = hours % 10;
+            mInput[1] = minutes / 10;
+            mInput[0] = minutes % 10;
+
+        } else {
+            mInput[4] = hours;
+            mInput[3] = minutes / 10;
+            mInput[2] = minutes % 10;
+            mInput[1] = seconds / 10;
+            mInput[0] = seconds % 10;
+        }
+
+        for (int i=mInputSize - 1; i>=0; i--) {
             if (mInput[i] > 0) {
                 mInputPointer = i;
                 break;
@@ -413,7 +443,11 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
      * @return an int representing the time in seconds
      */
     public int getTime() {
-        return mInput[4] * 3600 + mInput[3] * 600 + mInput[2] * 60 + mInput[1] * 10 + mInput[0];
+        if(mHourMinutesOnly) {
+            return mInput[3] * 36_000 +  mInput[2] * 3600 + mInput[1] * 600 + mInput[0] * 60;
+        } else {
+            return mInput[4] * 3600 + mInput[3] * 600 + mInput[2] * 60 + mInput[1] * 10 + mInput[0];
+        }
     }
 
     public void saveEntryState(Bundle outState, String key) {
@@ -439,6 +473,15 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
         if (!enabled) {
             mLeft.setContentDescription(null);
             mRight.setContentDescription(null);
+        }
+    }
+
+    public void setHourMinutesOnly(boolean mHourMinutesOnly) {
+        this.mHourMinutesOnly = mHourMinutesOnly;
+        if(mHourMinutesOnly) {
+            mInputSize = 4;
+            mInput = new int[mInputSize];
+            restyleViews();
         }
     }
 }

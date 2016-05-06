@@ -20,6 +20,14 @@
                 android:baselineAligned="false"
                 android:gravity="top">
             <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
+                android:id="@+id/hours_tens"
+                android:singleLine="true"
+                android:ellipsize="none"
+                style="@style/medium_bold_hms"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                />
+            <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView
                     android:id="@+id/hours_ones"
                     android:singleLine="true"
                     android:ellipsize="none"
