@@ -22,6 +22,12 @@ public class HmsPickerBuilder {
     private int mHours;
     private int mMinutes;
     private int mSeconds;
+    private Boolean mHourMinutesOnly;
+
+    public HmsPickerBuilder setHourMinutesOnly(boolean hourMinutesOnly){
+        this.mHourMinutesOnly = hourMinutesOnly;
+        return this;
+    }
 
     /**
      * Attach a FragmentManager. This is required for creation of the Fragment.
@@ -147,7 +153,7 @@ public class HmsPickerBuilder {
         }
         ft.addToBackStack(null);
 
-        final HmsPickerDialogFragment fragment = HmsPickerDialogFragment.newInstance(mReference, styleResId);
+        final HmsPickerDialogFragment fragment = HmsPickerDialogFragment.newInstance(mReference, styleResId, mHourMinutesOnly);
         if (targetFragment != null) {
             fragment.setTargetFragment(targetFragment, 0);
         }

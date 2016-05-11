@@ -12,11 +12,12 @@ import com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView;
 
 public class HmsView extends LinearLayout {
 
-    private ZeroTopPaddingTextView mHoursOnes;
+    private ZeroTopPaddingTextView mHoursOnes, mHoursTens;
     private ZeroTopPaddingTextView mMinutesOnes, mMinutesTens;
-    private ZeroTopPaddingTextView mSecondsOnes, mSecondsTens;
+    private ZeroTopPaddingTextView mSecondsOnes, mSecondsTens, mSecondsLabel;
     private final Typeface mAndroidClockMonoThin;
     private Typeface mOriginalHoursTypeface;
+    private boolean hourMinutesOnly = false;
 
     private ColorStateList mTextColor;
 
@@ -61,6 +62,9 @@ public class HmsView extends LinearLayout {
     }
 
     private void restyleViews() {
+        if (mHoursTens != null) {
+            mHoursTens.setTextColor(mTextColor);
+        }
         if (mHoursOnes != null) {
             mHoursOnes.setTextColor(mTextColor);
         }
@@ -82,29 +86,63 @@ public class HmsView extends LinearLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
 
+        mHoursTens = (ZeroTopPaddingTextView) findViewById(R.id.hours_tens);
         mHoursOnes = (ZeroTopPaddingTextView) findViewById(R.id.hours_ones);
         mMinutesTens = (ZeroTopPaddingTextView) findViewById(R.id.minutes_tens);
         mMinutesOnes = (ZeroTopPaddingTextView) findViewById(R.id.minutes_ones);
         mSecondsTens = (ZeroTopPaddingTextView) findViewById(R.id.seconds_tens);
         mSecondsOnes = (ZeroTopPaddingTextView) findViewById(R.id.seconds_ones);
+        mSecondsLabel = (ZeroTopPaddingTextView) findViewById(R.id.seconds_label);
+
+        rearrangeView();
+    }
+
+    public void rearrangeView(){
+        if (mHoursTens != null && !hourMinutesOnly) {
+            mHoursTens.setVisibility(GONE);
+        }
         if (mHoursOnes != null) {
             mOriginalHoursTypeface = mHoursOnes.getTypeface();
             mHoursOnes.updatePaddingForBoldDate();
         }
-        if (mMinutesTens != null) {
+        if (mMinutesTens != null && !hourMinutesOnly) {
             mMinutesTens.updatePaddingForBoldDate();
         }
-        if (mMinutesOnes != null) {
+        if (mMinutesOnes != null && !hourMinutesOnly) {
             mMinutesOnes.updatePaddingForBoldDate();
         }
         // Set the lowest time unit with thin font (excluding hundredths)
-        if (mSecondsTens != null) {
+        if (mSecondsTens != null && !hourMinutesOnly) {
             mSecondsTens.setTypeface(mAndroidClockMonoThin);
             mSecondsTens.updatePadding();
         }
-        if (mSecondsOnes != null) {
+        if (mSecondsOnes != null && !hourMinutesOnly) {
             mSecondsOnes.setTypeface(mAndroidClockMonoThin);
             mSecondsOnes.updatePadding();
+        }
+
+        if (mHoursTens != null && hourMinutesOnly) {
+            mHoursTens.updatePaddingForBoldDate();
+            mHoursTens.setVisibility(VISIBLE);
+        }
+
+        if (mMinutesTens != null && hourMinutesOnly) {
+            mMinutesTens.setTypeface(mAndroidClockMonoThin);
+            mMinutesTens.updatePadding();
+        }
+        if (mMinutesOnes != null && hourMinutesOnly) {
+            mMinutesOnes.setTypeface(mAndroidClockMonoThin);
+            mMinutesOnes.updatePadding();
+        }
+
+        if (mSecondsTens != null && hourMinutesOnly) {
+            mSecondsTens.setVisibility(GONE);
+        }
+        if (mSecondsOnes != null && hourMinutesOnly) {
+            mSecondsOnes.setVisibility(GONE);
+        }
+        if(mSecondsLabel != null && hourMinutesOnly){
+            mSecondsLabel.setVisibility(GONE);
         }
     }
 
@@ -117,8 +155,12 @@ public class HmsView extends LinearLayout {
      * @param secondsTensDigit the tens digit of the seconds TextView
      * @param secondsOnesDigit the ones digit of the seconds TextView
      */
-    public void setTime(int hoursOnesDigit, int minutesTensDigit, int minutesOnesDigit, int secondsTensDigit,
+    public void setTime(int hoursTensDigit, int hoursOnesDigit, int minutesTensDigit, int minutesOnesDigit, int secondsTensDigit,
             int secondsOnesDigit) {
+
+        if(mHoursTens != null){
+            mHoursTens.setText(String.format("%d", hoursTensDigit));
+        }
         if (mHoursOnes != null) {
             mHoursOnes.setText(String.format("%d", hoursOnesDigit));
         }
@@ -134,5 +176,9 @@ public class HmsView extends LinearLayout {
         if (mSecondsOnes != null) {
             mSecondsOnes.setText(String.format("%d", secondsOnesDigit));
         }
+    }
+
+    public void setHourMinutesOnly(boolean hourMinutesOnly) {
+        this.hourMinutesOnly = hourMinutesOnly;
     }
 }
