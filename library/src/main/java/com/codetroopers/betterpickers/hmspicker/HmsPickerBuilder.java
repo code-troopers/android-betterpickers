@@ -19,6 +19,7 @@ public class HmsPickerBuilder {
     private Fragment targetFragment;
     private int mReference;
     private Vector<HmsPickerDialogHandler> mHmsPickerDialogHandlers = new Vector<HmsPickerDialogHandler>();
+    private Vector<HmsPickerDialogFragment.HmsPickerDialogHandlerV2> mHmsPickerDialogHandlerV2s = new Vector<HmsPickerDialogFragment.HmsPickerDialogHandlerV2>();
     private int mHours;
     private int mMinutes;
     private int mSeconds;
@@ -85,6 +86,32 @@ public class HmsPickerBuilder {
     }
 
     /**
+     * @param handler an Object implementing the appropriate Picker Handler
+     * @return the current Builder object
+     * @Deprecated : use HmsPickerDialogHandlerV2 that return negative/positive status
+     * <p/>
+     * Attach universal objects as additional handlers for notification when the Picker is set. For most use cases, this
+     * method is not necessary as attachment to an Activity or Fragment is done automatically.  If, however, you would
+     * like additional objects to subscribe to this Picker being set, attach Handlers here.
+     */
+    public HmsPickerBuilder addHmsPickerDialogHandler(HmsPickerDialogHandler handler) {
+        this.mHmsPickerDialogHandlers.add(handler);
+        return this;
+    }
+
+    /**
+     * @param handler the Object to remove
+     * @return the current Builder object
+     * @Deprecated : use HmsPickerDialogHandlerV2 that return negative/positive status
+     * <p/>
+     * Remove objects previously added as handlers.
+     */
+    public HmsPickerBuilder removeHmsPickerDialogHandler(HmsPickerDialogHandler handler) {
+        this.mHmsPickerDialogHandlers.remove(handler);
+        return this;
+    }
+
+    /**
      * Attach universal objects as additional handlers for notification when the Picker is set. For most use cases, this
      * method is not necessary as attachment to an Activity or Fragment is done automatically.  If, however, you would
      * like additional objects to subscribe to this Picker being set, attach Handlers here.
@@ -92,8 +119,8 @@ public class HmsPickerBuilder {
      * @param handler an Object implementing the appropriate Picker Handler
      * @return the current Builder object
      */
-    public HmsPickerBuilder addHmsPickerDialogHandler(HmsPickerDialogHandler handler) {
-        this.mHmsPickerDialogHandlers.add(handler);
+    public HmsPickerBuilder addHmsPickerDialogHandler(HmsPickerDialogFragment.HmsPickerDialogHandlerV2 handler) {
+        this.mHmsPickerDialogHandlerV2s.add(handler);
         return this;
     }
 
@@ -103,15 +130,15 @@ public class HmsPickerBuilder {
      * @param handler the Object to remove
      * @return the current Builder object
      */
-    public HmsPickerBuilder removeHmsPickerDialogHandler(HmsPickerDialogHandler handler) {
-        this.mHmsPickerDialogHandlers.remove(handler);
+    public HmsPickerBuilder removeHmsPickerDialogHandler(HmsPickerDialogFragment.HmsPickerDialogHandlerV2 handler) {
+        this.mHmsPickerDialogHandlerV2s.remove(handler);
         return this;
     }
 
     /**
      * Set some initial values for the picker
      *
-     * @param hours the initial hours value
+     * @param hours   the initial hours value
      * @param minutes the initial minutes value
      * @param seconds the initial seconds value
      * @return the current Builder object
@@ -168,6 +195,7 @@ public class HmsPickerBuilder {
             fragment.setTargetFragment(targetFragment, 0);
         }
         fragment.setHmsPickerDialogHandlers(mHmsPickerDialogHandlers);
+        fragment.setHmsPickerDialogHandlersV2(mHmsPickerDialogHandlerV2s);
 
         if ((mHours | mMinutes | mSeconds) != 0) {
             fragment.setTime(mHours, mMinutes, mSeconds);

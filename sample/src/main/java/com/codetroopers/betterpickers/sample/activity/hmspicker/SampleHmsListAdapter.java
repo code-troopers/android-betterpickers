@@ -33,7 +33,7 @@ public class SampleHmsListAdapter extends BaseSampleActivity {
         list.setAdapter(new SampleAdapter(this, getSupportFragmentManager()));
     }
 
-    private class SampleAdapter extends BaseAdapter implements HmsPickerDialogFragment.HmsPickerDialogHandler {
+    private class SampleAdapter extends BaseAdapter implements HmsPickerDialogFragment.HmsPickerDialogHandlerV2 {
 
         private ArrayList<Hms> mHmses;
         private LayoutInflater mInflater;
@@ -115,7 +115,7 @@ public class SampleHmsListAdapter extends BaseSampleActivity {
         }
 
         @Override
-        public void onDialogHmsSet(int reference, int hours, int minutes, int seconds) {
+        public void onDialogHmsSet(int reference, boolean isNegative, int hours, int minutes, int seconds) {
             Hms hms = new Hms();
             hms.hours = hours;
             hms.minutes = minutes;

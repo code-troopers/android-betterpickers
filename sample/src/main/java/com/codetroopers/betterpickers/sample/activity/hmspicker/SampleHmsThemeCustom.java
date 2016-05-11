@@ -13,8 +13,7 @@ import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleHmsThemeCustom extends BaseSampleActivity
-        implements HmsPickerDialogFragment.HmsPickerDialogHandler {
+public class SampleHmsThemeCustom extends BaseSampleActivity implements HmsPickerDialogFragment.HmsPickerDialogHandlerV2 {
 
     private TextView mResultTextView;
 
@@ -40,7 +39,7 @@ public class SampleHmsThemeCustom extends BaseSampleActivity
     }
 
     @Override
-    public void onDialogHmsSet(int reference, int hours, int minutes, int seconds) {
-        mResultTextView.setText(getString(R.string.hms_picker_result_value_multiline, hours, minutes, seconds));
+    public void onDialogHmsSet(int reference, boolean isNegative, int hours, int minutes, int seconds) {
+        mResultTextView.setText(getString(R.string.hms_picker_result_value_multiline, hours, minutes, seconds, isNegative));
     }
 }

@@ -12,8 +12,7 @@ import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 /**
  * User: derek Date: 3/17/13 Time: 3:59 PM
  */
-public class SampleHmsMultipleReferences extends BaseSampleActivity
-        implements HmsPickerDialogFragment.HmsPickerDialogHandler {
+public class SampleHmsMultipleReferences extends BaseSampleActivity implements HmsPickerDialogFragment.HmsPickerDialogHandlerV2 {
 
     private static final int BUTTON_ONE_REFERENCE = 0;
     private static final int BUTTON_TWO_REFERENCE = 1;
@@ -82,7 +81,7 @@ public class SampleHmsMultipleReferences extends BaseSampleActivity
     }
 
     @Override
-    public void onDialogHmsSet(int reference, int hours, int minutes, int seconds) {
+    public void onDialogHmsSet(int reference, boolean isNegative, int hours, int minutes, int seconds) {
         Button buttonToSet;
         switch (reference) {
             case BUTTON_ONE_REFERENCE:

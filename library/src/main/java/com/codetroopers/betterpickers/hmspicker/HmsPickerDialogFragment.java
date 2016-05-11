@@ -30,7 +30,9 @@ public class HmsPickerDialogFragment extends DialogFragment {
     private int mTheme = -1;
     private ColorStateList mTextColor;
     private int mDialogBackgroundResId;
+    @Deprecated
     private Vector<HmsPickerDialogHandler> mHmsPickerDialogHandlers = new Vector<HmsPickerDialogHandler>();
+    private Vector<HmsPickerDialogHandlerV2> mHmsPickerDialogHandlerV2s = new Vector<HmsPickerDialogHandlerV2>();
     private int mHours;
     private int mMinutes;
     private int mSeconds;
@@ -112,6 +114,10 @@ public class HmsPickerDialogFragment extends DialogFragment {
                 for (HmsPickerDialogHandler handler : mHmsPickerDialogHandlers) {
                     handler.onDialogHmsSet(mReference, mPicker.getHours(), mPicker.getMinutes(), mPicker.getSeconds());
                 }
+                for (HmsPickerDialogHandlerV2 handler : mHmsPickerDialogHandlerV2s) {
+                    handler.onDialogHmsSet(mReference, mPicker.isNegative(), mPicker.getHours(), mPicker.getMinutes(), mPicker.getSeconds());
+                }
+
                 final Activity activity = getActivity();
                 final Fragment fragment = getTargetFragment();
 
@@ -156,20 +162,32 @@ public class HmsPickerDialogFragment extends DialogFragment {
     }
 
     /**
+     * @Deprecated : use HmsPickerDialogHandlerV2 that return negative/positive status
      * This interface allows objects to register for the Picker's set action.
      */
+    @Deprecated
     public interface HmsPickerDialogHandler {
 
+        @Deprecated
         void onDialogHmsSet(int reference, int hours, int minutes, int seconds);
     }
 
     /**
-     * Attach a Vector of handlers to be notified in addition to the Fragment's Activity and target Fragment.
-     *
      * @param handlers a Vector of handlers
+     * @Deprecated : use HmsPickerDialogHandlerV2 that return negative/positive status
+     * Attach a Vector of handlers to be notified in addition to the Fragment's Activity and target Fragment.
      */
+    @Deprecated
     public void setHmsPickerDialogHandlers(Vector<HmsPickerDialogHandler> handlers) {
         mHmsPickerDialogHandlers = handlers;
+    }
+
+    /**
+     * @param handlers a Vector of handlers
+     * Attach a Vector of handlers to be notified in addition to the Fragment's Activity and target Fragment.
+     */
+    public void setHmsPickerDialogHandlersV2(Vector<HmsPickerDialogHandlerV2> handlers) {
+        mHmsPickerDialogHandlerV2s = handlers;
     }
 
     public void setTime(int hours, int minutes, int seconds) {

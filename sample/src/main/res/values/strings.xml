@@ -15,7 +15,7 @@
     <string name="expiration_picker_set">Set Expiration</string>
     <string name="expiration_picker_result_value">%1$s/%2$s</string>
     <string name="hms_picker_set">Set HMS</string>
-    <string name="hms_picker_result_value_multiline">Hours: %1$s\nMinutes: %2$s\nSeconds: %3$s</string>
+    <string name="hms_picker_result_value_multiline">Hours: %1$s\nMinutes: %2$s\nSeconds: %3$s\nNegative : %4$b</string>
     <string name="hms_picker_result_value_oneline">H:%1$s, M:%2$s, S:%3$s</string>
     <string name="time_picker_set">Set Time</string>
     <string name="time_picker_result_value">%1$s:%2$s</string>
