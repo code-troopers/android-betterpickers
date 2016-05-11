@@ -5,6 +5,7 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.codetroopers.betterpickers.R;
@@ -17,6 +18,7 @@ public class HmsView extends LinearLayout {
     private ZeroTopPaddingTextView mSecondsOnes, mSecondsTens;
     private final Typeface mAndroidClockMonoThin;
     private Typeface mOriginalHoursTypeface;
+    private ZeroTopPaddingTextView mMinusLabel;
 
     private ColorStateList mTextColor;
 
@@ -76,6 +78,9 @@ public class HmsView extends LinearLayout {
         if (mSecondsTens != null) {
             mSecondsTens.setTextColor(mTextColor);
         }
+        if (mMinusLabel != null) {
+            mMinusLabel.setTextColor(mTextColor);
+        }
     }
 
     @Override
@@ -87,6 +92,8 @@ public class HmsView extends LinearLayout {
         mMinutesOnes = (ZeroTopPaddingTextView) findViewById(R.id.minutes_ones);
         mSecondsTens = (ZeroTopPaddingTextView) findViewById(R.id.seconds_tens);
         mSecondsOnes = (ZeroTopPaddingTextView) findViewById(R.id.seconds_ones);
+        mMinusLabel = (ZeroTopPaddingTextView) findViewById(R.id.minus_label);
+
         if (mHoursOnes != null) {
             mOriginalHoursTypeface = mHoursOnes.getTypeface();
             mHoursOnes.updatePaddingForBoldDate();
@@ -118,7 +125,15 @@ public class HmsView extends LinearLayout {
      * @param secondsOnesDigit the ones digit of the seconds TextView
      */
     public void setTime(int hoursOnesDigit, int minutesTensDigit, int minutesOnesDigit, int secondsTensDigit,
+                        int secondsOnesDigit) {
+        setTime(false, hoursOnesDigit, minutesTensDigit, minutesOnesDigit, secondsTensDigit, secondsOnesDigit);
+    }
+
+    public void setTime(boolean isNegative, int hoursOnesDigit, int minutesTensDigit, int minutesOnesDigit, int secondsTensDigit,
             int secondsOnesDigit) {
+
+        mMinusLabel.setVisibility(isNegative ? View.VISIBLE : View.GONE);
+
         if (mHoursOnes != null) {
             mHoursOnes.setText(String.format("%d", hoursOnesDigit));
         }
