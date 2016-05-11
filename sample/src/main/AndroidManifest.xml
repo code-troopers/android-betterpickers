@@ -266,7 +266,7 @@
         </activity>
         <activity
             android:name=".activity.hmspicker.SampleHmsBasicNegativeDurationUsage"
-            android:label="HMS/Basic Usage">
+            android:label="HMS/Negative Duration">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
