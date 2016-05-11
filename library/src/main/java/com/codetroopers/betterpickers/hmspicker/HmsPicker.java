@@ -58,7 +58,7 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
      * Instantiates an HmsPicker object
      *
      * @param context the Context required for creation
-     * @param attrs additional attributes that define custom colors, selectors, and backgrounds.
+     * @param attrs   additional attributes that define custom colors, selectors, and backgrounds.
      */
     public HmsPicker(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -130,7 +130,7 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
         if (mEnteredHms != null) {
             mEnteredHms.setTheme(mTheme);
         }
-        if(mLeft != null){
+        if (mLeft != null) {
             mLeft.setTextColor(mTextColor);
             mLeft.setBackgroundResource(mKeyBackgroundResId);
         }
@@ -176,8 +176,6 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
         Resources res = mContext.getResources();
         mLeft.setText(res.getString(R.string.number_picker_plus_minus));
         mLeft.setOnClickListener(this);
-//        mLabel = (TextView) findViewById(R.id.label);
-//        mSign = SIGN_POSITIVE;
 
         mHoursLabel = (TextView) findViewById(R.id.hours_label);
         mMinutesLabel = (TextView) findViewById(R.id.minutes_label);
@@ -218,17 +216,17 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
                 mInput[mInputPointer] = 0;
                 mInputPointer--;
             }
-        } else if(v == mLeft){
+        } else if (v == mLeft) {
             onLeftClicked();
         }
         updateKeypad();
     }
 
     private void onLeftClicked() {
-        if (mSign == SIGN_POSITIVE) {
-            mSign = SIGN_NEGATIVE;
-        } else {
+        if (isNegative()) {
             mSign = SIGN_POSITIVE;
+        } else {
+            mSign = SIGN_NEGATIVE;
         }
     }
 
@@ -268,13 +266,13 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
 
     /**
      * Update the time displayed in the picker:
-     *
+     * <p/>
      * Put "-" in digits that was not entered by passing -1
-     *
+     * <p/>
      * Hide digit by passing -2 (for highest hours digit only);
      */
     protected void updateHms() {
-        mEnteredHms.setTime(mSign == SIGN_NEGATIVE, mInput[4], mInput[3], mInput[2], mInput[1], mInput[0]);
+        mEnteredHms.setTime(isNegative(), mInput[4], mInput[3], mInput[2], mInput[1], mInput[0]);
     }
 
     private void addClickedNumber(int val) {
@@ -356,7 +354,7 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
     /**
      * Set the current hours, minutes, and seconds on the picker.
      *
-     * @param hours the input hours value
+     * @param hours   the input hours value
      * @param minutes the input minutes value
      * @param seconds the input seconds value
      */
@@ -367,7 +365,7 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
         mInput[1] = seconds / 10;
         mInput[0] = seconds % 10;
 
-        for (int i=4; i>=0; i--) {
+        for (int i = 4; i >= 0; i--) {
             if (mInput[i] > 0) {
                 mInputPointer = i;
                 break;
@@ -476,7 +474,7 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
         }
     }
 
-    public boolean isNegative(){
+    public boolean isNegative() {
         return mSign == SIGN_NEGATIVE;
     }
 }
