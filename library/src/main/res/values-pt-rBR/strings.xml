@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="picker_now">Ora</string>
     <string name="picker_cancel">Cancelar</string>
     <string name="picker_set">OK</string>
     <string name="hours_label">h</string>
