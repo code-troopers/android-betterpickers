@@ -15,8 +15,7 @@ import com.codetroopers.betterpickers.sample.R;
 /**
  * User: derek Date: 4/30/13 Time: 7:43 PM
  */
-public class SampleHmsFragment extends Fragment
-        implements HmsPickerDialogFragment.HmsPickerDialogHandler {
+public class SampleHmsFragment extends Fragment implements HmsPickerDialogFragment.HmsPickerDialogHandlerV2 {
 
     private TextView mResultTextView;
 
@@ -44,7 +43,7 @@ public class SampleHmsFragment extends Fragment
     }
 
     @Override
-    public void onDialogHmsSet(int reference, int hours, int minutes, int seconds) {
-        mResultTextView.setText(getString(R.string.hms_picker_result_value_multiline, hours, minutes, seconds));
+    public void onDialogHmsSet(int reference, boolean isNegative, int hours, int minutes, int seconds) {
+        mResultTextView.setText(getString(R.string.hms_picker_result_value_multiline, hours, minutes, seconds, isNegative));
     }
 }

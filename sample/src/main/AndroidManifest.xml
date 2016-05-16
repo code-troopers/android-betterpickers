@@ -265,6 +265,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activity.hmspicker.SampleHmsNegativeDurationUsage"
+            android:label="HMS/Negative Duration">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activity.hmspicker.SampleHmsThemeCustom"
             android:label="HMS/Theme Custom">
             <intent-filter>
