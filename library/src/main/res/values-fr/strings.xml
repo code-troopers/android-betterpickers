@@ -130,7 +130,7 @@
     <!-- Part of a description of an repeating event. This part states the date when a repeating
          event ends. The part before the semi-colon describes how it repeats.
          e.g. Every 2 weeks; until 1/1/2030 [CHAR LIMIT=21] -->
-    <string name="endByDate">; jusq\'à <xliff:g id="date">%s</xliff:g></string>
+    <string name="endByDate">; jusqu\'à <xliff:g id="date">%s</xliff:g></string>
     <!-- Part of a description of an repeating event. This part how many times the event repeats.
          The part before the semi-colon describes how it repeats.
          e.g. Every 2 weeks; for 15 times [CHAR LIMIT=15] -->
