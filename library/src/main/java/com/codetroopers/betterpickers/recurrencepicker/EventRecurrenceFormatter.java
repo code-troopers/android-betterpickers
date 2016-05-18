@@ -103,10 +103,13 @@ public class EventRecurrenceFormatter {
                 String details = "";
                 if (recurrence.byday != null) {
                     int weekday = EventRecurrence.day2CalendarDay(recurrence.byday[0]) - 1;
-                    int dayNumber = recurrence.bydayNum[0];
                     // Cache this stuff so we won't have to redo work again later.
                     cacheMonthRepeatStrings(r, weekday);
 
+                    int dayNumber = recurrence.bydayNum[0];
+                    if(dayNumber == RecurrencePickerDialogFragment.LAST_NTH_DAY_OF_WEEK){
+                        dayNumber = 5;
+                    }
                     details = mMonthRepeatByDayOfWeekStrs[weekday][dayNumber - 1];
                 }
                 return r.getQuantityString(R.plurals.monthly, interval, interval, details) + endString;
