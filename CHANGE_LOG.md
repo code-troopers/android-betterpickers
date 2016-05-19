@@ -1,6 +1,9 @@
 
 Changelog
 =========
+**2.5.5**
+* Fix recurrence picker exception (#282)
+
 **2.5.4**
 * Add Czech translations (#267)
 * Added min/max limits to RadialTimePicker (#272)
