@@ -84,7 +84,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
 
     // Special cases in monthlyByNthDayOfWeek
     private static final int FIFTH_WEEK_IN_A_MONTH = 5;
-    private static final int LAST_NTH_DAY_OF_WEEK = -1;
+    public static final int LAST_NTH_DAY_OF_WEEK = -1;
 
     private CalendarDatePickerDialogFragment mDatePickerDialog;
 
