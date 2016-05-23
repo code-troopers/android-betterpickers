@@ -1,6 +1,9 @@
 
 Changelog
 =========
+**2.5.next**
+* Fix typo in RecurrenceEvent (#290)
+
 **2.5.5**
 * Fix recurrence picker exception (#282)
 
