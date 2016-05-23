@@ -296,8 +296,7 @@ public class EventRecurrence {
         }
     }
 
-    private static void appendNumbers(StringBuilder s, String label,
-            int count, int[] values) {
+    private static void appendNumbers(StringBuilder s, String label, int count, int[] values) {
         if (count > 0) {
             s.append(label);
             count--;
@@ -370,7 +369,7 @@ public class EventRecurrence {
 
         appendNumbers(s, ";BYSECOND=", this.bysecondCount, this.bysecond);
         appendNumbers(s, ";BYMINUTE=", this.byminuteCount, this.byminute);
-        appendNumbers(s, ";BYSECOND=", this.byhourCount, this.byhour);
+        appendNumbers(s, ";BYHOUR=", this.byhourCount, this.byhour);
 
         // day
         int count = this.bydayCount;
