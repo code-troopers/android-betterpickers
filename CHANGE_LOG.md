@@ -1,8 +1,10 @@
 
 Changelog
 =========
-**2.5.next**
+**2.5.6**
 * Fix typo in RecurrenceEvent (#290)
+* Update support library (#296)
+* Fix style of header of radial picker (#291)
 
 **2.5.5**
 * Fix recurrence picker exception (#282)
