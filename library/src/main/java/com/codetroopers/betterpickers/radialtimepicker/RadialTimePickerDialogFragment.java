@@ -307,13 +307,21 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
             mIs24HourMode = savedInstanceState.getBoolean(KEY_IS_24_HOUR_VIEW);
             mInKbMode = savedInstanceState.getBoolean(KEY_IN_KB_MODE);
             mStyleResId = savedInstanceState.getInt(KEY_STYLE);
-            if(savedInstanceState.containsKey(KEY_FUTURE_MINUTES_LIMIT)) mFutureMinutesLimit = savedInstanceState.getInt(KEY_FUTURE_MINUTES_LIMIT);
-            if(savedInstanceState.containsKey(KEY_PAST_MINUTES_LIMIT)) mPastMinutesLimit = savedInstanceState.getInt(KEY_PAST_MINUTES_LIMIT);
-            if(savedInstanceState.containsKey(KEY_CURRENT_DATE)) mValidateDateTime = (Calendar) savedInstanceState.getSerializable(KEY_CURRENT_DATE);
-            if(savedInstanceState.containsKey(KEY_PICKER_DATE)) mPickerDate = (Calendar) savedInstanceState.getSerializable(KEY_PICKER_DATE);
+            if (savedInstanceState.containsKey(KEY_FUTURE_MINUTES_LIMIT)) {
+                mFutureMinutesLimit = savedInstanceState.getInt(KEY_FUTURE_MINUTES_LIMIT);
+            }
+            if (savedInstanceState.containsKey(KEY_PAST_MINUTES_LIMIT)) {
+                mPastMinutesLimit = savedInstanceState.getInt(KEY_PAST_MINUTES_LIMIT);
+            }
+            if (savedInstanceState.containsKey(KEY_CURRENT_DATE)) {
+                mValidateDateTime = (Calendar) savedInstanceState.getSerializable(KEY_CURRENT_DATE);
+            }
+            if (savedInstanceState.containsKey(KEY_PICKER_DATE)) {
+                mPickerDate = (Calendar) savedInstanceState.getSerializable(KEY_PICKER_DATE);
+            }
         } else {
             if (mIs24HourMode == null) {
-                mIs24HourMode = DateFormat.is24HourFormat(getContext());;
+                mIs24HourMode = DateFormat.is24HourFormat(getContext());
             }
         }
     }
@@ -383,12 +391,17 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         if (mTitleText != null) {
             mTitleTextView.setVisibility(View.VISIBLE);
             mTitleTextView.setText(mTitleText);
-        }
-        else {
+        } else {
             mTitleTextView.setVisibility(View.GONE);
         }
 
         mError = (NumberPickerErrorTextView) view.findViewById(R.id.error);
+
+        if (mFutureMinutesLimit != null || mPastMinutesLimit != null) {
+            mError.setVisibility(View.INVISIBLE);
+        } else {
+            mError.setVisibility(View.GONE);
+        }
 
         mDoneButton = (Button) view.findViewById(R.id.done_button);
         if (mDoneText != null) {
@@ -527,8 +540,10 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
             outState.putBoolean(KEY_IS_24_HOUR_VIEW, mIs24HourMode);
             outState.putInt(KEY_CURRENT_ITEM_SHOWING, mTimePicker.getCurrentItemShowing());
             outState.putBoolean(KEY_IN_KB_MODE, mInKbMode);
-            if(mFutureMinutesLimit != null) outState.putInt(KEY_FUTURE_MINUTES_LIMIT, mFutureMinutesLimit);
-            if(mPastMinutesLimit != null) outState.putInt(KEY_PAST_MINUTES_LIMIT, mPastMinutesLimit);
+            if (mFutureMinutesLimit != null)
+                outState.putInt(KEY_FUTURE_MINUTES_LIMIT, mFutureMinutesLimit);
+            if (mPastMinutesLimit != null)
+                outState.putInt(KEY_PAST_MINUTES_LIMIT, mPastMinutesLimit);
             outState.putSerializable(KEY_CURRENT_DATE, mValidateDateTime);
             outState.putSerializable(KEY_PICKER_DATE, mPickerDate);
             if (mInKbMode) outState.putIntegerArrayList(KEY_TYPED_TIMES, mTypedTimes);
@@ -538,10 +553,11 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
 
     /**
      * Checks if the selected time lays too far in the future
+     *
      * @return true if too far in the future, false if not
      */
     public boolean isSelectionTooFarInTheFuture() {
-        if(this.mPickerDate != null && this.mValidateDateTime != null && this.mFutureMinutesLimit != null) {
+        if (this.mPickerDate != null && this.mValidateDateTime != null && this.mFutureMinutesLimit != null) {
             Calendar selectedDate = Calendar.getInstance();
             selectedDate.setTime(this.mPickerDate.getTime());
             selectedDate.set(Calendar.HOUR_OF_DAY, mTimePicker.getHours());
@@ -557,10 +573,11 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
 
     /**
      * Checks if the selected time lays too far in the past
+     *
      * @return true if too far in the past, false if not
      */
     public boolean isSelectionTooFarInPast() {
-        if(this.mPickerDate != null && this.mValidateDateTime != null && this.mPastMinutesLimit != null) {
+        if (this.mPickerDate != null && this.mValidateDateTime != null && this.mPastMinutesLimit != null) {
             Calendar selectedDate = Calendar.getInstance();
             selectedDate.setTime(this.mPickerDate.getTime());
             selectedDate.set(Calendar.HOUR_OF_DAY, mTimePicker.getHours());
@@ -578,19 +595,17 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
      * Called when the done button is pressed. Validates the input and performs a callback if valid.
      */
     public void doneClickValidateAndCallback() {
-        if(isSelectionTooFarInTheFuture()) {
-            if(mError != null) {
+        if (isSelectionTooFarInTheFuture()) {
+            if (mError != null) {
                 mError.setText(getString(R.string.max_time_error));
                 mError.show();
             }
-        }
-        else if(isSelectionTooFarInPast()) {
-            if(mError != null) {
+        } else if (isSelectionTooFarInPast()) {
+            if (mError != null) {
                 mError.setText(getString(R.string.min_time_error));
                 mError.show();
             }
-        }
-        else {
+        } else {
             if (mCallback != null) {
                 mCallback.onTimeSet(RadialTimePickerDialogFragment.this, mTimePicker.getHours(), mTimePicker.getMinutes());
             }
