@@ -1,6 +1,9 @@
 
 Changelog
 =========
+**2.5.next**
+* Fix disable day color for CalendarDatePicker with range limit (#294)
+
 **2.5.6**
 * Fix typo in RecurrenceEvent (#290)
 * Update support library (#296)

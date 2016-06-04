@@ -33,7 +33,7 @@
         <item name="bpDoneBackgroundColor">@drawable/done_background_color</item>
         <item name="bpSelectionAlpha">51</item>
         <item name="bpDisabledDayColor">@color/bp_disabled_day</item>
-        <item name="bpDisabledDayTextColor">@color/circle_background</item>
+        <item name="bpDisabledDayTextColor">@color/date_picker_text_disabled</item>
     </style>
 
     <style name="BetterPickersRadialTimePickerDialog.PrimaryColor">

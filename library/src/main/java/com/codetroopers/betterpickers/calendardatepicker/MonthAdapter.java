@@ -315,8 +315,7 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
 
     @Override
     public void onDayClick(MonthView view, CalendarDay day) {
-        if (day != null && isDayInRange(day)
-                && !isDayDisabled(day)) {
+        if (day != null && isDayInRange(day) && !isDayDisabled(day)) {
             onDayTapped(day);
         }
     }

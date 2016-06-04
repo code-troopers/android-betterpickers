@@ -33,7 +33,7 @@
 
     <color name="neutral_pressed">#33999999</color>
     <color name="date_picker_text_normal">#ff999999</color>
-    <color name="date_picker_text_disabled">#cccccc</color>
+    <color name="date_picker_text_disabled">#bdbdbd</color>
 
     <color name="calendar_header">#999999</color>
     <color name="date_picker_view_animator">#f2f2f2</color>
