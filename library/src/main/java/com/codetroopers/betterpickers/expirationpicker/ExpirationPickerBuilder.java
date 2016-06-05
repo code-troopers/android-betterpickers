@@ -136,10 +136,11 @@ public class ExpirationPickerBuilder {
             Log.e("ExpirationPickerBuilder", "setFragmentManager() and setStyleResId() must be called.");
             return;
         }
-        final FragmentTransaction ft = manager.beginTransaction();
+        FragmentTransaction ft = manager.beginTransaction();
         final Fragment prev = manager.findFragmentByTag("expiration_dialog");
         if (prev != null) {
-            ft.remove(prev);
+            ft.remove(prev).commit();
+            ft = manager.beginTransaction();
         }
         ft.addToBackStack(null);
 
