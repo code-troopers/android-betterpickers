@@ -153,45 +153,8 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         mStyleResId = R.style.BetterPickersRadialTimePickerDialog_PrimaryColor;
     }
 
-    /**
-     * @param callBack    How the parent is notified that the date is set.
-     * @param year        The initial year of the dialog.
-     * @param monthOfYear The initial month of the dialog.
-     * @param dayOfMonth  The initial day of the dialog.
-     * @Deprecated Will be removed in next major release use setOnDateSetListener() and setPreselectedDate()
-     */
-    @Deprecated
-    public static CalendarDatePickerDialogFragment newInstance(OnDateSetListener callBack, int year, int monthOfYear, int dayOfMonth) {
-        CalendarDatePickerDialogFragment ret = new CalendarDatePickerDialogFragment();
-        ret.initialize(callBack, year, monthOfYear, dayOfMonth);
-        return ret;
-    }
-
-    /**
-     * @Deprecated Will be removed in next major release use setOnDateSetListener() and setPreselectedDate()
-     */
-    @Deprecated
-    public void initialize(OnDateSetListener callBack, int year, int monthOfYear, int dayOfMonth) {
-        mCallBack = callBack;
-        mCalendar.set(Calendar.YEAR, year);
-        mCalendar.set(Calendar.MONTH, monthOfYear);
-        mCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        mStyleResId = R.style.BetterPickersRadialTimePickerDialog_PrimaryColor;
-    }
-
     public boolean isThemeDark() {
         return mStyleResId == R.style.BetterPickersRadialTimePickerDialog_Dark;
-    }
-
-    /**
-     * @Deprecated use setThemeDark()
-     */
-    @Deprecated
-    public CalendarDatePickerDialogFragment setThemeDark(boolean dark) {
-        if (dark) {
-            mStyleResId = R.style.BetterPickersRadialTimePickerDialog_Dark;
-        }
-        return this;
     }
 
     public CalendarDatePickerDialogFragment setThemeDark() {

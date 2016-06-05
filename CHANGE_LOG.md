@@ -1,6 +1,23 @@
 
 Changelog
 =========
+**3.0.0**
+* Remove deprecated methods :
+    - CalendarDatePickerDialogFragment#setThemeDark(boolean dark) replaced by CalendarDatePickerDialogFragment#setThemeDark()
+    - CalendarDatePickerDialogFragment#newInstance(...) repalced by CalendarDatePickerDialogFragment#setOnDateSetListener() and CalendarDatePickerDialogFragment#setPreselectedDate()
+    - CalendarDatePickerDialogFragment#initialize(...) replaced by CalendarDatePickerDialogFragment#setOnDateSetListener() and CalendarDatePickerDialogFragment#setPreselectedDate()
+    - HmsPickerDialogFragment#HmsPickerDialogHandler replaced by HmsPickerDialogFragment#HmsPickerDialogHandlerV2
+    - HmsPickerDialogFragment#setHmsPickerDialogHandlers(...) replaced by HmsPickerDialogFragment#setHmsPickerDialogHandlersV2(...)
+    - HmsPickerBuilder#addHmsPickerDialogHandler(HmsPickerDialogHandler) replaced by HmsPickerBuilder#addHmsPickerDialogHandler(HmsPickerDialogHandlerV2)
+    - HmsPickerBuilder#removeHmsPickerDialogHandler(HmsPickerDialogHandler) replaced by HmsPickerBuilder#removeHmsPickerDialogHandler(HmsPickerDialogHandlerV2)
+    - NumberPickerDialogFragment#NumberPickerDialogHandler replaced by NumberPickerDialogFragment#NumberPickerDialogHandlerV2
+    - NumberPickerDialogFragment#setNumberPickerDialogHandlers(...) replaced by NumberPickerDialogFragment#setNumberPickerDialogHandlersV2(...)
+    - NumberPickerBuilder#addNumberPickerDialogHandler(NumberPickerDialogHandler) replaced by NumberPickerBuilder#addNumberPickerDialogHandler(NumberPickerDialogHandlerV2)
+    - NumberPickerBuilder#removeNumberPickerDialogHandler(NumberPickerDialogHandler) replaced by NumberPickerBuilder#removeNumberPickerDialogHandler(NumberPickerDialogHandlerV2)
+    - RadialTimePickerDialogFragment#newInstance(...) replaced by RadialTimePickerDialogFragment#setOnTimeSetListener(...) and RadialTimePickerDialogFragment#setStartTime(...)
+    - RadialTimePickerDialogFragment#initialize(...) replaced by RadialTimePickerDialogFragment#setOnTimeSetListener(...) and RadialTimePickerDialogFragment#setStartTime(...)
+    - RadialTimePickerDialogFragment#setThemeDark(boolea) replaced by RadialTimePickerDialogFragment#setThemeDark()
+
 **2.5.next**
 * Fix disable day color for CalendarDatePicker with range limit (#294)
 
