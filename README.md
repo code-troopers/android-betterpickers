@@ -208,9 +208,9 @@ Theming
 =======
 *For a demonstration of theming, see the `sample/` folder.*
 
-## Calendar Date Picker / Radial Time Picker
+### Calendar Date Picker / Radial Time Picker
 
-  1. Use attributes
+  1. Use attributes that allow you to customize pickers
 
         bpHeaderBackgroundColor     ::
         bpHeaderUnselectedTextColor ::
@@ -231,26 +231,27 @@ Theming
 
   2. Create your own custom theme in `styles.xml`:
 
-  ```xml
-     <style name="MyCustomBetterPickersDialogs">
-          <item name="bpPreHeaderBackgroundColor">@color/holo_red_dark</item>
-          <item name="bpHeaderBackgroundColor">@color/holo_red_light</item>
-          <item name="bpHeaderSelectedTextColor">@color/holo_orange_dark</item>
-          <item name="bpHeaderUnselectedTextColor">@android:color/white</item>
+    ```xml
+    <style name="MyCustomBetterPickersDialogs">
+        <item name="bpPreHeaderBackgroundColor">@color/holo_red_dark</item>
+        <item name="bpHeaderBackgroundColor">@color/holo_red_light</item>
+        <item name="bpHeaderSelectedTextColor">@color/holo_orange_dark</item>
+        <item name="bpHeaderUnselectedTextColor">@android:color/white</item>
 
-          <item name="bpBodyBackgroundColor">@color/holo_blue_dark</item>
-          <item name="bpBodySelectedTextColor">@color/holo_orange_dark</item>
-          <item name="bpBodyUnselectedTextColor">@android:color/white</item>
+        <item name="bpBodyBackgroundColor">@color/holo_blue_dark</item>
+        <item name="bpBodySelectedTextColor">@color/holo_orange_dark</item>
+        <item name="bpBodyUnselectedTextColor">@android:color/white</item>
 
-          <item name="bpRadialBackgroundColor">@color/holo_orange_dark</item>
-          <item name="bpRadialTextColor">@color/holo_purple</item>
-          <item name="bpRadialPointerColor">@android:color/black</item>
+        <item name="bpRadialBackgroundColor">@color/holo_orange_dark</item>
+        <item name="bpRadialTextColor">@color/holo_purple</item>
+        <item name="bpRadialPointerColor">@android:color/black</item>
 
-          <item name="bpButtonsBackgroundColor">@color/holo_green_dark</item>
-          <item name="bpButtonsTextColor">@color/holo_orange_dark</item>
-      </style>
-  ```
- 3. Instantiate your `DialogFragment` using your custom theme:
+        <item name="bpButtonsBackgroundColor">@color/holo_green_dark</item>
+        <item name="bpButtonsTextColor">@color/holo_orange_dark</item>
+    </style>
+    ```
+
+  3. Instantiate your `DialogFragment` using your custom theme:
 
   ```java
   RadialTimePickerDialogFragment rtpd = new RadialTimePickerDialogFragment()
@@ -259,7 +260,7 @@ Theming
   rtpd.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
   ```
 
-## Date Picker / Expiration Picker / HMS Picker / Number Picker / Time Picker
+### Date Picker / Expiration Picker / HMS Picker / Number Picker / Time Picker
 
 
   1. You can use your own themes if you'd like to change certain attributes.  BetterPickers currently allows for customization of the following attributes:
