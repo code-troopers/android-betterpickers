@@ -145,7 +145,7 @@ public class RadialTextsView extends View {
     }
 
     /* package */ void setTheme(TypedArray themeColors) {
-        mPaint.setColor(themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpRadialTextColor, R.color.bpBlue));
+        mPaint.setColor(themeColors.getColor(R.styleable.BetterPickersDialogs_bpRadialTextColor, R.color.bpBlue));
     }
 
     /**

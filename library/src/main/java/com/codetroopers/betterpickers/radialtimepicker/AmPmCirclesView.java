@@ -95,9 +95,9 @@ public class AmPmCirclesView extends View {
 
     /* package */
     void setTheme(TypedArray themeColors) {
-        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpAmPmCircleColor, R.color.bpBlue);
-        mSelectedColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpAmPmCircleColor, R.color.bpBlue);
-        mAmPmTextColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpAmPmTextColor, R.color.bpWhite);
+        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpAmPmCircleColor, R.color.bpBlue);
+        mSelectedColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpAmPmCircleColor, R.color.bpBlue);
+        mAmPmTextColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpAmPmTextColor, R.color.bpWhite);
         mSelectedAlpha = 200;
         mUnselectedAlpha = 50;
     }

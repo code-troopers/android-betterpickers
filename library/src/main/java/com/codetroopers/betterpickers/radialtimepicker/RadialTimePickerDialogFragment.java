@@ -337,15 +337,15 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         view.findViewById(R.id.time_picker_dialog).setOnKeyListener(keyboardListener);
 
         Resources res = getResources();
-        TypedArray themeColors = getActivity().obtainStyledAttributes(mStyleResId, R.styleable.BetterPickers_RadialDialog);
+        TypedArray themeColors = getActivity().obtainStyledAttributes(mStyleResId, R.styleable.BetterPickersDialogs);
 
         // Prepare some colors to use.
-        int headerBgColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpHeaderBackgroundColor, R.color.bpBlue);
-        int bodyBgColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpBodyBackgroundColor, R.color.bpWhite);
-        int buttonBgColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpButtonsBackgroundColor, R.color.bpWhite);
-        int buttonTextColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpButtonsTextColor, R.color.bpBlue);
-        mSelectedColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpHeaderSelectedTextColor, R.color.bpWhite);
-        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpHeaderUnselectedTextColor, R.color.radial_gray_light);
+        int headerBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderBackgroundColor, R.color.bpBlue);
+        int bodyBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpBodyBackgroundColor, R.color.bpWhite);
+        int buttonBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpButtonsBackgroundColor, R.color.bpWhite);
+        int buttonTextColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpButtonsTextColor, R.color.bpBlue);
+        mSelectedColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderSelectedTextColor, R.color.bpWhite);
+        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderUnselectedTextColor, R.color.radial_gray_light);
 
         mHourPickerDescription = res.getString(R.string.hour_picker_description);
         mSelectHours = res.getString(R.string.select_hours);
