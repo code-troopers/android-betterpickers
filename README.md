@@ -259,6 +259,10 @@ Theming
          .setThemeCustom(R.style.MyCustomBetterPickersDialogs);
   rtpd.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
   ```
+  4. Result
+
+  <img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_calendar_date_customized.png" width="120">
+  <img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_radial_time_customized.png" width="120">
 
 ### Date Picker / Expiration Picker / HMS Picker / Number Picker / Time Picker
 
