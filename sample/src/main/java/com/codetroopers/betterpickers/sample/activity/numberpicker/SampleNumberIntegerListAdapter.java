@@ -38,7 +38,7 @@ public class SampleNumberIntegerListAdapter extends BaseSampleActivity {
 
     private class SampleAdapter extends BaseAdapter implements NumberPickerDialogFragment.NumberPickerDialogHandlerV2 {
 
-        private ArrayList<Integer> mNumbers;
+        private ArrayList<BigInteger> mNumbers;
         private LayoutInflater mInflater;
         private ViewHolder holder;
         private NumberPickerBuilder mNumberPickerBuilder;
@@ -48,13 +48,13 @@ public class SampleNumberIntegerListAdapter extends BaseSampleActivity {
             mInflater = LayoutInflater.from(context);
 
             Random random = new Random();
-            mNumbers = new ArrayList<Integer>();
-            mNumbers.add(0);
-            mNumbers.add(1);
-            mNumbers.add(-1);
+            mNumbers = new ArrayList<BigInteger>();
+            mNumbers.add(BigInteger.ZERO);
+            mNumbers.add(BigInteger.ONE);
+            mNumbers.add(BigInteger.valueOf(-1));
             for (int i = 1; i < 31; i++) {
                 Integer randomNumber = (random.nextInt(65536) - 32768);
-                mNumbers.add(randomNumber);
+                mNumbers.add(BigInteger.valueOf(randomNumber));
             }
 
             mNumberPickerBuilder = new NumberPickerBuilder()
@@ -74,7 +74,7 @@ public class SampleNumberIntegerListAdapter extends BaseSampleActivity {
         }
 
         @Override
-        public Integer getItem(int position) {
+        public BigInteger getItem(int position) {
             return mNumbers.get(position);
         }
 
@@ -96,8 +96,8 @@ public class SampleNumberIntegerListAdapter extends BaseSampleActivity {
                 holder = (ViewHolder) view.getTag();
             }
 
-            final Integer i = getItem(position);
-            holder.text.setText("" + i);
+            final BigInteger i = getItem(position);
+            holder.text.setText(i.toString());
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -113,7 +113,7 @@ public class SampleNumberIntegerListAdapter extends BaseSampleActivity {
 
         @Override
         public void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber) {
-            mNumbers.set(reference, number.intValue());
+            mNumbers.set(reference, number);
             notifyDataSetChanged();
         }
     }

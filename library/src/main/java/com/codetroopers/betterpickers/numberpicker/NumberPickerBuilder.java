@@ -9,6 +9,7 @@ import com.codetroopers.betterpickers.numberpicker.NumberPickerDialogFragment.Nu
 import com.codetroopers.betterpickers.numberpicker.NumberPickerDialogFragment.NumberPickerDialogHandlerV2;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Vector;
 
 /**
@@ -28,8 +29,8 @@ public class NumberPickerBuilder {
     @Deprecated
     private Vector<NumberPickerDialogHandler> mNumberPickerDialogHandlers = new Vector<NumberPickerDialogHandler>();
     private Vector<NumberPickerDialogHandlerV2> mNumberPickerDialogHandlersV2 = new Vector<>();
-    private Integer currentNumberValue;
-    private Double currentDecimalValue;
+    private BigInteger currentNumberValue;
+    private BigDecimal currentDecimalValue;
     private Integer currentSignValue;
 
     /**
@@ -79,16 +80,24 @@ public class NumberPickerBuilder {
 
     /**
      * Set initial value to display
+     * @deprecated use etCurrentNumber(BigInteger number)
      */
+    @Deprecated
     public NumberPickerBuilder setCurrentNumber(Integer number) {
+        return setCurrentNumber(BigInteger.valueOf(number));
+    }
+
+    /**
+     * Set initial value to display
+     */
+    public NumberPickerBuilder setCurrentNumber(BigInteger number) {
         if (number != null) {
-            if (number >= 0) {
+            if (number.signum() >= 0) {
                 this.currentSignValue = NumberPicker.SIGN_POSITIVE;
             } else {
                 this.currentSignValue = NumberPicker.SIGN_NEGATIVE;
-                number = number * -1;
+                number = number.abs();
             }
-
             this.currentNumberValue = number;
             this.currentDecimalValue = null;
         }
@@ -107,8 +116,8 @@ public class NumberPickerBuilder {
                 number = number.abs();
             }
             BigDecimal[] numberInput = number.divideAndRemainder(BigDecimal.ONE);
-            this.currentNumberValue = numberInput[0].intValue();
-            this.currentDecimalValue = numberInput[1].doubleValue();
+            this.currentNumberValue = numberInput[0].toBigInteger();
+            this.currentDecimalValue = numberInput[1];
         }
         return this;
     }

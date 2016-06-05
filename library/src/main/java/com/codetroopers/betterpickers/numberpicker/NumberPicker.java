@@ -547,7 +547,19 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         updateKeypad();
     }
 
+    /**
+     * @deprecated  use link setNumber(BigInteger integerPart, BigDecimal decimalPart, Integer mCurrentSign) to
+     * avoid overflow issue
+     * @param integerPart
+     * @param decimalPart
+     * @param mCurrentSign
+     */
+    @Deprecated
     public void setNumber(Integer integerPart, Double decimalPart, Integer mCurrentSign) {
+        setNumber(BigInteger.valueOf(integerPart),BigDecimal.valueOf(decimalPart),mCurrentSign);
+    }
+
+    public void setNumber(BigInteger integerPart, BigDecimal decimalPart, Integer mCurrentSign) {
         if (mCurrentSign != null) {
             mSign = mCurrentSign;
         } else {
@@ -555,9 +567,12 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         }
 
         if (decimalPart != null) {
-            String decimalString = doubleToString(decimalPart);
+            String decimalString = decimalPart.toPlainString();
             // remove "0." from the string
-            readAndRightDigits(TextUtils.substring(decimalString, 2, decimalString.length()));
+            if (decimalString.length() > 2){
+                decimalString = TextUtils.substring(decimalString, 2, decimalString.length());
+            }
+            readAndRightDigits(decimalString);
             mInputPointer++;
             mInput[mInputPointer] = CLICKED_DECIMAL;
         }
@@ -573,19 +588,6 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
             mInputPointer++;
             mInput[mInputPointer] = digitsToRead.charAt(i) - '0';
         }
-    }
-
-    /**
-     * Method used to format double and avoid scientific notation x.xE-x (ex: 4.0E-4)
-     *
-     * @param value double value to format
-     * @return string representation of double value
-     */
-    private String doubleToString(double value) {
-        // Use decimal format to avoid
-        DecimalFormat format = new DecimalFormat("0.0");
-        format.setMaximumFractionDigits(Integer.MAX_VALUE);
-        return format.format(value);
     }
 
 
