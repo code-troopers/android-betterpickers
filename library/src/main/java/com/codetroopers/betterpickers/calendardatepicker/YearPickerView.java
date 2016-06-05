@@ -53,9 +53,8 @@ public class YearPickerView extends ListView implements OnItemClickListener, OnD
     private int mBackgroundColor;
 
     public void setTheme(TypedArray themeColors) {
-        mBackgroundColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainColor2, R.color.circle_background);
-        mCircleColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpAccentColor, R.color.bpBlue);
-        mTextColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainTextColor, R.color.ampm_text_color);
+        mCircleColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpRadialPointerColor, R.color.bpBlue);
+        mTextColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpBodyUnselectedTextColor, R.color.ampm_text_color);
     }
 
     /**
@@ -124,20 +123,20 @@ public class YearPickerView extends ListView implements OnItemClickListener, OnD
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            TextViewWithCircularIndicator v = (TextViewWithCircularIndicator)
+            TextViewWithCircularIndicator view = (TextViewWithCircularIndicator)
                     super.getView(position, convertView, parent);
-            v.requestLayout();
-            int year = getYearFromTextView(v);
+            view.requestLayout();
+            int year = getYearFromTextView(view);
 
-            v.setBackgroundColor(mBackgroundColor);
-            v.setCircleColor(mCircleColor);
-            v.setTextColor(mTextColor);
+//            view.setBackgroundColor(mBackgroundColor);
+            view.setCircleColor(mCircleColor);
+            view.setTextColor(mTextColor);
             boolean selected = mController.getSelectedDay().year == year;
-            v.drawIndicator(selected);
+            view.drawIndicator(selected);
             if (selected) {
-                mSelectedView = v;
+                mSelectedView = view;
             }
-            return v;
+            return view;
         }
     }
 

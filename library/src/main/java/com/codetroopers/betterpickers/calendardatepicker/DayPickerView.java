@@ -138,7 +138,7 @@ public abstract class DayPickerView extends ListView implements OnScrollListener
     }
 
     public abstract MonthAdapter createMonthAdapter(Context context,
-            CalendarDatePickerController controller);
+                                                    CalendarDatePickerController controller);
 
     /*
      * Sets all the required fields for the list view. Override this method to
@@ -168,8 +168,8 @@ public abstract class DayPickerView extends ListView implements OnScrollListener
      * the first of the month containing the time is at the top of the view. If the new time is already in view the list
      * will not be scrolled unless forceScroll is true. This time may optionally be highlighted as selected as well.
      *
-     * @param time The time to move to
-     * @param animate Whether to scroll to the given time or just redraw at the new location
+     * @param time        The time to move to
+     * @param animate     Whether to scroll to the given time or just redraw at the new location
      * @param setSelected Whether to set the given time as selected
      * @param forceScroll Whether to recenter even if the time is already visible
      * @return Whether or not the view animated to the new location
@@ -281,7 +281,7 @@ public abstract class DayPickerView extends ListView implements OnScrollListener
 
     public void setTheme(TypedArray themeColors) {
         if (mAdapter != null) {
-            mAdapter.setThemeDark(themeColors);
+            mAdapter.setTheme(themeColors);
         }
     }
 
@@ -292,7 +292,7 @@ public abstract class DayPickerView extends ListView implements OnScrollListener
         /**
          * Sets up the runnable with a short delay in case the scroll state immediately changes again.
          *
-         * @param view The list view that changed state
+         * @param view        The list view that changed state
          * @param scrollState The new state it changed to
          */
         public void doScrollStateChange(AbsListView view, int scrollState) {

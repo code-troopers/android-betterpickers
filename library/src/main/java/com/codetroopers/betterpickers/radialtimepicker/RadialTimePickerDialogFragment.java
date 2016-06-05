@@ -181,7 +181,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
     /**
      * Set a dark or light theme. NOTE: this will only take effect for the next onCreateView.
      *
-     * @Deprecated use setThemeDark()
+     * @Deprecated use setTheme()
      */
     @Deprecated
     public RadialTimePickerDialogFragment setThemeDark(boolean dark) {
@@ -342,10 +342,10 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         // Prepare some colors to use.
         int headerBgColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpHeaderBackgroundColor, R.color.bpBlue);
         int bodyBgColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpBodyBackgroundColor, R.color.bpWhite);
-        int buttonBgColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpButtonBackgroundColor, R.color.bpWhite);
+        int buttonBgColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpButtonsBackgroundColor, R.color.bpWhite);
         int buttonTextColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpButtonsTextColor, R.color.bpBlue);
-        mSelectedColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpSelectedTextColor, R.color.bpWhite);
-        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpUnselectedTextColor, R.color.radial_gray_light);
+        mSelectedColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpHeaderSelectedTextColor, R.color.bpWhite);
+        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpHeaderUnselectedTextColor, R.color.radial_gray_light);
 
         mHourPickerDescription = res.getString(R.string.hour_picker_description);
         mSelectHours = res.getString(R.string.select_hours);

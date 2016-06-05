@@ -198,9 +198,8 @@ public abstract class MonthView extends View {
     protected int mDayTextColorEnabled;
     protected int mDayTextColorDisabled;
     protected int mTodayNumberColor;
-    protected int mDisabledDayColor;
+    protected int mDayBackgroundColorDisabled;
     protected int mMonthTitleColor;
-    protected int mMonthTitleBGColor;
 
     public MonthView(Context context) {
         super(context);
@@ -215,9 +214,8 @@ public abstract class MonthView extends View {
         mDayTextColorEnabled = res.getColor(R.color.date_picker_text_normal);
         mDayTextColorDisabled = res.getColor(R.color.date_picker_text_disabled);
         mTodayNumberColor = res.getColor(R.color.bpBlue);
-        mDisabledDayColor = res.getColor(R.color.bpDarker_red);
+        mDayBackgroundColorDisabled = res.getColor(R.color.bpDarker_red);
         mMonthTitleColor = res.getColor(R.color.date_picker_text_normal);
-        mMonthTitleBGColor = res.getColor(R.color.circle_background);
 
         mStringBuilder = new StringBuilder(50);
         mFormatter = new Formatter(mStringBuilder, Locale.getDefault());
@@ -242,12 +240,12 @@ public abstract class MonthView extends View {
     }
 
     public void setTheme(TypedArray themeColors) {
-        mMonthTitleBGColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainColor2, R.color.circle_background);
-        mTodayNumberColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpAccentColor, R.color.bpBlue);
-        mDisabledDayColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpDisabledDayColor, R.color.bpDarker_red);
-        mDayTextColorDisabled = themeColors.getColor(R.styleable.BetterPickersDialog_bpDisabledDayTextColor, R.color.date_picker_text_disabled);
-        mMonthTitleColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainTextColor, R.color.ampm_text_color);
+        mMonthTitleColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpAmPmTextColor, R.color.ampm_text_color);
 
+        mTodayNumberColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpBodySelectedTextColor, R.color.bpBlue);
+        mDayTextColorEnabled = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpBodyUnselectedTextColor, R.color.date_picker_text_disabled);
+        mDayTextColorDisabled = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpDisabledDayTextColor, R.color.date_picker_text_disabled);
+        mDayBackgroundColorDisabled = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpDisabledDayBackgroundColor, R.color.bpDarker_red);
         initView();
     }
 
@@ -303,7 +301,6 @@ public abstract class MonthView extends View {
         mMonthTitleBGPaint = new Paint();
         mMonthTitleBGPaint.setFakeBoldText(true);
         mMonthTitleBGPaint.setAntiAlias(true);
-        mMonthTitleBGPaint.setColor(mMonthTitleBGColor);
         mMonthTitleBGPaint.setTextAlign(Align.CENTER);
         mMonthTitleBGPaint.setStyle(Style.FILL);
 
@@ -318,7 +315,7 @@ public abstract class MonthView extends View {
         mDisabledDaySquarePaint = new Paint();
         mDisabledDaySquarePaint.setFakeBoldText(true);
         mDisabledDaySquarePaint.setAntiAlias(true);
-        mDisabledDaySquarePaint.setColor(mDisabledDayColor);
+        mDisabledDaySquarePaint.setColor(mDayBackgroundColorDisabled);
         mDisabledDaySquarePaint.setTextAlign(Align.CENTER);
         mDisabledDaySquarePaint.setStyle(Style.FILL);
         mDisabledDaySquarePaint.setAlpha(DISABLED_DAY_SQUARE_ALPHA);

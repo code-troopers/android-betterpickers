@@ -28,72 +28,68 @@
     </style>
 
     <style name="BetterPickersRadialTimePickerDialog">
-        <item name="bpMainColor1">@color/bpWhite</item>
-        <item name="bpMainColor2">@color/circle_background</item>
-        <item name="bpMainTextColor">@color/numbers_text_color</item>
-        <item name="bpDoneTextColor">@color/done_text_color_normal</item>
-        <item name="bpDoneBackgroundColor">@drawable/done_background_color</item>
-        <item name="bpSelectionAlpha">51</item>
-        <item name="bpDisabledDayColor">@color/bp_disabled_day</item>
-        <item name="bpDisabledDayTextColor">@color/date_picker_text_disabled</item>
+
     </style>
 
     <style name="BetterPickersRadialTimePickerDialog.PrimaryColor">
         <item name="bpHeaderBackgroundColor">?attr/colorPrimary</item>
+        <item name="bpHeaderUnselectedTextColor">@color/radial_gray_light</item>
+        <item name="bpHeaderSelectedTextColor">@color/bpWhite</item>
+
         <item name="bpBodyBackgroundColor">@color/bpWhite</item>
-        <item name="bpRadialBackgroundColor">@color/radial_gray_light</item>
-        <item name="bpButtonBackgroundColor">@color/bpWhite</item>
-        <item name="bpRadialTextColor">?attr/colorPrimary</item>
-        <item name="bpSelectedTextColor">@color/bpWhite</item>
-        <item name="bpUnselectedTextColor">@color/radial_gray_light</item>
+        <item name="bpBodySelectedTextColor">?attr/colorPrimary</item>
+        <item name="bpBodyUnselectedTextColor">@color/date_picker_text_normal</item>
+
+        <item name="bpButtonsBackgroundColor">@color/bpWhite</item>
         <item name="bpButtonsTextColor">?attr/colorPrimary</item>
+
+        <item name="bpRadialBackgroundColor">@color/radial_gray_light</item>
+        <item name="bpRadialTextColor">?attr/colorPrimary</item>
         <item name="bpRadialPointerColor">?attr/colorPrimary</item>
+
         <item name="bpAmPmCircleColor">?attr/colorPrimary</item>
 
+        <item name="bpDisabledDayTextColor">@color/date_picker_text_disabled</item>
     </style>
 
     <style name="BetterPickersRadialTimePickerDialog.Light">
-        <item name="bpMainColor1">@color/bpWhite</item>
-        <item name="bpMainColor2">@color/circle_background</item>
-        <item name="bpAccentColor">@color/bpBlue</item>
-        <item name="bpMainTextColor">@color/numbers_text_color</item>
-        <item name="bpDoneTextColor">@color/done_text_color_normal</item>
-        <item name="bpLineColor">@color/bpLine_background</item>
-        <item name="bpDoneBackgroundColor">@drawable/done_background_color</item>
-
-        <item name="bpRadialPointerAlpha">35</item>
         <item name="bpHeaderBackgroundColor">@color/bpBlue</item>
+        <item name="bpHeaderSelectedTextColor">@color/bpWhite</item>
+        <item name="bpHeaderUnselectedTextColor">@color/radial_gray_light</item>
+
         <item name="bpBodyBackgroundColor">@color/bpWhite</item>
+        <item name="bpBodySelectedTextColor">@color/bpBlue</item>
+        <item name="bpBodyUnselectedTextColor">@color/date_picker_text_normal</item>
+
         <item name="bpRadialBackgroundColor">@color/radial_gray_light</item>
-        <item name="bpButtonBackgroundColor">@color/bpWhite</item>
-        <item name="bpRadialTextColor">@color/bpBlue</item>
-        <item name="bpSelectedTextColor">@color/bpWhite</item>
-        <item name="bpUnselectedTextColor">@color/radial_gray_light</item>
-        <item name="bpButtonsTextColor">@color/bpBlue</item>
         <item name="bpRadialPointerColor">@color/bpBlue</item>
+        <item name="bpRadialPointerAlpha">35</item>
+        <item name="bpRadialTextColor">@color/bpBlue</item>
+
         <item name="bpAmPmCircleColor">@color/bpBlue</item>
         <item name="bpAmPmTextColor">@color/bpWhite</item>
+
+        <item name="bpButtonsBackgroundColor">@color/bpWhite</item>
+        <item name="bpButtonsTextColor">@color/bpBlue</item>
     </style>
 
     <style name="BetterPickersRadialTimePickerDialog.Dark">
-        <item name="bpMainColor1">@color/bpDark_gray</item>
-        <item name="bpMainColor2">@color/bpLight_gray</item>
-        <item name="bpAccentColor">@color/bpRed</item>
-        <item name="bpMainTextColor">@color/bpWhite</item>
-        <item name="bpDoneTextColor">@color/bpWhite</item>
-        <item name="bpLineColor">@color/bpLine_dark</item>
-        <item name="bpDoneBackgroundColor">@drawable/done_background_color_dark</item>
-
         <item name="bpHeaderBackgroundColor">@color/bpDark_gray</item>
+        <item name="bpHeaderSelectedTextColor">@color/bpRed</item>
+        <item name="bpHeaderUnselectedTextColor">@color/radial_gray_light</item>
+
         <item name="bpBodyBackgroundColor">@color/bpLight_gray</item>
+        <item name="bpBodySelectedTextColor">@color/bpRed</item>
+        <item name="bpBodyUnselectedTextColor">@color/bpWhite</item>
+
         <item name="bpRadialBackgroundColor">@color/bpDark_gray</item>
-        <item name="bpButtonBackgroundColor">@color/bpLight_gray</item>
-        <item name="bpRadialTextColor">@color/bpWhite</item>
-        <item name="bpSelectedTextColor">@color/bpRed</item>
-        <item name="bpUnselectedTextColor">@color/bpWhite</item>
-        <item name="bpButtonsTextColor">@color/bpRed</item>
         <item name="bpRadialPointerColor">@color/bpRed</item>
+        <item name="bpRadialTextColor">@color/bpWhite</item>
+
         <item name="bpAmPmCircleColor">@color/bpRed</item>
         <item name="bpAmPmTextColor">@color/bpWhite</item>
+
+        <item name="bpButtonsBackgroundColor">@color/bpLight_gray</item>
+        <item name="bpButtonsTextColor">@color/bpRed</item>
     </style>
 </resources>
