@@ -38,5 +38,6 @@
         <!--used by switch compat-->
         <item name="colorControlActivated">@color/bpBlue</item>
         <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     </style>
 </resources>

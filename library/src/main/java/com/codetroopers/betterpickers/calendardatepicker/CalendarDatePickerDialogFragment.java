@@ -305,6 +305,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         mSelectYear = res.getString(R.string.select_year);
 
         int headerBackgroundColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpHeaderBackgroundColor, R.color.bpWhite);
+        int preHeaderBackgroundColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpPreHeaderBackgroundColor, R.color.bpWhite);
         int bodyBgColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpBodyBackgroundColor, R.color.bpWhite);
         int buttonBgColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpButtonsBackgroundColor, R.color.bpWhite);
         int buttonTextColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpButtonsTextColor, R.color.bpBlue);
@@ -378,7 +379,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         mMonthAndDayView.setBackgroundColor(headerBackgroundColor);
 
         if (mDayOfWeekView != null) {
-            mDayOfWeekView.setBackgroundColor(headerBackgroundColor);
+            mDayOfWeekView.setBackgroundColor(preHeaderBackgroundColor);
         }
         view.setBackgroundColor(bodyBgColor);
         mYearPickerView.setBackgroundColor(bodyBgColor);
