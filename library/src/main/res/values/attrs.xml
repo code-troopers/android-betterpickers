@@ -15,25 +15,25 @@
     <declare-styleable name="Switch">
 
         <!-- Drawable to use as the "thumb" that switches back and forth. -->
-        <attr name="bpThumb" format="reference" />
+        <attr name="bpThumb" format="reference"/>
         <!-- Drawable to use as the "track" that the switch thumb slides within. -->
-        <attr name="bpTrack" format="reference" />
+        <attr name="bpTrack" format="reference"/>
         <!-- Text to use when the switch is in the checked/"on" state. -->
-        <attr name="bpTextOn" format="reference" />
+        <attr name="bpTextOn" format="reference"/>
         <!-- Text to use when the switch is in the unchecked/"off" state. -->
-        <attr name="bpTextOff" format="reference" />
+        <attr name="bpTextOff" format="reference"/>
         <!-- Amount of padding on either side of text within the switch thumb. -->
-        <attr name="bpThumbTextPadding" format="dimension" />
+        <attr name="bpThumbTextPadding" format="dimension"/>
         <!-- TextAppearance style for text displayed on the switch thumb. -->
-        <attr name="bpSwitchTextAppearance" format="reference" />
+        <attr name="bpSwitchTextAppearance" format="reference"/>
         <!-- Minimum width for the switch component -->
-        <attr name="bpSwitchMinWidth" format="dimension" />
+        <attr name="bpSwitchMinWidth" format="dimension"/>
         <!-- Minimum space between the switch and caption text -->
-        <attr name="bpSwitchPadding" format="dimension" />
+        <attr name="bpSwitchPadding" format="dimension"/>
     </declare-styleable>
     <declare-styleable name="BetterPickersSwitchTheme">
-        <attr name="bpSwitchStyle" format="reference" />
-        <attr name="bpSwitchPreferenceStyle" format="reference" />
+        <attr name="bpSwitchStyle" format="reference"/>
+        <attr name="bpSwitchPreferenceStyle" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="BetterPickersDialog">
@@ -49,20 +49,35 @@
         <attr name="bpSelectionAlpha" format="integer"/>
     </declare-styleable>
 
+    <declare-styleable name="BetterPickers.RadialDialog">
+        <attr name="bpHeaderBackgroundColor" format="color"/>
+        <attr name="bpBodyBackgroundColor" format="color"/>
+        <attr name="bpRadialBackgroundColor" format="color"/>
+        <attr name="bpButtonBackgroundColor" format="color"/>
+        <attr name="bpSelectedTextColor" format="color"/>
+        <attr name="bpUnselectedTextColor" format="color"/>
+        <attr name="bpButtonsTextColor" format="color"/>
+        <attr name="bpRadialTextColor" format="color"/>
+        <attr name="bpRadialPointerColor" format="color"/>
+        <attr name="bpRadialPointerAlpha" format="integer"/>
+        <attr name="bpAmPmCircleColor" format="color"/>
+        <attr name="bpAmPmTextColor" format="color"/>
+    </declare-styleable>
+
     <declare-styleable name="Android">
         <!-- Text color. -->
-        <attr name="android:textColor" />
+        <attr name="android:textColor"/>
         <!-- Size of the text. Recommended dimension type for text is "sp" for scaled-pixels (example: 15sp). -->
-        <attr name="android:textSize" />
+        <attr name="android:textSize"/>
         <!-- Style (bold, italic, bolditalic) for the text. -->
-        <attr name="android:textStyle" />
+        <attr name="android:textStyle"/>
         <!-- Typeface (normal, sans, serif, monospace) for the text. -->
-        <attr name="android:typeface" />
+        <attr name="android:typeface"/>
         <!-- Color of the text selection highlight. -->
-        <attr name="android:textColorHighlight" />
+        <attr name="android:textColorHighlight"/>
         <!-- Color of the hint text. -->
-        <attr name="android:textColorHint" />
+        <attr name="android:textColorHint"/>
         <!-- Color of the links. -->
-        <attr name="android:textColorLink" />
+        <attr name="android:textColorLink"/>
     </declare-styleable>
 </resources>

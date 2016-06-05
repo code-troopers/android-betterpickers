@@ -337,14 +337,20 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         view.findViewById(R.id.time_picker_dialog).setOnKeyListener(keyboardListener);
 
         Resources res = getResources();
-        TypedArray themeColors = getActivity().obtainStyledAttributes(mStyleResId, R.styleable.BetterPickersDialog);
+        TypedArray themeColors = getActivity().obtainStyledAttributes(mStyleResId, R.styleable.BetterPickers_RadialDialog);
+
+        // Prepare some colors to use.
+        int headerBgColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpHeaderBackgroundColor, R.color.bpBlue);
+        int bodyBgColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpBodyBackgroundColor, R.color.bpWhite);
+        int buttonBgColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpButtonBackgroundColor, R.color.bpWhite);
+        int buttonTextColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpButtonsTextColor, R.color.bpBlue);
+        mSelectedColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpSelectedTextColor, R.color.bpWhite);
+        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpUnselectedTextColor, R.color.radial_gray_light);
 
         mHourPickerDescription = res.getString(R.string.hour_picker_description);
         mSelectHours = res.getString(R.string.select_hours);
         mMinutePickerDescription = res.getString(R.string.minute_picker_description);
         mSelectMinutes = res.getString(R.string.select_minutes);
-        mSelectedColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpAccentColor, R.color.bpBlue);
-        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainTextColor, R.color.numbers_text_color);
 
         mHourView = (TextView) view.findViewById(R.id.hours);
         mHourView.setOnKeyListener(keyboardListener);
@@ -397,7 +403,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
 
         mError = (NumberPickerErrorTextView) view.findViewById(R.id.error);
 
-        if (mFutureMinutesLimit != null || mPastMinutesLimit != null) {
+        if (hasTimeLimits()) {
             mError.setVisibility(View.INVISIBLE);
         } else {
             mError.setVisibility(View.GONE);
@@ -407,7 +413,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         if (mDoneText != null) {
             mDoneButton.setText(mDoneText);
         }
-        mDoneButton.setTextColor(mSelectedColor);
+        mDoneButton.setTextColor(buttonTextColor);
         mDoneButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -425,7 +431,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         if (mCancelText != null) {
             cancelButton.setText(mCancelText);
         }
-        cancelButton.setTextColor(mSelectedColor);
+        cancelButton.setTextColor(buttonTextColor);
         cancelButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -440,8 +446,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         if (mIs24HourMode) {
             mAmPmTextView.setVisibility(View.GONE);
 
-            RelativeLayout.LayoutParams paramsSeparator = new RelativeLayout.LayoutParams(
-                    LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+            RelativeLayout.LayoutParams paramsSeparator = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
             paramsSeparator.addRule(RelativeLayout.CENTER_IN_PARENT);
             TextView separatorView = (TextView) view.findViewById(R.id.separator);
             separatorView.setLayoutParams(paramsSeparator);
@@ -485,21 +490,20 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         // Set the theme at the end so that the initialize()s above don't counteract the theme.
         mTimePicker.setTheme(themeColors);
 
-        // Prepare some colors to use.
-        int mainColor1 = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainColor1, R.color.bpWhite);
-        int mainColor2 = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainColor2, R.color.circle_background);
-        int lineColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpLineColor, R.color.bpLine_background);
-        int mainTextColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainTextColor, R.color.numbers_text_color);
 
         // Set the colors for each view based on the theme.
-        view.findViewById(R.id.time_display_background).setBackgroundColor(mainColor1);
-        view.findViewById(R.id.ok_cancel_buttons_layout).setBackgroundColor(mainColor1);
-        view.findViewById(R.id.time_display).setBackgroundColor(mainColor1);
-        view.findViewById(R.id.time_picker_error_holder).setBackgroundColor(mainColor1);
-        ((TextView) view.findViewById(R.id.separator)).setTextColor(mainTextColor);
-        ((TextView) view.findViewById(R.id.ampm_label)).setTextColor(mainTextColor);
-        mTimePicker.setBackgroundColor(mainColor2);
+        view.findViewById(R.id.time_display_background).setBackgroundColor(headerBgColor);
+        view.findViewById(R.id.ok_cancel_buttons_layout).setBackgroundColor(buttonBgColor);
+        view.findViewById(R.id.time_display).setBackgroundColor(headerBgColor);
+        view.findViewById(R.id.time_picker_error_holder).setBackgroundColor(headerBgColor);
+        ((TextView) view.findViewById(R.id.separator)).setTextColor(mUnselectedColor);
+        ((TextView) view.findViewById(R.id.ampm_label)).setTextColor(mUnselectedColor);
+        mTimePicker.setBackgroundColor(bodyBgColor);
         return view;
+    }
+
+    private boolean hasTimeLimits() {
+        return mFutureMinutesLimit != null || mPastMinutesLimit != null;
     }
 
     @Override
@@ -618,7 +622,9 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
      */
     @Override
     public void onValueSelected(int pickerIndex, int newValue, boolean autoAdvance) {
-        mError.hideImmediately();
+        if(hasTimeLimits()) {
+            mError.hideImmediately();
+        }
         if (pickerIndex == HOUR_INDEX) {
             setHour(newValue, false);
             String announcement = String.format("%d", newValue);

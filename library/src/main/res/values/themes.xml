@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="BetterPickersDialogFragment">
         <item name="bpDialogBackground">@drawable/dialog_full_holo_dark</item>
         <item name="bpTitleColor">@color/dialog_text_color_holo_dark</item>
@@ -12,6 +13,7 @@
         <item name="bpDividerColor">@color/default_divider_color_dark</item>
         <item name="bpKeyboardIndicatorColor">@color/default_keyboard_indicator_color_dark</item>
     </style>
+
     <style name="BetterPickersDialogFragment.Light">
         <item name="bpDialogBackground">@drawable/dialog_full_holo_light</item>
         <item name="bpTitleColor">@color/dialog_text_color_holo_light</item>
@@ -37,9 +39,17 @@
     </style>
 
     <style name="BetterPickersRadialTimePickerDialog.PrimaryColor">
-        <item name="bpAccentColor">?attr/colorPrimary</item>
-        <item name="bpTitleColor">?attr/colorPrimary</item>
-        <item name="bpLineColor">?attr/colorPrimary</item>
+        <item name="bpHeaderBackgroundColor">?attr/colorPrimary</item>
+        <item name="bpBodyBackgroundColor">@color/bpWhite</item>
+        <item name="bpRadialBackgroundColor">@color/radial_gray_light</item>
+        <item name="bpButtonBackgroundColor">@color/bpWhite</item>
+        <item name="bpRadialTextColor">?attr/colorPrimary</item>
+        <item name="bpSelectedTextColor">@color/bpWhite</item>
+        <item name="bpUnselectedTextColor">@color/radial_gray_light</item>
+        <item name="bpButtonsTextColor">?attr/colorPrimary</item>
+        <item name="bpRadialPointerColor">?attr/colorPrimary</item>
+        <item name="bpAmPmCircleColor">?attr/colorPrimary</item>
+
     </style>
 
     <style name="BetterPickersRadialTimePickerDialog.Light">
@@ -50,7 +60,19 @@
         <item name="bpDoneTextColor">@color/done_text_color_normal</item>
         <item name="bpLineColor">@color/bpLine_background</item>
         <item name="bpDoneBackgroundColor">@drawable/done_background_color</item>
-        <item name="bpSelectionAlpha">51</item>
+
+        <item name="bpRadialPointerAlpha">35</item>
+        <item name="bpHeaderBackgroundColor">@color/bpBlue</item>
+        <item name="bpBodyBackgroundColor">@color/bpWhite</item>
+        <item name="bpRadialBackgroundColor">@color/radial_gray_light</item>
+        <item name="bpButtonBackgroundColor">@color/bpWhite</item>
+        <item name="bpRadialTextColor">@color/bpBlue</item>
+        <item name="bpSelectedTextColor">@color/bpWhite</item>
+        <item name="bpUnselectedTextColor">@color/radial_gray_light</item>
+        <item name="bpButtonsTextColor">@color/bpBlue</item>
+        <item name="bpRadialPointerColor">@color/bpBlue</item>
+        <item name="bpAmPmCircleColor">@color/bpBlue</item>
+        <item name="bpAmPmTextColor">@color/bpWhite</item>
     </style>
 
     <style name="BetterPickersRadialTimePickerDialog.Dark">
@@ -61,6 +83,17 @@
         <item name="bpDoneTextColor">@color/bpWhite</item>
         <item name="bpLineColor">@color/bpLine_dark</item>
         <item name="bpDoneBackgroundColor">@drawable/done_background_color_dark</item>
-        <item name="bpSelectionAlpha">102</item>
+
+        <item name="bpHeaderBackgroundColor">@color/bpDark_gray</item>
+        <item name="bpBodyBackgroundColor">@color/bpLight_gray</item>
+        <item name="bpRadialBackgroundColor">@color/bpDark_gray</item>
+        <item name="bpButtonBackgroundColor">@color/bpLight_gray</item>
+        <item name="bpRadialTextColor">@color/bpWhite</item>
+        <item name="bpSelectedTextColor">@color/bpRed</item>
+        <item name="bpUnselectedTextColor">@color/bpWhite</item>
+        <item name="bpButtonsTextColor">@color/bpRed</item>
+        <item name="bpRadialPointerColor">@color/bpRed</item>
+        <item name="bpAmPmCircleColor">@color/bpRed</item>
+        <item name="bpAmPmTextColor">@color/bpWhite</item>
     </style>
 </resources>

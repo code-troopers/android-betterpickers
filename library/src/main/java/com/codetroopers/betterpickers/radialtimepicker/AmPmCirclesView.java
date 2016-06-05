@@ -39,6 +39,7 @@ public class AmPmCirclesView extends View {
 
     private final Paint mPaint = new Paint();
     private int mSelectedAlpha;
+    private int mUnselectedAlpha;
     private int mUnselectedColor;
     private int mAmPmTextColor;
     private int mSelectedColor;
@@ -80,10 +81,8 @@ public class AmPmCirclesView extends View {
         mPaint.setAntiAlias(true);
         mPaint.setTextAlign(Align.CENTER);
 
-        mCircleRadiusMultiplier =
-                Float.parseFloat(res.getString(R.string.circle_radius_multiplier));
-        mAmPmCircleRadiusMultiplier =
-                Float.parseFloat(res.getString(R.string.ampm_circle_radius_multiplier));
+        mCircleRadiusMultiplier = Float.parseFloat(res.getString(R.string.circle_radius_multiplier));
+        mAmPmCircleRadiusMultiplier = Float.parseFloat(res.getString(R.string.ampm_circle_radius_multiplier));
         String[] amPmTexts = new DateFormatSymbols().getAmPmStrings();
         mAmText = amPmTexts[0];
         mPmText = amPmTexts[1];
@@ -96,10 +95,11 @@ public class AmPmCirclesView extends View {
 
     /* package */
     void setTheme(TypedArray themeColors) {
-        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainColor1, R.color.bpWhite);
-        mSelectedColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpAccentColor,R.color.bpBlue);
-        mAmPmTextColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainTextColor, R.color.ampm_text_color);
-        mSelectedAlpha = themeColors.getInt(R.styleable.BetterPickersDialog_bpSelectionAlpha, 100);
+        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpAmPmCircleColor, R.color.bpBlue);
+        mSelectedColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpAmPmCircleColor, R.color.bpBlue);
+        mAmPmTextColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpAmPmTextColor, R.color.bpWhite);
+        mSelectedAlpha = 200;
+        mUnselectedAlpha = 50;
     }
 
     public void setAmOrPm(int amOrPm) {
@@ -165,9 +165,9 @@ public class AmPmCirclesView extends View {
         // We'll need to draw either a lighter blue (for selection), a darker blue (for touching)
         // or white (for not selected).
         int amColor = mUnselectedColor;
-        int amAlpha = 255;
+        int amAlpha = mUnselectedAlpha;
         int pmColor = mUnselectedColor;
-        int pmAlpha = 255;
+        int pmAlpha = mUnselectedAlpha;
         if (mAmOrPm == AM) {
             amColor = mSelectedColor;
             amAlpha = mSelectedAlpha;

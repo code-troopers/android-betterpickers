@@ -36,7 +36,7 @@ public class CircleView extends View {
     private final Paint mPaint = new Paint();
     private boolean mIs24HourMode;
     private int mCircleColor;
-    private int mDotColor;
+    private int mCentralDotColor;
     private float mCircleRadiusMultiplier;
     private float mAmPmCircleRadiusMultiplier;
     private boolean mIsInitialized;
@@ -51,7 +51,7 @@ public class CircleView extends View {
 
         Resources res = context.getResources();
         mCircleColor = res.getColor(R.color.bpWhite);
-        mDotColor = res.getColor(R.color.numbers_text_color);
+        mCentralDotColor = res.getColor(R.color.numbers_text_color);
         mPaint.setAntiAlias(true);
 
         mIsInitialized = false;
@@ -66,21 +66,18 @@ public class CircleView extends View {
         Resources res = context.getResources();
         mIs24HourMode = is24HourMode;
         if (is24HourMode) {
-            mCircleRadiusMultiplier = Float.parseFloat(
-                    res.getString(R.string.circle_radius_multiplier_24HourMode));
+            mCircleRadiusMultiplier = Float.parseFloat(res.getString(R.string.circle_radius_multiplier_24HourMode));
         } else {
-            mCircleRadiusMultiplier = Float.parseFloat(
-                    res.getString(R.string.circle_radius_multiplier));
-            mAmPmCircleRadiusMultiplier =
-                    Float.parseFloat(res.getString(R.string.ampm_circle_radius_multiplier));
+            mCircleRadiusMultiplier = Float.parseFloat(res.getString(R.string.circle_radius_multiplier));
+            mAmPmCircleRadiusMultiplier = Float.parseFloat(res.getString(R.string.ampm_circle_radius_multiplier));
         }
 
         mIsInitialized = true;
     }
 
     /* package */ void setTheme(TypedArray themeColors) {
-        mCircleColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainColor1, R.color.bpWhite);
-        mDotColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainColor2, R.color.numbers_text_color);
+        mCircleColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpRadialBackgroundColor, R.color.radial_gray_light);
+        mCentralDotColor = themeColors.getColor(R.styleable.BetterPickers_RadialDialog_bpRadialTextColor, R.color.bpBlue);
     }
 
     @Override
@@ -111,7 +108,7 @@ public class CircleView extends View {
         canvas.drawCircle(mXCenter, mYCenter, mCircleRadius, mPaint);
 
         // Draw a small black circle in the center.
-        mPaint.setColor(mDotColor);
+        mPaint.setColor(mCentralDotColor);
         canvas.drawCircle(mXCenter, mYCenter, 2, mPaint);
     }
 }

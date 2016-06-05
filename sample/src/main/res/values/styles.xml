@@ -22,6 +22,16 @@
         <item name="bpLineColor">@color/custom_tp_main2</item>
         <item name="bpDoneBackgroundColor">@drawable/tp_done_background_color</item>
         <item name="bpSelectionAlpha">102</item>
+
+        <item name="bpHeaderBackgroundColor">@color/holo_red_dark</item>
+        <item name="bpBodyBackgroundColor">@color/holo_blue_dark</item>
+        <item name="bpRadialBackgroundColor">@color/holo_orange_dark</item>
+        <item name="bpButtonBackgroundColor">@color/holo_green_dark</item>
+        <item name="bpRadialTextColor">@color/holo_purple</item>
+        <item name="bpSelectedTextColor">@color/holo_orange_dark</item>
+        <item name="bpUnselectedTextColor">@android:color/white</item>
+        <item name="bpButtonsTextColor">@color/holo_orange_dark</item>
+        <item name="bpRadialPointerColor">@android:color/black</item>
     </style>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
