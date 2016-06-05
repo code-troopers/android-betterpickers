@@ -38,7 +38,8 @@ public class SampleCalendarDateRange extends BaseSampleActivity
                 MonthAdapter.CalendarDay maxDate = new MonthAdapter.CalendarDay(now.getYear(), now.getMonthOfYear(), now.getDayOfMonth());
 
                 CalendarDatePickerDialogFragment cdp = new CalendarDatePickerDialogFragment()
-                        .setDateRange(minDate, maxDate);
+                        .setDateRange(minDate, maxDate)
+                        .setOnDateSetListener(SampleCalendarDateRange.this);
 
                 cdp.show(getSupportFragmentManager(), FRAG_TAG_DATE_PICKER);
             }

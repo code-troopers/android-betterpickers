@@ -62,7 +62,8 @@ public class SampleCalendarDateRangeAndDisabledDays extends BaseSampleActivity
                 CalendarDatePickerDialogFragment cdp = new CalendarDatePickerDialogFragment()
                         .setDateRange(minDate, maxDate)
                         // Set Disabled Days
-                        .setDisabledDays(disabledDays);
+                        .setDisabledDays(disabledDays)
+                        .setOnDateSetListener(SampleCalendarDateRangeAndDisabledDays.this);
 
                 cdp.show(getSupportFragmentManager(), FRAG_TAG_DATE_PICKER);
             }
