@@ -2,6 +2,7 @@
 Changelog
 =========
 **3.0.0**
+* Fix Fragment already added Exception (#298)
 * Remove deprecated methods :
     - CalendarDatePickerDialogFragment#setThemeDark(boolean dark) replaced by CalendarDatePickerDialogFragment#setThemeDark()
     - CalendarDatePickerDialogFragment#newInstance(...) repalced by CalendarDatePickerDialogFragment#setOnDateSetListener() and CalendarDatePickerDialogFragment#setPreselectedDate()
