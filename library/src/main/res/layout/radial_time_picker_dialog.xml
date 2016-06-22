@@ -41,7 +41,7 @@
             android:paddingRight="20dp"
             android:textColor="#ffffffff"
             android:textStyle="bold"
-            android:visibility="invisible"/>
+            android:visibility="gone"/>
     </LinearLayout>
 
     <FrameLayout
