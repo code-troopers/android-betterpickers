@@ -232,7 +232,7 @@ Theming
   2. Create your own custom theme in `styles.xml`:
 
     ```xml
-    <style name="MyCustomBetterPickersDialogs">
+    <style name="MyCustomBetterPickersDialogs" parent="BetterPickersRadialTimePickerDialog.PrimaryColor">
         <item name="bpPreHeaderBackgroundColor">@color/holo_red_dark</item>
         <item name="bpHeaderBackgroundColor">@color/holo_red_light</item>
         <item name="bpHeaderSelectedTextColor">@color/holo_orange_dark</item>
