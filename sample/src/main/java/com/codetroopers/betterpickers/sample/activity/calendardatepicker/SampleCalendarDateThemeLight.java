@@ -30,7 +30,8 @@ public class SampleCalendarDateThemeLight extends BaseSampleActivity
             @Override
             public void onClick(View v) {
                 CalendarDatePickerDialogFragment cdp = new CalendarDatePickerDialogFragment()
-                        .setThemeLight();
+                        .setThemeLight()
+                        .setOnDateSetListener(SampleCalendarDateThemeLight.this);
                 cdp.show(getSupportFragmentManager(), FRAG_TAG_DATE_PICKER);
             }
         });

@@ -30,7 +30,8 @@ public class SampleCalendarDateThemeDark extends BaseSampleActivity
             @Override
             public void onClick(View v) {
                 CalendarDatePickerDialogFragment cdp = new CalendarDatePickerDialogFragment()
-                        .setThemeDark();
+                        .setThemeDark()
+                        .setOnDateSetListener(SampleCalendarDateThemeDark.this);
                 cdp.show(getSupportFragmentManager(), FRAG_TAG_DATE_PICKER);
             }
         });

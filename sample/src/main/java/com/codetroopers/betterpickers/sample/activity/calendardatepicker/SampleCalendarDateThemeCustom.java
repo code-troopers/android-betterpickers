@@ -33,7 +33,8 @@ public class SampleCalendarDateThemeCustom extends BaseSampleActivity
                 CalendarDatePickerDialogFragment cdp = new CalendarDatePickerDialogFragment()
                         .setDoneText(getString(R.string.button_label_custom_ok))
                         .setCancelText(getString(R.string.button_label_custom_cancel))
-                        .setThemeCustom(R.style.MyCustomBetterPickersDialogs);
+                        .setThemeCustom(R.style.MyCustomBetterPickersDialogs)
+                        .setOnDateSetListener(SampleCalendarDateThemeCustom.this);
                 cdp.show(getSupportFragmentManager(), FRAG_TAG_DATE_PICKER);
             }
         });

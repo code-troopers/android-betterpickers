@@ -156,43 +156,6 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         mStyleResId = R.style.BetterPickersRadialTimePickerDialog_PrimaryColor;
     }
 
-    @Deprecated
-    public static RadialTimePickerDialogFragment newInstance(OnTimeSetListener callback,
-                                                             int hourOfDay, int minute, boolean is24HourMode) {
-        RadialTimePickerDialogFragment ret = new RadialTimePickerDialogFragment();
-        ret.initialize(callback, hourOfDay, minute, is24HourMode);
-        return ret;
-    }
-
-    /**
-     * @Deprecated will be removed in next major release use setOnTimeSetListener() and setStartTime()
-     */
-    @Deprecated
-    public void initialize(OnTimeSetListener callback,
-                           int hourOfDay, int minute, boolean is24HourMode) {
-        mCallback = callback;
-        mInitialHourOfDay = hourOfDay;
-        mInitialMinute = minute;
-        mIs24HourMode = is24HourMode;
-        mInKbMode = false;
-        mStyleResId = R.style.BetterPickersRadialTimePickerDialog_PrimaryColor;
-    }
-
-    /**
-     * Set a dark or light theme. NOTE: this will only take effect for the next onCreateView.
-     *
-     * @Deprecated use setTheme()
-     */
-    @Deprecated
-    public RadialTimePickerDialogFragment setThemeDark(boolean dark) {
-        if (dark) {
-            mStyleResId = R.style.BetterPickersRadialTimePickerDialog_Dark;
-        } else {
-            mStyleResId = R.style.BetterPickersRadialTimePickerDialog_Light;
-        }
-        return this;
-    }
-
     public RadialTimePickerDialogFragment setThemeDark() {
         mStyleResId = R.style.BetterPickersRadialTimePickerDialog_Dark;
         return this;

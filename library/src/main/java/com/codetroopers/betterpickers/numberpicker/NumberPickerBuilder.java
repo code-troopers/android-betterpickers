@@ -5,7 +5,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 
-import com.codetroopers.betterpickers.numberpicker.NumberPickerDialogFragment.NumberPickerDialogHandler;
 import com.codetroopers.betterpickers.numberpicker.NumberPickerDialogFragment.NumberPickerDialogHandlerV2;
 
 import java.math.BigDecimal;
@@ -25,8 +24,6 @@ public class NumberPickerBuilder {
     private Integer decimalVisibility;
     private String labelText;
     private int mReference;
-    @Deprecated
-    private Vector<NumberPickerDialogHandler> mNumberPickerDialogHandlers = new Vector<NumberPickerDialogHandler>();
     private Vector<NumberPickerDialogHandlerV2> mNumberPickerDialogHandlersV2 = new Vector<>();
     private Integer currentNumberValue;
     private Double currentDecimalValue;
@@ -184,12 +181,6 @@ public class NumberPickerBuilder {
      * @param handler an Object implementing the appropriate Picker Handler
      * @return the current Builder object
      */
-    @Deprecated
-    public NumberPickerBuilder addNumberPickerDialogHandler(NumberPickerDialogHandler handler) {
-        this.mNumberPickerDialogHandlers.add(handler);
-        return this;
-    }
-
     public NumberPickerBuilder addNumberPickerDialogHandler(NumberPickerDialogHandlerV2 handler) {
         this.mNumberPickerDialogHandlersV2.add(handler);
         return this;
@@ -201,12 +192,6 @@ public class NumberPickerBuilder {
      * @param handler the Object to remove
      * @return the current Builder object
      */
-    @Deprecated
-    public NumberPickerBuilder removeNumberPickerDialogHandler(NumberPickerDialogHandler handler) {
-        this.mNumberPickerDialogHandlers.remove(handler);
-        return this;
-    }
-
     public NumberPickerBuilder removeNumberPickerDialogHandler(NumberPickerDialogHandlerV2 handler) {
         this.mNumberPickerDialogHandlersV2.remove(handler);
         return this;
@@ -233,7 +218,6 @@ public class NumberPickerBuilder {
         if (targetFragment != null) {
             fragment.setTargetFragment(targetFragment, 0);
         }
-        fragment.setNumberPickerDialogHandlers(mNumberPickerDialogHandlers);
         fragment.setNumberPickerDialogHandlersV2(mNumberPickerDialogHandlersV2);
         fragment.show(ft, "number_dialog");
     }
