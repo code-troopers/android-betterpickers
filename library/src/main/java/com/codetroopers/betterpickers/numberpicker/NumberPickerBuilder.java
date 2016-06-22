@@ -205,10 +205,11 @@ public class NumberPickerBuilder {
             Log.e("NumberPickerBuilder", "setFragmentManager() and setStyleResId() must be called.");
             return;
         }
-        final FragmentTransaction ft = manager.beginTransaction();
+        FragmentTransaction ft = manager.beginTransaction();
         final Fragment prev = manager.findFragmentByTag("number_dialog");
         if (prev != null) {
-            ft.remove(prev);
+            ft.remove(prev).commit();
+            ft = manager.beginTransaction();
         }
         ft.addToBackStack(null);
 

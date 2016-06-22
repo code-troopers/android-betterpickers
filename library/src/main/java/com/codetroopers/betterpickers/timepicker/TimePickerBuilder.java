@@ -97,10 +97,11 @@ public class TimePickerBuilder {
             Log.e("TimePickerBuilder", "setFragmentManager() and setStyleResId() must be called.");
             return;
         }
-        final FragmentTransaction ft = manager.beginTransaction();
+        FragmentTransaction ft = manager.beginTransaction();
         final Fragment prev = manager.findFragmentByTag("time_dialog");
         if (prev != null) {
-            ft.remove(prev);
+            ft.remove(prev).commit();
+            ft = manager.beginTransaction();
         }
         ft.addToBackStack(null);
 
