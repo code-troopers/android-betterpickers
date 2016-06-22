@@ -22,7 +22,7 @@
 
     <color name="bpWhite">#ffffff</color>
     <color name="bpblack">#ff000000</color>
-    <color name="bpLine_background">#cccccc</color>
+    <color name="bpLine_background">#e0e0e0</color>
     <color name="bpTransparent">#00000000</color>
     <color name="bpTransparent_black">#7f000000</color>
     <color name="bpBlue">#33b5e5</color>
@@ -52,4 +52,6 @@
 
     <color name="recurrence_picker_background">#fff2f2f2</color>
     <color name="recurrence_bubble_text_normal">#ff737373</color>
+
+    <color name="radial_gray_light">#f5f5f5</color>
 </resources>
