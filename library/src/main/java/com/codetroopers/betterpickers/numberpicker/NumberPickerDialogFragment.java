@@ -48,8 +48,6 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private Integer mCurrentSign = null;
     private int mPlusMinusVisibility = View.VISIBLE;
     private int mDecimalVisibility = View.VISIBLE;
-    @Deprecated
-    private Vector<NumberPickerDialogHandler> mNumberPickerDialogHandlers = new Vector<NumberPickerDialogHandler>();
     private Vector<NumberPickerDialogHandlerV2> mNumberPickerDialogHandlersV2 = new Vector<NumberPickerDialogHandlerV2>();
 
     /**
@@ -197,23 +195,11 @@ public class NumberPickerDialogFragment extends DialogFragment {
                     mPicker.getErrorView().show();
                     return;
                 }
-                for (NumberPickerDialogHandler handler : mNumberPickerDialogHandlers) {
-                    handler.onDialogNumberSet(mReference, mPicker.getNumber().intValue(), mPicker.getDecimal(), mPicker.getIsNegative(), number.doubleValue());
-                }
                 for (NumberPickerDialogHandlerV2 handler : mNumberPickerDialogHandlersV2) {
                     handler.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(), mPicker.getIsNegative(), number);
                 }
                 final Activity activity = getActivity();
                 final Fragment fragment = getTargetFragment();
-                //TODO To remove after next main release
-                if (activity instanceof NumberPickerDialogHandler) {
-                    final NumberPickerDialogHandler act = (NumberPickerDialogHandler) activity;
-                    act.onDialogNumberSet(mReference, mPicker.getNumber().intValue(), mPicker.getDecimal(), mPicker.getIsNegative(), number.doubleValue());
-                } else if (fragment instanceof NumberPickerDialogHandler) {
-                    final NumberPickerDialogHandler frag = (NumberPickerDialogHandler) fragment;
-                    frag.onDialogNumberSet(mReference, mPicker.getNumber().intValue(), mPicker.getDecimal(), mPicker.getIsNegative(), number.doubleValue());
-                }
-                //End of to Remove
                 if (activity instanceof NumberPickerDialogHandlerV2) {
                     final NumberPickerDialogHandlerV2 act = (NumberPickerDialogHandlerV2) activity;
                     act.onDialogNumberSet(mReference, mPicker.getNumber(), mPicker.getDecimal(), mPicker.getIsNegative(), number);
@@ -258,22 +244,11 @@ public class NumberPickerDialogFragment extends DialogFragment {
         void onDialogNumberSet(int reference, BigInteger number, double decimal, boolean isNegative, BigDecimal fullNumber);
     }
 
-    @Deprecated
-    public interface NumberPickerDialogHandler {
-        @Deprecated
-        void onDialogNumberSet(int reference, int number, double decimal, boolean isNegative, double fullNumber);
-    }
-
     /**
      * Attach a Vector of handlers to be notified in addition to the Fragment's Activity and target Fragment.
      *
      * @param handlers a Vector of handlers
      */
-    @Deprecated
-    public void setNumberPickerDialogHandlers(Vector<NumberPickerDialogHandler> handlers) {
-        this.mNumberPickerDialogHandlers = handlers;
-    }
-
     public void setNumberPickerDialogHandlersV2(Vector<NumberPickerDialogHandlerV2> handlers) {
         this.mNumberPickerDialogHandlersV2 = handlers;
     }

@@ -14,61 +14,71 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License
   -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/time_picker_dialog"
-    android:layout_height="@dimen/dialog_height"
-    android:layout_width="wrap_content"
-    android:orientation="horizontal"
-    android:focusable="true"
-    android:layout_marginLeft="@dimen/minimum_margin_sides"
-    android:layout_marginRight="@dimen/minimum_margin_sides"
-    android:layout_marginTop="@dimen/minimum_margin_top_bottom"
-    android:layout_marginBottom="@dimen/minimum_margin_top_bottom" >
+<LinearLayout android:id="@+id/time_picker_dialog"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="@dimen/dialog_height"
+              android:layout_marginBottom="@dimen/minimum_margin_top_bottom"
+              android:layout_marginLeft="@dimen/minimum_margin_sides"
+              android:layout_marginRight="@dimen/minimum_margin_sides"
+              android:layout_marginTop="@dimen/minimum_margin_top_bottom"
+              android:focusable="true"
+              android:orientation="horizontal">
+
     <LinearLayout
         android:layout_width="@dimen/left_side_width"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/bpWhite">
+        android:background="@color/bpWhite"
+        android:orientation="vertical">
 
-        <include layout="@layout/calendar_date_picker_header_view"
+        <include
             android:id="@+id/time_picker_header"
+            layout="@layout/calendar_date_picker_header_view"
             android:layout_width="match_parent"
             android:layout_height="@dimen/date_picker_header_height"/>
 
-        <com.codetroopers.betterpickers.numberpicker.NumberPickerErrorTextView
-            android:id="@+id/error"
-            android:visibility="invisible"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+        <LinearLayout
+            android:id="@+id/time_picker_error_holder"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:background="#ffff4444"
-            android:textColor="#ffffffff"
-            android:textStyle="bold"/>
+            android:layout_height="wrap_content">
+
+            <com.codetroopers.betterpickers.numberpicker.NumberPickerErrorTextView
+                android:id="@+id/error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffff4444"
+                android:gravity="center_horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColor="#ffffffff"
+                android:textStyle="bold"
+                android:visibility="invisible"/>
+        </LinearLayout>
 
         <FrameLayout
             android:id="@+id/time_display_background"
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1"
-            android:background="@color/bpWhite" >
+            android:background="@color/bpWhite">
+
             <include
                 layout="@layout/radial_time_header_label"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/header_height"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"/>
         </FrameLayout>
 
 
-        <include layout="@layout/layout_ok_cancel_buttons" />
+        <include layout="@layout/layout_ok_cancel_buttons"/>
     </LinearLayout>
+
     <com.codetroopers.betterpickers.radialtimepicker.RadialPickerLayout
         android:id="@+id/time_picker"
         android:layout_width="@dimen/picker_dimen"
         android:layout_height="match_parent"
         android:layout_gravity="center"
+        android:background="@color/circle_background"
         android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:background="@color/circle_background" />
+        android:focusableInTouchMode="true"/>
 </LinearLayout>

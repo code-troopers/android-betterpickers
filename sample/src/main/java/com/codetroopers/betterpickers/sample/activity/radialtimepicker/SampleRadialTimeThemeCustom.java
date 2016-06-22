@@ -33,7 +33,7 @@ public class SampleRadialTimeThemeCustom extends BaseSampleActivity
                         .setOnTimeSetListener(SampleRadialTimeThemeCustom.this)
                         .setCancelText(getString(R.string.button_label_custom_cancel))
                         .setDoneText(getString(R.string.button_label_custom_ok))
-                        .setThemeCustom(R.style.MyCustomBetterPickersRadialTimePickerDialog);
+                        .setThemeCustom(R.style.MyCustomBetterPickersDialogs);
                 rtpd.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
             }
         });

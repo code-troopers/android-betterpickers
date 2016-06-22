@@ -153,45 +153,8 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         mStyleResId = R.style.BetterPickersRadialTimePickerDialog_PrimaryColor;
     }
 
-    /**
-     * @param callBack    How the parent is notified that the date is set.
-     * @param year        The initial year of the dialog.
-     * @param monthOfYear The initial month of the dialog.
-     * @param dayOfMonth  The initial day of the dialog.
-     * @Deprecated Will be removed in next major release use setOnDateSetListener() and setPreselectedDate()
-     */
-    @Deprecated
-    public static CalendarDatePickerDialogFragment newInstance(OnDateSetListener callBack, int year, int monthOfYear, int dayOfMonth) {
-        CalendarDatePickerDialogFragment ret = new CalendarDatePickerDialogFragment();
-        ret.initialize(callBack, year, monthOfYear, dayOfMonth);
-        return ret;
-    }
-
-    /**
-     * @Deprecated Will be removed in next major release use setOnDateSetListener() and setPreselectedDate()
-     */
-    @Deprecated
-    public void initialize(OnDateSetListener callBack, int year, int monthOfYear, int dayOfMonth) {
-        mCallBack = callBack;
-        mCalendar.set(Calendar.YEAR, year);
-        mCalendar.set(Calendar.MONTH, monthOfYear);
-        mCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        mStyleResId = R.style.BetterPickersRadialTimePickerDialog_PrimaryColor;
-    }
-
     public boolean isThemeDark() {
         return mStyleResId == R.style.BetterPickersRadialTimePickerDialog_Dark;
-    }
-
-    /**
-     * @Deprecated use setThemeDark()
-     */
-    @Deprecated
-    public CalendarDatePickerDialogFragment setThemeDark(boolean dark) {
-        if (dark) {
-            mStyleResId = R.style.BetterPickersRadialTimePickerDialog_Dark;
-        }
-        return this;
     }
 
     public CalendarDatePickerDialogFragment setThemeDark() {
@@ -298,13 +261,20 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         mYearPickerView = new YearPickerView(activity, this);
 
         Resources res = getResources();
-        TypedArray themeColors = getActivity().obtainStyledAttributes(mStyleResId, R.styleable.BetterPickersDialog);
+        TypedArray themeColors = getActivity().obtainStyledAttributes(mStyleResId, R.styleable.BetterPickersDialogs);
         mDayPickerDescription = res.getString(R.string.day_picker_description);
         mSelectDay = res.getString(R.string.select_day);
         mYearPickerDescription = res.getString(R.string.year_picker_description);
         mSelectYear = res.getString(R.string.select_year);
-        mSelectedColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpAccentColor, R.color.bpBlue);
-        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainTextColor, R.color.numbers_text_color);
+
+        int headerBackgroundColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderBackgroundColor, R.color.bpWhite);
+        int preHeaderBackgroundColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpPreHeaderBackgroundColor, R.color.bpWhite);
+        int bodyBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpBodyBackgroundColor, R.color.bpWhite);
+        int buttonBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpButtonsBackgroundColor, R.color.bpWhite);
+        int buttonTextColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpButtonsTextColor, R.color.bpBlue);
+        mSelectedColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderSelectedTextColor, R.color.bpWhite);
+        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderUnselectedTextColor, R.color.radial_gray_light);
+
 
         mAnimator = (AccessibleDateAnimator) view.findViewById(R.id.animator);
         mAnimator.addView(mDayPickerView);
@@ -323,7 +293,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         if (mDoneText != null) {
             doneButton.setText(mDoneText);
         }
-        doneButton.setTextColor(mSelectedColor);
+        doneButton.setTextColor(buttonTextColor);
         doneButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -340,7 +310,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         if (mCancelText != null) {
             cancelButton.setText(mCancelText);
         }
-        cancelButton.setTextColor(mSelectedColor);
+        cancelButton.setTextColor(buttonTextColor);
         cancelButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -349,7 +319,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
                 dismiss();
             }
         });
-
+        view.findViewById(R.id.ok_cancel_buttons_layout).setBackgroundColor(buttonBgColor);
 
         updateDisplay(false);
         setCurrentView(currentView);
@@ -364,23 +334,19 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
 
         mHapticFeedbackController = new HapticFeedbackController(activity);
 
-        int mainColor1 = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainColor1, R.color.bpWhite);
-        int mainColor2 = themeColors.getColor(R.styleable.BetterPickersDialog_bpMainColor2, R.color.circle_background);
-        int backgroundColor = themeColors.getColor(R.styleable.BetterPickersDialog_bpLineColor, R.color.bpWhite);
-
         mDayPickerView.setTheme(themeColors);
         mYearPickerView.setTheme(themeColors);
 
-        mSelectedDateLayout.setBackgroundColor(mainColor1);
-        mYearView.setBackgroundColor(mainColor1);
-        mMonthAndDayView.setBackgroundColor(mainColor1);
+        mSelectedDateLayout.setBackgroundColor(headerBackgroundColor);
+        mYearView.setBackgroundColor(headerBackgroundColor);
+        mMonthAndDayView.setBackgroundColor(headerBackgroundColor);
 
-        view.setBackgroundColor(mainColor2);
         if (mDayOfWeekView != null) {
-            mDayOfWeekView.setBackgroundColor(backgroundColor);
+            mDayOfWeekView.setBackgroundColor(preHeaderBackgroundColor);
         }
-        mYearPickerView.setBackgroundColor(mainColor2);
-        mDayPickerView.setBackgroundColor(mainColor2);
+        view.setBackgroundColor(bodyBgColor);
+        mYearPickerView.setBackgroundColor(bodyBgColor);
+        mDayPickerView.setBackgroundColor(bodyBgColor);
 
         return view;
     }

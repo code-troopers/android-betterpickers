@@ -51,7 +51,7 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
     protected static int WEEK_7_OVERHANG_HEIGHT = 7;
     protected static final int MONTHS_IN_YEAR = 12;
 
-    public void setThemeDark(TypedArray mThemeColors) {
+    public void setTheme(TypedArray mThemeColors) {
         this.mThemeColors = mThemeColors;
     }
 
@@ -242,21 +242,21 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
     @SuppressWarnings("unchecked")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        MonthView v;
+        MonthView monthView;
         HashMap<String, Integer> drawingParams = null;
         if (convertView != null) {
-            v = (MonthView) convertView;
+            monthView = (MonthView) convertView;
             // We store the drawing parameters in the view so it can be recycled
-            drawingParams = (HashMap<String, Integer>) v.getTag();
+            drawingParams = (HashMap<String, Integer>) monthView.getTag();
         } else {
-            v = createMonthView(mContext);
-            v.setTheme(mThemeColors);
+            monthView = createMonthView(mContext);
+            monthView.setTheme(mThemeColors);
             // Set up the new view
             LayoutParams params = new LayoutParams(
                     LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-            v.setLayoutParams(params);
-            v.setClickable(true);
-            v.setOnDayClickListener(this);
+            monthView.setLayoutParams(params);
+            monthView.setClickable(true);
+            monthView.setOnDayClickListener(this);
         }
         if (drawingParams == null) {
             drawingParams = new HashMap<String, Integer>();
@@ -281,11 +281,11 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
         }
         // Invokes requestLayout() to ensure that the recycled view is set with the appropriate
         // height/number of weeks before being displayed.
-        v.reuse();
+        monthView.reuse();
 
         // Set disabled days if they exist
         if (mController.getDisabledDays() != null) {
-            v.setDisabledDays(mController.getDisabledDays());
+            monthView.setDisabledDays(mController.getDisabledDays());
         }
 
         drawingParams.put(MonthView.VIEW_PARAMS_SELECTED_DAY, selectedDay);
@@ -294,9 +294,9 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
         drawingParams.put(MonthView.VIEW_PARAMS_WEEK_START, mController.getFirstDayOfWeek());
         drawingParams.put(MonthView.VIEW_PARAMS_RANGE_MIN, rangeMin);
         drawingParams.put(MonthView.VIEW_PARAMS_RANGE_MAX, rangeMax);
-        v.setMonthParams(drawingParams);
-        v.invalidate();
-        return v;
+        monthView.setMonthParams(drawingParams);
+        monthView.invalidate();
+        return monthView;
     }
 
     public abstract MonthView createMonthView(Context context);

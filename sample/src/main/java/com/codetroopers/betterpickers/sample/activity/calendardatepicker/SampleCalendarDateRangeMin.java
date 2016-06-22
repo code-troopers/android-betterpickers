@@ -37,7 +37,8 @@ public class SampleCalendarDateRangeMin extends BaseSampleActivity
                 MonthAdapter.CalendarDay minDate = new MonthAdapter.CalendarDay(now.getYear(), now.getMonthOfYear() - 2, now.getDayOfMonth());
 
                 CalendarDatePickerDialogFragment cdp = new CalendarDatePickerDialogFragment()
-                        .setDateRange(minDate, null);
+                        .setDateRange(minDate, null)
+                        .setOnDateSetListener(SampleCalendarDateRangeMin.this);
                 cdp.show(getSupportFragmentManager(), FRAG_TAG_DATE_PICKER);
             }
         });

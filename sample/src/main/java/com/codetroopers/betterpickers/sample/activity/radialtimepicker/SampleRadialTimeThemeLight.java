@@ -30,7 +30,8 @@ public class SampleRadialTimeThemeLight extends BaseSampleActivity
             @Override
             public void onClick(View v) {
                 RadialTimePickerDialogFragment rtpd = new RadialTimePickerDialogFragment()
-                        .setOnTimeSetListener(SampleRadialTimeThemeLight.this);
+                        .setOnTimeSetListener(SampleRadialTimeThemeLight.this)
+                        .setThemeLight();
                 rtpd.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
             }
         });

@@ -13,20 +13,30 @@
         <item name="bpKeyboardIndicatorColor">@color/custom_keyboard_indicator_color</item>
     </style>
 
-    <style name="MyCustomBetterPickersRadialTimePickerDialog">
-        <item name="bpMainColor1">@color/custom_tp_main1</item>
-        <item name="bpMainColor2">@color/custom_tp_main2</item>
-        <item name="bpAccentColor">@color/custom_tp_accent</item>
-        <item name="bpMainTextColor">@color/custom_tp_text</item>
-        <item name="bpDoneTextColor">@color/custom_tp_text</item>
-        <item name="bpLineColor">@color/custom_tp_main2</item>
-        <item name="bpDoneBackgroundColor">@drawable/tp_done_background_color</item>
-        <item name="bpSelectionAlpha">102</item>
+    <style name="MyCustomBetterPickersDialogs">
+        <item name="bpPreHeaderBackgroundColor">@color/holo_red_dark</item>
+        <item name="bpHeaderBackgroundColor">@color/holo_red_light</item>
+        <item name="bpHeaderSelectedTextColor">@color/holo_orange_dark</item>
+        <item name="bpHeaderUnselectedTextColor">@android:color/white</item>
+
+        <item name="bpBodyBackgroundColor">@color/holo_blue_dark</item>
+        <item name="bpBodySelectedTextColor">@color/holo_orange_dark</item>
+        <item name="bpBodyUnselectedTextColor">@android:color/white</item>
+
+        <item name="bpRadialBackgroundColor">@color/holo_orange_dark</item>
+        <item name="bpRadialTextColor">@color/holo_purple</item>
+        <item name="bpRadialPointerColor">@android:color/black</item>
+
+        <item name="bpButtonsBackgroundColor">@color/holo_green_dark</item>
+        <item name="bpButtonsTextColor">@color/holo_orange_dark</item>
     </style>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!--used by switch compat-->
         <item name="colorControlActivated">@color/bpBlue</item>
+
+        <!--Default colors-->
         <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     </style>
 </resources>
