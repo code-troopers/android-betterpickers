@@ -367,7 +367,7 @@ License
     limitations under the License.
 
  [5]: https://raw.github.com/code-troopers/android-betterpickers/master/sample/imagery/web_feature_graphic.png
- [6]: https://play.google.com/store/apps/details?id=com.doomonafireball.betterpickers.sample
+ [6]: https://play.google.com/store/apps/details?id=com.codetroopers.betterpickersapp
  [7]: http://developer.android.com/guide/developing/projects/projects-eclipse.html
  [8]: http://developer.android.com/guide/developing/projects/projects-eclipse.html#ReferencingLibraryProject
  [9]: http://viewpagerindicator.com/
