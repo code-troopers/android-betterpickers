@@ -276,7 +276,7 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
     }
 
     private void addClickedNumber(int val) {
-        if (mInputPointer < mInputSize - 1) {
+        if (mInputPointer < mInputSize - 1 && !(mInputPointer == -1 && val == 0)) {
             for (int i = mInputPointer; i >= 0; i--) {
                 mInput[i + 1] = mInput[i];
             }
