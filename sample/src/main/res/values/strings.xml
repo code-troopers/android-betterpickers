@@ -10,6 +10,7 @@
     <string name="calendar_date_picker_result_values">Year: %1$s\nMonth: %2$s\nDay: %3$s</string>
     <string name="radial_time_picker">Set Time</string>
     <string name="radial_time_picker_result_value">%1$d:%2$d</string>
+    <string name="radial_time_picker_title_today">Today</string>
     <string name="date_picker_set">Set Date</string>
     <string name="date_picker_result_value">Year: %1$s\nMonth: %2$s\nDay: %3$s</string>
     <string name="expiration_picker_set">Set Expiration</string>

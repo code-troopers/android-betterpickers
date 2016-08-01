@@ -33,6 +33,7 @@ public class SampleRadialTimeMinMax extends BaseSampleActivity
             public void onClick(View v) {
                 RadialTimePickerDialogFragment rtpd = new RadialTimePickerDialogFragment()
                         .setOnTimeSetListener(SampleRadialTimeMinMax.this)
+                        .setTitleText(getString(R.string.radial_time_picker_title_today).toUpperCase())
                         .setFutureMinutesLimit(60)
                         .setPastMinutesLimit(60)
                         .setValidateDateTime(Calendar.getInstance())

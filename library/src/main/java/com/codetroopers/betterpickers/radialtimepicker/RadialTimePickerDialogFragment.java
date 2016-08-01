@@ -304,6 +304,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
 
         // Prepare some colors to use.
         int headerBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderBackgroundColor, R.color.bpBlue);
+        int preHeaderBackgroundColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpPreHeaderBackgroundColor, R.color.bpWhite);
         int bodyBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpBodyBackgroundColor, R.color.bpWhite);
         int buttonBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpButtonsBackgroundColor, R.color.bpWhite);
         int buttonTextColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpButtonsTextColor, R.color.bpBlue);
@@ -462,6 +463,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         ((TextView) view.findViewById(R.id.separator)).setTextColor(mUnselectedColor);
         ((TextView) view.findViewById(R.id.ampm_label)).setTextColor(mUnselectedColor);
         mTimePicker.setBackgroundColor(bodyBgColor);
+        mTitleTextView.setBackgroundColor(preHeaderBackgroundColor);
         return view;
     }
 
