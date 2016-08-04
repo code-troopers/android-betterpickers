@@ -382,3 +382,4 @@ License
  [Navig'Tours]: https://play.google.com/store/apps/details?id=com.codetroopers.transport.tours
  [Sleep Well]: https://play.google.com/store/apps/details?id=com.processingbox.jevaisbiendormir
  [Dayon Alarm]: https://play.google.com/store/apps/details?id=com.atesfactory.dayon
+ [Driving Timer]: https://play.google.com/store/apps/details?id=tk.leoforney.drivingtimer
