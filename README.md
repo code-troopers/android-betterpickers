@@ -334,6 +334,7 @@ Icon | Application
 <img src="https://lh3.ggpht.com/OuJF91ba0PiNItxw_zAqwjarenly_LiaeaPJQOHBrVWPsGzydjUZ1ANp1wVDpU4cLsE=w300" width="48" height="48" /> | [Navig'Tours] 
 <img src="https://lh3.googleusercontent.com/wgzBdz0-R999n1uo6qKJmIzPCt3ShM2lSM6oHmpz9HQKHhbuU0hGYwYhTJx_2QmAhic=w300" width="48" height="48" /> | [Sleep Well] 
 <img src="https://lh3.googleusercontent.com/h30IiTNjNayoas5zhbeE38ajB-rsW9Cpz-AOnZnBIuwoOVMMnKZxDQ1RYRLZYLW8Jxc=w300" width="48" height="48" /> | [Dayon Alarm] 
+<img src="http://imgur.com/ayz4NSY.png" width="48" height="48" /> | [Driving Timer]
 
 
 
