@@ -149,12 +149,13 @@ public class ExpirationPickerDialogFragment extends DialogFragment {
         mPicker.setSetButton(doneButton);
         mPicker.setTheme(mTheme);
 
-        if (mMonthOfYear != -1 || mYear != 0)
-            mPicker.setExpiration(mYear, mMonthOfYear);
-
-        if (mMinimumYear != 0) {
+		if (mMinimumYear != 0) {
             mPicker.setMinYear(mMinimumYear);
         }
+		
+        if (mMonthOfYear != -1 || mYear != 0) {
+            mPicker.setExpiration(mYear, mMonthOfYear);
+		}
 
         getDialog().getWindow().setBackgroundDrawableResource(mDialogBackgroundResId);
         return view;
