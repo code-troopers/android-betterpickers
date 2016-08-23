@@ -1,6 +1,10 @@
 
 Changelog
 =========
+**3.0.1**
+* Fix setExpiration being called before setMinYear (#319)
+* Fix leading zeroes issue in HMS Picker (#311)
+
 **3.0.0**
 * Fix Fragment already added Exception (#298)
 * Remove deprecated methods :
