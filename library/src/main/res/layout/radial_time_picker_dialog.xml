@@ -35,7 +35,6 @@
             android:id="@+id/error"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minLines="2"
             android:background="#ffff4444"
             android:gravity="center_horizontal"
             android:paddingLeft="20dp"
