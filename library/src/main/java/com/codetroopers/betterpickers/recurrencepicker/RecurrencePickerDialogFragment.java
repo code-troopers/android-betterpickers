@@ -103,6 +103,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
 
         static final int MONTHLY_BY_DATE = 0;
         static final int MONTHLY_BY_NTH_DAY_OF_WEEK = 1;
+        static final int MONTHLY_BY_LAST_DAY_OF_MONTH = 2;
 
         static final int STATE_NO_RECURRENCE = 0;
         static final int STATE_RECURRENCE = 1;
@@ -181,6 +182,11 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
          */
         boolean forceHideSwitchButton;
 
+        /**
+         * Show the last day selector within month recurrence
+         */
+        boolean showMonthLastDay;
+
         /*
          * (generated method)
          */
@@ -217,6 +223,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
             dest.writeInt(monthlyByDayOfWeek);
             dest.writeInt(monthlyByNthDayOfWeek);
             dest.writeByte((byte) (forceHideSwitchButton ? 1 : 0));
+            dest.writeByte((byte) (showMonthLastDay ? 1 : 0));
         }
 
         private RecurrenceModel(Parcel in) {
@@ -235,6 +242,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
             this.monthlyByDayOfWeek = in.readInt();
             this.monthlyByNthDayOfWeek = in.readInt();
             this.forceHideSwitchButton = in.readByte() != 0;
+            this.showMonthLastDay = in.readByte() != 0;
         }
 
         public static final Creator<RecurrenceModel> CREATOR = new Creator<RecurrenceModel>() {
@@ -341,6 +349,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
     public static final String BUNDLE_TIME_ZONE = "bundle_event_time_zone";
     public static final String BUNDLE_RRULE = "bundle_event_rrule";
     public static final String BUNDLE_HIDE_SWITCH_BUTTON = "bundle_hide_switch_button";
+    public static final String BUNDLE_SHOW_MONTH_LAST_DAY = "bundle_show_month_last_day";
 
     private static final String BUNDLE_MODEL = "bundle_model";
     private static final String BUNDLE_END_COUNT_HAS_FOCUS = "bundle_end_count_has_focus";
@@ -384,6 +393,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
     private RadioGroup mMonthRepeatByRadioGroup;
     private RadioButton mRepeatMonthlyByNthDayOfWeek;
     private RadioButton mRepeatMonthlyByNthDayOfMonth;
+    private RadioButton mRepeatMonthlyByEndDayOfMonth;
     private String mMonthRepeatByDayOfWeekStr;
 
     private Button mDoneButton;
@@ -552,8 +562,13 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
                     throw new IllegalStateException(
                             "Can handle only by monthday or by nth day of week, not both");
                 }
+
                 model.monthlyByMonthDay = er.bymonthday[0];
-                model.monthlyRepeat = RecurrenceModel.MONTHLY_BY_DATE;
+                if(model.monthlyByMonthDay == -1)
+                    model.monthlyRepeat = RecurrenceModel.MONTHLY_BY_LAST_DAY_OF_MONTH;
+                else
+                    model.monthlyRepeat = RecurrenceModel.MONTHLY_BY_DATE;
+
             } else if (er.bymonthCount > 1) {
                 // LIMITATION: Can handle only one month day
                 throw new IllegalStateException("Can handle only one bymonthday");
@@ -628,6 +643,21 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
                     eventRecurrence.bydayCount = count;
                     eventRecurrence.byday[0] = EventRecurrence.timeDay2Day(model.monthlyByDayOfWeek);
                     eventRecurrence.bydayNum[0] = model.monthlyByNthDayOfWeek;
+                } else if (model.monthlyRepeat == RecurrenceModel.MONTHLY_BY_LAST_DAY_OF_MONTH) {
+                    if (eventRecurrence.bymonthday == null) {
+                        eventRecurrence.bymonthday = new int[1];
+                    }
+
+                    /**
+                     * Use -1 to signify last day of month as specified within RFC 2445 section 4.3.10:
+                     *
+                     *  The BYMONTHDAY rule part specifies a COMMA character (ASCII decimal
+                     * 44) separated list of days of the month. Valid values are 1 to 31 or
+                     * -31 to -1. For example, -10 represents the tenth to the last day of
+                     * the month.
+                     */
+                    eventRecurrence.bymonthday[0] = -1;
+                    eventRecurrence.bymonthdayCount = 1;
                 }
                 break;
             case RecurrenceModel.FREQ_WEEKLY:
@@ -697,6 +727,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
                 }
 
                 mModel.forceHideSwitchButton = bundle.getBoolean(BUNDLE_HIDE_SWITCH_BUTTON, false);
+                mModel.showMonthLastDay = bundle.getBoolean(BUNDLE_SHOW_MONTH_LAST_DAY, false);
             } else {
                 mTime.setToNow();
             }
@@ -724,6 +755,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
                 }
             });
         }
+
         mFreqSpinner = (Spinner) mView.findViewById(R.id.freqSpinner);
         mFreqSpinner.setOnItemSelectedListener(this);
         ArrayAdapter<CharSequence> freqAdapter = ArrayAdapter.createFromResource(getActivity(),
@@ -894,6 +926,13 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
                 .findViewById(R.id.repeatMonthlyByNthDayOfTheWeek);
         mRepeatMonthlyByNthDayOfMonth = (RadioButton) mView
                 .findViewById(R.id.repeatMonthlyByNthDayOfMonth);
+        mRepeatMonthlyByEndDayOfMonth = (RadioButton) mView
+                .findViewById(R.id.repeatMonthlyByLastDayOfMonth);
+
+        if(!mModel.showMonthLastDay) {
+            mRepeatMonthlyByEndDayOfMonth.setEnabled(false);
+            mRepeatMonthlyByEndDayOfMonth.setVisibility(View.GONE);
+        }
 
         mDoneButton = (Button) mView.findViewById(R.id.done_button);
         mDoneButton.setOnClickListener(this);
@@ -928,6 +967,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
             mEndDateTextView.setEnabled(false);
             mRepeatMonthlyByNthDayOfWeek.setEnabled(false);
             mRepeatMonthlyByNthDayOfMonth.setEnabled(false);
+            mRepeatMonthlyByEndDayOfMonth.setEnabled(false);
             for (Button button : mWeekByDayButtons) {
                 button.setEnabled(false);
             }
@@ -944,6 +984,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
             mEndDateTextView.setEnabled(true);
             mRepeatMonthlyByNthDayOfWeek.setEnabled(true);
             mRepeatMonthlyByNthDayOfMonth.setEnabled(true);
+            mRepeatMonthlyByEndDayOfMonth.setEnabled(mModel.showMonthLastDay);
             for (Button button : mWeekByDayButtons) {
                 button.setEnabled(true);
             }
@@ -1027,6 +1068,8 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
                     mMonthRepeatByRadioGroup.check(R.id.repeatMonthlyByNthDayOfMonth);
                 } else if (mModel.monthlyRepeat == RecurrenceModel.MONTHLY_BY_NTH_DAY_OF_WEEK) {
                     mMonthRepeatByRadioGroup.check(R.id.repeatMonthlyByNthDayOfTheWeek);
+                } else if (mModel.monthlyRepeat == RecurrenceModel.MONTHLY_BY_LAST_DAY_OF_MONTH) {
+                    mMonthRepeatByRadioGroup.check(R.id.repeatMonthlyByLastDayOfMonth);
                 }
 
                 if (mMonthRepeatByDayOfWeekStr == null) {
@@ -1220,6 +1263,8 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
             mModel.monthlyRepeat = RecurrenceModel.MONTHLY_BY_DATE;
         } else if (checkedId == R.id.repeatMonthlyByNthDayOfTheWeek) {
             mModel.monthlyRepeat = RecurrenceModel.MONTHLY_BY_NTH_DAY_OF_WEEK;
+        } else if (checkedId == R.id.repeatMonthlyByLastDayOfMonth) {
+            mModel.monthlyRepeat = RecurrenceModel.MONTHLY_BY_LAST_DAY_OF_MONTH;
         }
         updateDialog();
     }

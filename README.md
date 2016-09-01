@@ -100,6 +100,7 @@ button.setOnClickListener(new View.OnClickListener() {
         bundle.putString(RecurrencePickerDialogFragment.BUNDLE_TIME_ZONE, time.timezone);
         bundle.putString(RecurrencePickerDialogFragment.BUNDLE_RRULE, mRrule);
         bundle.putBoolean(RecurrencePickerDialogFragment.BUNDLE_HIDE_SWITCH_BUTTON, true);
+        bundle.putBoolean(RecurrencePickerDialogFragment.BUNDLE_SHOW_MONTH_LAST_DAY, false);
         
         RecurrencePickerDialogFragment rpd = new RecurrencePickerDialogFragment();
         rpd.setArguments(bundle);
