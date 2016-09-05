@@ -16,7 +16,7 @@ import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
 
 /**
- * User: killtheidols Date: 9/1/16 Time: 11:08 PM
+ * User: liamcottam Date: 9/1/16 Time: 11:08 PM
  */
 public class SampleRecurrenceMonthLast extends BaseSampleActivity
         implements RecurrencePickerDialogFragment.OnRecurrenceSetListener {
