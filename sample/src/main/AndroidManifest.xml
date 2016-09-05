@@ -488,6 +488,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.codetroopers.betterpickers.sample.activity.recurrencepicker.SampleRecurrenceMonthLast"
+            android:label="Recurrence/Last Day of Month">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activity.timezonepicker.SampleTimeZoneBasicUsage"
             android:label="Time Zone/Basic Usage">
             <intent-filter>

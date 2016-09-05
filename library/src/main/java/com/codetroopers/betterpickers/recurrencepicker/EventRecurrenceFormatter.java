@@ -111,6 +111,8 @@ public class EventRecurrenceFormatter {
                         dayNumber = 5;
                     }
                     details = mMonthRepeatByDayOfWeekStrs[weekday][dayNumber - 1];
+                } else if(recurrence.bymonthday != null) {
+                    details = r.getString(R.string.monthly_last_day);
                 }
                 return r.getQuantityString(R.plurals.monthly, interval, interval, details) + endString;
             }

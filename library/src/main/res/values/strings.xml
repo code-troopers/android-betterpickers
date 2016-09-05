@@ -90,6 +90,9 @@
     <!-- Repeat an monthly event on the same day of every month [CHAR LIMIT=20] -->
     <string name="recurrence_month_pattern_by_day">on the same day each month</string>
 
+    <!-- Repeat a monthly event on the last day of every month [CHAR LIMIT=20] -->
+    <string name="recurrence_month_pattern_by_last">on the last day each month</string>
+
     <!-- Description of the selected marker for accessibility support [CHAR LIMIT = NONE]-->
     <string name="acessibility_recurrence_choose_end_date_description">change end date</string>
 
@@ -183,6 +186,7 @@
     <!-- The common portion of a string describing how often an event repeats,
          example: 'Monthly (on day 2)' -->
     <string name="monthly">Monthly</string>
+    <string name="monthly_last_day">on the last day</string>
     <plurals name="monthly">
         <item quantity="one">Monthly <xliff:g id="days_of_month">%2$s</xliff:g></item>
         <item quantity="other">Every <xliff:g id="number">%1$d</xliff:g> months <xliff:g id="days_of_month">%2$s</xliff:g></item>

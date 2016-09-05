@@ -108,7 +108,7 @@
                             android:paddingRight="4dp"
                             android:selectAllOnFocus="true"
                             android:singleLine="true"
-                            android:textSize="15sp"></EditText>
+                            android:textSize="15sp" />
 
                         <TextView
                             android:id="@+id/intervalPostText"
@@ -181,6 +181,13 @@
                             style="@style/TextAppearance.RecurrencePickerStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
+
+                        <RadioButton
+                            android:id="@+id/repeatMonthlyByLastDayOfMonth"
+                            style="@style/TextAppearance.RecurrencePickerStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/recurrence_month_pattern_by_last"/>
                     </RadioGroup>
 
                     <LinearLayout
