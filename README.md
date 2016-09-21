@@ -85,7 +85,7 @@ button.setOnClickListener(new View.OnClickListener() {
     }
 });
 ```
- 
+
 ### Recurrence Picker
 
 ```java
@@ -100,7 +100,7 @@ button.setOnClickListener(new View.OnClickListener() {
         bundle.putString(RecurrencePickerDialogFragment.BUNDLE_TIME_ZONE, time.timezone);
         bundle.putString(RecurrencePickerDialogFragment.BUNDLE_RRULE, mRrule);
         bundle.putBoolean(RecurrencePickerDialogFragment.BUNDLE_HIDE_SWITCH_BUTTON, true);
-        
+
         RecurrencePickerDialogFragment rpd = new RecurrencePickerDialogFragment();
         rpd.setArguments(bundle);
         rpd.setOnRecurrenceSetListener(SampleRecurrenceBasicUsage.this);
@@ -122,7 +122,7 @@ button.setOnClickListener(new View.OnClickListener() {
         bundle.putLong(TimeZonePickerDialogFragment.BUNDLE_START_TIME_MILLIS, time.toMillis(false));
         bundle.putString(TimeZonePickerDialogFragment.BUNDLE_TIME_ZONE, time.timezone);
         bundle.putString(RecurrencePickerDialogFragment.BUNDLE_RRULE, mRrule);
-        
+
         TimeZonePickerDialogFragment tzpd = new TimeZonePickerDialogFragment();
         tzpd.setArguments(bundle);
         tzpd.setOnTimeZoneSetListener(SampleTimeZoneBasicUsage.this);
@@ -145,7 +145,7 @@ button.setOnClickListener(new View.OnClickListener() {
     }
 });
 ```
-  
+
 ### Expiration Picker
 
 ```java
@@ -154,13 +154,13 @@ button.setOnClickListener(new View.OnClickListener() {
     public void onClick(View v) {
         ExpirationPickerBuilder epb = new ExpirationPickerBuilder()
                   .setFragmentManager(getSupportFragmentManager())
-                  .setStyleResId(R.style.BetterPickersDialogFragment) 
+                  .setStyleResId(R.style.BetterPickersDialogFragment)
                   .setMinYear(2000);
         epb.show();
     }
 });
 ```
- 
+
 ### HMS Picker
 
 ```java
@@ -331,10 +331,11 @@ Please send a pull request if you would like to be added here.
 Icon | Application
 ------------ | -------------
 <img src="https://lh6.ggpht.com/wG3RSgReZcIcKsqFfsKSibR-j1UYfOekNmtY8x0n0mjWJT84U2V3l2lh3TmxeXfJis0z=w300" width="48" height="48" /> | [Trello]
-<img src="https://lh3.ggpht.com/OuJF91ba0PiNItxw_zAqwjarenly_LiaeaPJQOHBrVWPsGzydjUZ1ANp1wVDpU4cLsE=w300" width="48" height="48" /> | [Navig'Tours] 
-<img src="https://lh3.googleusercontent.com/wgzBdz0-R999n1uo6qKJmIzPCt3ShM2lSM6oHmpz9HQKHhbuU0hGYwYhTJx_2QmAhic=w300" width="48" height="48" /> | [Sleep Well] 
-<img src="https://lh3.googleusercontent.com/h30IiTNjNayoas5zhbeE38ajB-rsW9Cpz-AOnZnBIuwoOVMMnKZxDQ1RYRLZYLW8Jxc=w300" width="48" height="48" /> | [Dayon Alarm] 
+<img src="https://lh3.ggpht.com/OuJF91ba0PiNItxw_zAqwjarenly_LiaeaPJQOHBrVWPsGzydjUZ1ANp1wVDpU4cLsE=w300" width="48" height="48" /> | [Navig'Tours]
+<img src="https://lh3.googleusercontent.com/wgzBdz0-R999n1uo6qKJmIzPCt3ShM2lSM6oHmpz9HQKHhbuU0hGYwYhTJx_2QmAhic=w300" width="48" height="48" /> | [Sleep Well]
+<img src="https://lh3.googleusercontent.com/h30IiTNjNayoas5zhbeE38ajB-rsW9Cpz-AOnZnBIuwoOVMMnKZxDQ1RYRLZYLW8Jxc=w300" width="48" height="48" /> | [Dayon Alarm]
 <img src="http://imgur.com/ayz4NSY.png" width="48" height="48" /> | [Driving Timer]
+<img src="https://lh6.ggpht.com/p_j7PAV7YnvGl1ONtQ3OcqtIBpEeocH0okXpy2Hmaztwz8k9BBPLMvUnup6ptG4HxjE=w300" width="48" height="48" /> | [TVShow Time]
 
 
 
@@ -383,3 +384,4 @@ License
  [Sleep Well]: https://play.google.com/store/apps/details?id=com.processingbox.jevaisbiendormir
  [Dayon Alarm]: https://play.google.com/store/apps/details?id=com.atesfactory.dayon
  [Driving Timer]: https://play.google.com/store/apps/details?id=tk.leoforney.drivingtimer
+ [TVShow Time]: https://play.google.com/store/apps/details?id=com.tozelabs.tvshowtime
