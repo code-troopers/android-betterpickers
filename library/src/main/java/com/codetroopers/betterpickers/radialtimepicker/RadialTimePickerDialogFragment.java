@@ -63,6 +63,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
     private static final String KEY_IN_KB_MODE = "in_kb_mode";
     private static final String KEY_TYPED_TIMES = "typed_times";
     private static final String KEY_STYLE = "theme";
+    private static final String KEY_TITLE_TEXT = "title_text";
     private static final String KEY_FUTURE_MINUTES_LIMIT = "future_minutes_limit";
     private static final String KEY_PAST_MINUTES_LIMIT = "past_minutes_limit";
     private static final String KEY_CURRENT_DATE = "current_date";
@@ -270,6 +271,9 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
             mIs24HourMode = savedInstanceState.getBoolean(KEY_IS_24_HOUR_VIEW);
             mInKbMode = savedInstanceState.getBoolean(KEY_IN_KB_MODE);
             mStyleResId = savedInstanceState.getInt(KEY_STYLE);
+            if (savedInstanceState.containsKey(KEY_TITLE_TEXT)) {
+                mTitleText = savedInstanceState.getString(KEY_TITLE_TEXT);
+            }
             if (savedInstanceState.containsKey(KEY_FUTURE_MINUTES_LIMIT)) {
                 mFutureMinutesLimit = savedInstanceState.getInt(KEY_FUTURE_MINUTES_LIMIT);
             }
@@ -304,6 +308,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
 
         // Prepare some colors to use.
         int headerBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderBackgroundColor, R.color.bpBlue);
+        int preHeaderBackgroundColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpPreHeaderBackgroundColor, R.color.bpWhite);
         int bodyBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpBodyBackgroundColor, R.color.bpWhite);
         int buttonBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpButtonsBackgroundColor, R.color.bpWhite);
         int buttonTextColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpButtonsTextColor, R.color.bpBlue);
@@ -462,6 +467,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         ((TextView) view.findViewById(R.id.separator)).setTextColor(mUnselectedColor);
         ((TextView) view.findViewById(R.id.ampm_label)).setTextColor(mUnselectedColor);
         mTimePicker.setBackgroundColor(bodyBgColor);
+        mTitleTextView.setBackgroundColor(preHeaderBackgroundColor);
         return view;
     }
 
@@ -507,6 +513,8 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
             outState.putBoolean(KEY_IS_24_HOUR_VIEW, mIs24HourMode);
             outState.putInt(KEY_CURRENT_ITEM_SHOWING, mTimePicker.getCurrentItemShowing());
             outState.putBoolean(KEY_IN_KB_MODE, mInKbMode);
+            if (mTitleText != null)
+                outState.putString(KEY_TITLE_TEXT, mTitleText);
             if (mFutureMinutesLimit != null)
                 outState.putInt(KEY_FUTURE_MINUTES_LIMIT, mFutureMinutesLimit);
             if (mPastMinutesLimit != null)

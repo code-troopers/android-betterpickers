@@ -32,6 +32,8 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private static final String CURRENT_NUMBER_KEY = "NumberPickerDialogFragment_CurrentNumberKey";
     private static final String CURRENT_DECIMAL_KEY = "NumberPickerDialogFragment_CurrentDecimalKey";
     private static final String CURRENT_SIGN_KEY = "NumberPickerDialogFragment_CurrentSignKey";
+    private static final String CANCEL_TEXT = "NumberPickerDialogFragment_CancelText";
+    private static final String DONE_TEXT = "NumberPickerDialogFragment_DoneText";
 
     private NumberPicker mPicker;
 
@@ -49,6 +51,8 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private int mPlusMinusVisibility = View.VISIBLE;
     private int mDecimalVisibility = View.VISIBLE;
     private Vector<NumberPickerDialogHandlerV2> mNumberPickerDialogHandlersV2 = new Vector<NumberPickerDialogHandlerV2>();
+    private String mCancelText = null;
+    private String mDoneText = null;
 
     /**
      * Create an instance of the Picker (used internally)
@@ -60,6 +64,8 @@ public class NumberPickerDialogFragment extends DialogFragment {
      * @param plusMinusVisibility (optional) View.VISIBLE, View.INVISIBLE, or View.GONE
      * @param decimalVisibility   (optional) View.VISIBLE, View.INVISIBLE, or View.GONE
      * @param labelText           (optional) text to add as a label
+     * @param cancelText           (optional) text shown on the cancel button
+     * @param doneText           (optional) text shown on the done button
      * @return a Picker!
      */
     public static NumberPickerDialogFragment newInstance(int reference,
@@ -71,7 +77,9 @@ public class NumberPickerDialogFragment extends DialogFragment {
                                                          String labelText,
                                                          Integer currentNumberValue,
                                                          Double currentDecimalValue,
-                                                         Integer currentNumberSign) {
+                                                         Integer currentNumberSign,
+                                                         String cancelText,
+                                                         String doneText) {
         final NumberPickerDialogFragment frag = new NumberPickerDialogFragment();
         Bundle args = new Bundle();
         args.putInt(REFERENCE_KEY, reference);
@@ -100,6 +108,12 @@ public class NumberPickerDialogFragment extends DialogFragment {
         if (currentNumberSign != null) {
             args.putInt(CURRENT_SIGN_KEY, currentNumberSign);
         }
+        if (cancelText != null) {
+            args.putString(CANCEL_TEXT, cancelText);
+        }
+        if (doneText != null) {
+            args.putString(DONE_TEXT, doneText);
+        }
         frag.setArguments(args);
         return frag;
     }
@@ -114,35 +128,43 @@ public class NumberPickerDialogFragment extends DialogFragment {
         super.onCreate(savedInstanceState);
 
         Bundle args = getArguments();
-        if (args != null && args.containsKey(REFERENCE_KEY)) {
-            mReference = args.getInt(REFERENCE_KEY);
-        }
-        if (args != null && args.containsKey(THEME_RES_ID_KEY)) {
-            mTheme = args.getInt(THEME_RES_ID_KEY);
-        }
-        if (args != null && args.containsKey(PLUS_MINUS_VISIBILITY_KEY)) {
-            mPlusMinusVisibility = args.getInt(PLUS_MINUS_VISIBILITY_KEY);
-        }
-        if (args != null && args.containsKey(DECIMAL_VISIBILITY_KEY)) {
-            mDecimalVisibility = args.getInt(DECIMAL_VISIBILITY_KEY);
-        }
-        if (args != null && args.containsKey(MIN_NUMBER_KEY)) {
-            mMinNumber = (BigDecimal) args.getSerializable(MIN_NUMBER_KEY);
-        }
-        if (args != null && args.containsKey(MAX_NUMBER_KEY)) {
-            mMaxNumber = (BigDecimal) args.getSerializable(MAX_NUMBER_KEY);
-        }
-        if (args != null && args.containsKey(LABEL_TEXT_KEY)) {
-            mLabelText = args.getString(LABEL_TEXT_KEY);
-        }
-        if (args != null && args.containsKey(CURRENT_NUMBER_KEY)) {
-            mCurrentNumber = args.getInt(CURRENT_NUMBER_KEY);
-        }
-        if (args != null && args.containsKey(CURRENT_DECIMAL_KEY)) {
-            mCurrentDecimal = args.getDouble(CURRENT_DECIMAL_KEY);
-        }
-        if (args != null && args.containsKey(CURRENT_SIGN_KEY)) {
-            mCurrentSign = args.getInt(CURRENT_SIGN_KEY);
+        if (args != null) {
+            if (args.containsKey(REFERENCE_KEY)) {
+                mReference = args.getInt(REFERENCE_KEY);
+            }
+            if (args.containsKey(THEME_RES_ID_KEY)) {
+                mTheme = args.getInt(THEME_RES_ID_KEY);
+            }
+            if (args.containsKey(PLUS_MINUS_VISIBILITY_KEY)) {
+                mPlusMinusVisibility = args.getInt(PLUS_MINUS_VISIBILITY_KEY);
+            }
+            if (args.containsKey(DECIMAL_VISIBILITY_KEY)) {
+                mDecimalVisibility = args.getInt(DECIMAL_VISIBILITY_KEY);
+            }
+            if (args.containsKey(MIN_NUMBER_KEY)) {
+                mMinNumber = (BigDecimal) args.getSerializable(MIN_NUMBER_KEY);
+            }
+            if (args.containsKey(MAX_NUMBER_KEY)) {
+                mMaxNumber = (BigDecimal) args.getSerializable(MAX_NUMBER_KEY);
+            }
+            if (args.containsKey(LABEL_TEXT_KEY)) {
+                mLabelText = args.getString(LABEL_TEXT_KEY);
+            }
+            if (args.containsKey(CURRENT_NUMBER_KEY)) {
+                mCurrentNumber = args.getInt(CURRENT_NUMBER_KEY);
+            }
+            if (args.containsKey(CURRENT_DECIMAL_KEY)) {
+                mCurrentDecimal = args.getDouble(CURRENT_DECIMAL_KEY);
+            }
+            if (args.containsKey(CURRENT_SIGN_KEY)) {
+                mCurrentSign = args.getInt(CURRENT_SIGN_KEY);
+            }
+            if (args.containsKey(CANCEL_TEXT)) {
+                mCancelText = args.getString(CANCEL_TEXT);
+            }
+            if (args.containsKey(DONE_TEXT)) {
+                mDoneText = args.getString(DONE_TEXT);
+            }
         }
 
         setStyle(DialogFragment.STYLE_NO_TITLE, 0);
@@ -173,6 +195,9 @@ public class NumberPickerDialogFragment extends DialogFragment {
                 dismiss();
             }
         });
+        if (mCancelText != null) {
+            cancelButton.setText(mCancelText);
+        }
 
         doneButton.setTextColor(mTextColor);
         doneButton.setOnClickListener(new View.OnClickListener() {
@@ -210,6 +235,9 @@ public class NumberPickerDialogFragment extends DialogFragment {
                 dismiss();
             }
         });
+        if (mDoneText != null) {
+            doneButton.setText(mDoneText);
+        }
 
         mPicker = (NumberPicker) view.findViewById(R.id.number_picker);
         mPicker.setSetButton(doneButton);

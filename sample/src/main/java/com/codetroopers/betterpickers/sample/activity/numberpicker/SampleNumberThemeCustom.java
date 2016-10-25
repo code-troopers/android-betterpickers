@@ -36,6 +36,8 @@ public class SampleNumberThemeCustom extends BaseSampleActivity
             public void onClick(View v) {
                 NumberPickerBuilder npb = new NumberPickerBuilder()
                         .setFragmentManager(getSupportFragmentManager())
+                        .setCancelText(getString(R.string.button_label_custom_cancel))
+                        .setDoneText(getString(R.string.button_label_custom_ok))
                         .setStyleResId(R.style.MyCustomBetterPickerTheme);
                 npb.show();
             }

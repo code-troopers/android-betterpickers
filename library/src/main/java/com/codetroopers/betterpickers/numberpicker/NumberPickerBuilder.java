@@ -28,6 +28,8 @@ public class NumberPickerBuilder {
     private Integer currentNumberValue;
     private Double currentDecimalValue;
     private Integer currentSignValue;
+    private String mCancelText;
+    private String mDoneText;
 
     /**
      * Attach a FragmentManager. This is required for creation of the Fragment.
@@ -187,6 +189,28 @@ public class NumberPickerBuilder {
     }
 
     /**
+     * Sets the text shown on the cancel button. If this text is not set, the default text is shown.
+     *
+     * @param cancelText the String text shown on the cancel button
+     * @return the current Builder object
+     */
+    public NumberPickerBuilder setCancelText(String cancelText) {
+        this.mCancelText = cancelText;
+        return this;
+    }
+
+    /**
+     * Sets the text shown on the done button. If this text is not set, the default text is shown.
+     *
+     * @param doneText the String text shown on the done button
+     * @return the current Builder object
+     */
+    public NumberPickerBuilder setDoneText(String doneText) {
+        this.mDoneText = doneText;
+        return this;
+    }
+
+    /**
      * Remove objects previously added as handlers.
      *
      * @param handler the Object to remove
@@ -215,7 +239,7 @@ public class NumberPickerBuilder {
 
         final NumberPickerDialogFragment fragment = NumberPickerDialogFragment
                 .newInstance(mReference, styleResId, minNumber, maxNumber, plusMinusVisibility, decimalVisibility,
-                        labelText, currentNumberValue, currentDecimalValue, currentSignValue);
+                        labelText, currentNumberValue, currentDecimalValue, currentSignValue, mCancelText, mDoneText);
         if (targetFragment != null) {
             fragment.setTargetFragment(targetFragment, 0);
         }
