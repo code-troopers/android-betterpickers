@@ -16,6 +16,7 @@
 
 package com.codetroopers.betterpickers.radialtimepicker;
 
+import android.animation.ObjectAnimator;
 import android.app.ActionBar.LayoutParams;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -42,7 +43,6 @@ import com.codetroopers.betterpickers.R;
 import com.codetroopers.betterpickers.Utils;
 import com.codetroopers.betterpickers.numberpicker.NumberPickerErrorTextView;
 import com.codetroopers.betterpickers.radialtimepicker.RadialPickerLayout.OnValueSelectedListener;
-import com.nineoldandroids.animation.ObjectAnimator;
 
 import java.text.DateFormatSymbols;
 import java.util.ArrayList;
