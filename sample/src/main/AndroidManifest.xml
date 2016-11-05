@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
+        android:name=".SampleApplication"
         android:icon="@drawable/ic_launcher"
         android:label="BetterPickers Samples"
         android:theme="@style/AppTheme">

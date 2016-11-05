@@ -16,6 +16,7 @@
 
 package com.codetroopers.betterpickers.calendardatepicker;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.res.Resources;
@@ -43,7 +44,6 @@ import com.codetroopers.betterpickers.HapticFeedbackController;
 import com.codetroopers.betterpickers.R;
 import com.codetroopers.betterpickers.Utils;
 import com.codetroopers.betterpickers.calendardatepicker.MonthAdapter.CalendarDay;
-import com.nineoldandroids.animation.ObjectAnimator;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

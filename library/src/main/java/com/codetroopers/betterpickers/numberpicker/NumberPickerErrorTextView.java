@@ -1,6 +1,5 @@
 package com.codetroopers.betterpickers.numberpicker;
 
-import android.R;
 import android.content.Context;
 import android.os.Handler;
 import android.util.AttributeSet;
@@ -30,7 +29,7 @@ public class NumberPickerErrorTextView extends TextView {
 
     public void show() {
         fadeInEndHandler.removeCallbacks(hideRunnable);
-        Animation fadeIn = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in);
+        Animation fadeIn = AnimationUtils.loadAnimation(getContext(), android.R.anim.fade_in);
         fadeIn.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -60,7 +59,7 @@ public class NumberPickerErrorTextView extends TextView {
 
     public void hide() {
         fadeInEndHandler.removeCallbacks(hideRunnable);
-        Animation fadeOut = AnimationUtils.loadAnimation(getContext(), R.anim.fade_out);
+        Animation fadeOut = AnimationUtils.loadAnimation(getContext(), android.R.anim.fade_out);
         fadeOut.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {

@@ -16,15 +16,13 @@
 
 package com.codetroopers.betterpickers;
 
+import android.animation.Keyframe;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.format.Time;
 import android.view.View;
-
-import com.nineoldandroids.animation.Keyframe;
-import com.nineoldandroids.animation.ObjectAnimator;
-import com.nineoldandroids.animation.PropertyValuesHolder;
-import com.nineoldandroids.view.animation.AnimatorProxy;
 
 import java.util.Calendar;
 
@@ -131,9 +129,7 @@ public class Utils {
         PropertyValuesHolder scaleX = PropertyValuesHolder.ofKeyframe("scaleX", k0, k1, k2, k3);
         PropertyValuesHolder scaleY = PropertyValuesHolder.ofKeyframe("scaleY", k0, k1, k2, k3);
         ObjectAnimator pulseAnimator =
-                ObjectAnimator.ofPropertyValuesHolder(
-                        AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(labelToAnimate) : labelToAnimate, scaleX,
-                        scaleY);
+                ObjectAnimator.ofPropertyValuesHolder(labelToAnimate, scaleX, scaleY);
         pulseAnimator.setDuration(PULSE_ANIMATOR_DURATION);
 
         return pulseAnimator;
