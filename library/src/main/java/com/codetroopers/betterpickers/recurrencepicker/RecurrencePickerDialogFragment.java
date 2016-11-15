@@ -24,6 +24,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.SwitchCompat;
 import android.text.Editable;
@@ -1284,8 +1285,9 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
 
         /**
          * @param context
-         * @param textViewResourceId
-         * @param objects
+         * @param strings
+         * @param itemResourceId
+         * @param textResourceId
          */
         public EndSpinnerAdapter(Context context, ArrayList<CharSequence> strings,
                                  int itemResourceId, int textResourceId) {
@@ -1323,8 +1325,9 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
             }
         }
 
+        @NonNull
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
             View v;
             // Check if we can recycle the view
             if (convertView == null) {
@@ -1390,7 +1393,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
         }
 
         @Override
-        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+        public View getDropDownView(int position, View convertView, @NonNull ViewGroup parent) {
             View v;
             // Check if we can recycle the view
             if (convertView == null) {

@@ -20,6 +20,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.StateListDrawable;
+import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
@@ -53,8 +55,8 @@ public class YearPickerView extends ListView implements OnItemClickListener, OnD
     private int mBackgroundColor;
 
     public void setTheme(TypedArray themeColors) {
-        mCircleColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpRadialPointerColor, R.color.bpBlue);
-        mTextColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpBodyUnselectedTextColor, R.color.ampm_text_color);
+        mCircleColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpRadialPointerColor, ContextCompat.getColor(getContext(), R.color.bpBlue));
+        mTextColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpBodyUnselectedTextColor, ContextCompat.getColor(getContext(), R.color.ampm_text_color));
     }
 
     /**
@@ -121,8 +123,9 @@ public class YearPickerView extends ListView implements OnItemClickListener, OnD
             super(context, resource, objects);
         }
 
+        @NonNull
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
             TextViewWithCircularIndicator view = (TextViewWithCircularIndicator)
                     super.getView(position, convertView, parent);
             view.requestLayout();

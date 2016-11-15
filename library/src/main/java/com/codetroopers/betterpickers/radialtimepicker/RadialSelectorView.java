@@ -21,6 +21,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 
@@ -132,7 +133,7 @@ public class RadialSelectorView extends View {
 
     /* package */
     void setTheme(TypedArray themeColors) {
-        mPaint.setColor(themeColors.getColor(R.styleable.BetterPickersDialogs_bpRadialPointerColor, R.color.bpBlue));
+        mPaint.setColor(themeColors.getColor(R.styleable.BetterPickersDialogs_bpRadialPointerColor, ContextCompat.getColor(getContext(), R.color.bpBlue)));
         mSelectionAlpha = themeColors.getInt(R.styleable.BetterPickersDialogs_bpRadialPointerAlpha, 35);
     }
 

@@ -240,7 +240,7 @@ public class ExpirationPicker extends LinearLayout implements Button.OnClickList
             if (position == EXPIRATION_MONTH_POSITION) {
                 // Months
                 sMonthKeyboardPosition = position;
-                view = mInflater.inflate(R.layout.keyboard_text, null);
+                view = mInflater.inflate(R.layout.keyboard_text, collection, false);
                 View v1 = view.findViewById(R.id.first);
                 View v2 = view.findViewById(R.id.second);
                 View v3 = view.findViewById(R.id.third);
@@ -274,7 +274,7 @@ public class ExpirationPicker extends LinearLayout implements Button.OnClickList
             } else if (position == EXPIRATION_YEAR_POSITION) {
                 // Year
                 sYearKeyboardPosition = position;
-                view = mInflater.inflate(R.layout.keyboard, null);
+                view = mInflater.inflate(R.layout.keyboard, collection, false);
                 View v1 = view.findViewById(R.id.first);
                 View v2 = view.findViewById(R.id.second);
                 View v3 = view.findViewById(R.id.third);

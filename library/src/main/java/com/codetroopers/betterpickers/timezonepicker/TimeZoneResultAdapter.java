@@ -278,7 +278,7 @@ public class TimeZoneResultAdapter extends BaseAdapter implements OnItemClickLis
         View v = convertView;
 
         if (mFilteredTimeZoneIndices[position] == EMPTY_INDEX) {
-            v = mInflater.inflate(R.layout.empty_time_zone_item, null);
+            v = mInflater.inflate(R.layout.empty_time_zone_item, parent, false);
 
             ((TextView) v.findViewById(R.id.empty_item)).setTypeface(mSansSerifLightTypeface);
             return v;
@@ -286,7 +286,7 @@ public class TimeZoneResultAdapter extends BaseAdapter implements OnItemClickLis
 
         // We'll need to re-inflate the view if it was null, or if it was used as an empty item.
         if (v == null || v.findViewById(R.id.empty_item) != null) {
-            v = mInflater.inflate(R.layout.time_zone_item, null);
+            v = mInflater.inflate(R.layout.time_zone_item, parent, false);
             ViewHolder.setupViewHolder(v);
         }
 
