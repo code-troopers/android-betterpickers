@@ -127,7 +127,7 @@ public class TimeZoneFilterTypeAdapter extends BaseAdapter implements Filterable
         if (convertView != null) {
             v = convertView;
         } else {
-            v = mInflater.inflate(R.layout.time_zone_filter_item, null);
+            v = mInflater.inflate(R.layout.time_zone_filter_item, parent, false);
             ViewHolder.setupViewHolder(v);
         }
 

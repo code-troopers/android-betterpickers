@@ -28,6 +28,7 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.widget.ExploreByTouchHelper;
@@ -240,12 +241,11 @@ public abstract class MonthView extends View {
     }
 
     public void setTheme(TypedArray themeColors) {
-        mMonthTitleColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpAmPmTextColor, R.color.ampm_text_color);
-
-        mTodayNumberColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpBodySelectedTextColor, R.color.bpBlue);
-        mDayTextColorEnabled = themeColors.getColor(R.styleable.BetterPickersDialogs_bpBodyUnselectedTextColor, R.color.date_picker_text_disabled);
-        mDayTextColorDisabled = themeColors.getColor(R.styleable.BetterPickersDialogs_bpDisabledDayTextColor, R.color.date_picker_text_disabled);
-        mDayBackgroundColorDisabled = themeColors.getColor(R.styleable.BetterPickersDialogs_bpDisabledDayBackgroundColor, R.color.bpDarker_red);
+        mMonthTitleColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpAmPmTextColor, ContextCompat.getColor(getContext(), R.color.ampm_text_color));
+        mTodayNumberColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpBodySelectedTextColor, ContextCompat.getColor(getContext(), R.color.bpBlue));
+        mDayTextColorEnabled = themeColors.getColor(R.styleable.BetterPickersDialogs_bpBodyUnselectedTextColor, ContextCompat.getColor(getContext(), R.color.date_picker_text_disabled));
+        mDayTextColorDisabled = themeColors.getColor(R.styleable.BetterPickersDialogs_bpDisabledDayTextColor, ContextCompat.getColor(getContext(), R.color.date_picker_text_disabled));
+        mDayBackgroundColorDisabled = themeColors.getColor(R.styleable.BetterPickersDialogs_bpDisabledDayBackgroundColor, ContextCompat.getColor(getContext(), R.color.bpDarker_red));
         initView();
     }
 

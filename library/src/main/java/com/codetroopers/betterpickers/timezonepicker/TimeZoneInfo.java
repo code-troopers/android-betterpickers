@@ -18,6 +18,7 @@ package com.codetroopers.betterpickers.timezonepicker;
 
 import android.content.Context;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.text.Spannable;
 import android.text.Spannable.Factory;
 import android.text.format.DateUtils;
@@ -327,7 +328,7 @@ public class TimeZoneInfo implements Comparable<TimeZoneInfo> {
      * instance has the same order as the other.
      */
     @Override
-    public int compareTo(TimeZoneInfo other) {
+    public int compareTo(@NonNull TimeZoneInfo other) {
         if (this.getNowOffsetMillis() != other.getNowOffsetMillis()) {
             return (other.getNowOffsetMillis() < this.getNowOffsetMillis()) ? -1 : 1;
         }

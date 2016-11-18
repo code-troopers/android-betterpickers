@@ -73,68 +73,6 @@
     </string-array>
 
     <!--
-        Timezone IDs for the time zones that we want to override the display strings.
-        ALWAYS ADD NEW ENTRIES AT THE END. Othewise the entries after the insertion point will
-        not match for languages that didn't get the translations.
-    -->
-    <string-array name="timezone_rename_ids" translatable="false">
-
-        <!-- Australia -->
-        <item>"Australia/Darwin"</item>
-        <item>"Australia/Adelaide"</item>
-        <item>"Australia/Brisbane"</item>
-        <item>"Australia/Sydney"</item>
-
-        <!-- Canada -->
-        <!-- Non DST version -->
-        <item>"America/Dawson_Creek"</item>
-        <!-- Non DST version -->
-        <item>"America/Regina"</item>
-        <!-- Non DST version -->
-        <item>"America/Atikokan"</item>
-        <!-- Non DST version -->
-        <item>"America/Blanc-Sablon"</item>
-
-        <!-- US -->
-        <!-- Non DST version -->
-        <item>"Pacific/Honolulu"</item>
-        <!-- DST version -->
-        <item>"America/Adak"</item>
-        <!-- Non DST version -->
-        <item>"America/Metlakatla"</item>
-        <!-- Non DST version -->
-        <item>"America/Phoenix"</item>
-
-        <!-- Mexico -->
-        <!-- DST version with post-2006 US rule -->
-        <item>"America/Tijuana"</item>
-        <!-- DST version with post-2006 US rule -->
-        <item>"America/Ojinaga"</item>
-        <!-- DST version with post-2006 US rule -->
-        <item>"America/Matamoros"</item>
-        <!-- Non DST version -->
-        <item>"America/Hermosillo"</item>
-
-        <!-- Other time zones with missing labels from the framework -->
-        <!-- Missing string in ICS -->
-        <item>"Africa/Juba"</item>
-        <!-- Missing string in ICS -->
-        <item>"America/Kralendijk"</item>
-        <!-- Missing string in ICS -->
-        <item>"America/Lower_Princes"</item>
-        <!-- Only had GMT as the display string -->
-        <item>"Europe/Minsk"</item>
-        <!-- Only had GMT as the display string -->
-        <item>"Europe/Kaliningrad"</item>
-
-        <!-- Brazil -->
-        <!-- Non DST version -->
-        <item>"America/Porto_Velho"</item>
-        <!-- Non DST version -->
-        <item>"America/Belem"</item>
-    </string-array>
-
-    <!--
         Replacement display strings for time zones. The order should match the entries in
         timezone_rename_ids
         ALWAYS ADD NEW ENTRIES AT THE END. Othewise the array will not be the same size until
@@ -178,19 +116,6 @@
         <item>"Amazon - Rondônia"</item>
         <!-- Non DST version of Brasilia Standard Time -->
         <item>"Brasilia - Pará"</item>
-    </string-array>
-
-    <!--
-        Country codes
-        The order should match the entries in backup_country_names
-        ALWAYS ADD NEW ENTRIES AT THE END. Othewise the entries after the insertion point will
-        not match for languages that didn't get the translations.
-    -->
-    <string-array name="backup_country_codes" translatable="false">
-        <item>"SX"</item>
-        <item>"BQ"</item>
-        <item>"CW"</item>
-        <item>"SS"</item>
     </string-array>
 
     <!--

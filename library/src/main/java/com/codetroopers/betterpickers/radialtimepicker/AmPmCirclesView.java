@@ -23,6 +23,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.Typeface;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 
@@ -95,9 +96,9 @@ public class AmPmCirclesView extends View {
 
     /* package */
     void setTheme(TypedArray themeColors) {
-        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpAmPmCircleColor, R.color.bpBlue);
-        mSelectedColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpAmPmCircleColor, R.color.bpBlue);
-        mAmPmTextColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpAmPmTextColor, R.color.bpWhite);
+        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpAmPmCircleColor, ContextCompat.getColor(getContext(), R.color.bpBlue));
+        mSelectedColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpAmPmCircleColor, ContextCompat.getColor(getContext(), R.color.bpBlue));
+        mAmPmTextColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpAmPmTextColor, ContextCompat.getColor(getContext(), R.color.bpWhite));
         mSelectedAlpha = 200;
         mUnselectedAlpha = 50;
     }
