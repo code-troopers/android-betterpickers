@@ -25,5 +25,5 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':library')
-    compile 'joda-time:joda-time:2.1'
+    compile 'joda-time:joda-time:2.9.6'
 }
