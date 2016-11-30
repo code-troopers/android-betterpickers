@@ -14,7 +14,6 @@
      limitations under the License.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
@@ -108,7 +107,7 @@
                             android:paddingRight="4dp"
                             android:selectAllOnFocus="true"
                             android:singleLine="true"
-                            android:textSize="15sp"></EditText>
+                            android:textSize="15sp"/>
 
                         <TextView
                             android:id="@+id/intervalPostText"

@@ -24,6 +24,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.content.ContextCompat;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.KeyCharacterMap;
@@ -295,7 +296,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
             getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         }
 
-        View view = inflater.inflate(R.layout.radial_time_picker_dialog, null);
+        View view = inflater.inflate(R.layout.radial_time_picker_dialog, container, false);
         KeyboardListener keyboardListener = new KeyboardListener();
         view.findViewById(R.id.time_picker_dialog).setOnKeyListener(keyboardListener);
 
@@ -303,12 +304,12 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         TypedArray themeColors = getActivity().obtainStyledAttributes(mStyleResId, R.styleable.BetterPickersDialogs);
 
         // Prepare some colors to use.
-        int headerBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderBackgroundColor, R.color.bpBlue);
-        int bodyBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpBodyBackgroundColor, R.color.bpWhite);
-        int buttonBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpButtonsBackgroundColor, R.color.bpWhite);
-        int buttonTextColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpButtonsTextColor, R.color.bpBlue);
-        mSelectedColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderSelectedTextColor, R.color.bpWhite);
-        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderUnselectedTextColor, R.color.radial_gray_light);
+        int headerBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderBackgroundColor, ContextCompat.getColor(getActivity(), R.color.bpBlue));
+        int bodyBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpBodyBackgroundColor, ContextCompat.getColor(getActivity(), R.color.bpWhite));
+        int buttonBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpButtonsBackgroundColor, ContextCompat.getColor(getActivity(), R.color.bpWhite));
+        int buttonTextColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpButtonsTextColor, ContextCompat.getColor(getActivity(), R.color.bpBlue));
+        mSelectedColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderSelectedTextColor, ContextCompat.getColor(getActivity(), R.color.bpWhite));
+        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderUnselectedTextColor, ContextCompat.getColor(getActivity(), R.color.radial_gray_light));
 
         mHourPickerDescription = res.getString(R.string.hour_picker_description);
         mSelectHours = res.getString(R.string.select_hours);
@@ -585,7 +586,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
      */
     @Override
     public void onValueSelected(int pickerIndex, int newValue, boolean autoAdvance) {
-        if(hasTimeLimits()) {
+        if (hasTimeLimits()) {
             mError.hideImmediately();
         }
         if (pickerIndex == HOUR_INDEX) {

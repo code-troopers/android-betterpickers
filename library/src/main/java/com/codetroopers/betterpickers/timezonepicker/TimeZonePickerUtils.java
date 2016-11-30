@@ -154,7 +154,7 @@ public class TimeZonePickerUtils {
      * Gets the display name for the specified Timezone ID. If the ID matches the list of IDs that need to be have their
      * default display names overriden, use the pre-set display name from R.arrays.
      *
-     * @param id The timezone ID.
+     * @param tz The timezone ID.
      * @param daylightTime True for daylight time, false for standard time
      * @return The display name of the timezone. This will just use the default display name, except that certain
      * timezones have poor defaults, and should use the pre-set override labels from R.arrays.

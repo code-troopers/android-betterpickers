@@ -87,7 +87,7 @@ public class SampleNumberIntegerListAdapter extends BaseSampleActivity {
         public View getView(final int position, View convertView, ViewGroup parent) {
             View view = convertView;
             if (view == null) {
-                view = mInflater.inflate(R.layout.list_item, null);
+                view = mInflater.inflate(R.layout.list_item, parent, false);
                 holder = new ViewHolder();
                 holder.button = (Button) view.findViewById(R.id.button);
                 holder.text = (TextView) view.findViewById(R.id.text);

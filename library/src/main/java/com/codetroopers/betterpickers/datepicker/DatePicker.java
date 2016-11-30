@@ -249,7 +249,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
             if (mDateFormatOrder[position] == 'M') {
                 // Months
                 sMonthKeyboardPosition = position;
-                view = mInflater.inflate(R.layout.keyboard_text_with_header, null);
+                view = mInflater.inflate(R.layout.keyboard_text_with_header, collection, false);
                 View v1 = view.findViewById(R.id.first);
                 View v2 = view.findViewById(R.id.second);
                 View v3 = view.findViewById(R.id.third);
@@ -285,7 +285,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
             } else if (mDateFormatOrder[position] == 'd') {
                 // Date
                 sDateKeyboardPosition = position;
-                view = mInflater.inflate(R.layout.keyboard_right_drawable_with_header, null);
+                view = mInflater.inflate(R.layout.keyboard_right_drawable_with_header, collection, false);
                 View v1 = view.findViewById(R.id.first);
                 View v2 = view.findViewById(R.id.second);
                 View v3 = view.findViewById(R.id.third);
@@ -314,7 +314,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
 
                 for (int i = 0; i < 10; i++) {
                     mDateNumbers[i].setOnClickListener(DatePicker.this);
-                    mDateNumbers[i].setText(String.format("%d", i));
+                    mDateNumbers[i].setText(String.format(Locale.getDefault(), "%d", i));
                     mDateNumbers[i].setTextColor(mTextColor);
                     mDateNumbers[i].setBackgroundResource(mKeyBackgroundResId);
                     mDateNumbers[i].setTag(R.id.date_keyboard, KEYBOARD_DATE);
@@ -327,7 +327,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
             } else if (mDateFormatOrder[position] == 'y') {
                 // Year
                 sYearKeyboardPosition = position;
-                view = mInflater.inflate(R.layout.keyboard_with_header, null);
+                view = mInflater.inflate(R.layout.keyboard_with_header, collection, false);
                 View v1 = view.findViewById(R.id.first);
                 View v2 = view.findViewById(R.id.second);
                 View v3 = view.findViewById(R.id.third);
@@ -358,7 +358,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
 
                 for (int i = 0; i < 10; i++) {
                     mYearNumbers[i].setOnClickListener(DatePicker.this);
-                    mYearNumbers[i].setText(String.format("%d", i));
+                    mYearNumbers[i].setText(String.format(Locale.getDefault(), "%d", i));
                     mYearNumbers[i].setTextColor(mTextColor);
                     mYearNumbers[i].setBackgroundResource(mKeyBackgroundResId);
                     mYearNumbers[i].setTag(R.id.date_keyboard, KEYBOARD_YEAR);

@@ -1,6 +1,10 @@
 
 Changelog
 =========
+**3.0.2**
+* Update libs
+* Fix lint errors (#331 #332 Thx mtrakal)
+
 **3.0.1**
 * Fix setExpiration being called before setMinYear (#319)
 * Fix leading zeroes issue in HMS Picker (#311)

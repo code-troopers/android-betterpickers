@@ -21,6 +21,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 
@@ -76,8 +77,8 @@ public class CircleView extends View {
     }
 
     /* package */ void setTheme(TypedArray themeColors) {
-        mCircleColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpRadialBackgroundColor, R.color.radial_gray_light);
-        mCentralDotColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpRadialTextColor, R.color.bpBlue);
+        mCircleColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpRadialBackgroundColor, ContextCompat.getColor(getContext(), R.color.radial_gray_light));
+        mCentralDotColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpRadialTextColor, ContextCompat.getColor(getContext(), R.color.bpBlue));
     }
 
     @Override

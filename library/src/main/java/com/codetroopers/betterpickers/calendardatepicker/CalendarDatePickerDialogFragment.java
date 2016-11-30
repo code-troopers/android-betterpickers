@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.content.ContextCompat;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.util.SparseArray;
@@ -231,7 +232,7 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
             getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         }
 
-        View view = inflater.inflate(R.layout.calendar_date_picker_dialog, null);
+        View view = inflater.inflate(R.layout.calendar_date_picker_dialog, container, false);
 
         mSelectedDateLayout = (LinearLayout) view.findViewById(R.id.day_picker_selected_date_layout);
         mDayOfWeekView = (TextView) view.findViewById(R.id.date_picker_header);
@@ -267,13 +268,13 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
         mYearPickerDescription = res.getString(R.string.year_picker_description);
         mSelectYear = res.getString(R.string.select_year);
 
-        int headerBackgroundColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderBackgroundColor, R.color.bpWhite);
-        int preHeaderBackgroundColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpPreHeaderBackgroundColor, R.color.bpWhite);
-        int bodyBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpBodyBackgroundColor, R.color.bpWhite);
-        int buttonBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpButtonsBackgroundColor, R.color.bpWhite);
-        int buttonTextColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpButtonsTextColor, R.color.bpBlue);
-        mSelectedColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderSelectedTextColor, R.color.bpWhite);
-        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderUnselectedTextColor, R.color.radial_gray_light);
+        int headerBackgroundColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderBackgroundColor, ContextCompat.getColor(getActivity(), R.color.bpWhite));
+        int preHeaderBackgroundColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpPreHeaderBackgroundColor, ContextCompat.getColor(getActivity(), R.color.bpWhite));
+        int bodyBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpBodyBackgroundColor, ContextCompat.getColor(getActivity(), R.color.bpWhite));
+        int buttonBgColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpButtonsBackgroundColor, ContextCompat.getColor(getActivity(), R.color.bpWhite));
+        int buttonTextColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpButtonsTextColor, ContextCompat.getColor(getActivity(), R.color.bpBlue));
+        mSelectedColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderSelectedTextColor, ContextCompat.getColor(getActivity(), R.color.bpWhite));
+        mUnselectedColor = themeColors.getColor(R.styleable.BetterPickersDialogs_bpHeaderUnselectedTextColor, ContextCompat.getColor(getActivity(), R.color.radial_gray_light));
 
 
         mAnimator = (AccessibleDateAnimator) view.findViewById(R.id.animator);
