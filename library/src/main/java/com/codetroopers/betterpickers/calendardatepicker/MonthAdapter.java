@@ -99,14 +99,15 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
         }
 
         public void set(CalendarDay date) {
-            year = date.year;
-            month = date.month;
-            day = date.day;
+            this.year = date.year;
+            this.month = date.month;
+            this.day = date.day;
         }
 
         public void setDay(int year, int month, int day) {
-            calendar = Calendar.getInstance();
-            calendar.set(year, month, day, 0, 0, 0);
+            this.calendar = Calendar.getInstance();
+            this.calendar.set(year, month, day, 0, 0, 0);
+            this.calendar.set(Calendar.MILLISECOND, 0);
             this.year = calendar.get(Calendar.YEAR);
             this.month = calendar.get(Calendar.MONTH);
             this.day = calendar.get(Calendar.DAY_OF_MONTH);
@@ -116,6 +117,7 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
             if (calendar == null) {
                 calendar = Calendar.getInstance();
                 calendar.set(year, month, day, 0, 0, 0);
+                calendar.set(Calendar.MILLISECOND, 0);
             }
             return calendar.getTimeInMillis();
         }
@@ -264,7 +266,7 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
         drawingParams.clear();
 
         final int month = (position + mController.getMinDate().month) % MONTHS_IN_YEAR;
-        final int year = (position + mController.getMinDate().month)/ MONTHS_IN_YEAR + mController.getMinDate().year;
+        final int year = (position + mController.getMinDate().month) / MONTHS_IN_YEAR + mController.getMinDate().year;
         int selectedDay = -1;
         if (isSelectedDayInMonth(year, month)) {
             selectedDay = mSelectedDay.day;
