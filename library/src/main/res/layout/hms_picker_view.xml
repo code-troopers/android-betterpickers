@@ -93,8 +93,9 @@
         </com.codetroopers.betterpickers.hmspicker.HmsView>
         <ImageButton
                 android:id="@+id/delete"
-                android:layout_width="0dip"
-                android:layout_weight="1"
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp"
+                android:layout_width="wrap_content"
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_backspace_dark"
