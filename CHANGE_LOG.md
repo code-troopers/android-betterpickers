@@ -1,6 +1,10 @@
 
 Changelog
 =========
+**3.1.0**
+* Fix Calendar#getTimeInMillis with millic correctly set to 0 (#327)
+
+
 **3.0.2**
 * Update libs
 * Fix lint errors (#331 #332 Thx mtrakal)
