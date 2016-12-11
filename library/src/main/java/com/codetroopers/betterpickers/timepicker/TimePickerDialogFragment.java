@@ -1,6 +1,7 @@
 package com.codetroopers.betterpickers.timepicker;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.codetroopers.betterpickers.OnDialogDismissListener;
 import com.codetroopers.betterpickers.R;
 
 import java.util.Vector;
@@ -30,6 +32,7 @@ public class TimePickerDialogFragment extends DialogFragment {
     private ColorStateList mTextColor;
     private int mDialogBackgroundResId;
     private Vector<TimePickerDialogHandler> mTimePickerDialogHandlers = new Vector<TimePickerDialogHandler>();
+    private OnDialogDismissListener mDismissCallback;
 
     /**
      * Create an instance of the Picker (used internally)
@@ -123,6 +126,14 @@ public class TimePickerDialogFragment extends DialogFragment {
         return view;
     }
 
+    @Override
+    public void onDismiss(DialogInterface dialoginterface) {
+        super.onDismiss(dialoginterface);
+        if (mDismissCallback != null) {
+            mDismissCallback.onDialogDismiss(dialoginterface);
+        }
+    }
+
     /**
      * This interface allows objects to register for the Picker's set action.
      */
@@ -138,5 +149,10 @@ public class TimePickerDialogFragment extends DialogFragment {
      */
     public void setTimePickerDialogHandlers(Vector<TimePickerDialogHandler> handlers) {
         mTimePickerDialogHandlers = handlers;
+    }
+
+
+    public void setOnDismissListener(OnDialogDismissListener ondialogdismisslistener) {
+        mDismissCallback = ondialogdismisslistener;
     }
 }

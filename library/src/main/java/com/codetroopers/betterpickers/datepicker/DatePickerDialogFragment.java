@@ -1,6 +1,7 @@
 package com.codetroopers.betterpickers.datepicker;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.codetroopers.betterpickers.OnDialogDismissListener;
 import com.codetroopers.betterpickers.R;
 
 import java.util.Vector;
@@ -40,6 +42,7 @@ public class DatePickerDialogFragment extends DialogFragment {
     private ColorStateList mTextColor;
     private int mDialogBackgroundResId;
     private Vector<DatePickerDialogHandler> mDatePickerDialogHandlers = new Vector<DatePickerDialogHandler>();
+    private OnDialogDismissListener mDismissCallback;
 
     /**
      * Create an instance of the Picker (used internally)
@@ -52,7 +55,7 @@ public class DatePickerDialogFragment extends DialogFragment {
      * @return a Picker!
      */
     public static DatePickerDialogFragment newInstance(int reference, int themeResId, Integer monthOfYear,
-            Integer dayOfMonth, Integer year, Boolean yearOptional) {
+                                                       Integer dayOfMonth, Integer year, Boolean yearOptional) {
         final DatePickerDialogFragment frag = new DatePickerDialogFragment();
         Bundle args = new Bundle();
         args.putInt(REFERENCE_KEY, reference);
@@ -160,12 +163,16 @@ public class DatePickerDialogFragment extends DialogFragment {
         return view;
     }
 
-    /**
-     * This interface allows objects to register for the Picker's set action.
-     */
-    public interface DatePickerDialogHandler {
+    @Override
+    public void onDismiss(DialogInterface dialoginterface) {
+        super.onDismiss(dialoginterface);
+        if (mDismissCallback != null) {
+            mDismissCallback.onDialogDismiss(dialoginterface);
+        }
+    }
 
-        void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth);
+    public void setOnDismissListener(OnDialogDismissListener ondialogdismisslistener) {
+        mDismissCallback = ondialogdismisslistener;
     }
 
     /**
@@ -175,5 +182,13 @@ public class DatePickerDialogFragment extends DialogFragment {
      */
     public void setDatePickerDialogHandlers(Vector<DatePickerDialogHandler> handlers) {
         mDatePickerDialogHandlers = handlers;
+    }
+
+    /**
+     * This interface allows objects to register for the Picker's set action.
+     */
+    public interface DatePickerDialogHandler {
+
+        void onDialogDateSet(int reference, int year, int monthOfYear, int dayOfMonth);
     }
 }

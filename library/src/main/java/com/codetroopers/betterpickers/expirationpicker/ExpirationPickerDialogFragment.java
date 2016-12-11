@@ -1,6 +1,7 @@
 package com.codetroopers.betterpickers.expirationpicker;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.codetroopers.betterpickers.OnDialogDismissListener;
 import com.codetroopers.betterpickers.R;
 
 import java.util.Vector;
@@ -37,6 +39,7 @@ public class ExpirationPickerDialogFragment extends DialogFragment {
     private int mDialogBackgroundResId;
     private Vector<ExpirationPickerDialogHandler> mExpirationPickerDialogHandlers = new Vector<ExpirationPickerDialogHandler>();
     private ColorStateList mTextColor;
+    private OnDialogDismissListener mDismissCallback;
 
     /**
      * Create an instance of the Picker (used internally)
@@ -159,6 +162,19 @@ public class ExpirationPickerDialogFragment extends DialogFragment {
 
         getDialog().getWindow().setBackgroundDrawableResource(mDialogBackgroundResId);
         return view;
+    }
+
+
+    @Override
+    public void onDismiss(DialogInterface dialoginterface) {
+        super.onDismiss(dialoginterface);
+        if (mDismissCallback != null) {
+            mDismissCallback.onDialogDismiss(dialoginterface);
+        }
+    }
+
+    public void setOnDismissListener(OnDialogDismissListener ondialogdismisslistener) {
+        mDismissCallback = ondialogdismisslistener;
     }
 
     /**

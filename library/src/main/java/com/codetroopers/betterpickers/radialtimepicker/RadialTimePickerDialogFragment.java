@@ -39,6 +39,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.codetroopers.betterpickers.HapticFeedbackController;
+import com.codetroopers.betterpickers.OnDialogDismissListener;
 import com.codetroopers.betterpickers.R;
 import com.codetroopers.betterpickers.Utils;
 import com.codetroopers.betterpickers.numberpicker.NumberPickerErrorTextView;
@@ -81,7 +82,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
     // Delay before starting the pulse animation, in ms.
     private static final int PULSE_ANIMATOR_DELAY = 300;
 
-    private OnDialogDismissListener mDimissCallback;
+    private OnDialogDismissListener mDismissCallback;
     private OnTimeSetListener mCallback;
 
     private HapticFeedbackController mHapticFeedbackController;
@@ -144,11 +145,6 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         void onTimeSet(RadialTimePickerDialogFragment dialog, int hourOfDay, int minute);
     }
 
-    public static interface OnDialogDismissListener {
-
-        public abstract void onDialogDismiss(DialogInterface dialoginterface);
-    }
-
     public RadialTimePickerDialogFragment() {
         Calendar calendar = Calendar.getInstance();
         mInitialMinute = calendar.get(Calendar.MINUTE);
@@ -182,7 +178,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
     }
 
     public RadialTimePickerDialogFragment setOnDismissListener(OnDialogDismissListener ondialogdismisslistener) {
-        mDimissCallback = ondialogdismisslistener;
+        mDismissCallback = ondialogdismisslistener;
         return this;
     }
 
@@ -255,8 +251,8 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
     @Override
     public void onDismiss(DialogInterface dialoginterface) {
         super.onDismiss(dialoginterface);
-        if (mDimissCallback != null) {
-            mDimissCallback.onDialogDismiss(dialoginterface);
+        if (mDismissCallback != null) {
+            mDismissCallback.onDialogDismiss(dialoginterface);
         }
     }
 
@@ -396,8 +392,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
             cancelButton.setText(mCancelText);
         }
         cancelButton.setTextColor(buttonTextColor);
-        cancelButton.setOnClickListener(new OnClickListener() {
-
+        cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tryVibrate();
@@ -1177,4 +1172,5 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
             return event.getAction() == KeyEvent.ACTION_UP && processKeyUp(keyCode);
         }
     }
+
 }

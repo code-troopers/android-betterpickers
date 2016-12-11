@@ -1,6 +1,7 @@
 package com.codetroopers.betterpickers.numberpicker;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.codetroopers.betterpickers.OnDialogDismissListener;
 import com.codetroopers.betterpickers.R;
 
 import java.math.BigDecimal;
@@ -49,6 +51,8 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private int mPlusMinusVisibility = View.VISIBLE;
     private int mDecimalVisibility = View.VISIBLE;
     private Vector<NumberPickerDialogHandlerV2> mNumberPickerDialogHandlersV2 = new Vector<NumberPickerDialogHandlerV2>();
+    private OnDialogDismissListener mDismissCallback;
+
 
     /**
      * Create an instance of the Picker (used internally)
@@ -237,6 +241,18 @@ public class NumberPickerDialogFragment extends DialogFragment {
         return number.compareTo(mMinNumber) < 0;
     }
 
+    @Override
+    public void onDismiss(DialogInterface dialoginterface) {
+        super.onDismiss(dialoginterface);
+        if (mDismissCallback != null) {
+            mDismissCallback.onDialogDismiss(dialoginterface);
+        }
+    }
+
+    public void setOnDismissListener(OnDialogDismissListener ondialogdismisslistener) {
+        mDismissCallback = ondialogdismisslistener;
+    }
+
     /**
      * This interface allows objects to register for the Picker's set action.
      */
@@ -251,5 +267,10 @@ public class NumberPickerDialogFragment extends DialogFragment {
      */
     public void setNumberPickerDialogHandlersV2(Vector<NumberPickerDialogHandlerV2> handlers) {
         this.mNumberPickerDialogHandlersV2 = handlers;
+    }
+
+    @Override
+    public void onCancel(DialogInterface dialog) {
+        super.onCancel(dialog);
     }
 }

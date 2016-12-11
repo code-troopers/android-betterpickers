@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 
+import com.codetroopers.betterpickers.OnDialogDismissListener;
 import com.codetroopers.betterpickers.datepicker.DatePickerDialogFragment.DatePickerDialogHandler;
 
 import java.util.Vector;
@@ -23,6 +24,7 @@ public class DatePickerBuilder {
     private Boolean yearOptional = false;
     private int mReference = -1;
     private Vector<DatePickerDialogHandler> mDatePickerDialogHandlers = new Vector<DatePickerDialogHandler>();
+    private OnDialogDismissListener mOnDismissListener;
 
     /**
      * Attach a FragmentManager. This is required for creation of the Fragment.
@@ -141,6 +143,12 @@ public class DatePickerBuilder {
         return this;
     }
 
+
+    public DatePickerBuilder setOnDismissListener(OnDialogDismissListener onDismissListener) {
+        this.mOnDismissListener = onDismissListener;
+        return this;
+    }
+
     /**
      * Instantiate and show the Picker
      */
@@ -163,6 +171,7 @@ public class DatePickerBuilder {
             fragment.setTargetFragment(targetFragment, 0);
         }
         fragment.setDatePickerDialogHandlers(mDatePickerDialogHandlers);
+        fragment.setOnDismissListener(mOnDismissListener);
         fragment.show(ft, "date_dialog");
     }
 }

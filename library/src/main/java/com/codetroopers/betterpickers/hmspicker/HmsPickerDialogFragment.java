@@ -1,6 +1,7 @@
 package com.codetroopers.betterpickers.hmspicker;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.codetroopers.betterpickers.OnDialogDismissListener;
 import com.codetroopers.betterpickers.R;
 
 import java.util.Vector;
@@ -18,7 +20,7 @@ import java.util.Vector;
 /**
  * Dialog to set alarm time.
  */
-    public class HmsPickerDialogFragment extends DialogFragment {
+public class HmsPickerDialogFragment extends DialogFragment {
 
     private static final String REFERENCE_KEY = "HmsPickerDialogFragment_ReferenceKey";
     private static final String THEME_RES_ID_KEY = "HmsPickerDialogFragment_ThemeResIdKey";
@@ -35,6 +37,7 @@ import java.util.Vector;
     private int mMinutes;
     private int mSeconds;
     private int mPlusMinusVisibility = View.INVISIBLE;
+    private OnDialogDismissListener mDismissCallback;
 
     /**
      * Create an instance of the Picker (used internally)
@@ -102,7 +105,7 @@ import java.util.Vector;
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dismiss();
+                HmsPickerDialogFragment.this.dismiss();
             }
         });
         doneButton.setTextColor(mTextColor);
@@ -141,6 +144,19 @@ import java.util.Vector;
         return view;
     }
 
+
+    @Override
+    public void onDismiss(DialogInterface dialoginterface) {
+        super.onDismiss(dialoginterface);
+        if (mDismissCallback != null) {
+            mDismissCallback.onDialogDismiss(dialoginterface);
+        }
+    }
+
+    public void setOnDismissListener(OnDialogDismissListener ondialogdismisslistener) {
+        mDismissCallback = ondialogdismisslistener;
+    }
+
     public interface HmsPickerDialogHandlerV2 {
 
         void onDialogHmsSet(int reference, boolean isNegative, int hours, int minutes, int seconds);
@@ -148,7 +164,7 @@ import java.util.Vector;
 
     /**
      * @param handlers a Vector of handlers
-     * Attach a Vector of handlers to be notified in addition to the Fragment's Activity and target Fragment.
+     *                 Attach a Vector of handlers to be notified in addition to the Fragment's Activity and target Fragment.
      */
     public void setHmsPickerDialogHandlersV2(Vector<HmsPickerDialogHandlerV2> handlers) {
         mHmsPickerDialogHandlerV2s = handlers;

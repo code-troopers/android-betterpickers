@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.codetroopers.betterpickers.sample">
+<manifest package="com.codetroopers.betterpickers.sample"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -12,8 +12,8 @@
             android:name="com.codetroopers.betterpickers.sample.ListSamples"
             android:label="BetterPickers Samples">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
@@ -21,56 +21,65 @@
             android:label="Time/Basic Usage"
             android:theme="@style/Theme.AppCompat">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.timepicker.SampleTimeDismissListener"
+            android:label="Time/Dismiss Listener"
+            android:theme="@style/Theme.AppCompat">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.timepicker.SampleTimeThemeLight"
             android:label="Time/Theme Light">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.timepicker.SampleTimeThemeCustom"
             android:label="Time/Theme Custom">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.timepicker.SampleTimeUsingFragment"
             android:label="Time/Using Fragment">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.timepicker.SampleTimeMultipleReferences"
             android:label="Time/Multiple References">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.timepicker.SampleTimeMultipleHandlers"
             android:label="Time/Multiple Handlers">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.timepicker.SampleTimeListAdapter"
             android:label="Time/List Adapter">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
@@ -78,8 +87,17 @@
             android:label="Number/Basic Usage"
             android:theme="@style/Theme.AppCompat">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.numberpicker.SampleNumberDismissListener"
+            android:label="Number/Dismiss Listener"
+            android:theme="@style/Theme.AppCompat">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
@@ -87,8 +105,8 @@
             android:label="Number/Max Value"
             android:theme="@style/Theme.AppCompat">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
@@ -96,16 +114,16 @@
             android:label="Number/Min Value"
             android:theme="@style/Theme.AppCompat">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.numberpicker.SampleNumberThemeLight"
             android:label="Number/Theme Light">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
@@ -113,56 +131,56 @@
             android:label="Number/Additional Options"
             android:theme="@style/Theme.AppCompat">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.numberpicker.SampleNumberThemeCustom"
             android:label="Number/Theme Custom">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.numberpicker.SampleNumberUsingFragment"
             android:label="Number/Using Fragment">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.numberpicker.SampleNumberMultipleReferences"
             android:label="Number/Multiple References">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.numberpicker.SampleNumberMultipleHandlers"
             android:label="Number/Multiple Handlers">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.numberpicker.SampleNumberIntegerListAdapter"
             android:label="Number/List Adapter - Integer">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.numberpicker.SampleNumberDoubleListAdapter"
             android:label="Number/List Adapter - Double">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
@@ -170,24 +188,33 @@
             android:label="Date/Basic Usage"
             android:theme="@style/Theme.AppCompat">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.datepicker.SampleDateDismissListener"
+            android:label="Date/Dismiss Listener"
+            android:theme="@style/Theme.AppCompat">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.datepicker.SampleDateThemeLight"
             android:label="Date/Theme Light">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.datepicker.SampleDateThemeCustom"
             android:label="Date/Theme Custom">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
@@ -195,304 +222,352 @@
             android:label="Date/Preset (Not Recommended)"
             android:theme="@style/Theme.AppCompat">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.datepicker.SampleDatePresetLight"
             android:label="Date/Preset Light Theme (Not Recommended)">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.datepicker.SampleDateYearOptional"
             android:label="Date/Year Optional">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.datepicker.SampleDateUsingFragment"
             android:label="Date/Using Fragment">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.datepicker.SampleDateMultipleReferences"
             android:label="Date/Multiple References">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.datepicker.SampleDateMultipleHandlers"
             android:label="Date/Multiple Handlers">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.datepicker.SampleDateListAdapter"
             android:label="Date/List Adapter">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.hmspicker.SampleHmsBasicUsage"
             android:label="HMS/Basic Usage">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.hmspicker.SampleHmsDismissListener"
+            android:label="HMS/Dismiss Listener">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.hmspicker.SampleHmsNegativeDurationUsage"
             android:label="HMS/Negative Duration">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.hmspicker.SampleHmsThemeCustom"
             android:label="HMS/Theme Custom">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.hmspicker.SampleHmsThemeLight"
             android:label="HMS/Theme Light">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.hmspicker.SampleHmsUsingFragment"
             android:label="HMS/Using Fragment">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.hmspicker.SampleHmsMultipleReferences"
             android:label="HMS/Multiple References">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.hmspicker.SampleHmsMultipleHandlers"
             android:label="HMS/Multiple Handlers">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.hmspicker.SampleHmsListAdapter"
             android:label="HMS/List Adapter">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.expirationpicker.SampleExpirationBasicUsage"
             android:label="Expiration/Basic Usage">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.expirationpicker.SampleExpirationDismissListener"
+            android:label="Expiration/Dismiss Listener">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.expirationpicker.SampleExpirationMinDate"
             android:label="Expiration/Minimum Date">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.calendardatepicker.SampleCalendarDateBasicUsage"
             android:label="Calendar Date/Basic Usage">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.calendardatepicker.SampleCalendarDateDismissListener"
+            android:label="Calendar Date/Dismiss Listener">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.calendardatepicker.SampleCalendarDatePreselectedDate"
             android:label="Calendar Date/Preselected Date">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.calendardatepicker.SampleCalendarDateFirstDayOfWeek"
             android:label="Calendar Date/Forced First Day Of Week">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.calendardatepicker.SampleCalendarDateThemeDark"
             android:label="Calendar Date/Theme Dark">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.calendardatepicker.SampleCalendarDateThemeLight"
             android:label="Calendar Date/Theme Light">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.calendardatepicker.SampleCalendarDateThemeCustom"
             android:label="Calendar Date/Theme Custom">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.calendardatepicker.SampleCalendarDateRange"
             android:label="Calendar Date/Range Min and Max">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.calendardatepicker.SampleCalendarDateRangeAndDisabledDays"
             android:label="Calendar Date/Range Min and Max with Disabled Days">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.calendardatepicker.SampleCalendarDateRangeMin"
             android:label="Calendar Date/Range Min only">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.calendardatepicker.SampleCalendarDateRangeMax"
             android:label="Calendar Date/Range Max only">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.radialtimepicker.SampleRadialTimeBasicUsage"
             android:label="Radial Time/Basic Usage">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.radialtimepicker.SampleRadialTimeDismissListener"
+            android:label="Radial Time/Dismiss Listener">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.radialtimepicker.SampleRadialTimeThemeDark"
             android:label="Radial Time/Theme Dark">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.radialtimepicker.SampleRadialTimeThemeLight"
             android:label="Radial Time/Theme Light">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.radialtimepicker.SampleRadialTimeThemeCustom"
             android:label="Radial Time/Theme Custom">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.radialtimepicker.SampleRadialTimeStartTime"
             android:label="Radial Time/Forced Start Time">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.radialtimepicker.SampleRadialTimeForced12hFormat"
             android:label="Radial Time/Forced 12h Format">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.radialtimepicker.SampleRadialTimeForced24hFormat"
             android:label="Radial Time/Forced 24h Format">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.radialtimepicker.SampleRadialTimeMinMax"
             android:label="Radial Time/Limit +-1 hour">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.recurrencepicker.SampleRecurrenceBasicUsage"
             android:label="Recurrence/Basic Usage">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.recurrencepicker.SampleRecurrenceDismissListener"
+            android:label="Recurrence/Dismiss Listener">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.codetroopers.betterpickers.sample.activity.recurrencepicker.SampleRecurrenceForcedOn"
             android:label="Recurrence/Switch hidden">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.timezonepicker.SampleTimeZoneBasicUsage"
             android:label="Time Zone/Basic Usage">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.timezonepicker.SampleTimeZoneDismissListener"
+            android:label="Time Zone/Dismiss Listener">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE"/>
             </intent-filter>
         </activity>
     </application>

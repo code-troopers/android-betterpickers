@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 
+import com.codetroopers.betterpickers.OnDialogDismissListener;
 import com.codetroopers.betterpickers.expirationpicker.ExpirationPickerDialogFragment.ExpirationPickerDialogHandler;
 
 import java.util.Vector;
@@ -22,6 +23,7 @@ public class ExpirationPickerBuilder {
     private Integer year;
     private int mReference = -1;
     private Vector<ExpirationPickerDialogHandler> mExpirationPickerDialogHandlers = new Vector<ExpirationPickerDialogHandler>();
+    private OnDialogDismissListener mOnDismissListener;
 
     /**
      * Attach a FragmentManager. This is required for creation of the Fragment.
@@ -150,6 +152,12 @@ public class ExpirationPickerBuilder {
             fragment.setTargetFragment(targetFragment, 0);
         }
         fragment.setExpirationPickerDialogHandlers(mExpirationPickerDialogHandlers);
+        fragment.setOnDismissListener(mOnDismissListener);
         fragment.show(ft, "expiration_dialog");
+    }
+
+    public ExpirationPickerBuilder setOnDismissListener(OnDialogDismissListener onDismissListener) {
+        this.mOnDismissListener = onDismissListener;
+        return this;
     }
 }

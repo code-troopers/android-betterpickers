@@ -5,6 +5,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 
+import com.codetroopers.betterpickers.OnDialogDismissListener;
+
 import java.util.Vector;
 
 /**
@@ -21,6 +23,7 @@ public class HmsPickerBuilder {
     private int mMinutes;
     private int mSeconds;
     private Integer plusMinusVisibility;
+    private OnDialogDismissListener mOnDismissListener;
 
     /**
      * Set the visibility of the +/- button. This takes an int corresponding to Android's View.VISIBLE, View.INVISIBLE,
@@ -171,11 +174,16 @@ public class HmsPickerBuilder {
         if ((mHours | mMinutes | mSeconds) != 0) {
             fragment.setTime(mHours, mMinutes, mSeconds);
         }
-
+        fragment.setOnDismissListener(mOnDismissListener);
         fragment.show(ft, "hms_dialog");
     }
 
     private static int bounded(int i, int min, int max) {
         return Math.min(Math.max(i, min), max);
+    }
+
+    public HmsPickerBuilder setOnDismissListener(OnDialogDismissListener onDismissListener) {
+        this.mOnDismissListener = onDismissListener;
+        return this;
     }
 }
