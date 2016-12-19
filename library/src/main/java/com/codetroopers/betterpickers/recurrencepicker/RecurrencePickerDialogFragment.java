@@ -18,6 +18,7 @@ package com.codetroopers.betterpickers.recurrencepicker;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
@@ -58,6 +59,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.codetroopers.betterpickers.OnDialogDismissListener;
 import com.codetroopers.betterpickers.R;
 import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialogFragment;
 
@@ -88,6 +90,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
     public static final int LAST_NTH_DAY_OF_WEEK = -1;
 
     private CalendarDatePickerDialogFragment mDatePickerDialog;
+    private OnDialogDismissListener mDismissCallback;
 
     private static class RecurrenceModel implements Parcelable {
 
@@ -901,7 +904,7 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
 
         Button cancelButton = (Button) mView.findViewById(R.id.cancel_button);
         //FIXME no text color for this one ?
-        cancelButton.setOnClickListener(new OnClickListener() {
+        cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dismiss();
@@ -914,6 +917,15 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
             mEndCount.requestFocus();
         }
         return mView;
+    }
+
+
+    @Override
+    public void onDismiss(DialogInterface dialoginterface) {
+        super.onDismiss(dialoginterface);
+        if (mDismissCallback != null) {
+            mDismissCallback.onDialogDismiss(dialoginterface);
+        }
     }
 
     private void togglePickerOptions() {
@@ -1407,5 +1419,11 @@ public class RecurrencePickerDialogFragment extends DialogFragment implements On
 
             return v;
         }
+    }
+
+
+    public RecurrencePickerDialogFragment setOnDismissListener(OnDialogDismissListener ondialogdismisslistener) {
+        mDismissCallback = ondialogdismisslistener;
+        return this;
     }
 }

@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 
+import com.codetroopers.betterpickers.OnDialogDismissListener;
 import com.codetroopers.betterpickers.numberpicker.NumberPickerDialogFragment.NumberPickerDialogHandlerV2;
 
 import java.math.BigDecimal;
@@ -28,6 +29,7 @@ public class NumberPickerBuilder {
     private Integer currentNumberValue;
     private Double currentDecimalValue;
     private Integer currentSignValue;
+    private OnDialogDismissListener mOnDismissListener;
 
     /**
      * Attach a FragmentManager. This is required for creation of the Fragment.
@@ -220,6 +222,12 @@ public class NumberPickerBuilder {
             fragment.setTargetFragment(targetFragment, 0);
         }
         fragment.setNumberPickerDialogHandlersV2(mNumberPickerDialogHandlersV2);
+        fragment.setOnDismissListener(mOnDismissListener);
         fragment.show(ft, "number_dialog");
+    }
+
+    public NumberPickerBuilder setOnDismissListener(OnDialogDismissListener onDismissListener) {
+        this.mOnDismissListener = onDismissListener;
+        return this;
     }
 }

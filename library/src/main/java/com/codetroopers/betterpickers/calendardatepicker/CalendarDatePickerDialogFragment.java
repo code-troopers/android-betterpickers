@@ -41,6 +41,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.codetroopers.betterpickers.HapticFeedbackController;
+import com.codetroopers.betterpickers.OnDialogDismissListener;
 import com.codetroopers.betterpickers.R;
 import com.codetroopers.betterpickers.Utils;
 import com.codetroopers.betterpickers.calendardatepicker.MonthAdapter.CalendarDay;
@@ -142,11 +143,6 @@ public class CalendarDatePickerDialogFragment extends DialogFragment implements 
     public interface OnDateChangedListener {
 
         public void onDateChanged();
-    }
-
-    public static interface OnDialogDismissListener {
-
-        public abstract void onDialogDismiss(DialogInterface dialoginterface);
     }
 
     public CalendarDatePickerDialogFragment() {

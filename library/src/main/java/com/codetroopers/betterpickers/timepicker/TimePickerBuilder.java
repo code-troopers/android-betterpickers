@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 
+import com.codetroopers.betterpickers.OnDialogDismissListener;
 import com.codetroopers.betterpickers.timepicker.TimePickerDialogFragment.TimePickerDialogHandler;
 
 import java.util.Vector;
@@ -19,6 +20,7 @@ public class TimePickerBuilder {
     private Fragment targetFragment;
     private int mReference = -1;
     private Vector<TimePickerDialogHandler> mTimePickerDialogHandlers = new Vector<TimePickerDialogHandler>();
+    private OnDialogDismissListener mOnDismissListener;
 
     /**
      * Attach a FragmentManager. This is required for creation of the Fragment.
@@ -110,6 +112,12 @@ public class TimePickerBuilder {
             fragment.setTargetFragment(targetFragment, 0);
         }
         fragment.setTimePickerDialogHandlers(mTimePickerDialogHandlers);
+        fragment.setOnDismissListener(mOnDismissListener);
         fragment.show(ft, "time_dialog");
+    }
+
+    public TimePickerBuilder setOnDismissListener(OnDialogDismissListener onDismissListener) {
+        this.mOnDismissListener = onDismissListener;
+        return this;
     }
 }

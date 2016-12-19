@@ -17,6 +17,7 @@
 package com.codetroopers.betterpickers.timezonepicker;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
@@ -25,6 +26,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.codetroopers.betterpickers.OnDialogDismissListener;
 
 public class TimeZonePickerDialogFragment extends DialogFragment implements TimeZonePickerView.OnTimeZoneSetListener {
     public static final String BUNDLE_START_TIME_MILLIS = "bundle_event_start_time";
@@ -39,6 +42,7 @@ public class TimeZonePickerDialogFragment extends DialogFragment implements Time
     private OnTimeZoneSetListener mTimeZoneSetListener;
     private TimeZonePickerView mView;
     private boolean mHasCachedResults = false;
+    private OnDialogDismissListener mDismissCallback;
 
     public interface OnTimeZoneSetListener {
         void onTimeZoneSet(TimeZoneInfo tzi);
@@ -54,7 +58,7 @@ public class TimeZonePickerDialogFragment extends DialogFragment implements Time
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         long timeMillis = 0;
         String timeZone = null;
         Bundle b = getArguments();
@@ -71,8 +75,8 @@ public class TimeZonePickerDialogFragment extends DialogFragment implements Time
                 hideFilterSearch);
         if (savedInstanceState != null && savedInstanceState.getBoolean(KEY_HAS_RESULTS, false)) {
             mView.showFilterResults(savedInstanceState.getInt(KEY_LAST_FILTER_TYPE),
-                                    savedInstanceState.getString(KEY_LAST_FILTER_STRING),
-                                    savedInstanceState.getInt(KEY_LAST_FILTER_TIME));
+                    savedInstanceState.getString(KEY_LAST_FILTER_STRING),
+                    savedInstanceState.getInt(KEY_LAST_FILTER_TIME));
         }
         return mView;
     }
@@ -104,5 +108,19 @@ public class TimeZonePickerDialogFragment extends DialogFragment implements Time
             mTimeZoneSetListener.onTimeZoneSet(tzi);
         }
         dismiss();
+    }
+
+
+    @Override
+    public void onDismiss(DialogInterface dialoginterface) {
+        super.onDismiss(dialoginterface);
+        if (mDismissCallback != null) {
+            mDismissCallback.onDialogDismiss(dialoginterface);
+        }
+    }
+
+    public TimeZonePickerDialogFragment setOnDismissListener(OnDialogDismissListener ondialogdismisslistener) {
+        this.mDismissCallback = ondialogdismisslistener;
+        return this;
     }
 }
