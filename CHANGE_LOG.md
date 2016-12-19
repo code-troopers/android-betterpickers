@@ -2,8 +2,9 @@
 Changelog
 =========
 **3.1.0**
-* Fix Calendar#getTimeInMillis with millic correctly set to 0 (#327)
-
+* Fix Calendar#getTimeInMillis with millis correctly set to 0 (#327)
+* Reduce width of erase button for all pickers (#337 #330 #287)
+* Add onDismissListener to all pickers (#338 #326)
 
 **3.0.2**
 * Update libs
