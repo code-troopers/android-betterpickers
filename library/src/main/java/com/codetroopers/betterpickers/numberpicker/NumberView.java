@@ -18,6 +18,8 @@ public class NumberView extends LinearLayout {
     private ZeroTopPaddingTextView mMinusLabel;
     private final Typeface mAndroidClockMonoThin;
     private Typeface mOriginalNumberTypeface;
+    private boolean mDecimalBolding;
+    private boolean mShowLeftNegSym;
 
     private ColorStateList mTextColor;
 
@@ -50,13 +52,17 @@ public class NumberView extends LinearLayout {
      * Set a theme and restyle the views. This View will change its title color.
      *
      * @param themeResId the resource ID for theming
+     * @param decimalBolding true if integer-part will be bolded
+     * @param showNegSymbol true if symbol is shown left of number
      */
-    public void setTheme(int themeResId) {
+    public void setTheme(int themeResId, boolean decimalBolding, boolean showNegSymbol) {
         if (themeResId != -1) {
             TypedArray a = getContext().obtainStyledAttributes(themeResId, R.styleable.BetterPickersDialogFragment);
 
             mTextColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTextColor);
         }
+        mDecimalBolding = decimalBolding;
+        mShowLeftNegSym = showNegSymbol;
 
         restyleViews();
     }
@@ -110,8 +116,9 @@ public class NumberView extends LinearLayout {
      */
     public void setNumber(String numbersDigit, String decimalDigit, boolean showDecimal,
             boolean isNegative) {
-        mMinusLabel.setVisibility(isNegative ? View.VISIBLE : View.GONE);
+        mMinusLabel.setVisibility((isNegative && !mShowLeftNegSym)? View.VISIBLE : View.GONE);
         if (mNumber != null) {
+            if (mShowLeftNegSym && isNegative) numbersDigit = "-" + numbersDigit;
             if (numbersDigit.equals("")) {
                 // Set to -
                 mNumber.setText("-");
@@ -119,7 +126,7 @@ public class NumberView extends LinearLayout {
                 mNumber.setEnabled(false);
                 mNumber.updatePadding();
                 mNumber.setVisibility(View.VISIBLE);
-            } else if (showDecimal) {
+            } else if (mDecimalBolding && showDecimal) {
                 // Set to bold
                 mNumber.setText(numbersDigit);
                 mNumber.setTypeface(mOriginalNumberTypeface);
