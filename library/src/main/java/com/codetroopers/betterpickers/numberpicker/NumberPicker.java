@@ -51,6 +51,8 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
     private int mDividerColor;
     private int mDeleteDrawableSrcResId;
     private int mTheme = -1;
+    private boolean mDecimalBolding;
+    private boolean mShowLeftNegSym;
 
     private BigDecimal mMinNumber = null;
     private BigDecimal mMaxNumber = null;
@@ -94,7 +96,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
      *
      * @param themeResId the resource ID of the new style
      */
-    public void setTheme(int themeResId) {
+    public void setTheme(int themeResId, boolean decimalBolding, boolean showNegSymbol) {
         mTheme = themeResId;
         if (mTheme != -1) {
             TypedArray a = getContext().obtainStyledAttributes(themeResId, R.styleable.BetterPickersDialogFragment);
@@ -105,6 +107,8 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
             mDividerColor = a.getColor(R.styleable.BetterPickersDialogFragment_bpDividerColor, mDividerColor);
             mDeleteDrawableSrcResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpDeleteIcon, mDeleteDrawableSrcResId);
         }
+        mDecimalBolding = decimalBolding;
+        mShowLeftNegSym = showNegSymbol;
 
         restyleViews();
     }
@@ -132,7 +136,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
             mDelete.setImageDrawable(getResources().getDrawable(mDeleteDrawableSrcResId));
         }
         if (mEnteredNumber != null) {
-            mEnteredNumber.setTheme(mTheme);
+            mEnteredNumber.setTheme(mTheme, mDecimalBolding, mShowLeftNegSym);
         }
         if (mLabel != null) {
             mLabel.setTextColor(mTextColor);

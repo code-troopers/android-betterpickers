@@ -29,6 +29,8 @@ public class NumberPickerBuilder {
     private Integer currentNumberValue;
     private Double currentDecimalValue;
     private Integer currentSignValue;
+    private Boolean decimalBolding;
+    private Boolean showLeftNegSym;
     private OnDialogDismissListener mOnDismissListener;
 
     /**
@@ -135,6 +137,28 @@ public class NumberPickerBuilder {
     }
 
     /**
+     * Set whether integer-part of number is bolded with decimal numbers
+     *
+     * @param decimalBolding true if integer-part will be bolded
+     * @return the current Builder object
+     */
+    public NumberPickerBuilder setDecimalBolding(Boolean decimalBolding) {
+        this.decimalBolding = decimalBolding;
+        return this;
+    }
+
+    /**
+     * Set whether negative-symbol is shown left of number, or as superscript
+     *
+     * @param showLeftNegSym true if symbol is shown left of number
+     * @return the current Builder object
+     */
+    public NumberPickerBuilder setShowLeftNegSym(Boolean showLeftNegSym) {
+        this.showLeftNegSym = showLeftNegSym;
+        return this;
+    }
+
+    /**
      * Set the visibility of the +/- button. This takes an int corresponding to Android's View.VISIBLE, View.INVISIBLE,
      * or View.GONE.  When using View.INVISIBLE, the +/- button will still be present in the layout but be
      * non-clickable. When set to View.GONE, the +/- button will disappear entirely, and the "0" button will occupy its
@@ -217,7 +241,8 @@ public class NumberPickerBuilder {
 
         final NumberPickerDialogFragment fragment = NumberPickerDialogFragment
                 .newInstance(mReference, styleResId, minNumber, maxNumber, plusMinusVisibility, decimalVisibility,
-                        labelText, currentNumberValue, currentDecimalValue, currentSignValue);
+                        labelText, currentNumberValue, currentDecimalValue, currentSignValue, decimalBolding,
+                        showLeftNegSym);
         if (targetFragment != null) {
             fragment.setTargetFragment(targetFragment, 0);
         }
