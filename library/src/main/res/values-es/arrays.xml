@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Recurrence picker: How events are to be repeated.  [CHAR LIMIT = 20] -->
+    <string-array name="recurrence_freq">
+        <item>REPETIR CADA HORA</item>
+        <item>REPETIR DIARIAMENTE</item>
+        <item>REPETIR SEMANALMENTE</item>
+        <item>REPETIR MENSUALMENTE</item>
+        <item>REPETIR ANUALMENTE</item>
+    </string-array>
+
+    <!-- The following sets of strings describe a monthly recurring event, which will repeat
+         on the Nth WEEKDAY of every month. For example, the 3rd Monday of every month, or
+         the last Sunday. These are set up like this to resolve any gender-matching issues
+         that were present in some languages.
+     -->
+    <!-- Repeat a monthly event on the same nth day of every Sunday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_sun">
+        <item >cada primer domingo</item>
+        <item >cada segundo domingo</item>
+        <item >cada tercer domingo</item>
+        <item >cada cuarto domingo</item>
+        <item >cada último domingo</item>
+    </string-array>
+    <!-- Repeat a monthly event on the same nth day of every Monday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_mon">
+        <item >cada primer lunes</item>
+        <item >cada segundo lunes</item>
+        <item >cada tercer lunes</item>
+        <item >cada cuarto lunes</item>
+        <item >cada último lunes</item>
+    </string-array>
+    <!-- Repeat a monthly event on the same nth day of every Tuesday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_tues">
+        <item >cada primer martes</item>
+        <item >cada segundo martes</item>
+        <item >cada tercer martes</item>
+        <item >cada cuarto martes</item>
+        <item >cada último martes</item>
+    </string-array>
+    <!-- Repeat a monthly event on the same nth day of every Wednesday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_wed">
+        <item >cada primer miércoles</item>
+        <item >cada segundo miércoles</item>
+        <item >cada tercer miércoles</item>
+        <item >cada cuarto miércoles</item>
+        <item >cada último miércoles</item>
+    </string-array>
+    <!-- Repeat a monthly event on the same nth day of every Thursday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_thurs">
+        <item >cada primer jueves</item>
+        <item >cada segundo jueves</item>
+        <item >cada tercer jueves</item>
+        <item >cada cuarto jueves</item>
+        <item >cada último jueves</item>
+    </string-array>
+    <!-- Repeat a monthly event on the same nth day of every Friday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_fri">
+        <item >cada primer viernes</item>
+        <item >cada segundo viernes</item>
+        <item >cada tercer viernes</item>
+        <item >cada cuarto viernes</item>
+        <item >cada último viernes</item>
+    </string-array>
+    <!-- Repeat a monthly event on the same nth day of every Saturday. [CHAR LIMIT=30] -->
+    <string-array name="repeat_by_nth_sat">
+        <item >cada primer sábado</item>
+        <item >cada segundo sábado</item>
+        <item >cada tercer sábado</item>
+        <item >cada cuarto sábado</item>
+        <item >cada último sábado</item>
+    </string-array>
+</resources>
