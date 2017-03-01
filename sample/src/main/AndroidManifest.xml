@@ -475,6 +475,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.codetroopers.betterpickers.sample.activity.radialtimepicker.SampleRadialTimeDefaultWithSecond"
+            android:label="Radial Time with second/Default">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.doomonafireball.betterpickers.sample.SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activity.radialtimepicker.SampleRadialTimeThemeDark"
             android:label="Radial Time/Theme Dark">
             <intent-filter>
