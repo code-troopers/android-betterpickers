@@ -121,7 +121,6 @@ button.setOnClickListener(new View.OnClickListener() {
         time.setToNow();
         bundle.putLong(TimeZonePickerDialogFragment.BUNDLE_START_TIME_MILLIS, time.toMillis(false));
         bundle.putString(TimeZonePickerDialogFragment.BUNDLE_TIME_ZONE, time.timezone);
-        bundle.putString(RecurrencePickerDialogFragment.BUNDLE_RRULE, mRrule);
 
         TimeZonePickerDialogFragment tzpd = new TimeZonePickerDialogFragment();
         tzpd.setArguments(bundle);
