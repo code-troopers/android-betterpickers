@@ -131,6 +131,8 @@ public class ExpirationPicker extends LinearLayout implements Button.OnClickList
                             mKeyboardIndicatorColor);
             mDeleteDrawableSrcResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpDeleteIcon,
                     mDeleteDrawableSrcResId);
+
+            a.recycle();
         }
 
         restyleViews();

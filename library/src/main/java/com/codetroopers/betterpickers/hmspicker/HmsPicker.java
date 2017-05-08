@@ -96,6 +96,7 @@ public class HmsPicker extends LinearLayout implements Button.OnClickListener, B
             mDividerColor = a.getColor(R.styleable.BetterPickersDialogFragment_bpDividerColor, mDividerColor);
             mDeleteDrawableSrcResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpDeleteIcon,
                     mDeleteDrawableSrcResId);
+            a.recycle();
         }
 
         restyleViews();

@@ -89,6 +89,8 @@ public class HmsPickerDialogFragment extends DialogFragment {
 
             mTextColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTextColor);
             mDialogBackgroundResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpDialogBackground, mDialogBackgroundResId);
+
+            a.recycle();
         }
     }
 

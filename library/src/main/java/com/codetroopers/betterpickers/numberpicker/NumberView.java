@@ -56,6 +56,8 @@ public class NumberView extends LinearLayout {
             TypedArray a = getContext().obtainStyledAttributes(themeResId, R.styleable.BetterPickersDialogFragment);
 
             mTextColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTextColor);
+
+            a.recycle();
         }
 
         restyleViews();
