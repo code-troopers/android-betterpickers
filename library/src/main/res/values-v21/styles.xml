@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.EditEvent_Spinner" parent="@android:style/Widget.Material.EditText">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#FF333333</item>
+        <item name="android:layout_marginRight">12dp</item>
+        <item name="android:layout_marginLeft">12dp</item>
+    </style>
+</resources>

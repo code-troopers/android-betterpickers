@@ -89,6 +89,7 @@
     <style name="TextAppearance.RecurrencePickerStyle" parent="@android:style/TextAppearance">
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/dialog_text_color_holo_light</item>
+        <item name="colorAccent">@color/bpBlue</item>
     </style>
 
     <style name="RecurrenceDayOfWeekStyle">
