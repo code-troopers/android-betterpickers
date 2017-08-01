@@ -4,11 +4,11 @@ buildscript {
     repositories {
         jcenter()
         mavenLocal()
-        mavenCentral()
+        google()
         maven { url 'https://jitpack.io' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.android.tools.build:gradle:3.0.0-alpha9'
         // to auto install sdk components when building see #248
         // classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.12.+'
         classpath 'com.github.plastiv:sdk-manager-plugin:b04aea1cddf87e78db9a4372794d678f9e568c48'
@@ -26,11 +26,11 @@ allprojects {
     repositories {
         jcenter()
         mavenLocal()
-        mavenCentral()
+        google()
     }
-    apply plugin: 'android-sdk-manager' //see #248
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.2'
+    gradleVersion = '4.1-rc-2'
+    distributionUrl = distributionUrl.replace("bin", "all")
 }

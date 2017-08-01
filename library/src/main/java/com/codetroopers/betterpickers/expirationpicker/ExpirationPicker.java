@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.format.DateFormat;
@@ -95,8 +96,8 @@ public class ExpirationPicker extends LinearLayout implements Button.OnClickList
         mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
         mKeyBackgroundResId = R.drawable.key_background_dark;
         mButtonBackgroundResId = R.drawable.button_background_dark;
-        mTitleDividerColor = getResources().getColor(R.color.default_divider_color_dark);
-        mKeyboardIndicatorColor = getResources().getColor(R.color.default_keyboard_indicator_color_dark);
+        mTitleDividerColor = ContextCompat.getColor(context, R.color.default_divider_color_dark);
+        mKeyboardIndicatorColor = ContextCompat.getColor(context, R.color.default_keyboard_indicator_color_dark);
         mDeleteDrawableSrcResId = R.drawable.ic_backspace_dark;
         mCheckDrawableSrcResId = R.drawable.ic_check_dark;
 

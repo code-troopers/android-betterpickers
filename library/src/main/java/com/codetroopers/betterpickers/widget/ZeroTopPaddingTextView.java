@@ -19,15 +19,15 @@ package com.codetroopers.betterpickers.widget;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 import com.codetroopers.betterpickers.R;
 
 /**
  * Displays text with no padding at the top.
  */
-public class ZeroTopPaddingTextView extends TextView {
+public class ZeroTopPaddingTextView extends AppCompatTextView {
 
     private static final float NORMAL_FONT_PADDING_RATIO = 0.328f;
     // the bold fontface has less empty space on the top

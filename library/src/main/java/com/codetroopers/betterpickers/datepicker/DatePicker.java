@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.format.DateFormat;
@@ -87,7 +88,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
      * Instantiates a DatePicker object
      *
      * @param context the Context required for creation
-     * @param attrs additional attributes that define custom colors, selectors, and backgrounds.
+     * @param attrs   additional attributes that define custom colors, selectors, and backgrounds.
      */
     public DatePicker(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -102,8 +103,8 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
         mTextColor = getResources().getColorStateList(R.color.dialog_text_color_holo_dark);
         mKeyBackgroundResId = R.drawable.key_background_dark;
         mButtonBackgroundResId = R.drawable.button_background_dark;
-        mTitleDividerColor = getResources().getColor(R.color.default_divider_color_dark);
-        mKeyboardIndicatorColor = getResources().getColor(R.color.default_keyboard_indicator_color_dark);
+        mTitleDividerColor = ContextCompat.getColor(context, R.color.default_divider_color_dark);
+        mKeyboardIndicatorColor = ContextCompat.getColor(context, R.color.default_keyboard_indicator_color_dark);
         mDeleteDrawableSrcResId = R.drawable.ic_backspace_dark;
         mCheckDrawableSrcResId = R.drawable.ic_check_dark;
     }
@@ -240,7 +241,7 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
          * Based on the Locale, inflate the day, month, or year keyboard
          *
          * @param collection the ViewPager collection group
-         * @param position the position within the ViewPager
+         * @param position   the position within the ViewPager
          * @return an inflated View representing the keyboard for this position
          */
         public Object instantiateItem(ViewGroup collection, int position) {
@@ -760,9 +761,9 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
     /**
      * Set the date shown in the date picker
      *
-     * @param year the new year to set
+     * @param year        the new year to set
      * @param monthOfYear the new zero-indexed month to set
-     * @param dayOfMonth the new day of month to set
+     * @param dayOfMonth  the new day of month to set
      */
     public void setDate(int year, int monthOfYear, int dayOfMonth) {
         mMonthInput = monthOfYear;

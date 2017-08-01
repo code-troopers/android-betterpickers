@@ -582,7 +582,7 @@ public abstract class MonthView extends View {
      * @return The date that has accessibility focus, or {@code null} if no date has focus
      */
     public CalendarDay getAccessibilityFocus() {
-        final int day = mTouchHelper.getFocusedVirtualView();
+        final int day = mTouchHelper.getAccessibilityFocusedVirtualViewId();
         if (day >= 0) {
             return new CalendarDay(mYear, mMonth, day);
         }
@@ -630,7 +630,7 @@ public abstract class MonthView extends View {
         }
 
         public void clearFocusedVirtualView() {
-            final int focusedVirtualView = getFocusedVirtualView();
+            final int focusedVirtualView = getAccessibilityFocusedVirtualViewId();
             if (focusedVirtualView != ExploreByTouchHelper.INVALID_ID) {
                 getAccessibilityNodeProvider(MonthView.this).performAction(
                         focusedVirtualView,

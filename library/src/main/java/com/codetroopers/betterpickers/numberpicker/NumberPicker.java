@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.HapticFeedbackConstants;
@@ -82,7 +83,7 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
         mKeyBackgroundResId = R.drawable.key_background_dark;
         mButtonBackgroundResId = R.drawable.button_background_dark;
         mDeleteDrawableSrcResId = R.drawable.ic_backspace_dark;
-        mDividerColor = getResources().getColor(R.color.default_divider_color_dark);
+        mDividerColor = ContextCompat.getColor(context, R.color.default_divider_color_dark);
     }
 
     protected int getLayoutId() {

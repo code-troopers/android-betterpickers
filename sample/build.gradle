@@ -20,10 +20,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // https://developer.android.com/studio/preview/features/java8-support.html
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':library')
-    compile 'joda-time:joda-time:2.9.6'
+    compile 'joda-time:joda-time:2.9.9'
 }
