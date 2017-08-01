@@ -29,6 +29,7 @@ android {
 }
 
 dependencies {
-    compile project(':library')
-    compile 'joda-time:joda-time:2.9.9'
+    implementation project(':library')
+    implementation 'com.android.support:appcompat-v7:26.0.0'
+    implementation 'joda-time:joda-time:2.9.9'
 }
