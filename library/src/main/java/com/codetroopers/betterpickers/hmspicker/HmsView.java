@@ -13,12 +13,13 @@ import com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView;
 
 public class HmsView extends LinearLayout {
 
-    private ZeroTopPaddingTextView mHoursOnes;
+    private ZeroTopPaddingTextView mHoursOnes, mHoursTens;
     private ZeroTopPaddingTextView mMinutesOnes, mMinutesTens;
-    private ZeroTopPaddingTextView mSecondsOnes, mSecondsTens;
+    private ZeroTopPaddingTextView mSecondsOnes, mSecondsTens, mSecondsLabel;
     private final Typeface mAndroidClockMonoThin;
     private Typeface mOriginalHoursTypeface;
     private ZeroTopPaddingTextView mMinusLabel;
+    private boolean hourMinutesOnly = false;
 
     private ColorStateList mTextColor;
 
@@ -63,6 +64,9 @@ public class HmsView extends LinearLayout {
     }
 
     private void restyleViews() {
+        if (mHoursTens != null) {
+            mHoursTens.setTextColor(mTextColor);
+        }
         if (mHoursOnes != null) {
             mHoursOnes.setTextColor(mTextColor);
         }
@@ -87,31 +91,61 @@ public class HmsView extends LinearLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
 
+        mHoursTens = (ZeroTopPaddingTextView) findViewById(R.id.hours_tens);
         mHoursOnes = (ZeroTopPaddingTextView) findViewById(R.id.hours_ones);
         mMinutesTens = (ZeroTopPaddingTextView) findViewById(R.id.minutes_tens);
         mMinutesOnes = (ZeroTopPaddingTextView) findViewById(R.id.minutes_ones);
         mSecondsTens = (ZeroTopPaddingTextView) findViewById(R.id.seconds_tens);
         mSecondsOnes = (ZeroTopPaddingTextView) findViewById(R.id.seconds_ones);
         mMinusLabel = (ZeroTopPaddingTextView) findViewById(R.id.minus_label);
+        mSecondsLabel = (ZeroTopPaddingTextView) findViewById(R.id.seconds_label);
 
+        onUpdateViewsVisibility();
+    }
+
+    private void onUpdateViewsVisibility() {
+        if (mHoursTens != null && !hourMinutesOnly) {
+            mHoursTens.setVisibility(GONE);
+        }
         if (mHoursOnes != null) {
             mOriginalHoursTypeface = mHoursOnes.getTypeface();
             mHoursOnes.updatePaddingForBoldDate();
         }
-        if (mMinutesTens != null) {
+        if (mMinutesTens != null && !hourMinutesOnly) {
             mMinutesTens.updatePaddingForBoldDate();
         }
-        if (mMinutesOnes != null) {
+        if (mMinutesOnes != null && !hourMinutesOnly) {
             mMinutesOnes.updatePaddingForBoldDate();
         }
         // Set the lowest time unit with thin font (excluding hundredths)
-        if (mSecondsTens != null) {
+        if (mSecondsTens != null && !hourMinutesOnly) {
             mSecondsTens.setTypeface(mAndroidClockMonoThin);
             mSecondsTens.updatePadding();
         }
-        if (mSecondsOnes != null) {
+        if (mSecondsOnes != null && !hourMinutesOnly) {
             mSecondsOnes.setTypeface(mAndroidClockMonoThin);
             mSecondsOnes.updatePadding();
+        }
+        if (mHoursTens != null && hourMinutesOnly) {
+             mHoursTens.updatePaddingForBoldDate();
+             mHoursTens.setVisibility(VISIBLE);
+        }
+        if (mMinutesTens != null && hourMinutesOnly) {
+             mMinutesTens.setTypeface(mAndroidClockMonoThin);
+             mMinutesTens.updatePadding();
+        }
+        if (mMinutesOnes != null && hourMinutesOnly) {
+             mMinutesOnes.setTypeface(mAndroidClockMonoThin);
+             mMinutesOnes.updatePadding();
+        }
+        if (mSecondsTens != null && hourMinutesOnly) {
+             mSecondsTens.setVisibility(GONE);
+        }
+        if (mSecondsOnes != null && hourMinutesOnly) {
+             mSecondsOnes.setVisibility(GONE);
+        }
+        if(mSecondsLabel != null && hourMinutesOnly){
+             mSecondsLabel.setVisibility(GONE);
         }
     }
 
@@ -129,7 +163,20 @@ public class HmsView extends LinearLayout {
         setTime(false, hoursOnesDigit, minutesTensDigit, minutesOnesDigit, secondsTensDigit, secondsOnesDigit);
     }
 
-    public void setTime(boolean isNegative, int hoursOnesDigit, int minutesTensDigit, int minutesOnesDigit, int secondsTensDigit,
+    public void setTime(boolean isNegative, int hoursTensDigit,  int hoursOnesDigit, int minutesTensDigit,
+                        int minutesOnesDigit) {
+        if (mHoursTens != null){
+            mHoursTens.setText(String.format("%d", hoursTensDigit));
+        }
+        setTime(isNegative, hoursOnesDigit, minutesTensDigit, minutesOnesDigit, 0, 0);
+    }
+
+    public void setHourMinutesOnly(boolean hourMinutesOnly) {
+        this.hourMinutesOnly = hourMinutesOnly;
+        onUpdateViewsVisibility();
+    }
+
+    public void setTime(boolean isNegative,  int hoursOnesDigit, int minutesTensDigit, int minutesOnesDigit, int secondsTensDigit,
             int secondsOnesDigit) {
 
         mMinusLabel.setVisibility(isNegative ? View.VISIBLE : View.GONE);
