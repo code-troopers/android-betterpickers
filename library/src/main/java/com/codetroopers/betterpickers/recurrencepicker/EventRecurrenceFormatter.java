@@ -110,7 +110,9 @@ public class EventRecurrenceFormatter {
                     if(dayNumber == RecurrencePickerDialogFragment.LAST_NTH_DAY_OF_WEEK){
                         dayNumber = 5;
                     }
-                    details = mMonthRepeatByDayOfWeekStrs[weekday][dayNumber - 1];
+                    if (dayNumber > 0) {
+                        details = mMonthRepeatByDayOfWeekStrs[weekday][dayNumber - 1];
+                    }
                 }
                 return r.getQuantityString(R.plurals.monthly, interval, interval, details) + endString;
             }
