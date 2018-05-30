@@ -1,3 +1,6 @@
+# /!\ This Project is no longer maintained /!\ 
+
+
 [![Maven Central](https://img.shields.io/maven-central/v/com.code-troopers.betterpickers/library.svg?style=flat)](https://repo1.maven.org/maven2/com/code-troopers/betterpickers/library/)
 [![API](https://img.shields.io/badge/API-9%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=9)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android%20Betterpickers-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/118)
@@ -5,16 +8,9 @@
 [![Built With Cloudbees](https://www.cloudbees.com/sites/default/files/styles/large/public/Button-Built-on-CB-1.png?itok=3Tnkun-C)](https://codetroopers.ci.cloudbees.com/job/betterpickers-master/)
 
 
-<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_calendar_date.png" width="120">
-<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_radial_time.png" width="120">
-<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_recurrence.png" width="120">
-<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_time_zone.png" width="120">
+<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_calendar_date.png" width="120">  <img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_radial_time.png" width="120">  <img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_recurrence.png" width="120">  <img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_time_zone.png" width="120">
 
-<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_date.png" width="120">
-<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_expiration.png" width="120">
-<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_hms.png" width="120">
-<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_number.png" width="120">
-<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_time.png" width="120">
+<img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_date.png" width="120">  <img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_expiration.png" width="120">  <img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_hms.png" width="120">  <img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_number.png" width="120">  <img src="https://raw.githubusercontent.com/code-troopers/android-betterpickers/master/sample/imagery/screenshot_time.png" width="120">
 
 
 DialogFragments modeled after the AOSP Clock and Calendar apps to improve UX for picking time, date, numbers, and other things.
