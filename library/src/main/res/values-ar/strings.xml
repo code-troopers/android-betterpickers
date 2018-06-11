@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="picker_cancel">رجوع</string>
+    <string name="picker_set">ضبط</string>
+    <string name="hours_label">س</string>
+    <string name="minutes_label">د</string>
+    <string name="seconds_label">ث</string>
+    <string name="hours_label_description">الساعات</string>
+    <string name="minutes_label_description">الدقائق</string>
+    <string name="seconds_label_description">الثواني</string>
+    <string name="timer_delete">حذف</string>
+    <string name="time_picker_ampm_label">--</string>
+    <string name="time_picker_time_seperator">:</string>
+    <string name="time_picker_00_label">:00</string>
+    <string name="time_picker_30_label">:30</string>
+    <string name="number_picker_minus_label">—</string>
+    <string name="number_picker_seperator">.</string>
+    <string name="number_delete">حذف</string>
+    <string name="number_picker_plus_minus">+/-</string>
+    <string name="hms_picker_hours_label">س</string>
+    <string name="hms_picker_minutes_label">د</string>
+    <string name="hms_picker_seconds_label">ث</string>
+    <string name="expiration_picker_seperator">/</string>
+    <string name="month_c">شهر</string>
+    <string name="day_c">يوم</string>
+    <string name="year_c">سنة</string>
+
+    <!-- 1.3.1 -->
+    <string name="min_error">الرجاء إدخال رقم أكبر أو يساوي %1$s</string>
+    <string name="max_error">الرجاء إدخال رقم أصغر أو يساوي %1$s</string>
+    <string name="min_max_error">الرجاء إدخال رقم بين %2$s و %2$s </string>
+    <!-- Time validation -->
+    <string name="max_time_error">الوقت الذي قمت بإدخاله يقع بعيداً جداً في المستقبل</string>
+    <string name="min_time_error">الوقت الذي قمت بإدخاله يقع بعيداً جداً في الماضي</string>
+
+    <!-- From AOSP -->
+    <!-- Label for button to confirm chosen date or time [CHAR LIMIT=30] -->
+    <string name="done_label">تم</string>
+    <!--
+         Content description for the hour selector in the time picker, which displays
+         selectable hours of the day along the inside edge of a circle, as in an analog clock.
+         [CHAR LIMIT=50]
+    -->
+    <string name="hour_picker_description">النافذة المسدلة المستديرة للساعات</string>
+    <!--
+         Content description for the minute selector in the time picker, which displays
+         selectable five-minute intervals along the inside edge of a circle, as in an analog clock.
+         [CHAR LIMIT=50]
+    -->
+    <string name="minute_picker_description">النافذة المسدلة المستديرة للدقائق</string>
+    <!-- Accessibility announcement for hour circular picker [CHAR LIMIT=NONE] -->
+    <string name="select_hours">اختر الساعات</string>
+    <!-- Accessibility announcement for minute circular picker [CHAR LIMIT=NONE] -->
+    <string name="select_minutes">اختر الدقائق</string>
+
+    <!--
+        Content description for the month and day selector in the date picker, which displays
+        a selectable grid of days laid out by month.
+        [CHAR LIMIT=50]
+     -->
+    <string name="day_picker_description">الشهر بشبكة من الأيام</string>
+    <!--
+        Content description for the year selector in the date picker, which displays
+        a scrolling, vertical list of years.
+        [CHAR LIMIT=50]
+     -->
+    <string name="year_picker_description">لائحة الأعوام</string>
+    <!-- Accessibility announcement for the day picker [CHAR LIMIT=NONE] -->
+    <string name="select_day">اختر الشهر واليوم</string>
+    <!-- Accessibility announcement for the year picker [CHAR LIMIT=NONE] -->
+    <string name="select_year">اختر السنة</string>
+    <!-- Accessibility description for the item that is currently selected. -->
+    <string name="item_is_selected">تم اختيار %1$s</string>
+    <!-- Accessibility announcement when a number that had been typed in is deleted [CHAR_LIMIT=NONE] -->
+    <string name="deleted_key">تم حذف %1$s</string>
+
+
+    <!-- Repeat an monthly event on the same day of every month [CHAR LIMIT=20] -->
+    <string name="recurrence_month_pattern_by_day">في نفس اليوم كل شهر</string>
+
+    <!-- Description of the selected marker for accessibility support [CHAR LIMIT = NONE]-->
+    <string name="acessibility_recurrence_choose_end_date_description">تغيير نهاية التاريخ</string>
+
+    <!-- The button label for saving an event -->
+    <string name="save_label">حفظ</string>
+
+    <!-- Specifies that a repeating event to repeat forever (based on the defined frequency) instead of ending at a future date[CHAR LIMIT=20] -->
+    <string name="recurrence_end_continously">إلى الأبد</string>
+    <!-- Specifies that a repeating event to repeat until a certain date[CHAR LIMIT=25] -->
+    <string name="recurrence_end_date_label">حتى تاريخ</string>
+    <!-- Specifies that a repeating event to repeat until a certain date[CHAR LIMIT=20] -->
+    <string name="recurrence_end_date">حتى  <xliff:g id="date">%s</xliff:g></string>
+    <!-- Specifies that a repeating event to repeat for a number of times. A repeating event can repeat forever, repeat in a certain frequency until a certain date, or repeat for a number of times. e.g. repeat 10 times and stop. This string is for the last case [CHAR LIMIT=25] -->
+    <string name="recurrence_end_count_label">لعدد من الأحداث</string>
+
+    <!-- Strings to describe how frequently to repeat an event (e.g. every 5 hours) -->
+    <plurals name="recurrence_interval_hourly">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">كل <xliff:g id="count">%d</xliff:g> ساعة</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <!--<item quantity="other">كل <xliff:g id="count">%d</xliff:g> ساعات</item>-->
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="few">كل <xliff:g id="count">%d</xliff:g> ساعات</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="many">كل <xliff:g id="count">%d</xliff:g> ساعة</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="two">كل <!--<xliff:g id="count">%d</xliff:g>--> ساعتين</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="zero">كل <xliff:g id="count">%d</xliff:g> ساعة</item>
+    </plurals>
+
+    <!-- Strings to describe how frequently to repeat an event (e.g. every 5 days) -->
+    <plurals name="recurrence_interval_daily">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">كل <xliff:g id="count">%d</xliff:g> يوم</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <!--<item quantity="other">كل <xliff:g id="count">%d</xliff:g> أيام</item>-->
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="few">كل <xliff:g id="count">%d</xliff:g> أيام</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="many">كل <xliff:g id="count">%d</xliff:g> يوم</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="two">كل <!--<xliff:g id="count">%d</xliff:g>--> يومين</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="zero">كل <xliff:g id="count">%d</xliff:g> يوم</item>
+    </plurals>
+    <!-- Strings to describe how frequently to repeat an event (e.g. every 5 weeks) -->
+    <plurals name="recurrence_interval_weekly">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">كل <xliff:g id="count">%d</xliff:g> أسبوع</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <!--<item quantity="other">كل <xliff:g id="count">%d</xliff:g> أيام</item>-->
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="few">كل <xliff:g id="count">%d</xliff:g> أسابيع</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="many">كل <xliff:g id="count">%d</xliff:g> أسبوع</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="two">كل <!--<xliff:g id="count">%d</xliff:g>--> أسبوعين</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="zero">كل <xliff:g id="count">%d</xliff:g> أسبوع</item>
+    </plurals>
+    <!-- Strings to describe how frequently to repeat an event (e.g. every 5 months) -->
+    <plurals name="recurrence_interval_monthly">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">كل <xliff:g id="count">%d</xliff:g> شهر</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <!--<item quantity="other">كل <xliff:g id="count">%d</xliff:g> أيام</item>-->
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="few">كل <xliff:g id="count">%d</xliff:g> اشهر</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="many">كل <xliff:g id="count">%d</xliff:g> شهر</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="two">كل <!--<xliff:g id="count">%d</xliff:g>--> شهرين</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="zero">كل <xliff:g id="count">%d</xliff:g> شهر</item>
+    </plurals>
+    <!-- Strings to describe how frequently to repeat an event (e.g. every 5 years) -->
+    <plurals name="recurrence_interval_yearly">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">كل <xliff:g id="count">%d</xliff:g> سنة</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <!--<item quantity="other">كل <xliff:g id="count">%d</xliff:g> أيام</item>-->
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="few">كل <xliff:g id="count">%d</xliff:g> سنين</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="many">كل <xliff:g id="count">%d</xliff:g> سنة</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="two">كل <!--<xliff:g id="count">%d</xliff:g>--> سنتين</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="zero">كل <xliff:g id="count">%d</xliff:g> سنة</item>
+    </plurals>
+
+    <!-- Specifies that a repeating event should repeat for a certain number of iterations. [CHAR LIMIT=20]-->
+    <plurals name="recurrence_end_count">
+        <!-- Singular form [CHAR LIMIT=30] -->
+        <item quantity="one">كل <xliff:g id="count">%d</xliff:g> حدث</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <!--<item quantity="other">كل <xliff:g id="count">%d</xliff:g> أيام</item>-->
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="few">كل <xliff:g id="count">%d</xliff:g> أحداث</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="many">كل <xliff:g id="count">%d</xliff:g> حدث</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="two">كل <!--<xliff:g id="count">%d</xliff:g>--> حدثين</item>
+        <!-- Plural form [CHAR LIMIT=30] -->
+        <item quantity="zero">كل <xliff:g id="count">%d</xliff:g> حدث</item>
+    </plurals>
+
+    <!-- Part of a description of an repeating event. This part states the date when a repeating
+         event ends. The part before the semi-colon describes how it repeats.
+         e.g. Every 2 weeks; until 1/1/2030 [CHAR LIMIT=21] -->
+    <string name="endByDate">; حتى<xliff:g id="date">%s</xliff:g></string>
+    <!-- Part of a description of an repeating event. This part how many times the event repeats.
+         The part before the semi-colon describes how it repeats.
+         e.g. Every 2 weeks; for 15 times [CHAR LIMIT=15] -->
+    <plurals name="endByCount">
+        <item quantity="one">; لمرة واحدة </item>
+        <item quantity="two">; لمرتين </item>
+        <item quantity="few">; لـ <xliff:g id="number">%d</xliff:g> مرات</item>
+        <item quantity="many">; لـ<xliff:g id="number">%d</xliff:g> مرة</item>
+        <item quantity="zero">; لـ <xliff:g id="number">%d</xliff:g> مرة</item>
+    </plurals>
+
+    <!-- A description for an event that repeats daily. For example, Every 2 days [CHAR LIMIT=15]-->
+    <plurals name="hourly">
+        <item quantity="one">كل ساعة</item>
+        <item quantity="two">كل ساعتين</item>
+        <item quantity="few">كل<xliff:g id="number">%d</xliff:g> ساعات</item>
+        <item quantity="many">كل<xliff:g id="number">%d</xliff:g> ساعة</item>
+        <item quantity="zero">كل<xliff:g id="number">%d</xliff:g> ساعة</item>
+    </plurals>
+
+    <!-- A description for an event that repeats daily. For example, Every 2 days [CHAR LIMIT=15]-->
+    <plurals name="daily">
+        <item quantity="one">يومياً</item>
+        <item quantity="two">كل يومين</item>
+        <item quantity="few">كل<xliff:g id="number">%d</xliff:g> أيام</item>
+        <item quantity="many">كل<xliff:g id="number">%d</xliff:g> يوم</item>
+        <item quantity="zero">كل<xliff:g id="number">%d</xliff:g> يوم</item>
+    </plurals>
+    <!-- A label in a multiple-choice list for the specifying that an event
+         repeats every weekday (Monday through Friday) -->
+    <string name="every_weekday">كل يوم في الأسبوع من الأحد حتى الجمعة</string>
+    <!-- A description for an event that repeats weekly on some day of the week. For example,
+         'Weekly on Tuesday' or Every 2 weeks on Monday, Tuesday.  [CHAR LIMIT=25]-->
+    <plurals name="weekly">
+        <item quantity="one">أسبوعياً في <xliff:g id="days_of_week">%2$s</xliff:g></item>
+        <item quantity="two">كل أسبوعين في <xliff:g id="days_of_week">%2$s</xliff:g></item>
+        <item quantity="few">كل <xliff:g id="number">%1$d</xliff:g> أسابيع في <xliff:g id="days_of_week">%2$s</xliff:g></item>
+        <item quantity="many">كل <xliff:g id="number">%1$d</xliff:g> أسبوع في <xliff:g id="days_of_week">%2$s</xliff:g></item>
+        <item quantity="zero">>كل <xliff:g id="number">%1$d</xliff:g> أسبوع في<xliff:g id="days_of_week">%2$s</xliff:g></item>
+         </plurals>
+    <!-- The common portion of a string describing how often an event repeats,
+         example: 'Monthly (on day 2)' -->
+    <string name="monthly">شهرياً</string>
+    <plurals name="monthly">
+        <item quantity="one">شهرياً في <xliff:g id="days_of_month">%2$s</xliff:g></item>
+        <item quantity="two">كل شهرين في <xliff:g id="days_of_month">%2$s</xliff:g></item>
+        <item quantity="few">كل <xliff:g id="number">%1$d</xliff:g> أشهر في <xliff:g id="days_of_month">%2$s</xliff:g></item>
+        <item quantity="many">كل <xliff:g id="number">%1$d</xliff:g> شهر في <xliff:g id="days_of_month">%2$s</xliff:g></item>
+        <item quantity="zero">>كل <xliff:g id="number">%1$d</xliff:g> شهر في<xliff:g id="days_of_month">%2$s</xliff:g></item>
+         </plurals>
+    <!-- Calendar spinner item, to select that an event recurs every year. -->
+    <string name="yearly_plain">سنوياً</string>
+    <plurals name="yearly_plain">
+        <item quantity="one">سنوياً في <xliff:g id="days_of_month">%2$s</xliff:g></item>
+        <item quantity="two">كل سنتين في <xliff:g id="days_of_month">%2$s</xliff:g></item>
+        <item quantity="few">كل <xliff:g id="number">%1$d</xliff:g> سنين في <xliff:g id="days_of_month">%2$s</xliff:g></item>
+        <item quantity="many">كل <xliff:g id="number">%1$d</xliff:g> سنة في <xliff:g id="days_of_month">%2$s</xliff:g></item>
+        <item quantity="zero">>كل <xliff:g id="number">%1$d</xliff:g> سنة في<xliff:g id="days_of_month">%2$s</xliff:g></item>
+     </plurals>
+
+    <!-- Hint text to encourage the user to enter a country name to find a time zone
+     [CHAR LIMIT=25] -->
+    <string name="hint_time_zone_search">اكتب اسم الدولة</string>
+
+    <!-- Description of clear icon in the search bar, for accessibility. [CHAR LIMIT=NONE]-->
+    <string name="searchview_description_clear">حذف البحث</string>
+
+    <!-- Item to show when no timezones are found. [CHAR LIMIT=NONE]-->
+    <string name="no_results_found">لا يوجد نتائج</string>
+
+    <!-- Name to be displayed for "Palestine". This will be used when searching for a country to
+         select a timezone. [CHAR LIMIT=NONE]
+         *NOTE*: Please be sure to translate this as "Palestine", specifically instead of
+                 "Palestinian Territories". This is for use following Google's updated policy on
+                 this matter.
+                  -->
+    <string name="palestine_display_name">فلسطين</string>
+    <string name="switch_on">تشغيل</string>
+    <string name="switch_off">إطفاء</string>
+</resources>
