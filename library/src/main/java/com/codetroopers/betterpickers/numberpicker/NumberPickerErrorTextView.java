@@ -2,16 +2,16 @@ package com.codetroopers.betterpickers.numberpicker;
 
 import android.content.Context;
 import android.os.Handler;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.TextView;
 
 /**
  * User: derek Date: 6/21/13 Time: 10:37 AM
  */
-public class NumberPickerErrorTextView extends TextView {
+public class NumberPickerErrorTextView extends AppCompatTextView {
 
     private static final long LENGTH_SHORT = 3000;
 

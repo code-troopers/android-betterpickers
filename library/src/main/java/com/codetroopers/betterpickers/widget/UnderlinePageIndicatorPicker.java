@@ -22,6 +22,7 @@ import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewConfigurationCompat;
 import android.support.v4.view.ViewPager;
@@ -70,7 +71,7 @@ public class UnderlinePageIndicatorPicker extends View implements PageIndicator 
     public UnderlinePageIndicatorPicker(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
-        mColorUnderline = getResources().getColor(R.color.dialog_text_color_holo_dark);
+        mColorUnderline = ContextCompat.getColor(context, R.color.dialog_text_color_holo_dark);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.BetterPickersDialogFragment, defStyle, 0);
         mColorUnderline = a.getColor(R.styleable.BetterPickersDialogFragment_bpKeyboardIndicatorColor, mColorUnderline);

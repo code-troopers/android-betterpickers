@@ -16,6 +16,10 @@
 
 package com.codetroopers.betterpickers.radialtimepicker;
 
+import android.animation.Keyframe;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -27,11 +31,6 @@ import android.view.View;
 
 import com.codetroopers.betterpickers.R;
 import com.codetroopers.betterpickers.Utils;
-import com.nineoldandroids.animation.Keyframe;
-import com.nineoldandroids.animation.ObjectAnimator;
-import com.nineoldandroids.animation.PropertyValuesHolder;
-import com.nineoldandroids.animation.ValueAnimator;
-import com.nineoldandroids.view.animation.AnimatorProxy;
 
 /**
  * View to show what number is selected. This will draw a blue circle over the number, with a blue line coming from the
@@ -319,8 +318,7 @@ public class RadialSelectorView extends View {
         kf1 = Keyframe.ofFloat(1f, 0f);
         PropertyValuesHolder fadeOut = PropertyValuesHolder.ofKeyframe("alpha", kf0, kf1);
 
-        ObjectAnimator disappearAnimator = ObjectAnimator.ofPropertyValuesHolder(
-                AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(this) : this, radiusDisappear, fadeOut).setDuration(
+        ObjectAnimator disappearAnimator = ObjectAnimator.ofPropertyValuesHolder(this, radiusDisappear, fadeOut).setDuration(
                 duration);
         disappearAnimator.addUpdateListener(mInvalidateUpdateListener);
 
@@ -359,8 +357,7 @@ public class RadialSelectorView extends View {
         kf2 = Keyframe.ofFloat(1f, 1f);
         PropertyValuesHolder fadeIn = PropertyValuesHolder.ofKeyframe("alpha", kf0, kf1, kf2);
 
-        ObjectAnimator reappearAnimator = ObjectAnimator.ofPropertyValuesHolder(
-                AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(this) : this, radiusReappear, fadeIn)
+        ObjectAnimator reappearAnimator = ObjectAnimator.ofPropertyValuesHolder(this, radiusReappear, fadeIn)
                 .setDuration(totalDuration);
         reappearAnimator.addUpdateListener(mInvalidateUpdateListener);
         return reappearAnimator;
