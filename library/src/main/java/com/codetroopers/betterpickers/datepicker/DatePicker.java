@@ -136,6 +136,8 @@ public class DatePicker extends LinearLayout implements Button.OnClickListener,
                             mKeyboardIndicatorColor);
             mDeleteDrawableSrcResId = a.getResourceId(R.styleable.BetterPickersDialogFragment_bpDeleteIcon,
                     mDeleteDrawableSrcResId);
+
+            a.recycle();
         }
 
         restyleViews();

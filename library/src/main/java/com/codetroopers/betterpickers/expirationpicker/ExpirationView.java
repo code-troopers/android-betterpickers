@@ -63,6 +63,8 @@ public class ExpirationView extends PickerLinearLayout {
             TypedArray a = getContext().obtainStyledAttributes(themeResId, R.styleable.BetterPickersDialogFragment);
 
             mTitleColor = a.getColorStateList(R.styleable.BetterPickersDialogFragment_bpTitleColor);
+
+            a.recycle();
         }
 
         restyleViews();
