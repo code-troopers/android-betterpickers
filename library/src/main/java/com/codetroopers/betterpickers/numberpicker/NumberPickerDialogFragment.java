@@ -45,8 +45,8 @@ public class NumberPickerDialogFragment extends DialogFragment {
 
     private BigDecimal mMinNumber = null;
     private BigDecimal mMaxNumber = null;
-    private Integer mCurrentNumber = null;
-    private Double mCurrentDecimal = null;
+    private BigInteger mCurrentNumber = null;
+    private BigDecimal mCurrentDecimal = null;
     private Integer mCurrentSign = null;
     private int mPlusMinusVisibility = View.VISIBLE;
     private int mDecimalVisibility = View.VISIBLE;
@@ -73,8 +73,8 @@ public class NumberPickerDialogFragment extends DialogFragment {
                                                          Integer plusMinusVisibility,
                                                          Integer decimalVisibility,
                                                          String labelText,
-                                                         Integer currentNumberValue,
-                                                         Double currentDecimalValue,
+                                                         BigInteger currentNumberValue,
+                                                         BigDecimal currentDecimalValue,
                                                          Integer currentNumberSign) {
         final NumberPickerDialogFragment frag = new NumberPickerDialogFragment();
         Bundle args = new Bundle();
@@ -96,10 +96,10 @@ public class NumberPickerDialogFragment extends DialogFragment {
             args.putString(LABEL_TEXT_KEY, labelText);
         }
         if (currentNumberValue != null) {
-            args.putInt(CURRENT_NUMBER_KEY, currentNumberValue);
+            args.putSerializable(CURRENT_NUMBER_KEY, currentNumberValue);
         }
         if (currentDecimalValue != null) {
-            args.putDouble(CURRENT_DECIMAL_KEY, currentDecimalValue);
+            args.putSerializable(CURRENT_DECIMAL_KEY, currentDecimalValue);
         }
         if (currentNumberSign != null) {
             args.putInt(CURRENT_SIGN_KEY, currentNumberSign);
@@ -140,10 +140,10 @@ public class NumberPickerDialogFragment extends DialogFragment {
             mLabelText = args.getString(LABEL_TEXT_KEY);
         }
         if (args != null && args.containsKey(CURRENT_NUMBER_KEY)) {
-            mCurrentNumber = args.getInt(CURRENT_NUMBER_KEY);
+            mCurrentNumber = (BigInteger) args.getSerializable(CURRENT_NUMBER_KEY);
         }
         if (args != null && args.containsKey(CURRENT_DECIMAL_KEY)) {
-            mCurrentDecimal = args.getDouble(CURRENT_DECIMAL_KEY);
+            mCurrentDecimal = (BigDecimal) args.getSerializable(CURRENT_DECIMAL_KEY);
         }
         if (args != null && args.containsKey(CURRENT_SIGN_KEY)) {
             mCurrentSign = args.getInt(CURRENT_SIGN_KEY);
