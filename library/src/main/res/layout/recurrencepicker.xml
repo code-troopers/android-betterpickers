@@ -55,8 +55,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="1"
-                        android:background="@drawable/spinner_background_holo_light"
-                        android:dropDownSelector="@drawable/item_background_holo_light"
                         android:entries="@array/recurrence_freq"
                         android:gravity="left"
                         android:padding="0dp" />
@@ -98,7 +96,6 @@
                             android:id="@+id/interval"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/edit_text_holo_light"
                             android:ems="2"
                             android:gravity="center_horizontal"
                             android:inputType="number"
@@ -107,7 +104,7 @@
                             android:paddingRight="4dp"
                             android:selectAllOnFocus="true"
                             android:singleLine="true"
-                            android:textSize="15sp"/>
+                            android:textSize="15sp" />
 
                         <TextView
                             android:id="@+id/intervalPostText"
@@ -198,8 +195,6 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="-4dp"
                             android:layout_marginRight="8dp"
-                            android:background="@drawable/spinner_background_holo_light"
-                            android:dropDownSelector="@drawable/item_background_holo_light"
                             android:entries="@array/recurrence_freq"
                             android:gravity="left|center_vertical"
                             android:padding="0dp" />
@@ -210,7 +205,6 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginBottom="-3dp"
-                            android:background="@drawable/edit_text_holo_light"
                             android:ems="3"
                             android:gravity="center_horizontal"
                             android:inputType="number"
@@ -239,8 +233,8 @@
                             android:layout_marginLeft="0dp"
                             android:layout_marginRight="0dp"
                             android:layout_marginTop="3dp"
-                            android:background="@drawable/spinner_background_holo_light"
                             android:contentDescription="@string/acessibility_recurrence_choose_end_date_description"
+                            android:focusable="false"
                             android:gravity="center_horizontal|bottom"
                             android:minWidth="80dp"
                             android:paddingBottom="8dp"
