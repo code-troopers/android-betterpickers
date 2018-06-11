@@ -34,6 +34,8 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private static final String CURRENT_NUMBER_KEY = "NumberPickerDialogFragment_CurrentNumberKey";
     private static final String CURRENT_DECIMAL_KEY = "NumberPickerDialogFragment_CurrentDecimalKey";
     private static final String CURRENT_SIGN_KEY = "NumberPickerDialogFragment_CurrentSignKey";
+    private static final String DECIMAL_BOLDING_KEY = "NumberPickerDialogFragment_DecimalBolding";
+    private static final String SHOW_LEFT_NEG_SYM_KEY = "NumberPickerDialogFragment_ShowLeftNegSym";
 
     private NumberPicker mPicker;
 
@@ -50,6 +52,8 @@ public class NumberPickerDialogFragment extends DialogFragment {
     private Integer mCurrentSign = null;
     private int mPlusMinusVisibility = View.VISIBLE;
     private int mDecimalVisibility = View.VISIBLE;
+    private boolean mDecimalBolding = true;
+    private boolean mShowLeftNegSym = false;
     private Vector<NumberPickerDialogHandlerV2> mNumberPickerDialogHandlersV2 = new Vector<NumberPickerDialogHandlerV2>();
     private OnDialogDismissListener mDismissCallback;
 
@@ -75,7 +79,9 @@ public class NumberPickerDialogFragment extends DialogFragment {
                                                          String labelText,
                                                          Integer currentNumberValue,
                                                          Double currentDecimalValue,
-                                                         Integer currentNumberSign) {
+                                                         Integer currentNumberSign,
+                                                         Boolean decimalBolding,
+                                                         Boolean showLeftNegSym) {
         final NumberPickerDialogFragment frag = new NumberPickerDialogFragment();
         Bundle args = new Bundle();
         args.putInt(REFERENCE_KEY, reference);
@@ -103,6 +109,12 @@ public class NumberPickerDialogFragment extends DialogFragment {
         }
         if (currentNumberSign != null) {
             args.putInt(CURRENT_SIGN_KEY, currentNumberSign);
+        }
+        if (decimalBolding != null) {
+            args.putBoolean(DECIMAL_BOLDING_KEY, decimalBolding);
+        }
+        if (showLeftNegSym != null) {
+            args.putBoolean(SHOW_LEFT_NEG_SYM_KEY, showLeftNegSym);
         }
         frag.setArguments(args);
         return frag;
@@ -147,6 +159,12 @@ public class NumberPickerDialogFragment extends DialogFragment {
         }
         if (args != null && args.containsKey(CURRENT_SIGN_KEY)) {
             mCurrentSign = args.getInt(CURRENT_SIGN_KEY);
+        }
+        if (args != null && args.containsKey(DECIMAL_BOLDING_KEY)) {
+            mDecimalBolding = args.getBoolean(DECIMAL_BOLDING_KEY);
+        }
+        if (args != null && args.containsKey(SHOW_LEFT_NEG_SYM_KEY)) {
+            mShowLeftNegSym = args.getBoolean(SHOW_LEFT_NEG_SYM_KEY);
         }
 
         setStyle(DialogFragment.STYLE_NO_TITLE, 0);
@@ -217,7 +235,7 @@ public class NumberPickerDialogFragment extends DialogFragment {
 
         mPicker = (NumberPicker) view.findViewById(R.id.number_picker);
         mPicker.setSetButton(doneButton);
-        mPicker.setTheme(mTheme);
+        mPicker.setTheme(mTheme, mDecimalBolding, mShowLeftNegSym);
         mPicker.setDecimalVisibility(mDecimalVisibility);
         mPicker.setPlusMinusVisibility(mPlusMinusVisibility);
         mPicker.setLabelText(mLabelText);
