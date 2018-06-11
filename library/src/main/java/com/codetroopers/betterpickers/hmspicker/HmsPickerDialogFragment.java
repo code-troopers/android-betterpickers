@@ -25,6 +25,7 @@ public class HmsPickerDialogFragment extends DialogFragment {
     private static final String REFERENCE_KEY = "HmsPickerDialogFragment_ReferenceKey";
     private static final String THEME_RES_ID_KEY = "HmsPickerDialogFragment_ThemeResIdKey";
     private static final String PLUS_MINUS_VISIBILITY_KEY = "HmsPickerDialogFragment_PlusMinusVisibilityKey";
+    private static final String HOUR_MINUTES_ONLY_KEY = "HmsPickerDialogFragment_HourMinutesOnly";
 
     private HmsPicker mPicker;
 
@@ -36,6 +37,7 @@ public class HmsPickerDialogFragment extends DialogFragment {
     private int mHours;
     private int mMinutes;
     private int mSeconds;
+    private boolean mHourMinutesOnly = false;
     private int mPlusMinusVisibility = View.INVISIBLE;
     private OnDialogDismissListener mDismissCallback;
 
@@ -46,13 +48,17 @@ public class HmsPickerDialogFragment extends DialogFragment {
      * @param themeResId the style resource ID for theming
      * @return a Picker!
      */
-    public static HmsPickerDialogFragment newInstance(int reference, int themeResId, Integer plusMinusVisibility) {
+    public static HmsPickerDialogFragment newInstance(int reference, int themeResId, Integer plusMinusVisibility,
+                                                      Boolean hourMinutesOnly) {
         final HmsPickerDialogFragment frag = new HmsPickerDialogFragment();
         Bundle args = new Bundle();
         args.putInt(REFERENCE_KEY, reference);
         args.putInt(THEME_RES_ID_KEY, themeResId);
         if (plusMinusVisibility != null) {
             args.putInt(PLUS_MINUS_VISIBILITY_KEY, plusMinusVisibility);
+        }
+        if(hourMinutesOnly != null){
+            args.putBoolean(HOUR_MINUTES_ONLY_KEY, hourMinutesOnly);
         }
         frag.setArguments(args);
         return frag;
@@ -76,6 +82,9 @@ public class HmsPickerDialogFragment extends DialogFragment {
         }
         if (args != null && args.containsKey(PLUS_MINUS_VISIBILITY_KEY)) {
             mPlusMinusVisibility = args.getInt(PLUS_MINUS_VISIBILITY_KEY);
+        }
+        if(args != null && args.containsKey(HOUR_MINUTES_ONLY_KEY)){
+            mHourMinutesOnly = args.getBoolean(HOUR_MINUTES_ONLY_KEY);
         }
 
         setStyle(DialogFragment.STYLE_NO_TITLE, 0);
@@ -138,6 +147,7 @@ public class HmsPickerDialogFragment extends DialogFragment {
         mPicker.setTime(mHours, mMinutes, mSeconds);
         mPicker.setTheme(mTheme);
         mPicker.setPlusMinusVisibility(mPlusMinusVisibility);
+        mPicker.setHourMinutesOnly(mHourMinutesOnly);
 
         getDialog().getWindow().setBackgroundDrawableResource(mDialogBackgroundResId);
 
