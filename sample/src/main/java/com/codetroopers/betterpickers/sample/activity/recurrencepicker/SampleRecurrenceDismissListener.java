@@ -3,7 +3,7 @@ package com.codetroopers.betterpickers.sample.activity.recurrencepicker;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
+import androidx.fragment.app.FragmentManager;
 import android.text.TextUtils;
 import android.text.format.Time;
 import android.view.View;

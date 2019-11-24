@@ -63,7 +63,7 @@
             android:id="@+id/keyboard_indicator"
             android:layout_width="match_parent"
             android:layout_height="2dip"/>
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
             android:id="@+id/keyboard_pager"
             android:layout_width="match_parent"
             android:layout_height="@dimen/date_viewpager_height"/>
