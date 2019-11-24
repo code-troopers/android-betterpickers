@@ -21,7 +21,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.format.Time;
 import android.view.View;
 import android.view.ViewGroup;
