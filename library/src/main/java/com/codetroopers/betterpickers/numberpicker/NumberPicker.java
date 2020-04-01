@@ -219,6 +219,17 @@ public class NumberPicker extends LinearLayout implements Button.OnClickListener
             mRight.setVisibility(visiblity);
         }
     }
+                
+     /**
+      * Set the decimal indicator (e.g. '.' or ',')
+      *
+      * @param sign the char displayed as decimal indicator
+     */
+    public void setDecimalCharacter(char sign) {
+        if (mRight != null && sign != null) {
+            mRight.setText(new char[]{sign},0,1);
+        }
+    }
 
     /**
      * Set a minimum required number
